@@ -47,6 +47,7 @@ def args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--mode", required=True, choices=("direct", "thinking"))
+    parser.add_argument("--start-index", type=int, default=0)
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--seed", type=int, default=3407)
@@ -106,9 +107,10 @@ def main() -> int:
     cfg.output_dir.mkdir(parents=True, exist_ok=False)
     repo = Path(__file__).resolve().parents[2]
     data = load_dataset(DATASET, DATASET_CONFIG, split="test", revision=DATASET_REVISION)
-    if not 1 <= cfg.limit <= len(data):
-        raise ValueError(f"limit must be in [1, {len(data)}]")
-    selected = data.select(range(cfg.limit))
+    end_index = cfg.start_index + cfg.limit
+    if cfg.start_index < 0 or cfg.limit < 1 or end_index > len(data):
+        raise ValueError(f"range [{cfg.start_index}, {end_index}) out of bounds for dataset of size {len(data)}")
+    selected = data.select(range(cfg.start_index, end_index))
     client = OpenAI(base_url=f"http://127.0.0.1:{cfg.port}/v1", api_key="EMPTY")
 
     documents_blob = "\n".join(canonical(doc) for doc in selected)
@@ -123,7 +125,7 @@ def main() -> int:
             "flashinfer_sampler_disabled": os.environ.get("VLLM_USE_FLASHINFER_SAMPLER") == "0",
             "note": "reasoning/content already split server-side by --reasoning-parser qwen3; unlike the Transformers protocol, no local <think> tag parsing is needed",
         },
-        "dataset": {"name": DATASET, "revision": DATASET_REVISION, "config": DATASET_CONFIG, "split": "test", "selection": f"range(0,{cfg.limit})", "selected_documents_sha256": digest(documents_blob)},
+        "dataset": {"name": DATASET, "revision": DATASET_REVISION, "config": DATASET_CONFIG, "split": "test", "selection": f"range({cfg.start_index},{end_index})", "selected_documents_sha256": digest(documents_blob)},
         "decoding": {"do_sample": False, "temperature": 0.0, "top_p": None, "top_k": None, "max_new_tokens": cfg.max_new_tokens, "concurrency": 1},
         "chat_template": {"native": True, "enable_thinking": cfg.mode == "thinking", "add_generation_prompt": True, "semantic_prompts_sha256": digest(prompts_blob)},
         "reproducibility": {"seed": cfg.seed, "python_hash_seed": os.environ.get("PYTHONHASHSEED")},
@@ -137,7 +139,7 @@ def main() -> int:
     totals = {"correct": 0, "parsed": 0, "truncated": 0, "prompt_tokens": 0, "generated_tokens": 0, "reasoning_tokens": 0, "generation_seconds": 0.0}
     sample_path = cfg.output_dir / "samples.jsonl"
     with sample_path.open("w", encoding="utf-8", buffering=1) as stream:
-        for index, doc in enumerate(selected):
+        for index, doc in enumerate(selected, start=cfg.start_index):
             prompt = make_prompt(doc)
             started = time.perf_counter()
             response = client.chat.completions.create(

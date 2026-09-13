@@ -1,0 +1,17 @@
+    PID    PPID %CPU %MEM   RSS    VSZ     ELAPSED CMD
+      1       0  0.0  0.0   828   1136    03:07:51 /sbin/docker-init -- /opt/nvidia/nvidia_entrypoint.sh /start.sh
+     57       1  0.0  0.0  3356   4496    03:07:50 /bin/bash /start.sh
+     90       1  0.0  0.0  1724  10348    03:07:50 nginx: master process /usr/sbin/nginx
+     91      90  0.0  0.0  3584  11208    03:07:50 nginx: worker process
+    112       1  0.0  0.0  5612  15432    03:07:50 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+    117      57  0.0  0.0  1896   4496    03:07:50 /bin/bash /start.sh
+    122     117  0.0  0.0 86104 169672    03:07:50 /usr/bin/python /usr/local/bin/jupyter-lab --allow-root --no-browser --port=8888 --ip=* --FileContentsManager.delete_to_trash=False --ServerApp.terminado_settings={"shell_command":["/bin/bash"]} --ServerApp.token=dxc0o4cchbshhr0v1rrn --ServerApp.allow_origin=* --ServerApp.preferred_dir=/workspace
+    123      57  0.0  0.0  1592   2792    03:07:50 sleep infinity
+    131       1  0.0  0.0 13512 3783096   03:07:49 gotty -w --random-url-length 32 -r --ws-origin .* -p 19123 env TERM=xterm bash --rcfile /root/.runpod-web-terminal.bashrc
+    541     131  0.0  0.0  3784   4628    03:06:34 bash --rcfile /root/.runpod-web-terminal.bashrc
+  14124     112  0.4  0.0 10548  16676       00:05 sshd: root@notty
+  14136       1  0.0  0.0  1804   4364       00:04 bash -c cd /workspace/llm-bender-lab && BELEBELE_START_INDEX=100 BELEBELE_LIMIT=200 BELEBELE_MAX_NEW_TOKENS_THINKING=4096 BELEBELE_MAX_NEW_TOKENS_DIRECT=512 nohup bash scripts/evaluation/run_belebele_generation_vllm.sh > /tmp/run200.log 2>&1 & echo STARTED_PID=$!; date -u +%Y-%m-%dT%H:%M:%SZ
+  14137   14136  0.0  0.0  3208   4364       00:04 bash scripts/evaluation/run_belebele_generation_vllm.sh
+  14142   14137  0.0  0.0  1620   4364       00:04 bash scripts/evaluation/run_belebele_generation_vllm.sh
+  14143   14142  0.0  0.0  1516   2796       00:04 tee /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/belebele-generation-vllm/20260913T121337Z/run.log
+  14149   14137  0.0  0.0  2924   7064       00:00 ps -eo pid,ppid,pcpu,pmem,rss,vsz,etime,cmd

@@ -1,0 +1,56 @@
+{
+  "protocol": "belebele-turkish-paired-generation-vllm-v1",
+  "mode": "direct",
+  "model": {
+    "name": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "dtype": "bfloat16"
+  },
+  "backend": {
+    "engine": "vllm",
+    "reasoning_parser": "qwen3",
+    "language_model_only": true,
+    "flashinfer_sampler_disabled": true,
+    "note": "reasoning/content already split server-side by --reasoning-parser qwen3; unlike the Transformers protocol, no local <think> tag parsing is needed"
+  },
+  "dataset": {
+    "name": "facebook/belebele",
+    "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+    "config": "tur_Latn",
+    "split": "test",
+    "selection": "range(0,100)",
+    "selected_documents_sha256": "d711247ace285ad148a889058ee7e24982b13077b4a125d249fa902fc8ce6e1c"
+  },
+  "decoding": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "max_new_tokens": 512,
+    "concurrency": 1
+  },
+  "chat_template": {
+    "native": true,
+    "enable_thinking": false,
+    "add_generation_prompt": true,
+    "semantic_prompts_sha256": "84809dc0f0fb24285d3f35fcc72e6d6cad465a1e25eba4d5b079621c3e3dcefe"
+  },
+  "reproducibility": {
+    "seed": 3407,
+    "python_hash_seed": "3407"
+  },
+  "software": {
+    "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "datasets": "2.21.0"
+  },
+  "repository": {
+    "commit": null,
+    "dirty_diff_sha256": null
+  },
+  "scoring": {
+    "gold": "correct_answer_num mapped 1=A through 4=D",
+    "parser": "last strict FINAL: [ABCD], then unique-letter fallback"
+  },
+  "started_at_unix": 1789298384.1579976
+}

@@ -7,6 +7,7 @@ port="${VLLM_QWEN35_PORT:-8000}"
 max_model_len="${VLLM_QWEN35_MAX_MODEL_LEN:-32768}"
 max_num_seqs="${VLLM_QWEN35_MAX_NUM_SEQS:-32}"
 max_num_batched_tokens="${VLLM_QWEN35_MAX_NUM_BATCHED_TOKENS:-8192}"
+start_index="${BELEBELE_START_INDEX:-0}"
 limit="${BELEBELE_LIMIT:-100}"
 max_new_tokens_direct="${BELEBELE_MAX_NEW_TOKENS_DIRECT:-512}"
 max_new_tokens_thinking="${BELEBELE_MAX_NEW_TOKENS_THINKING:-2048}"
@@ -81,11 +82,11 @@ for mode in direct thinking; do
   max_new_tokens="${max_new_tokens_direct}"
   [ "${mode}" = thinking ] && max_new_tokens="${max_new_tokens_thinking}"
   printf '%q ' python "${repo_root}/scripts/evaluation/evaluate_belebele_generation_vllm.py" \
-    --output-dir "${result_dir}/${mode}" --mode "${mode}" --limit "${limit}" \
+    --output-dir "${result_dir}/${mode}" --mode "${mode}" --start-index "${start_index}" --limit "${limit}" \
     --max-new-tokens "${max_new_tokens}" --seed "${seed}" --port "${port}" >"${result_dir}/command-${mode}.txt"
   printf '\n' >>"${result_dir}/command-${mode}.txt"
   python "${repo_root}/scripts/evaluation/evaluate_belebele_generation_vllm.py" \
-    --output-dir "${result_dir}/${mode}" --mode "${mode}" --limit "${limit}" \
+    --output-dir "${result_dir}/${mode}" --mode "${mode}" --start-index "${start_index}" --limit "${limit}" \
     --max-new-tokens "${max_new_tokens}" --seed "${seed}" --port "${port}"
 done
 

@@ -1,0 +1,29 @@
+{
+  "protocol": "belebele-turkish-paired-analysis-v1",
+  "items_compared": 100,
+  "accuracy": {
+    "direct": 0.81,
+    "thinking": 0.64
+  },
+  "parser_failure_rate": {
+    "direct": 0.05,
+    "thinking": 0.34
+  },
+  "truncation_rate": {
+    "direct": 0.02,
+    "thinking": 0.39
+  },
+  "contingency_table": {
+    "both_correct": 61,
+    "both_wrong": 16,
+    "direct_correct_thinking_wrong": 20,
+    "direct_wrong_thinking_correct": 3
+  },
+  "mcnemar": {
+    "statistic": 11.130434782608695,
+    "b_direct_correct_thinking_wrong": 20,
+    "c_direct_wrong_thinking_correct": 3,
+    "note": "continuity-corrected; compare to chi2(1) critical value 3.841 at alpha=0.05"
+  },
+  "caveat": "Truncated/unparsed items are scored as incorrect above like any wrong answer; check truncation_rate before trusting the accuracy delta as a measure of reasoning quality rather than token-budget sufficiency."
+}

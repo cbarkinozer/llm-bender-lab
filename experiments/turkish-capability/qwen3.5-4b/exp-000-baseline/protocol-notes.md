@@ -172,3 +172,72 @@ token sequences even at temperature 0). vLLM is roughly 5x faster on this one
 thinking item, which is why the 100-item paired evaluation
 (`belebele-turkish-paired-generation-vllm-v1`) uses it instead of projecting
 the ~8.2 GPU-hour Transformers estimate.
+
+### vLLM 100-item paired evaluation (items 0-99, thinking cap 2048)
+
+Run: `scripts/evaluation/run_belebele_generation_vllm.sh`
+(`BELEBELE_START_INDEX=0 BELEBELE_LIMIT=100`), started 2026-09-13T11:16:32Z,
+result dir `results/belebele-generation-vllm/20260913T111632Z/`. Sequential
+requests (concurrency=1), `temperature=0`, direct cap 512 tokens, thinking cap
+2048 tokens.
+
+| | Direct | Thinking |
+|---|---|---|
+| Accuracy | 81% | 64% |
+| Parser success | 95% | 66% |
+| Truncated (hit token cap) | 2% | 39% |
+| Mean generated tokens | 187 | 1,691 |
+| Mean latency/item | 1.9 s | 16.9 s |
+| Wall time (100 items) | 3.2 min | 28.2 min |
+
+Paired (McNemar): both correct 61, both wrong 16, direct-correct/thinking-wrong
+20, direct-wrong/thinking-correct 3. Statistic 11.13 (χ²(1) critical 3.841 at
+α=0.05) — **statistically significant**, favoring direct mode.
+
+**Initial read, later revised:** this looked like clear evidence that thinking
+mode hurts Turkish reading comprehension. But 39% of thinking items were
+truncated at the 2048-token cap before reaching `FINAL: X`, and truncated items
+are scored as wrong like any other miss. Mean generated tokens for completed
+thinking items (1,691) already sits close to the cap. This is a confound: the
+result could reflect "thinking needs more tokens than budgeted for this task"
+rather than "thinking reasons worse." See the 200-item follow-up below, which
+tests this directly.
+
+### vLLM 200-item paired evaluation (items 100-299, thinking cap 4096)
+
+Run: same script, `BELEBELE_START_INDEX=100 BELEBELE_LIMIT=200
+BELEBELE_MAX_NEW_TOKENS_THINKING=4096`, started 2026-09-13T12:13:37Z, finished
+2026-09-13T13:36:59Z (~83 min wall), result dir
+`results/belebele-generation-vllm/20260913T121337Z/`. Deliberately
+non-overlapping item range from the 100-item run above (indices 100-299, not
+0-199) so this is a fresh sample, not a superset with double-counted items.
+Direct cap left at 512 (only 2% truncated previously, no need to raise).
+
+| | Direct | Thinking |
+|---|---|---|
+| Accuracy | 83% | 84% |
+| Parser success | 93% | 85.5% |
+| Truncated (hit token cap) | 5% | 15.5% |
+| Mean generated tokens | 177 | 2,217 |
+| Mean latency/item | 1.8 s | 22.2 s |
+| Wall time (200 items) | 6.1 min | 73.9 min |
+
+Paired (McNemar): both correct 155, both wrong 21, direct-correct/thinking-wrong
+11, direct-wrong/thinking-correct 13. Statistic 0.042 (χ²(1) critical 3.841) —
+**not statistically significant.** Direct and thinking are statistically tied.
+
+**Conclusion:** doubling the thinking-mode token budget (2048→4096) cut
+truncation from 39% to 15.5% and flipped the apparent effect — thinking mode
+went from "significantly worse" to "indistinguishable from direct." This
+confirms the 100-item result was substantially a token-budget artifact, not
+evidence that reasoning degrades Turkish reading-comprehension accuracy.
+**Do not report "thinking mode is worse at Turkish" from the n=100 run** — that
+conclusion does not survive the n=200/4096-cap follow-up.
+
+**Still open:** 15.5% of thinking items are still truncated at 4096 tokens, so
+this comparison remains mildly conservative against thinking mode. A further
+run with a higher cap (6144-8192) restricted to the still-truncated item
+indices would close this gap. Different item ranges (0-99 vs. 100-299) are
+also a partial confound alongside the cap change — a same-range, same-cap
+rerun would isolate the cap effect more cleanly if this needs to be publication
+-grade rather than a development-time observation.
