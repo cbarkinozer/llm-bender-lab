@@ -49,10 +49,11 @@ else
   git -C "${cetvel_dir}" apply "${dataset_ids_patch}"
 fi
 
-# lm-evaluation-harness ships its own built-in xnli/xnli_tr task (group
-# "xnli") that collides by name with CETVEL's custom nli_tr/xnli_tr (group
-# "nli_tr"). The built-in one is what actually resolves and still has the
-# bare, pre-huggingface_hub-hardening "xnli" dataset_path.
+# lm-evaluation-harness ships its own built-in tasks that collide by name
+# with several CETVEL custom tasks (xnli/xnli_tr vs. CETVEL's
+# nli_tr/xnli_tr; xcopa/xcopa_tr vs. CETVEL's own xcopa/xcopa_tr). The
+# built-in ones are what actually resolve, and still have the bare,
+# pre-huggingface_hub-hardening dataset_path values.
 if git -C "${cetvel_dir}/lm-evaluation-harness" apply --reverse --check "${harness_dataset_ids_patch}" 2>/dev/null; then
   echo "Harness canonical dataset-ID patch is already applied."
 else

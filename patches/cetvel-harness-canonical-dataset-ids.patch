@@ -11,3 +11,15 @@ index 0201459d..86b12e1a 100644
  dataset_name: null
  output_type: multiple_choice
  training_split: train
+diff --git a/lm_eval/tasks/xcopa/default_et.yaml b/lm_eval/tasks/xcopa/default_et.yaml
+index 9f2b0b73..46ad6489 100644
+--- a/lm_eval/tasks/xcopa/default_et.yaml
++++ b/lm_eval/tasks/xcopa/default_et.yaml
+@@ -1,6 +1,6 @@
+ group: xcopa
+ task: xcopa_et
+-dataset_path: xcopa
++dataset_path: cambridgeltl/xcopa
+ dataset_name: et
+ output_type: multiple_choice
+ validation_split: validation
