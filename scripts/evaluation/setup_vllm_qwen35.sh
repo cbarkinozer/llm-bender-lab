@@ -10,6 +10,14 @@ log_dir="${repo_root}/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline
 mkdir -p "${log_dir}"
 exec > >(tee "${log_dir}/setup-$(date -u +%Y%m%dT%H%M%SZ).log") 2>&1
 
+# Only /workspace persists across container restarts and has real room;
+# the container's own root overlay is small (~20GB) and already filled up
+# once this session from caches defaulting there. vLLM's install (torch +
+# CUDA libs) and any later model download are both multi-GB.
+export HF_HOME="${HF_HOME:-/workspace/.cache/huggingface}"
+export PIP_CACHE_DIR="${PIP_CACHE_DIR:-/workspace/.cache/pip}"
+export UV_CACHE_DIR="${UV_CACHE_DIR:-/workspace/.cache/uv}"
+
 python3 -m venv "${venv_dir}"
 source "${venv_dir}/bin/activate"
 python -m pip install --upgrade pip uv
