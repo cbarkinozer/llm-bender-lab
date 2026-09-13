@@ -2,7 +2,7 @@ diff --git a/lm_eval/api/model.py b/lm_eval/api/model.py
 index 56c8a89..bfc8584 100644
 --- a/lm_eval/api/model.py
 +++ b/lm_eval/api/model.py
-@@ -247,6 +247,11 @@ class CachingLM:
+@@ -247,6 +247,12 @@ class CachingLM:
      def __getattr__(self, attr):
          lm_attr = getattr(self.lm, attr)
          if not callable(lm_attr):
