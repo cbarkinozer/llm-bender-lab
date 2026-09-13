@@ -48,6 +48,15 @@ Use the following documents as the source of truth:
   - experiment manifests
   - artifact tracking
 
+- `docs/environment-setup-gotchas.md`
+  - concrete pod/environment setup mistakes already made once
+  - Windows CRLF corrupting scripts/patches on a Linux remote
+  - patch hunk header arithmetic
+  - venv vs. system Python persistence across container restarts
+  - HF_HOME/pip cache landing on ephemeral storage
+  - CETVEL's bare (non-namespaced) HF dataset ids
+  - RunPod SSH/restart behavior
+
 ## Required behavior
 
 Before answering a repository-specific question or modifying code:
@@ -59,6 +68,16 @@ Before answering a repository-specific question or modifying code:
 5. Do not silently override documented experiment decisions.
 6. If repository documentation conflicts with a generic best practice, follow the repository documentation unless the user explicitly asks otherwise.
 7. If a decision is not covered by the documentation, use engineering judgment and document the new decision if it is likely to matter again.
+
+## Environment / pod setup work
+
+Before running or debugging a `setup_*.sh` script on a new or restarted
+pod, consult:
+
+`docs/environment-setup-gotchas.md`
+
+These are mistakes already made once on this project; check there before
+re-diagnosing the same failure from scratch.
 
 ## Fine-tuning work
 
