@@ -1,0 +1,13 @@
+diff --git a/lm_eval/tasks/xnli/xnli_common_yaml b/lm_eval/tasks/xnli/xnli_common_yaml
+index 0201459d..86b12e1a 100644
+--- a/lm_eval/tasks/xnli/xnli_common_yaml
++++ b/lm_eval/tasks/xnli/xnli_common_yaml
+@@ -3,7 +3,7 @@
+ # by the harness.
+ group: xnli
+ task: null
+-dataset_path: xnli
++dataset_path: facebook/xnli
+ dataset_name: null
+ output_type: multiple_choice
+ training_split: train

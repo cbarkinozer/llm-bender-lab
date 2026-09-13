@@ -9,6 +9,7 @@ cetvel_revision="6119c517e06cce23aaeac103ce3504c9380655e3"
 nonthinking_patch="${repo_root}/patches/cetvel-harness-qwen35-nonthinking.patch"
 chat_template_cache_patch="${repo_root}/patches/cetvel-harness-chat-template-cache.patch"
 dataset_ids_patch="${repo_root}/patches/cetvel-canonical-dataset-ids.patch"
+harness_dataset_ids_patch="${repo_root}/patches/cetvel-harness-canonical-dataset-ids.patch"
 
 mkdir -p "${external_root}"
 
@@ -39,6 +40,17 @@ if git -C "${cetvel_dir}" apply --reverse --check "${dataset_ids_patch}" 2>/dev/
 else
   git -C "${cetvel_dir}" apply --check "${dataset_ids_patch}"
   git -C "${cetvel_dir}" apply "${dataset_ids_patch}"
+fi
+
+# lm-evaluation-harness ships its own built-in xnli/xnli_tr task (group
+# "xnli") that collides by name with CETVEL's custom nli_tr/xnli_tr (group
+# "nli_tr"). The built-in one is what actually resolves and still has the
+# bare, pre-huggingface_hub-hardening "xnli" dataset_path.
+if git -C "${cetvel_dir}/lm-evaluation-harness" apply --reverse --check "${harness_dataset_ids_patch}" 2>/dev/null; then
+  echo "Harness canonical dataset-ID patch is already applied."
+else
+  git -C "${cetvel_dir}/lm-evaluation-harness" apply --check "${harness_dataset_ids_patch}"
+  git -C "${cetvel_dir}/lm-evaluation-harness" apply "${harness_dataset_ids_patch}"
 fi
 
 python3 -m venv "${venv_dir}"
