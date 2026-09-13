@@ -1,0 +1,32 @@
+{
+  "purpose": "cetvel-baseline-preflight",
+  "model": {
+    "repository": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "cetvel_revision": "6119c517e06cce23aaeac103ce3504c9380655e3",
+  "harness_revision": "6e49b1f6910931882a4b3b105794c6faf96b74e5",
+  "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-71-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "torchaudio": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "transformers": "5.17.0",
+    "lm_eval": "0.4.2",
+    "datasets": "2.21.0",
+    "accelerate": "1.15.0",
+    "sentencepiece": "0.2.1",
+    "protobuf": "6.32.1"
+  },
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 4090",
+    "count": 1,
+    "vram_gib": 23.53,
+    "bf16_supported": true,
+    "cuda_runtime": "12.4"
+  },
+  "status": "passed",
+  "failures": []
+}

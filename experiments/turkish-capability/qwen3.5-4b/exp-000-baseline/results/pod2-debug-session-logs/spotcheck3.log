@@ -1,0 +1,130 @@
+{
+  "purpose": "cetvel-baseline-preflight",
+  "model": {
+    "repository": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "cetvel_revision": "6119c517e06cce23aaeac103ce3504c9380655e3",
+  "harness_revision": "6e49b1f6910931882a4b3b105794c6faf96b74e5",
+  "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-71-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "torchaudio": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "transformers": "5.17.0",
+    "lm_eval": "0.4.2",
+    "datasets": "2.21.0",
+    "accelerate": "1.15.0",
+    "sentencepiece": "0.2.1",
+    "protobuf": "6.32.1"
+  },
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 4090",
+    "count": 1,
+    "vram_gib": 23.53,
+    "bf16_supported": true,
+    "cuda_runtime": "12.4"
+  },
+  "status": "passed",
+  "failures": []
+}
+2026-09-13:19:43:20,845 INFO     [__main__.py:272] Verbosity set to INFO
+2026-09-13:19:43:20,845 INFO     [__main__.py:303] Including path: /workspace/llm-bender-lab/.cache/external/cetvel/tasks
+2026-09-13:19:43:24,960 WARNING  [__main__.py:312]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2026-09-13:19:43:24,961 INFO     [__main__.py:369] Selected Tasks: ['nli_tr', 'turkish_plu', 'xcopa_tr']
+2026-09-13:19:43:24,963 INFO     [evaluator.py:152] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2026-09-13:19:43:24,963 INFO     [evaluator.py:189] Initializing hf model, with arguments: {'pretrained': 'Qwen/Qwen3.5-4B', 'revision': '851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a', 'dtype': 'bfloat16', 'max_length': 4096}
+2026-09-13:19:43:25,097 INFO     [huggingface.py:169] Using device 'cuda:0'
+2026-09-13:19:43:25,267 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-13:19:43:25,327 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-13:19:43:26,076 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B "HTTP/1.1 200 OK"
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+2026-09-13:19:43:26,164 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors "HTTP/1.1 404 Not Found"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-13:19:43:26,164 WARNING  [_http.py:965] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 780.63it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   3%|▎         | 13/426 [00:00<00:03, 116.30it/s]Loading weights:  12%|█▏        | 53/426 [00:00<00:01, 274.82it/s]Loading weights:  22%|██▏       | 94/426 [00:00<00:01, 330.08it/s]Loading weights:  31%|███       | 132/426 [00:00<00:00, 348.17it/s]Loading weights:  40%|███▉      | 170/426 [00:00<00:00, 357.27it/s]Loading weights:  48%|████▊     | 206/426 [00:00<00:00, 334.19it/s]Loading weights:  59%|█████▉    | 251/426 [00:00<00:00, 369.24it/s]Loading weights:  68%|██████▊   | 289/426 [00:00<00:00, 361.52it/s]Loading weights:  77%|███████▋  | 326/426 [00:00<00:00, 360.26it/s]Loading weights:  85%|████████▌ | 363/426 [00:01<00:00, 351.37it/s]Loading weights:  94%|█████████▎| 399/426 [00:01<00:00, 353.39it/s]Loading weights: 100%|██████████| 426/426 [00:01<00:00, 343.85it/s]
+2026-09-13:19:43:28,404 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/generation_config.json "HTTP/1.1 404 Not Found"
+2026-09-13:19:43:28,410 INFO     [evaluator.py:207] Using cache at /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T194312Z/request-cache/requests_rank0.db
+2026-09-13:19:43:28,475 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/boun-tabi/nli_tr "HTTP/1.1 200 OK"
+/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py:1499: FutureWarning: The repository for boun-tabi/nli_tr contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/boun-tabi/nli_tr
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+2026-09-13:19:43:29,267 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/boun-tabi/nli_tr/revision/main "HTTP/1.1 200 OK"
+2026-09-13:19:43:29,354 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/boun-tabi/nli_tr/tree/main?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-09-13:19:43:37,963 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/boun-tabi/nli_tr "HTTP/1.1 200 OK"
+2026-09-13:19:43:50,272 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/xnli "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:43:50,330 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/facebook/xnli "HTTP/1.1 200 OK"
+2026-09-13:19:43:50,658 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/xnli "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:43:50,714 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/facebook/xnli "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/__main__.py", line 454, in <module>
+    cli_evaluate()
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/__main__.py", line 375, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/utils.py", line 395, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/evaluator.py", line 221, in simple_evaluate
+    task_dict = get_task_dict(tasks, task_manager)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 444, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 287, in load_task_or_group
+    collections.ChainMap(*map(self._load_individual_task_or_group, task_list))
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 270, in _load_individual_task_or_group
+    **dict(collections.ChainMap(*map(fn, subtask_list))),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 178, in _load_individual_task_or_group
+    return load_task(task_config, task=name_or_config, group=parent_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 167, in load_task
+    task_object = ConfigurableTask(config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/api/task.py", line 810, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/api/task.py", line 917, in download
+    self.dataset = datasets.load_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2606, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2277, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1923, in dataset_module_factory
+    raise e1 from None
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1905, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1221, in get_module
+    dataset_readme_path = cached_path(
+                          ^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 211, in cached_path
+    output_path = get_from_cache(
+                  ^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 583, in get_from_cache
+    response = fsspec_head(url, storage_options=storage_options)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 361, in fsspec_head
+    return fs.info(path)
+           ^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 904, in info
+    resolved_path = self.resolve_path(path, revision=revision)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 306, in resolve_path
+    parsed = parse_hf_uri(f"{constants.HF_PROTOCOL}{path}")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/utils/_hf_uris.py", line 319, in parse_hf_uri
+    return _parse_repo_body(location, type_, raw=raw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/utils/_hf_uris.py", line 617, in _parse_repo_body
+    raise HfUriError(uri=raw, msg=f"Repository id must be 'namespace/name', got '{repo_id}'.")
+huggingface_hub.errors.HfUriError: Invalid HF URI 'hf://datasets/xnli@b8dd5d7af51114dbda02c0e3f6133f332186418e/README.md'. Repository id must be 'namespace/name', got 'xnli'.

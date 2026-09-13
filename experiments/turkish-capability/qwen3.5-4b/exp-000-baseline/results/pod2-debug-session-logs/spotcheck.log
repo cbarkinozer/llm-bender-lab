@@ -1,0 +1,151 @@
+{
+  "purpose": "cetvel-baseline-preflight",
+  "model": {
+    "repository": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "cetvel_revision": "6119c517e06cce23aaeac103ce3504c9380655e3",
+  "harness_revision": "6e49b1f6910931882a4b3b105794c6faf96b74e5",
+  "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-71-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "torchaudio": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "transformers": "5.17.0",
+    "lm_eval": "0.4.2",
+    "datasets": "2.21.0",
+    "accelerate": "1.15.0",
+    "sentencepiece": "0.2.1",
+    "protobuf": "6.32.1"
+  },
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 4090",
+    "count": 1,
+    "vram_gib": 23.53,
+    "bf16_supported": true,
+    "cuda_runtime": "12.4"
+  },
+  "status": "passed",
+  "failures": []
+}
+2026-09-13:19:36:42,775 INFO     [__main__.py:272] Verbosity set to INFO
+2026-09-13:19:36:42,776 INFO     [__main__.py:303] Including path: /workspace/llm-bender-lab/.cache/external/cetvel/tasks
+2026-09-13:19:36:46,873 WARNING  [__main__.py:312]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2026-09-13:19:36:46,874 INFO     [__main__.py:369] Selected Tasks: ['nli_tr', 'turkish_plu', 'xcopa_tr']
+2026-09-13:19:36:46,876 INFO     [evaluator.py:152] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2026-09-13:19:36:46,876 INFO     [evaluator.py:189] Initializing hf model, with arguments: {'pretrained': 'Qwen/Qwen3.5-4B', 'revision': '851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a', 'dtype': 'bfloat16', 'max_length': 4096}
+2026-09-13:19:36:47,009 INFO     [huggingface.py:169] Using device 'cuda:0'
+2026-09-13:19:36:47,186 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-13:19:36:47,187 WARNING  [_http.py:965] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-13:19:36:47,199 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fconfig.json=&etag=%22557d961b205319c6a7da5f757f565b69b3967b7d%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,214 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fconfig.json=&etag=%22557d961b205319c6a7da5f757f565b69b3967b7d%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,340 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:36:47,353 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/tokenizer_config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Ftokenizer_config.json=&etag=%22eda48d3e75a8e59a8479ee4ec8b37f76e711d9c1%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,365 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/tokenizer_config.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Ftokenizer_config.json=&etag=%22eda48d3e75a8e59a8479ee4ec8b37f76e711d9c1%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,432 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-13:19:36:47,488 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,543 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/vocab.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:36:47,555 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/vocab.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fvocab.json=&etag=%220aa0ce0658d60ac4a5d609f4eadb0e8e43514176%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,569 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/vocab.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fvocab.json=&etag=%220aa0ce0658d60ac4a5d609f4eadb0e8e43514176%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,713 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/merges.txt "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:36:47,725 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/merges.txt?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fmerges.txt=&etag=%22a494e019ca1502219fd0128658b979e5f05ae8e8%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,739 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/merges.txt?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fmerges.txt=&etag=%22a494e019ca1502219fd0128658b979e5f05ae8e8%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:47,834 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/tokenizer.json "HTTP/1.1 302 Found"
+2026-09-13:19:36:47,897 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/xet-read-token/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a "HTTP/1.1 200 OK"
+2026-09-13:19:36:48,782 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-09-13:19:36:48,842 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/special_tokens_map.json "HTTP/1.1 404 Not Found"
+2026-09-13:19:36:48,897 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/chat_template.jinja "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:36:48,913 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/chat_template.jinja?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fchat_template.jinja=&etag=%22a585dec894e63da457d9440ec6aa7caa16d20860%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:48,927 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/chat_template.jinja?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fchat_template.jinja=&etag=%22a585dec894e63da457d9440ec6aa7caa16d20860%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:49,677 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B "HTTP/1.1 200 OK"
+2026-09-13:19:36:49,740 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+2026-09-13:19:36:49,826 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors "HTTP/1.1 404 Not Found"
+2026-09-13:19:36:49,879 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:36:49,891 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors.index.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fmodel.safetensors.index.json=&etag=%22fddda6039f7c1d17260c9e923b8a72fd025d9a86%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:49,904 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen3.5-4B/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors.index.json?%2FQwen%2FQwen3.5-4B%2Fresolve%2F851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a%2Fmodel.safetensors.index.json=&etag=%22fddda6039f7c1d17260c9e923b8a72fd025d9a86%22 "HTTP/1.1 200 OK"
+2026-09-13:19:36:49,969 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a?recursive=true&expand=false "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:09<00:09,  9.35s/it]Fetching 2 files: 100%|██████████| 2/2 [00:12<00:00,  5.48s/it]Fetching 2 files: 100%|██████████| 2/2 [00:12<00:00,  6.06s/it]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   2%|▏         | 7/426 [00:00<00:06, 68.61it/s]Loading weights:  11%|█         | 45/426 [00:00<00:01, 247.51it/s]Loading weights:  19%|█▉        | 81/426 [00:00<00:01, 297.86it/s]Loading weights:  28%|██▊       | 119/426 [00:00<00:00, 329.19it/s]Loading weights:  36%|███▌      | 153/426 [00:00<00:00, 328.55it/s]Loading weights:  46%|████▋     | 198/426 [00:00<00:00, 367.79it/s]Loading weights:  55%|█████▌    | 235/426 [00:00<00:00, 356.32it/s]Loading weights:  64%|██████▎   | 271/426 [00:00<00:00, 355.28it/s]Loading weights:  72%|███████▏  | 307/426 [00:00<00:00, 352.53it/s]Loading weights:  81%|████████  | 345/426 [00:01<00:00, 359.81it/s]Loading weights:  90%|████████▉ | 383/426 [00:01<00:00, 357.01it/s]Loading weights:  98%|█████████▊| 419/426 [00:01<00:00, 352.62it/s]Loading weights: 100%|██████████| 426/426 [00:01<00:00, 339.72it/s]
+2026-09-13:19:37:04,395 INFO     [_client.py:1025] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/generation_config.json "HTTP/1.1 404 Not Found"
+2026-09-13:19:37:04,402 INFO     [evaluator.py:207] Using cache at /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T193634Z/request-cache/requests_rank0.db
+2026-09-13:19:37:04,463 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/nli_tr "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:19:37:04,597 INFO     [_client.py:1025] HTTP Request: GET https://huggingface.co/api/datasets/boun-tabi/nli_tr "HTTP/1.1 200 OK"
+/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py:1499: FutureWarning: The repository for nli_tr contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/nli_tr
+You can avoid this message in future by passing the argument `trust_remote_code=True`.
+Passing `trust_remote_code=True` will be mandatory to load this dataset from the next major release of `datasets`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/__main__.py", line 454, in <module>
+    cli_evaluate()
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/__main__.py", line 375, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/utils.py", line 395, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/evaluator.py", line 221, in simple_evaluate
+    task_dict = get_task_dict(tasks, task_manager)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 444, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 287, in load_task_or_group
+    collections.ChainMap(*map(self._load_individual_task_or_group, task_list))
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 270, in _load_individual_task_or_group
+    **dict(collections.ChainMap(*map(fn, subtask_list))),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 178, in _load_individual_task_or_group
+    return load_task(task_config, task=name_or_config, group=parent_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 167, in load_task
+    task_object = ConfigurableTask(config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/api/task.py", line 810, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/api/task.py", line 917, in download
+    self.dataset = datasets.load_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2606, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2277, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1923, in dataset_module_factory
+    raise e1 from None
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1896, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1507, in get_module
+    local_path = self.download_loading_script()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1467, in download_loading_script
+    return cached_path(file_path, download_config=download_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 211, in cached_path
+    output_path = get_from_cache(
+                  ^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 583, in get_from_cache
+    response = fsspec_head(url, storage_options=storage_options)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 361, in fsspec_head
+    return fs.info(path)
+           ^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 904, in info
+    resolved_path = self.resolve_path(path, revision=revision)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 306, in resolve_path
+    parsed = parse_hf_uri(f"{constants.HF_PROTOCOL}{path}")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/utils/_hf_uris.py", line 319, in parse_hf_uri
+    return _parse_repo_body(location, type_, raw=raw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/utils/_hf_uris.py", line 617, in _parse_repo_body
+    raise HfUriError(uri=raw, msg=f"Repository id must be 'namespace/name', got '{repo_id}'.")
+huggingface_hub.errors.HfUriError: Invalid HF URI 'hf://datasets/nli_tr@main/nli_tr.py'. Repository id must be 'namespace/name', got 'nli_tr'.
