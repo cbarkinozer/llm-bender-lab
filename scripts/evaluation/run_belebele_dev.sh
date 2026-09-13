@@ -9,6 +9,7 @@ result_dir="${repo_root}/experiments/turkish-capability/qwen3.5-4b/exp-000-basel
 model_revision="851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
 
 mkdir -p "${result_dir}" "${result_dir}/request-cache"
+export HF_HOME="${HF_HOME:-/workspace/.cache/huggingface}"
 
 python "${repo_root}/scripts/evaluation/preflight_cetvel.py" \
   "${cetvel_dir}" "${result_dir}/preflight-manifest.json"

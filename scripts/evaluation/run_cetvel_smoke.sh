@@ -15,6 +15,7 @@ task="${CETVEL_SMOKE_TASK:-belebele_tr}"
 # CETVEL's legacy TQuAD dataset is implemented as a pinned loading script.
 # Datasets 2.x otherwise prompts interactively and breaks unattended runs.
 export HF_DATASETS_TRUST_REMOTE_CODE=true
+export HF_HOME="${HF_HOME:-/workspace/.cache/huggingface}"
 
 mkdir -p "${external_root}" "${result_dir}"
 

@@ -11,6 +11,13 @@ chat_template_cache_patch="${repo_root}/patches/cetvel-harness-chat-template-cac
 dataset_ids_patch="${repo_root}/patches/cetvel-canonical-dataset-ids.patch"
 harness_dataset_ids_patch="${repo_root}/patches/cetvel-harness-canonical-dataset-ids.patch"
 
+# Only /workspace persists across container restarts; keep HF/pip caches
+# there too so a restart doesn't strand multi-GB downloads on the small
+# root overlay (this exact thing happened: HF cache + pip cache filled the
+# 20GB root disk while /workspace sat at 1% usage).
+export HF_HOME="${HF_HOME:-/workspace/.cache/huggingface}"
+export PIP_CACHE_DIR="${PIP_CACHE_DIR:-/workspace/.cache/pip}"
+
 mkdir -p "${external_root}"
 
 if [[ ! -d "${cetvel_dir}/.git" ]]; then

@@ -11,6 +11,7 @@ tasks="belebele_tr,exams_tr,gecturk_generation,ironytr,mkqa_tr,mlsum_tr,news_cat
 
 mkdir -p "${result_dir}" "${result_dir}/request-cache"
 export HF_DATASETS_TRUST_REMOTE_CODE=true
+export HF_HOME="${HF_HOME:-/workspace/.cache/huggingface}"
 
 python "${repo_root}/scripts/evaluation/preflight_cetvel.py" \
   "${cetvel_dir}" "${result_dir}/preflight-manifest.json"

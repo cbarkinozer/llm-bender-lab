@@ -15,6 +15,10 @@ limit="${CETVEL_SPOTCHECK_LIMIT:-100}"
 
 mkdir -p "${result_dir}" "${result_dir}/request-cache"
 export HF_DATASETS_TRUST_REMOTE_CODE=true
+# Only /workspace persists across container restarts -- keep the model/
+# dataset cache there, not the small root overlay (already ran out of
+# room once from ~9.6GB of HF cache landing on root instead).
+export HF_HOME="${HF_HOME:-/workspace/.cache/huggingface}"
 
 python "${repo_root}/scripts/evaluation/preflight_cetvel.py" \
   "${cetvel_dir}" "${result_dir}/preflight-manifest.json"
