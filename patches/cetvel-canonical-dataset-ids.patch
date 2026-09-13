@@ -132,3 +132,17 @@ index 9f2b0b7..46ad648 100644
  dataset_name: et
  output_type: multiple_choice
  validation_split: validation
+diff --git a/tasks/xquad/task.py b/tasks/xquad/task.py
+index fbbc567..2640784 100644
+--- a/tasks/xquad/task.py
++++ b/tasks/xquad/task.py
+@@ -57,7 +57,7 @@ def _squad_agg(key, items):
+ 
+ class XQuADTR(ConfigurableTask):
+     VERSION = 1
+-    DATASET_PATH = "xquad"
++    DATASET_PATH = "google/xquad"
+     DATASET_NAME = "xquad.tr"
+ 
+     # HF changed squad on us so we have to make sure we aren't running the old one
+ 
