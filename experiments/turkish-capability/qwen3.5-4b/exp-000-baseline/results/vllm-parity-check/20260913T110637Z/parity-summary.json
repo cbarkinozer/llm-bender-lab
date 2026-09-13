@@ -1,0 +1,36 @@
+{
+  "protocol": "belebele-turkish-vllm-parity-check-v1",
+  "model": "Qwen/Qwen3.5-4B",
+  "dataset": {
+    "name": "facebook/belebele",
+    "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+    "config": "tur_Latn",
+    "index": 0
+  },
+  "semantic_prompt_sha256": "1bda986ca35b2dc95182549efc60c41d1c9b48a3d98256f6dc6331106e726c50",
+  "gold": "A",
+  "direct_summary": {
+    "mode": "direct",
+    "finish_reason": "stop",
+    "prediction": "A",
+    "parser": "strict_final",
+    "prompt_tokens": 271,
+    "completion_tokens": 123,
+    "reasoning_tokens": 0,
+    "hit_max_tokens": false,
+    "latency_seconds": 4.343190012994455,
+    "correct": true
+  },
+  "thinking_summary": {
+    "mode": "thinking",
+    "finish_reason": "stop",
+    "prediction": "A",
+    "parser": "strict_final",
+    "prompt_tokens": 269,
+    "completion_tokens": 1995,
+    "reasoning_tokens": 1887,
+    "hit_max_tokens": false,
+    "latency_seconds": 19.972485115984455,
+    "correct": true
+  }
+}

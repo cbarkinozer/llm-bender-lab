@@ -1,0 +1,49 @@
+{
+  "id": "chatcmpl-aa9de225e4d31925",
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": null,
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null,
+        "reasoning": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task: State the capital city of Turkey.\n    *   Constraint: Use exactly one sentence (Bir cümleyle).\n    *   Language: Turkish.\n\n2.  **Identify the Fact:**\n    *   Country: Turkey (Türkiye).\n    *   Capital: Ankara (Ankara).\n\n3.  **Draft the Sentence:**\n    *   Option 1: Türkiye'nin başkenti Ankara'dır. (Simple, direct)\n    *   Option 2: Türkiye'nin başkenti Ankara'dır. (Same as above)\n    *   Option 3: Türkiye'nin başkenti Ankara'dır. (Standard)\n\n4.  **Verify Constraints:**\n    *   Is it one sentence? Yes.\n    *   Does it answer the question? Yes.\n    *   Is it in Turkish? Yes.\n\n5.  **Final Selection:** \"Türkiye'nin başkenti Ankara'dır.\" is the most natural and accurate response.\n\n6.  **Final Output Generation:** (Matching the selected sentence)\n    Türkiye'nin başkenti Ankara"
+      },
+      "stop_reason": null,
+      "token_ids": null,
+      "routed_experts": null
+    }
+  ],
+  "created": 1789297447,
+  "model": "Qwen/Qwen3.5-4B",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.29.1rc1.dev17+gd2d649e67-621d04db",
+  "usage": {
+    "completion_tokens": 256,
+    "prompt_tokens": 23,
+    "total_tokens": 279,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 256,
+      "rejected_prediction_tokens": null,
+      "text_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "ec_transfer_params": null,
+  "metrics": null
+}

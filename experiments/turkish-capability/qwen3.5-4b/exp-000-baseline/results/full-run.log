@@ -1,0 +1,128 @@
+{
+  "purpose": "cetvel-baseline-preflight",
+  "model": {
+    "repository": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "cetvel_revision": "6119c517e06cce23aaeac103ce3504c9380655e3",
+  "harness_revision": "6e49b1f6910931882a4b3b105794c6faf96b74e5",
+  "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "torchaudio": "2.6.0+cu124",
+    "torchvision": "0.21.0+cu124",
+    "transformers": "5.17.0",
+    "lm_eval": "0.4.2",
+    "datasets": "2.21.0",
+    "accelerate": "1.15.0",
+    "sentencepiece": "0.2.1",
+    "protobuf": "6.32.1"
+  },
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 4090",
+    "count": 1,
+    "vram_gib": 23.52,
+    "bf16_supported": true,
+    "cuda_runtime": "12.4"
+  },
+  "status": "passed",
+  "failures": []
+}
+/usr/local/lib/python3.11/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (6.0.0.post1)/charset_normalizer (3.3.2) doesn't match a supported version!
+  warnings.warn(
+2026-09-13:09:33:11,531 INFO     [__main__.py:272] Verbosity set to INFO
+2026-09-13:09:33:11,531 INFO     [__main__.py:303] Including path: /workspace/llm-bender-lab/.cache/external/cetvel/tasks
+2026-09-13:09:33:33,388 INFO     [__main__.py:369] Selected Tasks: ['belebele_tr', 'exams_tr', 'gecturk_generation', 'ironytr', 'mkqa_tr', 'mlsum_tr', 'news_cat', 'nli_tr', 'offenseval_tr', 'sts_tr', 'tquad', 'tr-wikihow-summ', 'trclaim19', 'turkish_plu', 'wiki_lingua_tr', 'wmt-tr-en-prompt', 'xcopa_tr', 'xfact_tr', 'xlsum_tr', 'xquad_tr']
+2026-09-13:09:33:33,428 INFO     [evaluator.py:152] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234
+2026-09-13:09:33:33,428 INFO     [evaluator.py:189] Initializing hf model, with arguments: {'pretrained': 'Qwen/Qwen3.5-4B', 'revision': '851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a', 'dtype': 'bfloat16', 'max_length': 4096}
+2026-09-13:09:33:33,554 INFO     [huggingface.py:169] Using device 'cuda:0'
+2026-09-13:09:33:33,712 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-13:09:33:33,753 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-13:09:33:34,390 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen3.5-4B "HTTP/1.1 200 OK"
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+2026-09-13:09:33:34,477 INFO     [_client.py:1038] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/model.safetensors "HTTP/1.1 404 Not Found"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-13:09:33:34,477 WARNING  [_http.py:965] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 383.09it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:02<15:07,  2.13s/it]Loading weights:   2%|▏         | 7/426 [00:02<01:44,  4.01it/s]Loading weights:   3%|▎         | 12/426 [00:02<00:56,  7.33it/s]Loading weights:   4%|▎         | 15/426 [00:02<00:44,  9.32it/s]Loading weights:   5%|▍         | 21/426 [00:02<00:26, 15.39it/s]Loading weights:   6%|▌         | 26/426 [00:02<00:22, 17.66it/s]Loading weights:   7%|▋         | 30/426 [00:03<00:19, 20.29it/s]Loading weights:   9%|▊         | 37/426 [00:03<00:15, 25.88it/s]Loading weights:  10%|▉         | 41/426 [00:03<00:20, 18.45it/s]Loading weights:  11%|█         | 45/426 [00:03<00:17, 21.28it/s]Loading weights:  12%|█▏        | 49/426 [00:03<00:19, 19.35it/s]Loading weights:  12%|█▏        | 52/426 [00:04<00:17, 21.02it/s]Loading weights:  14%|█▎        | 58/426 [00:04<00:13, 28.22it/s]Loading weights:  15%|█▍        | 62/426 [00:04<00:12, 28.05it/s]Loading weights:  15%|█▌        | 66/426 [00:04<00:15, 23.06it/s]Loading weights:  18%|█▊        | 75/426 [00:04<00:11, 31.05it/s]Loading weights:  19%|█▊        | 79/426 [00:04<00:11, 28.99it/s]Loading weights:  19%|█▉        | 83/426 [00:05<00:13, 26.29it/s]Loading weights:  21%|██        | 90/426 [00:05<00:10, 32.26it/s]Loading weights:  22%|██▏       | 94/426 [00:05<00:13, 24.54it/s]Loading weights:  23%|██▎       | 98/426 [00:05<00:14, 23.08it/s]Loading weights:  24%|██▎       | 101/426 [00:05<00:15, 21.56it/s]Loading weights:  25%|██▍       | 106/426 [00:06<00:13, 24.12it/s]Loading weights:  27%|██▋       | 114/426 [00:06<00:09, 32.57it/s]Loading weights:  28%|██▊       | 118/426 [00:06<00:09, 33.56it/s]Loading weights:  29%|██▊       | 122/426 [00:06<00:10, 28.78it/s]Loading weights:  30%|███       | 128/426 [00:06<00:09, 30.93it/s]Loading weights:  31%|███       | 132/426 [00:06<00:09, 31.46it/s]Loading weights:  32%|███▏      | 136/426 [00:07<00:12, 23.38it/s]Loading weights:  33%|███▎      | 142/426 [00:07<00:09, 28.93it/s]Loading weights:  34%|███▍      | 146/426 [00:07<00:09, 28.66it/s]Loading weights:  35%|███▌      | 150/426 [00:07<00:10, 25.55it/s]Loading weights:  36%|███▌      | 153/426 [00:07<00:12, 21.52it/s]Loading weights:  39%|███▊      | 165/426 [00:08<00:08, 30.94it/s]Loading weights:  40%|████      | 171/426 [00:08<00:07, 33.61it/s]Loading weights:  41%|████      | 175/426 [00:08<00:08, 30.89it/s]Loading weights:  42%|████▏     | 181/426 [00:08<00:06, 35.42it/s]Loading weights:  43%|████▎     | 185/426 [00:08<00:07, 33.39it/s]Loading weights:  44%|████▍     | 189/426 [00:08<00:07, 30.67it/s]Loading weights:  46%|████▌     | 195/426 [00:09<00:08, 26.92it/s]Loading weights:  47%|████▋     | 200/426 [00:09<00:07, 30.86it/s]Loading weights:  48%|████▊     | 204/426 [00:09<00:07, 30.64it/s]Loading weights:  49%|████▉     | 208/426 [00:09<00:08, 26.61it/s]Loading weights:  50%|████▉     | 212/426 [00:09<00:07, 28.65it/s]Loading weights:  52%|█████▏    | 220/426 [00:09<00:05, 34.93it/s]Loading weights:  53%|█████▎    | 224/426 [00:09<00:06, 33.47it/s]Loading weights:  54%|█████▎    | 228/426 [00:10<00:06, 31.46it/s]Loading weights:  54%|█████▍    | 232/426 [00:10<00:06, 31.82it/s]Loading weights:  56%|█████▌    | 238/426 [00:10<00:05, 31.81it/s]Loading weights:  57%|█████▋    | 242/426 [00:10<00:06, 27.69it/s]Loading weights:  58%|█████▊    | 247/426 [00:10<00:06, 25.94it/s]Loading weights:  59%|█████▉    | 253/426 [00:11<00:07, 22.31it/s]Loading weights:  61%|██████    | 258/426 [00:11<00:08, 20.73it/s]Loading weights:  63%|██████▎   | 270/426 [00:11<00:05, 30.33it/s]Loading weights:  65%|██████▍   | 275/426 [00:11<00:04, 31.47it/s]Loading weights:  65%|██████▌   | 279/426 [00:11<00:05, 29.24it/s]Loading weights:  67%|██████▋   | 287/426 [00:11<00:03, 38.12it/s]Loading weights:  69%|██████▊   | 292/426 [00:12<00:03, 34.44it/s]Loading weights:  70%|██████▉   | 298/426 [00:12<00:03, 39.00it/s]Loading weights:  72%|███████▏  | 305/426 [00:12<00:02, 44.04it/s]Loading weights:  73%|███████▎  | 310/426 [00:12<00:03, 34.58it/s]Loading weights:  74%|███████▍  | 315/426 [00:12<00:03, 32.90it/s]Loading weights:  75%|███████▍  | 319/426 [00:12<00:03, 31.21it/s]Loading weights:  77%|███████▋  | 326/426 [00:13<00:02, 34.61it/s]Loading weights:  77%|███████▋  | 330/426 [00:13<00:02, 35.21it/s]Loading weights:  78%|███████▊  | 334/426 [00:13<00:02, 31.30it/s]Loading weights:  80%|███████▉  | 340/426 [00:13<00:02, 36.89it/s]Loading weights:  81%|████████  | 344/426 [00:13<00:02, 32.76it/s]Loading weights:  82%|████████▏ | 348/426 [00:13<00:02, 30.98it/s]Loading weights:  83%|████████▎ | 354/426 [00:13<00:02, 33.08it/s]Loading weights:  84%|████████▍ | 358/426 [00:14<00:02, 30.45it/s]Loading weights:  85%|████████▍ | 362/426 [00:14<00:02, 27.25it/s]Loading weights:  86%|████████▌ | 365/426 [00:14<00:03, 20.28it/s]Loading weights:  87%|████████▋ | 371/426 [00:14<00:02, 26.09it/s]Loading weights:  88%|████████▊ | 377/426 [00:14<00:01, 29.49it/s]Loading weights:  90%|████████▉ | 383/426 [00:15<00:01, 32.59it/s]Loading weights:  91%|█████████ | 387/426 [00:15<00:01, 30.92it/s]Loading weights:  92%|█████████▏| 393/426 [00:15<00:01, 32.54it/s]Loading weights:  93%|█████████▎| 398/426 [00:15<00:01, 26.57it/s]Loading weights:  96%|█████████▌| 408/426 [00:15<00:00, 36.25it/s]Loading weights:  97%|█████████▋| 412/426 [00:16<00:00, 26.85it/s]Loading weights:  98%|█████████▊| 416/426 [00:16<00:00, 27.62it/s]Loading weights:  99%|█████████▊| 420/426 [00:16<00:00, 27.67it/s]Loading weights: 100%|█████████▉| 424/426 [00:16<00:00, 29.34it/s]Loading weights: 100%|██████████| 426/426 [00:16<00:00, 25.85it/s]
+2026-09-13:09:33:53,420 INFO     [_client.py:1038] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen3.5-4B/resolve/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/generation_config.json "HTTP/1.1 404 Not Found"
+2026-09-13:09:33:53,443 INFO     [evaluator.py:207] Using cache at /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/full/20260913T093221Z/request-cache/requests_rank0.db
+2026-09-13:09:33:53,503 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/facebook/belebele "HTTP/1.1 200 OK"
+2026-09-13:09:33:53,583 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/facebook/belebele "HTTP/1.1 200 OK"
+2026-09-13:09:33:53,610 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/facebook/belebele/revision/7899cdfa4e1e0d733fd77c848e2c273cb1d32be2 "HTTP/1.1 200 OK"
+2026-09-13:09:33:53,646 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/facebook/belebele/tree/7899cdfa4e1e0d733fd77c848e2c273cb1d32be2?recursive=false&expand=false "HTTP/1.1 200 OK"
+Downloading readme:   0%|          | 0.00/25.5k [00:00<?, ?B/s]2026-09-13:09:33:53,678 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/datasets/facebook/belebele/resolve/7899cdfa4e1e0d733fd77c848e2c273cb1d32be2/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:09:33:53,697 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/facebook/belebele/7899cdfa4e1e0d733fd77c848e2c273cb1d32be2/README.md?%2Fdatasets%2Ffacebook%2Fbelebele%2Fresolve%2F7899cdfa4e1e0d733fd77c848e2c273cb1d32be2%2FREADME.md=&etag=%226771839404d5a92c778b889955e7c9c809628b91%22 "HTTP/1.1 200 OK"
+Downloading readme: 100%|██████████| 25.5k/25.5k [00:00<00:00, 477kB/s]
+2026-09-13:09:33:53,925 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/facebook/belebele/tree/7899cdfa4e1e0d733fd77c848e2c273cb1d32be2/data?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-09-13:09:33:54,280 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/exams "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:09:33:54,306 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/mhardalov/exams "HTTP/1.1 200 OK"
+2026-09-13:09:33:54,394 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/exams "HTTP/1.1 307 Temporary Redirect"
+2026-09-13:09:33:54,418 INFO     [_client.py:1038] HTTP Request: GET https://huggingface.co/api/datasets/mhardalov/exams "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/__main__.py", line 454, in <module>
+    cli_evaluate()
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/__main__.py", line 375, in cli_evaluate
+    results = evaluator.simple_evaluate(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/utils.py", line 395, in _wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/evaluator.py", line 221, in simple_evaluate
+    task_dict = get_task_dict(tasks, task_manager)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 444, in get_task_dict
+    task_name_from_string_dict = task_manager.load_task_or_group(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 287, in load_task_or_group
+    collections.ChainMap(*map(self._load_individual_task_or_group, task_list))
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 178, in _load_individual_task_or_group
+    return load_task(task_config, task=name_or_config, group=parent_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/tasks/__init__.py", line 167, in load_task
+    task_object = ConfigurableTask(config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/api/task.py", line 810, in __init__
+    self.download(self.config.dataset_kwargs)
+  File "/workspace/llm-bender-lab/.cache/external/cetvel/lm-evaluation-harness/lm_eval/api/task.py", line 917, in download
+    self.dataset = datasets.load_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2606, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2277, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1923, in dataset_module_factory
+    raise e1 from None
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1905, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1221, in get_module
+    dataset_readme_path = cached_path(
+                          ^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 211, in cached_path
+    output_path = get_from_cache(
+                  ^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 583, in get_from_cache
+    response = fsspec_head(url, storage_options=storage_options)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/utils/file_utils.py", line 361, in fsspec_head
+    return fs.info(path)
+           ^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 904, in info
+    resolved_path = self.resolve_path(path, revision=revision)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/hf_file_system.py", line 306, in resolve_path
+    parsed = parse_hf_uri(f"{constants.HF_PROTOCOL}{path}")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/utils/_hf_uris.py", line 319, in parse_hf_uri
+    return _parse_repo_body(location, type_, raw=raw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/huggingface_hub/utils/_hf_uris.py", line 617, in _parse_repo_body
+    raise HfUriError(uri=raw, msg=f"Repository id must be 'namespace/name', got '{repo_id}'.")
+huggingface_hub.errors.HfUriError: Invalid HF URI 'hf://datasets/exams@4ff10804abb3341f8815cacd778181177bba7edd/README.md'. Repository id must be 'namespace/name', got 'exams'.
