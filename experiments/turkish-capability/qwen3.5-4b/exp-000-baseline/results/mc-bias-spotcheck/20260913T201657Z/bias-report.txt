@@ -1,0 +1,89 @@
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_mnli_tr_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_mnli_tr_2026-09-13T20-21-38.379039.jsonl
+n_choices: 3, n_items: 100
+accuracy: 0.3500
+predicted distribution: {'A': 100}
+gold distribution: {'B': 31, 'C': 34, 'A': 35}
+  position A: mean logprob = -25.189, argmax rate = 100/100 = 100.0%
+  position B: mean logprob = -40.810, argmax rate = 0/100 = 0.0%
+  position C: mean logprob = -36.788, argmax rate = 0/100 = 0.0%
+BIAS FLAG: position A dominates predictions (100.0%) far more than gold distribution would predict (35.0%) -- likely the same scoring artifact as belebele_tr.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_snli_tr_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_snli_tr_2026-09-13T20-21-38.379039.jsonl
+n_choices: 3, n_items: 100
+accuracy: 0.3500
+predicted distribution: {'A': 100}
+gold distribution: {'B': 31, 'A': 35, 'C': 34}
+  position A: mean logprob = -25.145, argmax rate = 100/100 = 100.0%
+  position B: mean logprob = -38.693, argmax rate = 0/100 = 0.0%
+  position C: mean logprob = -36.197, argmax rate = 0/100 = 0.0%
+BIAS FLAG: position A dominates predictions (100.0%) far more than gold distribution would predict (35.0%) -- likely the same scoring artifact as belebele_tr.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_turkish_plu_goal_inference_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_turkish_plu_goal_inference_2026-09-13T20-21-38.379039.jsonl
+n_choices: 4, n_items: 100
+accuracy: 0.3000
+predicted distribution: {'A': 32, 'D': 25, 'B': 25, 'C': 18}
+gold distribution: {'C': 20, 'A': 36, 'D': 18, 'B': 26}
+  position A: mean logprob = -56.267, argmax rate = 32/100 = 32.0%
+  position B: mean logprob = -56.535, argmax rate = 25/100 = 25.0%
+  position C: mean logprob = -55.815, argmax rate = 18/100 = 18.0%
+  position D: mean logprob = -57.986, argmax rate = 25/100 = 25.0%
+No strong position collapse detected.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_turkish_plu_next_event_prediction_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_turkish_plu_next_event_prediction_2026-09-13T20-21-38.379039.jsonl
+n_choices: 4, n_items: 100
+accuracy: 0.4000
+predicted distribution: {'C': 27, 'B': 21, 'D': 26, 'A': 26}
+gold distribution: {'B': 17, 'A': 24, 'D': 25, 'C': 34}
+  position A: mean logprob = -69.134, argmax rate = 26/100 = 26.0%
+  position B: mean logprob = -72.164, argmax rate = 21/100 = 21.0%
+  position C: mean logprob = -71.900, argmax rate = 27/100 = 27.0%
+  position D: mean logprob = -67.914, argmax rate = 26/100 = 26.0%
+No strong position collapse detected.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_turkish_plu_step_inference_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_turkish_plu_step_inference_2026-09-13T20-21-38.379039.jsonl
+n_choices: 4, n_items: 100
+accuracy: 0.2500
+predicted distribution: {'D': 24, 'A': 30, 'C': 27, 'B': 19}
+gold distribution: {'D': 25, 'C': 22, 'A': 24, 'B': 29}
+  position A: mean logprob = -68.468, argmax rate = 30/100 = 30.0%
+  position B: mean logprob = -71.438, argmax rate = 19/100 = 19.0%
+  position C: mean logprob = -69.513, argmax rate = 27/100 = 27.0%
+  position D: mean logprob = -70.035, argmax rate = 24/100 = 24.0%
+No strong position collapse detected.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_turkish_plu_step_ordering_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_turkish_plu_step_ordering_2026-09-13T20-21-38.379039.jsonl
+n_choices: 2, n_items: 100
+accuracy: 0.7900
+predicted distribution: {'A': 49, 'B': 51}
+gold distribution: {'B': 58, 'A': 42}
+  position A: mean logprob = -107.703, argmax rate = 49/100 = 49.0%
+  position B: mean logprob = -107.130, argmax rate = 51/100 = 51.0%
+No strong position collapse detected.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_xcopa_tr_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_xcopa_tr_2026-09-13T20-21-38.379039.jsonl
+n_choices: 2, n_items: 100
+accuracy: 0.6100
+predicted distribution: {'B': 48, 'A': 52}
+gold distribution: {'A': 47, 'B': 53}
+  position A: mean logprob = -40.042, argmax rate = 52/100 = 52.0%
+  position B: mean logprob = -39.479, argmax rate = 48/100 = 48.0%
+No strong position collapse detected.
+
+=== /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/Qwen__Qwen3.5-4B/samples_xnli_tr_2026-09-13T20-21-38.379039.jsonl ===
+file: samples_xnli_tr_2026-09-13T20-21-38.379039.jsonl
+n_choices: 3, n_items: 100
+accuracy: 0.4400
+predicted distribution: {'A': 69, 'C': 31}
+gold distribution: {'B': 34, 'C': 33, 'A': 33}
+  position A: mean logprob = -182.325, argmax rate = 69/100 = 69.0%
+  position B: mean logprob = -188.565, argmax rate = 0/100 = 0.0%
+  position C: mean logprob = -182.470, argmax rate = 31/100 = 31.0%
+BIAS FLAG: position A dominates predictions (69.0%) far more than gold distribution would predict (34.0%) -- likely the same scoring artifact as belebele_tr.
+

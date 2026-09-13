@@ -1,0 +1,516 @@
+{
+  "results": {
+    "xcopa_tr": {
+      "acc,none": 0.61,
+      "acc_stderr,none": 0.04902071300001975,
+      "alias": "xcopa_tr"
+    },
+    "turkish_plu": {
+      "acc_norm,none": 0.4675,
+      "acc_norm_stderr,none": 0.02324251807495579,
+      "acc,none": 0.435,
+      "acc_stderr,none": 0.022521033939341455,
+      "alias": "turkish_plu"
+    },
+    "turkish_plu_goal_inference": {
+      "acc,none": 0.3,
+      "acc_stderr,none": 0.046056618647183814,
+      "acc_norm,none": 0.37,
+      "acc_norm_stderr,none": 0.04852365870939099,
+      "alias": " - turkish_plu_goal_inference"
+    },
+    "turkish_plu_next_event_prediction": {
+      "acc,none": 0.4,
+      "acc_stderr,none": 0.04923659639173309,
+      "acc_norm,none": 0.38,
+      "acc_norm_stderr,none": 0.04878317312145633,
+      "alias": " - turkish_plu_next_event_prediction"
+    },
+    "turkish_plu_step_inference": {
+      "acc,none": 0.25,
+      "acc_stderr,none": 0.04351941398892446,
+      "acc_norm,none": 0.33,
+      "acc_norm_stderr,none": 0.047258156262526045,
+      "alias": " - turkish_plu_step_inference"
+    },
+    "turkish_plu_step_ordering": {
+      "acc,none": 0.79,
+      "acc_stderr,none": 0.040936018074033256,
+      "acc_norm,none": 0.79,
+      "acc_norm_stderr,none": 0.040936018074033256,
+      "alias": " - turkish_plu_step_ordering"
+    },
+    "nli_tr": {
+      "acc_norm,none": 0.35,
+      "acc_norm_stderr,none": 0.03389675351696528,
+      "acc,none": 0.38,
+      "acc_stderr,none": 0.02805718067100447,
+      "alias": "nli_tr"
+    },
+    "mnli_tr": {
+      "acc,none": 0.35,
+      "acc_stderr,none": 0.0479372485441102,
+      "acc_norm,none": 0.35,
+      "acc_norm_stderr,none": 0.0479372485441102,
+      "alias": " - mnli_tr"
+    },
+    "snli_tr": {
+      "acc,none": 0.35,
+      "acc_stderr,none": 0.0479372485441102,
+      "acc_norm,none": 0.35,
+      "acc_norm_stderr,none": 0.0479372485441102,
+      "alias": " - snli_tr"
+    },
+    "xnli_tr": {
+      "acc,none": 0.44,
+      "acc_stderr,none": 0.04988876515698589,
+      "alias": " - xnli_tr"
+    }
+  },
+  "groups": {
+    "turkish_plu": {
+      "acc_norm,none": 0.4675,
+      "acc_norm_stderr,none": 0.02324251807495579,
+      "acc,none": 0.435,
+      "acc_stderr,none": 0.022521033939341455,
+      "alias": "turkish_plu"
+    },
+    "nli_tr": {
+      "acc_norm,none": 0.35,
+      "acc_norm_stderr,none": 0.03389675351696528,
+      "acc,none": 0.38,
+      "acc_stderr,none": 0.02805718067100447,
+      "alias": "nli_tr"
+    }
+  },
+  "group_subtasks": {
+    "nli_tr": [
+      "xnli_tr",
+      "snli_tr",
+      "mnli_tr"
+    ],
+    "turkish_plu": [
+      "turkish_plu_step_ordering",
+      "turkish_plu_step_inference",
+      "turkish_plu_next_event_prediction",
+      "turkish_plu_goal_inference"
+    ],
+    "xcopa_tr": []
+  },
+  "configs": {
+    "mnli_tr": {
+      "task": "mnli_tr",
+      "group": "nli_tr",
+      "dataset_path": "boun-tabi/nli_tr",
+      "dataset_name": "multinli_tr",
+      "training_split": "train",
+      "validation_split": "validation_matched",
+      "doc_to_text": "Aşağıda iki cümle verilmektedir:\n\nCümle 1: \"{{premise}}\"\nCümle 2: \"{{hypothesis}}\"\n\nBu iki cümle arasındaki ilişki nedir:",
+      "doc_to_target": "{{label}}",
+      "doc_to_choice": [
+        "TUTARLI",
+        "ALAKASIZ",
+        "ÇELİŞKİLİ"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "premise",
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "snli_tr": {
+      "task": "snli_tr",
+      "group": "nli_tr",
+      "dataset_path": "boun-tabi/nli_tr",
+      "dataset_name": "snli_tr",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "Aşağıda iki cümle verilmektedir:\n\nCümle 1: \"{{premise}}\"\nCümle 2: \"{{hypothesis}}\"\n\nBu iki cümle arasındaki ilişki nedir:",
+      "doc_to_target": "{{label}}",
+      "doc_to_choice": [
+        "TUTARLI",
+        "ALAKASIZ",
+        "ÇELİŞKİLİ"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "premise",
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "turkish_plu_goal_inference": {
+      "task": "turkish_plu_goal_inference",
+      "group": "turkish_plu",
+      "dataset_path": "mcemilg/turkish-plu-goal-inference",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "Örnek Adım: {{sent2}} Hedef:",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{[ending0, ending1, ending2, ending3]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "turkish_plu_next_event_prediction": {
+      "task": "turkish_plu_next_event_prediction",
+      "group": "turkish_plu",
+      "dataset_path": "mcemilg/turkish-plu-next-event-prediction",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "Hedef: {{sent1}} Adım: {{sent2}} Bir sonraki adım:",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{[ending0, ending1, ending2, ending3]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "turkish_plu_step_inference": {
+      "task": "turkish_plu_step_inference",
+      "group": "turkish_plu",
+      "dataset_path": "mcemilg/turkish-plu-step-inference",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "Hedef: {{sent2}} Örnek Adım:",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{[ending0, ending1, ending2, ending3]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "turkish_plu_step_ordering": {
+      "task": "turkish_plu_step_ordering",
+      "group": "turkish_plu",
+      "dataset_path": "mcemilg/turkish-plu-step-ordering",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "Hedef: {{sent2}}",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{['Önce: ' + ending0 + ' Sonra: ' + ending1, 'Önce: ' + ending1 + ' Sonra: ' + ending0]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "xcopa_tr": {
+      "task": "xcopa_tr",
+      "group": "xcopa",
+      "dataset_path": "cambridgeltl/xcopa",
+      "dataset_name": "tr",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "functools.partial(<function doc_to_text at 0x73582e177a60>, connector={'cause': 'çünkü', 'effect': 'bu yüzden'})",
+      "doc_to_target": "label",
+      "doc_to_choice": "def doc_to_choice(doc):\n    return [convert_choice(doc[\"choice1\"]), convert_choice(doc[\"choice2\"])]\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "xnli_tr": {
+      "task": "xnli_tr",
+      "group": "xnli",
+      "dataset_path": "facebook/xnli",
+      "dataset_name": "tr",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{[premise+\", doğru? Evet, \"+hypothesis,premise+\", doğru? Böylece, \"+hypothesis,premise+\", doğru? Hayır, \"+hypothesis]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    }
+  },
+  "versions": {
+    "mnli_tr": 0.0,
+    "snli_tr": 0.0,
+    "turkish_plu_goal_inference": 0.0,
+    "turkish_plu_next_event_prediction": 0.0,
+    "turkish_plu_step_inference": 0.0,
+    "turkish_plu_step_ordering": 0.0,
+    "xcopa_tr": 1.0,
+    "xnli_tr": 1.0
+  },
+  "n-shot": {
+    "mnli_tr": 0,
+    "nli_tr": 0,
+    "snli_tr": 0,
+    "turkish_plu": 0,
+    "turkish_plu_goal_inference": 0,
+    "turkish_plu_next_event_prediction": 0,
+    "turkish_plu_step_inference": 0,
+    "turkish_plu_step_ordering": 0,
+    "xcopa_tr": 0,
+    "xnli_tr": 0
+  },
+  "higher_is_better": {
+    "mnli_tr": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "nli_tr": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "snli_tr": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "turkish_plu": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "turkish_plu_goal_inference": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "turkish_plu_next_event_prediction": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "turkish_plu_step_inference": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "turkish_plu_step_ordering": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "xcopa_tr": {
+      "acc": true
+    },
+    "xnli_tr": {
+      "acc": true
+    }
+  },
+  "n-samples": {
+    "xcopa_tr": {
+      "original": 500,
+      "effective": 100
+    },
+    "turkish_plu_step_ordering": {
+      "original": 1021,
+      "effective": 100
+    },
+    "turkish_plu_step_inference": {
+      "original": 612,
+      "effective": 100
+    },
+    "turkish_plu_next_event_prediction": {
+      "original": 655,
+      "effective": 100
+    },
+    "turkish_plu_goal_inference": {
+      "original": 837,
+      "effective": 100
+    },
+    "xnli_tr": {
+      "original": 2490,
+      "effective": 100
+    },
+    "snli_tr": {
+      "original": 10000,
+      "effective": 100
+    },
+    "mnli_tr": {
+      "original": 10000,
+      "effective": 100
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=Qwen/Qwen3.5-4B,revision=851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a,dtype=bfloat16,max_length=4096",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": "/workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/mc-bias-spotcheck/20260913T201657Z/request-cache/requests",
+    "limit": 100.0,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": null,
+  "date": 1789330630.2764385,
+  "pretty_env_info": "PyTorch version: 2.6.0+cu124\nIs debug build: False\nCUDA used to build PyTorch: 12.4\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 22.04.5 LTS (x86_64)\nGCC version: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0\nClang version: Could not collect\nCMake version: Could not collect\nLibc version: glibc-2.35\n\nPython version: 3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0] (64-bit runtime)\nPython platform: Linux-6.8.0-71-generic-x86_64-with-glibc2.35\nIs CUDA available: True\nCUDA runtime version: Could not collect\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: GPU 0: NVIDIA GeForce RTX 4090\nNvidia driver version: 570.169\ncuDNN version: Could not collect\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture:                         x86_64\nCPU op-mode(s):                       32-bit, 64-bit\nAddress sizes:                        43 bits physical, 48 bits virtual\nByte Order:                           Little Endian\nCPU(s):                               96\nOn-line CPU(s) list:                  0-95\nVendor ID:                            AuthenticAMD\nModel name:                           AMD EPYC 7R32 48-Core Processor\nCPU family:                           23\nModel:                                49\nThread(s) per core:                   2\nCore(s) per socket:                   48\nSocket(s):                            1\nStepping:                             0\nFrequency boost:                      enabled\nCPU max MHz:                          2800.0000\nCPU min MHz:                          1500.0000\nBogoMIPS:                             5599.96\nFlags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca sev sev_es\nVirtualization:                       AMD-V\nL1d cache:                            1.5 MiB (48 instances)\nL1i cache:                            1.5 MiB (48 instances)\nL2 cache:                             24 MiB (48 instances)\nL3 cache:                             192 MiB (12 instances)\nNUMA node(s):                         1\nNUMA node0 CPU(s):                    0-95\nVulnerability Gather data sampling:   Not affected\nVulnerability Itlb multihit:          Not affected\nVulnerability L1tf:                   Not affected\nVulnerability Mds:                    Not affected\nVulnerability Meltdown:               Not affected\nVulnerability Mmio stale data:        Not affected\nVulnerability Reg file data sampling: Not affected\nVulnerability Retbleed:               Mitigation; untrained return thunk; SMT enabled with STIBP protection\nVulnerability Spec rstack overflow:   Mitigation; Safe RET\nVulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:             Mitigation; Retpolines; IBPB conditional; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                  Not affected\nVulnerability Tsx async abort:        Not affected\n\nVersions of relevant libraries:\n[pip3] numpy==2.4.6\n[pip3] nvidia-cublas-cu12==12.4.5.8\n[pip3] nvidia-cuda-cupti-cu12==12.4.127\n[pip3] nvidia-cuda-nvrtc-cu12==12.4.127\n[pip3] nvidia-cuda-runtime-cu12==12.4.127\n[pip3] nvidia-cudnn-cu12==9.1.0.70\n[pip3] nvidia-cufft-cu12==11.2.1.3\n[pip3] nvidia-curand-cu12==10.3.5.147\n[pip3] nvidia-cusolver-cu12==11.6.1.9\n[pip3] nvidia-cusparse-cu12==12.3.1.170\n[pip3] nvidia-cusparselt-cu12==0.6.2\n[pip3] nvidia-nccl-cu12==2.21.5\n[pip3] nvidia-nvjitlink-cu12==12.4.127\n[pip3] nvidia-nvtx-cu12==12.4.127\n[pip3] torch==2.6.0+cu124\n[pip3] torchaudio==2.6.0+cu124\n[pip3] torchvision==0.21.0+cu124\n[pip3] triton==3.2.0\n[conda] Could not collect",
+  "transformers_version": "5.17.0",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|endoftext|>",
+    248044
+  ],
+  "tokenizer_eos_token": [
+    "<|im_end|>",
+    248046
+  ],
+  "tokenizer_bos_token": [
+    null,
+    null
+  ],
+  "eot_token_id": 248046,
+  "max_length": 4096,
+  "task_hashes": {
+    "xcopa_tr": "047b93d40ab6e7f9d82a0f2216b179f9b6ddf77b1996c82ca620780e6db56f73",
+    "turkish_plu_step_ordering": "5ebc3f4c4ab9e2bdb99d403e0b074360fca78b7947668c70c008b13aed5cee58",
+    "turkish_plu_step_inference": "8abf7984905bfb1d46374e2c627b374290b821975b6e7f854b2e599a0ba9ecd3",
+    "turkish_plu_next_event_prediction": "b4b194eeaef496213969f29b28b6f26d8f7a2ec39826bf0e1a18ce51b8e7f4c9",
+    "turkish_plu_goal_inference": "684b5d16a3608e9221436df2363a5679a6d9ac7ff503b1b2739a5d8aaac7e986",
+    "xnli_tr": "ff40a4135d065cf0f8b733639209428e8e865b3cff9d37b428358b1ea0c6abf3",
+    "snli_tr": "f72e819e676799fea17f7b65a6a7eee6c68dfa31cba7319433b5f83b0a066a7a",
+    "mnli_tr": "2a692bccbf91ab1b3a29a5df30aadb42fa48ab4538f58e23fd5670fccf23a82b"
+  },
+  "model_source": "hf",
+  "model_name": "Qwen/Qwen3.5-4B",
+  "model_name_sanitized": "Qwen__Qwen3.5-4B",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": "{%- set image_count = namespace(value=0) %}\n{%- set video_count = namespace(value=0) %}\n{%- macro render_content(content, do_vision_count, is_system_content=false) %}\n    {%- if content is string %}\n        {{- content }}\n    {%- elif content is iterable and content is not mapping %}\n        {%- for item in content %}\n            {%- if 'image' in item or 'image_url' in item or item.type == 'image' %}\n                {%- if is_system_content %}\n                    {{- raise_exception('System message cannot contain images.') }}\n                {%- endif %}\n                {%- if do_vision_count %}\n                    {%- set image_count.value = image_count.value + 1 %}\n                {%- endif %}\n                {%- if add_vision_id %}\n                    {{- 'Picture ' ~ image_count.value ~ ': ' }}\n                {%- endif %}\n                {{- '<|vision_start|><|image_pad|><|vision_end|>' }}\n            {%- elif 'video' in item or item.type == 'video' %}\n                {%- if is_system_content %}\n                    {{- raise_exception('System message cannot contain videos.') }}\n                {%- endif %}\n                {%- if do_vision_count %}\n                    {%- set video_count.value = video_count.value + 1 %}\n                {%- endif %}\n                {%- if add_vision_id %}\n                    {{- 'Video ' ~ video_count.value ~ ': ' }}\n                {%- endif %}\n                {{- '<|vision_start|><|video_pad|><|vision_end|>' }}\n            {%- elif 'text' in item %}\n                {{- item.text }}\n            {%- else %}\n                {{- raise_exception('Unexpected item type in content.') }}\n            {%- endif %}\n        {%- endfor %}\n    {%- elif content is none or content is undefined %}\n        {{- '' }}\n    {%- else %}\n        {{- raise_exception('Unexpected content type.') }}\n    {%- endif %}\n{%- endmacro %}\n{%- if not messages %}\n    {{- raise_exception('No messages provided.') }}\n{%- endif %}\n{%- if tools and tools is iterable and tools is not mapping %}\n    {{- '<|im_start|>system\\n' }}\n    {{- \"# Tools\\n\\nYou have access to the following functions:\\n\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\" }}\n    {{- '\\n\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\n\\n<tool_call>\\n<function=example_function_name>\\n<parameter=example_parameter_1>\\nvalue_1\\n</parameter>\\n<parameter=example_parameter_2>\\nThis is the value for the second parameter\\nthat can span\\nmultiple lines\\n</parameter>\\n</function>\\n</tool_call>\\n\\n<IMPORTANT>\\nReminder:\\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\\n- Required parameters MUST be specified\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\n</IMPORTANT>' }}\n    {%- if messages[0].role == 'system' %}\n        {%- set content = render_content(messages[0].content, false, true)|trim %}\n        {%- if content %}\n            {{- '\\n\\n' + content }}\n        {%- endif %}\n    {%- endif %}\n    {{- '<|im_end|>\\n' }}\n{%- else %}\n    {%- if messages[0].role == 'system' %}\n        {%- set content = render_content(messages[0].content, false, true)|trim %}\n        {{- '<|im_start|>system\\n' + content + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" %}\n        {%- set content = render_content(message.content, false)|trim %}\n        {%- if not(content.startswith('<tool_response>') and content.endswith('</tool_response>')) %}\n            {%- set ns.multi_step_tool = false %}\n            {%- set ns.last_query_index = index %}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if ns.multi_step_tool %}\n    {{- raise_exception('No user query found in messages.') }}\n{%- endif %}\n{%- for message in messages %}\n    {%- set content = render_content(message.content, true)|trim %}\n    {%- if message.role == \"system\" %}\n        {%- if not loop.first %}\n            {{- raise_exception('System message must be at the beginning.') }}\n        {%- endif %}\n    {%- elif message.role == \"user\" %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- else %}\n            {%- if '</think>' in content %}\n                {%- set reasoning_content = content.split('</think>')[0].rstrip('\\n').split('<think>')[-1].lstrip('\\n') %}\n                {%- set content = content.split('</think>')[-1].lstrip('\\n') %}\n            {%- endif %}\n        {%- endif %}\n        {%- set reasoning_content = reasoning_content|trim %}\n        {%- if loop.index0 > ns.last_query_index %}\n            {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content + '\\n</think>\\n\\n' + content }}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls and message.tool_calls is iterable and message.tool_calls is not mapping %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if tool_call.function is defined %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {%- if loop.first %}\n                    {%- if content|trim %}\n                        {{- '\\n\\n<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                    {%- else %}\n                        {{- '<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                    {%- endif %}\n                {%- else %}\n                    {{- '\\n<tool_call>\\n<function=' + tool_call.name + '>\\n' }}\n                {%- endif %}\n                {%- if tool_call.arguments is defined %}\n                    {%- for args_name, args_value in tool_call.arguments|items %}\n                        {{- '<parameter=' + args_name + '>\\n' }}\n                        {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\n                        {{- args_value }}\n                        {{- '\\n</parameter>\\n' }}\n                    {%- endfor %}\n                {%- endif %}\n                {{- '</function>\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\n            {{- '<|im_end|>\\n' }}\n        {%- elif loop.last %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- else %}\n        {{- raise_exception('Unexpected message role.') }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n    {%- if enable_thinking is defined and enable_thinking is false %}\n        {{- '<think>\\n\\n</think>\\n\\n' }}\n    {%- else %}\n        {{- '<think>\\n' }}\n    {%- endif %}\n{%- endif %}",
+  "chat_template_sha": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+  "start_time": 8042316.612042026,
+  "end_time": 8042588.880478252,
+  "total_evaluation_time_seconds": "272.2684362260625"
+}

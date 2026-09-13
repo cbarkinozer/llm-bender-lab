@@ -405,3 +405,68 @@ protocol above) before its number means anything — running the full suite
 as currently configured would very likely just reproduce this same
 artifact across roughly half the task list at GPU-hour cost, without
 producing a trustworthy score.
+
+## MC position-bias spot-check: the bias is task-format-specific, not universal
+
+Ran `scripts/evaluation/run_cetvel_mc_bias_spotcheck.sh` (100 items each,
+`xcopa_tr`, `nli_tr` [expands to `mnli_tr`/`snli_tr`/`xnli_tr`],
+`turkish_plu` [expands to 4 subtasks]) to check whether the `belebele_tr`
+position-bias artifact generalizes across CETVEL's other log-likelihood/MC
+tasks. Result:
+`results/mc-bias-spotcheck/20260913T201657Z/bias-report.txt`.
+
+| Task | Choices | Accuracy | Predicted distribution | Bias flag |
+|---|---|---|---|---|
+| `mnli_tr` | 3 | 35% | A:100 | **Yes — 100% collapse to A** |
+| `snli_tr` | 3 | 35% | A:100 | **Yes — 100% collapse to A** |
+| `xnli_tr` | 3 | 44% | A:69, C:31 | **Yes — 69% collapse to A** |
+| `turkish_plu_goal_inference` | 4 | 30% | A:32, B:25, C:18, D:25 | No — balanced |
+| `turkish_plu_next_event_prediction` | 4 | 40% | A:26, B:21, C:27, D:26 | No — balanced |
+| `turkish_plu_step_inference` | 4 | 25% | A:30, B:19, C:27, D:24 | No — balanced |
+| `turkish_plu_step_ordering` | 2 | 79% | A:49, B:51 | No — balanced |
+| `xcopa_tr` | 2 | 61% | A:52, B:48 | No — balanced |
+
+**The bias is not a universal property of raw-logprob MC scoring on this
+model** — it is specific to certain task/prompt formats. All three NLI-style
+tasks (`nli_tr`'s three subtasks, sharing the same "TUTARLI/ALAKASIZ/
+ÇELİŞKİLİ" 3-way entailment template) collapse hard onto option A, the same
+way `belebele_tr` collapsed onto C. `turkish_plu` (4 different subtask
+formats) and `xcopa_tr` (2-choice commonsense) show no collapse at all —
+their prediction distributions track their gold distributions closely, and
+their accuracy numbers (25-79%, with real per-item variation) look like
+genuine signal, not an artifact floor.
+
+**Practical consequence for a future full-CETVEL run:** don't blanket-discard
+every MC-scored task. Treat `belebele_tr` and all of `nli_tr`'s subtasks
+(`mnli_tr`/`snli_tr`/`xnli_tr`) as compromised by this scoring artifact
+unless rescored via a generation-based protocol. Treat `turkish_plu` and
+`xcopa_tr` as trustworthy as-is. The remaining untested MC tasks (`exams_tr`,
+`news_cat`, `ironytr`, `offenseval_tr`, `sts_tr`, `trclaim19`, `xfact_tr`)
+have not been spot-checked and should not be assumed either way before a
+full run.
+
+### Two more harness/CETVEL task-name collisions found and fixed en route
+
+Getting this spot-check to actually run surfaced two bugs unrelated to the
+position-bias question itself, both from the same root cause: CETVEL's
+pinned revision predates a `huggingface_hub` version that rejects bare
+(non-namespaced) dataset repo ids, and `lm-evaluation-harness` ships its own
+built-in tasks that collide by name with CETVEL's custom ones of the same
+name — the built-in one (with the stale bare path) is what actually
+resolves:
+
+- `xnli`/`xnli_tr` (harness's built-in `xnli` group vs. CETVEL's `nli_tr`
+  group's `xnli_tr` subtask) — fixed in
+  `patches/cetvel-harness-canonical-dataset-ids.patch`.
+- `xcopa`/`xcopa_tr` (harness's built-in `xcopa` group vs. CETVEL's own
+  `xcopa` group) — same patch, same fix (`xcopa` → `cambridgeltl/xcopa`).
+
+Also found and fixed a set of bare dataset ids purely within CETVEL's own
+task configs (not harness collisions): `exams`, `nli_tr` (mnli/snli
+subtasks), `mlsum`, `offenseval2020_tr`, `wmt16` (4 files), `xcopa` (CETVEL's
+own copy) — see `patches/cetvel-canonical-dataset-ids.patch`. Checked
+`mnli_tr`/`snli_tr`/`turkish_plu` for the same harness-collision pattern
+after finding the first two — none found (harness's built-in MNLI task is
+named `mnli`/`mnli_mismatch`, not `mnli_tr`; `turkish_plu` has no built-in
+harness equivalent at all). Full details of everything hit standing up this
+environment: `docs/environment-setup-gotchas.md`.
