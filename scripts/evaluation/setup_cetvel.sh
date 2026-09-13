@@ -4,6 +4,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 external_root="${LLM_BENDER_EXTERNAL_ROOT:-${repo_root}/.cache/external}"
 cetvel_dir="${external_root}/cetvel"
+venv_dir="${CETVEL_VENV:-/workspace/.venvs/cetvel}"
 cetvel_revision="6119c517e06cce23aaeac103ce3504c9380655e3"
 nonthinking_patch="${repo_root}/patches/cetvel-harness-qwen35-nonthinking.patch"
 chat_template_cache_patch="${repo_root}/patches/cetvel-harness-chat-template-cache.patch"
@@ -39,6 +40,10 @@ else
   git -C "${cetvel_dir}" apply --check "${dataset_ids_patch}"
   git -C "${cetvel_dir}" apply "${dataset_ids_patch}"
 fi
+
+python3 -m venv "${venv_dir}"
+source "${venv_dir}/bin/activate"
+python -m pip install --upgrade pip
 
 # Transformers 5.17 requires PyTorch >=2.5. Pin a CUDA 12.4 wheel that is
 # compatible with the selected RunPod base image and RTX 4090.
