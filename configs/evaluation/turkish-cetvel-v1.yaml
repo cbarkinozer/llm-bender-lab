@@ -1,0 +1,83 @@
+evaluation:
+  id: turkish-cetvel-v1
+  status: draft
+  role: target
+
+benchmark:
+  name: CETVEL
+  repository: https://github.com/KUIS-AI/cetvel.git
+  revision: 6119c517e06cce23aaeac103ce3504c9380655e3
+  harness:
+    repository: https://github.com/EleutherAI/lm-evaluation-harness.git
+    revision: 6e49b1f6910931882a4b3b105794c6faf96b74e5
+    patch: patches/cetvel-harness-qwen35-nonthinking.patch
+  contamination_policy: evaluation-only
+
+model:
+  name: Qwen/Qwen3.5-4B
+  revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+  tokenizer_revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+  backend: hf
+  dtype: bfloat16
+  max_length: 4096
+  input_mode: text-only
+
+prompting:
+  num_fewshot: 0
+  apply_native_chat_template: true
+  system_prompt: null
+  thinking_mode: disabled
+
+generation:
+  # CETVEL task YAML files define task-specific generation settings. Any
+  # override must be added here and applied identically to all compared models.
+  overrides: null
+  seed: 42
+
+runtime:
+  device: cuda:0
+  minimum_vram_gib: 12
+  batch_size: 1
+  padding_side: tokenizer-default
+  write_out: true
+  log_samples: true
+  cache_requests: true
+
+tasks:
+  - belebele_tr
+  - exams_tr
+  - gecturk_generation
+  - ironytr
+  - mkqa_tr
+  - mlsum_tr
+  - news_cat
+  - nli_tr
+  - offenseval_tr
+  - sts_tr
+  - tquad
+  - trclaim19
+  # CETVEL's `*_all.sh` examples say `turkish_plu_prompt`, but that selector is
+  # absent at the pinned revision. The repository README and task metadata use
+  # this four-task group name.
+  - turkish_plu
+  - tr-wikihow-summ
+  - wiki_lingua_tr
+  - wmt-tr-en-prompt
+  - xcopa_tr
+  - xfact_tr
+  - xlsum_tr
+  - xquad_tr
+
+outputs:
+  directory: experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results
+  retain_aggregate_metrics: true
+  retain_per_item_outputs: true
+  retain_raw_outputs: true
+
+protocol_freeze:
+  frozen: false
+  blockers:
+    - Validate the pinned Transformers 5.17.0 package with Qwen3.5 and CETVEL.
+    - Validate Qwen3.5 loading with the pinned CETVEL harness.
+    - Validate native chat-template serialization.
+    - Verify one-item parsing and scoring.

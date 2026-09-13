@@ -1,0 +1,18 @@
+    PID    PPID %CPU %MEM   RSS    VSZ     ELAPSED CMD
+      1       0  0.0  0.0   828   1136    01:18:26 /sbin/docker-init -- /opt/nvidia/nvidia_entrypoint.sh /start.sh
+     57       1  0.0  0.0  3356   4496    01:18:25 /bin/bash /start.sh
+     90       1  0.0  0.0  1724  10348    01:18:25 nginx: master process /usr/sbin/nginx
+     91      90  0.0  0.0  3584  11208    01:18:25 nginx: worker process
+    112       1  0.0  0.0  5612  15432    01:18:25 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+    117      57  0.0  0.0  1896   4496    01:18:25 /bin/bash /start.sh
+    122     117  0.0  0.0 86628 169672    01:18:25 /usr/bin/python /usr/local/bin/jupyter-lab --allow-root --no-browser --port=8888 --ip=* --FileContentsManager.delete_to_trash=False --ServerApp.terminado_settings={"shell_command":["/bin/bash"]} --ServerApp.token=dxc0o4cchbshhr0v1rrn --ServerApp.allow_origin=* --ServerApp.preferred_dir=/workspace
+    123      57  0.0  0.0  1592   2792    01:18:25 sleep infinity
+    131       1  0.0  0.0 13312 2972044   01:18:24 gotty -w --random-url-length 32 -r --ws-origin .* -p 19123 env TERM=xterm bash --rcfile /root/.runpod-web-terminal.bashrc
+    541     131  0.0  0.0  3784   4628    01:17:09 bash --rcfile /root/.runpod-web-terminal.bashrc
+   5669     112  0.0  0.0 10400  16680       13:50 sshd: root@notty
+   6071     112  0.0  0.0 10616  16680       02:42 sshd: root@notty
+   6325     112  0.5  0.0 10492  16680       00:04 sshd: root@notty
+   6336    6325  0.0  0.0  3184   4364       00:02 bash scripts/evaluation/run_belebele_generation.sh
+   6340    6336  0.0  0.0  1620   4364       00:02 bash scripts/evaluation/run_belebele_generation.sh
+   6342    6340  0.0  0.0  1632   2796       00:02 tee /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/belebele-generation/thinking/calibration-1-2048-v1/run.log
+   6351    6336  0.0  0.0  2984   7064       00:00 ps -eo pid,ppid,pcpu,pmem,rss,vsz,etime,cmd

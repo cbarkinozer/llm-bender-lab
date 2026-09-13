@@ -1,0 +1,28 @@
+/usr/local/lib/python3.11/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.2.3) or chardet (6.0.0.post1)/charset_normalizer (3.3.2) doesn't match a supported version!
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 474.71it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   6%|▌         | 26/426 [00:00<00:01, 236.49it/s]Loading weights:  12%|█▏        | 52/426 [00:00<00:01, 238.20it/s]Loading weights:  19%|█▉        | 80/426 [00:00<00:01, 246.84it/s]Loading weights:  25%|██▍       | 105/426 [00:00<00:01, 233.08it/s]Loading weights:  31%|███       | 132/426 [00:00<00:01, 237.50it/s]Loading weights:  37%|███▋      | 156/426 [00:00<00:01, 226.53it/s]Loading weights:  43%|████▎     | 185/426 [00:00<00:00, 245.11it/s]Loading weights:  49%|████▉     | 210/426 [00:00<00:00, 234.57it/s]Loading weights:  56%|█████▋    | 240/426 [00:00<00:00, 251.26it/s]Loading weights:  64%|██████▎   | 271/426 [00:01<00:00, 268.21it/s]Loading weights:  71%|███████   | 301/426 [00:01<00:00, 272.62it/s]Loading weights:  77%|███████▋  | 329/426 [00:01<00:00, 268.82it/s]Loading weights:  84%|████████▍ | 357/426 [00:01<00:00, 266.19it/s]Loading weights:  90%|█████████ | 384/426 [00:01<00:00, 248.44it/s]Loading weights:  97%|█████████▋| 413/426 [00:01<00:00, 256.81it/s]Loading weights: 100%|██████████| 426/426 [00:01<00:00, 251.39it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"correct":true,"generated_tokens":1755,"gold":"A","index":0,"latency_seconds":97.894,"prediction":"A"}
+{
+  "protocol": "belebele-turkish-paired-generation-v1",
+  "mode": "thinking",
+  "items": 1,
+  "correct": 1,
+  "parsed": 1,
+  "truncated": 0,
+  "prompt_tokens": 269,
+  "generated_tokens": 1755,
+  "generation_seconds": 97.89424316302757,
+  "accuracy": 1.0,
+  "parser_success_rate": 1.0,
+  "max_new_tokens_hit_rate": 0.0,
+  "mean_generated_tokens": 1755.0,
+  "mean_latency_seconds": 97.89424316302757,
+  "wall_seconds": 97.94316792488098,
+  "samples_sha256": "349762ba3370a0878ae2d12fc5fb4b849d2faa60d3a8b074d04431e325bb0aba"
+}

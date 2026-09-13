@@ -1,0 +1,59 @@
+{
+  "protocol": "belebele-turkish-paired-generation-v1",
+  "mode": "thinking",
+  "model": {
+    "name": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "dtype": "bfloat16"
+  },
+  "dataset": {
+    "name": "facebook/belebele",
+    "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+    "config": "tur_Latn",
+    "split": "test",
+    "selection": "range(0,1)",
+    "selected_documents_sha256": "58f2561bf1d718e945b896b23117b2099dabb5db9be09233da6af65a56a4ec1b"
+  },
+  "decoding": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "max_new_tokens": 2048,
+    "batch_size": 1
+  },
+  "chat_template": {
+    "native": true,
+    "enable_thinking": true,
+    "add_generation_prompt": true,
+    "semantic_prompts_sha256": "1bda986ca35b2dc95182549efc60c41d1c9b48a3d98256f6dc6331106e726c50"
+  },
+  "reproducibility": {
+    "seed": 3407,
+    "python_hash_seed": "3407",
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true
+  },
+  "software": {
+    "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.17.0",
+    "datasets": "2.21.0"
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda_runtime": "12.4",
+    "bf16_supported": true
+  },
+  "repository": {
+    "commit": null,
+    "dirty_diff_sha256": null
+  },
+  "scoring": {
+    "gold": "correct_answer_num mapped 1=A through 4=D",
+    "parser": "last strict FINAL: [ABCD], then unique-letter fallback"
+  },
+  "started_at_unix": 1789295089.4360077
+}

@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Keep the fast serving stack independent from the pinned Transformers/CETVEL
+# environment. Qwen3.5 requires a current vLLM build rather than an old stable
+# release, and installation may select a newer compatible Torch stack.
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+venv_dir="${VLLM_QWEN35_VENV:-/workspace/.venvs/vllm-qwen35}"
+log_dir="${repo_root}/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/vllm-setup"
+mkdir -p "${log_dir}"
+exec > >(tee "${log_dir}/setup-$(date -u +%Y%m%dT%H%M%SZ).log") 2>&1
+
+python3 -m venv "${venv_dir}"
+source "${venv_dir}/bin/activate"
+python -m pip install --upgrade pip uv
+
+# Official Qwen3.5 guidance requires a current vLLM build. uv resolves the
+# compatible Torch backend inside this isolated environment.
+uv pip install vllm --torch-backend=auto --extra-index-url https://wheels.vllm.ai/nightly
+
+python - <<'PY'
+import json
+import platform
+import subprocess
+import sys
+import torch
+import vllm
+
+print(json.dumps({
+    "python": sys.version,
+    "platform": platform.platform(),
+    "torch": torch.__version__,
+    "cuda": torch.version.cuda,
+    "vllm": vllm.__version__,
+    "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+    "pip_freeze": subprocess.check_output([sys.executable, "-m", "pip", "freeze"], text=True).splitlines(),
+}, indent=2))
+PY

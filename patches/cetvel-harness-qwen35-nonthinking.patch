@@ -1,0 +1,16 @@
+diff --git a/lm_eval/models/huggingface.py b/lm_eval/models/huggingface.py
+index 6f7057d..cb0a144 100644
+--- a/lm_eval/models/huggingface.py
++++ b/lm_eval/models/huggingface.py
+@@ -1305,7 +1305,10 @@ class HFLM(TemplateLM):
+         Method to apply a chat template to a list of chat history between user and model.
+         """
+         return self.tokenizer.apply_chat_template(
+-            chat_history, tokenize=False, add_generation_prompt=True
++            chat_history,
++            tokenize=False,
++            add_generation_prompt=True,
++            enable_thinking=False,
+         )
+ 
+     def get_model_info(self) -> dict:

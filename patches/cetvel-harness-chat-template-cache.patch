@@ -1,0 +1,18 @@
+diff --git a/lm_eval/api/model.py b/lm_eval/api/model.py
+index 56c8a89..bfc8584 100644
+--- a/lm_eval/api/model.py
++++ b/lm_eval/api/model.py
+@@ -247,6 +247,11 @@ class CachingLM:
+     def __getattr__(self, attr):
+         lm_attr = getattr(self.lm, attr)
+         if not callable(lm_attr):
+             return lm_attr
++
++        # Chat histories are plain dictionaries, not lm-eval Request objects,
++        # and tokenizer instances are callable metadata objects. Neither can
++        # use the request-response cache wrapper.
++        if attr in {"apply_chat_template", "tokenizer"}:
++            return lm_attr
+ 
+         def fn(requests):
+             res = []

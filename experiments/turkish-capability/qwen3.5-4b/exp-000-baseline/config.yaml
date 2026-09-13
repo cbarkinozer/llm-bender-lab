@@ -1,0 +1,28 @@
+experiment:
+  id: exp-000-baseline
+  parent: null
+  status: planned
+  domain: turkish-capability
+
+model:
+  name: Qwen/Qwen3.5-4B
+  revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+  tokenizer_revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+  artifact: starting-model
+  input_mode: text-only
+
+training:
+  enabled: false
+  method: none
+
+evaluation:
+  config: configs/evaluation/turkish-cetvel-v1.yaml
+  results_directory: results
+  retain_per_item_outputs: true
+
+reproducibility:
+  run_manifest_required: true
+  effective_config_required: true
+  environment_snapshot_required: true
+  hardware_snapshot_required: true
+

@@ -57,6 +57,9 @@ cover/
 
 # Django stuff:
 *.log
+# Experiment run logs (server.log, run.log, gpu-samples.csv, etc.) are part of
+# the reproducibility record and must not be silently dropped by *.log above.
+!experiments/**/*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

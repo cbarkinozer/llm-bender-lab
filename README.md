@@ -59,7 +59,7 @@ The intention is to keep the experiments small enough to reproduce locally while
 
 - **Model:** `Qwen3.5-4B`
 - **Primary evaluation:** CETVEL
-- **Method:** QLoRA / SFT
+- **Method:** BF16 LoRA / SFT with Unsloth
 
 The first experiment asks a relatively simple question:
 
@@ -67,7 +67,7 @@ The first experiment asks a relatively simple question:
 
 Rather than evaluating the result subjectively by chatting with the model, the experiment will use **CETVEL** as an external Turkish benchmark.
 
-The base model will first be evaluated on CETVEL to establish a baseline. A Turkish instruction dataset will then be created or assembled independently of the benchmark, followed by QLoRA fine-tuning.
+The base model will first be evaluated on CETVEL to establish a baseline. A Turkish instruction dataset will then be created or assembled independently of the benchmark, followed by BF16 LoRA fine-tuning with Unsloth. QLoRA is intentionally avoided because Unsloth reports higher-than-normal quantization differences for Qwen3.5.
 
 The same CETVEL evaluation will then be repeated under identical inference settings.
 
@@ -80,7 +80,7 @@ CETVEL baseline
       ↓
 Turkish training corpus
       ↓
-QLoRA / SFT
+BF16 LoRA / SFT
       ↓
 CETVEL evaluation
       ↓
