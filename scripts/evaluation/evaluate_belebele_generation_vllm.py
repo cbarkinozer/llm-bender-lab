@@ -4,10 +4,16 @@
 Mirrors evaluate_belebele_generation.py (Transformers backend) field-for-field
 so the two protocols are directly comparable, but issues requests to a running
 vLLM OpenAI-compatible server instead of calling model.generate() locally.
-Requests are sent sequentially (one in flight at a time) to match the
-Transformers protocol's batch_size=1 and keep this run free of concurrent-
-batching nondeterminism; see docs/evaluation-guide.md before enabling
-concurrency here.
+
+Requests may be sent concurrently (--concurrency > 1) to use vLLM's continuous
+batching. Greedy decoding (temperature=0) is expected to be batch-invariant
+per-sequence, but this was spot-checked, not just assumed -- see
+validate_vllm_concurrency.py and the concurrency-validation entries in
+protocol-notes.md before trusting a concurrent run's conclusions. Rows are
+collected in memory and written to samples.jsonl sorted by index once all
+requests complete, so the file (and its sha256) is deterministic regardless of
+completion order; a crash mid-run loses the whole run's rows rather than a
+partial file.
 
 Do not compare scores from this protocol against the CETVEL likelihood
 baseline (belebele-dev) or mix them with the Transformers generation
@@ -25,6 +31,7 @@ import re
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import datasets
@@ -52,6 +59,7 @@ def args() -> argparse.Namespace:
     parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--seed", type=int, default=3407)
     parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--concurrency", type=int, default=1)
     return parser.parse_args()
 
 
@@ -126,7 +134,7 @@ def main() -> int:
             "note": "reasoning/content already split server-side by --reasoning-parser qwen3; unlike the Transformers protocol, no local <think> tag parsing is needed",
         },
         "dataset": {"name": DATASET, "revision": DATASET_REVISION, "config": DATASET_CONFIG, "split": "test", "selection": f"range({cfg.start_index},{end_index})", "selected_documents_sha256": digest(documents_blob)},
-        "decoding": {"do_sample": False, "temperature": 0.0, "top_p": None, "top_k": None, "max_new_tokens": cfg.max_new_tokens, "concurrency": 1},
+        "decoding": {"do_sample": False, "temperature": 0.0, "top_p": None, "top_k": None, "max_new_tokens": cfg.max_new_tokens, "concurrency": cfg.concurrency},
         "chat_template": {"native": True, "enable_thinking": cfg.mode == "thinking", "add_generation_prompt": True, "semantic_prompts_sha256": digest(prompts_blob)},
         "reproducibility": {"seed": cfg.seed, "python_hash_seed": os.environ.get("PYTHONHASHSEED")},
         "software": {"python": sys.version, "platform": platform.platform(), "datasets": datasets.__version__},
@@ -136,42 +144,55 @@ def main() -> int:
     }
     (cfg.output_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    def run_one(index: int, doc: dict) -> dict:
+        prompt = make_prompt(doc)
+        started = time.perf_counter()
+        response = client.chat.completions.create(
+            model=MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0,
+            max_tokens=cfg.max_new_tokens,
+            extra_body={"chat_template_kwargs": {"enable_thinking": cfg.mode == "thinking"}},
+        )
+        latency = time.perf_counter() - started
+        message = response.choices[0].message
+        content = message.content or ""
+        reasoning = getattr(message, "reasoning", None) or ""
+        raw = (reasoning + "\n" + content) if reasoning else content
+        prediction, parser = extract_answer(content, raw)
+        gold = LETTERS[int(doc["correct_answer_num"]) - 1]
+        usage = response.usage
+        hit_cap = response.choices[0].finish_reason == "length"
+        reasoning_tokens = usage.completion_tokens_details.reasoning_tokens if usage.completion_tokens_details else None
+        return {
+            "index": index, "document_sha256": digest(canonical(doc)), "semantic_prompt_sha256": digest(prompt),
+            "document": doc, "semantic_prompt": prompt, "raw_output": raw, "reasoning": reasoning, "answer_text": content,
+            "reasoning_language": language_heuristic(reasoning), "prediction": prediction, "gold": gold, "correct": prediction == gold, "parser": parser,
+            "finish_reason": response.choices[0].finish_reason,
+            "prompt_tokens": usage.prompt_tokens, "generated_tokens": usage.completion_tokens, "reasoning_tokens": reasoning_tokens,
+            "hit_max_new_tokens": hit_cap, "latency_seconds": latency,
+        }
+
     totals = {"correct": 0, "parsed": 0, "truncated": 0, "prompt_tokens": 0, "generated_tokens": 0, "reasoning_tokens": 0, "generation_seconds": 0.0}
-    sample_path = cfg.output_dir / "samples.jsonl"
-    with sample_path.open("w", encoding="utf-8", buffering=1) as stream:
-        for index, doc in enumerate(selected, start=cfg.start_index):
-            prompt = make_prompt(doc)
-            started = time.perf_counter()
-            response = client.chat.completions.create(
-                model=MODEL,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0,
-                max_tokens=cfg.max_new_tokens,
-                extra_body={"chat_template_kwargs": {"enable_thinking": cfg.mode == "thinking"}},
-            )
-            latency = time.perf_counter() - started
-            message = response.choices[0].message
-            content = message.content or ""
-            reasoning = getattr(message, "reasoning", None) or ""
-            raw = (reasoning + "\n" + content) if reasoning else content
-            prediction, parser = extract_answer(content, raw)
-            gold = LETTERS[int(doc["correct_answer_num"]) - 1]
-            usage = response.usage
-            hit_cap = response.choices[0].finish_reason == "length"
-            reasoning_tokens = usage.completion_tokens_details.reasoning_tokens if usage.completion_tokens_details else None
-            row = {
-                "index": index, "document_sha256": digest(canonical(doc)), "semantic_prompt_sha256": digest(prompt),
-                "document": doc, "semantic_prompt": prompt, "raw_output": raw, "reasoning": reasoning, "answer_text": content,
-                "reasoning_language": language_heuristic(reasoning), "prediction": prediction, "gold": gold, "correct": prediction == gold, "parser": parser,
-                "finish_reason": response.choices[0].finish_reason,
-                "prompt_tokens": usage.prompt_tokens, "generated_tokens": usage.completion_tokens, "reasoning_tokens": reasoning_tokens,
-                "hit_max_new_tokens": hit_cap, "latency_seconds": latency,
-            }
-            stream.write(json.dumps(row, ensure_ascii=False, default=str) + "\n")
-            totals["correct"] += int(row["correct"]); totals["parsed"] += int(prediction is not None); totals["truncated"] += int(hit_cap)
+    rows: list[dict] = []
+    indexed_docs = list(enumerate(selected, start=cfg.start_index))
+    with ThreadPoolExecutor(max_workers=cfg.concurrency) as pool:
+        futures = {pool.submit(run_one, index, doc): index for index, doc in indexed_docs}
+        completed = 0
+        for future in as_completed(futures):
+            row = future.result()
+            rows.append(row)
+            completed += 1
+            totals["correct"] += int(row["correct"]); totals["parsed"] += int(row["prediction"] is not None); totals["truncated"] += int(row["hit_max_new_tokens"])
             totals["prompt_tokens"] += row["prompt_tokens"]; totals["generated_tokens"] += row["generated_tokens"]
-            totals["reasoning_tokens"] += reasoning_tokens or 0; totals["generation_seconds"] += latency
-            print(canonical({"index": index, "prediction": prediction, "gold": gold, "correct": row["correct"], "generated_tokens": row["generated_tokens"], "latency_seconds": round(latency, 3)}), flush=True)
+            totals["reasoning_tokens"] += row["reasoning_tokens"] or 0; totals["generation_seconds"] += row["latency_seconds"]
+            print(canonical({"index": row["index"], "prediction": row["prediction"], "gold": row["gold"], "correct": row["correct"], "generated_tokens": row["generated_tokens"], "latency_seconds": round(row["latency_seconds"], 3), "progress": f"{completed}/{len(indexed_docs)}"}), flush=True)
+
+    rows.sort(key=lambda r: r["index"])
+    sample_path = cfg.output_dir / "samples.jsonl"
+    with sample_path.open("w", encoding="utf-8") as stream:
+        for row in rows:
+            stream.write(json.dumps(row, ensure_ascii=False, default=str) + "\n")
 
     summary = {
         "protocol": manifest["protocol"], "mode": cfg.mode, "items": cfg.limit, **totals,

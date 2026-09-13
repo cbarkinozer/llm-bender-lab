@@ -11,6 +11,8 @@ start_index="${BELEBELE_START_INDEX:-0}"
 limit="${BELEBELE_LIMIT:-100}"
 max_new_tokens_direct="${BELEBELE_MAX_NEW_TOKENS_DIRECT:-512}"
 max_new_tokens_thinking="${BELEBELE_MAX_NEW_TOKENS_THINKING:-2048}"
+concurrency_direct="${BELEBELE_CONCURRENCY_DIRECT:-1}"
+concurrency_thinking="${BELEBELE_CONCURRENCY_THINKING:-1}"
 seed="${BELEBELE_SEED:-3407}"
 run_id="${BELEBELE_RUN_ID:-$(date -u +%Y%m%dT%H%M%SZ)}"
 result_dir="${repo_root}/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/belebele-generation-vllm/${run_id}"
@@ -80,14 +82,23 @@ test -s "${result_dir}/models.json"
 
 for mode in direct thinking; do
   max_new_tokens="${max_new_tokens_direct}"
-  [ "${mode}" = thinking ] && max_new_tokens="${max_new_tokens_thinking}"
+  concurrency="${concurrency_direct}"
+  [ "${mode}" = thinking ] && max_new_tokens="${max_new_tokens_thinking}" && concurrency="${concurrency_thinking}"
+
+  if [ "${concurrency}" -gt 1 ]; then
+    python "${repo_root}/scripts/evaluation/validate_vllm_concurrency.py" \
+      --mode "${mode}" --start-index "${start_index}" --limit 20 \
+      --max-new-tokens "${max_new_tokens}" --concurrency "${concurrency}" --port "${port}" \
+      | tee "${result_dir}/concurrency-validation-${mode}.json"
+  fi
+
   printf '%q ' python "${repo_root}/scripts/evaluation/evaluate_belebele_generation_vllm.py" \
     --output-dir "${result_dir}/${mode}" --mode "${mode}" --start-index "${start_index}" --limit "${limit}" \
-    --max-new-tokens "${max_new_tokens}" --seed "${seed}" --port "${port}" >"${result_dir}/command-${mode}.txt"
+    --max-new-tokens "${max_new_tokens}" --seed "${seed}" --port "${port}" --concurrency "${concurrency}" >"${result_dir}/command-${mode}.txt"
   printf '\n' >>"${result_dir}/command-${mode}.txt"
   python "${repo_root}/scripts/evaluation/evaluate_belebele_generation_vllm.py" \
     --output-dir "${result_dir}/${mode}" --mode "${mode}" --start-index "${start_index}" --limit "${limit}" \
-    --max-new-tokens "${max_new_tokens}" --seed "${seed}" --port "${port}"
+    --max-new-tokens "${max_new_tokens}" --seed "${seed}" --port "${port}" --concurrency "${concurrency}"
 done
 
 python "${repo_root}/scripts/evaluation/paired_analysis_belebele.py" \

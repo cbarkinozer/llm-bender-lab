@@ -1,0 +1,34 @@
+{
+  "mode": "direct",
+  "items_checked": 4,
+  "concurrency_tested": 16,
+  "match": false,
+  "mismatches": [
+    {
+      "index": 300,
+      "sequential": {
+        "prediction": "C",
+        "generated_tokens": 326,
+        "answer_text": "Metinde tutuklanan kişinin kim olduğu açıkça belirtilmiştir: \"suçlunun Red Lake Tribal Başkanı Floyd Jourdain'in 16 yaşındaki oğlu Louis Jourdain olduğunu ifade etti\". Bu ifade, tutuklanan kişinin Red"
+      },
+      "concurrent": {
+        "prediction": "C",
+        "generated_tokens": 318,
+        "answer_text": "Metinde tutuklanan kişinin kim olduğu açıkça belirtilmiştir: \"suçlunun Red Lake Tribal Başkanı Floyd Jourdain'in 16 yaşındaki oğlu Louis Jourdain olduğunu ifade etti\". Bu ifade, tutuklanan kişinin Red"
+      }
+    },
+    {
+      "index": 302,
+      "sequential": {
+        "prediction": "A",
+        "generated_tokens": 169,
+        "answer_text": "Metne göre, Polonya ACTA'yı imzaladığında büyük protestolar yapılmış ve hükümet anlaşmayı onaylamamaya karar vermiştir. Ayrıca Letonya ve Slovakya imzalama sürecini ertelemiştir. Almanya'da (Berlin, K"
+      },
+      "concurrent": {
+        "prediction": "A",
+        "generated_tokens": 168,
+        "answer_text": "Metne göre, Polonya ACTA'yı imzaladığında büyük protestolar yapılmış ve hükümet anlaşmayı onaylamamaya karar vermiştir. Ayrıca Letonya ve Slovakya imzalama sürecini ertelemiştir. Metinde Almanya'nın A"
+      }
+    }
+  ]
+}

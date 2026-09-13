@@ -241,3 +241,55 @@ indices would close this gap. Different item ranges (0-99 vs. 100-299) are
 also a partial confound alongside the cap change — a same-range, same-cap
 rerun would isolate the cap effect more cleanly if this needs to be publication
 -grade rather than a development-time observation.
+
+### Concurrent batching is NOT safe at this concurrency on this build — do not use without re-validating
+
+To speed up a planned 500-item follow-up (items 300-799, same 4096 thinking
+cap), `evaluate_belebele_generation_vllm.py` gained a `--concurrency` option
+(`ThreadPoolExecutor` over the OpenAI client) and
+`run_belebele_generation_vllm.sh` a matching `BELEBELE_CONCURRENCY_DIRECT` /
+`BELEBELE_CONCURRENCY_THINKING`. A new `validate_vllm_concurrency.py` spot-
+checks concurrency=1 vs. the target concurrency on a handful of items from the
+same run before the full batch is trusted, per the handoff's original caution
+("measure 1-request parity first, then concurrent batching reproducibility
+before launching N questions").
+
+**First validation attempt** (concurrency=16, direct mode, 4 items, exact-text
+match required): failed — 2/4 items differed in raw generated text (different
+token counts, diverging mid-generation), though the two observed cases still
+agreed on the extracted `FINAL: X` answer. Exact-text equality was judged too
+strict a bar: this project's own sequential vLLM run already disagrees with
+the Transformers backend at the token level while agreeing on the answer, so
+demanding byte-identical output between concurrency levels was inconsistent
+with how the rest of this protocol already tolerates backend-level decoding
+differences. Result:
+`results/belebele-generation-vllm/20260913T143757Z/concurrency-validation-direct.json`.
+
+**Validator loosened** to fail only on a *prediction*-level mismatch
+(different extracted answer or different correctness), reporting raw-text
+divergence as informational context instead of a hard failure, and the sample
+size raised from 4 to 20 items for more statistical confidence.
+
+**Second validation attempt** (concurrency=16, direct mode, 20 items):
+**failed for real** — 2/20 items (10%) had a different extracted answer *and*
+different correctness between concurrency=1 and concurrency=16 (indices 314
+and 317; one flipped wrong→right, one flipped right→null/wrong). Text
+divergence rate was 65% (13/20), confirming batched decoding meaningfully
+perturbs generation on this vLLM build (`0.29.1rc1.dev17`) at this
+concurrency, likely compounded by the non-JIT sampler fallback
+(`VLLM_USE_FLASHINFER_SAMPLER=0`, see above) — not investigated further. A
+10% answer-flip rate is not noise that can be waved away: it is comparable to
+or larger than the ~1pp direct-vs-thinking gap this whole exercise is trying
+to resolve. Result:
+`results/belebele-generation-vllm/20260913T144342Z/concurrency-validation-direct.json`.
+
+**Decision: fell back to sequential (`--concurrency 1`) for the 500-item
+run.** GPU-hour cost on this host is cheap (~$0.74/hr); the risk of
+contaminating the actual measurement with concurrency-dependent answer flips
+was judged not worth the wall-clock savings. If concurrent batching is
+revisited later (e.g. to speed up a much larger run), re-run
+`validate_vllm_concurrency.py` at the intended concurrency first — do not
+assume a validated concurrency level from one vLLM version carries over to
+another, and consider testing whether the divergence rate drops with a
+non-JIT-sampler-free build or a different `--max-num-seqs`/batching
+configuration before trusting it.
