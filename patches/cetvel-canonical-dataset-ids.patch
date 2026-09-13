@@ -9,3 +9,27 @@ index 59e2c9e..db132b6 100644
  dataset_name: null
  output_type: multiple_choice
  training_split: train
+diff --git a/tasks/nli_tr/mnli_tr.yaml b/tasks/nli_tr/mnli_tr.yaml
+index 137c1da..7f90de5 100644
+--- a/tasks/nli_tr/mnli_tr.yaml
++++ b/tasks/nli_tr/mnli_tr.yaml
+@@ -1,6 +1,6 @@
+ include: nli_tr_common.yaml
+ task: mnli_tr
+-dataset_path: nli_tr
++dataset_path: boun-tabi/nli_tr
+ dataset_name: multinli_tr
+ training_split: train
+ validation_split: validation_matched
+diff --git a/tasks/nli_tr/snli_tr.yaml b/tasks/nli_tr/snli_tr.yaml
+index df3cb08..4da55a0 100644
+--- a/tasks/nli_tr/snli_tr.yaml
++++ b/tasks/nli_tr/snli_tr.yaml
+@@ -1,6 +1,6 @@
+ include: nli_tr_common.yaml
+ task: snli_tr
+-dataset_path: nli_tr
++dataset_path: boun-tabi/nli_tr
+ dataset_name: snli_tr
+ training_split: train
+ validation_split: validation
