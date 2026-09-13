@@ -346,3 +346,62 @@ currently-truncated items would be the next step if a fully clean comparison
 is ever needed; for the purposes of this baseline, the conclusion is: **do
 not claim thinking mode helps or hurts Turkish reading-comprehension accuracy
 based on this evidence** — it does neither, measurably, at this token budget.
+
+## The CETVEL likelihood baseline (29.67%) is a scoring artifact, not a capability measurement
+
+Investigated why the CETVEL `belebele_tr` likelihood score (300 items,
+2026-09-13T10-11-50) sits barely above random chance (25% for 4-way MC).
+Checked which of the four options (A/B/C/D) had the highest raw
+log-likelihood on every item, independent of gold answer:
+
+- **Option C wins on 290/300 items (96.7%)**, with a nearly constant
+  ~3-5 nat gap over A/B/D (mean logprob: A=-21.17, B=-22.82, **C=-18.16**,
+  D=-21.44; stdev ~1.1-1.4 for all four, so this is not a few outliers
+  driving the mean — it is close to a fixed per-position offset applied
+  almost everywhere).
+- Gold answers are close to evenly split (A=79, B=79, C=79, D=63). A
+  degenerate "always answer C" strategy alone would score 79/300 = 26.3% —
+  the observed 29.67% is barely above that floor.
+- **Control:** the vLLM generation protocol's prediction distribution on
+  the same underlying dataset (500 items, direct mode) is close to
+  balanced (A=102, B=136, C=127, D=96) and tracks the gold distribution,
+  with no collapse onto any single letter. This rules out "the dataset
+  itself is biased toward C" and confirms the collapse is specific to
+  raw-logprob multiple-choice scoring on this chat-tuned model, not a
+  property of the content or the model's real capability.
+
+This matches a documented, known failure mode of raw-logprob MCQA scoring
+on instruction/chat-tuned models: the model's baseline completion
+probability for a bare option-letter token can carry a large positional/
+calibration bias that has nothing to do with the actual question, because
+chat-tuned models are not trained to produce well-calibrated raw
+continuation likelihoods for a single letter after a template like this.
+`acc_norm` (length-normalized) does not help here, since all four
+continuations are the same short letter string, so length normalization
+has nothing to correct.
+
+**Consequence:** the CETVEL likelihood-scored `belebele_tr` result cannot
+be used as evidence about the model's Turkish reading comprehension. It
+is measuring the harness/scoring-method's calibration bias, and this
+bias plausibly extends to every other log-likelihood/MC-scored CETVEL
+task using the same request pattern (`exams_tr`, `xcopa_tr`, `nli_tr`,
+`news_cat`, `ironytr`, `offenseval_tr`, `sts_tr`, `trclaim19`,
+`turkish_plu`, `xfact_tr`) — it was not caused by anything specific to
+Belebele's content, so there is no reason to expect it is confined to
+this one task. CETVEL's *generation*-scored tasks (`gecturk_generation`,
+`mkqa_tr`, `mlsum_tr`, `tr-wikihow-summ`, `wiki_lingua_tr`,
+`wmt-tr-en-prompt`, `xlsum_tr`) do not pick among lettered options and
+are not expected to share this specific artifact, though they have their
+own open concerns (chat-template/thinking-mode handling, already flagged
+above).
+
+**Before running full CETVEL:** spot-check 2-3 more of the MC/log-likelihood
+tasks the same way (does one option dominate the argmax regardless of
+content?) rather than assuming the bias is Belebele-specific. If it
+reproduces, the MC-task half of CETVEL needs either a debiasing/calibration
+step (e.g. contrastive/channel-normalized scoring) or a generation-based
+rescoring (model actually writes an answer, parsed like the Belebele
+protocol above) before its number means anything — running the full suite
+as currently configured would very likely just reproduce this same
+artifact across roughly half the task list at GPU-hour cost, without
+producing a trustworthy score.
