@@ -1,0 +1,17 @@
+    PID    PPID %CPU %MEM   RSS    VSZ     ELAPSED CMD
+      1       0  0.0  0.0   828   1136    05:41:27 /sbin/docker-init -- /opt/nvidia/nvidia_entrypoint.sh /start.sh
+     57       1  0.0  0.0  3356   4496    05:41:26 /bin/bash /start.sh
+     90       1  0.0  0.0  1724  10348    05:41:26 nginx: master process /usr/sbin/nginx
+     91      90  0.0  0.0  3584  11208    05:41:26 nginx: worker process
+    112       1  0.0  0.0  5612  15432    05:41:26 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+    117      57  0.0  0.0  1896   4496    05:41:26 /bin/bash /start.sh
+    122     117  0.0  0.0 86104 169672    05:41:26 /usr/bin/python /usr/local/bin/jupyter-lab --allow-root --no-browser --port=8888 --ip=* --FileContentsManager.delete_to_trash=False --ServerApp.terminado_settings={"shell_command":["/bin/bash"]} --ServerApp.token=dxc0o4cchbshhr0v1rrn --ServerApp.allow_origin=* --ServerApp.preferred_dir=/workspace
+    123      57  0.0  0.0  1592   2792    05:41:26 sleep infinity
+    131       1  0.0  0.0 13652 4004292   05:41:25 gotty -w --random-url-length 32 -r --ws-origin .* -p 19123 env TERM=xterm bash --rcfile /root/.runpod-web-terminal.bashrc
+    541     131  0.0  0.0  3784   4628    05:40:10 bash --rcfile /root/.runpod-web-terminal.bashrc
+  17995     112  0.5  0.0 10660  16676       00:04 sshd: root@notty
+  18009       1  0.0  0.0  1736   4364       00:02 bash -c nvidia-smi --query-gpu=memory.used --format=csv; cd /workspace/llm-bender-lab && BELEBELE_START_INDEX=300 BELEBELE_LIMIT=500 BELEBELE_MAX_NEW_TOKENS_THINKING=4096 BELEBELE_MAX_NEW_TOKENS_DIRECT=512 BELEBELE_CONCURRENCY_DIRECT=1 BELEBELE_CONCURRENCY_THINKING=1 nohup bash scripts/evaluation/run_belebele_generation_vllm.sh > /tmp/run500c.log 2>&1 & echo STARTED_PID=$!; date -u +%Y-%m-%dT%H:%M:%SZ
+  18010   18009  0.0  0.0  3148   4364       00:02 bash scripts/evaluation/run_belebele_generation_vllm.sh
+  18015   18010  0.0  0.0  1668   4364       00:02 bash scripts/evaluation/run_belebele_generation_vllm.sh
+  18016   18015  0.0  0.0  1628   2796       00:02 tee /workspace/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-000-baseline/results/belebele-generation-vllm/20260913T144715Z/run.log
+  18022   18010  0.0  0.0  2824   7064       00:00 ps -eo pid,ppid,pcpu,pmem,rss,vsz,etime,cmd

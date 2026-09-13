@@ -293,3 +293,56 @@ assume a validated concurrency level from one vLLM version carries over to
 another, and consider testing whether the divergence rate drops with a
 non-JIT-sampler-free build or a different `--max-num-seqs`/batching
 configuration before trusting it.
+
+### vLLM 500-item paired evaluation (items 300-799, thinking cap 4096, sequential)
+
+Run: same script, `BELEBELE_START_INDEX=300 BELEBELE_LIMIT=500
+BELEBELE_MAX_NEW_TOKENS_THINKING=4096 BELEBELE_CONCURRENCY_DIRECT=1
+BELEBELE_CONCURRENCY_THINKING=1`, started 2026-09-13T14:47:15Z, finished
+2026-09-13T18:10:31Z (~3.4h wall, almost entirely thinking mode). Fresh item
+range, non-overlapping with both prior runs (0-99, 100-299).
+
+| | Direct | Thinking |
+|---|---|---|
+| Accuracy | 81.2% | 78.2% |
+| Parser success | 92.2% | 82.0% |
+| Truncated | 6.2% | 21.0% |
+| Mean generated tokens | 183 | 2,269 |
+| Mean latency/item | 1.9 s | 22.7 s |
+
+Paired (McNemar): both correct 360, both wrong 63, direct-correct/thinking-
+wrong 46, direct-wrong/thinking-correct 31. Statistic 2.545 (χ²(1) critical
+3.841) — not significant, but closer to the boundary than the n=200 run, and
+nominally favoring direct again. Truncation rose to 21% at the same 4096 cap
+that produced 15.5% on items 100-299 — most likely natural passage-length/
+complexity variance across this different item range rather than a real
+regression, but it means the token-budget confound from the n=100 result
+hasn't fully disappeared even at 4096.
+
+### Combined conclusion across both cap=4096 runs (n=700, items 100-299 + 300-799)
+
+Pooling the two independent, non-overlapping samples that share the same
+protocol and token cap (excluding the n=100/cap=2048 run, which used a
+different, since-corrected cap):
+
+- Direct: 572/700 correct = **81.7%**
+- Thinking: 559/700 correct = **79.9%**
+- Contingency: both correct 515, both wrong 84, direct-only-correct 57,
+  thinking-only-correct 44
+- **Pooled McNemar = 1.43** (χ²(1) critical 3.841) — **not significant**
+- Pooled truncation: direct 5.9%, thinking 19.4%; pooled parser success:
+  direct 92.4%, thinking 83.0%
+
+**This is the answer to the original question.** Across 700 items at a
+4096-token cap, direct and thinking mode are statistically indistinguishable
+on Turkish reading comprehension (Belebele). There is a small, consistent,
+non-significant edge toward direct (visible in 2 of 3 independent samples: a
+large gap at n=100/cap=2048 that was mostly a truncation artifact, near-parity
+at n=200, and a 3pp direct edge at n=500) but it never clears the
+significance bar, and thinking mode's truncation rate (~19% pooled) means
+this remains mildly conservative against thinking rather than a clean,
+unconfounded comparison. A materially higher cap (8192+) restricted to
+currently-truncated items would be the next step if a fully clean comparison
+is ever needed; for the purposes of this baseline, the conclusion is: **do
+not claim thinking mode helps or hurts Turkish reading-comprehension accuracy
+based on this evidence** — it does neither, measurably, at this token budget.
