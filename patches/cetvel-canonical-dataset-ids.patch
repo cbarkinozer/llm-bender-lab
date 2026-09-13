@@ -33,3 +33,102 @@ index df3cb08..4da55a0 100644
  dataset_name: snli_tr
  training_split: train
  validation_split: validation
+diff --git a/tasks/nli_tr/xnli_tr.yaml b/tasks/nli_tr/xnli_tr.yaml
+index 0000000..0000000 100644
+--- a/tasks/nli_tr/xnli_tr.yaml
++++ b/tasks/nli_tr/xnli_tr.yaml
+@@ -1,7 +1,7 @@
+ include: nli_tr_common.yaml
+ task: xnli_tr
+-dataset_path: xnli
++dataset_path: facebook/xnli
+ dataset_name: tr
+ training_split: train
+ validation_split: validation
+ test_split: test
+diff --git a/tasks/mlsum/mlsum_tr.yaml b/tasks/mlsum/mlsum_tr.yaml
+index ac79663..108a1d5 100644
+--- a/tasks/mlsum/mlsum_tr.yaml
++++ b/tasks/mlsum/mlsum_tr.yaml
+@@ -1,5 +1,5 @@
+ task: mlsum_tr
+-dataset_path: mlsum
++dataset_path: reciTAL/mlsum
+ dataset_name: tu
+ training_split: train
+ validation_split: validation
+diff --git a/tasks/offenseval_tr/offenseval_tr.yaml b/tasks/offenseval_tr/offenseval_tr.yaml
+index 8cb783c..adfe5c2 100644
+--- a/tasks/offenseval_tr/offenseval_tr.yaml
++++ b/tasks/offenseval_tr/offenseval_tr.yaml
+@@ -1,5 +1,5 @@
+ task: offenseval_tr
+-dataset_path: offenseval2020_tr
++dataset_path: coltekin/offenseval2020_tr
+ output_type: multiple_choice
+ training_split: train
+ test_split: train
+diff --git a/tasks/wmt2016/en_tr_prompt.yaml b/tasks/wmt2016/en_tr_prompt.yaml
+index cfa0634..121681d 100644
+--- a/tasks/wmt2016/en_tr_prompt.yaml
++++ b/tasks/wmt2016/en_tr_prompt.yaml
+@@ -1,7 +1,7 @@
+ group:
+   - wmt-t5-prompt
+ task: wmt-en-tr-prompt
+-dataset_path: wmt16
++dataset_path: wmt/wmt16
+ dataset_name: tr-en
+ training_split: train
+ validation_split: validation
+diff --git a/tasks/wmt2016/tr_en-mBart.yaml b/tasks/wmt2016/tr_en-mBart.yaml
+index d8858d0..f30f60a 100644
+--- a/tasks/wmt2016/tr_en-mBart.yaml
++++ b/tasks/wmt2016/tr_en-mBart.yaml
+@@ -1,7 +1,7 @@
+ group:
+   - wmt-mBart-prompt
+ task: wmt-tr-en-mBart-prompt
+-dataset_path: wmt16
++dataset_path: wmt/wmt16
+ dataset_name: tr-en
+ training_split: train
+ validation_split: validation
+diff --git a/tasks/wmt2016/tr_en-t5_prompt.yaml b/tasks/wmt2016/tr_en-t5_prompt.yaml
+index 8f4cc90..052786e 100644
+--- a/tasks/wmt2016/tr_en-t5_prompt.yaml
++++ b/tasks/wmt2016/tr_en-t5_prompt.yaml
+@@ -1,7 +1,7 @@
+ group:
+   - wmt-t5-prompt
+ task: wmt-tr-en-t5-prompt
+-dataset_path: wmt16
++dataset_path: wmt/wmt16
+ dataset_name: tr-en
+ training_split: train
+ validation_split: validation
+diff --git a/tasks/wmt2016/tr_en_prompt.yaml b/tasks/wmt2016/tr_en_prompt.yaml
+index 386d0d4..ded42dd 100644
+--- a/tasks/wmt2016/tr_en_prompt.yaml
++++ b/tasks/wmt2016/tr_en_prompt.yaml
+@@ -1,7 +1,7 @@
+ group:
+   - wmt-t5-prompt
+ task: wmt-tr-en-prompt
+-dataset_path: wmt16
++dataset_path: wmt/wmt16
+ dataset_name: tr-en
+ training_split: train
+ validation_split: validation
+diff --git a/tasks/xcopa/default_et.yaml b/tasks/xcopa/default_et.yaml
+index 9f2b0b7..46ad648 100644
+--- a/tasks/xcopa/default_et.yaml
++++ b/tasks/xcopa/default_et.yaml
+@@ -1,6 +1,6 @@
+ group: xcopa
+ task: xcopa_et
+-dataset_path: xcopa
++dataset_path: cambridgeltl/xcopa
+ dataset_name: et
+ output_type: multiple_choice
+ validation_split: validation
