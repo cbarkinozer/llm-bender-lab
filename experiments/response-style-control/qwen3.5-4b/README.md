@@ -70,14 +70,18 @@ See `exp-001-sft-dataset/` for the taxonomy. Summary of what to build:
 The regression benchmark for open-ended instruction-following/reasoning is
 not yet selected.
 
-## Relationship to the 0.8B efficiency track
+## Relationship to the project roadmap / 0.8B
 
-Per discussion: build and validate this style dataset on the 4B model
-first (reusing the diagnostic infra already built), then transfer the
-methodology to a Qwen3.5-0.8B efficiency experiment once it's proven here.
-Do not skip straight to 0.8B before this dataset exists and works — that
-means debugging a new dataset and a new (much weaker) base model at the
-same time.
+This experiment *is* the root README's roadmap item 3, "Efficient Tiny
+Assistant" — retargeted to start on `Qwen3.5-4B` instead of `Qwen3.5-0.8B`
+(see the root `README.md`'s model-choice note under that section). Decision:
+stay on 4B for now, don't drop to 0.8B yet. Two reasons: 0.8B genuinely risks
+being too weak to reliably learn a new communication policy, and this
+project is still new enough that proving the dataset/method on the more
+capable model first is the safer sequencing — debugging a new dataset and a
+much weaker model at the same time is a harder problem to take on right now.
+`0.8B` is deferred, not abandoned: it's the harder/later step, to be
+attempted once this experiment's dataset and method are validated here.
 
 ## Current selection
 

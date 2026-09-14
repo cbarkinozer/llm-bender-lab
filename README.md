@@ -49,7 +49,7 @@ The roadmap progresses through four increasingly difficult problems:
 3. Teaching a tiny model a highly efficient communication policy
 4. Specializing a model around an agentic software-engineering workflow
 
-The experiments primarily use models from the Qwen3.5 family. `0.8B` is preferred when the target behavior does not require substantial additional model capacity, while `4B` is used when language understanding, reasoning, coding ability, or cross-lingual transfer are likely to become bottlenecks.
+The experiments primarily use models from the Qwen3.5 family. `0.8B` is preferred when the target behavior does not require substantial additional model capacity, while `4B` is used when language understanding, reasoning, coding ability, or cross-lingual transfer are likely to become bottlenecks — and, in practice so far, whenever the project is still validating a new dataset/method for the first time, since debugging the method and a weak model simultaneously is avoided. `0.8B` is treated as a later step, attempted once a given behavioral target has already been proven on `4B`.
 
 The intention is to keep the experiments small enough to reproduce locally while still producing meaningful and measurable results.
 
@@ -90,6 +90,8 @@ CETVEL evaluation
 The CETVEL evaluation set must remain completely outside the training corpus. Benchmark questions, translated versions of benchmark questions, or obviously derivative examples should not be included in training.
 
 This experiment establishes the basic training and evaluation pipeline that can later be reused for more difficult experiments.
+
+**Outcome (see `experiments/turkish-capability/`):** the baseline diagnostic found no Turkish-fluency gap — the model's raw Turkish is already fluent and grammatically correct. The actual, reproducible weakness is that it won't emit a bare/terse answer under a structured-task prompt (GEC, extractive QA, summarization); it defaults to explaining itself instead of completing the task. That finding turned out to be exactly the "Efficient Tiny Assistant" behavioral-specialization question below, just discovered empirically through Turkish rather than planned from scratch. This experiment line is closed; the follow-up lives in `experiments/response-style-control/` and folds into experiment 3.
 
 #### Main measurements
 
@@ -242,10 +244,22 @@ This experiment is significantly harder than Turkish fine-tuning because the cen
 
 ### 3. Efficient Tiny Assistant
 
-- **Model:** `Qwen3.5-0.8B`
+- **Model:** `Qwen3.5-4B` (see model-choice note below — `0.8B` deferred)
 - **Stage 1:** SFT
 - **Stage 2:** Preference optimization / RLHF-style methods
 - **Primary objective:** useful information per generated token
+
+**Model choice note:** this was originally planned for `Qwen3.5-0.8B`. It now
+starts on `Qwen3.5-4B` instead, for two reasons: (1) this is precisely the
+weakness the Turkish-capability baseline surfaced empirically (experiment 1's
+outcome), and the diagnostic infrastructure and reused baseline are already on
+4B; (2) `0.8B` genuinely risks being too weak to reliably learn a new
+communication policy while the training/dataset methodology is still being
+proven — debugging a new dataset and a much smaller model at the same time is
+a harder problem than this project should take on yet. `0.8B` is not
+abandoned; it's deferred to later, once this experiment's dataset and method
+are validated on 4B and the project has more fine-tuning experience to spend
+on a harder target. Tracked in `experiments/response-style-control/`.
 
 The third experiment moves away from language acquisition and focuses on **behavioral specialization**.
 
@@ -591,7 +605,7 @@ Improve an existing language capability
    ↓
 Acquire/improve a low-resource language through synthetic cross-lingual data
 
-3. Efficient 0.8B Assistant
+3. Efficient Assistant (starts on 4B, 0.8B deferred)
    ↓
 Learn a highly constrained communication and optimization policy
 
@@ -604,9 +618,9 @@ Another way to view the progression is:
 
 | Experiment          | Model        | What is being taught?               | Main difficulty                                        |
 | ------------------- | ------------ | ----------------------------------- | ------------------------------------------------------ |
-| Turkish             | Qwen3.5-4B   | Language capability                 | Evaluation and dataset quality                         |
+| Turkish             | Qwen3.5-4B   | Language capability (found: not the actual gap) | Evaluation and dataset quality             |
 | Adige               | Qwen3.5-4B   | Low-resource language capability    | Data creation and validation                           |
-| Efficient Assistant | Qwen3.5-0.8B | Communication policy and efficiency | Multi-objective preference optimization                |
+| Efficient Assistant | Qwen3.5-4B (0.8B deferred) | Communication policy and efficiency | Multi-objective preference optimization  |
 | TDD Agent           | Qwen3.5-4B   | Agentic procedural behavior         | Trajectory generation and environment-based evaluation |
 
 Together, these experiments cover four important uses of post-training:
