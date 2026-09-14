@@ -16,14 +16,20 @@
   now 2 (down from 100). Per-row `quality_status` is still `needs_review` —
   the tail-diversity fix is not a substitute for the full manual review
   pass in `dataset-guide.md` §25-28.
-- `bare_qa_span.csv` — **not yet added.** 599 rows were generated but still
-  have two unresolved issues: (1) the same carrier-sentence-cloning problem
-  as `bare_gec` had (within each domain×answer_type cell, ~8-13 rows share
-  one sentence skeleton with only an entity swapped), and (2) a real
-  correctness bug — a `phrase`-type question template
-  (`"... ile ilgili yeni kuralın özü nedir?"`) was reused on a passage that
-  isn't about a rule at all, and contains its own grammar error
-  (`"Kreşte ile ilgili"`). Fix before adding to the repo.
+- `bare_qa_span.csv` — 547 rows (down from an initial 599; some dropped
+  during the fix pass below), fixed with Codex and re-verified here. The
+  original batch had the same carrier-sentence-cloning problem as
+  `bare_gec` (within each domain×answer_type cell, ~8-13 rows shared one
+  sentence skeleton with only an entity swapped) plus a real correctness
+  bug — a `phrase`-type question template
+  (`"... ile ilgili yeni kuralın özü nedir?"`) reused on a passage that
+  wasn't about a rule at all, with its own grammar error
+  (`"Kreşte ile ilgili"`). Both fixed: 544/547 rows now have distinct
+  sentence skeletons (multiple rotating structures per answer type, not one
+  clone), and the mismatched template only appears once, correctly. Still
+  `needs_review` per-row — this fix is diversity/correctness triage, not
+  the full manual review pass in `dataset-guide.md` §25-28.
 
-In progress — `bare_gec` is generated and diversity-fixed but not yet
-per-row reviewed; the other 4 categories are not started.
+In progress — `bare_gec` and `bare_qa_span` are generated and
+diversity/correctness-fixed but not yet through per-row manual review; the
+other 3 categories are not started.
