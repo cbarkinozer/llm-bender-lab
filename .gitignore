@@ -219,3 +219,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# External Wiktionary-derived source and generated lexicon: preserve locally
+# with pinned manifests, but do not commit a third-party corpus.
+datasets/adyghe/adyghe-english-wiktionary-v0.1/raw-source.tsv
+datasets/adyghe/adyghe-english-wiktionary-v0.1/lexicon.jsonl
+
+# Retired synthetic Adyghe--Russian cache. It is intentionally outside the
+# active SFT track; the provenance decision remains in exp-002.
+datasets/adyghe/adiga-ai-ady-ru-en-v0.1/

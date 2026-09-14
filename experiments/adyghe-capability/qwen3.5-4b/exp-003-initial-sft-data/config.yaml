@@ -1,0 +1,35 @@
+experiment:
+  id: exp-003-initial-sft-data
+  parent: exp-001-benchmark-curation
+  status: ready
+  domain: adyghe-capability
+
+dataset:
+  name: adyghe-initial-sft-candidates
+  version: v0.1
+  builder: scripts/datasets/build_adyghe_initial_csv.py
+  split_seed: 3407
+  split_policy: 80/10/10 deterministic stratification by source/category/POS
+  training_csv: datasets/adyghe/initial-sft-v0.1/initial-training-data.csv
+  training_csv_sha256: 99aac60631c463ddebba48524279b4ab5ec8608071f5997f5cb44a2667a172aa
+  train_rows: 3451
+  validation_rows: 426
+  development_test_rows: 426
+  excluded_benchmark_overlap_rows: 264
+  excluded_benchmark_parent_rows: 192
+  excluded_review_required_rows: 9
+
+benchmark:
+  name: AdygheBench
+  version: v0.2-candidate
+  csv: benchmarks/adigebench/v0.2-candidate/adigebench-v0.2-candidate.csv
+  csv_sha256: fc31f2eaf42e611e79b621c066537eaef1bb755d3394acdcca323bce389770aa
+  item_count: 188
+  role: initial_final_diagnostic
+  optimization_use: prohibited
+  native_review_required_rows: 54
+
+training:
+  status: not_started
+  model: Qwen/Qwen3.5-4B
+  dataset_representation: model_neutral_csv

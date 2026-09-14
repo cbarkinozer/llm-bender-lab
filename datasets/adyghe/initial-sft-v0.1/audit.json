@@ -1,0 +1,53 @@
+{
+  "benchmark_counts_by_task": {
+    "chat_ady_ady": 16,
+    "classification_ady_ady": 5,
+    "color_ady_en": 6,
+    "color_en_ady": 4,
+    "contrast_ady_ady": 5,
+    "family_ady_en": 5,
+    "family_en_ady": 5,
+    "morphology_ady_ady": 10,
+    "number_ady_en": 10,
+    "phrase_ady_en": 10,
+    "phrase_en_ady": 10,
+    "pronoun_ady_en": 6,
+    "reading_ady_ady": 24,
+    "reading_en": 4,
+    "semantic_relation_ady": 5,
+    "summary_ady_ady": 11,
+    "syntax_ady_ady": 8,
+    "syntax_identify_ady": 2,
+    "syntax_order_ady": 2,
+    "vocab_ady_en": 20,
+    "vocab_en_ady": 20
+  },
+  "benchmark_policy": "AdigeBench is an external final diagnostic. Parent-source rows and exact normalized overlaps are excluded from training candidates.",
+  "benchmark_row_count": 188,
+  "dataset": "adyghe-initial-sft-candidates",
+  "input_hashes": {
+    "benchmark": "c1059e339dbf53ed8df10745d62db7f7fafa2899c1ea94015fa29177258366f5",
+    "user_authored": "70edc807e964cc249282b0a0201eb70be7dcdad401825b761a22d84f0156e810",
+    "wiktionary": "4b7e3bba72a79293d108873afe172cd9ffa3a6da192b781b4d9957b8ca89700d"
+  },
+  "output_hashes": {
+    "benchmark_csv": "fc31f2eaf42e611e79b621c066537eaef1bb755d3394acdcca323bce389770aa",
+    "training_csv": "99aac60631c463ddebba48524279b4ab5ec8608071f5997f5cb44a2667a172aa"
+  },
+  "split_policy": "80/10/10 deterministic stratification by source/category/POS across eligible source-record groups",
+  "split_seed": 3407,
+  "training_counts_by_source": {
+    "user_authored": 192,
+    "wiktionary": 4576
+  },
+  "training_counts_by_split": {
+    "excluded_benchmark_overlap": 264,
+    "excluded_benchmark_parent": 192,
+    "excluded_review_required": 9,
+    "test": 426,
+    "train": 3451,
+    "validation": 426
+  },
+  "training_row_count": 4768,
+  "version": "v0.1"
+}

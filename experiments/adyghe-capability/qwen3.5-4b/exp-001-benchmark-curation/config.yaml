@@ -1,0 +1,18 @@
+experiment:
+  id: exp-001-benchmark-curation
+  parent: exp-000-benchmark-development
+  status: candidate
+  domain: adyghe-capability
+
+benchmark:
+  name: AdygheBench
+  base_version: v0.1-candidate
+  version: v0.2-candidate
+  item_count: 188
+  output_sha256: 03cba4aca79141a2dcf16d49b8c62139936756decce9bd6bc314aac0a0f2853d
+  training_use: allowed_by_data_author
+
+curation:
+  decisions: benchmarks/adigebench/v0.2-candidate/curation-decisions.json
+  native_review_required: true
+  aggregate_score_allowed: false

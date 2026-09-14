@@ -1,0 +1,36 @@
+{
+  "accepted_count": 4567,
+  "cleaning_policy": "Conservatively extract the first/variant leading Cyrillic forms; retain raw source fields and excluded segments for audit. Non-Cyrillic segments are preserved because most are transliterations, but are not included in the Cyrillic lexicon layer. No English senses are rewritten.",
+  "dataset": "adyghe-english-wiktionary-lexicon",
+  "duplicate_clean_lemmas": [],
+  "output_sha256": "5f950da321ff837e607df4c7fb07f02ea596b7229ce8886185f7a09d32345661",
+  "part_of_speech_counts": {
+    "adj": 483,
+    "adv": 201,
+    "character": 6,
+    "conj": 4,
+    "det": 10,
+    "intj": 43,
+    "name": 64,
+    "noun": 2397,
+    "num": 32,
+    "phrase": 6,
+    "postp": 1,
+    "prep_phrase": 2,
+    "pron": 27,
+    "verb": 1409
+  },
+  "quality_flag_counts": {
+    "missing_english_sense": 9,
+    "possible_scrape_navigation_fragment": 20
+  },
+  "record_count": 4576,
+  "review_required_count": 9,
+  "source_sha256": "4b7e3bba72a79293d108873afe172cd9ffa3a6da192b781b4d9957b8ca89700d",
+  "training_use": "Use cleaned lemma, variants, POS, and English senses only. This lexicon is not sentence-level parallel data and is not an evaluation reference by itself.",
+  "upstream_commit": "be0cfb8d614470bc8b9d9006ddff8b921cd5c2e3",
+  "upstream_license": "CC-BY-SA-3.0 and GFDL (as declared by the upstream repository)",
+  "upstream_path": "Adyghe-English Wiktionary dictionary.tsv",
+  "upstream_repository": "https://github.com/Vuizur/Wiktionary-Dictionaries",
+  "version": "v0.1"
+}

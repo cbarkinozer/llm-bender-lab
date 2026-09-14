@@ -1,0 +1,27 @@
+experiment:
+  id: exp-000-benchmark-development
+  parent: null
+  status: candidate
+  domain: adyghe-capability
+
+benchmark:
+  name: AdygheBench
+  version: 0.1-candidate
+  source_file: C:\\Users\\cbark\\Downloads\\adige-bench.txt
+  source_sha256: c1059e339dbf53ed8df10745d62db7f7fafafa2899c1ea94015fa29177258366f5
+  item_count: 200
+  language:
+    name: Adyghe
+    iso_639_3: ady
+  status: native-review-required
+  training_use: allowed_by_data_author
+
+source_boundary:
+  related_source_file: C:\\Users\\cbark\\Downloads\\adige data.txt
+  related_source_sha256: 70edc807e964cc249282b0a0201eb70be7dcdad401825b761a22d84f0156e810
+  policy: allowed_by_data_author; interpret benchmark as curriculum mastery after training
+
+evaluation:
+  mode: direct-nonthinking
+  per_item_outputs_required: true
+  aggregate_score_allowed: false

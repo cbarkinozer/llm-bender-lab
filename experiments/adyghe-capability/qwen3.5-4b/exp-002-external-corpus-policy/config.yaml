@@ -1,0 +1,14 @@
+experiment:
+  id: exp-002-external-corpus-policy
+  parent: exp-001-benchmark-curation
+  status: decided
+  domain: adyghe-capability
+
+external_corpus:
+  repository: adiga-ai/circassian-russian_texts_synthetic
+  revision: 82491390696e44ea802524e181230b47a4ed90ef
+  config: ady-ru
+  provenance: unverified; similar anzorq corpus reports synthetic Russian translations
+  primary_sft_use: prohibited
+  adyghe_only_cpt_candidate: true
+  auxiliary_pair_use: low_weight_after_quality_filter

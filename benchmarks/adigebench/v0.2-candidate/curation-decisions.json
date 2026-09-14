@@ -1,0 +1,20 @@
+{
+  "base_benchmark": "AdygheBench v0.1-candidate",
+  "curated_benchmark": "AdygheBench v0.2-candidate",
+  "policy": "Remove invalid or duplicate evidence; do not invent unverified Adyghe targets.",
+  "excluded_source_row_ids": {
+    "104": "Exact duplicate input of 103; it differs only by a longer optional reply.",
+    "107": "The question admits both yes and no answers; no truth condition is provided.",
+    "108": "The question admits both yes and no answers; no truth condition is provided.",
+    "109": "Obvious semantic mismatch: the prompt means 'Have you eaten yet?' while the target is the source's 'I can.' response.",
+    "136": "Exact duplicate input and reference of 133.",
+    "137": "Exact duplicate input and reference of 134.",
+    "145": "Exact duplicate input and reference of 134.",
+    "191": "Exact duplicate input and reference of 011.",
+    "192": "Exact duplicate input and reference of 013.",
+    "193": "Exact duplicate input and reference of 050.",
+    "194": "Exact duplicate input and reference of 012.",
+    "195": "Exact duplicate input and reference of 057."
+  },
+  "native_review_required_before_reportable_use": true
+}
