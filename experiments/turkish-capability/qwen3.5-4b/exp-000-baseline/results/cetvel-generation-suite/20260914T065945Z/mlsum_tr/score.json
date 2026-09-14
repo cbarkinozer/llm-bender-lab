@@ -1,0 +1,41 @@
+{
+  "task": "mlsum_tr",
+  "n_items": 100,
+  "mean_rouge1": 0.27930542021343546,
+  "mean_rouge2": 0.14134013709997922,
+  "mean_rougeL": 0.20520092938764947,
+  "mean_rougeLsum": 0.21283538175378883,
+  "truncation_rate": 0.0,
+  "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+  "stratified_sample": {
+    "lowest_score": [
+      53,
+      41,
+      80,
+      63,
+      57
+    ],
+    "highest_score": [
+      42,
+      67,
+      9,
+      24,
+      2
+    ],
+    "truncated": [],
+    "shortest_source": [
+      96,
+      34,
+      31,
+      24,
+      12
+    ],
+    "longest_source": [
+      61,
+      41,
+      80,
+      13,
+      16
+    ]
+  }
+}

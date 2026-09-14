@@ -1,0 +1,58 @@
+{
+  "task": "xquad_tr",
+  "n_items": 150,
+  "n_answerable": 150,
+  "n_unanswerable": 0,
+  "exact_match": 0.006666666666666667,
+  "f1": 0.15652538837819144,
+  "answerability_accuracy": 1.0,
+  "exact_match_on_answerable": 0.006666666666666667,
+  "f1_on_answerable": 0.15652538837819144,
+  "exact_match_on_unanswerable": null,
+  "truncation_rate": 0.006666666666666667,
+  "low_em_high_f1_rate": 0.05333333333333334,
+  "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+  "low_em_high_f1_indices": [
+    33,
+    49,
+    53,
+    54,
+    56,
+    93,
+    119,
+    135
+  ],
+  "stratified_sample": {
+    "lowest_score": [
+      3,
+      7,
+      10,
+      13,
+      28
+    ],
+    "highest_score": [
+      119,
+      53,
+      54,
+      56,
+      78
+    ],
+    "truncated": [
+      91
+    ],
+    "shortest_source": [
+      130,
+      48,
+      52,
+      50,
+      47
+    ],
+    "longest_source": [
+      5,
+      11,
+      12,
+      10,
+      13
+    ]
+  }
+}

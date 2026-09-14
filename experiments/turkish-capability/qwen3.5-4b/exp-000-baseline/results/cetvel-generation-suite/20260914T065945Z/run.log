@@ -1,0 +1,921 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 658.08it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:00<01:05,  6.54it/s]Loading weights:   8%|▊         | 36/426 [00:00<00:02, 164.42it/s]Loading weights:  15%|█▌        | 66/426 [00:00<00:01, 213.42it/s]Loading weights:  22%|██▏       | 95/426 [00:00<00:01, 240.46it/s]Loading weights:  31%|███       | 132/426 [00:00<00:01, 280.82it/s]Loading weights:  38%|███▊      | 162/426 [00:00<00:00, 264.71it/s]Loading weights:  45%|████▍     | 190/426 [00:00<00:00, 259.33it/s]Loading weights:  52%|█████▏    | 220/426 [00:00<00:00, 269.08it/s]Loading weights:  58%|█████▊    | 248/426 [00:01<00:00, 263.17it/s]Loading weights:  65%|██████▍   | 275/426 [00:01<00:00, 259.28it/s]Loading weights:  71%|███████   | 302/426 [00:01<00:00, 260.68it/s]Loading weights:  77%|███████▋  | 329/426 [00:01<00:00, 263.24it/s]Loading weights:  84%|████████▍ | 358/426 [00:01<00:00, 264.90it/s]Loading weights:  90%|█████████ | 385/426 [00:01<00:00, 259.95it/s]Loading weights:  97%|█████████▋| 413/426 [00:01<00:00, 264.29it/s]Loading weights: 100%|██████████| 426/426 [00:01<00:00, 250.75it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"generated_tokens":57,"index":0,"latency_seconds":3.853,"progress":"1/200","truncated":false}
+{"generated_tokens":102,"index":1,"latency_seconds":5.502,"progress":"2/200","truncated":false}
+{"generated_tokens":128,"index":2,"latency_seconds":6.233,"progress":"3/200","truncated":true}
+{"generated_tokens":13,"index":3,"latency_seconds":1.546,"progress":"4/200","truncated":false}
+{"generated_tokens":128,"index":4,"latency_seconds":6.168,"progress":"5/200","truncated":true}
+{"generated_tokens":121,"index":5,"latency_seconds":6.011,"progress":"6/200","truncated":false}
+{"generated_tokens":128,"index":6,"latency_seconds":6.389,"progress":"7/200","truncated":true}
+{"generated_tokens":128,"index":7,"latency_seconds":6.309,"progress":"8/200","truncated":true}
+{"generated_tokens":43,"index":8,"latency_seconds":2.758,"progress":"9/200","truncated":false}
+{"generated_tokens":20,"index":9,"latency_seconds":1.84,"progress":"10/200","truncated":false}
+{"generated_tokens":30,"index":10,"latency_seconds":2.226,"progress":"11/200","truncated":false}
+{"generated_tokens":37,"index":11,"latency_seconds":2.486,"progress":"12/200","truncated":false}
+{"generated_tokens":75,"index":12,"latency_seconds":4.131,"progress":"13/200","truncated":false}
+{"generated_tokens":88,"index":13,"latency_seconds":4.742,"progress":"14/200","truncated":false}
+{"generated_tokens":32,"index":14,"latency_seconds":2.332,"progress":"15/200","truncated":false}
+{"generated_tokens":113,"index":15,"latency_seconds":5.689,"progress":"16/200","truncated":false}
+{"generated_tokens":89,"index":16,"latency_seconds":4.784,"progress":"17/200","truncated":false}
+{"generated_tokens":110,"index":17,"latency_seconds":5.553,"progress":"18/200","truncated":false}
+{"generated_tokens":115,"index":18,"latency_seconds":5.858,"progress":"19/200","truncated":false}
+{"generated_tokens":102,"index":19,"latency_seconds":5.329,"progress":"20/200","truncated":false}
+{"generated_tokens":27,"index":20,"latency_seconds":2.147,"progress":"21/200","truncated":false}
+{"generated_tokens":78,"index":21,"latency_seconds":4.151,"progress":"22/200","truncated":false}
+{"generated_tokens":123,"index":22,"latency_seconds":5.951,"progress":"23/200","truncated":false}
+{"generated_tokens":16,"index":23,"latency_seconds":1.742,"progress":"24/200","truncated":false}
+{"generated_tokens":82,"index":24,"latency_seconds":4.444,"progress":"25/200","truncated":false}
+{"generated_tokens":61,"index":25,"latency_seconds":3.72,"progress":"26/200","truncated":false}
+{"generated_tokens":65,"index":26,"latency_seconds":3.697,"progress":"27/200","truncated":false}
+{"generated_tokens":106,"index":27,"latency_seconds":5.583,"progress":"28/200","truncated":false}
+{"generated_tokens":59,"index":28,"latency_seconds":3.657,"progress":"29/200","truncated":false}
+{"generated_tokens":128,"index":29,"latency_seconds":6.375,"progress":"30/200","truncated":true}
+{"generated_tokens":94,"index":30,"latency_seconds":4.868,"progress":"31/200","truncated":false}
+{"generated_tokens":111,"index":31,"latency_seconds":5.649,"progress":"32/200","truncated":false}
+{"generated_tokens":10,"index":32,"latency_seconds":1.446,"progress":"33/200","truncated":false}
+{"generated_tokens":19,"index":33,"latency_seconds":1.812,"progress":"34/200","truncated":false}
+{"generated_tokens":108,"index":34,"latency_seconds":5.337,"progress":"35/200","truncated":false}
+{"generated_tokens":8,"index":35,"latency_seconds":1.344,"progress":"36/200","truncated":false}
+{"generated_tokens":124,"index":36,"latency_seconds":6.042,"progress":"37/200","truncated":false}
+{"generated_tokens":94,"index":37,"latency_seconds":4.805,"progress":"38/200","truncated":false}
+{"generated_tokens":15,"index":38,"latency_seconds":1.604,"progress":"39/200","truncated":false}
+{"generated_tokens":113,"index":39,"latency_seconds":5.54,"progress":"40/200","truncated":false}
+{"generated_tokens":128,"index":40,"latency_seconds":6.121,"progress":"41/200","truncated":true}
+{"generated_tokens":69,"index":41,"latency_seconds":3.8,"progress":"42/200","truncated":false}
+{"generated_tokens":128,"index":42,"latency_seconds":6.138,"progress":"43/200","truncated":true}
+{"generated_tokens":128,"index":43,"latency_seconds":6.549,"progress":"44/200","truncated":true}
+{"generated_tokens":87,"index":44,"latency_seconds":4.668,"progress":"45/200","truncated":false}
+{"generated_tokens":122,"index":45,"latency_seconds":5.991,"progress":"46/200","truncated":false}
+{"generated_tokens":20,"index":46,"latency_seconds":1.785,"progress":"47/200","truncated":false}
+{"generated_tokens":13,"index":47,"latency_seconds":1.645,"progress":"48/200","truncated":false}
+{"generated_tokens":97,"index":48,"latency_seconds":5.041,"progress":"49/200","truncated":false}
+{"generated_tokens":123,"index":49,"latency_seconds":6.023,"progress":"50/200","truncated":false}
+{"generated_tokens":128,"index":50,"latency_seconds":6.293,"progress":"51/200","truncated":true}
+{"generated_tokens":26,"index":51,"latency_seconds":2.11,"progress":"52/200","truncated":false}
+{"generated_tokens":128,"index":52,"latency_seconds":6.378,"progress":"53/200","truncated":true}
+{"generated_tokens":81,"index":53,"latency_seconds":4.405,"progress":"54/200","truncated":false}
+{"generated_tokens":92,"index":54,"latency_seconds":4.928,"progress":"55/200","truncated":false}
+{"generated_tokens":128,"index":55,"latency_seconds":6.453,"progress":"56/200","truncated":true}
+{"generated_tokens":67,"index":56,"latency_seconds":3.742,"progress":"57/200","truncated":false}
+{"generated_tokens":90,"index":57,"latency_seconds":4.771,"progress":"58/200","truncated":false}
+{"generated_tokens":111,"index":58,"latency_seconds":5.629,"progress":"59/200","truncated":false}
+{"generated_tokens":32,"index":59,"latency_seconds":2.348,"progress":"60/200","truncated":false}
+{"generated_tokens":58,"index":60,"latency_seconds":3.373,"progress":"61/200","truncated":false}
+{"generated_tokens":28,"index":61,"latency_seconds":2.117,"progress":"62/200","truncated":false}
+{"generated_tokens":128,"index":62,"latency_seconds":6.24,"progress":"63/200","truncated":true}
+{"generated_tokens":96,"index":63,"latency_seconds":5.05,"progress":"64/200","truncated":false}
+{"generated_tokens":128,"index":64,"latency_seconds":6.32,"progress":"65/200","truncated":true}
+{"generated_tokens":25,"index":65,"latency_seconds":2.035,"progress":"66/200","truncated":false}
+{"generated_tokens":128,"index":66,"latency_seconds":6.317,"progress":"67/200","truncated":true}
+{"generated_tokens":79,"index":67,"latency_seconds":4.177,"progress":"68/200","truncated":false}
+{"generated_tokens":20,"index":68,"latency_seconds":1.823,"progress":"69/200","truncated":false}
+{"generated_tokens":26,"index":69,"latency_seconds":2.06,"progress":"70/200","truncated":false}
+{"generated_tokens":29,"index":70,"latency_seconds":2.155,"progress":"71/200","truncated":false}
+{"generated_tokens":119,"index":71,"latency_seconds":5.813,"progress":"72/200","truncated":false}
+{"generated_tokens":10,"index":72,"latency_seconds":1.434,"progress":"73/200","truncated":false}
+{"generated_tokens":83,"index":73,"latency_seconds":4.319,"progress":"74/200","truncated":false}
+{"generated_tokens":95,"index":74,"latency_seconds":5.048,"progress":"75/200","truncated":false}
+{"generated_tokens":128,"index":75,"latency_seconds":6.799,"progress":"76/200","truncated":true}
+{"generated_tokens":128,"index":76,"latency_seconds":6.325,"progress":"77/200","truncated":true}
+{"generated_tokens":29,"index":77,"latency_seconds":2.199,"progress":"78/200","truncated":false}
+{"generated_tokens":38,"index":78,"latency_seconds":2.547,"progress":"79/200","truncated":false}
+{"generated_tokens":128,"index":79,"latency_seconds":6.479,"progress":"80/200","truncated":true}
+{"generated_tokens":77,"index":80,"latency_seconds":4.274,"progress":"81/200","truncated":false}
+{"generated_tokens":82,"index":81,"latency_seconds":4.474,"progress":"82/200","truncated":false}
+{"generated_tokens":128,"index":82,"latency_seconds":6.498,"progress":"83/200","truncated":true}
+{"generated_tokens":55,"index":83,"latency_seconds":3.344,"progress":"84/200","truncated":false}
+{"generated_tokens":60,"index":84,"latency_seconds":3.478,"progress":"85/200","truncated":false}
+{"generated_tokens":128,"index":85,"latency_seconds":6.669,"progress":"86/200","truncated":true}
+{"generated_tokens":21,"index":86,"latency_seconds":1.907,"progress":"87/200","truncated":false}
+{"generated_tokens":66,"index":87,"latency_seconds":3.701,"progress":"88/200","truncated":false}
+{"generated_tokens":110,"index":88,"latency_seconds":5.395,"progress":"89/200","truncated":false}
+{"generated_tokens":128,"index":89,"latency_seconds":6.176,"progress":"90/200","truncated":true}
+{"generated_tokens":119,"index":90,"latency_seconds":5.866,"progress":"91/200","truncated":false}
+{"generated_tokens":118,"index":91,"latency_seconds":5.947,"progress":"92/200","truncated":false}
+{"generated_tokens":18,"index":92,"latency_seconds":1.829,"progress":"93/200","truncated":false}
+{"generated_tokens":13,"index":93,"latency_seconds":1.563,"progress":"94/200","truncated":false}
+{"generated_tokens":128,"index":94,"latency_seconds":6.327,"progress":"95/200","truncated":true}
+{"generated_tokens":128,"index":95,"latency_seconds":6.283,"progress":"96/200","truncated":true}
+{"generated_tokens":26,"index":96,"latency_seconds":2.018,"progress":"97/200","truncated":false}
+{"generated_tokens":128,"index":97,"latency_seconds":6.145,"progress":"98/200","truncated":true}
+{"generated_tokens":27,"index":98,"latency_seconds":2.066,"progress":"99/200","truncated":false}
+{"generated_tokens":16,"index":99,"latency_seconds":1.627,"progress":"100/200","truncated":false}
+{"generated_tokens":128,"index":100,"latency_seconds":6.253,"progress":"101/200","truncated":true}
+{"generated_tokens":87,"index":101,"latency_seconds":4.551,"progress":"102/200","truncated":false}
+{"generated_tokens":70,"index":102,"latency_seconds":3.959,"progress":"103/200","truncated":false}
+{"generated_tokens":55,"index":103,"latency_seconds":3.307,"progress":"104/200","truncated":false}
+{"generated_tokens":58,"index":104,"latency_seconds":3.331,"progress":"105/200","truncated":false}
+{"generated_tokens":28,"index":105,"latency_seconds":2.152,"progress":"106/200","truncated":false}
+{"generated_tokens":118,"index":106,"latency_seconds":5.91,"progress":"107/200","truncated":false}
+{"generated_tokens":37,"index":107,"latency_seconds":2.559,"progress":"108/200","truncated":false}
+{"generated_tokens":62,"index":108,"latency_seconds":3.703,"progress":"109/200","truncated":false}
+{"generated_tokens":40,"index":109,"latency_seconds":2.651,"progress":"110/200","truncated":false}
+{"generated_tokens":127,"index":110,"latency_seconds":6.303,"progress":"111/200","truncated":false}
+{"generated_tokens":53,"index":111,"latency_seconds":3.241,"progress":"112/200","truncated":false}
+{"generated_tokens":128,"index":112,"latency_seconds":6.541,"progress":"113/200","truncated":true}
+{"generated_tokens":40,"index":113,"latency_seconds":2.609,"progress":"114/200","truncated":false}
+{"generated_tokens":73,"index":114,"latency_seconds":3.893,"progress":"115/200","truncated":false}
+{"generated_tokens":69,"index":115,"latency_seconds":3.766,"progress":"116/200","truncated":false}
+{"generated_tokens":126,"index":116,"latency_seconds":6.236,"progress":"117/200","truncated":false}
+{"generated_tokens":128,"index":117,"latency_seconds":6.171,"progress":"118/200","truncated":true}
+{"generated_tokens":96,"index":118,"latency_seconds":4.795,"progress":"119/200","truncated":false}
+{"generated_tokens":90,"index":119,"latency_seconds":4.812,"progress":"120/200","truncated":false}
+{"generated_tokens":10,"index":120,"latency_seconds":1.417,"progress":"121/200","truncated":false}
+{"generated_tokens":58,"index":121,"latency_seconds":3.423,"progress":"122/200","truncated":false}
+{"generated_tokens":57,"index":122,"latency_seconds":3.375,"progress":"123/200","truncated":false}
+{"generated_tokens":31,"index":123,"latency_seconds":2.271,"progress":"124/200","truncated":false}
+{"generated_tokens":128,"index":124,"latency_seconds":6.239,"progress":"125/200","truncated":true}
+{"generated_tokens":6,"index":125,"latency_seconds":1.246,"progress":"126/200","truncated":false}
+{"generated_tokens":91,"index":126,"latency_seconds":4.907,"progress":"127/200","truncated":false}
+{"generated_tokens":128,"index":127,"latency_seconds":6.292,"progress":"128/200","truncated":true}
+{"generated_tokens":128,"index":128,"latency_seconds":6.219,"progress":"129/200","truncated":true}
+{"generated_tokens":65,"index":129,"latency_seconds":3.815,"progress":"130/200","truncated":false}
+{"generated_tokens":49,"index":130,"latency_seconds":3.039,"progress":"131/200","truncated":false}
+{"generated_tokens":128,"index":131,"latency_seconds":6.449,"progress":"132/200","truncated":true}
+{"generated_tokens":16,"index":132,"latency_seconds":1.676,"progress":"133/200","truncated":false}
+{"generated_tokens":32,"index":133,"latency_seconds":2.221,"progress":"134/200","truncated":false}
+{"generated_tokens":22,"index":134,"latency_seconds":1.833,"progress":"135/200","truncated":false}
+{"generated_tokens":75,"index":135,"latency_seconds":4.079,"progress":"136/200","truncated":false}
+{"generated_tokens":10,"index":136,"latency_seconds":1.399,"progress":"137/200","truncated":false}
+{"generated_tokens":122,"index":137,"latency_seconds":5.963,"progress":"138/200","truncated":false}
+{"generated_tokens":128,"index":138,"latency_seconds":6.092,"progress":"139/200","truncated":true}
+{"generated_tokens":68,"index":139,"latency_seconds":3.68,"progress":"140/200","truncated":false}
+{"generated_tokens":52,"index":140,"latency_seconds":3.156,"progress":"141/200","truncated":false}
+{"generated_tokens":69,"index":141,"latency_seconds":3.704,"progress":"142/200","truncated":false}
+{"generated_tokens":118,"index":142,"latency_seconds":5.868,"progress":"143/200","truncated":false}
+{"generated_tokens":13,"index":143,"latency_seconds":1.58,"progress":"144/200","truncated":false}
+{"generated_tokens":128,"index":144,"latency_seconds":6.235,"progress":"145/200","truncated":true}
+{"generated_tokens":29,"index":145,"latency_seconds":2.194,"progress":"146/200","truncated":false}
+{"generated_tokens":26,"index":146,"latency_seconds":2.116,"progress":"147/200","truncated":false}
+{"generated_tokens":13,"index":147,"latency_seconds":1.547,"progress":"148/200","truncated":false}
+{"generated_tokens":46,"index":148,"latency_seconds":2.857,"progress":"149/200","truncated":false}
+{"generated_tokens":128,"index":149,"latency_seconds":6.044,"progress":"150/200","truncated":true}
+{"generated_tokens":9,"index":150,"latency_seconds":1.322,"progress":"151/200","truncated":false}
+{"generated_tokens":128,"index":151,"latency_seconds":6.324,"progress":"152/200","truncated":true}
+{"generated_tokens":42,"index":152,"latency_seconds":2.624,"progress":"153/200","truncated":false}
+{"generated_tokens":13,"index":153,"latency_seconds":1.479,"progress":"154/200","truncated":false}
+{"generated_tokens":87,"index":154,"latency_seconds":4.882,"progress":"155/200","truncated":false}
+{"generated_tokens":30,"index":155,"latency_seconds":2.4,"progress":"156/200","truncated":false}
+{"generated_tokens":93,"index":156,"latency_seconds":4.798,"progress":"157/200","truncated":false}
+{"generated_tokens":32,"index":157,"latency_seconds":2.24,"progress":"158/200","truncated":false}
+{"generated_tokens":100,"index":158,"latency_seconds":5.057,"progress":"159/200","truncated":false}
+{"generated_tokens":128,"index":159,"latency_seconds":6.315,"progress":"160/200","truncated":true}
+{"generated_tokens":83,"index":160,"latency_seconds":4.399,"progress":"161/200","truncated":false}
+{"generated_tokens":43,"index":161,"latency_seconds":2.791,"progress":"162/200","truncated":false}
+{"generated_tokens":103,"index":162,"latency_seconds":5.266,"progress":"163/200","truncated":false}
+{"generated_tokens":121,"index":163,"latency_seconds":6.131,"progress":"164/200","truncated":false}
+{"generated_tokens":127,"index":164,"latency_seconds":6.289,"progress":"165/200","truncated":false}
+{"generated_tokens":92,"index":165,"latency_seconds":4.744,"progress":"166/200","truncated":false}
+{"generated_tokens":114,"index":166,"latency_seconds":5.737,"progress":"167/200","truncated":false}
+{"generated_tokens":18,"index":167,"latency_seconds":1.877,"progress":"168/200","truncated":false}
+{"generated_tokens":48,"index":168,"latency_seconds":3.011,"progress":"169/200","truncated":false}
+{"generated_tokens":16,"index":169,"latency_seconds":1.671,"progress":"170/200","truncated":false}
+{"generated_tokens":68,"index":170,"latency_seconds":3.829,"progress":"171/200","truncated":false}
+{"generated_tokens":107,"index":171,"latency_seconds":5.501,"progress":"172/200","truncated":false}
+{"generated_tokens":82,"index":172,"latency_seconds":4.474,"progress":"173/200","truncated":false}
+{"generated_tokens":115,"index":173,"latency_seconds":5.881,"progress":"174/200","truncated":false}
+{"generated_tokens":128,"index":174,"latency_seconds":6.42,"progress":"175/200","truncated":true}
+{"generated_tokens":17,"index":175,"latency_seconds":1.795,"progress":"176/200","truncated":false}
+{"generated_tokens":15,"index":176,"latency_seconds":1.591,"progress":"177/200","truncated":false}
+{"generated_tokens":128,"index":177,"latency_seconds":6.33,"progress":"178/200","truncated":true}
+{"generated_tokens":20,"index":178,"latency_seconds":1.831,"progress":"179/200","truncated":false}
+{"generated_tokens":51,"index":179,"latency_seconds":3.19,"progress":"180/200","truncated":false}
+{"generated_tokens":128,"index":180,"latency_seconds":6.457,"progress":"181/200","truncated":true}
+{"generated_tokens":29,"index":181,"latency_seconds":2.202,"progress":"182/200","truncated":false}
+{"generated_tokens":66,"index":182,"latency_seconds":3.7,"progress":"183/200","truncated":false}
+{"generated_tokens":79,"index":183,"latency_seconds":4.45,"progress":"184/200","truncated":false}
+{"generated_tokens":104,"index":184,"latency_seconds":5.212,"progress":"185/200","truncated":false}
+{"generated_tokens":86,"index":185,"latency_seconds":4.564,"progress":"186/200","truncated":false}
+{"generated_tokens":59,"index":186,"latency_seconds":3.38,"progress":"187/200","truncated":false}
+{"generated_tokens":128,"index":187,"latency_seconds":6.302,"progress":"188/200","truncated":true}
+{"generated_tokens":16,"index":188,"latency_seconds":1.643,"progress":"189/200","truncated":false}
+{"generated_tokens":13,"index":189,"latency_seconds":1.527,"progress":"190/200","truncated":false}
+{"generated_tokens":20,"index":190,"latency_seconds":1.779,"progress":"191/200","truncated":false}
+{"generated_tokens":34,"index":191,"latency_seconds":2.374,"progress":"192/200","truncated":false}
+{"generated_tokens":15,"index":192,"latency_seconds":1.585,"progress":"193/200","truncated":false}
+{"generated_tokens":94,"index":193,"latency_seconds":5.154,"progress":"194/200","truncated":false}
+{"generated_tokens":128,"index":194,"latency_seconds":6.433,"progress":"195/200","truncated":true}
+{"generated_tokens":128,"index":195,"latency_seconds":6.307,"progress":"196/200","truncated":true}
+{"generated_tokens":125,"index":196,"latency_seconds":6.358,"progress":"197/200","truncated":false}
+{"generated_tokens":114,"index":197,"latency_seconds":5.648,"progress":"198/200","truncated":false}
+{"generated_tokens":20,"index":198,"latency_seconds":1.809,"progress":"199/200","truncated":false}
+{"generated_tokens":93,"index":199,"latency_seconds":4.917,"progress":"200/200","truncated":false}
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "task": "gecturk",
+  "items": 200,
+  "truncated": 41,
+  "prompt_tokens": 14216,
+  "generated_tokens": 15201,
+  "generation_seconds": 832.3640359342098,
+  "truncation_rate": 0.205,
+  "mean_generated_tokens": 76.005,
+  "mean_latency_seconds": 4.161820179671049,
+  "wall_seconds": 832.863587141037,
+  "samples_sha256": "6cf0e64c7bd90c1c1dea5f46329cbe2309c0dd1a383d9bb62969b8f9d0907295"
+}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 506.96it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<12:32,  1.77s/it]Loading weights:   2%|▏         | 9/426 [00:01<01:04,  6.43it/s]Loading weights:   3%|▎         | 14/426 [00:02<00:47,  8.60it/s]Loading weights:   5%|▌         | 23/426 [00:02<00:24, 16.41it/s]Loading weights:   7%|▋         | 28/426 [00:02<00:24, 16.55it/s]Loading weights:   9%|▊         | 37/426 [00:02<00:15, 25.04it/s]Loading weights:  10%|▉         | 42/426 [00:02<00:16, 23.85it/s]Loading weights:  11%|█         | 47/426 [00:03<00:15, 24.11it/s]Loading weights:  12%|█▏        | 53/426 [00:03<00:12, 29.52it/s]Loading weights:  14%|█▍        | 61/426 [00:03<00:10, 36.08it/s]Loading weights:  15%|█▌        | 66/426 [00:03<00:12, 29.75it/s]Loading weights:  18%|█▊        | 75/426 [00:03<00:09, 36.91it/s]Loading weights:  19%|█▉        | 80/426 [00:04<00:11, 31.42it/s]Loading weights:  20%|█▉        | 84/426 [00:04<00:10, 32.51it/s]Loading weights:  22%|██▏       | 93/426 [00:04<00:08, 38.20it/s]Loading weights:  23%|██▎       | 98/426 [00:04<00:09, 34.28it/s]Loading weights:  24%|██▍       | 102/426 [00:04<00:10, 29.95it/s]Loading weights:  25%|██▍       | 106/426 [00:04<00:10, 29.16it/s]Loading weights:  26%|██▌       | 110/426 [00:05<00:10, 30.95it/s]Loading weights:  27%|██▋       | 116/426 [00:05<00:08, 35.64it/s]Loading weights:  28%|██▊       | 120/426 [00:05<00:11, 27.11it/s]Loading weights:  29%|██▉       | 125/426 [00:05<00:09, 31.16it/s]Loading weights:  31%|███       | 132/426 [00:05<00:09, 32.56it/s]Loading weights:  32%|███▏      | 136/426 [00:05<00:09, 31.60it/s]Loading weights:  34%|███▎      | 143/426 [00:05<00:07, 38.85it/s]Loading weights:  35%|███▍      | 148/426 [00:06<00:09, 28.73it/s]Loading weights:  36%|███▌      | 152/426 [00:06<00:10, 27.19it/s]Loading weights:  37%|███▋      | 159/426 [00:06<00:08, 32.35it/s]Loading weights:  39%|███▉      | 168/426 [00:06<00:06, 42.45it/s]Loading weights:  41%|████      | 173/426 [00:06<00:07, 31.90it/s]Loading weights:  42%|████▏     | 181/426 [00:07<00:06, 36.62it/s]Loading weights:  44%|████▎     | 186/426 [00:07<00:08, 28.80it/s]Loading weights:  45%|████▌     | 193/426 [00:07<00:06, 33.79it/s]Loading weights:  47%|████▋     | 199/426 [00:07<00:07, 31.26it/s]Loading weights:  48%|████▊     | 204/426 [00:07<00:06, 34.49it/s]Loading weights:  49%|████▉     | 209/426 [00:08<00:06, 33.96it/s]Loading weights:  50%|█████     | 213/426 [00:08<00:06, 34.80it/s]Loading weights:  52%|█████▏    | 221/426 [00:08<00:04, 42.70it/s]Loading weights:  53%|█████▎    | 226/426 [00:08<00:05, 38.58it/s]Loading weights:  55%|█████▍    | 234/426 [00:08<00:04, 43.51it/s]Loading weights:  56%|█████▌    | 239/426 [00:08<00:05, 33.48it/s]Loading weights:  58%|█████▊    | 249/426 [00:08<00:03, 44.26it/s]Loading weights:  60%|█████▉    | 255/426 [00:09<00:05, 33.18it/s]Loading weights:  61%|██████    | 260/426 [00:09<00:05, 28.17it/s]Loading weights:  64%|██████▍   | 273/426 [00:09<00:04, 38.07it/s]Loading weights:  65%|██████▌   | 278/426 [00:09<00:04, 31.63it/s]Loading weights:  67%|██████▋   | 287/426 [00:10<00:04, 33.60it/s]Loading weights:  68%|██████▊   | 291/426 [00:10<00:04, 32.81it/s]Loading weights:  69%|██████▉   | 295/426 [00:10<00:04, 28.62it/s]Loading weights:  71%|███████   | 302/426 [00:10<00:03, 35.31it/s]Loading weights:  72%|███████▏  | 307/426 [00:10<00:04, 28.89it/s]Loading weights:  73%|███████▎  | 311/426 [00:11<00:04, 26.02it/s]Loading weights:  75%|███████▍  | 318/426 [00:11<00:03, 31.83it/s]Loading weights:  76%|███████▋  | 325/426 [00:11<00:02, 38.32it/s]Loading weights:  77%|███████▋  | 330/426 [00:11<00:02, 40.11it/s]Loading weights:  79%|███████▊  | 335/426 [00:11<00:02, 40.30it/s]Loading weights:  81%|████████  | 343/426 [00:11<00:01, 45.54it/s]Loading weights:  82%|████████▏ | 348/426 [00:11<00:02, 36.77it/s]Loading weights:  83%|████████▎ | 354/426 [00:12<00:01, 40.05it/s]Loading weights:  84%|████████▍ | 359/426 [00:12<00:01, 38.74it/s]Loading weights:  85%|████████▌ | 364/426 [00:12<00:02, 26.29it/s]Loading weights:  87%|████████▋ | 370/426 [00:12<00:01, 30.34it/s]Loading weights:  88%|████████▊ | 377/426 [00:12<00:01, 33.52it/s]Loading weights:  90%|████████▉ | 383/426 [00:13<00:01, 35.96it/s]Loading weights:  91%|█████████ | 387/426 [00:13<00:01, 24.90it/s]Loading weights:  92%|█████████▏| 394/426 [00:13<00:01, 31.39it/s]Loading weights:  93%|█████████▎| 398/426 [00:13<00:00, 28.19it/s]Loading weights:  94%|█████████▍| 402/426 [00:13<00:00, 29.19it/s]Loading weights:  96%|█████████▌| 408/426 [00:13<00:00, 32.46it/s]Loading weights:  97%|█████████▋| 412/426 [00:14<00:00, 30.56it/s]Loading weights:  98%|█████████▊| 416/426 [00:14<00:00, 28.75it/s]Loading weights:  99%|█████████▊| 420/426 [00:14<00:00, 27.04it/s]Loading weights: 100%|██████████| 426/426 [00:14<00:00, 29.51it/s]
+Downloading builder script:   0%|          | 0.00/3.87k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 3.87k/3.87k [00:00<00:00, 100kB/s]
+Downloading readme:   0%|          | 0.00/171 [00:00<?, ?B/s]Downloading readme: 100%|██████████| 171/171 [00:00<00:00, 3.64kB/s]
+The repository for mcemilg/tquad contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/mcemilg/tquad.
+You can avoid this prompt in future by passing the argument `trust_remote_code=True`.
+
+Do you wish to run the custom code? [y/N] Traceback (most recent call last):
+  File "/workspace/llm-bender-lab/scripts/evaluation/evaluate_cetvel_generation_transformers.py", line 260, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/llm-bender-lab/scripts/evaluation/evaluate_cetvel_generation_transformers.py", line 149, in main
+    data = load_dataset(task_cfg["dataset_path"], task_cfg["dataset_name"], split=task_cfg["split"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2606, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 2277, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1923, in dataset_module_factory
+    raise e1 from None
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1896, in dataset_module_factory
+    ).get_module()
+      ^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 1532, in get_module
+    trust_remote_code = resolve_trust_remote_code(self.trust_remote_code, self.name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/cetvel/lib/python3.11/site-packages/datasets/load.py", line 134, in resolve_trust_remote_code
+    raise ValueError(
+ValueError: The repository for mcemilg/tquad contains custom code which must be executed to correctly load the dataset. You can inspect the repository content at https://hf.co/datasets/mcemilg/tquad.
+Please pass the argument `trust_remote_code=True` to allow custom code to be run.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 674.27it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<12:14,  1.73s/it]Loading weights:   2%|▏         | 8/426 [00:01<01:12,  5.78it/s]Loading weights:   3%|▎         | 12/426 [00:02<00:48,  8.58it/s]Loading weights:   4%|▎         | 15/426 [00:02<00:38, 10.74it/s]Loading weights:   5%|▌         | 22/426 [00:02<00:22, 17.74it/s]Loading weights:   6%|▌         | 26/426 [00:02<00:21, 18.68it/s]Loading weights:   7%|▋         | 30/426 [00:02<00:17, 22.15it/s]Loading weights:   9%|▊         | 37/426 [00:02<00:12, 30.78it/s]Loading weights:  10%|▉         | 42/426 [00:02<00:14, 27.09it/s]Loading weights:  11%|█         | 46/426 [00:03<00:16, 23.61it/s]Loading weights:  13%|█▎        | 54/426 [00:03<00:11, 31.47it/s]Loading weights:  15%|█▍        | 62/426 [00:03<00:08, 40.57it/s]Loading weights:  16%|█▌        | 68/426 [00:03<00:09, 37.67it/s]Loading weights:  19%|█▊        | 79/426 [00:03<00:07, 47.43it/s]Loading weights:  20%|█▉        | 85/426 [00:03<00:07, 46.69it/s]Loading weights:  21%|██▏       | 91/426 [00:03<00:06, 49.31it/s]Loading weights:  23%|██▎       | 97/426 [00:04<00:09, 35.89it/s]Loading weights:  24%|██▍       | 102/426 [00:04<00:10, 31.44it/s]Loading weights:  27%|██▋       | 113/426 [00:04<00:06, 45.48it/s]Loading weights:  28%|██▊       | 119/426 [00:04<00:08, 38.05it/s]Loading weights:  29%|██▉       | 125/426 [00:04<00:07, 38.57it/s]Loading weights:  31%|███       | 132/426 [00:05<00:06, 42.78it/s]Loading weights:  32%|███▏      | 137/426 [00:05<00:07, 38.61it/s]Loading weights:  34%|███▍      | 145/426 [00:05<00:06, 45.11it/s]Loading weights:  35%|███▌      | 150/426 [00:05<00:08, 33.60it/s]Loading weights:  36%|███▋      | 155/426 [00:05<00:08, 31.14it/s]Loading weights:  37%|███▋      | 159/426 [00:05<00:08, 32.01it/s]Loading weights:  39%|███▉      | 168/426 [00:06<00:05, 43.22it/s]Loading weights:  41%|████      | 174/426 [00:06<00:07, 32.38it/s]Loading weights:  43%|████▎     | 182/426 [00:06<00:06, 39.64it/s]Loading weights:  44%|████▍     | 187/426 [00:06<00:06, 35.56it/s]Loading weights:  46%|████▌     | 196/426 [00:06<00:05, 45.47it/s]Loading weights:  47%|████▋     | 202/426 [00:07<00:06, 37.01it/s]Loading weights:  49%|████▊     | 207/426 [00:07<00:06, 31.40it/s]Loading weights:  51%|█████▏    | 219/426 [00:07<00:04, 47.13it/s]Loading weights:  53%|█████▎    | 226/426 [00:07<00:05, 33.74it/s]Loading weights:  56%|█████▌    | 238/426 [00:07<00:04, 43.04it/s]Loading weights:  57%|█████▋    | 244/426 [00:08<00:04, 41.27it/s]Loading weights:  59%|█████▊    | 250/426 [00:08<00:04, 43.43it/s]Loading weights:  60%|██████    | 256/426 [00:08<00:04, 34.38it/s]Loading weights:  61%|██████▏   | 261/426 [00:08<00:05, 29.65it/s]Loading weights:  64%|██████▍   | 273/426 [00:08<00:04, 37.38it/s]Loading weights:  65%|██████▌   | 278/426 [00:09<00:04, 33.70it/s]Loading weights:  67%|██████▋   | 284/426 [00:09<00:04, 34.72it/s]Loading weights:  68%|██████▊   | 290/426 [00:09<00:03, 39.07it/s]Loading weights:  69%|██████▉   | 295/426 [00:09<00:03, 35.25it/s]Loading weights:  71%|███████▏  | 304/426 [00:09<00:02, 44.83it/s]Loading weights:  73%|███████▎  | 310/426 [00:09<00:03, 33.90it/s]Loading weights:  74%|███████▍  | 315/426 [00:10<00:03, 33.64it/s]Loading weights:  75%|███████▍  | 319/426 [00:10<00:03, 34.03it/s]Loading weights:  77%|███████▋  | 326/426 [00:10<00:02, 39.42it/s]Loading weights:  78%|███████▊  | 331/426 [00:10<00:02, 32.76it/s]Loading weights:  80%|████████  | 341/426 [00:10<00:02, 42.48it/s]Loading weights:  81%|████████  | 346/426 [00:11<00:02, 31.24it/s]Loading weights:  83%|████████▎ | 355/426 [00:11<00:01, 39.94it/s]Loading weights:  85%|████████▍ | 360/426 [00:11<00:01, 38.40it/s]Loading weights:  86%|████████▌ | 365/426 [00:11<00:01, 33.53it/s]Loading weights:  87%|████████▋ | 372/426 [00:11<00:01, 38.64it/s]Loading weights:  89%|████████▉ | 380/426 [00:11<00:01, 45.75it/s]Loading weights:  91%|█████████ | 386/426 [00:12<00:01, 29.10it/s]Loading weights:  92%|█████████▏| 392/426 [00:12<00:01, 33.32it/s]Loading weights:  93%|█████████▎| 397/426 [00:12<00:01, 28.23it/s]Loading weights:  96%|█████████▌| 408/426 [00:12<00:00, 38.71it/s]Loading weights:  97%|█████████▋| 413/426 [00:12<00:00, 32.73it/s]Loading weights:  98%|█████████▊| 417/426 [00:13<00:00, 28.13it/s]Loading weights: 100%|██████████| 426/426 [00:13<00:00, 32.34it/s]
+Downloading data:   0%|          | 0.00/799k [00:00<?, ?B/s]Downloading data: 3.08MB [00:00, 33.9MB/s]                  
+Downloading data:   0%|          | 0.00/97.8k [00:00<?, ?B/s]Downloading data: 458kB [00:00, 22.9MB/s]                    
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1 examples [00:00,  3.59 examples/s]Generating train split: 3000 examples [00:00, 9148.03 examples/s]Generating train split: 7000 examples [00:00, 18131.52 examples/s]Generating train split: 8308 examples [00:00, 14384.04 examples/s]
+Generating validation split: 0 examples [00:00, ? examples/s]Generating validation split: 892 examples [00:00, 19972.02 examples/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"generated_tokens":24,"index":0,"latency_seconds":3.072,"progress":"1/150","truncated":false}
+{"generated_tokens":31,"index":1,"latency_seconds":2.358,"progress":"2/150","truncated":false}
+{"generated_tokens":33,"index":2,"latency_seconds":2.311,"progress":"3/150","truncated":false}
+{"generated_tokens":38,"index":3,"latency_seconds":2.526,"progress":"4/150","truncated":false}
+{"generated_tokens":45,"index":4,"latency_seconds":2.841,"progress":"5/150","truncated":false}
+{"generated_tokens":29,"index":5,"latency_seconds":2.164,"progress":"6/150","truncated":false}
+{"generated_tokens":22,"index":6,"latency_seconds":1.879,"progress":"7/150","truncated":false}
+{"generated_tokens":73,"index":7,"latency_seconds":3.944,"progress":"8/150","truncated":false}
+{"generated_tokens":91,"index":8,"latency_seconds":4.679,"progress":"9/150","truncated":false}
+{"generated_tokens":33,"index":9,"latency_seconds":2.348,"progress":"10/150","truncated":false}
+{"generated_tokens":43,"index":10,"latency_seconds":2.753,"progress":"11/150","truncated":false}
+{"generated_tokens":62,"index":11,"latency_seconds":3.604,"progress":"12/150","truncated":false}
+{"generated_tokens":68,"index":12,"latency_seconds":3.789,"progress":"13/150","truncated":false}
+{"generated_tokens":54,"index":13,"latency_seconds":3.289,"progress":"14/150","truncated":false}
+{"generated_tokens":27,"index":14,"latency_seconds":2.183,"progress":"15/150","truncated":false}
+{"generated_tokens":6,"index":15,"latency_seconds":1.31,"progress":"16/150","truncated":false}
+{"generated_tokens":5,"index":16,"latency_seconds":1.264,"progress":"17/150","truncated":false}
+{"generated_tokens":39,"index":17,"latency_seconds":2.68,"progress":"18/150","truncated":false}
+{"generated_tokens":34,"index":18,"latency_seconds":2.538,"progress":"19/150","truncated":false}
+{"generated_tokens":45,"index":19,"latency_seconds":2.855,"progress":"20/150","truncated":false}
+{"generated_tokens":62,"index":20,"latency_seconds":3.569,"progress":"21/150","truncated":false}
+{"generated_tokens":50,"index":21,"latency_seconds":3.042,"progress":"22/150","truncated":false}
+{"generated_tokens":42,"index":22,"latency_seconds":2.751,"progress":"23/150","truncated":false}
+{"generated_tokens":40,"index":23,"latency_seconds":2.668,"progress":"24/150","truncated":false}
+{"generated_tokens":27,"index":24,"latency_seconds":2.116,"progress":"25/150","truncated":false}
+{"generated_tokens":50,"index":25,"latency_seconds":3.041,"progress":"26/150","truncated":false}
+{"generated_tokens":35,"index":26,"latency_seconds":2.427,"progress":"27/150","truncated":false}
+{"generated_tokens":71,"index":27,"latency_seconds":4.03,"progress":"28/150","truncated":false}
+{"generated_tokens":33,"index":28,"latency_seconds":2.45,"progress":"29/150","truncated":false}
+{"generated_tokens":58,"index":29,"latency_seconds":3.496,"progress":"30/150","truncated":false}
+{"generated_tokens":45,"index":30,"latency_seconds":2.849,"progress":"31/150","truncated":false}
+{"generated_tokens":48,"index":31,"latency_seconds":2.934,"progress":"32/150","truncated":false}
+{"generated_tokens":50,"index":32,"latency_seconds":3.245,"progress":"33/150","truncated":false}
+{"generated_tokens":39,"index":33,"latency_seconds":2.666,"progress":"34/150","truncated":false}
+{"generated_tokens":89,"index":34,"latency_seconds":4.584,"progress":"35/150","truncated":false}
+{"generated_tokens":25,"index":35,"latency_seconds":2.009,"progress":"36/150","truncated":false}
+{"generated_tokens":47,"index":36,"latency_seconds":3.048,"progress":"37/150","truncated":false}
+{"generated_tokens":46,"index":37,"latency_seconds":3.05,"progress":"38/150","truncated":false}
+{"generated_tokens":57,"index":38,"latency_seconds":3.404,"progress":"39/150","truncated":false}
+{"generated_tokens":49,"index":39,"latency_seconds":3.101,"progress":"40/150","truncated":false}
+{"generated_tokens":31,"index":40,"latency_seconds":2.283,"progress":"41/150","truncated":false}
+{"generated_tokens":35,"index":41,"latency_seconds":2.466,"progress":"42/150","truncated":false}
+{"generated_tokens":20,"index":42,"latency_seconds":1.86,"progress":"43/150","truncated":false}
+{"generated_tokens":71,"index":43,"latency_seconds":3.97,"progress":"44/150","truncated":false}
+{"generated_tokens":35,"index":44,"latency_seconds":2.446,"progress":"45/150","truncated":false}
+{"generated_tokens":27,"index":45,"latency_seconds":2.123,"progress":"46/150","truncated":false}
+{"generated_tokens":17,"index":46,"latency_seconds":1.696,"progress":"47/150","truncated":false}
+{"generated_tokens":30,"index":47,"latency_seconds":2.185,"progress":"48/150","truncated":false}
+{"generated_tokens":79,"index":48,"latency_seconds":4.113,"progress":"49/150","truncated":false}
+{"generated_tokens":73,"index":49,"latency_seconds":3.886,"progress":"50/150","truncated":false}
+{"generated_tokens":49,"index":50,"latency_seconds":2.985,"progress":"51/150","truncated":false}
+{"generated_tokens":40,"index":51,"latency_seconds":2.731,"progress":"52/150","truncated":false}
+{"generated_tokens":78,"index":52,"latency_seconds":4.185,"progress":"53/150","truncated":false}
+{"generated_tokens":64,"index":53,"latency_seconds":3.68,"progress":"54/150","truncated":false}
+{"generated_tokens":33,"index":54,"latency_seconds":2.375,"progress":"55/150","truncated":false}
+{"generated_tokens":52,"index":55,"latency_seconds":3.167,"progress":"56/150","truncated":false}
+{"generated_tokens":33,"index":56,"latency_seconds":2.405,"progress":"57/150","truncated":false}
+{"generated_tokens":22,"index":57,"latency_seconds":1.936,"progress":"58/150","truncated":false}
+{"generated_tokens":47,"index":58,"latency_seconds":2.976,"progress":"59/150","truncated":false}
+{"generated_tokens":31,"index":59,"latency_seconds":2.304,"progress":"60/150","truncated":false}
+{"generated_tokens":24,"index":60,"latency_seconds":2.091,"progress":"61/150","truncated":false}
+{"generated_tokens":75,"index":61,"latency_seconds":4.192,"progress":"62/150","truncated":false}
+{"generated_tokens":63,"index":62,"latency_seconds":3.65,"progress":"63/150","truncated":false}
+{"generated_tokens":62,"index":63,"latency_seconds":3.567,"progress":"64/150","truncated":false}
+{"generated_tokens":61,"index":64,"latency_seconds":3.521,"progress":"65/150","truncated":false}
+{"generated_tokens":70,"index":65,"latency_seconds":3.911,"progress":"66/150","truncated":false}
+{"generated_tokens":69,"index":66,"latency_seconds":3.876,"progress":"67/150","truncated":false}
+{"generated_tokens":54,"index":67,"latency_seconds":3.263,"progress":"68/150","truncated":false}
+{"generated_tokens":67,"index":68,"latency_seconds":3.749,"progress":"69/150","truncated":false}
+{"generated_tokens":72,"index":69,"latency_seconds":3.969,"progress":"70/150","truncated":false}
+{"generated_tokens":51,"index":70,"latency_seconds":3.063,"progress":"71/150","truncated":false}
+{"generated_tokens":68,"index":71,"latency_seconds":3.749,"progress":"72/150","truncated":false}
+{"generated_tokens":69,"index":72,"latency_seconds":3.758,"progress":"73/150","truncated":false}
+{"generated_tokens":76,"index":73,"latency_seconds":4.058,"progress":"74/150","truncated":false}
+{"generated_tokens":82,"index":74,"latency_seconds":4.352,"progress":"75/150","truncated":false}
+{"generated_tokens":53,"index":75,"latency_seconds":3.116,"progress":"76/150","truncated":false}
+{"generated_tokens":61,"index":76,"latency_seconds":3.431,"progress":"77/150","truncated":false}
+{"generated_tokens":82,"index":77,"latency_seconds":4.284,"progress":"78/150","truncated":false}
+{"generated_tokens":66,"index":78,"latency_seconds":3.73,"progress":"79/150","truncated":false}
+{"generated_tokens":86,"index":79,"latency_seconds":4.539,"progress":"80/150","truncated":false}
+{"generated_tokens":69,"index":80,"latency_seconds":3.792,"progress":"81/150","truncated":false}
+{"generated_tokens":49,"index":81,"latency_seconds":3.048,"progress":"82/150","truncated":false}
+{"generated_tokens":40,"index":82,"latency_seconds":2.614,"progress":"83/150","truncated":false}
+{"generated_tokens":63,"index":83,"latency_seconds":3.486,"progress":"84/150","truncated":false}
+{"generated_tokens":56,"index":84,"latency_seconds":3.234,"progress":"85/150","truncated":false}
+{"generated_tokens":55,"index":85,"latency_seconds":3.187,"progress":"86/150","truncated":false}
+{"generated_tokens":55,"index":86,"latency_seconds":3.244,"progress":"87/150","truncated":false}
+{"generated_tokens":76,"index":87,"latency_seconds":4.022,"progress":"88/150","truncated":false}
+{"generated_tokens":27,"index":88,"latency_seconds":2.073,"progress":"89/150","truncated":false}
+{"generated_tokens":31,"index":89,"latency_seconds":2.231,"progress":"90/150","truncated":false}
+{"generated_tokens":31,"index":90,"latency_seconds":2.232,"progress":"91/150","truncated":false}
+{"generated_tokens":31,"index":91,"latency_seconds":2.23,"progress":"92/150","truncated":false}
+{"generated_tokens":37,"index":92,"latency_seconds":2.458,"progress":"93/150","truncated":false}
+{"generated_tokens":35,"index":93,"latency_seconds":2.401,"progress":"94/150","truncated":false}
+{"generated_tokens":37,"index":94,"latency_seconds":2.484,"progress":"95/150","truncated":false}
+{"generated_tokens":94,"index":95,"latency_seconds":4.88,"progress":"96/150","truncated":false}
+{"generated_tokens":70,"index":96,"latency_seconds":3.824,"progress":"97/150","truncated":false}
+{"generated_tokens":63,"index":97,"latency_seconds":3.604,"progress":"98/150","truncated":false}
+{"generated_tokens":39,"index":98,"latency_seconds":2.701,"progress":"99/150","truncated":false}
+{"generated_tokens":53,"index":99,"latency_seconds":3.242,"progress":"100/150","truncated":false}
+{"generated_tokens":79,"index":100,"latency_seconds":4.245,"progress":"101/150","truncated":false}
+{"generated_tokens":78,"index":101,"latency_seconds":4.26,"progress":"102/150","truncated":false}
+{"generated_tokens":64,"index":102,"latency_seconds":3.701,"progress":"103/150","truncated":false}
+{"generated_tokens":68,"index":103,"latency_seconds":3.874,"progress":"104/150","truncated":false}
+{"generated_tokens":59,"index":104,"latency_seconds":3.386,"progress":"105/150","truncated":false}
+{"generated_tokens":56,"index":105,"latency_seconds":3.227,"progress":"106/150","truncated":false}
+{"generated_tokens":42,"index":106,"latency_seconds":2.801,"progress":"107/150","truncated":false}
+{"generated_tokens":42,"index":107,"latency_seconds":2.804,"progress":"108/150","truncated":false}
+{"generated_tokens":45,"index":108,"latency_seconds":2.974,"progress":"109/150","truncated":false}
+{"generated_tokens":39,"index":109,"latency_seconds":2.648,"progress":"110/150","truncated":false}
+{"generated_tokens":27,"index":110,"latency_seconds":2.126,"progress":"111/150","truncated":false}
+{"generated_tokens":67,"index":111,"latency_seconds":3.716,"progress":"112/150","truncated":false}
+{"generated_tokens":23,"index":112,"latency_seconds":1.979,"progress":"113/150","truncated":false}
+{"generated_tokens":32,"index":113,"latency_seconds":2.367,"progress":"114/150","truncated":false}
+{"generated_tokens":45,"index":114,"latency_seconds":2.875,"progress":"115/150","truncated":false}
+{"generated_tokens":34,"index":115,"latency_seconds":2.398,"progress":"116/150","truncated":false}
+{"generated_tokens":38,"index":116,"latency_seconds":2.564,"progress":"117/150","truncated":false}
+{"generated_tokens":52,"index":117,"latency_seconds":3.038,"progress":"118/150","truncated":false}
+{"generated_tokens":40,"index":118,"latency_seconds":2.547,"progress":"119/150","truncated":false}
+{"generated_tokens":11,"index":119,"latency_seconds":1.381,"progress":"120/150","truncated":false}
+{"generated_tokens":61,"index":120,"latency_seconds":3.344,"progress":"121/150","truncated":false}
+{"generated_tokens":50,"index":121,"latency_seconds":2.962,"progress":"122/150","truncated":false}
+{"generated_tokens":44,"index":122,"latency_seconds":2.848,"progress":"123/150","truncated":false}
+{"generated_tokens":37,"index":123,"latency_seconds":2.669,"progress":"124/150","truncated":false}
+{"generated_tokens":31,"index":124,"latency_seconds":2.294,"progress":"125/150","truncated":false}
+{"generated_tokens":71,"index":125,"latency_seconds":3.833,"progress":"126/150","truncated":false}
+{"generated_tokens":36,"index":126,"latency_seconds":2.413,"progress":"127/150","truncated":false}
+{"generated_tokens":27,"index":127,"latency_seconds":2.088,"progress":"128/150","truncated":false}
+{"generated_tokens":26,"index":128,"latency_seconds":2.035,"progress":"129/150","truncated":false}
+{"generated_tokens":20,"index":129,"latency_seconds":1.81,"progress":"130/150","truncated":false}
+{"generated_tokens":29,"index":130,"latency_seconds":2.201,"progress":"131/150","truncated":false}
+{"generated_tokens":40,"index":131,"latency_seconds":2.714,"progress":"132/150","truncated":false}
+{"generated_tokens":49,"index":132,"latency_seconds":2.956,"progress":"133/150","truncated":false}
+{"generated_tokens":25,"index":133,"latency_seconds":1.964,"progress":"134/150","truncated":false}
+{"generated_tokens":26,"index":134,"latency_seconds":2.01,"progress":"135/150","truncated":false}
+{"generated_tokens":36,"index":135,"latency_seconds":2.402,"progress":"136/150","truncated":false}
+{"generated_tokens":29,"index":136,"latency_seconds":2.116,"progress":"137/150","truncated":false}
+{"generated_tokens":39,"index":137,"latency_seconds":2.566,"progress":"138/150","truncated":false}
+{"generated_tokens":35,"index":138,"latency_seconds":2.382,"progress":"139/150","truncated":false}
+{"generated_tokens":37,"index":139,"latency_seconds":2.455,"progress":"140/150","truncated":false}
+{"generated_tokens":24,"index":140,"latency_seconds":1.94,"progress":"141/150","truncated":false}
+{"generated_tokens":34,"index":141,"latency_seconds":2.34,"progress":"142/150","truncated":false}
+{"generated_tokens":38,"index":142,"latency_seconds":2.524,"progress":"143/150","truncated":false}
+{"generated_tokens":21,"index":143,"latency_seconds":1.843,"progress":"144/150","truncated":false}
+{"generated_tokens":31,"index":144,"latency_seconds":2.39,"progress":"145/150","truncated":false}
+{"generated_tokens":56,"index":145,"latency_seconds":3.279,"progress":"146/150","truncated":false}
+{"generated_tokens":47,"index":146,"latency_seconds":2.877,"progress":"147/150","truncated":false}
+{"generated_tokens":31,"index":147,"latency_seconds":2.271,"progress":"148/150","truncated":false}
+{"generated_tokens":38,"index":148,"latency_seconds":2.503,"progress":"149/150","truncated":false}
+{"generated_tokens":34,"index":149,"latency_seconds":2.4,"progress":"150/150","truncated":false}
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "task": "tquad",
+  "items": 150,
+  "truncated": 0,
+  "prompt_tokens": 42189,
+  "generated_tokens": 6997,
+  "generation_seconds": 438.8370958454907,
+  "truncation_rate": 0.0,
+  "mean_generated_tokens": 46.64666666666667,
+  "mean_latency_seconds": 2.925580638969938,
+  "wall_seconds": 439.24835658073425,
+  "samples_sha256": "4abaf055211ce189387a37f36d42278bd84073176325ca090d3d81263023745c"
+}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 560.10it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<13:20,  1.88s/it]Loading weights:   2%|▏         | 9/426 [00:02<01:12,  5.74it/s]Loading weights:   3%|▎         | 12/426 [00:02<00:54,  7.61it/s]Loading weights:   4%|▎         | 15/426 [00:02<00:42,  9.78it/s]Loading weights:   5%|▌         | 22/426 [00:02<00:23, 16.98it/s]Loading weights:   6%|▌         | 26/426 [00:02<00:20, 19.46it/s]Loading weights:   7%|▋         | 30/426 [00:02<00:17, 22.63it/s]Loading weights:   9%|▊         | 37/426 [00:02<00:13, 29.78it/s]Loading weights:  10%|▉         | 41/426 [00:03<00:14, 26.64it/s]Loading weights:  11%|█         | 45/426 [00:03<00:13, 27.53it/s]Loading weights:  12%|█▏        | 49/426 [00:03<00:13, 27.41it/s]Loading weights:  12%|█▏        | 53/426 [00:03<00:12, 29.91it/s]Loading weights:  15%|█▍        | 62/426 [00:03<00:08, 40.58it/s]Loading weights:  16%|█▌        | 67/426 [00:03<00:11, 31.37it/s]Loading weights:  18%|█▊        | 76/426 [00:03<00:08, 41.84it/s]Loading weights:  19%|█▉        | 81/426 [00:04<00:10, 31.68it/s]Loading weights:  21%|██        | 89/426 [00:04<00:08, 38.28it/s]Loading weights:  22%|██▏       | 94/426 [00:04<00:10, 31.33it/s]Loading weights:  23%|██▎       | 99/426 [00:04<00:09, 33.35it/s]Loading weights:  24%|██▍       | 103/426 [00:04<00:10, 32.00it/s]Loading weights:  26%|██▌       | 111/426 [00:04<00:08, 38.12it/s]Loading weights:  28%|██▊       | 119/426 [00:05<00:07, 40.99it/s]Loading weights:  29%|██▉       | 124/426 [00:05<00:07, 40.20it/s]Loading weights:  31%|███       | 131/426 [00:05<00:06, 44.54it/s]Loading weights:  32%|███▏      | 136/426 [00:05<00:07, 36.75it/s]Loading weights:  34%|███▎      | 143/426 [00:05<00:06, 42.26it/s]Loading weights:  35%|███▍      | 148/426 [00:06<00:08, 31.92it/s]Loading weights:  36%|███▌      | 152/426 [00:06<00:08, 31.49it/s]Loading weights:  37%|███▋      | 156/426 [00:06<00:08, 32.03it/s]Loading weights:  38%|███▊      | 160/426 [00:06<00:08, 32.85it/s]Loading weights:  39%|███▉      | 167/426 [00:06<00:06, 39.60it/s]Loading weights:  40%|████      | 172/426 [00:06<00:07, 34.06it/s]Loading weights:  41%|████▏     | 176/426 [00:06<00:07, 34.33it/s]Loading weights:  42%|████▏     | 181/426 [00:06<00:07, 33.53it/s]Loading weights:  43%|████▎     | 185/426 [00:07<00:07, 33.63it/s]Loading weights:  44%|████▍     | 189/426 [00:07<00:07, 32.79it/s]Loading weights:  46%|████▌     | 196/426 [00:07<00:05, 38.84it/s]Loading weights:  47%|████▋     | 200/426 [00:07<00:07, 29.42it/s]Loading weights:  48%|████▊     | 204/426 [00:07<00:07, 30.05it/s]Loading weights:  49%|████▉     | 208/426 [00:07<00:07, 29.12it/s]Loading weights:  50%|█████     | 213/426 [00:07<00:06, 33.15it/s]Loading weights:  52%|█████▏    | 221/426 [00:08<00:04, 43.14it/s]Loading weights:  53%|█████▎    | 226/426 [00:08<00:05, 34.79it/s]Loading weights:  55%|█████▍    | 233/426 [00:08<00:04, 40.23it/s]Loading weights:  56%|█████▌    | 238/426 [00:08<00:04, 40.02it/s]Loading weights:  57%|█████▋    | 243/426 [00:08<00:04, 37.44it/s]Loading weights:  59%|█████▉    | 251/426 [00:08<00:03, 45.23it/s]Loading weights:  60%|██████    | 256/426 [00:09<00:04, 35.25it/s]Loading weights:  61%|██████▏   | 261/426 [00:09<00:04, 34.02it/s]Loading weights:  63%|██████▎   | 267/426 [00:09<00:04, 39.19it/s]Loading weights:  64%|██████▍   | 274/426 [00:09<00:03, 45.76it/s]Loading weights:  66%|██████▌   | 280/426 [00:09<00:03, 37.49it/s]Loading weights:  68%|██████▊   | 288/426 [00:09<00:03, 40.47it/s]Loading weights:  69%|██████▉   | 293/426 [00:10<00:04, 31.28it/s]Loading weights:  70%|███████   | 299/426 [00:10<00:03, 36.39it/s]Loading weights:  72%|███████▏  | 305/426 [00:10<00:03, 36.39it/s]Loading weights:  73%|███████▎  | 310/426 [00:10<00:03, 33.33it/s]Loading weights:  74%|███████▎  | 314/426 [00:10<00:03, 32.01it/s]Loading weights:  76%|███████▌  | 324/426 [00:10<00:02, 43.42it/s]Loading weights:  77%|███████▋  | 330/426 [00:10<00:02, 43.59it/s]Loading weights:  79%|███████▊  | 335/426 [00:11<00:02, 42.31it/s]Loading weights:  81%|████████  | 344/426 [00:11<00:01, 49.95it/s]Loading weights:  82%|████████▏ | 350/426 [00:11<00:01, 48.24it/s]Loading weights:  83%|████████▎ | 355/426 [00:11<00:01, 46.64it/s]Loading weights:  85%|████████▍ | 360/426 [00:11<00:01, 36.44it/s]Loading weights:  85%|████████▌ | 364/426 [00:11<00:01, 34.48it/s]Loading weights:  87%|████████▋ | 369/426 [00:11<00:01, 34.87it/s]Loading weights:  88%|████████▊ | 376/426 [00:12<00:01, 37.60it/s]Loading weights:  89%|████████▉ | 381/426 [00:12<00:01, 39.46it/s]Loading weights:  91%|█████████ | 386/426 [00:12<00:01, 33.15it/s]Loading weights:  93%|█████████▎| 395/426 [00:12<00:00, 42.69it/s]Loading weights:  94%|█████████▍| 400/426 [00:12<00:00, 36.28it/s]Loading weights:  96%|█████████▌| 408/426 [00:12<00:00, 44.93it/s]Loading weights:  97%|█████████▋| 414/426 [00:13<00:00, 36.39it/s]Loading weights:  98%|█████████▊| 419/426 [00:13<00:00, 31.06it/s]Loading weights: 100%|█████████▉| 424/426 [00:13<00:00, 32.92it/s]Loading weights: 100%|██████████| 426/426 [00:13<00:00, 31.61it/s]
+Downloading readme:   0%|          | 0.00/15.6k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 15.6k/15.6k [00:00<00:00, 351kB/s]
+Downloading data:   0%|          | 0.00/228k [00:00<?, ?B/s]Downloading data: 100%|██████████| 228k/228k [00:00<00:00, 745kB/s]Downloading data: 100%|██████████| 228k/228k [00:00<00:00, 737kB/s]
+Generating validation split:   0%|          | 0/1190 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 1190/1190 [00:00<00:00, 23244.18 examples/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"generated_tokens":30,"index":0,"latency_seconds":3.178,"progress":"1/150","truncated":false}
+{"generated_tokens":43,"index":1,"latency_seconds":2.823,"progress":"2/150","truncated":false}
+{"generated_tokens":44,"index":2,"latency_seconds":2.925,"progress":"3/150","truncated":false}
+{"generated_tokens":31,"index":3,"latency_seconds":2.312,"progress":"4/150","truncated":false}
+{"generated_tokens":28,"index":4,"latency_seconds":2.16,"progress":"5/150","truncated":false}
+{"generated_tokens":89,"index":5,"latency_seconds":4.626,"progress":"6/150","truncated":false}
+{"generated_tokens":113,"index":6,"latency_seconds":5.557,"progress":"7/150","truncated":false}
+{"generated_tokens":18,"index":7,"latency_seconds":1.74,"progress":"8/150","truncated":false}
+{"generated_tokens":50,"index":8,"latency_seconds":3.002,"progress":"9/150","truncated":false}
+{"generated_tokens":24,"index":9,"latency_seconds":2.029,"progress":"10/150","truncated":false}
+{"generated_tokens":46,"index":10,"latency_seconds":2.947,"progress":"11/150","truncated":false}
+{"generated_tokens":81,"index":11,"latency_seconds":4.443,"progress":"12/150","truncated":false}
+{"generated_tokens":113,"index":12,"latency_seconds":5.768,"progress":"13/150","truncated":false}
+{"generated_tokens":102,"index":13,"latency_seconds":5.258,"progress":"14/150","truncated":false}
+{"generated_tokens":47,"index":14,"latency_seconds":3.061,"progress":"15/150","truncated":false}
+{"generated_tokens":27,"index":15,"latency_seconds":2.161,"progress":"16/150","truncated":false}
+{"generated_tokens":35,"index":16,"latency_seconds":2.434,"progress":"17/150","truncated":false}
+{"generated_tokens":47,"index":17,"latency_seconds":2.949,"progress":"18/150","truncated":false}
+{"generated_tokens":101,"index":18,"latency_seconds":5.27,"progress":"19/150","truncated":false}
+{"generated_tokens":52,"index":19,"latency_seconds":3.344,"progress":"20/150","truncated":false}
+{"generated_tokens":21,"index":20,"latency_seconds":1.927,"progress":"21/150","truncated":false}
+{"generated_tokens":35,"index":21,"latency_seconds":2.461,"progress":"22/150","truncated":false}
+{"generated_tokens":67,"index":22,"latency_seconds":3.798,"progress":"23/150","truncated":false}
+{"generated_tokens":32,"index":23,"latency_seconds":2.374,"progress":"24/150","truncated":false}
+{"generated_tokens":22,"index":24,"latency_seconds":1.939,"progress":"25/150","truncated":false}
+{"generated_tokens":24,"index":25,"latency_seconds":1.995,"progress":"26/150","truncated":false}
+{"generated_tokens":44,"index":26,"latency_seconds":2.9,"progress":"27/150","truncated":false}
+{"generated_tokens":57,"index":27,"latency_seconds":3.43,"progress":"28/150","truncated":false}
+{"generated_tokens":54,"index":28,"latency_seconds":3.264,"progress":"29/150","truncated":false}
+{"generated_tokens":52,"index":29,"latency_seconds":3.149,"progress":"30/150","truncated":false}
+{"generated_tokens":63,"index":30,"latency_seconds":3.688,"progress":"31/150","truncated":false}
+{"generated_tokens":72,"index":31,"latency_seconds":3.934,"progress":"32/150","truncated":false}
+{"generated_tokens":40,"index":32,"latency_seconds":2.575,"progress":"33/150","truncated":false}
+{"generated_tokens":38,"index":33,"latency_seconds":2.553,"progress":"34/150","truncated":false}
+{"generated_tokens":43,"index":34,"latency_seconds":2.698,"progress":"35/150","truncated":false}
+{"generated_tokens":64,"index":35,"latency_seconds":3.581,"progress":"36/150","truncated":false}
+{"generated_tokens":31,"index":36,"latency_seconds":2.23,"progress":"37/150","truncated":false}
+{"generated_tokens":40,"index":37,"latency_seconds":2.584,"progress":"38/150","truncated":false}
+{"generated_tokens":61,"index":38,"latency_seconds":3.522,"progress":"39/150","truncated":false}
+{"generated_tokens":55,"index":39,"latency_seconds":3.323,"progress":"40/150","truncated":false}
+{"generated_tokens":67,"index":40,"latency_seconds":3.902,"progress":"41/150","truncated":false}
+{"generated_tokens":56,"index":41,"latency_seconds":3.375,"progress":"42/150","truncated":false}
+{"generated_tokens":32,"index":42,"latency_seconds":2.29,"progress":"43/150","truncated":false}
+{"generated_tokens":37,"index":43,"latency_seconds":2.586,"progress":"44/150","truncated":false}
+{"generated_tokens":33,"index":44,"latency_seconds":2.411,"progress":"45/150","truncated":false}
+{"generated_tokens":32,"index":45,"latency_seconds":2.333,"progress":"46/150","truncated":false}
+{"generated_tokens":44,"index":46,"latency_seconds":2.82,"progress":"47/150","truncated":false}
+{"generated_tokens":23,"index":47,"latency_seconds":2.028,"progress":"48/150","truncated":false}
+{"generated_tokens":16,"index":48,"latency_seconds":1.626,"progress":"49/150","truncated":false}
+{"generated_tokens":20,"index":49,"latency_seconds":1.8,"progress":"50/150","truncated":false}
+{"generated_tokens":28,"index":50,"latency_seconds":2.162,"progress":"51/150","truncated":false}
+{"generated_tokens":101,"index":51,"latency_seconds":5.259,"progress":"52/150","truncated":false}
+{"generated_tokens":9,"index":52,"latency_seconds":1.419,"progress":"53/150","truncated":false}
+{"generated_tokens":11,"index":53,"latency_seconds":1.506,"progress":"54/150","truncated":false}
+{"generated_tokens":8,"index":54,"latency_seconds":1.437,"progress":"55/150","truncated":false}
+{"generated_tokens":26,"index":55,"latency_seconds":2.033,"progress":"56/150","truncated":false}
+{"generated_tokens":8,"index":56,"latency_seconds":1.385,"progress":"57/150","truncated":false}
+{"generated_tokens":20,"index":57,"latency_seconds":1.874,"progress":"58/150","truncated":false}
+{"generated_tokens":9,"index":58,"latency_seconds":1.392,"progress":"59/150","truncated":false}
+{"generated_tokens":48,"index":59,"latency_seconds":2.979,"progress":"60/150","truncated":false}
+{"generated_tokens":104,"index":60,"latency_seconds":5.4,"progress":"61/150","truncated":false}
+{"generated_tokens":119,"index":61,"latency_seconds":5.787,"progress":"62/150","truncated":false}
+{"generated_tokens":95,"index":62,"latency_seconds":4.773,"progress":"63/150","truncated":false}
+{"generated_tokens":52,"index":63,"latency_seconds":3.101,"progress":"64/150","truncated":false}
+{"generated_tokens":33,"index":64,"latency_seconds":2.333,"progress":"65/150","truncated":false}
+{"generated_tokens":73,"index":65,"latency_seconds":3.923,"progress":"66/150","truncated":false}
+{"generated_tokens":48,"index":66,"latency_seconds":3.007,"progress":"67/150","truncated":false}
+{"generated_tokens":42,"index":67,"latency_seconds":2.82,"progress":"68/150","truncated":false}
+{"generated_tokens":54,"index":68,"latency_seconds":3.249,"progress":"69/150","truncated":false}
+{"generated_tokens":40,"index":69,"latency_seconds":2.678,"progress":"70/150","truncated":false}
+{"generated_tokens":89,"index":70,"latency_seconds":4.574,"progress":"71/150","truncated":false}
+{"generated_tokens":115,"index":71,"latency_seconds":5.637,"progress":"72/150","truncated":false}
+{"generated_tokens":68,"index":72,"latency_seconds":3.711,"progress":"73/150","truncated":false}
+{"generated_tokens":57,"index":73,"latency_seconds":3.302,"progress":"74/150","truncated":false}
+{"generated_tokens":23,"index":74,"latency_seconds":1.893,"progress":"75/150","truncated":false}
+{"generated_tokens":51,"index":75,"latency_seconds":3.065,"progress":"76/150","truncated":false}
+{"generated_tokens":60,"index":76,"latency_seconds":3.508,"progress":"77/150","truncated":false}
+{"generated_tokens":24,"index":77,"latency_seconds":2.024,"progress":"78/150","truncated":false}
+{"generated_tokens":15,"index":78,"latency_seconds":1.607,"progress":"79/150","truncated":false}
+{"generated_tokens":40,"index":79,"latency_seconds":2.579,"progress":"80/150","truncated":false}
+{"generated_tokens":87,"index":80,"latency_seconds":4.466,"progress":"81/150","truncated":false}
+{"generated_tokens":30,"index":81,"latency_seconds":2.256,"progress":"82/150","truncated":false}
+{"generated_tokens":28,"index":82,"latency_seconds":2.205,"progress":"83/150","truncated":false}
+{"generated_tokens":50,"index":83,"latency_seconds":3.107,"progress":"84/150","truncated":false}
+{"generated_tokens":28,"index":84,"latency_seconds":2.196,"progress":"85/150","truncated":false}
+{"generated_tokens":45,"index":85,"latency_seconds":2.912,"progress":"86/150","truncated":false}
+{"generated_tokens":45,"index":86,"latency_seconds":2.872,"progress":"87/150","truncated":false}
+{"generated_tokens":71,"index":87,"latency_seconds":3.897,"progress":"88/150","truncated":false}
+{"generated_tokens":39,"index":88,"latency_seconds":2.627,"progress":"89/150","truncated":false}
+{"generated_tokens":35,"index":89,"latency_seconds":2.497,"progress":"90/150","truncated":false}
+{"generated_tokens":74,"index":90,"latency_seconds":4.139,"progress":"91/150","truncated":false}
+{"generated_tokens":128,"index":91,"latency_seconds":6.19,"progress":"92/150","truncated":true}
+{"generated_tokens":26,"index":92,"latency_seconds":2.026,"progress":"93/150","truncated":false}
+{"generated_tokens":28,"index":93,"latency_seconds":2.141,"progress":"94/150","truncated":false}
+{"generated_tokens":34,"index":94,"latency_seconds":2.431,"progress":"95/150","truncated":false}
+{"generated_tokens":50,"index":95,"latency_seconds":3.115,"progress":"96/150","truncated":false}
+{"generated_tokens":66,"index":96,"latency_seconds":3.913,"progress":"97/150","truncated":false}
+{"generated_tokens":27,"index":97,"latency_seconds":2.163,"progress":"98/150","truncated":false}
+{"generated_tokens":93,"index":98,"latency_seconds":4.818,"progress":"99/150","truncated":false}
+{"generated_tokens":45,"index":99,"latency_seconds":2.793,"progress":"100/150","truncated":false}
+{"generated_tokens":49,"index":100,"latency_seconds":2.944,"progress":"101/150","truncated":false}
+{"generated_tokens":64,"index":101,"latency_seconds":3.549,"progress":"102/150","truncated":false}
+{"generated_tokens":56,"index":102,"latency_seconds":3.224,"progress":"103/150","truncated":false}
+{"generated_tokens":43,"index":103,"latency_seconds":2.882,"progress":"104/150","truncated":false}
+{"generated_tokens":55,"index":104,"latency_seconds":3.361,"progress":"105/150","truncated":false}
+{"generated_tokens":27,"index":105,"latency_seconds":2.114,"progress":"106/150","truncated":false}
+{"generated_tokens":33,"index":106,"latency_seconds":2.368,"progress":"107/150","truncated":false}
+{"generated_tokens":27,"index":107,"latency_seconds":2.09,"progress":"108/150","truncated":false}
+{"generated_tokens":37,"index":108,"latency_seconds":2.544,"progress":"109/150","truncated":false}
+{"generated_tokens":72,"index":109,"latency_seconds":4.049,"progress":"110/150","truncated":false}
+{"generated_tokens":27,"index":110,"latency_seconds":2.179,"progress":"111/150","truncated":false}
+{"generated_tokens":48,"index":111,"latency_seconds":2.985,"progress":"112/150","truncated":false}
+{"generated_tokens":24,"index":112,"latency_seconds":2.034,"progress":"113/150","truncated":false}
+{"generated_tokens":61,"index":113,"latency_seconds":3.489,"progress":"114/150","truncated":false}
+{"generated_tokens":25,"index":114,"latency_seconds":1.995,"progress":"115/150","truncated":false}
+{"generated_tokens":93,"index":115,"latency_seconds":4.692,"progress":"116/150","truncated":false}
+{"generated_tokens":85,"index":116,"latency_seconds":4.482,"progress":"117/150","truncated":false}
+{"generated_tokens":101,"index":117,"latency_seconds":5.321,"progress":"118/150","truncated":false}
+{"generated_tokens":64,"index":118,"latency_seconds":3.659,"progress":"119/150","truncated":false}
+{"generated_tokens":21,"index":119,"latency_seconds":1.863,"progress":"120/150","truncated":false}
+{"generated_tokens":32,"index":120,"latency_seconds":2.356,"progress":"121/150","truncated":false}
+{"generated_tokens":33,"index":121,"latency_seconds":2.387,"progress":"122/150","truncated":false}
+{"generated_tokens":85,"index":122,"latency_seconds":4.482,"progress":"123/150","truncated":false}
+{"generated_tokens":36,"index":123,"latency_seconds":2.46,"progress":"124/150","truncated":false}
+{"generated_tokens":33,"index":124,"latency_seconds":2.381,"progress":"125/150","truncated":false}
+{"generated_tokens":60,"index":125,"latency_seconds":3.515,"progress":"126/150","truncated":false}
+{"generated_tokens":45,"index":126,"latency_seconds":2.953,"progress":"127/150","truncated":false}
+{"generated_tokens":36,"index":127,"latency_seconds":2.514,"progress":"128/150","truncated":false}
+{"generated_tokens":37,"index":128,"latency_seconds":2.561,"progress":"129/150","truncated":false}
+{"generated_tokens":32,"index":129,"latency_seconds":2.294,"progress":"130/150","truncated":false}
+{"generated_tokens":15,"index":130,"latency_seconds":1.59,"progress":"131/150","truncated":false}
+{"generated_tokens":20,"index":131,"latency_seconds":1.874,"progress":"132/150","truncated":false}
+{"generated_tokens":81,"index":132,"latency_seconds":4.246,"progress":"133/150","truncated":false}
+{"generated_tokens":31,"index":133,"latency_seconds":2.342,"progress":"134/150","truncated":false}
+{"generated_tokens":75,"index":134,"latency_seconds":4.078,"progress":"135/150","truncated":false}
+{"generated_tokens":31,"index":135,"latency_seconds":2.269,"progress":"136/150","truncated":false}
+{"generated_tokens":60,"index":136,"latency_seconds":3.47,"progress":"137/150","truncated":false}
+{"generated_tokens":65,"index":137,"latency_seconds":3.651,"progress":"138/150","truncated":false}
+{"generated_tokens":42,"index":138,"latency_seconds":2.675,"progress":"139/150","truncated":false}
+{"generated_tokens":74,"index":139,"latency_seconds":3.98,"progress":"140/150","truncated":false}
+{"generated_tokens":41,"index":140,"latency_seconds":2.589,"progress":"141/150","truncated":false}
+{"generated_tokens":45,"index":141,"latency_seconds":2.736,"progress":"142/150","truncated":false}
+{"generated_tokens":67,"index":142,"latency_seconds":3.696,"progress":"143/150","truncated":false}
+{"generated_tokens":103,"index":143,"latency_seconds":5.106,"progress":"144/150","truncated":false}
+{"generated_tokens":63,"index":144,"latency_seconds":3.464,"progress":"145/150","truncated":false}
+{"generated_tokens":56,"index":145,"latency_seconds":3.276,"progress":"146/150","truncated":false}
+{"generated_tokens":57,"index":146,"latency_seconds":3.316,"progress":"147/150","truncated":false}
+{"generated_tokens":53,"index":147,"latency_seconds":3.186,"progress":"148/150","truncated":false}
+{"generated_tokens":62,"index":148,"latency_seconds":3.506,"progress":"149/150","truncated":false}
+{"generated_tokens":46,"index":149,"latency_seconds":2.94,"progress":"150/150","truncated":false}
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "task": "xquad_tr",
+  "items": 150,
+  "truncated": 1,
+  "prompt_tokens": 34175,
+  "generated_tokens": 7423,
+  "generation_seconds": 457.97945499047637,
+  "truncation_rate": 0.006666666666666667,
+  "mean_generated_tokens": 49.486666666666665,
+  "mean_latency_seconds": 3.0531963666031756,
+  "wall_seconds": 458.33008790016174,
+  "samples_sha256": "76c3672c22708447b418fa288d8d0eeb89eeaa9fc1e7e5dc887d6a6efdafb5f5"
+}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 213.44it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<12:33,  1.77s/it]Loading weights:   2%|▏         | 8/426 [00:01<01:13,  5.70it/s]Loading weights:   3%|▎         | 12/426 [00:02<00:48,  8.46it/s]Loading weights:   4%|▍         | 16/426 [00:02<00:34, 11.92it/s]Loading weights:   5%|▍         | 21/426 [00:02<00:24, 16.61it/s]Loading weights:   6%|▋         | 27/426 [00:02<00:19, 20.33it/s]Loading weights:   8%|▊         | 36/426 [00:02<00:12, 30.60it/s]Loading weights:  10%|▉         | 41/426 [00:02<00:14, 27.47it/s]Loading weights:  11%|█         | 45/426 [00:03<00:15, 25.12it/s]Loading weights:  12%|█▏        | 49/426 [00:03<00:14, 26.08it/s]Loading weights:  14%|█▎        | 58/426 [00:03<00:09, 38.18it/s]Loading weights:  15%|█▍        | 63/426 [00:03<00:08, 40.41it/s]Loading weights:  16%|█▌        | 68/426 [00:03<00:10, 33.77it/s]Loading weights:  18%|█▊        | 75/426 [00:03<00:08, 40.84it/s]Loading weights:  19%|█▉        | 80/426 [00:03<00:08, 39.30it/s]Loading weights:  21%|██        | 89/426 [00:04<00:07, 43.14it/s]Loading weights:  22%|██▏       | 94/426 [00:04<00:09, 34.13it/s]Loading weights:  23%|██▎       | 99/426 [00:04<00:11, 27.47it/s]Loading weights:  25%|██▍       | 106/426 [00:04<00:09, 34.19it/s]Loading weights:  27%|██▋       | 115/426 [00:04<00:07, 40.60it/s]Loading weights:  28%|██▊       | 120/426 [00:05<00:09, 31.98it/s]Loading weights:  30%|███       | 129/426 [00:05<00:07, 40.09it/s]Loading weights:  31%|███▏      | 134/426 [00:05<00:09, 30.20it/s]Loading weights:  34%|███▎      | 143/426 [00:05<00:07, 39.34it/s]Loading weights:  35%|███▍      | 149/426 [00:05<00:08, 33.81it/s]Loading weights:  36%|███▌      | 154/426 [00:06<00:08, 30.64it/s]Loading weights:  38%|███▊      | 160/426 [00:06<00:07, 35.40it/s]Loading weights:  40%|███▉      | 170/426 [00:06<00:05, 45.73it/s]Loading weights:  41%|████▏     | 176/426 [00:06<00:06, 38.69it/s]Loading weights:  42%|████▏     | 181/426 [00:06<00:06, 36.77it/s]Loading weights:  44%|████▎     | 186/426 [00:06<00:07, 34.28it/s]Loading weights:  46%|████▌     | 195/426 [00:06<00:05, 42.70it/s]Loading weights:  47%|████▋     | 200/426 [00:07<00:07, 31.59it/s]Loading weights:  48%|████▊     | 205/426 [00:07<00:07, 29.28it/s]Loading weights:  50%|████▉     | 212/426 [00:07<00:06, 34.77it/s]Loading weights:  52%|█████▏    | 220/426 [00:07<00:05, 35.58it/s]Loading weights:  53%|█████▎    | 225/426 [00:08<00:06, 32.61it/s]Loading weights:  55%|█████▍    | 234/426 [00:08<00:05, 37.87it/s]Loading weights:  56%|█████▌    | 239/426 [00:08<00:04, 37.99it/s]Loading weights:  58%|█████▊    | 248/426 [00:08<00:04, 43.85it/s]Loading weights:  59%|█████▉    | 253/426 [00:08<00:05, 33.38it/s]Loading weights:  61%|██████    | 258/426 [00:08<00:04, 34.70it/s]Loading weights:  62%|██████▏   | 263/426 [00:09<00:04, 35.98it/s]Loading weights:  64%|██████▍   | 272/426 [00:09<00:03, 44.93it/s]Loading weights:  65%|██████▌   | 277/426 [00:09<00:03, 39.27it/s]Loading weights:  66%|██████▌   | 282/426 [00:09<00:03, 39.77it/s]Loading weights:  67%|██████▋   | 287/426 [00:09<00:03, 38.74it/s]Loading weights:  69%|██████▊   | 292/426 [00:09<00:03, 35.69it/s]Loading weights:  69%|██████▉   | 296/426 [00:09<00:03, 36.55it/s]Loading weights:  71%|███████   | 302/426 [00:09<00:03, 41.16it/s]Loading weights:  72%|███████▏  | 307/426 [00:10<00:03, 30.55it/s]Loading weights:  73%|███████▎  | 311/426 [00:10<00:03, 30.84it/s]Loading weights:  74%|███████▍  | 316/426 [00:10<00:03, 32.35it/s]Loading weights:  75%|███████▌  | 320/426 [00:10<00:04, 23.32it/s]Loading weights:  77%|███████▋  | 328/426 [00:10<00:02, 33.35it/s]Loading weights:  78%|███████▊  | 333/426 [00:11<00:03, 27.16it/s]Loading weights:  81%|████████  | 344/426 [00:11<00:02, 36.03it/s]Loading weights:  82%|████████▏ | 349/426 [00:11<00:02, 36.75it/s]Loading weights:  83%|████████▎ | 355/426 [00:11<00:01, 38.09it/s]Loading weights:  85%|████████▍ | 360/426 [00:11<00:01, 33.52it/s]Loading weights:  85%|████████▌ | 364/426 [00:12<00:02, 27.83it/s]Loading weights:  87%|████████▋ | 371/426 [00:12<00:01, 33.91it/s]Loading weights:  89%|████████▉ | 379/426 [00:12<00:01, 39.33it/s]Loading weights:  90%|█████████ | 384/426 [00:12<00:01, 34.93it/s]Loading weights:  92%|█████████▏| 393/426 [00:12<00:00, 40.37it/s]Loading weights:  93%|█████████▎| 398/426 [00:12<00:00, 32.40it/s]Loading weights:  95%|█████████▌| 405/426 [00:13<00:00, 37.75it/s]Loading weights:  96%|█████████▋| 411/426 [00:13<00:00, 29.87it/s]Loading weights:  98%|█████████▊| 416/426 [00:13<00:00, 32.40it/s]Loading weights:  99%|█████████▊| 420/426 [00:13<00:00, 28.87it/s]Loading weights: 100%|█████████▉| 425/426 [00:13<00:00, 32.67it/s]Loading weights: 100%|██████████| 426/426 [00:13<00:00, 30.91it/s]
+Downloading readme:   0%|          | 0.00/11.1k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 11.1k/11.1k [00:00<00:00, 286kB/s]
+Downloading data:   0%|          | 0.00/36.8M [00:00<?, ?B/s]Downloading data:  29%|██▊       | 10.5M/36.8M [00:01<00:02, 10.0MB/s]Downloading data: 100%|██████████| 36.8M/36.8M [00:01<00:00, 40.2MB/s]Downloading data: 100%|██████████| 36.8M/36.8M [00:01<00:00, 30.9MB/s]
+Downloading data:   0%|          | 0.00/153k [00:00<?, ?B/s]Downloading data: 100%|██████████| 153k/153k [00:00<00:00, 447kB/s]Downloading data: 100%|██████████| 153k/153k [00:00<00:00, 442kB/s]
+Downloading data:   0%|          | 0.00/466k [00:00<?, ?B/s]Downloading data: 100%|██████████| 466k/466k [00:00<00:00, 1.89MB/s]Downloading data: 100%|██████████| 466k/466k [00:00<00:00, 1.86MB/s]
+Generating train split:   0%|          | 0/205756 [00:00<?, ? examples/s]Generating train split:  11%|█         | 23000/205756 [00:00<00:00, 190921.47 examples/s]Generating train split:  34%|███▍      | 70000/205756 [00:00<00:00, 338444.23 examples/s]Generating train split:  59%|█████▉    | 121000/205756 [00:00<00:00, 410584.44 examples/s]Generating train split:  84%|████████▎ | 172000/205756 [00:00<00:00, 446325.54 examples/s]Generating train split: 100%|██████████| 205756/205756 [00:00<00:00, 359187.17 examples/s]
+Generating validation split:   0%|          | 0/1001 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 1001/1001 [00:00<00:00, 167705.14 examples/s]
+Generating test split:   0%|          | 0/3000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 3000/3000 [00:00<00:00, 333684.58 examples/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"generated_tokens":21,"index":0,"latency_seconds":1.94,"progress":"1/100","truncated":false}
+{"generated_tokens":31,"index":1,"latency_seconds":1.286,"progress":"2/100","truncated":false}
+{"generated_tokens":33,"index":2,"latency_seconds":1.382,"progress":"3/100","truncated":false}
+{"generated_tokens":18,"index":3,"latency_seconds":0.746,"progress":"4/100","truncated":false}
+{"generated_tokens":25,"index":4,"latency_seconds":1.041,"progress":"5/100","truncated":false}
+{"generated_tokens":9,"index":5,"latency_seconds":0.383,"progress":"6/100","truncated":false}
+{"generated_tokens":41,"index":6,"latency_seconds":1.716,"progress":"7/100","truncated":false}
+{"generated_tokens":25,"index":7,"latency_seconds":1.046,"progress":"8/100","truncated":false}
+{"generated_tokens":36,"index":8,"latency_seconds":1.502,"progress":"9/100","truncated":false}
+{"generated_tokens":46,"index":9,"latency_seconds":1.946,"progress":"10/100","truncated":false}
+{"generated_tokens":48,"index":10,"latency_seconds":1.994,"progress":"11/100","truncated":false}
+{"generated_tokens":66,"index":11,"latency_seconds":2.744,"progress":"12/100","truncated":false}
+{"generated_tokens":27,"index":12,"latency_seconds":1.134,"progress":"13/100","truncated":false}
+{"generated_tokens":28,"index":13,"latency_seconds":1.18,"progress":"14/100","truncated":false}
+{"generated_tokens":13,"index":14,"latency_seconds":0.559,"progress":"15/100","truncated":false}
+{"generated_tokens":12,"index":15,"latency_seconds":0.507,"progress":"16/100","truncated":false}
+{"generated_tokens":46,"index":16,"latency_seconds":1.894,"progress":"17/100","truncated":false}
+{"generated_tokens":62,"index":17,"latency_seconds":2.578,"progress":"18/100","truncated":false}
+{"generated_tokens":41,"index":18,"latency_seconds":1.72,"progress":"19/100","truncated":false}
+{"generated_tokens":44,"index":19,"latency_seconds":1.829,"progress":"20/100","truncated":false}
+{"generated_tokens":51,"index":20,"latency_seconds":2.067,"progress":"21/100","truncated":false}
+{"generated_tokens":32,"index":21,"latency_seconds":1.317,"progress":"22/100","truncated":false}
+{"generated_tokens":32,"index":22,"latency_seconds":1.328,"progress":"23/100","truncated":false}
+{"generated_tokens":17,"index":23,"latency_seconds":0.732,"progress":"24/100","truncated":false}
+{"generated_tokens":34,"index":24,"latency_seconds":1.433,"progress":"25/100","truncated":false}
+{"generated_tokens":24,"index":25,"latency_seconds":1.023,"progress":"26/100","truncated":false}
+{"generated_tokens":47,"index":26,"latency_seconds":1.985,"progress":"27/100","truncated":false}
+{"generated_tokens":24,"index":27,"latency_seconds":1.031,"progress":"28/100","truncated":false}
+{"generated_tokens":48,"index":28,"latency_seconds":1.972,"progress":"29/100","truncated":false}
+{"generated_tokens":56,"index":29,"latency_seconds":2.313,"progress":"30/100","truncated":false}
+{"generated_tokens":61,"index":30,"latency_seconds":2.528,"progress":"31/100","truncated":false}
+{"generated_tokens":20,"index":31,"latency_seconds":0.835,"progress":"32/100","truncated":false}
+{"generated_tokens":19,"index":32,"latency_seconds":0.805,"progress":"33/100","truncated":false}
+{"generated_tokens":26,"index":33,"latency_seconds":1.099,"progress":"34/100","truncated":false}
+{"generated_tokens":57,"index":34,"latency_seconds":2.356,"progress":"35/100","truncated":false}
+{"generated_tokens":43,"index":35,"latency_seconds":1.813,"progress":"36/100","truncated":false}
+{"generated_tokens":32,"index":36,"latency_seconds":1.327,"progress":"37/100","truncated":false}
+{"generated_tokens":23,"index":37,"latency_seconds":0.96,"progress":"38/100","truncated":false}
+{"generated_tokens":26,"index":38,"latency_seconds":1.088,"progress":"39/100","truncated":false}
+{"generated_tokens":25,"index":39,"latency_seconds":1.053,"progress":"40/100","truncated":false}
+{"generated_tokens":18,"index":40,"latency_seconds":0.757,"progress":"41/100","truncated":false}
+{"generated_tokens":46,"index":41,"latency_seconds":1.869,"progress":"42/100","truncated":false}
+{"generated_tokens":33,"index":42,"latency_seconds":1.398,"progress":"43/100","truncated":false}
+{"generated_tokens":17,"index":43,"latency_seconds":0.729,"progress":"44/100","truncated":false}
+{"generated_tokens":20,"index":44,"latency_seconds":0.858,"progress":"45/100","truncated":false}
+{"generated_tokens":13,"index":45,"latency_seconds":0.559,"progress":"46/100","truncated":false}
+{"generated_tokens":21,"index":46,"latency_seconds":0.866,"progress":"47/100","truncated":false}
+{"generated_tokens":28,"index":47,"latency_seconds":1.159,"progress":"48/100","truncated":false}
+{"generated_tokens":20,"index":48,"latency_seconds":0.841,"progress":"49/100","truncated":false}
+{"generated_tokens":24,"index":49,"latency_seconds":1.018,"progress":"50/100","truncated":false}
+{"generated_tokens":53,"index":50,"latency_seconds":2.227,"progress":"51/100","truncated":false}
+{"generated_tokens":18,"index":51,"latency_seconds":0.779,"progress":"52/100","truncated":false}
+{"generated_tokens":55,"index":52,"latency_seconds":2.251,"progress":"53/100","truncated":false}
+{"generated_tokens":32,"index":53,"latency_seconds":1.312,"progress":"54/100","truncated":false}
+{"generated_tokens":41,"index":54,"latency_seconds":1.682,"progress":"55/100","truncated":false}
+{"generated_tokens":14,"index":55,"latency_seconds":0.579,"progress":"56/100","truncated":false}
+{"generated_tokens":67,"index":56,"latency_seconds":2.758,"progress":"57/100","truncated":false}
+{"generated_tokens":51,"index":57,"latency_seconds":2.121,"progress":"58/100","truncated":false}
+{"generated_tokens":21,"index":58,"latency_seconds":0.887,"progress":"59/100","truncated":false}
+{"generated_tokens":45,"index":59,"latency_seconds":1.91,"progress":"60/100","truncated":false}
+{"generated_tokens":32,"index":60,"latency_seconds":1.394,"progress":"61/100","truncated":false}
+{"generated_tokens":9,"index":61,"latency_seconds":0.378,"progress":"62/100","truncated":false}
+{"generated_tokens":25,"index":62,"latency_seconds":1.043,"progress":"63/100","truncated":false}
+{"generated_tokens":31,"index":63,"latency_seconds":1.294,"progress":"64/100","truncated":false}
+{"generated_tokens":56,"index":64,"latency_seconds":2.329,"progress":"65/100","truncated":false}
+{"generated_tokens":43,"index":65,"latency_seconds":1.772,"progress":"66/100","truncated":false}
+{"generated_tokens":54,"index":66,"latency_seconds":2.259,"progress":"67/100","truncated":false}
+{"generated_tokens":33,"index":67,"latency_seconds":1.366,"progress":"68/100","truncated":false}
+{"generated_tokens":31,"index":68,"latency_seconds":1.293,"progress":"69/100","truncated":false}
+{"generated_tokens":37,"index":69,"latency_seconds":1.583,"progress":"70/100","truncated":false}
+{"generated_tokens":33,"index":70,"latency_seconds":1.359,"progress":"71/100","truncated":false}
+{"generated_tokens":34,"index":71,"latency_seconds":1.421,"progress":"72/100","truncated":false}
+{"generated_tokens":24,"index":72,"latency_seconds":1.02,"progress":"73/100","truncated":false}
+{"generated_tokens":25,"index":73,"latency_seconds":1.038,"progress":"74/100","truncated":false}
+{"generated_tokens":50,"index":74,"latency_seconds":2.078,"progress":"75/100","truncated":false}
+{"generated_tokens":37,"index":75,"latency_seconds":1.545,"progress":"76/100","truncated":false}
+{"generated_tokens":21,"index":76,"latency_seconds":0.907,"progress":"77/100","truncated":false}
+{"generated_tokens":50,"index":77,"latency_seconds":2.076,"progress":"78/100","truncated":false}
+{"generated_tokens":47,"index":78,"latency_seconds":1.956,"progress":"79/100","truncated":false}
+{"generated_tokens":80,"index":79,"latency_seconds":3.321,"progress":"80/100","truncated":false}
+{"generated_tokens":40,"index":80,"latency_seconds":1.67,"progress":"81/100","truncated":false}
+{"generated_tokens":24,"index":81,"latency_seconds":1.008,"progress":"82/100","truncated":false}
+{"generated_tokens":56,"index":82,"latency_seconds":2.32,"progress":"83/100","truncated":false}
+{"generated_tokens":28,"index":83,"latency_seconds":1.167,"progress":"84/100","truncated":false}
+{"generated_tokens":22,"index":84,"latency_seconds":0.927,"progress":"85/100","truncated":false}
+{"generated_tokens":32,"index":85,"latency_seconds":1.335,"progress":"86/100","truncated":false}
+{"generated_tokens":20,"index":86,"latency_seconds":0.843,"progress":"87/100","truncated":false}
+{"generated_tokens":44,"index":87,"latency_seconds":1.827,"progress":"88/100","truncated":false}
+{"generated_tokens":18,"index":88,"latency_seconds":0.756,"progress":"89/100","truncated":false}
+{"generated_tokens":33,"index":89,"latency_seconds":1.395,"progress":"90/100","truncated":false}
+{"generated_tokens":20,"index":90,"latency_seconds":0.834,"progress":"91/100","truncated":false}
+{"generated_tokens":24,"index":91,"latency_seconds":1.025,"progress":"92/100","truncated":false}
+{"generated_tokens":30,"index":92,"latency_seconds":1.242,"progress":"93/100","truncated":false}
+{"generated_tokens":54,"index":93,"latency_seconds":2.265,"progress":"94/100","truncated":false}
+{"generated_tokens":38,"index":94,"latency_seconds":1.567,"progress":"95/100","truncated":false}
+{"generated_tokens":25,"index":95,"latency_seconds":1.027,"progress":"96/100","truncated":false}
+{"generated_tokens":31,"index":96,"latency_seconds":1.269,"progress":"97/100","truncated":false}
+{"generated_tokens":35,"index":97,"latency_seconds":1.436,"progress":"98/100","truncated":false}
+{"generated_tokens":29,"index":98,"latency_seconds":1.194,"progress":"99/100","truncated":false}
+{"generated_tokens":33,"index":99,"latency_seconds":1.381,"progress":"100/100","truncated":false}
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "task": "wmt_en_tr",
+  "items": 100,
+  "truncated": 0,
+  "prompt_tokens": 4575,
+  "generated_tokens": 3394,
+  "generation_seconds": 142.6687287092209,
+  "truncation_rate": 0.0,
+  "mean_generated_tokens": 33.94,
+  "mean_latency_seconds": 1.426687287092209,
+  "wall_seconds": 143.00687909126282,
+  "samples_sha256": "e5d08377a7456dc9209bece0173c05df697e8283ac71a4f84bf88d49ae67b99c"
+}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 545.78it/s]
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:00<00:55,  7.69it/s]Loading weights:   9%|▉         | 38/426 [00:00<00:01, 195.68it/s]Loading weights:  17%|█▋        | 72/426 [00:00<00:01, 247.38it/s]Loading weights:  23%|██▎       | 99/426 [00:00<00:01, 248.87it/s]Loading weights:  31%|███       | 133/426 [00:00<00:01, 273.77it/s]Loading weights:  39%|███▉      | 168/426 [00:00<00:00, 297.29it/s]Loading weights:  47%|████▋     | 201/426 [00:00<00:00, 305.22it/s]Loading weights:  57%|█████▋    | 242/426 [00:00<00:00, 337.37it/s]Loading weights:  65%|██████▌   | 279/426 [00:00<00:00, 341.95it/s]Loading weights:  74%|███████▎  | 314/426 [00:01<00:00, 318.68it/s]Loading weights:  81%|████████▏ | 347/426 [00:01<00:00, 311.10it/s]Loading weights:  89%|████████▉ | 379/426 [00:01<00:00, 308.81it/s]Loading weights:  96%|█████████▋| 411/426 [00:01<00:00, 299.14it/s]Loading weights: 100%|██████████| 426/426 [00:01<00:00, 285.44it/s]
+Downloading builder script:   0%|          | 0.00/3.72k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 3.72k/3.72k [00:00<00:00, 61.4kB/s]
+Downloading readme:   0%|          | 0.00/11.0k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 11.0k/11.0k [00:00<00:00, 238kB/s]
+Downloading data:   0%|          | 0.00/870M [00:00<?, ?B/s]Downloading data:   0%|          | 49.2k/870M [00:00<45:34, 318kB/s]Downloading data:   0%|          | 197k/870M [00:00<18:35, 780kB/s] Downloading data:   0%|          | 508k/870M [00:00<10:37, 1.37MB/s]Downloading data:   0%|          | 1.50M/870M [00:00<03:36, 4.01MB/s]Downloading data:   0%|          | 1.98M/870M [00:00<03:36, 4.01MB/s]Downloading data:   1%|          | 4.64M/870M [00:00<01:35, 9.03MB/s]Downloading data:   1%|          | 5.80M/870M [00:00<01:35, 9.10MB/s]Downloading data:   1%|          | 7.37M/870M [00:01<01:30, 9.59MB/s]Downloading data:   1%|          | 8.32M/870M [00:01<01:36, 8.94MB/s]Downloading data:   1%|          | 9.36M/870M [00:01<01:44, 8.21MB/s]Downloading data:   1%|          | 10.3M/870M [00:01<01:46, 8.07MB/s]Downloading data:   1%|▏         | 11.4M/870M [00:01<01:51, 7.73MB/s]Downloading data:   1%|▏         | 12.4M/870M [00:01<01:51, 7.71MB/s]Downloading data:   2%|▏         | 13.5M/870M [00:01<01:49, 7.83MB/s]Downloading data:   2%|▏         | 14.3M/870M [00:02<01:51, 7.68MB/s]Downloading data:   2%|▏         | 15.2M/870M [00:02<01:53, 7.51MB/s]Downloading data:   2%|▏         | 16.3M/870M [00:02<01:52, 7.57MB/s]Downloading data:   2%|▏         | 17.2M/870M [00:02<01:47, 7.90MB/s]Downloading data:   2%|▏         | 18.1M/870M [00:02<01:53, 7.50MB/s]Downloading data:   2%|▏         | 19.1M/870M [00:02<01:45, 8.09MB/s]Downloading data:   2%|▏         | 20.0M/870M [00:02<01:50, 7.68MB/s]Downloading data:   2%|▏         | 20.8M/870M [00:02<01:52, 7.53MB/s]Downloading data:   2%|▏         | 21.7M/870M [00:02<01:44, 8.15MB/s]Downloading data:   3%|▎         | 22.6M/870M [00:03<01:51, 7.64MB/s]Downloading data:   3%|▎         | 23.7M/870M [00:03<01:49, 7.72MB/s]Downloading data:   3%|▎         | 24.7M/870M [00:03<01:41, 8.29MB/s]Downloading data:   3%|▎         | 25.6M/870M [00:03<01:49, 7.74MB/s]Downloading data:   3%|▎         | 26.7M/870M [00:03<01:48, 7.79MB/s]Downloading data:   3%|▎         | 27.8M/870M [00:03<01:39, 8.51MB/s]Downloading data:   3%|▎         | 28.7M/870M [00:03<01:45, 7.97MB/s]Downloading data:   3%|▎         | 29.8M/870M [00:03<01:36, 8.73MB/s]Downloading data:   4%|▎         | 30.7M/870M [00:04<01:46, 7.87MB/s]Downloading data:   4%|▎         | 31.6M/870M [00:04<01:41, 8.26MB/s]Downloading data:   4%|▎         | 32.5M/870M [00:04<01:48, 7.73MB/s]Downloading data:   4%|▍         | 33.3M/870M [00:04<01:46, 7.89MB/s]Downloading data:   4%|▍         | 34.2M/870M [00:04<01:43, 8.10MB/s]Downloading data:   4%|▍         | 35.0M/870M [00:04<01:41, 8.27MB/s]Downloading data:   4%|▍         | 35.9M/870M [00:04<01:40, 8.30MB/s]Downloading data:   4%|▍         | 36.7M/870M [00:04<01:40, 8.31MB/s]Downloading data:   4%|▍         | 37.5M/870M [00:04<01:40, 8.32MB/s]Downloading data:   4%|▍         | 38.4M/870M [00:05<01:53, 7.30MB/s]Downloading data:   5%|▍         | 39.2M/870M [00:05<01:51, 7.46MB/s]Downloading data:   5%|▍         | 40.0M/870M [00:05<01:49, 7.57MB/s]Downloading data:   5%|▍         | 40.8M/870M [00:05<01:45, 7.89MB/s]Downloading data:   5%|▍         | 41.7M/870M [00:05<01:41, 8.17MB/s]Downloading data:   5%|▍         | 42.6M/870M [00:05<01:44, 7.92MB/s]Downloading data:   5%|▍         | 43.4M/870M [00:05<01:42, 8.04MB/s]Downloading data:   5%|▌         | 44.4M/870M [00:05<01:38, 8.41MB/s]Downloading data:   5%|▌         | 45.2M/870M [00:05<01:38, 8.37MB/s]Downloading data:   5%|▌         | 46.2M/870M [00:06<01:41, 8.12MB/s]Downloading data:   5%|▌         | 47.0M/870M [00:06<01:43, 7.97MB/s]Downloading data:   6%|▌         | 47.9M/870M [00:06<01:39, 8.30MB/s]Downloading data:   6%|▌         | 48.8M/870M [00:06<01:36, 8.49MB/s]Downloading data:   6%|▌         | 49.7M/870M [00:06<01:36, 8.50MB/s]Downloading data:   6%|▌         | 50.5M/870M [00:06<01:46, 7.71MB/s]Downloading data:   6%|▌         | 51.4M/870M [00:06<01:42, 7.99MB/s]Downloading data:   6%|▌         | 52.4M/870M [00:06<01:36, 8.45MB/s]Downloading data:   6%|▌         | 53.3M/870M [00:06<01:42, 7.98MB/s]Downloading data:   6%|▌         | 54.2M/870M [00:07<01:40, 8.12MB/s]Downloading data:   6%|▋         | 55.1M/870M [00:07<01:36, 8.46MB/s]Downloading data:   6%|▋         | 56.0M/870M [00:07<01:35, 8.51MB/s]Downloading data:   7%|▋         | 56.8M/870M [00:07<01:47, 7.56MB/s]Downloading data:   7%|▋         | 57.8M/870M [00:07<01:48, 7.46MB/s]Downloading data:   7%|▋         | 58.5M/870M [00:07<01:51, 7.26MB/s]Downloading data:   7%|▋         | 59.3M/870M [00:07<02:00, 6.72MB/s]Downloading data:   7%|▋         | 60.0M/870M [00:07<02:02, 6.64MB/s]Downloading data:   7%|▋         | 60.7M/870M [00:07<02:05, 6.43MB/s]Downloading data:   7%|▋         | 61.3M/870M [00:08<02:07, 6.34MB/s]Downloading data:   7%|▋         | 62.0M/870M [00:08<02:05, 6.45MB/s]Downloading data:   7%|▋         | 62.8M/870M [00:08<01:58, 6.83MB/s]Downloading data:   7%|▋         | 63.5M/870M [00:08<02:06, 6.38MB/s]Downloading data:   7%|▋         | 64.1M/870M [00:08<02:04, 6.47MB/s]Downloading data:   7%|▋         | 64.8M/870M [00:08<02:03, 6.53MB/s]Downloading data:   8%|▊         | 65.5M/870M [00:08<02:03, 6.53MB/s]Downloading data:   8%|▊         | 66.3M/870M [00:08<01:56, 6.87MB/s]Downloading data:   8%|▊         | 67.0M/870M [00:08<01:58, 6.77MB/s]Downloading data:   8%|▊         | 67.8M/870M [00:09<01:55, 6.98MB/s]Downloading data:   8%|▊         | 68.6M/870M [00:09<01:49, 7.33MB/s]Downloading data:   8%|▊         | 69.3M/870M [00:09<01:57, 6.82MB/s]Downloading data:   8%|▊         | 70.1M/870M [00:09<01:55, 6.90MB/s]Downloading data:   8%|▊         | 70.8M/870M [00:09<01:53, 7.07MB/s]Downloading data:   8%|▊         | 71.5M/870M [00:09<01:52, 7.11MB/s]Downloading data:   8%|▊         | 72.5M/870M [00:09<01:44, 7.66MB/s]Downloading data:   8%|▊         | 73.3M/870M [00:09<01:48, 7.33MB/s]Downloading data:   9%|▊         | 74.1M/870M [00:09<01:44, 7.62MB/s]Downloading data:   9%|▊         | 75.0M/870M [00:09<01:41, 7.80MB/s]Downloading data:   9%|▊         | 75.7M/870M [00:10<01:54, 6.96MB/s]Downloading data:   9%|▉         | 76.5M/870M [00:10<01:53, 7.02MB/s]Downloading data:   9%|▉         | 77.3M/870M [00:10<01:48, 7.29MB/s]Downloading data:   9%|▉         | 78.3M/870M [00:10<01:41, 7.79MB/s]Downloading data:   9%|▉         | 79.2M/870M [00:10<01:38, 8.03MB/s]Downloading data:   9%|▉         | 80.1M/870M [00:10<01:35, 8.30MB/s]Downloading data:   9%|▉         | 80.9M/870M [00:10<01:48, 7.31MB/s]Downloading data:   9%|▉         | 81.8M/870M [00:10<01:42, 7.67MB/s]Downloading data:  10%|▉         | 82.7M/870M [00:10<01:38, 8.02MB/s]Downloading data:  10%|▉         | 83.6M/870M [00:11<01:38, 8.02MB/s]Downloading data:  10%|▉         | 84.4M/870M [00:11<01:35, 8.19MB/s]Downloading data:  10%|▉         | 85.3M/870M [00:11<01:35, 8.24MB/s]Downloading data:  10%|▉         | 86.2M/870M [00:11<01:43, 7.55MB/s]Downloading data:  10%|▉         | 87.0M/870M [00:11<01:42, 7.64MB/s]Downloading data:  10%|█         | 87.8M/870M [00:11<01:42, 7.67MB/s]Downloading data:  10%|█         | 88.5M/870M [00:11<01:41, 7.68MB/s]Downloading data:  10%|█         | 89.5M/870M [00:11<01:35, 8.20MB/s]Downloading data:  10%|█         | 90.5M/870M [00:11<01:31, 8.56MB/s]Downloading data:  10%|█         | 91.3M/870M [00:12<01:30, 8.61MB/s]Downloading data:  11%|█         | 92.2M/870M [00:12<01:31, 8.52MB/s]Downloading data:  11%|█         | 93.1M/870M [00:12<01:39, 7.81MB/s]Downloading data:  11%|█         | 93.9M/870M [00:12<01:39, 7.79MB/s]Downloading data:  11%|█         | 94.8M/870M [00:12<01:36, 8.00MB/s]Downloading data:  11%|█         | 95.7M/870M [00:12<01:34, 8.24MB/s]Downloading data:  11%|█         | 96.7M/870M [00:12<01:28, 8.76MB/s]Downloading data:  11%|█         | 97.6M/870M [00:12<01:29, 8.63MB/s]Downloading data:  11%|█▏        | 98.4M/870M [00:12<01:30, 8.48MB/s]Downloading data:  11%|█▏        | 99.3M/870M [00:12<01:29, 8.60MB/s]Downloading data:  12%|█▏        | 100M/870M [00:13<01:39, 7.71MB/s] Downloading data:  12%|█▏        | 101M/870M [00:13<01:39, 7.77MB/s]Downloading data:  12%|█▏        | 102M/870M [00:13<01:32, 8.28MB/s]Downloading data:  12%|█▏        | 103M/870M [00:13<01:32, 8.34MB/s]Downloading data:  12%|█▏        | 104M/870M [00:13<01:31, 8.39MB/s]Downloading data:  12%|█▏        | 105M/870M [00:13<01:28, 8.64MB/s]Downloading data:  12%|█▏        | 105M/870M [00:13<01:29, 8.51MB/s]Downloading data:  12%|█▏        | 106M/870M [00:13<01:27, 8.70MB/s]Downloading data:  12%|█▏        | 107M/870M [00:13<01:38, 7.76MB/s]Downloading data:  12%|█▏        | 108M/870M [00:14<01:38, 7.74MB/s]Downloading data:  13%|█▎        | 109M/870M [00:14<01:33, 8.13MB/s]Downloading data:  13%|█▎        | 110M/870M [00:14<01:31, 8.35MB/s]Downloading data:  13%|█▎        | 111M/870M [00:14<01:27, 8.73MB/s]Downloading data:  13%|█▎        | 112M/870M [00:14<01:27, 8.64MB/s]Downloading data:  13%|█▎        | 113M/870M [00:14<01:28, 8.61MB/s]Downloading data:  13%|█▎        | 114M/870M [00:14<01:26, 8.72MB/s]Downloading data:  13%|█▎        | 114M/870M [00:14<01:39, 7.57MB/s]Downloading data:  13%|█▎        | 115M/870M [00:14<01:35, 7.90MB/s]Downloading data:  13%|█▎        | 116M/870M [00:15<01:30, 8.37MB/s]Downloading data:  13%|█▎        | 117M/870M [00:15<01:29, 8.44MB/s]Downloading data:  14%|█▎        | 118M/870M [00:15<01:27, 8.61MB/s]Downloading data:  14%|█▎        | 119M/870M [00:15<01:28, 8.46MB/s]Downloading data:  14%|█▍        | 120M/870M [00:15<01:28, 8.47MB/s]Downloading data:  14%|█▍        | 121M/870M [00:15<01:38, 7.59MB/s]Downloading data:  14%|█▍        | 122M/870M [00:15<01:37, 7.72MB/s]Downloading data:  14%|█▍        | 122M/870M [00:15<01:36, 7.74MB/s]Downloading data:  14%|█▍        | 123M/870M [00:15<01:32, 8.09MB/s]Downloading data:  14%|█▍        | 124M/870M [00:16<01:31, 8.12MB/s]Downloading data:  14%|█▍        | 125M/870M [00:16<01:29, 8.36MB/s]Downloading data:  14%|█▍        | 126M/870M [00:16<01:27, 8.49MB/s]Downloading data:  15%|█▍        | 127M/870M [00:16<01:25, 8.69MB/s]Downloading data:  15%|█▍        | 128M/870M [00:16<01:26, 8.63MB/s]Downloading data:  15%|█▍        | 129M/870M [00:16<01:24, 8.81MB/s]Downloading data:  15%|█▍        | 129M/870M [00:16<01:34, 7.85MB/s]Downloading data:  15%|█▍        | 130M/870M [00:16<01:42, 7.24MB/s]Downloading data:  15%|█▌        | 131M/870M [00:16<01:30, 8.15MB/s]Downloading data:  15%|█▌        | 132M/870M [00:17<01:46, 6.91MB/s]Downloading data:  15%|█▌        | 133M/870M [00:17<01:45, 6.98MB/s]Downloading data:  15%|█▌        | 134M/870M [00:17<01:45, 6.97MB/s]Downloading data:  15%|█▌        | 134M/870M [00:17<01:57, 6.24MB/s]Downloading data:  16%|█▌        | 135M/870M [00:17<01:58, 6.22MB/s]Downloading data:  16%|█▌        | 136M/870M [00:17<01:54, 6.40MB/s]Downloading data:  16%|█▌        | 136M/870M [00:17<01:51, 6.58MB/s]Downloading data:  16%|█▌        | 137M/870M [00:17<01:45, 6.94MB/s]Downloading data:  16%|█▌        | 138M/870M [00:17<01:40, 7.28MB/s]Downloading data:  16%|█▌        | 139M/870M [00:18<01:52, 6.49MB/s]Downloading data:  16%|█▌        | 139M/870M [00:18<01:49, 6.69MB/s]Downloading data:  16%|█▌        | 140M/870M [00:18<01:46, 6.87MB/s]Downloading data:  16%|█▌        | 141M/870M [00:18<01:44, 7.00MB/s]Downloading data:  16%|█▋        | 142M/870M [00:18<01:38, 7.40MB/s]Downloading data:  16%|█▋        | 143M/870M [00:18<01:35, 7.59MB/s]Downloading data:  16%|█▋        | 143M/870M [00:18<01:46, 6.85MB/s]Downloading data:  17%|█▋        | 144M/870M [00:18<01:43, 7.03MB/s]Downloading data:  17%|█▋        | 145M/870M [00:18<01:39, 7.30MB/s]Downloading data:  17%|█▋        | 146M/870M [00:19<01:38, 7.37MB/s]Downloading data:  17%|█▋        | 147M/870M [00:19<01:33, 7.77MB/s]Downloading data:  17%|█▋        | 148M/870M [00:19<01:28, 8.15MB/s]Downloading data:  17%|█▋        | 148M/870M [00:19<01:39, 7.26MB/s]Downloading data:  17%|█▋        | 149M/870M [00:19<01:36, 7.45MB/s]Downloading data:  17%|█▋        | 150M/870M [00:19<01:34, 7.65MB/s]Downloading data:  17%|█▋        | 151M/870M [00:19<01:31, 7.87MB/s]Downloading data:  17%|█▋        | 152M/870M [00:19<01:25, 8.44MB/s]Downloading data:  18%|█▊        | 153M/870M [00:19<01:23, 8.58MB/s]Downloading data:  18%|█▊        | 154M/870M [00:20<01:36, 7.41MB/s]Downloading data:  18%|█▊        | 154M/870M [00:20<01:33, 7.64MB/s]Downloading data:  18%|█▊        | 155M/870M [00:20<01:31, 7.79MB/s]Downloading data:  18%|█▊        | 156M/870M [00:20<01:26, 8.26MB/s]Downloading data:  18%|█▊        | 157M/870M [00:20<01:23, 8.55MB/s]Downloading data:  18%|█▊        | 158M/870M [00:20<01:23, 8.56MB/s]Downloading data:  18%|█▊        | 159M/870M [00:20<01:33, 7.65MB/s]Downloading data:  18%|█▊        | 160M/870M [00:20<01:30, 7.85MB/s]Downloading data:  18%|█▊        | 161M/870M [00:20<01:28, 7.99MB/s]Downloading data:  19%|█▊        | 161M/870M [00:20<01:26, 8.20MB/s]Downloading data:  19%|█▊        | 162M/870M [00:21<01:23, 8.43MB/s]Downloading data:  19%|█▉        | 163M/870M [00:21<01:21, 8.65MB/s]Downloading data:  19%|█▉        | 164M/870M [00:21<01:21, 8.66MB/s]Downloading data:  19%|█▉        | 165M/870M [00:21<01:30, 7.75MB/s]Downloading data:  19%|█▉        | 166M/870M [00:21<01:26, 8.10MB/s]Downloading data:  19%|█▉        | 167M/870M [00:21<01:25, 8.21MB/s]Downloading data:  19%|█▉        | 168M/870M [00:21<01:23, 8.42MB/s]Downloading data:  19%|█▉        | 169M/870M [00:21<01:20, 8.76MB/s]Downloading data:  19%|█▉        | 170M/870M [00:21<01:19, 8.84MB/s]Downloading data:  20%|█▉        | 170M/870M [00:22<01:27, 8.01MB/s]Downloading data:  20%|█▉        | 171M/870M [00:22<01:25, 8.13MB/s]Downloading data:  20%|█▉        | 172M/870M [00:22<01:23, 8.35MB/s]Downloading data:  20%|█▉        | 173M/870M [00:22<01:22, 8.40MB/s]Downloading data:  20%|██        | 174M/870M [00:22<01:18, 8.89MB/s]Downloading data:  20%|██        | 175M/870M [00:22<01:18, 8.89MB/s]Downloading data:  20%|██        | 176M/870M [00:22<01:19, 8.75MB/s]Downloading data:  20%|██        | 177M/870M [00:22<01:26, 8.01MB/s]Downloading data:  20%|██        | 178M/870M [00:22<01:24, 8.19MB/s]Downloading data:  21%|██        | 179M/870M [00:23<01:22, 8.35MB/s]Downloading data:  21%|██        | 179M/870M [00:23<01:22, 8.41MB/s]Downloading data:  21%|██        | 180M/870M [00:23<01:21, 8.42MB/s]Downloading data:  21%|██        | 181M/870M [00:23<01:20, 8.55MB/s]Downloading data:  21%|██        | 182M/870M [00:23<01:18, 8.75MB/s]Downloading data:  21%|██        | 183M/870M [00:23<01:19, 8.69MB/s]Downloading data:  21%|██        | 184M/870M [00:23<01:26, 7.92MB/s]Downloading data:  21%|██        | 185M/870M [00:23<01:21, 8.44MB/s]Downloading data:  21%|██▏       | 186M/870M [00:23<01:20, 8.54MB/s]Downloading data:  21%|██▏       | 187M/870M [00:23<01:19, 8.62MB/s]Downloading data:  22%|██▏       | 187M/870M [00:24<01:18, 8.71MB/s]Downloading data:  22%|██▏       | 188M/870M [00:24<01:17, 8.84MB/s]Downloading data:  22%|██▏       | 189M/870M [00:24<01:17, 8.79MB/s]Downloading data:  22%|██▏       | 190M/870M [00:24<01:26, 7.87MB/s]Downloading data:  22%|██▏       | 191M/870M [00:24<01:20, 8.43MB/s]Downloading data:  22%|██▏       | 192M/870M [00:24<01:19, 8.48MB/s]Downloading data:  22%|██▏       | 193M/870M [00:24<01:18, 8.62MB/s]Downloading data:  22%|██▏       | 194M/870M [00:24<01:15, 8.97MB/s]Downloading data:  22%|██▏       | 195M/870M [00:24<01:16, 8.78MB/s]Downloading data:  22%|██▏       | 196M/870M [00:25<01:25, 7.89MB/s]Downloading data:  23%|██▎       | 197M/870M [00:25<01:19, 8.44MB/s]Downloading data:  23%|██▎       | 198M/870M [00:25<01:19, 8.49MB/s]Downloading data:  23%|██▎       | 198M/870M [00:25<01:18, 8.58MB/s]Downloading data:  23%|██▎       | 199M/870M [00:25<01:16, 8.80MB/s]Downloading data:  23%|██▎       | 200M/870M [00:25<01:15, 8.82MB/s]Downloading data:  23%|██▎       | 201M/870M [00:25<01:16, 8.74MB/s]Downloading data:  23%|██▎       | 202M/870M [00:25<01:24, 7.90MB/s]Downloading data:  23%|██▎       | 203M/870M [00:25<01:40, 6.64MB/s]Downloading data:  23%|██▎       | 204M/870M [00:26<01:18, 8.45MB/s]Downloading data:  24%|██▎       | 205M/870M [00:26<01:31, 7.29MB/s]Downloading data:  24%|██▎       | 206M/870M [00:26<01:30, 7.38MB/s]Downloading data:  24%|██▍       | 207M/870M [00:26<01:31, 7.29MB/s]Downloading data:  24%|██▍       | 208M/870M [00:26<01:41, 6.52MB/s]Downloading data:  24%|██▍       | 209M/870M [00:26<01:37, 6.82MB/s]Downloading data:  24%|██▍       | 209M/870M [00:26<01:34, 6.96MB/s]Downloading data:  24%|██▍       | 210M/870M [00:26<01:35, 6.90MB/s]Downloading data:  24%|██▍       | 211M/870M [00:27<01:34, 6.95MB/s]Downloading data:  24%|██▍       | 211M/870M [00:27<01:34, 6.98MB/s]Downloading data:  24%|██▍       | 212M/870M [00:27<01:43, 6.39MB/s]Downloading data:  24%|██▍       | 213M/870M [00:27<01:33, 7.05MB/s]Downloading data:  25%|██▍       | 214M/870M [00:27<01:31, 7.17MB/s]Downloading data:  25%|██▍       | 215M/870M [00:27<01:30, 7.21MB/s]Downloading data:  25%|██▍       | 215M/870M [00:27<01:31, 7.20MB/s]Downloading data:  25%|██▍       | 216M/870M [00:27<01:28, 7.40MB/s]Downloading data:  25%|██▍       | 217M/870M [00:27<01:28, 7.41MB/s]Downloading data:  25%|██▍       | 218M/870M [00:28<01:36, 6.74MB/s]Downloading data:  25%|██▌       | 218M/870M [00:28<01:31, 7.10MB/s]Downloading data:  25%|██▌       | 219M/870M [00:28<01:28, 7.35MB/s]Downloading data:  25%|██▌       | 220M/870M [00:28<01:26, 7.56MB/s]Downloading data:  25%|██▌       | 221M/870M [00:28<01:26, 7.53MB/s]Downloading data:  25%|██▌       | 222M/870M [00:28<01:24, 7.70MB/s]Downloading data:  26%|██▌       | 222M/870M [00:28<01:22, 7.81MB/s]Downloading data:  26%|██▌       | 223M/870M [00:28<01:22, 7.89MB/s]Downloading data:  26%|██▌       | 224M/870M [00:28<01:30, 7.17MB/s]Downloading data:  26%|██▌       | 225M/870M [00:28<01:25, 7.51MB/s]Downloading data:  26%|██▌       | 226M/870M [00:29<01:22, 7.77MB/s]Downloading data:  26%|██▌       | 227M/870M [00:29<01:20, 8.01MB/s]Downloading data:  26%|██▌       | 227M/870M [00:29<01:20, 8.01MB/s]Downloading data:  26%|██▌       | 228M/870M [00:29<01:21, 7.92MB/s]Downloading data:  26%|██▋       | 229M/870M [00:29<01:20, 7.93MB/s]Downloading data:  26%|██▋       | 230M/870M [00:29<01:20, 7.94MB/s]Downloading data:  26%|██▋       | 231M/870M [00:29<01:21, 7.87MB/s]Downloading data:  27%|██▋       | 231M/870M [00:29<01:21, 7.85MB/s]Downloading data:  27%|██▋       | 232M/870M [00:29<01:19, 8.07MB/s]Downloading data:  27%|██▋       | 233M/870M [00:30<01:25, 7.42MB/s]Downloading data:  27%|██▋       | 234M/870M [00:30<01:21, 7.81MB/s]Downloading data:  27%|██▋       | 235M/870M [00:30<01:18, 8.06MB/s]Downloading data:  27%|██▋       | 236M/870M [00:30<01:17, 8.19MB/s]Downloading data:  27%|██▋       | 237M/870M [00:30<01:16, 8.30MB/s]Downloading data:  27%|██▋       | 237M/870M [00:30<01:15, 8.44MB/s]Downloading data:  27%|██▋       | 238M/870M [00:30<01:14, 8.51MB/s]Downloading data:  27%|██▋       | 239M/870M [00:30<01:13, 8.57MB/s]Downloading data:  28%|██▊       | 240M/870M [00:30<01:21, 7.78MB/s]Downloading data:  28%|██▊       | 241M/870M [00:30<01:18, 8.05MB/s]Downloading data:  28%|██▊       | 242M/870M [00:31<01:16, 8.22MB/s]Downloading data:  28%|██▊       | 243M/870M [00:31<01:16, 8.18MB/s]Downloading data:  28%|██▊       | 244M/870M [00:31<01:12, 8.62MB/s]Downloading data:  28%|██▊       | 244M/870M [00:31<01:13, 8.53MB/s]Downloading data:  28%|██▊       | 245M/870M [00:31<01:13, 8.50MB/s]Downloading data:  28%|██▊       | 246M/870M [00:31<01:13, 8.44MB/s]Downloading data:  28%|██▊       | 247M/870M [00:31<01:13, 8.46MB/s]Downloading data:  28%|██▊       | 248M/870M [00:31<01:19, 7.83MB/s]Downloading data:  29%|██▊       | 249M/870M [00:31<01:16, 8.17MB/s]Downloading data:  29%|██▊       | 250M/870M [00:32<01:18, 7.93MB/s]Downloading data:  29%|██▉       | 251M/870M [00:32<01:11, 8.63MB/s]Downloading data:  29%|██▉       | 252M/870M [00:32<01:11, 8.61MB/s]Downloading data:  29%|██▉       | 252M/870M [00:32<01:11, 8.59MB/s]Downloading data:  29%|██▉       | 253M/870M [00:32<01:11, 8.58MB/s]Downloading data:  29%|██▉       | 254M/870M [00:32<01:12, 8.44MB/s]Downloading data:  29%|██▉       | 255M/870M [00:32<01:13, 8.37MB/s]Downloading data:  29%|██▉       | 256M/870M [00:32<01:19, 7.76MB/s]Downloading data:  29%|██▉       | 257M/870M [00:32<01:16, 8.03MB/s]Downloading data:  30%|██▉       | 258M/870M [00:32<01:18, 7.80MB/s]Downloading data:  30%|██▉       | 258M/870M [00:33<01:17, 7.91MB/s]Downloading data:  30%|██▉       | 259M/870M [00:33<01:13, 8.32MB/s]Downloading data:  30%|██▉       | 260M/870M [00:33<01:10, 8.62MB/s]Downloading data:  30%|███       | 261M/870M [00:33<01:09, 8.71MB/s]Downloading data:  30%|███       | 262M/870M [00:33<01:09, 8.69MB/s]Downloading data:  30%|███       | 263M/870M [00:33<01:17, 7.84MB/s]Downloading data:  30%|███       | 264M/870M [00:33<01:13, 8.24MB/s]Downloading data:  30%|███       | 265M/870M [00:33<01:13, 8.27MB/s]Downloading data:  31%|███       | 265M/870M [00:33<01:15, 7.96MB/s]Downloading data:  31%|███       | 267M/870M [00:34<01:09, 8.74MB/s]Downloading data:  31%|███       | 267M/870M [00:34<01:08, 8.78MB/s]Downloading data:  31%|███       | 268M/870M [00:34<01:09, 8.68MB/s]Downloading data:  31%|███       | 269M/870M [00:34<01:09, 8.69MB/s]Downloading data:  31%|███       | 270M/870M [00:34<01:16, 7.89MB/s]Downloading data:  31%|███       | 271M/870M [00:34<01:13, 8.13MB/s]Downloading data:  31%|███       | 272M/870M [00:34<01:14, 7.99MB/s]Downloading data:  31%|███▏      | 273M/870M [00:34<01:15, 7.95MB/s]Downloading data:  31%|███▏      | 274M/870M [00:34<01:11, 8.34MB/s]Downloading data:  32%|███▏      | 274M/870M [00:34<01:10, 8.42MB/s]Downloading data:  32%|███▏      | 275M/870M [00:35<01:09, 8.53MB/s]Downloading data:  32%|███▏      | 276M/870M [00:35<01:09, 8.57MB/s]Downloading data:  32%|███▏      | 277M/870M [00:35<01:09, 8.58MB/s]Downloading data:  32%|███▏      | 278M/870M [00:35<01:08, 8.63MB/s]Downloading data:  32%|███▏      | 279M/870M [00:35<01:19, 7.40MB/s]Downloading data:  32%|███▏      | 280M/870M [00:35<01:16, 7.71MB/s]Downloading data:  32%|███▏      | 281M/870M [00:35<01:14, 7.97MB/s]Downloading data:  32%|███▏      | 281M/870M [00:35<01:15, 7.82MB/s]Downloading data:  32%|███▏      | 282M/870M [00:35<01:14, 7.91MB/s]Downloading data:  33%|███▎      | 283M/870M [00:36<01:13, 7.94MB/s]Downloading data:  33%|███▎      | 284M/870M [00:36<01:12, 8.04MB/s]Downloading data:  33%|███▎      | 285M/870M [00:36<01:08, 8.60MB/s]Downloading data:  33%|███▎      | 286M/870M [00:36<01:08, 8.52MB/s]Downloading data:  33%|███▎      | 287M/870M [00:36<01:08, 8.47MB/s]Downloading data:  33%|███▎      | 287M/870M [00:36<01:08, 8.46MB/s]Downloading data:  33%|███▎      | 288M/870M [00:36<01:08, 8.55MB/s]Downloading data:  33%|███▎      | 289M/870M [00:36<01:06, 8.68MB/s]Downloading data:  33%|███▎      | 290M/870M [00:36<01:13, 7.88MB/s]Downloading data:  33%|███▎      | 291M/870M [00:36<01:13, 7.91MB/s]Downloading data:  34%|███▎      | 292M/870M [00:37<01:11, 8.10MB/s]Downloading data:  34%|███▎      | 293M/870M [00:37<01:11, 8.13MB/s]Downloading data:  34%|███▎      | 293M/870M [00:37<01:08, 8.40MB/s]Downloading data:  34%|███▍      | 294M/870M [00:37<01:08, 8.38MB/s]Downloading data:  34%|███▍      | 295M/870M [00:37<01:10, 8.21MB/s]Downloading data:  34%|███▍      | 296M/870M [00:37<01:10, 8.13MB/s]Downloading data:  34%|███▍      | 297M/870M [00:37<01:10, 8.18MB/s]Downloading data:  34%|███▍      | 298M/870M [00:37<01:09, 8.20MB/s]Downloading data:  34%|███▍      | 298M/870M [00:37<01:09, 8.28MB/s]Downloading data:  34%|███▍      | 299M/870M [00:38<01:07, 8.44MB/s]Downloading data:  34%|███▍      | 300M/870M [00:38<01:06, 8.56MB/s]Downloading data:  35%|███▍      | 301M/870M [00:38<01:06, 8.54MB/s]Downloading data:  35%|███▍      | 302M/870M [00:38<01:06, 8.60MB/s]Downloading data:  35%|███▍      | 303M/870M [00:38<01:06, 8.57MB/s]Downloading data:  35%|███▍      | 304M/870M [00:38<01:07, 8.42MB/s]Downloading data:  35%|███▍      | 305M/870M [00:38<01:07, 8.40MB/s]Downloading data:  35%|███▌      | 305M/870M [00:38<01:07, 8.35MB/s]Downloading data:  35%|███▌      | 306M/870M [00:38<01:06, 8.50MB/s]Downloading data:  35%|███▌      | 307M/870M [00:38<01:05, 8.63MB/s]Downloading data:  35%|███▌      | 308M/870M [00:39<01:04, 8.70MB/s]Downloading data:  36%|███▌      | 309M/870M [00:39<01:03, 8.83MB/s]Downloading data:  36%|███▌      | 310M/870M [00:39<01:02, 8.98MB/s]Downloading data:  36%|███▌      | 311M/870M [00:39<01:01, 9.12MB/s]Downloading data:  36%|███▌      | 312M/870M [00:39<01:00, 9.26MB/s]Downloading data:  36%|███▌      | 313M/870M [00:39<00:59, 9.41MB/s]Downloading data:  36%|███▌      | 314M/870M [00:39<00:57, 9.65MB/s]Downloading data:  36%|███▌      | 315M/870M [00:39<01:00, 9.13MB/s]Downloading data:  36%|███▋      | 316M/870M [00:39<00:58, 9.51MB/s]Downloading data:  36%|███▋      | 317M/870M [00:39<00:58, 9.47MB/s]Downloading data:  37%|███▋      | 318M/870M [00:40<00:58, 9.50MB/s]Downloading data:  37%|███▋      | 319M/870M [00:40<00:57, 9.63MB/s]Downloading data:  37%|███▋      | 320M/870M [00:40<00:56, 9.81MB/s]Downloading data:  37%|███▋      | 321M/870M [00:40<00:55, 9.84MB/s]Downloading data:  37%|███▋      | 322M/870M [00:40<00:55, 9.93MB/s]Downloading data:  37%|███▋      | 323M/870M [00:40<00:52, 10.3MB/s]Downloading data:  37%|███▋      | 324M/870M [00:40<00:53, 10.3MB/s]Downloading data:  37%|███▋      | 325M/870M [00:40<00:52, 10.4MB/s]Downloading data:  37%|███▋      | 326M/870M [00:40<00:52, 10.4MB/s]Downloading data:  38%|███▊      | 327M/870M [00:40<00:52, 10.4MB/s]Downloading data:  38%|███▊      | 328M/870M [00:41<00:51, 10.5MB/s]Downloading data:  38%|███▊      | 329M/870M [00:41<00:51, 10.5MB/s]Downloading data:  38%|███▊      | 331M/870M [00:41<00:51, 10.5MB/s]Downloading data:  38%|███▊      | 332M/870M [00:41<00:52, 10.2MB/s]Downloading data:  38%|███▊      | 333M/870M [00:41<00:51, 10.4MB/s]Downloading data:  38%|███▊      | 334M/870M [00:41<00:50, 10.7MB/s]Downloading data:  38%|███▊      | 335M/870M [00:41<00:49, 10.8MB/s]Downloading data:  39%|███▊      | 336M/870M [00:41<00:48, 11.1MB/s]Downloading data:  39%|███▊      | 337M/870M [00:41<00:47, 11.2MB/s]Downloading data:  39%|███▉      | 339M/870M [00:41<00:46, 11.4MB/s]Downloading data:  39%|███▉      | 340M/870M [00:42<00:45, 11.6MB/s]Downloading data:  39%|███▉      | 341M/870M [00:42<00:45, 11.7MB/s]Downloading data:  39%|███▉      | 342M/870M [00:42<00:44, 11.8MB/s]Downloading data:  39%|███▉      | 344M/870M [00:42<00:43, 12.2MB/s]Downloading data:  40%|███▉      | 345M/870M [00:42<00:42, 12.2MB/s]Downloading data:  40%|███▉      | 346M/870M [00:42<00:42, 12.3MB/s]Downloading data:  40%|███▉      | 347M/870M [00:42<00:40, 12.8MB/s]Downloading data:  40%|████      | 349M/870M [00:42<00:41, 12.7MB/s]Downloading data:  40%|████      | 350M/870M [00:42<00:42, 12.2MB/s]Downloading data:  40%|████      | 351M/870M [00:43<00:42, 12.3MB/s]Downloading data:  41%|████      | 353M/870M [00:43<00:41, 12.6MB/s]Downloading data:  41%|████      | 354M/870M [00:43<00:41, 12.6MB/s]Downloading data:  41%|████      | 355M/870M [00:43<00:40, 12.7MB/s]Downloading data:  41%|████      | 357M/870M [00:43<00:38, 13.2MB/s]Downloading data:  41%|████      | 358M/870M [00:43<00:38, 13.2MB/s]Downloading data:  41%|████▏     | 359M/870M [00:43<00:37, 13.5MB/s]Downloading data:  41%|████▏     | 361M/870M [00:43<00:36, 13.8MB/s]Downloading data:  42%|████▏     | 362M/870M [00:43<00:36, 14.0MB/s]Downloading data:  42%|████▏     | 364M/870M [00:43<00:40, 12.4MB/s]Downloading data:  42%|████▏     | 366M/870M [00:44<00:36, 14.0MB/s]Downloading data:  42%|████▏     | 367M/870M [00:44<00:39, 12.7MB/s]Downloading data:  42%|████▏     | 368M/870M [00:44<00:41, 12.0MB/s]Downloading data:  42%|████▏     | 370M/870M [00:44<00:41, 12.1MB/s]Downloading data:  43%|████▎     | 371M/870M [00:44<00:43, 11.5MB/s]Downloading data:  43%|████▎     | 372M/870M [00:44<00:43, 11.4MB/s]Downloading data:  43%|████▎     | 373M/870M [00:44<00:43, 11.5MB/s]Downloading data:  43%|████▎     | 374M/870M [00:44<00:43, 11.4MB/s]Downloading data:  43%|████▎     | 376M/870M [00:44<00:42, 11.7MB/s]Downloading data:  43%|████▎     | 377M/870M [00:45<00:42, 11.7MB/s]Downloading data:  43%|████▎     | 378M/870M [00:45<00:42, 11.6MB/s]Downloading data:  44%|████▎     | 379M/870M [00:45<00:39, 12.4MB/s]Downloading data:  44%|████▎     | 381M/870M [00:45<00:39, 12.3MB/s]Downloading data:  44%|████▍     | 382M/870M [00:45<00:40, 12.0MB/s]Downloading data:  44%|████▍     | 383M/870M [00:45<00:40, 12.2MB/s]Downloading data:  44%|████▍     | 384M/870M [00:45<00:38, 12.6MB/s]Downloading data:  44%|████▍     | 386M/870M [00:45<00:38, 12.6MB/s]Downloading data:  44%|████▍     | 387M/870M [00:45<00:37, 12.8MB/s]Downloading data:  45%|████▍     | 388M/870M [00:45<00:37, 12.7MB/s]Downloading data:  45%|████▍     | 390M/870M [00:46<00:38, 12.6MB/s]Downloading data:  45%|████▍     | 391M/870M [00:46<00:38, 12.6MB/s]Downloading data:  45%|████▌     | 392M/870M [00:46<00:37, 12.6MB/s]Downloading data:  45%|████▌     | 394M/870M [00:46<00:35, 13.6MB/s]Downloading data:  45%|████▌     | 395M/870M [00:46<00:35, 13.4MB/s]Downloading data:  46%|████▌     | 397M/870M [00:46<00:36, 12.9MB/s]Downloading data:  46%|████▌     | 398M/870M [00:46<00:35, 13.4MB/s]Downloading data:  46%|████▌     | 399M/870M [00:46<00:35, 13.4MB/s]Downloading data:  46%|████▌     | 401M/870M [00:46<00:34, 13.5MB/s]Downloading data:  46%|████▌     | 402M/870M [00:47<00:34, 13.5MB/s]Downloading data:  46%|████▋     | 403M/870M [00:47<00:34, 13.4MB/s]Downloading data:  47%|████▋     | 405M/870M [00:47<00:35, 13.2MB/s]Downloading data:  47%|████▋     | 406M/870M [00:47<00:35, 13.2MB/s]Downloading data:  47%|████▋     | 408M/870M [00:47<00:33, 13.7MB/s]Downloading data:  47%|████▋     | 409M/870M [00:47<00:32, 14.2MB/s]Downloading data:  47%|████▋     | 411M/870M [00:47<00:32, 14.0MB/s]Downloading data:  47%|████▋     | 412M/870M [00:47<00:34, 13.3MB/s]Downloading data:  48%|████▊     | 413M/870M [00:47<00:33, 13.7MB/s]Downloading data:  48%|████▊     | 415M/870M [00:47<00:32, 13.9MB/s]Downloading data:  48%|████▊     | 416M/870M [00:48<00:33, 13.7MB/s]Downloading data:  48%|████▊     | 418M/870M [00:48<00:32, 14.0MB/s]Downloading data:  48%|████▊     | 419M/870M [00:48<00:32, 14.1MB/s]Downloading data:  48%|████▊     | 421M/870M [00:48<00:32, 14.0MB/s]Downloading data:  48%|████▊     | 422M/870M [00:48<00:31, 14.0MB/s]Downloading data:  49%|████▊     | 423M/870M [00:48<00:32, 13.8MB/s]Downloading data:  49%|████▉     | 425M/870M [00:48<00:32, 13.9MB/s]Downloading data:  49%|████▉     | 426M/870M [00:48<00:31, 14.3MB/s]Downloading data:  49%|████▉     | 428M/870M [00:48<00:29, 15.0MB/s]Downloading data:  49%|████▉     | 430M/870M [00:48<00:31, 13.9MB/s]Downloading data:  50%|████▉     | 431M/870M [00:49<00:30, 14.3MB/s]Downloading data:  50%|████▉     | 433M/870M [00:49<00:30, 14.2MB/s]Downloading data:  50%|████▉     | 434M/870M [00:49<00:30, 14.1MB/s]Downloading data:  50%|█████     | 435M/870M [00:49<00:30, 14.1MB/s]Downloading data:  50%|█████     | 437M/870M [00:49<00:29, 14.5MB/s]Downloading data:  50%|█████     | 438M/870M [00:49<00:29, 14.7MB/s]Downloading data:  51%|█████     | 440M/870M [00:49<00:29, 14.7MB/s]Downloading data:  51%|█████     | 441M/870M [00:49<00:29, 14.7MB/s]Downloading data:  51%|█████     | 443M/870M [00:49<00:28, 14.8MB/s]Downloading data:  51%|█████     | 444M/870M [00:50<00:28, 14.8MB/s]Downloading data:  51%|█████     | 446M/870M [00:50<00:27, 15.2MB/s]Downloading data:  51%|█████▏    | 448M/870M [00:50<00:28, 14.7MB/s]Downloading data:  52%|█████▏    | 449M/870M [00:50<00:29, 14.2MB/s]Downloading data:  52%|█████▏    | 451M/870M [00:50<00:29, 14.3MB/s]Downloading data:  52%|█████▏    | 452M/870M [00:50<00:29, 14.3MB/s]Downloading data:  52%|█████▏    | 453M/870M [00:50<00:28, 14.5MB/s]Downloading data:  52%|█████▏    | 455M/870M [00:50<00:28, 14.5MB/s]Downloading data:  52%|█████▏    | 456M/870M [00:50<00:28, 14.7MB/s]Downloading data:  53%|█████▎    | 458M/870M [00:50<00:28, 14.7MB/s]Downloading data:  53%|█████▎    | 459M/870M [00:51<00:27, 14.7MB/s]Downloading data:  53%|█████▎    | 461M/870M [00:51<00:27, 14.7MB/s]Downloading data:  53%|█████▎    | 462M/870M [00:51<00:27, 14.7MB/s]Downloading data:  53%|█████▎    | 464M/870M [00:51<00:27, 14.6MB/s]Downloading data:  53%|█████▎    | 465M/870M [00:51<00:27, 14.6MB/s]Downloading data:  54%|█████▎    | 467M/870M [00:51<00:27, 14.8MB/s]Downloading data:  54%|█████▍    | 468M/870M [00:51<00:27, 14.9MB/s]Downloading data:  54%|█████▍    | 470M/870M [00:51<00:26, 15.0MB/s]Downloading data:  54%|█████▍    | 471M/870M [00:51<00:27, 14.5MB/s]Downloading data:  54%|█████▍    | 473M/870M [00:51<00:27, 14.3MB/s]Downloading data:  54%|█████▍    | 474M/870M [00:52<00:27, 14.3MB/s]Downloading data:  55%|█████▍    | 476M/870M [00:52<00:27, 14.3MB/s]Downloading data:  55%|█████▍    | 477M/870M [00:52<00:27, 14.3MB/s]Downloading data:  55%|█████▍    | 479M/870M [00:52<00:27, 14.3MB/s]Downloading data:  55%|█████▌    | 480M/870M [00:52<00:26, 14.5MB/s]Downloading data:  55%|█████▌    | 482M/870M [00:52<00:26, 14.9MB/s]Downloading data:  56%|█████▌    | 483M/870M [00:52<00:26, 14.8MB/s]Downloading data:  56%|█████▌    | 485M/870M [00:52<00:25, 14.8MB/s]Downloading data:  56%|█████▌    | 486M/870M [00:52<00:25, 14.9MB/s]Downloading data:  56%|█████▌    | 488M/870M [00:52<00:25, 14.8MB/s]Downloading data:  56%|█████▌    | 489M/870M [00:53<00:25, 14.9MB/s]Downloading data:  56%|█████▋    | 491M/870M [00:53<00:25, 14.7MB/s]Downloading data:  57%|█████▋    | 492M/870M [00:53<00:24, 15.1MB/s]Downloading data:  57%|█████▋    | 494M/870M [00:53<00:25, 14.8MB/s]Downloading data:  57%|█████▋    | 495M/870M [00:53<00:26, 14.4MB/s]Downloading data:  57%|█████▋    | 497M/870M [00:53<00:25, 14.4MB/s]Downloading data:  57%|█████▋    | 498M/870M [00:53<00:25, 14.4MB/s]Downloading data:  57%|█████▋    | 500M/870M [00:53<00:25, 14.4MB/s]Downloading data:  58%|█████▊    | 501M/870M [00:53<00:25, 14.3MB/s]Downloading data:  58%|█████▊    | 503M/870M [00:54<00:25, 14.3MB/s]Downloading data:  58%|█████▊    | 504M/870M [00:54<00:24, 15.0MB/s]Downloading data:  58%|█████▊    | 506M/870M [00:54<00:24, 14.7MB/s]Downloading data:  58%|█████▊    | 507M/870M [00:54<00:24, 15.0MB/s]Downloading data:  58%|█████▊    | 509M/870M [00:54<00:24, 14.7MB/s]Downloading data:  59%|█████▊    | 510M/870M [00:54<00:24, 14.7MB/s]Downloading data:  59%|█████▉    | 512M/870M [00:54<00:24, 14.7MB/s]Downloading data:  59%|█████▉    | 513M/870M [00:54<00:24, 14.7MB/s]Downloading data:  59%|█████▉    | 515M/870M [00:54<00:24, 14.6MB/s]Downloading data:  59%|█████▉    | 516M/870M [00:54<00:24, 14.4MB/s]Downloading data:  59%|█████▉    | 518M/870M [00:55<00:24, 14.3MB/s]Downloading data:  60%|█████▉    | 519M/870M [00:55<00:24, 14.1MB/s]Downloading data:  60%|█████▉    | 521M/870M [00:55<00:24, 14.1MB/s]Downloading data:  60%|█████▉    | 522M/870M [00:55<00:24, 14.2MB/s]Downloading data:  60%|██████    | 524M/870M [00:55<00:23, 14.5MB/s]Downloading data:  60%|██████    | 525M/870M [00:55<00:23, 14.6MB/s]Downloading data:  60%|██████    | 526M/870M [00:55<00:23, 14.5MB/s]Downloading data:  61%|██████    | 528M/870M [00:55<00:23, 14.4MB/s]Downloading data:  61%|██████    | 529M/870M [00:55<00:23, 14.3MB/s]Downloading data:  61%|██████    | 531M/870M [00:55<00:23, 14.3MB/s]Downloading data:  61%|██████    | 532M/870M [00:56<00:23, 14.2MB/s]Downloading data:  61%|██████▏   | 534M/870M [00:56<00:23, 14.2MB/s]Downloading data:  61%|██████▏   | 535M/870M [00:56<00:23, 14.3MB/s]Downloading data:  62%|██████▏   | 537M/870M [00:56<00:22, 14.5MB/s]Downloading data:  62%|██████▏   | 538M/870M [00:56<00:22, 15.0MB/s]Downloading data:  62%|██████▏   | 540M/870M [00:56<00:22, 14.7MB/s]Downloading data:  62%|██████▏   | 541M/870M [00:56<00:22, 14.7MB/s]Downloading data:  62%|██████▏   | 543M/870M [00:56<00:22, 14.6MB/s]Downloading data:  63%|██████▎   | 544M/870M [00:56<00:21, 15.0MB/s]Downloading data:  63%|██████▎   | 546M/870M [00:56<00:21, 15.0MB/s]Downloading data:  63%|██████▎   | 547M/870M [00:57<00:21, 14.7MB/s]Downloading data:  63%|██████▎   | 549M/870M [00:57<00:23, 13.7MB/s]Downloading data:  63%|██████▎   | 550M/870M [00:57<00:23, 13.8MB/s]Downloading data:  63%|██████▎   | 552M/870M [00:57<00:26, 12.1MB/s]Downloading data:  64%|██████▎   | 553M/870M [00:57<00:26, 12.0MB/s]Downloading data:  64%|██████▎   | 554M/870M [00:57<00:25, 12.3MB/s]Downloading data:  64%|██████▍   | 555M/870M [00:57<00:25, 12.1MB/s]Downloading data:  64%|██████▍   | 557M/870M [00:57<00:28, 10.9MB/s]Downloading data:  64%|██████▍   | 558M/870M [00:58<00:28, 11.1MB/s]Downloading data:  64%|██████▍   | 559M/870M [00:58<00:27, 11.1MB/s]Downloading data:  64%|██████▍   | 560M/870M [00:58<00:27, 11.4MB/s]Downloading data:  64%|██████▍   | 561M/870M [00:58<00:27, 11.4MB/s]Downloading data:  65%|██████▍   | 563M/870M [00:58<00:26, 11.5MB/s]Downloading data:  65%|██████▍   | 564M/870M [00:58<00:26, 11.4MB/s]Downloading data:  65%|██████▍   | 565M/870M [00:58<00:26, 11.4MB/s]Downloading data:  65%|██████▌   | 566M/870M [00:58<00:26, 11.4MB/s]Downloading data:  65%|██████▌   | 567M/870M [00:58<00:26, 11.6MB/s]Downloading data:  65%|██████▌   | 568M/870M [00:58<00:25, 11.8MB/s]Downloading data:  65%|██████▌   | 570M/870M [00:59<00:24, 12.3MB/s]Downloading data:  66%|██████▌   | 571M/870M [00:59<00:24, 12.3MB/s]Downloading data:  66%|██████▌   | 572M/870M [00:59<00:24, 12.3MB/s]Downloading data:  66%|██████▌   | 573M/870M [00:59<00:24, 12.3MB/s]Downloading data:  66%|██████▌   | 575M/870M [00:59<00:23, 12.7MB/s]Downloading data:  66%|██████▌   | 576M/870M [00:59<00:23, 12.7MB/s]Downloading data:  66%|██████▋   | 577M/870M [00:59<00:23, 12.6MB/s]Downloading data:  66%|██████▋   | 579M/870M [00:59<00:23, 12.4MB/s]Downloading data:  67%|██████▋   | 580M/870M [00:59<00:23, 12.5MB/s]Downloading data:  67%|██████▋   | 581M/870M [00:59<00:22, 12.7MB/s]Downloading data:  67%|██████▋   | 583M/870M [01:00<00:22, 12.9MB/s]Downloading data:  67%|██████▋   | 584M/870M [01:00<00:22, 12.5MB/s]Downloading data:  67%|██████▋   | 585M/870M [01:00<00:22, 12.7MB/s]Downloading data:  67%|██████▋   | 587M/870M [01:00<00:22, 12.8MB/s]Downloading data:  68%|██████▊   | 588M/870M [01:00<00:21, 13.0MB/s]Downloading data:  68%|██████▊   | 589M/870M [01:00<00:21, 12.9MB/s]Downloading data:  68%|██████▊   | 591M/870M [01:00<00:21, 13.0MB/s]Downloading data:  68%|██████▊   | 592M/870M [01:00<00:21, 13.0MB/s]Downloading data:  68%|██████▊   | 593M/870M [01:00<00:20, 13.2MB/s]Downloading data:  68%|██████▊   | 595M/870M [01:00<00:20, 13.3MB/s]Downloading data:  68%|██████▊   | 596M/870M [01:01<00:20, 13.4MB/s]Downloading data:  69%|██████▊   | 597M/870M [01:01<00:20, 13.3MB/s]Downloading data:  69%|██████▉   | 599M/870M [01:01<00:20, 13.2MB/s]Downloading data:  69%|██████▉   | 600M/870M [01:01<00:20, 13.3MB/s]Downloading data:  69%|██████▉   | 601M/870M [01:01<00:20, 13.4MB/s]Downloading data:  69%|██████▉   | 603M/870M [01:01<00:19, 13.4MB/s]Downloading data:  69%|██████▉   | 604M/870M [01:01<00:19, 13.5MB/s]Downloading data:  70%|██████▉   | 606M/870M [01:01<00:19, 13.6MB/s]Downloading data:  70%|██████▉   | 607M/870M [01:01<00:19, 13.7MB/s]Downloading data:  70%|██████▉   | 608M/870M [01:01<00:19, 13.7MB/s]Downloading data:  70%|███████   | 610M/870M [01:02<00:18, 13.7MB/s]Downloading data:  70%|███████   | 611M/870M [01:02<00:18, 13.7MB/s]Downloading data:  70%|███████   | 613M/870M [01:02<00:18, 13.8MB/s]Downloading data:  71%|███████   | 614M/870M [01:02<00:18, 13.9MB/s]Downloading data:  71%|███████   | 615M/870M [01:02<00:18, 14.0MB/s]Downloading data:  71%|███████   | 617M/870M [01:02<00:18, 14.0MB/s]Downloading data:  71%|███████   | 618M/870M [01:02<00:17, 14.1MB/s]Downloading data:  71%|███████   | 620M/870M [01:02<00:17, 14.2MB/s]Downloading data:  71%|███████▏  | 621M/870M [01:02<00:17, 14.1MB/s]Downloading data:  72%|███████▏  | 623M/870M [01:02<00:17, 13.8MB/s]Downloading data:  72%|███████▏  | 624M/870M [01:03<00:17, 13.9MB/s]Downloading data:  72%|███████▏  | 625M/870M [01:03<00:17, 14.3MB/s]Downloading data:  72%|███████▏  | 627M/870M [01:03<00:17, 14.1MB/s]Downloading data:  72%|███████▏  | 628M/870M [01:03<00:17, 14.2MB/s]Downloading data:  72%|███████▏  | 630M/870M [01:03<00:16, 14.5MB/s]Downloading data:  73%|███████▎  | 631M/870M [01:03<00:16, 14.4MB/s]Downloading data:  73%|███████▎  | 633M/870M [01:03<00:16, 14.7MB/s]Downloading data:  73%|███████▎  | 634M/870M [01:03<00:15, 15.1MB/s]Downloading data:  73%|███████▎  | 636M/870M [01:03<00:15, 15.0MB/s]Downloading data:  73%|███████▎  | 638M/870M [01:03<00:15, 15.1MB/s]Downloading data:  73%|███████▎  | 639M/870M [01:04<00:15, 14.6MB/s]Downloading data:  74%|███████▎  | 640M/870M [01:04<00:16, 14.4MB/s]Downloading data:  74%|███████▍  | 642M/870M [01:04<00:16, 14.3MB/s]Downloading data:  74%|███████▍  | 643M/870M [01:04<00:15, 14.7MB/s]Downloading data:  74%|███████▍  | 645M/870M [01:04<00:15, 14.6MB/s]Downloading data:  74%|███████▍  | 647M/870M [01:04<00:14, 15.3MB/s]Downloading data:  74%|███████▍  | 648M/870M [01:04<00:14, 15.2MB/s]Downloading data:  75%|███████▍  | 650M/870M [01:04<00:15, 14.7MB/s]Downloading data:  75%|███████▍  | 651M/870M [01:04<00:14, 14.9MB/s]Downloading data:  75%|███████▍  | 653M/870M [01:05<00:14, 14.9MB/s]Downloading data:  75%|███████▌  | 654M/870M [01:05<00:13, 15.5MB/s]Downloading data:  75%|███████▌  | 656M/870M [01:05<00:14, 15.2MB/s]Downloading data:  76%|███████▌  | 658M/870M [01:05<00:13, 15.5MB/s]Downloading data:  76%|███████▌  | 659M/870M [01:05<00:13, 15.5MB/s]Downloading data:  76%|███████▌  | 661M/870M [01:05<00:14, 14.8MB/s]Downloading data:  76%|███████▌  | 662M/870M [01:05<00:14, 14.8MB/s]Downloading data:  76%|███████▋  | 664M/870M [01:05<00:13, 14.9MB/s]Downloading data:  76%|███████▋  | 665M/870M [01:05<00:13, 14.8MB/s]Downloading data:  77%|███████▋  | 667M/870M [01:05<00:13, 14.8MB/s]Downloading data:  77%|███████▋  | 668M/870M [01:06<00:13, 15.3MB/s]Downloading data:  77%|███████▋  | 670M/870M [01:06<00:14, 14.3MB/s]Downloading data:  77%|███████▋  | 671M/870M [01:06<00:13, 14.4MB/s]Downloading data:  77%|███████▋  | 673M/870M [01:06<00:13, 14.6MB/s]Downloading data:  77%|███████▋  | 674M/870M [01:06<00:13, 14.7MB/s]Downloading data:  78%|███████▊  | 676M/870M [01:06<00:13, 14.7MB/s]Downloading data:  78%|███████▊  | 677M/870M [01:06<00:13, 14.8MB/s]Downloading data:  78%|███████▊  | 679M/870M [01:06<00:12, 15.4MB/s]Downloading data:  78%|███████▊  | 681M/870M [01:06<00:12, 15.3MB/s]Downloading data:  78%|███████▊  | 682M/870M [01:06<00:12, 15.2MB/s]Downloading data:  79%|███████▊  | 684M/870M [01:07<00:12, 15.2MB/s]Downloading data:  79%|███████▊  | 685M/870M [01:07<00:12, 15.0MB/s]Downloading data:  79%|███████▉  | 687M/870M [01:07<00:12, 14.6MB/s]Downloading data:  79%|███████▉  | 688M/870M [01:07<00:12, 14.5MB/s]Downloading data:  79%|███████▉  | 690M/870M [01:07<00:12, 14.5MB/s]Downloading data:  79%|███████▉  | 691M/870M [01:07<00:12, 14.4MB/s]Downloading data:  80%|███████▉  | 693M/870M [01:07<00:12, 14.5MB/s]Downloading data:  80%|███████▉  | 694M/870M [01:07<00:12, 14.6MB/s]Downloading data:  80%|███████▉  | 696M/870M [01:07<00:11, 14.6MB/s]Downloading data:  80%|████████  | 697M/870M [01:08<00:11, 14.6MB/s]Downloading data:  80%|████████  | 698M/870M [01:08<00:11, 14.6MB/s]Downloading data:  80%|████████  | 700M/870M [01:08<00:11, 15.2MB/s]Downloading data:  81%|████████  | 702M/870M [01:08<00:11, 15.0MB/s]Downloading data:  81%|████████  | 703M/870M [01:08<00:11, 14.6MB/s]Downloading data:  81%|████████  | 705M/870M [01:08<00:11, 14.5MB/s]Downloading data:  81%|████████  | 706M/870M [01:08<00:11, 14.2MB/s]Downloading data:  81%|████████▏ | 708M/870M [01:08<00:11, 14.2MB/s]Downloading data:  81%|████████▏ | 709M/870M [01:08<00:11, 14.6MB/s]Downloading data:  82%|████████▏ | 711M/870M [01:08<00:10, 15.0MB/s]Downloading data:  82%|████████▏ | 712M/870M [01:09<00:10, 15.2MB/s]Downloading data:  82%|████████▏ | 714M/870M [01:09<00:10, 15.4MB/s]Downloading data:  82%|████████▏ | 715M/870M [01:09<00:10, 15.4MB/s]Downloading data:  82%|████████▏ | 717M/870M [01:09<00:10, 15.3MB/s]Downloading data:  83%|████████▎ | 719M/870M [01:09<00:09, 15.8MB/s]Downloading data:  83%|████████▎ | 720M/870M [01:09<00:09, 15.5MB/s]Downloading data:  83%|████████▎ | 722M/870M [01:09<00:09, 15.3MB/s]Downloading data:  83%|████████▎ | 723M/870M [01:09<00:09, 15.5MB/s]Downloading data:  83%|████████▎ | 725M/870M [01:09<00:09, 15.6MB/s]Downloading data:  83%|████████▎ | 727M/870M [01:09<00:09, 14.6MB/s]Downloading data:  84%|████████▎ | 728M/870M [01:10<00:09, 14.6MB/s]Downloading data:  84%|████████▍ | 730M/870M [01:10<00:09, 14.7MB/s]Downloading data:  84%|████████▍ | 731M/870M [01:10<00:09, 15.1MB/s]Downloading data:  84%|████████▍ | 733M/870M [01:10<00:08, 15.6MB/s]Downloading data:  84%|████████▍ | 734M/870M [01:10<00:08, 15.6MB/s]Downloading data:  85%|████████▍ | 736M/870M [01:10<00:08, 15.7MB/s]Downloading data:  85%|████████▍ | 738M/870M [01:10<00:08, 15.7MB/s]Downloading data:  85%|████████▍ | 739M/870M [01:10<00:08, 15.4MB/s]Downloading data:  85%|████████▌ | 741M/870M [01:10<00:08, 15.8MB/s]Downloading data:  85%|████████▌ | 742M/870M [01:10<00:08, 15.7MB/s]Downloading data:  85%|████████▌ | 744M/870M [01:11<00:08, 15.5MB/s]Downloading data:  86%|████████▌ | 746M/870M [01:11<00:08, 15.2MB/s]Downloading data:  86%|████████▌ | 747M/870M [01:11<00:08, 15.2MB/s]Downloading data:  86%|████████▌ | 749M/870M [01:11<00:08, 15.2MB/s]Downloading data:  86%|████████▌ | 750M/870M [01:11<00:07, 15.4MB/s]Downloading data:  86%|████████▋ | 752M/870M [01:11<00:07, 15.2MB/s]Downloading data:  87%|████████▋ | 753M/870M [01:11<00:07, 15.2MB/s]Downloading data:  87%|████████▋ | 755M/870M [01:11<00:07, 15.3MB/s]Downloading data:  87%|████████▋ | 756M/870M [01:11<00:07, 15.3MB/s]Downloading data:  87%|████████▋ | 758M/870M [01:11<00:07, 15.4MB/s]Downloading data:  87%|████████▋ | 759M/870M [01:12<00:07, 15.3MB/s]Downloading data:  87%|████████▋ | 761M/870M [01:12<00:07, 15.5MB/s]Downloading data:  88%|████████▊ | 763M/870M [01:12<00:06, 15.9MB/s]Downloading data:  88%|████████▊ | 764M/870M [01:12<00:07, 15.0MB/s]Downloading data:  88%|████████▊ | 766M/870M [01:12<00:06, 15.2MB/s]Downloading data:  88%|████████▊ | 767M/870M [01:12<00:06, 15.5MB/s]Downloading data:  88%|████████▊ | 769M/870M [01:12<00:06, 15.7MB/s]Downloading data:  89%|████████▊ | 771M/870M [01:12<00:06, 15.7MB/s]Downloading data:  89%|████████▊ | 772M/870M [01:12<00:06, 16.0MB/s]Downloading data:  89%|████████▉ | 774M/870M [01:13<00:06, 16.0MB/s]Downloading data:  89%|████████▉ | 776M/870M [01:13<00:05, 16.1MB/s]Downloading data:  89%|████████▉ | 777M/870M [01:13<00:05, 16.1MB/s]Downloading data:  89%|████████▉ | 779M/870M [01:13<00:05, 16.0MB/s]Downloading data:  90%|████████▉ | 781M/870M [01:13<00:05, 16.3MB/s]Downloading data:  90%|████████▉ | 782M/870M [01:13<00:05, 16.7MB/s]Downloading data:  90%|█████████ | 784M/870M [01:13<00:04, 17.4MB/s]Downloading data:  90%|█████████ | 786M/870M [01:13<00:04, 17.6MB/s]Downloading data:  91%|█████████ | 788M/870M [01:13<00:04, 17.5MB/s]Downloading data:  91%|█████████ | 790M/870M [01:13<00:04, 17.6MB/s]Downloading data:  91%|█████████ | 792M/870M [01:14<00:04, 18.0MB/s]Downloading data:  91%|█████████ | 794M/870M [01:14<00:04, 18.4MB/s]Downloading data:  91%|█████████▏| 795M/870M [01:14<00:04, 17.2MB/s]Downloading data:  92%|█████████▏| 797M/870M [01:14<00:04, 17.3MB/s]Downloading data:  92%|█████████▏| 799M/870M [01:14<00:04, 17.8MB/s]Downloading data:  92%|█████████▏| 801M/870M [01:14<00:03, 17.6MB/s]Downloading data:  92%|█████████▏| 803M/870M [01:14<00:03, 17.6MB/s]Downloading data:  92%|█████████▏| 805M/870M [01:14<00:03, 18.3MB/s]Downloading data:  93%|█████████▎| 807M/870M [01:14<00:03, 19.2MB/s]Downloading data:  93%|█████████▎| 809M/870M [01:14<00:03, 18.8MB/s]Downloading data:  93%|█████████▎| 811M/870M [01:15<00:03, 19.4MB/s]Downloading data:  93%|█████████▎| 813M/870M [01:15<00:03, 19.0MB/s]Downloading data:  94%|█████████▎| 815M/870M [01:15<00:02, 18.7MB/s]Downloading data:  94%|█████████▍| 817M/870M [01:15<00:02, 18.7MB/s]Downloading data:  94%|█████████▍| 819M/870M [01:15<00:02, 18.7MB/s]Downloading data:  94%|█████████▍| 821M/870M [01:15<00:02, 19.0MB/s]Downloading data:  95%|█████████▍| 823M/870M [01:15<00:02, 18.9MB/s]Downloading data:  95%|█████████▍| 824M/870M [01:15<00:02, 19.1MB/s]Downloading data:  95%|█████████▍| 826M/870M [01:15<00:02, 17.7MB/s]Downloading data:  95%|█████████▌| 829M/870M [01:16<00:02, 19.6MB/s]Downloading data:  95%|█████████▌| 831M/870M [01:16<00:02, 16.5MB/s]Downloading data:  96%|█████████▌| 833M/870M [01:16<00:02, 16.4MB/s]Downloading data:  96%|█████████▌| 834M/870M [01:16<00:02, 16.4MB/s]Downloading data:  96%|█████████▌| 836M/870M [01:16<00:02, 14.8MB/s]Downloading data:  96%|█████████▌| 838M/870M [01:16<00:02, 14.8MB/s]Downloading data:  96%|█████████▋| 839M/870M [01:16<00:02, 14.7MB/s]Downloading data:  97%|█████████▋| 841M/870M [01:16<00:01, 15.1MB/s]Downloading data:  97%|█████████▋| 842M/870M [01:16<00:01, 15.1MB/s]Downloading data:  97%|█████████▋| 844M/870M [01:17<00:01, 16.0MB/s]Downloading data:  97%|█████████▋| 846M/870M [01:17<00:01, 16.3MB/s]Downloading data:  97%|█████████▋| 847M/870M [01:17<00:01, 16.6MB/s]Downloading data:  98%|█████████▊| 849M/870M [01:17<00:01, 16.9MB/s]Downloading data:  98%|█████████▊| 851M/870M [01:17<00:01, 16.2MB/s]Downloading data:  98%|█████████▊| 853M/870M [01:17<00:01, 15.5MB/s]Downloading data:  98%|█████████▊| 854M/870M [01:17<00:01, 15.7MB/s]Downloading data:  98%|█████████▊| 856M/870M [01:17<00:00, 15.8MB/s]Downloading data:  99%|█████████▊| 857M/870M [01:17<00:00, 15.8MB/s]Downloading data:  99%|█████████▊| 859M/870M [01:18<00:00, 16.5MB/s]Downloading data:  99%|█████████▉| 861M/870M [01:18<00:00, 17.4MB/s]Downloading data:  99%|█████████▉| 863M/870M [01:18<00:00, 17.4MB/s]Downloading data:  99%|█████████▉| 865M/870M [01:18<00:00, 17.5MB/s]Downloading data: 100%|█████████▉| 867M/870M [01:18<00:00, 17.6MB/s]Downloading data: 100%|█████████▉| 868M/870M [01:18<00:00, 17.9MB/s]Downloading data: 100%|█████████▉| 870M/870M [01:18<00:00, 18.3MB/s]Downloading data: 100%|██████████| 870M/870M [01:18<00:00, 11.1MB/s]
+Downloading data:   0%|          | 0.00/34.4M [00:00<?, ?B/s]Downloading data:   0%|          | 81.9k/34.4M [00:00<01:17, 442kB/s]Downloading data:   1%|          | 426k/34.4M [00:00<00:26, 1.27MB/s]Downloading data:   4%|▎         | 1.25M/34.4M [00:00<00:09, 3.43MB/s]Downloading data:   7%|▋         | 2.29M/34.4M [00:00<00:07, 4.49MB/s]Downloading data:  13%|█▎        | 4.33M/34.4M [00:00<00:03, 8.62MB/s]Downloading data:  19%|█▊        | 6.43M/34.4M [00:00<00:02, 12.0MB/s]Downloading data:  25%|██▍       | 8.45M/34.4M [00:00<00:01, 14.3MB/s]Downloading data:  30%|███       | 10.4M/34.4M [00:01<00:01, 13.3MB/s]Downloading data:  35%|███▍      | 12.0M/34.4M [00:01<00:01, 13.9MB/s]Downloading data:  39%|███▉      | 13.5M/34.4M [00:01<00:01, 14.3MB/s]Downloading data:  44%|████▍     | 15.1M/34.4M [00:01<00:01, 12.2MB/s]Downloading data:  48%|████▊     | 16.4M/34.4M [00:01<00:01, 12.0MB/s]Downloading data:  52%|█████▏    | 18.0M/34.4M [00:01<00:01, 11.1MB/s]Downloading data:  56%|█████▌    | 19.1M/34.4M [00:01<00:01, 11.1MB/s]Downloading data:  59%|█████▉    | 20.3M/34.4M [00:01<00:01, 11.2MB/s]Downloading data:  62%|██████▏   | 21.4M/34.4M [00:02<00:01, 9.41MB/s]Downloading data:  66%|██████▌   | 22.6M/34.4M [00:02<00:01, 9.90MB/s]Downloading data:  69%|██████▉   | 23.7M/34.4M [00:02<00:01, 10.3MB/s]Downloading data:  72%|███████▏  | 24.8M/34.4M [00:02<00:00, 10.4MB/s]Downloading data:  75%|███████▌  | 25.9M/34.4M [00:02<00:00, 8.77MB/s]Downloading data:  79%|███████▊  | 27.1M/34.4M [00:02<00:00, 9.54MB/s]Downloading data:  82%|████████▏ | 28.2M/34.4M [00:02<00:00, 10.1MB/s]Downloading data:  85%|████████▌ | 29.3M/34.4M [00:02<00:00, 10.1MB/s]Downloading data:  88%|████████▊ | 30.4M/34.4M [00:03<00:00, 8.69MB/s]Downloading data:  91%|█████████▏| 31.4M/34.4M [00:03<00:00, 9.13MB/s]Downloading data:  95%|█████████▍| 32.6M/34.4M [00:03<00:00, 9.92MB/s]Downloading data:  98%|█████████▊| 33.7M/34.4M [00:03<00:00, 10.1MB/s]Downloading data: 100%|██████████| 34.4M/34.4M [00:03<00:00, 9.87MB/s]
+Downloading data:   0%|          | 0.00/37.6M [00:00<?, ?B/s]Downloading data:   0%|          | 81.9k/37.6M [00:00<01:25, 439kB/s]Downloading data:   1%|          | 426k/37.6M [00:00<00:29, 1.27MB/s]Downloading data:   3%|▎         | 1.19M/37.6M [00:00<00:11, 3.25MB/s]Downloading data:   6%|▋         | 2.35M/37.6M [00:00<00:06, 5.82MB/s]Downloading data:  11%|█         | 4.18M/37.6M [00:00<00:04, 7.77MB/s]Downloading data:  20%|█▉        | 7.47M/37.6M [00:00<00:02, 14.3MB/s]Downloading data:  29%|██▉       | 10.9M/37.6M [00:00<00:01, 19.7MB/s]Downloading data:  38%|███▊      | 14.1M/37.6M [00:01<00:01, 23.1MB/s]Downloading data:  46%|████▌     | 17.3M/37.6M [00:01<00:00, 25.7MB/s]Downloading data:  54%|█████▍    | 20.4M/37.6M [00:01<00:00, 26.4MB/s]Downloading data:  62%|██████▏   | 23.4M/37.6M [00:01<00:00, 27.1MB/s]Downloading data:  70%|███████   | 26.4M/37.6M [00:01<00:00, 27.8MB/s]Downloading data:  78%|███████▊  | 29.2M/37.6M [00:01<00:00, 23.7MB/s]Downloading data:  86%|████████▋ | 32.4M/37.6M [00:01<00:00, 25.8MB/s]Downloading data:  94%|█████████▍| 35.4M/37.6M [00:01<00:00, 26.9MB/s]Downloading data: 100%|██████████| 37.6M/37.6M [00:01<00:00, 19.5MB/s]
+Generating train split:   0%|          | 0/249277 [00:00<?, ? examples/s]Generating train split:   0%|          | 1/249277 [00:00<8:24:47,  8.23 examples/s]Generating train split:   1%|          | 2230/249277 [00:00<00:21, 11289.11 examples/s]Generating train split:   2%|▏         | 3769/249277 [00:00<00:33, 7438.10 examples/s] Generating train split:   2%|▏         | 6000/249277 [00:00<00:21, 11198.18 examples/s]Generating train split:   3%|▎         | 8533/249277 [00:00<00:16, 14963.23 examples/s]Generating train split:   4%|▍         | 11000/249277 [00:00<00:13, 17417.97 examples/s]Generating train split:   5%|▌         | 13679/249277 [00:00<00:11, 20041.44 examples/s]Generating train split:   7%|▋         | 16391/249277 [00:01<00:10, 21572.35 examples/s]Generating train split:   8%|▊         | 19000/249277 [00:01<00:10, 22472.15 examples/s]Generating train split:   9%|▊         | 21665/249277 [00:01<00:09, 23665.02 examples/s]Generating train split:  10%|▉         | 24404/249277 [00:01<00:09, 24248.81 examples/s]Generating train split:  11%|█         | 27000/249277 [00:01<00:09, 24305.64 examples/s]Generating train split:  12%|█▏        | 29525/249277 [00:01<00:08, 24575.99 examples/s]Generating train split:  13%|█▎        | 33000/249277 [00:01<00:09, 23632.10 examples/s]Generating train split:  15%|█▍        | 36639/249277 [00:01<00:08, 23848.12 examples/s]Generating train split:  16%|█▌        | 39937/249277 [00:02<00:09, 23226.19 examples/s]Generating train split:  17%|█▋        | 43459/249277 [00:02<00:08, 23169.27 examples/s]Generating train split:  18%|█▊        | 45933/249277 [00:02<00:08, 23535.05 examples/s]Generating train split:  19%|█▉        | 48330/249277 [00:02<00:08, 23480.78 examples/s]Generating train split:  20%|██        | 50950/249277 [00:02<00:08, 24190.47 examples/s]Generating train split:  22%|██▏       | 54437/249277 [00:02<00:08, 23407.29 examples/s]Generating train split:  23%|██▎       | 56856/249277 [00:02<00:08, 23602.50 examples/s]Generating train split:  24%|██▍       | 59517/249277 [00:02<00:08, 21548.77 examples/s]Generating train split:  25%|██▌       | 62584/249277 [00:03<00:08, 21178.64 examples/s]Generating train split:  26%|██▌       | 64909/249277 [00:03<00:08, 21676.98 examples/s]Generating train split:  27%|██▋       | 68252/249277 [00:03<00:08, 21483.54 examples/s]Generating train split:  28%|██▊       | 70792/249277 [00:03<00:07, 22427.46 examples/s]Generating train split:  30%|██▉       | 74265/249277 [00:03<00:07, 22190.24 examples/s]Generating train split:  31%|███       | 76780/249277 [00:03<00:07, 22902.37 examples/s]Generating train split:  32%|███▏      | 80271/249277 [00:03<00:08, 18824.17 examples/s]Generating train split:  33%|███▎      | 82799/249277 [00:03<00:08, 20174.15 examples/s]Generating train split:  34%|███▍      | 85000/249277 [00:04<00:08, 20502.53 examples/s]Generating train split:  35%|███▌      | 87251/249277 [00:04<00:07, 20993.97 examples/s]Generating train split:  36%|███▌      | 89530/249277 [00:04<00:07, 21460.65 examples/s]Generating train split:  37%|███▋      | 91968/249277 [00:04<00:07, 22248.93 examples/s]Generating train split:  38%|███▊      | 94280/249277 [00:04<00:06, 22490.30 examples/s]Generating train split:  39%|███▉      | 96847/249277 [00:04<00:06, 23393.54 examples/s]Generating train split:  40%|████      | 100000/249277 [00:04<00:06, 22160.05 examples/s]Generating train split:  41%|████      | 102539/249277 [00:04<00:06, 23006.48 examples/s]Generating train split:  42%|████▏     | 105000/249277 [00:04<00:06, 22662.10 examples/s]Generating train split:  43%|████▎     | 107475/249277 [00:05<00:06, 23228.34 examples/s]Generating train split:  44%|████▍     | 110903/249277 [00:05<00:05, 23088.39 examples/s]Generating train split:  45%|████▌     | 113254/249277 [00:05<00:05, 22721.39 examples/s]Generating train split:  46%|████▋     | 115637/249277 [00:05<00:05, 23016.59 examples/s]Generating train split:  47%|████▋     | 118000/249277 [00:05<00:05, 22677.35 examples/s]Generating train split:  48%|████▊     | 120392/249277 [00:05<00:05, 23022.32 examples/s]Generating train split:  49%|████▉     | 122853/249277 [00:05<00:05, 23462.32 examples/s]Generating train split:  50%|█████     | 125250/249277 [00:05<00:05, 23101.24 examples/s]Generating train split:  51%|█████     | 127632/249277 [00:05<00:05, 23306.65 examples/s]Generating train split:  52%|█████▏    | 130000/249277 [00:06<00:05, 22861.28 examples/s]Generating train split:  53%|█████▎    | 132525/249277 [00:06<00:04, 23549.58 examples/s]Generating train split:  54%|█████▍    | 134932/249277 [00:06<00:04, 23699.82 examples/s]Generating train split:  55%|█████▌    | 138000/249277 [00:06<00:05, 21943.17 examples/s]Generating train split:  57%|█████▋    | 141343/249277 [00:06<00:04, 22060.11 examples/s]Generating train split:  58%|█████▊    | 143674/249277 [00:06<00:04, 22369.93 examples/s]Generating train split:  59%|█████▊    | 146000/249277 [00:06<00:04, 22006.45 examples/s]Generating train split:  60%|█████▉    | 149300/249277 [00:06<00:04, 22000.73 examples/s]Generating train split:  61%|██████    | 151558/249277 [00:07<00:04, 22143.78 examples/s]Generating train split:  62%|██████▏   | 154591/249277 [00:07<00:05, 17400.91 examples/s]Generating train split:  63%|██████▎   | 157287/249277 [00:07<00:05, 17564.53 examples/s]Generating train split:  64%|██████▍   | 160216/249277 [00:07<00:04, 18124.71 examples/s]Generating train split:  65%|██████▌   | 162450/249277 [00:07<00:04, 19038.93 examples/s]Generating train split:  66%|██████▌   | 164602/249277 [00:07<00:04, 19623.34 examples/s]Generating train split:  67%|██████▋   | 166864/249277 [00:07<00:04, 20080.38 examples/s]Generating train split:  68%|██████▊   | 169236/249277 [00:07<00:03, 20805.13 examples/s]Generating train split:  69%|██████▉   | 171927/249277 [00:08<00:03, 22455.81 examples/s]Generating train split:  70%|██████▉   | 174353/249277 [00:08<00:03, 22939.94 examples/s]Generating train split:  71%|███████▏  | 177842/249277 [00:08<00:03, 23058.00 examples/s]Generating train split:  72%|███████▏  | 180608/249277 [00:08<00:03, 21445.01 examples/s]Generating train split:  74%|███████▎  | 183820/249277 [00:08<00:03, 21429.93 examples/s]Generating train split:  75%|███████▍  | 186377/249277 [00:08<00:02, 22137.61 examples/s]Generating train split:  76%|███████▌  | 189234/249277 [00:08<00:02, 20019.70 examples/s]Generating train split:  77%|███████▋  | 191769/249277 [00:08<00:02, 21259.37 examples/s]Generating train split:  78%|███████▊  | 194357/249277 [00:09<00:02, 22267.42 examples/s]Generating train split:  79%|███████▉  | 196680/249277 [00:09<00:02, 22518.20 examples/s]Generating train split:  80%|███████▉  | 199397/249277 [00:09<00:02, 23283.57 examples/s]Generating train split:  81%|████████  | 202000/249277 [00:09<00:02, 23333.26 examples/s]Generating train split:  82%|████████▏ | 204809/249277 [00:09<00:01, 24647.13 examples/s]Generating train split:  84%|████████▎ | 208306/249277 [00:09<00:01, 23784.70 examples/s]Generating train split:  85%|████████▍ | 210912/249277 [00:09<00:01, 24370.93 examples/s]Generating train split:  86%|████████▌ | 214785/249277 [00:09<00:01, 24692.95 examples/s]Generating train split:  87%|████████▋ | 217378/249277 [00:10<00:01, 24859.26 examples/s]Generating train split:  88%|████████▊ | 220000/249277 [00:10<00:01, 24938.39 examples/s]Generating train split:  89%|████████▉ | 222793/249277 [00:10<00:01, 25749.22 examples/s]Generating train split:  91%|█████████ | 226632/249277 [00:10<00:00, 25427.13 examples/s]Generating train split:  92%|█████████▏| 230443/249277 [00:10<00:00, 20835.52 examples/s]Generating train split:  93%|█████████▎| 233000/249277 [00:10<00:00, 21464.47 examples/s]Generating train split:  94%|█████████▍| 235443/249277 [00:10<00:00, 22141.39 examples/s]Generating train split:  95%|█████████▌| 238000/249277 [00:10<00:00, 22660.80 examples/s]Generating train split:  97%|█████████▋| 240744/249277 [00:11<00:00, 23888.70 examples/s]Generating train split:  98%|█████████▊| 243399/249277 [00:11<00:00, 24040.95 examples/s]Generating train split:  99%|█████████▊| 246000/249277 [00:11<00:00, 24209.71 examples/s]Generating train split: 100%|█████████▉| 248757/249277 [00:11<00:00, 25137.80 examples/s]Generating train split: 100%|██████████| 249277/249277 [00:11<00:00, 21865.57 examples/s]
+Generating validation split:   0%|          | 0/11565 [00:00<?, ? examples/s]Generating validation split:  21%|██        | 2374/11565 [00:00<00:00, 23548.74 examples/s]Generating validation split:  43%|████▎     | 5000/11565 [00:00<00:00, 23941.20 examples/s]Generating validation split:  67%|██████▋   | 7720/11565 [00:00<00:00, 25383.12 examples/s]Generating validation split:  89%|████████▉ | 10328/11565 [00:00<00:00, 25270.81 examples/s]Generating validation split: 100%|██████████| 11565/11565 [00:00<00:00, 24540.50 examples/s]
+Generating test split:   0%|          | 0/12775 [00:00<?, ? examples/s]Generating test split:  20%|██        | 2575/12775 [00:00<00:00, 25565.40 examples/s]Generating test split:  50%|█████     | 6447/12775 [00:00<00:00, 25723.53 examples/s]Generating test split:  79%|███████▉  | 10108/12775 [00:00<00:00, 24678.00 examples/s]Generating test split: 100%|██████████| 12775/12775 [00:00<00:00, 22785.11 examples/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"generated_tokens":118,"index":0,"latency_seconds":5.456,"progress":"1/100","truncated":false}
+{"generated_tokens":118,"index":1,"latency_seconds":5.03,"progress":"2/100","truncated":false}
+{"generated_tokens":95,"index":2,"latency_seconds":3.98,"progress":"3/100","truncated":false}
+{"generated_tokens":116,"index":3,"latency_seconds":4.913,"progress":"4/100","truncated":false}
+{"generated_tokens":156,"index":4,"latency_seconds":6.591,"progress":"5/100","truncated":false}
+{"generated_tokens":254,"index":5,"latency_seconds":10.481,"progress":"6/100","truncated":false}
+{"generated_tokens":97,"index":6,"latency_seconds":4.084,"progress":"7/100","truncated":false}
+{"generated_tokens":156,"index":7,"latency_seconds":6.524,"progress":"8/100","truncated":false}
+{"generated_tokens":529,"index":8,"latency_seconds":21.843,"progress":"9/100","truncated":false}
+{"generated_tokens":84,"index":9,"latency_seconds":3.583,"progress":"10/100","truncated":false}
+{"generated_tokens":185,"index":10,"latency_seconds":7.735,"progress":"11/100","truncated":false}
+{"generated_tokens":141,"index":11,"latency_seconds":5.747,"progress":"12/100","truncated":false}
+{"generated_tokens":80,"index":12,"latency_seconds":3.303,"progress":"13/100","truncated":false}
+{"generated_tokens":465,"index":13,"latency_seconds":17.92,"progress":"14/100","truncated":false}
+{"generated_tokens":117,"index":14,"latency_seconds":4.466,"progress":"15/100","truncated":false}
+{"generated_tokens":170,"index":15,"latency_seconds":6.462,"progress":"16/100","truncated":false}
+{"generated_tokens":394,"index":16,"latency_seconds":16.057,"progress":"17/100","truncated":false}
+{"generated_tokens":201,"index":17,"latency_seconds":8.506,"progress":"18/100","truncated":false}
+{"generated_tokens":187,"index":18,"latency_seconds":7.945,"progress":"19/100","truncated":false}
+{"generated_tokens":150,"index":19,"latency_seconds":6.136,"progress":"20/100","truncated":false}
+{"generated_tokens":120,"index":20,"latency_seconds":5.061,"progress":"21/100","truncated":false}
+{"generated_tokens":187,"index":21,"latency_seconds":7.951,"progress":"22/100","truncated":false}
+{"generated_tokens":325,"index":22,"latency_seconds":13.494,"progress":"23/100","truncated":false}
+{"generated_tokens":97,"index":23,"latency_seconds":4.117,"progress":"24/100","truncated":false}
+{"generated_tokens":82,"index":24,"latency_seconds":3.431,"progress":"25/100","truncated":false}
+{"generated_tokens":475,"index":25,"latency_seconds":19.692,"progress":"26/100","truncated":false}
+{"generated_tokens":105,"index":26,"latency_seconds":4.511,"progress":"27/100","truncated":false}
+{"generated_tokens":223,"index":27,"latency_seconds":9.426,"progress":"28/100","truncated":false}
+{"generated_tokens":210,"index":28,"latency_seconds":8.482,"progress":"29/100","truncated":false}
+{"generated_tokens":230,"index":29,"latency_seconds":9.696,"progress":"30/100","truncated":false}
+{"generated_tokens":298,"index":30,"latency_seconds":12.269,"progress":"31/100","truncated":false}
+{"generated_tokens":105,"index":31,"latency_seconds":4.375,"progress":"32/100","truncated":false}
+{"generated_tokens":111,"index":32,"latency_seconds":4.668,"progress":"33/100","truncated":false}
+{"generated_tokens":69,"index":33,"latency_seconds":2.955,"progress":"34/100","truncated":false}
+{"generated_tokens":88,"index":34,"latency_seconds":3.519,"progress":"35/100","truncated":false}
+{"generated_tokens":159,"index":35,"latency_seconds":6.463,"progress":"36/100","truncated":false}
+{"generated_tokens":224,"index":36,"latency_seconds":9.069,"progress":"37/100","truncated":false}
+{"generated_tokens":161,"index":37,"latency_seconds":6.51,"progress":"38/100","truncated":false}
+{"generated_tokens":384,"index":38,"latency_seconds":15.575,"progress":"39/100","truncated":false}
+{"generated_tokens":137,"index":39,"latency_seconds":5.811,"progress":"40/100","truncated":false}
+{"generated_tokens":121,"index":40,"latency_seconds":4.976,"progress":"41/100","truncated":false}
+{"generated_tokens":552,"index":41,"latency_seconds":22.345,"progress":"42/100","truncated":false}
+{"generated_tokens":86,"index":42,"latency_seconds":3.509,"progress":"43/100","truncated":false}
+{"generated_tokens":90,"index":43,"latency_seconds":3.83,"progress":"44/100","truncated":false}
+{"generated_tokens":161,"index":44,"latency_seconds":6.574,"progress":"45/100","truncated":false}
+{"generated_tokens":117,"index":45,"latency_seconds":4.858,"progress":"46/100","truncated":false}
+{"generated_tokens":199,"index":46,"latency_seconds":8.524,"progress":"47/100","truncated":false}
+{"generated_tokens":124,"index":47,"latency_seconds":5.08,"progress":"48/100","truncated":false}
+{"generated_tokens":125,"index":48,"latency_seconds":5.129,"progress":"49/100","truncated":false}
+{"generated_tokens":117,"index":49,"latency_seconds":4.884,"progress":"50/100","truncated":false}
+{"generated_tokens":266,"index":50,"latency_seconds":11.162,"progress":"51/100","truncated":false}
+{"generated_tokens":217,"index":51,"latency_seconds":9.179,"progress":"52/100","truncated":false}
+{"generated_tokens":114,"index":52,"latency_seconds":4.808,"progress":"53/100","truncated":false}
+{"generated_tokens":200,"index":53,"latency_seconds":8.148,"progress":"54/100","truncated":false}
+{"generated_tokens":83,"index":54,"latency_seconds":3.395,"progress":"55/100","truncated":false}
+{"generated_tokens":250,"index":55,"latency_seconds":10.121,"progress":"56/100","truncated":false}
+{"generated_tokens":569,"index":56,"latency_seconds":23.043,"progress":"57/100","truncated":false}
+{"generated_tokens":628,"index":57,"latency_seconds":25.519,"progress":"58/100","truncated":false}
+{"generated_tokens":258,"index":58,"latency_seconds":10.834,"progress":"59/100","truncated":false}
+{"generated_tokens":464,"index":59,"latency_seconds":19.253,"progress":"60/100","truncated":false}
+{"generated_tokens":101,"index":60,"latency_seconds":4.298,"progress":"61/100","truncated":false}
+{"generated_tokens":402,"index":61,"latency_seconds":16.668,"progress":"62/100","truncated":false}
+{"generated_tokens":149,"index":62,"latency_seconds":6.366,"progress":"63/100","truncated":false}
+{"generated_tokens":149,"index":63,"latency_seconds":6.152,"progress":"64/100","truncated":false}
+{"generated_tokens":242,"index":64,"latency_seconds":10.198,"progress":"65/100","truncated":false}
+{"generated_tokens":120,"index":65,"latency_seconds":5.008,"progress":"66/100","truncated":false}
+{"generated_tokens":123,"index":66,"latency_seconds":4.898,"progress":"67/100","truncated":false}
+{"generated_tokens":104,"index":67,"latency_seconds":4.329,"progress":"68/100","truncated":false}
+{"generated_tokens":97,"index":68,"latency_seconds":4.015,"progress":"69/100","truncated":false}
+{"generated_tokens":328,"index":69,"latency_seconds":13.515,"progress":"70/100","truncated":false}
+{"generated_tokens":209,"index":70,"latency_seconds":8.412,"progress":"71/100","truncated":false}
+{"generated_tokens":573,"index":71,"latency_seconds":23.763,"progress":"72/100","truncated":false}
+{"generated_tokens":413,"index":72,"latency_seconds":17.102,"progress":"73/100","truncated":false}
+{"generated_tokens":143,"index":73,"latency_seconds":6.201,"progress":"74/100","truncated":false}
+{"generated_tokens":292,"index":74,"latency_seconds":11.952,"progress":"75/100","truncated":false}
+{"generated_tokens":129,"index":75,"latency_seconds":5.464,"progress":"76/100","truncated":false}
+{"generated_tokens":98,"index":76,"latency_seconds":4.076,"progress":"77/100","truncated":false}
+{"generated_tokens":110,"index":77,"latency_seconds":4.642,"progress":"78/100","truncated":false}
+{"generated_tokens":346,"index":78,"latency_seconds":14.601,"progress":"79/100","truncated":false}
+{"generated_tokens":89,"index":79,"latency_seconds":3.752,"progress":"80/100","truncated":false}
+{"generated_tokens":552,"index":80,"latency_seconds":22.525,"progress":"81/100","truncated":false}
+{"generated_tokens":366,"index":81,"latency_seconds":14.308,"progress":"82/100","truncated":false}
+{"generated_tokens":141,"index":82,"latency_seconds":5.562,"progress":"83/100","truncated":false}
+{"generated_tokens":126,"index":83,"latency_seconds":4.84,"progress":"84/100","truncated":false}
+{"generated_tokens":532,"index":84,"latency_seconds":20.489,"progress":"85/100","truncated":false}
+{"generated_tokens":436,"index":85,"latency_seconds":17.014,"progress":"86/100","truncated":false}
+{"generated_tokens":574,"index":86,"latency_seconds":22.549,"progress":"87/100","truncated":false}
+{"generated_tokens":107,"index":87,"latency_seconds":4.278,"progress":"88/100","truncated":false}
+{"generated_tokens":232,"index":88,"latency_seconds":9.27,"progress":"89/100","truncated":false}
+{"generated_tokens":646,"index":89,"latency_seconds":25.223,"progress":"90/100","truncated":false}
+{"generated_tokens":100,"index":90,"latency_seconds":3.828,"progress":"91/100","truncated":false}
+{"generated_tokens":291,"index":91,"latency_seconds":11.209,"progress":"92/100","truncated":false}
+{"generated_tokens":588,"index":92,"latency_seconds":23.469,"progress":"93/100","truncated":false}
+{"generated_tokens":160,"index":93,"latency_seconds":6.314,"progress":"94/100","truncated":false}
+{"generated_tokens":131,"index":94,"latency_seconds":5.183,"progress":"95/100","truncated":false}
+{"generated_tokens":299,"index":95,"latency_seconds":11.622,"progress":"96/100","truncated":false}
+{"generated_tokens":95,"index":96,"latency_seconds":3.677,"progress":"97/100","truncated":false}
+{"generated_tokens":162,"index":97,"latency_seconds":6.248,"progress":"98/100","truncated":false}
+{"generated_tokens":156,"index":98,"latency_seconds":6.159,"progress":"99/100","truncated":false}
+{"generated_tokens":156,"index":99,"latency_seconds":6.294,"progress":"100/100","truncated":false}
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "task": "mlsum_tr",
+  "items": 100,
+  "truncated": 0,
+  "prompt_tokens": 53216,
+  "generated_tokens": 22411,
+  "generation_seconds": 914.4779882580042,
+  "truncation_rate": 0.0,
+  "mean_generated_tokens": 224.11,
+  "mean_latency_seconds": 9.144779882580043,
+  "wall_seconds": 914.9279870986938,
+  "samples_sha256": "5ae84e01b5a75c53797b1f1d40375ee3dd4ffc5b8cf17d664d480d18bd855f52"
+}
+{
+  "task": "gecturk",
+  "n_items": 200,
+  "exact_match_rate": 0.01,
+  "unchanged_from_source_rate": 0.01,
+  "empty_output_rate": 0.0,
+  "verbose_output_rate": 0.63,
+  "format_failure_candidate_rate": 0.64,
+  "truncation_rate": 0.205,
+  "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)"
+}
+{
+  "task": "tquad",
+  "n_items": 150,
+  "n_answerable": 150,
+  "n_unanswerable": 0,
+  "exact_match": 0.006666666666666667,
+  "f1": 0.1939676179050961,
+  "answerability_accuracy": 1.0,
+  "exact_match_on_answerable": 0.006666666666666667,
+  "f1_on_answerable": 0.1939676179050961,
+  "exact_match_on_unanswerable": null,
+  "truncation_rate": 0.0,
+  "low_em_high_f1_rate": 0.06666666666666667,
+  "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers"
+}
+{
+  "task": "xquad_tr",
+  "n_items": 150,
+  "n_answerable": 150,
+  "n_unanswerable": 0,
+  "exact_match": 0.006666666666666667,
+  "f1": 0.15652538837819144,
+  "answerability_accuracy": 1.0,
+  "exact_match_on_answerable": 0.006666666666666667,
+  "f1_on_answerable": 0.15652538837819144,
+  "exact_match_on_unanswerable": null,
+  "truncation_rate": 0.006666666666666667,
+  "low_em_high_f1_rate": 0.05333333333333334,
+  "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers"
+}
+{
+  "task": "wmt_en_tr",
+  "n_items": 100,
+  "corpus_bleu": 12.977416894906588,
+  "corpus_chrf": 52.58034702576708,
+  "mean_sentence_bleu": 15.479825030639466,
+  "mean_sentence_chrf": 52.244451511600666,
+  "truncation_rate": 0.0,
+  "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check"
+}
+{
+  "task": "mlsum_tr",
+  "n_items": 100,
+  "mean_rouge1": 0.27930542021343546,
+  "mean_rouge2": 0.14134013709997922,
+  "mean_rougeL": 0.20520092938764947,
+  "mean_rougeLsum": 0.21283538175378883,
+  "truncation_rate": 0.0,
+  "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality"
+}

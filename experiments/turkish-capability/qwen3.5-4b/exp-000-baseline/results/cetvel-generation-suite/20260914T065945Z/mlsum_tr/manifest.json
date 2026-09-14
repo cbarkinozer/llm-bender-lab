@@ -1,0 +1,45 @@
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "fallback_reason": "vllm nightly at run time required a CUDA-13-capable driver this pod's driver (570.195.03, max CUDA 12.8) does not meet -- see docs/environment-setup-gotchas.md",
+  "task": "mlsum_tr",
+  "model": {
+    "name": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "dtype": "bfloat16"
+  },
+  "backend": {
+    "engine": "transformers",
+    "mode": "direct",
+    "enable_thinking": false
+  },
+  "dataset": {
+    "name": "reciTAL/mlsum",
+    "config": "tu",
+    "split": "test",
+    "resolved_revision": "0f8114e036015f81e877e8a1950ce2713d7afe8d",
+    "selection": "range(0,100)",
+    "selected_documents_sha256": "9871bd11e1eb8976c505f5890636bda0c00e16ebb8c7ae1221239d755a6c6607"
+  },
+  "decoding": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "max_new_tokens": 768,
+    "stop": null,
+    "concurrency": 1
+  },
+  "reproducibility": {
+    "seed": 3407,
+    "python_hash_seed": "3407"
+  },
+  "software": {
+    "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-59-generic-x86_64-with-glibc2.35",
+    "datasets": "2.21.0",
+    "torch": "2.6.0+cu124"
+  },
+  "repository": {
+    "commit": null,
+    "dirty_diff_sha256": null
+  },
+  "started_at_unix": 1789373197.5893269
+}

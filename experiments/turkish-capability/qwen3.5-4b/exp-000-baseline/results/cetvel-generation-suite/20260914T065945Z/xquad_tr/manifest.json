@@ -1,0 +1,47 @@
+{
+  "protocol": "cetvel-generation-direct-transformers-v1",
+  "fallback_reason": "vllm nightly at run time required a CUDA-13-capable driver this pod's driver (570.195.03, max CUDA 12.8) does not meet -- see docs/environment-setup-gotchas.md",
+  "task": "xquad_tr",
+  "model": {
+    "name": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "dtype": "bfloat16"
+  },
+  "backend": {
+    "engine": "transformers",
+    "mode": "direct",
+    "enable_thinking": false
+  },
+  "dataset": {
+    "name": "google/xquad",
+    "config": "xquad.tr",
+    "split": "validation",
+    "resolved_revision": "51adfef1c1287aab1d2d91b5bead9bcfb9c68583",
+    "selection": "range(0,150)",
+    "selected_documents_sha256": "eafae19058baf958392168ff1a58cdb1d2c17c42da4143d6cb27055c1ff6cd50"
+  },
+  "decoding": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "max_new_tokens": 128,
+    "stop": [
+      "\n"
+    ],
+    "concurrency": 1
+  },
+  "reproducibility": {
+    "seed": 3407,
+    "python_hash_seed": "3407"
+  },
+  "software": {
+    "python": "3.11.10 (main, Sep  7 2024, 18:35:41) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-59-generic-x86_64-with-glibc2.35",
+    "datasets": "2.21.0",
+    "torch": "2.6.0+cu124"
+  },
+  "repository": {
+    "commit": null,
+    "dirty_diff_sha256": null
+  },
+  "started_at_unix": 1789372408.7521996
+}

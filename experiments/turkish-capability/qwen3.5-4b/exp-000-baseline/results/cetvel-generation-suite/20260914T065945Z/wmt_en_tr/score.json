@@ -1,0 +1,41 @@
+{
+  "task": "wmt_en_tr",
+  "n_items": 100,
+  "corpus_bleu": 12.977416894906588,
+  "corpus_chrf": 52.58034702576708,
+  "mean_sentence_bleu": 15.479825030639466,
+  "mean_sentence_chrf": 52.244451511600666,
+  "truncation_rate": 0.0,
+  "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+  "stratified_sample": {
+    "lowest_score": [
+      77,
+      28,
+      80,
+      71,
+      42
+    ],
+    "highest_score": [
+      4,
+      68,
+      14,
+      55,
+      58
+    ],
+    "truncated": [],
+    "shortest_source": [
+      5,
+      15,
+      61,
+      46,
+      55
+    ],
+    "longest_source": [
+      11,
+      93,
+      30,
+      56,
+      79
+    ]
+  }
+}
