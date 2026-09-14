@@ -1,8 +1,15 @@
 # Turkish SFT dataset taxonomy (exp-001-sft-dataset)
 
-Status: draft — I still need to sit with the domain list and the
-reasoning-trace rule for a bit before I freeze this, the same way
-`turkish-cetvel-v1.yaml` only gets frozen once the CETVEL protocol is locked.
+**Status: superseded.** Written before `exp-000-baseline`'s Phase 2
+diagnostic, which found no evidence of a general Turkish-fluency gap —
+the model's raw Turkish is already fluent and grammatically correct. The
+actual weakness is instruction-following/output-format discipline under
+structured-task prompts, which this 10-task/20-domain general-capability
+taxonomy does not target. Superseded by the narrower taxonomy in
+`experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/`. Kept
+here for reference only — several of its mechanics (no-fact-teaching rule,
+ID scheme, CSV schema, attrition budgeting) carried over into the new
+taxonomy where still applicable.
 
 ## Arithmetic check
 

@@ -137,3 +137,88 @@ after fixing the first one and moving further into the task list).
   retroactively inject it into an already-running pod; either restart the
   pod after adding it, or append directly via the pod's own web
   console/terminal: `echo "<pubkey>" >> ~/.ssh/authorized_keys`.
+- A pod's persistent volume can also come back **completely empty** on a
+  fresh pod allocation (not just a restart of the same pod) -- don't assume
+  `/workspace` from a previous session is still there. Check
+  (`ls /workspace`) before assuming any prior setup (venvs, caches, synced
+  repo) survived; if empty, everything needs to be rebuilt from scratch.
+
+## 7. vLLM nightly wheels can require a newer CUDA driver than the pod has -- and `--torch-backend=auto`/explicit backend selection does not fix it
+
+`uv pip install vllm --torch-backend=auto --extra-index-url https://wheels.vllm.ai/nightly`
+resolved `torch==2.13.0+cu129` plus a vLLM-built C extension
+(`vllm._C_stable_libtorch`) that dynamically links `libcudart.so.13` --
+**a CUDA 13 runtime**, independent of which CUDA version torch itself was
+built against. This extension is a prebuilt binary baked into the vLLM wheel
+at CI build time, not something `--torch-backend` controls.
+
+**Symptom:** vLLM installs and even `import vllm` succeeds (the import
+itself doesn't touch the GPU), but the server crashes on model load with:
+
+```
+RuntimeError: get_cuda_view_from_cpu_tensor, .../cuda_view.cu:38,
+cudaHostGetDevicePointer failed: CUDA driver version is insufficient for
+CUDA runtime version
+```
+
+Check `nvidia-smi`'s reported `CUDA Version:` (its max-supported CUDA, based
+on the installed driver) against what the *vLLM build* actually links, not
+just what `torch.version.cuda` reports -- torch's own cu129 libs may be
+forward-compatible while vLLM's separately-built extension is not.
+`find / -name 'libcudart.so*'` and `ldd` on
+`vllm/_C_stable_libtorch*.so` shows which CUDA major version it actually
+needs.
+
+**Things that do NOT fix this:**
+- Adding the missing `libcudart.so.13`'s directory to `LD_LIBRARY_PATH`
+  fixes `import vllm` (a separate, real bug -- see below) but does not fix
+  this error, since the library loads fine, it's the *driver* that's too
+  old for what the library requires.
+- `uv pip install --reinstall-package torch ... --torch-backend=cu124` fails
+  outright: `torch==2.13.0` (the version this vLLM release pins) simply has
+  no cu124/cu121/cu128 build on PyPI's torch index, only cu129 -- there is no
+  "pick an older CUDA torch" escape hatch once vLLM has pinned a torch
+  version that only ships for newer CUDA.
+- The `nightly` alias on `wheels.vllm.ai` always resolves to the single
+  latest commit -- there is no index of older nightly builds to fall back to
+  through the normal `--extra-index-url` mechanism. (In principle a specific
+  older commit's wheel can be fetched directly if you know its exact
+  post-tag version string and full commit SHA, but this could not be
+  resolved without a working listing endpoint and was not pursued further --
+  don't sink time into bisecting commits under time pressure.)
+
+**What actually worked:** skip vLLM entirely for this pod/driver
+combination and fall back to `transformers`-based direct generation instead.
+Check first whether the installed `transformers` version recognizes the
+target model's architecture natively (`AutoConfig.from_pretrained(...)` --
+for Qwen3.5 this showed up as `Qwen3_5ForConditionalGeneration` in
+`transformers==5.17.0`, so no custom modeling code was needed). This is
+slower (no continuous batching / paged attention) but produces identical
+outputs given greedy decoding, and this project's protocol already ran at
+concurrency=1 regardless of backend, so there is no speed loss from
+batching to give up. See `scripts/evaluation/evaluate_cetvel_generation_transformers.py`.
+
+**Separate, real, and independently worth fixing:** even when the driver
+*does* support CUDA 13, `import vllm` on this vLLM build fails with
+`ImportError: libcudart.so.13: cannot open shared object file` because the
+`nvidia-cu13` wheel that ships `libcudart.so.13` lands in site-packages but
+its `lib/` dir is never added to the dynamic linker search path. Fix:
+
+```bash
+export LD_LIBRARY_PATH="<venv>/lib/python3.11/site-packages/nvidia/cu13/lib:${LD_LIBRARY_PATH:-}"
+```
+
+(persist this into the venv's `bin/activate` so it survives every future
+`source .../activate`, not just the current shell).
+
+## 8. `mcemilg/tquad` (and possibly other community dataset repos) needs `trust_remote_code=True`
+
+`load_dataset("mcemilg/tquad", ...)` fails with `ValueError: The repository
+... contains custom code which must be executed to correctly load the
+dataset` unless `trust_remote_code=True` is passed explicitly -- this
+repo ships a loading script rather than plain data files. Unlike the bare
+dataset-ID issue (#5), this isn't fixable by changing the path; it's a
+property of that specific repo. Cost this session a full task's worth of
+model-load time when it surfaced mid-run after `gecturk` had already
+finished -- check every `load_dataset()` call added for a new task against
+this before a long run, not after.

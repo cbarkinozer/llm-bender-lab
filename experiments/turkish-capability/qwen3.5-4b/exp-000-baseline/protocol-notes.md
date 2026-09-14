@@ -470,3 +470,88 @@ after finding the first two — none found (harness's built-in MNLI task is
 named `mnli`/`mnli_mismatch`, not `mnli_tr`; `turkish_plu` has no built-in
 harness equivalent at all). Full details of everything hit standing up this
 environment: `docs/environment-setup-gotchas.md`.
+
+## Phase 2: generation-task diagnostic suite (final finding for exp-000-baseline)
+
+Ran the frozen "CETVEL-mini" generation lineup (Codex-reviewed, 5 requirements
+locked in per the earlier approval) end to end: `gecturk` (200 items),
+`tquad` (150), `xquad_tr` (150), `wmt_en_tr`/EN→TR translation (100),
+`mlsum_tr` summarization (100) — 700 items total, direct/non-thinking mode,
+greedy decoding, concurrency=1, frozen task-specific output caps
+(128/128/128/256/768 tokens).
+
+Backend note: switched from vLLM to the CETVEL venv's Transformers backend
+mid-run. The vLLM nightly available at run time hard-required a CUDA
+13-capable driver this pod's driver (570.195.03, max CUDA 12.8) does not
+meet, with no working fallback found in the time available — see
+`docs/environment-setup-gotchas.md` §7. Transformers 5.17.0 already
+recognizes Qwen3.5 natively (`Qwen3_5ForConditionalGeneration`), and the
+protocol was already frozen at concurrency=1, so the backend swap changes
+inference speed only, not correctness. Also hit and fixed mid-run: the
+`mcemilg/tquad` dataset repo requires `trust_remote_code=True` (§8).
+
+### Raw scores
+
+| Task | Metric | Score |
+| --- | --- | --- |
+| `gecturk` | exact match | 1.0% (verbose-output flag: 63%) |
+| `tquad` | EM / F1 | 0.7% / 19.4% |
+| `xquad_tr` | EM / F1 | 0.7% / 15.7% |
+| `wmt_en_tr` (EN→TR) | corpus BLEU / chrF | 13.0 / 52.6 |
+| `mlsum_tr` | ROUGE-L | 20.5% |
+
+### Manual review (stratified samples + flagged indices, per task)
+
+Read the actual model outputs behind these numbers, not just the aggregate
+scores — full transcripts pulled via `scripts/evaluation/score_cetvel_generation.py`'s
+`stratified_sample`/flagged-indices output for each task.
+
+**Turkish language competence itself is not the problem.** Across every
+task, the raw Turkish text the model produces is fluent, grammatically
+correct, and natural. This directly contradicts the original hypothesis
+that the model might have a core Turkish-fluency gap.
+
+**The dominant, reproducible failure mode: the model does not emit a
+bare/terse answer under a task-completion-style prompt.** It answers like a
+chat assistant explaining itself, not like a fill-in-the-blank completion,
+regardless of task:
+
+- `gecturk`: instead of emitting only the corrected sentence, it frequently
+  writes diagnostic prose ("Cümledeki yazım hataları şunlardır:") or a
+  worked explanation of the error, and often never actually outputs the
+  corrected sentence at all. This alone explains the 1% exact-match rate and
+  the 63% verbose-output flag.
+- `tquad` / `xquad_tr`: F1 (15-19%) is meaningfully higher than EM (0.7%)
+  because the correct answer content is usually present but wrapped in a
+  full restated sentence. Example: gold `"Panthera pardus"` → model produces
+  `"...bilimsel adı Panthera pardus'tur."` Right content, wrong format
+  entirely — confirmed across every `low_em_high_f1`-flagged item inspected.
+- `mlsum_tr`: gold summaries are one terse sentence; the model instead
+  produces multi-paragraph, sometimes bulleted breakdowns with extra detail
+  not in the reference. This deflates ROUGE without the summary being
+  factually wrong.
+- `wmt_en_tr` is the outlier and does **not** show this pattern — translation
+  naturally requires full-sentence output, so the format mismatch doesn't
+  apply. Reading the low-BLEU samples, the translations are fluent and
+  grammatically correct Turkish; the low BLEU is largely a single-reference
+  scoring artifact (different but valid word choices), not a real quality
+  deficiency. chrF (52-53) supports this read.
+
+**Secondary, smaller finding:** a real minority of genuine fact/number
+extraction errors exist independent of formatting, seen in the
+lowest-F1 QA samples — e.g. gold `"dört"` vs. the model pulling `"88"` from
+elsewhere in the passage, or attributing an event to the wrong entity
+(`"Denver Broncos"` instead of `"New England Patriots"`). Smaller in
+magnitude than the formatting issue and not the dominant driver of the
+headline scores, but a real precision gap worth tracking separately in any
+follow-up fine-tune's regression checks.
+
+### Conclusion
+
+No evidence of a Turkish-fluency capability gap. The reproducible weakness
+is **instruction-following / output-format discipline under structured-task
+prompts** — the model defaults to discursive, explanatory responses instead
+of bare/terse task-completion output, and this single behavior explains
+nearly all of the depressed scores across GEC, QA, and summarization. This
+reframes the fine-tuning goal for this experiment line; see
+`experiments/turkish-capability/qwen3.5-4b/README.md` ("Target capability").

@@ -1,5 +1,10 @@
 # Turkish Capability TODO
 
+**Closed.** The baseline measurement below is done; see `README.md`
+("Outcome") for the result — no Turkish-fluency gap found. Follow-up work
+moved to `experiments/response-style-control/`. Left as-is below for the
+historical record.
+
 The immediate objective is to measure the untouched Qwen3.5-4B model. Dataset
 construction and fine-tuning begin only after the baseline protocol is frozen
 and its results are saved.

@@ -26,6 +26,20 @@ python -m pip install --upgrade pip uv
 # compatible Torch backend inside this isolated environment.
 uv pip install vllm --torch-backend=auto --extra-index-url https://wheels.vllm.ai/nightly
 
+# This vLLM nightly resolves a torch build (2.13+cu129) alongside a
+# vllm._C_stable_libtorch extension linked against the CUDA 13 stable ABI,
+# which needs libcudart.so.13 from the nvidia-cu13 wheel. That wheel lands in
+# site-packages but isn't on the dynamic linker path by default (unlike the
+# cu12 runtime package, which is), so `import vllm` fails with
+# "ImportError: libcudart.so.13: cannot open shared object file" unless its
+# lib dir is added explicitly. Persist this for every later invocation of
+# this venv (activation alone doesn't set LD_LIBRARY_PATH).
+cu13_lib_dir="${venv_dir}/lib/python3.11/site-packages/nvidia/cu13/lib"
+if [ -d "${cu13_lib_dir}" ]; then
+  printf 'export LD_LIBRARY_PATH="%s:${LD_LIBRARY_PATH:-}"\n' "${cu13_lib_dir}" >> "${venv_dir}/bin/activate"
+fi
+export LD_LIBRARY_PATH="${cu13_lib_dir}:${LD_LIBRARY_PATH:-}"
+
 python - <<'PY'
 import json
 import platform

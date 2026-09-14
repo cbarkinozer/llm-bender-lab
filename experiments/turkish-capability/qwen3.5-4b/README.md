@@ -1,9 +1,42 @@
 # Turkish Capability — Qwen3.5-4B
 
-## Target capability
+**Status: closed.** This experiment line's question has been answered:
+Qwen3.5-4B's baseline Turkish is not the bottleneck. See "Outcome" below.
+Do not add new training experiments here — the follow-up work lives in
+[`experiments/response-style-control/`](../../response-style-control/).
+
+## Original target capability
 
 Improve Turkish language understanding and generation while preserving the
 starting model's instruction-following and general reasoning behavior.
+
+## Outcome
+
+`exp-000-baseline`'s Phase 2 diagnostic (700 generation items across GEC, QA
+x2, translation, summarization — see `exp-000-baseline/protocol-notes.md`,
+"Phase 2: generation-task diagnostic suite") found that the model's raw
+Turkish is consistently fluent and grammatically correct across every task.
+The near-zero exact-match scores on GEC/QA and depressed ROUGE on
+summarization are explained almost entirely by a different behavior: the
+model answers structured-task prompts like a chat assistant explaining
+itself (diagnostic prose, restated full sentences, bulleted breakdowns)
+instead of emitting the bare/terse output the task format calls for.
+
+Also established earlier in `exp-000-baseline`: several of CETVEL's
+likelihood-scored multiple-choice tasks (`belebele_tr`, all of `nli_tr`'s
+subtasks) are measurement artifacts from position-bias collapse in raw-logprob
+scoring, not real capability signal — see the MC bias spot-check finding in
+`exp-000-baseline/protocol-notes.md`. `turkish_plu` and `xcopa_tr` were not
+affected.
+
+**Conclusion: no evidence of a Turkish-fluency capability gap.** The actual
+weakness — instruction-following / output-format discipline under
+structured-task prompts — is not a language capability at all, so continuing
+to frame the next fine-tuning experiment as "Turkish improvement" would be
+chasing the wrong target. That work continues under
+[`experiments/response-style-control/`](../../response-style-control/), which
+reuses this experiment's diagnostic evidence as its starting baseline rather
+than re-running it.
 
 ## Starting model
 
@@ -13,66 +46,27 @@ starting model's instruction-following and general reasoning behavior.
 
 ## Evaluation suite
 
-- Target: CETVEL, pinned by Git commit in the evaluation configuration
+- Target: CETVEL, pinned by Git commit in the evaluation configuration, plus
+  the Phase 2 generation-task diagnostic suite (`gecturk`, `tquad`,
+  `xquad_tr`, `wmt_en_tr`, `mlsum_tr`)
 - Supporting: Turkish output quality and correct stopping, sampled manually
-- Regression: instruction following and general reasoning, benchmark not yet selected
+- Regression: instruction following and general reasoning, benchmark not
+  selected (moot now that this line is closed without a fine-tune)
 
 The target protocol is defined in
 [`configs/evaluation/turkish-cetvel-v1.yaml`](../../../configs/evaluation/turkish-cetvel-v1.yaml).
-It must be frozen after the baseline smoke test passes and before the full
-baseline is run.
 
-## Capability budget
+## Superseded dataset draft
 
-| Capability | Requirement |
-| --- | --- |
-| CETVEL target score | Improve over `exp-000-baseline` |
-| Instruction following | Maximum 2-point absolute regression |
-| General reasoning | Maximum 5-point absolute regression |
-| Invalid or non-terminating outputs | No increase |
-
-The regression benchmarks and their scales must be selected before this budget
-can be operationalized. The numeric limits must not be changed after seeing a
-fine-tuned result.
-
-## Planned training method
-
-The first fine-tuning experiment will use text-only SFT with Unsloth and BF16
-LoRA. It will not use 4-bit QLoRA: the supplied Unsloth Qwen3.5 guidance warns
-that Qwen3.5 has higher-than-normal 4-bit quantization differences.
-
-Planned invariants for `exp-001-lora` are therefore:
-
-- Transformers v5 with exact package revisions recorded before the run;
-- 16-bit model loading and BF16 LoRA where supported by the selected GPU;
-- language layers enabled for fine-tuning;
-- vision layers disabled because the target dataset is text-only;
-- attention and MLP LoRA modules enabled;
-- gradient checkpointing set to Unsloth's implementation;
-- rank 16 and alpha 16 as the initial adapter configuration;
-- a 2,048-token initial context length, increased only in a later experiment;
-- no full run until smoke test and tiny-overfit checks pass.
-
-Qwen3.5's custom Mamba Triton kernels may make the first compile/warm-up step
-look unusually slow. Compile time and steady-state step time must be recorded
-separately rather than diagnosing the warm-up as a training slowdown.
-
-Reasoning-mode retention is a dataset decision, not a loader toggle. Before
-dataset construction, the experiment must choose whether reasoning behavior is
-part of the capability budget and then define the reasoning/direct-answer mix.
-
-## Current selection
-
-None. No training experiment may be selected before the baseline exists.
-
-## Work plan
-
-Track the end-to-end experiment in [`TODO.md`](./TODO.md). The current gate is
-the untouched-model CETVEL baseline; dataset and training work remain blocked
-until that baseline is complete.
+`exp-001-sft-dataset/` contains a draft taxonomy for a broad 10-task/20-domain
+general-Turkish-capability SFT dataset, written before the Phase 2 diagnostic.
+It is superseded by the narrower taxonomy in
+`experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/` and kept
+here only for reference — do not build from it.
 
 ## Experiment registry
 
 | ID | Status | Main change | Target score | Notes |
 | --- | --- | --- | ---: | --- |
-| `exp-000-baseline` | planned | Untouched starting model | — | Compatibility smoke test required |
+| `exp-000-baseline` | done | Untouched starting model, CETVEL + Phase 2 generation diagnostic | n/a | Found no Turkish-fluency gap; found the real weakness is format/instruction-following. Also found and fixed several CETVEL MC-scoring artifacts. |
+| `exp-001-sft-dataset` | superseded | Broad Turkish-capability SFT dataset draft | — | Written before Phase 2 diagnostic; premise no longer supported. See `experiments/response-style-control/`. |

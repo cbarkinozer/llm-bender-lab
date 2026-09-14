@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 """Direct/non-thinking generation-task evaluation against CETVEL's own tasks,
-run through vLLM instead of CETVEL's slower Transformers-backed harness.
+run through the CETVEL venv's local Transformers backend instead of vLLM.
 
-Prompt templates, dataset paths, and stop strings are copied verbatim from
-the pinned CETVEL task configs (see protocol-notes.md for the exact source
-file per task) so results are comparable to what CETVEL itself would score,
-modulo the faster backend. Metrics are NOT computed here -- this script only
-generates and retains raw output; see score_cetvel_generation.py for
-task-native scoring (SQuAD EM/F1, BLEU/chrF, ROUGE, GEC exact-match +
-format-failure heuristics), which runs in the CETVEL venv where those metric
-libraries are already installed.
+Fallback for evaluate_cetvel_generation_vllm.py: the vLLM nightly available
+at run time hard-requires a CUDA 13-capable driver (see
+docs/environment-setup-gotchas.md, "vLLM nightly requiring newer CUDA driver
+than the pod has"), which this pod's driver does not meet. Transformers
+5.17.0 already recognizes Qwen3.5 natively (Qwen3_5ForConditionalGeneration),
+so this backend swap changes only inference speed, not correctness -- the
+frozen protocol already specifies concurrency=1, so there is no batching
+difference either.
 
-Frozen for this round: temperature=0, do_sample=false, native chat template
-with enable_thinking=false (direct mode only), per-task stop strings taken
-from CETVEL's own generation_kwargs/until. Every item's full prompt and raw
-output is retained regardless of correctness.
+Task configs (dataset paths, prompt templates, stop strings, output caps) are
+copied verbatim from evaluate_cetvel_generation_vllm.py. Metrics are NOT
+computed here; see score_cetvel_generation.py.
 """
 
 from __future__ import annotations
@@ -30,9 +29,10 @@ import time
 from pathlib import Path
 
 import datasets
+import torch
 from datasets import load_dataset
 from huggingface_hub import HfApi
-from openai import OpenAI
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODEL = "Qwen/Qwen3.5-4B"
 MODEL_REVISION = "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
@@ -54,7 +54,7 @@ def git_output(command: list[str], cwd: Path) -> str | None:
 
 
 # --- Per-task config: dataset source, prompt template, stop strings -------
-# All copied verbatim from the pinned CETVEL task configs.
+# Copied verbatim from evaluate_cetvel_generation_vllm.py.
 
 def _gecturk_prompt(doc: dict) -> str:
     return f"Verilen cumlenin yazım hatalarını duzeltin.\nHatalı Cümle: {doc['source']}\nDüzeltilmiş hali: "
@@ -69,7 +69,6 @@ def _tquad_prompt(doc: dict) -> str:
 
 
 def _squad_style_target(doc: dict) -> dict:
-    # Keep the full answer set (not just the first) for SQuAD-style scoring.
     return {"id": doc["id"], "answers": doc["answers"]}
 
 
@@ -78,10 +77,6 @@ def _xquad_prompt(doc: dict) -> str:
 
 
 def _wmt_en_tr_prompt(doc: dict) -> str:
-    # CETVEL's own task is misleadingly named "wmt-tr-en-prompt" but its
-    # actual prompt is English source -> Turkish target -- see
-    # protocol-notes.md. This is intentionally the EN->TR direction: a
-    # direct test of Turkish generation quality, not TR comprehension.
     return f"Translate English to Turkish.\n\nEnglish: {doc['translation']['en']}\nTurkish:"
 
 
@@ -99,49 +94,24 @@ def _mlsum_target(doc: dict) -> str:
 
 TASKS = {
     "gecturk": {
-        "dataset_path": "mcemilg/GECTurk-generation",
-        "dataset_name": None,
-        "split": "test",
-        "prompt_fn": _gecturk_prompt,
-        "target_fn": _gecturk_target,
-        "stop": ["\n"],
-        "default_max_tokens": 128,
+        "dataset_path": "mcemilg/GECTurk-generation", "dataset_name": None, "split": "test",
+        "prompt_fn": _gecturk_prompt, "target_fn": _gecturk_target, "stop": ["\n"], "default_max_tokens": 128,
     },
     "tquad": {
-        "dataset_path": "mcemilg/tquad",
-        "dataset_name": None,
-        "split": "validation",
-        "prompt_fn": _tquad_prompt,
-        "target_fn": _squad_style_target,
-        "stop": ["\n"],
-        "default_max_tokens": 128,
+        "dataset_path": "mcemilg/tquad", "dataset_name": None, "split": "validation",
+        "prompt_fn": _tquad_prompt, "target_fn": _squad_style_target, "stop": ["\n"], "default_max_tokens": 128,
     },
     "xquad_tr": {
-        "dataset_path": "google/xquad",
-        "dataset_name": "xquad.tr",
-        "split": "validation",
-        "prompt_fn": _xquad_prompt,
-        "target_fn": _squad_style_target,
-        "stop": ["\n"],
-        "default_max_tokens": 128,
+        "dataset_path": "google/xquad", "dataset_name": "xquad.tr", "split": "validation",
+        "prompt_fn": _xquad_prompt, "target_fn": _squad_style_target, "stop": ["\n"], "default_max_tokens": 128,
     },
     "wmt_en_tr": {
-        "dataset_path": "wmt/wmt16",
-        "dataset_name": "tr-en",
-        "split": "validation",
-        "prompt_fn": _wmt_en_tr_prompt,
-        "target_fn": _wmt_en_tr_target,
-        "stop": None,
-        "default_max_tokens": 256,
+        "dataset_path": "wmt/wmt16", "dataset_name": "tr-en", "split": "validation",
+        "prompt_fn": _wmt_en_tr_prompt, "target_fn": _wmt_en_tr_target, "stop": None, "default_max_tokens": 256,
     },
     "mlsum_tr": {
-        "dataset_path": "reciTAL/mlsum",
-        "dataset_name": "tu",
-        "split": "test",
-        "prompt_fn": _mlsum_prompt,
-        "target_fn": _mlsum_target,
-        "stop": None,
-        "default_max_tokens": 768,
+        "dataset_path": "reciTAL/mlsum", "dataset_name": "tu", "split": "test",
+        "prompt_fn": _mlsum_prompt, "target_fn": _mlsum_target, "stop": None, "default_max_tokens": 768,
     },
 }
 
@@ -154,7 +124,6 @@ def args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--max-new-tokens", type=int, default=None)
     parser.add_argument("--seed", type=int, default=3407)
-    parser.add_argument("--port", type=int, default=8000)
     return parser.parse_args()
 
 
@@ -164,6 +133,14 @@ def main() -> int:
     task_cfg = TASKS[cfg.task]
     max_new_tokens = cfg.max_new_tokens or task_cfg["default_max_tokens"]
     repo = Path(__file__).resolve().parents[2]
+
+    torch.manual_seed(cfg.seed)
+
+    tokenizer = AutoTokenizer.from_pretrained(MODEL, revision=MODEL_REVISION)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL, revision=MODEL_REVISION, dtype=torch.bfloat16, device_map="cuda",
+    )
+    model.eval()
 
     try:
         resolved_revision = HfApi().dataset_info(task_cfg["dataset_path"]).sha
@@ -176,15 +153,15 @@ def main() -> int:
     if cfg.start_index < 0 or cfg.limit < 1 or end_index > len(data):
         raise ValueError(f"range [{cfg.start_index}, {end_index}) out of bounds for dataset of size {len(data)}")
     selected = data.select(range(cfg.start_index, end_index))
-    client = OpenAI(base_url=f"http://127.0.0.1:{cfg.port}/v1", api_key="EMPTY")
 
     documents_blob = "\n".join(canonical(doc) for doc in selected)
     diff = git_output(["git", "diff", "--binary", "HEAD"], repo)
     manifest = {
-        "protocol": "cetvel-generation-direct-vllm-v1",
+        "protocol": "cetvel-generation-direct-transformers-v1",
+        "fallback_reason": "vllm nightly at run time required a CUDA-13-capable driver this pod's driver (570.195.03, max CUDA 12.8) does not meet -- see docs/environment-setup-gotchas.md",
         "task": cfg.task,
         "model": {"name": MODEL, "revision": MODEL_REVISION, "dtype": "bfloat16"},
-        "backend": {"engine": "vllm", "mode": "direct", "enable_thinking": False},
+        "backend": {"engine": "transformers", "mode": "direct", "enable_thinking": False},
         "dataset": {
             "name": task_cfg["dataset_path"], "config": task_cfg["dataset_name"], "split": task_cfg["split"],
             "resolved_revision": resolved_revision,
@@ -195,7 +172,10 @@ def main() -> int:
             "stop": task_cfg["stop"], "concurrency": 1,
         },
         "reproducibility": {"seed": cfg.seed, "python_hash_seed": os.environ.get("PYTHONHASHSEED")},
-        "software": {"python": sys.version, "platform": platform.platform(), "datasets": datasets.__version__},
+        "software": {
+            "python": sys.version, "platform": platform.platform(), "datasets": datasets.__version__,
+            "torch": torch.__version__,
+        },
         "repository": {"commit": git_output(["git", "rev-parse", "HEAD"], repo), "dirty_diff_sha256": digest(diff) if diff is not None else None},
         "started_at_unix": time.time(),
     }
@@ -206,30 +186,51 @@ def main() -> int:
     for index, doc in enumerate(selected, start=cfg.start_index):
         prompt = task_cfg["prompt_fn"](doc)
         target = task_cfg["target_fn"](doc)
+        messages = [{"role": "user", "content": prompt}]
+        encoded = tokenizer.apply_chat_template(
+            messages, tokenize=True, add_generation_prompt=True, enable_thinking=False,
+            return_tensors="pt", return_dict=True,
+        ).to(model.device)
+        input_ids = encoded["input_ids"]
+        prompt_len = input_ids.shape[1]
+
         started = time.perf_counter()
-        extra_body = {"chat_template_kwargs": {"enable_thinking": False}}
-        request_kwargs = dict(
-            model=MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-            max_tokens=max_new_tokens,
-            extra_body=extra_body,
+        generate_kwargs = dict(
+            input_ids=input_ids,
+            attention_mask=encoded.get("attention_mask"),
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+            temperature=None,
+            top_p=None,
+            top_k=None,
+            pad_token_id=tokenizer.pad_token_id or tokenizer.eos_token_id,
         )
         if task_cfg["stop"]:
-            request_kwargs["stop"] = task_cfg["stop"]
-        response = client.chat.completions.create(**request_kwargs)
+            generate_kwargs["stop_strings"] = task_cfg["stop"]
+            generate_kwargs["tokenizer"] = tokenizer
+        with torch.no_grad():
+            output_ids = model.generate(**generate_kwargs)
         latency = time.perf_counter() - started
-        message = response.choices[0].message
-        content = message.content or ""
-        reasoning = getattr(message, "reasoning", None) or ""
-        usage = response.usage
-        hit_cap = response.choices[0].finish_reason == "length"
+
+        new_tokens = output_ids[0, prompt_len:]
+        content = tokenizer.decode(new_tokens, skip_special_tokens=True)
+        # Strip a trailing stop string manually -- generate()'s stop_strings
+        # keeps the match in the output, unlike vLLM's `stop` which cuts it.
+        if task_cfg["stop"]:
+            for s in task_cfg["stop"]:
+                if content.endswith(s):
+                    content = content[: -len(s)]
+                    break
+        generated_len = int(new_tokens.shape[0])
+        hit_cap = generated_len >= max_new_tokens
+        finish_reason = "length" if hit_cap else "stop"
+
         row = {
             "index": index, "document_sha256": digest(canonical(doc)),
             "document": doc, "semantic_prompt": prompt, "target": target,
-            "raw_output": content, "reasoning": reasoning,
-            "finish_reason": response.choices[0].finish_reason,
-            "prompt_tokens": usage.prompt_tokens, "generated_tokens": usage.completion_tokens,
+            "raw_output": content, "reasoning": "",
+            "finish_reason": finish_reason,
+            "prompt_tokens": int(prompt_len), "generated_tokens": generated_len,
             "hit_max_new_tokens": hit_cap, "latency_seconds": latency,
         }
         rows.append(row)
