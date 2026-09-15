@@ -30,6 +30,41 @@
   `needs_review` per-row — this fix is diversity/correctness triage, not
   the full manual review pass in `dataset-guide.md` §25-28.
 
-In progress — `bare_gec` and `bare_qa_span` are generated and
-diversity/correctness-fixed but not yet through per-row manual review; the
-other 3 categories are not started.
+## Terse summary candidate
+
+`terse_summary.csv` contains 500 synthetic v4 candidate rows. V4 fixed the
+previously found faithfulness bugs, removed the explicit instruction prefix to
+match the CETVEL-like `Başlık`/`Metin`/`Özet` prompt shape, and fixed three
+impossible age/experience combinations. Exact source/artifact hashes and the
+current review state are recorded in `terse_summary.manifest.json`.
+
+This remains an unsplit, contamination-pending `needs_review` candidate pool;
+it must not be used for training before the final combined review.
+
+## Numeric/entity precision QA candidate
+
+`numeric_entity_precision_qa.csv` contains 500 synthetic v1 candidate rows.
+Each passage includes a plausible same-type distractor, while its target is
+the bare answer span only. The checked source/artifact hash and current review
+state are recorded in `numeric_entity_precision_qa.manifest.json`.
+
+This remains an unsplit, contamination-pending `needs_review` candidate pool;
+it must not be used for training before the final combined review.
+
+## Open-ended counterexample candidate
+
+`open_ended_counterexample.csv` contains 400 synthetic v1 candidate rows. It
+teaches that genuinely open-ended Turkish requests merit natural, discursive
+answers, preventing this experiment from accidentally teaching blanket
+terseness. Import validation confirmed the exact source/artifact hash, valid
+two-message rows, zero exact repeated assistant sentences, and absence of the
+previous malformed health-domain fragments. Details are in
+`open_ended_counterexample.manifest.json`.
+
+This remains an unsplit, contamination-pending `needs_review` candidate pool;
+it must not be used for training before the final combined review.
+
+All five candidate pools are now generated and through initial structural,
+diversity, and correctness triage. The next gate is a final combined manual
+review, then contamination/deduplication checks, splitting, and full
+pre-training validation.

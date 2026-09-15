@@ -16,15 +16,18 @@ dataset.
 
 ## 1. Categories (5, fixed)
 
-| Category | What it teaches | Share of pilot | Target count (2,000-row pilot) |
+| Category | What it teaches | Share of pilot | Target count (2,300-row pilot) |
 |---|---:|---:|---:|
 | `bare_gec` | Emit only the corrected sentence, no diagnosis/explanation | 25% | 500 |
 | `bare_qa_span` | Emit only the minimal answer span, not a restated sentence | 25% | 500 |
 | `terse_summary` | Emit one dense sentence, not a structured/bulleted breakdown | 20% | 400 |
 | `open_ended_counterexample` | Stay discursive when the prompt is genuinely open-ended | 20% | 400 |
-| `numeric_entity_precision_qa` | Pick the correct number/entity among nearby distractors, bare span | 10% | 200 |
+| `numeric_entity_precision_qa` | Pick the correct number/entity among nearby distractors, bare span | 22% | 500 |
 
-Total: 2,000. If the smoke test + tiny-overfit pass and signal looks
+Total: 2,300. The numeric/entity category was expanded to 500 rows before the
+first training run so it covers a durable range of number, date, person,
+organization, place, and named-entity distractor cases. If the smoke test +
+tiny-overfit pass and signal looks
 promising but incomplete, scale every row proportionally (e.g. ×3 → 6,000)
 rather than inventing a new category mix at that point.
 
@@ -125,8 +128,9 @@ and a large domain matrix would dilute the signal, not strengthen it.
 - **Construction rule:** the distractor must be genuinely plausible (same
   type — number near a number, name near a name), not an obviously wrong
   decoy. Otherwise this doesn't test discrimination, it tests nothing.
-- Lower priority/smaller share than 2.1-2.3 (this is a secondary, smaller
-  finding) — don't let it crowd out the core three categories.
+- This remains a response-format and precision category, not a broad Turkish
+  comprehension benchmark. Its 500-row allocation covers varied distractor
+  types while preserving the experiment's narrow behavioral focus.
 
 ## 3. No-fact-teaching rule (carried over from the superseded taxonomy)
 
