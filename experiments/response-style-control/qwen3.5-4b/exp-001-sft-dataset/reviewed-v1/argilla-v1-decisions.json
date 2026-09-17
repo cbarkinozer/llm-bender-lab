@@ -1,0 +1,114 @@
+{
+  "source": "Argilla v1 exp-001-response-style-candidates",
+  "snapshotted_at": "2026-09-15T22:02:21.578054+00:00",
+  "submitted_ids": [
+    "bare_gec__121",
+    "bare_gec__184",
+    "bare_gec__192",
+    "bare_gec__259",
+    "bare_gec__320",
+    "bare_gec__355",
+    "bare_gec__374",
+    "bare_gec__409",
+    "bare_gec__465",
+    "bare_gec__491",
+    "bare_gec__493",
+    "bare_qa_span__018",
+    "bare_qa_span__053",
+    "bare_qa_span__186",
+    "bare_qa_span__218",
+    "bare_qa_span__285",
+    "bare_qa_span__473",
+    "bare_qa_span__496",
+    "bare_qa_span__506",
+    "numeric_entity_precision_qa__126",
+    "numeric_entity_precision_qa__131",
+    "numeric_entity_precision_qa__140",
+    "numeric_entity_precision_qa__318",
+    "terse_summary__144",
+    "terse_summary__218",
+    "terse_summary__244",
+    "terse_summary__274",
+    "terse_summary__454"
+  ],
+  "discarded_ids": [
+    "bare_gec__098",
+    "bare_gec__207",
+    "bare_qa_span__164",
+    "bare_qa_span__303",
+    "bare_qa_span__359",
+    "bare_qa_span__457",
+    "bare_qa_span__505",
+    "numeric_entity_precision_qa__015",
+    "numeric_entity_precision_qa__482",
+    "open_ended_counterexample__120",
+    "open_ended_counterexample__128",
+    "open_ended_counterexample__147",
+    "open_ended_counterexample__157",
+    "open_ended_counterexample__256",
+    "open_ended_counterexample__310",
+    "terse_summary__231",
+    "terse_summary__261",
+    "terse_summary__268",
+    "terse_summary__340"
+  ],
+  "discarded_feedback": {
+    "bare_gec__098": [
+      "sürpriz karşısında bırakmak ne demek ya? sürprize uğratmadı olacak."
+    ],
+    "bare_gec__207": [
+      "çok garip anlamadım ne isteniyor"
+    ],
+    "bare_qa_span__164": [
+      "ne fransz ihtilalinin patlak verdiği x yılında gerçekleşmiş o yazmıyor."
+    ],
+    "bare_qa_span__303": [
+      "otel açmanın ölçümleri mantıklı değil gibi sayım olacak son sayıma göre daha mantıklı."
+    ],
+    "bare_qa_span__359": [
+      "eyaleti olmalı sadece."
+    ],
+    "bare_qa_span__457": [
+      "uzmanlar neden deniz manzaralı odalar hakkında yorum yapsın. Ayrıca deniz manzaralı teraslı odalardır. olmalıydı."
+    ],
+    "bare_qa_span__505": [
+      "Doğru cevap: \"Piramitlerden kasıt Mısır piramitleri ise evet, başka bir piramit ise hayır çünkü mayaların da piramitleri var.\""
+    ],
+    "terse_summary__231": [
+      "Araştırmacılar, 1200 katılımcıyla altı ay süren çalışmada yazılım güncelleme sıklığı ile veri güvenliğinin güçlenmesi arasında bağlantı bulduklarını duyurdu."
+    ],
+    "terse_summary__261": [
+      "sürdürdüğü el dikiş ne demek ya? el dikişi çalışması mı el dikişi yeteneği mi?"
+    ],
+    "terse_summary__268": [
+      "Şu daha iyi: Marmara Teknoloji, yaklaşık 600 çalışanıyla ikinci çeyrek gelirinin bir önceki yıla göre yüzde 18 yükselerek 2,7 milyar liraya ulaştığını duyurdu. Ayrıca bu cümlenin aynısı zaten vardı."
+    ],
+    "terse_summary__340": [
+      "the output should start with big B\n  bir gün içinde olaya müdahale etti. olmalı. asansör arızasında yolu niye trafiğe kapasınlar çok saççma\n"
+    ],
+    "numeric_entity_precision_qa__015": [
+      "hangi karar?"
+    ],
+    "numeric_entity_precision_qa__482": [
+      "%55 daha doğru olurdu bence."
+    ],
+    "open_ended_counterexample__120": [
+      "Bence önce konuşmanın sonunda gerçekten neyin sende kaldığını görünür hale getir: devam eden işleri, tahmini sürelerini ve teslim tarihlerini kısa bir listeye dök. Sonra birkaç benzer konuşmaya dönüp bakarak hangi noktada işlerin tekrar sana kaldığını karşılaştır; örneğin görevler net mi, sorumlusu belli mi, yoksa “biri ilgilenir” gibi mi kalıyor? Aynı anda yapılamayacak işleri de açıkça ortaya koyup “Bunu da yapacaksak hangisini erteleyelim?” diye sormak, öncelik kararını tek başına üstlenmeni engeller. Buna rağmen işler yine sende toplanıyorsa, hangi işin erteleneceği veya kimin sorumluluğunda olacağı konusunda yöneticiden net bir karar istemek daha sağlıklı olur."
+    ],
+    "open_ended_counterexample__128": [
+      "Şu daha iyi: İlk gün, önce dosyaları silmeden mevcut sürümleri karşılaştır ve hangisinin gerçekten en güncel ve doğru sürüm olduğunu belirle. Özellikle dosya tarihi, son değişiklik zamanı ve içerik farklarına bak.\n\nİlk hafta, bundan sonra oluşacak çalışma kopyalarını ana klasörden ayırıp düzenli bir arşiv yapısı oluştur. Böylece aynı dosyanın farklı sürümleri ana klasörü doldurmaz.\n\nDevamında, dosya adlarında yalnızca tarihe güvenmek yerine tutarlı bir sürümleme yöntemi kullan (ör. v1, v2, v3 veya final, rev1 gibi). Bir süre sistemin düzgün çalıştığından emin olduktan sonra gereksiz ve doğrulanmış eski kopyaları temizleyebilirsin.\n"
+    ],
+    "open_ended_counterexample__147": [
+      "Bence iki haftada hepsini bir anda toparlamaya çalışmak yerine, önce güvenli bir kopya alıp sonra yavaş yavaş tek yerde toplamaya gitmek daha rahat olur.\n\nİlk birkaç gün: Fotoğrafların hangi cihazlarda ve klasörlerde olduğunu çıkar. Silmeye veya taşımaya başlamadan önce her kaynağın ayrı bir yedeğini al.\n\nİlk hafta: Fotoğrafları ortak arşive aktar ve mümkünse çekim tarihine göre klasörle. Bu aşamada kopya fotoğrafları temizlemeye çalışma; önce her şeyin eksiksiz geldiğinden emin ol.\n\nİkinci hafta: Arşivi birkaç gün kullanıp eksik veya yanlış tarihli dosya var mı kontrol et. Her şey yolundaysa kopyaları ve gereksiz dosyaları ayıklamaya başlayabilirsin.\n"
+    ],
+    "open_ended_counterexample__157": [
+      "Bence önce kaybetmek istemediğin dosyaları ve klasörleri belirleyip işe oradan başlamak en mantıklısı. Ardından otomatik günlük yedeklemeyi kur ve mümkünse eski sürümlere dönebileceğin ayrı bir yedek tut; çünkü yalnızca eşitleme kullanırsan yanlışlıkla sildiğin bir dosya diğer cihazlardan da silinebilir. Sistem kurulduktan sonra da ayda bir küçük bir geri yükleme denemesi yaparak yedeğin gerçekten çalıştığından emin ol."
+    ],
+    "open_ended_counterexample__256": [
+      "soru çok belirsiz ne isteniyor anlamadım."
+    ],
+    "open_ended_counterexample__310": [
+      "Her denemede yalnızca tek bir değişkeni değiştirmek, sonucun neden farklılaştığını anlamanı kolaylaştırır. Örneğin aynı anda hem kilin kalınlığını, hem nemini hem de pişirme süresini değiştirirsen hangi değişikliğin parçayı iyileştirdiğini bilemezsin. Bunun yerine bir denemede sadece kalınlığı değiştirip diğer koşulları mümkün olduğunca sabit tutarsan sonucu önceki parçayla daha anlamlı biçimde karşılaştırabilirsin. Kısa notlar ve fotoğraflar tutmak da zamanla hangi ayarların daha iyi sonuç verdiğini görmene yardımcı olur."
+    ]
+  }
+}

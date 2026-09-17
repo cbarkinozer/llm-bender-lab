@@ -1,0 +1,76 @@
+experiment:
+  id: exp-003-unsloth-sft
+  parent: exp-002-communication-policy-benchmark
+  status: ready
+  hypothesis: >-
+    A curated 2,442-example Turkish SFT dataset that rewards bare structured
+    answers and preserves discursive answers only where needed will improve
+    direct, neutral response-policy behavior without material task-completion
+    regressions.
+
+model:
+  name: unsloth/Qwen3.5-4B
+  # Immutable Hugging Face Git revision resolved on 2026-09-17. Do not use
+  # "main" or HEAD for a reportable run.
+  revision: 3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636
+  tokenizer_name: unsloth/Qwen3.5-4B
+  tokenizer_revision: 3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636
+  thinking_mode: false
+
+dataset:
+  path: ../exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv
+  sha256: 961f253df675272f6e420554f575246f176ce3946c46adb4ed36fe1842f85268
+  rows: 2442
+  split: train
+  builder_artifact: ../exp-001-sft-dataset/reviewed-v3/manifest.json
+
+evaluation:
+  benchmark_path: ../exp-002-communication-policy-benchmark/test.csv
+  benchmark_sha256: 2749dbd304c60cdb38a5538fe8684e2a814c5933a35d95057baf5ab3b759a300
+  benchmark_split: test
+  protocol: ../exp-002-communication-policy-benchmark/scoring-rubric.md
+  thinking_mode: false
+  do_sample: false
+  temperature: 0.0
+  max_new_tokens: 256
+  selection_policy: >-
+    This initial recipe evaluates only the final adapter once. No learning-rate,
+    epoch, rank, or checkpoint choice may be made from test results. A later
+    recipe iteration requires a development set and a fresh final holdout.
+
+training:
+  framework: unsloth
+  method: bf16_lora_sft
+  max_seq_length: 1024
+  epochs: 2.0
+  learning_rate: 0.0001
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 8
+  effective_batch_size: 8
+  optimizer: adamw_8bit
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  seed: 3407
+  assistant_only_loss: true
+  packing: false
+  lora:
+    rank: 16
+    alpha: 16
+    dropout: 0.0
+    bias: none
+    target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  checkpointing:
+    strategy: steps
+    save_steps: 100
+    save_total_limit: 2
+
+tracking:
+  provider: wandb
+  project: llm-bender-lab-response-style-control
+  log_model: false
+
+reproducibility:
+  allow_dirty_worktree: false
+  determinism: best_effort_cuda
+  output_root: results
+  required_preflight_modes: [representation-check, smoke, tiny-overfit]

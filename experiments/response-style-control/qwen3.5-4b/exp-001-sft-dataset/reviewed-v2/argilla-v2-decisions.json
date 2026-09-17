@@ -1,0 +1,540 @@
+{
+  "version": "argilla-v2",
+  "dataset_id": "b4d31227-9cba-4a99-9256-a8ada06ea7ca",
+  "retrieved_at": "2026-09-17T15:29:01.206469+00:00",
+  "reviewer_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+  "review_count": 30,
+  "responses": {
+    "open_ended_counterexample__264": {
+      "id": "c5fab087-a85d-41a1-82ed-b18fc4323752",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Samimi ve kişisel tebrik etmek için uğraşıyorum ama mesaj uzadıkça odağı kendime çeviriyormuşum gibi oluyor. Nerede hata yaptığımı nasıl anlayabilirim?"
+        },
+        "reviewed_target": {
+          "value": "Öncelikle başarısının hangi kısmını fark ettiğini söyleyerek odağı kendine değil ona yönelt. Özellikle ilişki ve iletişim söz konusu olduğunda, sonrasında sorunun tekrarlandığı anlarda neyin değiştiğini gözden geçir. Geçmişteki çabasına kısa bir gönderme yap. Buna rağmen değişmiyorsa isterse birlikte kutlamak için basit bir öneri sun."
+        },
+        "review_note": {
+          "value": "Samimi ve kişisel bir şekilde tebrik etmek için uğraşıyorum olmalı. Cevap da: \"Tebriğin merkezinde onun başarısı, gösterdiği çaba ve bunun sende uyandırdığı takdir kalsın. Kendi hislerinden bahsedeceksen bunu kısa tut ve tekrar onun başarısına bağla. Mesajı bitirdikten sonra “Bu cümle karşı tarafı mı anlatıyor, yoksa beni mi?” diye her cümleyi kontrol etmek iyi bir ölçüt olabilir.\" olsa daha iyi olur."
+        }
+      },
+      "status": "discarded",
+      "record_id": "614807e5-cf24-4e87-ab02-f4b5928b348d",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:06:47.202624",
+      "updated_at": "2026-09-17T15:06:47.202624"
+    },
+    "bare_gec__256": {
+      "id": "dca092ab-5610-4f0d-ae12-9b592e4d88c9",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Ancak laboratuvar sorumlusu numuneleri sabit sıcaklıktaki dolaba yerleştirdi; plan yeniden gözden geçirildikten sonra, konu üst yönetime iletildi.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Ancak, laboratuvar sorumlusu numuneleri sabit sıcaklıktaki dolaba yerleştirdi; plan yeniden gözden geçirildikten sonra, konu üst yönetime iletildi."
+        }
+      },
+      "status": "submitted",
+      "record_id": "8a25ab54-5255-4643-bb2d-e33192000638",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:04:15.964475",
+      "updated_at": "2026-09-17T15:04:15.964475"
+    },
+    "bare_gec__017": {
+      "id": "86a9e56f-1a7b-49b8-8cff-e74f5f77b8ab",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Tren dağ geçidine yaklaşırken telefonların bağlantısı birkaç dakika kesildi; yanlız bu ayrıntı gözden kaçtı.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Tren dağ geçidine yaklaşırken telefonların bağlantısı birkaç dakika kesildi; yalnız bu ayrıntı gözden kaçtı."
+        },
+        "review_note": {
+          "value": "yalnızca bu ayrıntı gözden kaçtı olmalı"
+        }
+      },
+      "status": "discarded",
+      "record_id": "efa3b515-a775-43e5-bded-6d3d1590971b",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:04:44.010979",
+      "updated_at": "2026-09-17T15:04:44.010979"
+    },
+    "bare_qa_span__165": {
+      "id": "392521c1-41f2-427b-aa79-7dcd7a7ba667",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Kayıtlara göre Osmanlı Devleti'nin kurulduğu, 1299 yılına denk gelmektedir.\n\nSoru: Osmanlı Devleti'nin kurulduğu yıl hangisidir?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "1299"
+        },
+        "review_note": {
+          "value": "Kayıtlara göre Osmanlı Devleti'nin kuruluş yılı, 1299 yılına denk gelmektedir olmalı soru."
+        }
+      },
+      "status": "discarded",
+      "record_id": "40772372-7e4d-4f9a-bc89-864332b1d7c7",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:05:14.411077",
+      "updated_at": "2026-09-17T15:05:14.411077"
+    },
+    "bare_gec__362": {
+      "id": "e1ccdd85-db89-4bdc-b1d6-aae6baeeae07",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Siz ayrıntıları değerlendirdi ve ardından uygulama geliştiricisi hatalı yapılandırmayı önceki sürümle karşılaştırdı; sabah yapılan kısa kontrolden sonra, gelişme bir sonraki adıma bırakıldı.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Siz ayrıntıları değerlendirdiniz ve ardından uygulama geliştiricisi hatalı yapılandırmayı önceki sürümle karşılaştırdı; sabah yapılan kısa kontrolden sonra, gelişme bir sonraki adıma bırakıldı."
+        }
+      },
+      "status": "submitted",
+      "record_id": "25e568ca-0206-4e36-8ea9-1ae29cccf4ed",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:09:02.711611",
+      "updated_at": "2026-09-17T15:09:02.711611"
+    },
+    "bare_gec__446": {
+      "id": "feba22a8-3620-408a-9ec6-22b471b03ca9",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Beklenmedik gecikmeye rağmen, yerel tarihçi sözlü tarih kayıtlarını ailelere göre sınıflandırdı; sonuç aynı gün kayda geçti; rehberlerde aynı öneriyi yineledi.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Beklenmedik gecikmeye rağmen, yerel tarihçi sözlü tarih kayıtlarını ailelere göre sınıflandırdı; sonuç aynı gün kayda geçti; rehberler de aynı öneriyi yineledi."
+        },
+        "review_note": {
+          "value": "Beklenmedik gecikmeye rağmen, yerel tarihçi sözlü tarih kayıtlarını ailelere göre sınıflandırdı; sonuç aynı gün kayda geçti; rehberlerde de aynı öneriyi yineledi."
+        }
+      },
+      "status": "discarded",
+      "record_id": "f986d332-be58-4fb8-b62a-02654b558773",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:08:29.081692",
+      "updated_at": "2026-09-17T15:08:29.081692"
+    },
+    "terse_summary__114": {
+      "id": "614aa924-2759-4e7b-adcd-0218507599ff",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Başlık: Maç sonucu\n\nMetin: Gençlerbirliği Yeni, Kocaeli'de oynanan deplasman maçında Kuzey Birlik'i 3-0 yendi. Maçın 12. dakikasında atılan gol sonucu belirledi. Bu galibiyetle Gençlerbirliği Yeni, puan durumunda dördüncü sıraya yükseldi.\n\nÖzet:"
+        },
+        "reviewed_target": {
+          "value": "Gençlerbirliği Yeni ile Kuzey Birlik arasındaki maç 3-0 sonuçlandı ve Gençlerbirliği Yeni bu sonuçla dördüncü sıraya yükseldi."
+        },
+        "review_note": {
+          "value": "gençlerbirliği yeni diye bişi yok sadece gençlerbirliği olacak."
+        }
+      },
+      "status": "discarded",
+      "record_id": "eb54fcf9-c785-442c-b892-f244c3e37a80",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:07:40.121174",
+      "updated_at": "2026-09-17T15:07:40.121174"
+    },
+    "bare_gec__139": {
+      "id": "babcda2d-bed0-482c-8acf-4fca967d9016",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Günün son işlemi olarak, veri analisti ham verideki aykırı değerleri ayrı bir dosyada tuttu ve Ankara'da ki merkez aynı gün bilgilendirildi.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Günün son işlemi olarak, veri analisti ham verideki aykırı değerleri ayrı bir dosyada tuttu ve Ankara'daki merkez aynı gün bilgilendirildi."
+        }
+      },
+      "status": "submitted",
+      "record_id": "59325872-33a2-4a1f-921a-c3e63b51e4a6",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:08:38.873097",
+      "updated_at": "2026-09-17T15:08:38.873097"
+    },
+    "bare_gec__179": {
+      "id": "975e0927-9f05-4207-ac22-41494acbe1e2",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanan zeminin yeniden temizlenmesini istedi, çalışanlar bina dan erken ayrıldı.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanan zeminin yeniden temizlenmesini istedi, çalışanlar binadan erken ayrıldı."
+        }
+      },
+      "status": "submitted",
+      "record_id": "820ae64d-74b8-4df8-a76e-2fd0de179bcf",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:06:59.819745",
+      "updated_at": "2026-09-17T15:06:59.819745"
+    },
+    "open_ended_counterexample__067": {
+      "id": "14f0a21d-2e6c-4c89-a178-9ca521d2a3a7",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Öğrendiğim konuyu başkasına anlatırken dağılıyorum. Önümüzdeki iki hafta içinde daha açık anlatım kurmak için gerçekçi bir planı nasıl kurabilirim?"
+        },
+        "reviewed_target": {
+          "value": "Başlangıçta konuyu bir problem ve çözüm olarak çerçevele. İlk hafta içinde tek bir somut örnek seç. Bu ritmin sürdürülebilir olup olmadığını anladıktan sonra anlatım sonunda karşı tarafın ne anladığını sor. Bu tür öğrenme planlamalarında, yoğunluğu artırmak yerine, tıkanan adımı küçültüp yönetilebilir hale getir."
+        },
+        "review_note": {
+          "value": "bu daha iyi cevap: İki haftayı küçük denemelere böl. İlk hafta her gün kısa bir konu seçip onu 2-3 dakikada tek bir ana fikir ve bir örnek üzerinden anlatmaya çalış. Nerede dağıldığını fark etmek için mümkünse ses kaydı al veya anlatımdan sonra kısa not çıkar. İkinci hafta ise aynı yöntemi bir başkasına anlatırken uygula ve sonunda ondan ne anladığını bir iki cümleyle özetlemesini iste. Böylece hem anlatımını sadeleştirir hem de hangi noktalarda gereksiz ayrıntıya girdiğini daha kolay fark edersin."
+        }
+      },
+      "status": "discarded",
+      "record_id": "fbdde0c8-73ca-4068-b0e7-4384d5582e84",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:09:54.140679",
+      "updated_at": "2026-09-17T15:09:54.140679"
+    },
+    "bare_gec__378": {
+      "id": "ec4d5e1c-ee82-4fe3-86e8-2062aa773c9e",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Sen toplantıya katılacağım; toplantıdan önce tur rehberi kalabalık büyümeden grubu üst kata çıkardı; toplantı başlamadan birkaç dakika önce, not, toplantı tutanağına eklendi.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Sen toplantıya katılacaksın; toplantıdan önce tur rehberi kalabalık büyümeden grubu üst kata çıkardı; toplantı başlamadan birkaç dakika önce, not, toplantı tutanağına eklendi."
+        },
+        "review_note": {
+          "value": "Daha doğru çıktı: Sen toplantıya katılacaksın; toplantıdan önce tur rehberi, kalabalık büyümeden grubu üst kata çıkardı; toplantı başlamadan birkaç dakika önce not, toplantı tutanağına eklendi."
+        }
+      },
+      "status": "discarded",
+      "record_id": "a4f77899-3dc8-467e-9d64-f25e1ca3f072",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:11:53.255914",
+      "updated_at": "2026-09-17T15:11:53.255914"
+    },
+    "terse_summary__448": {
+      "id": "8c10904d-7c9d-4907-a1e0-fb0d810eb891",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Başlık: Ödül haberi\n\nMetin: Kerem Aydemir, gençlik sporları alanındaki beş yıllık çalışmalarıyla Yılın Sporcusu ödülüne layık görüldü. Ödül töreni Sivas'ta gerçekleşti.\n\nÖzet:"
+        },
+        "reviewed_target": {
+          "value": "Kerem Aydemir, beş yıldır sürdürdüğü gençlik sporları çalışmalarıyla Sivas'ta düzenlenen törende Yılın Sporcusu ödülünü aldı."
+        }
+      },
+      "status": "submitted",
+      "record_id": "594fb6da-8155-4b8b-811e-bf7ede2468f8",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:08:49.348701",
+      "updated_at": "2026-09-17T15:08:49.348701"
+    },
+    "numeric_entity_precision_qa__232": {
+      "id": "4ffe6d5b-d0fa-4f0b-b082-399de8324999",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Şehir Hastanesi, Çanakkale'de düzenlenen etkinlikte muayene olan hasta sayısının 60 kişi, aşı olan kişi sayısının ise 110 kişi olduğunu bildirdi. Uygulama, aile hekimleri tarafından da benimsendi.\n\nSoru: Aşağıdaki metne göre, aşı olan kişi sayısı kaç kişi olarak bildirildi?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "110 kişi"
+        }
+      },
+      "status": "submitted",
+      "record_id": "77e44cd0-baac-4402-a9ac-aab0ce365837",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:12:47.841940",
+      "updated_at": "2026-09-17T15:12:47.841940"
+    },
+    "numeric_entity_precision_qa__178": {
+      "id": "1e2e2162-9cea-4544-a482-569e658a7442",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Transfer ücreti bedeli Sahil Otelcilik Grubu tarafından Adana'da 250 TL olarak duyurulurken, günlük tur ücreti için 420 TL uygulanacak. Güncelleme, turist yoğunluğuna göre yapıldı.\n\nSoru: Aşağıdaki metne göre, transfer ücreti için belirlenen ücret kaç TL?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "250 TL"
+        },
+        "review_note": {
+          "value": "TL'dir olmalı soru"
+        }
+      },
+      "status": "discarded",
+      "record_id": "f166e1db-d368-4814-9b24-d7e418bc5124",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:13:21.870665",
+      "updated_at": "2026-09-17T15:13:21.870665"
+    },
+    "bare_qa_span__103": {
+      "id": "0bb87eb3-c249-4c59-ac8b-989879b7a182",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Diego Maradona, 1986 dünya kupasındaki efsanevi performansı gerçekleştirmiştir ve bu başarısıyla alanında öne çıkan bir futbolcu haline gelmiştir.\n\nSoru: 1986 dünya kupasındaki efsanevi performansı kim gerçekleştirmiştir?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "Diego Maradona"
+        }
+      },
+      "status": "submitted",
+      "record_id": "97d90100-0dbb-4861-b850-240a4b85a2ea",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:12:34.268703",
+      "updated_at": "2026-09-17T15:12:34.268703"
+    },
+    "bare_qa_span__131": {
+      "id": "a00fd0d5-50a9-491d-b574-3ef2a29da3b1",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Kayıtlara göre Python programlama dilinin ilk sürümünün yayımlandığı, 1991 yılına denk gelmektedir.\n\nSoru: Python programlama dilinin ilk sürümünün yayımlandığı yıl hangisidir?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "1991"
+        },
+        "review_note": {
+          "value": "Kayıtlara göre Python programlama dilinin ilk sürümünün yayımlanması 1991 yılına denk gelmektedir. olması lazım."
+        }
+      },
+      "status": "discarded",
+      "record_id": "bb6ceb28-9c47-4556-bf8c-3237baa5d4c0",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:10:30.599729",
+      "updated_at": "2026-09-17T15:10:30.599729"
+    },
+    "bare_qa_span__375": {
+      "id": "2a30b0a5-2fae-4724-96c3-0536ded57089",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Yapılan araştırmalara göre Dünya kupasının ilk düzenlendiği ülke, Uruguay'da konumlandırılmıştır.\n\nSoru: Dünya kupasının ilk düzenlendiği ülke nerededir?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "Uruguay'da"
+        },
+        "review_note": {
+          "value": "Soru saçma Dünya kupasının ilk düzenlendiği ülke neresidir olacak Cevap da Uruguay olmalı."
+        }
+      },
+      "status": "discarded",
+      "record_id": "742aac77-bfa4-4889-b8cb-8762f6bd9464",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:12:25.898152",
+      "updated_at": "2026-09-17T15:12:25.898152"
+    },
+    "open_ended_counterexample__141": {
+      "id": "5255fa62-a12a-46d6-b448-b6817d6946bb",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Evdeki internet bazı odalarda zayıf çekiyor. Bu durumu düzeltirken nereden başlamam daha mantıklı olur?"
+        },
+        "reviewed_target": {
+          "value": "Farklı odalarda aynı cihazla hız ölç; bunu yaparken yönlendiriciyi daha açık ve merkezi bir konuma al. İşe yarayıp yaramadığını anlamak için sorun yalnız uzak odalardaysa ek erişim noktası değerlendir. Kapsama ile internet hattı hızını ayırmadan donanım almak sorunun yanlış kısmını çözebilir."
+        },
+        "review_note": {
+          "value": "Daha iyi cevap: \"Önce sorunun internet hızından mı yoksa Wi-Fi kapsamasından mı kaynaklandığını ayırmaya çalış. Aynı cihazla modemin yanında ve sorun yaşadığın odalarda hız testi yap. Uzak odalarda belirgin düşüş varsa modemi daha merkezi ve açık bir konuma taşımayı dene. Bu da yeterli olmazsa mesh sistem veya ek erişim noktası gibi çözümleri değerlendirebilirsin.\""
+        }
+      },
+      "status": "discarded",
+      "record_id": "b980715f-0da9-4c90-8a3d-e92fe076f115",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:14:09.508112",
+      "updated_at": "2026-09-17T15:14:09.508112"
+    },
+    "bare_gec__128": {
+      "id": "e999457f-9cbc-48ca-9633-8462198c6bd2",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Yoğunluğun azaldığı sırada, test mühendisi yeni sürümü eski cihazlarda yeniden sınadı ve masa daki belgeler sıraya kondu.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Yoğunluğun azaldığı sırada, test mühendisi yeni sürümü eski cihazlarda yeniden sınadı ve masadaki belgeler sıraya kondu."
+        }
+      },
+      "status": "submitted",
+      "record_id": "a03cb4a8-d090-4448-b028-3bae71d18715",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:16:36.464701",
+      "updated_at": "2026-09-17T15:16:36.464701"
+    },
+    "numeric_entity_precision_qa__363": {
+      "id": "82de46df-1429-4b57-8e4b-7846ade6ce48",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Veri Ağı Teknoloji, Ankara'da güncellenen fiyat listesinde temel paket ücreti için 250 TL, kurumsal paket ücreti için ise 480 TL belirledi. Değişiklik, sunucu yük testleriyle doğrulandı.\n\nSoru: Aşağıdaki metne göre, kurumsal paket ücreti için belirlenen ücret kaç TL?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "480 TL"
+        },
+        "review_note": {
+          "value": "TL'dir olcak soru"
+        }
+      },
+      "status": "discarded",
+      "record_id": "68cd4e0e-6133-4f89-8dab-ded407eebff3",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:17:03.903204",
+      "updated_at": "2026-09-17T15:17:16.664936"
+    },
+    "numeric_entity_precision_qa__441": {
+      "id": "5f276c93-ff59-47d3-b50e-9ef3024ae071",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Rehberli tur bileti bedeli Arkeoloji Müzesi tarafından Trabzon'da 350 TL olarak duyurulurken, giriş bileti için 250 TL uygulanacak. Çalışma, eski fotoğraflarla teyit edildi.\n\nSoru: Aşağıdaki metne göre, giriş bileti için belirlenen ücret kaç TL?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "250 TL"
+        },
+        "review_note": {
+          "value": "TL'dir olmalı soru"
+        }
+      },
+      "status": "discarded",
+      "record_id": "e320bf4e-36e6-40b6-9425-ac58d167ef26",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:13:31.750274",
+      "updated_at": "2026-09-17T15:13:31.750274"
+    },
+    "bare_qa_span__546": {
+      "id": "ffff188f-3965-40c4-bf1a-93dd9930020a",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Şehir turlarına katılmak için önceden rehber onayı gerekmemektedir.\n\nSoru: Tura katılmak için rehber onayı şart mıdır?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "Hayır"
+        }
+      },
+      "status": "submitted",
+      "record_id": "2c0c7550-74db-4f65-9bdc-8511e57f47d7",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:16:48.099112",
+      "updated_at": "2026-09-17T15:16:48.099112"
+    },
+    "open_ended_counterexample__001": {
+      "id": "73cbc8a3-16cc-4b2e-a83c-157493402541",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Akşamları yemek hazırlamaya enerjim kalmıyor ve dışarıdan söylemek istemiyorum. Hafta içi yemek düzeni kurmak için nasıl bir yaklaşım izleyebilirim?"
+        },
+        "reviewed_target": {
+          "value": "Üç kolay ana yemek belirle. Alışverişi bu yemeklerin ortak malzemelerine göre yap. Yoğun günler için dondurucuda bir yedek porsiyon tut; karar sayısını azaltan küçük bir hazırlık, yorgunken de düzeni sürdürmeyi kolaylaştırır."
+        },
+        "review_note": {
+          "value": "Hafta içi için birkaç kolay yemek belirleyip alışverişi buna göre planlamak iyi bir başlangıç olur. Mümkünse hafta sonu bazı malzemeleri önceden hazırlayabilir veya birkaç porsiyon fazla pişirip buzdolabında ya da dondurucuda saklayabilirsin. Böylece akşam ne yiyeceğine karar vermek ve sıfırdan yemek yapmak yerine, hazır bir seçeneği kısa sürede tamamlaman yeterli olur."
+        }
+      },
+      "status": "discarded",
+      "record_id": "24c1d591-09e5-4421-b147-a4b5df3aa67b",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:18:02.412574",
+      "updated_at": "2026-09-17T15:18:05.835956"
+    },
+    "bare_gec__340": {
+      "id": "2b81f678-1da2-46f6-8d30-800701ce61e7",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Sen toplantıya katılacağım; toplantıdan önce okul yönetimi müze gezisinin programını sınıflarla paylaştı; plan yeniden gözden geçirildikten sonra, kayıtlar aynı gün arşive taşındı.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Sen toplantıya katılacaksın; toplantıdan önce okul yönetimi müze gezisinin programını sınıflarla paylaştı; plan yeniden gözden geçirildikten sonra, kayıtlar aynı gün arşive taşındı."
+        },
+        "review_note": {
+          "value": "better output: Sen toplantıya katılacaksın; toplantıdan önce okul yönetimi müze gezisinin programını sınıflarla paylaştı; plan yeniden gözden geçirildikten sonra kayıtlar aynı gün arşive taşındı."
+        }
+      },
+      "status": "discarded",
+      "record_id": "c3da5cf6-c4a9-4352-84f3-ce82ca1b421d",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:20:31.577405",
+      "updated_at": "2026-09-17T15:20:31.577405"
+    },
+    "bare_gec__394": {
+      "id": "eac7b0dc-366b-485a-be40-eebba4dd7e3f",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Ben notları inceledin; bu sırada okul yönetimi servis saatlerini velilerin görüşlerine göre değiştirdi; ikinci denemede sorun tekrarlanmayınca, sonuçlar ilgili sayfaya işlendi.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Ben notları inceledim; bu sırada okul yönetimi servis saatlerini velilerin görüşlerine göre değiştirdi; ikinci denemede sorun tekrarlanmayınca, sonuçlar ilgili sayfaya işlendi."
+        }
+      },
+      "status": "submitted",
+      "record_id": "0978815f-47a0-49c0-bd01-658536748113",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:22:20.434986",
+      "updated_at": "2026-09-17T15:22:20.434986"
+    },
+    "numeric_entity_precision_qa__484": {
+      "id": "1a229129-c7a3-4953-880a-3d69937f60e1",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Şehir Hastanesi tarafından Malatya'da tanıtılan Ateş Ölçüm Cihazı ürünü sigorta kapsamına alındı. Fizik Tedavi Paketi ürünü ise yalnızca özel kliniklerde sunuldu. Değerlendirme, klinik verileriyle desteklendi.\n\nSoru: Aşağıdaki metne göre, 'yalnızca özel kliniklerde sunuldu' hangi ürün için geçerli?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "soru bu olmalı: Şehir Hastanesi tarafından Malatya'da tanıtılan Ateş Ölçüm Cihazı ürünü sigorta kapsamına alındı. Fizik Tedavi Paketi ise yalnızca özel kliniklerde sunuldu. Değerlendirme, klinik verilerle desteklendi."
+        }
+      },
+      "status": "discarded",
+      "record_id": "fb390e44-1421-461f-a560-b7f2f3e8058b",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:19:24.265355",
+      "updated_at": "2026-09-17T15:19:24.265355"
+    },
+    "numeric_entity_precision_qa__444": {
+      "id": "f5defa9a-1fc4-4910-8b4b-38dd063b0c5d",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Yeşil Mahalle Kooperatifi, Çanakkale'de bölgedeki geri dönüşüm noktalarını artırdı. Kent Market Zinciri ise aynı dönemde yeni bir gönüllü programı başlattı. Karar, muhtarlık kararıyla kesinleşti.\n\nSoru: Aşağıdaki metne göre, 'bölgedeki geri dönüşüm noktalarını artırdı' eylemini hangi kurum gerçekleştirdi?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "Yeşil Mahalle Kooperatifi"
+        },
+        "review_note": {
+          "value": "artırdı değil arttırdı olacak soru."
+        }
+      },
+      "status": "discarded",
+      "record_id": "bfef82ff-cf0e-412b-9328-121c1790bacb",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:21:03.771201",
+      "updated_at": "2026-09-17T15:21:03.771201"
+    },
+    "bare_gec__287": {
+      "id": "71e0299f-fde1-4525-b2b7-8df6fc497e62",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Ancak kaleci antrenörü penaltı çalışmasını antrenmanın sonuna bıraktı; beklenmedik gecikmeye rağmen, gelişme bir sonraki raporda yer alacak.\nDüzeltilmiş hali:"
+        },
+        "reviewed_target": {
+          "value": "Ancak, kaleci antrenörü penaltı çalışmasını antrenmanın sonuna bıraktı; beklenmedik gecikmeye rağmen, gelişme bir sonraki raporda yer alacak."
+        }
+      },
+      "status": "submitted",
+      "record_id": "cb9a50ad-fe32-42ef-b3c1-b8b2dea728ab",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:22:07.042047",
+      "updated_at": "2026-09-17T15:22:07.042047"
+    },
+    "numeric_entity_precision_qa__025": {
+      "id": "2f9f41d3-3c86-4fad-b2c5-423741d79ebf",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Semt Pazarı Yönetimi, İzmir'de güncellenen fiyat listesinde aylık üyelik ücreti için 900 TL, yıllık üyelik ücreti için ise 750 TL belirledi. Uygulama, önceki dönemin geri bildirimleri değerlendirilerek güncellendi.\n\nSoru: Aşağıdaki metne göre, yıllık üyelik ücreti için belirlenen ücret kaç TL?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "750 TL"
+        },
+        "review_note": {
+          "value": "TL'dir"
+        }
+      },
+      "status": "discarded",
+      "record_id": "38faab5b-964c-43e0-bc49-abfc2de468d3",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:22:29.025053",
+      "updated_at": "2026-09-17T15:22:29.025053"
+    },
+    "bare_qa_span__088": {
+      "id": "29e21371-f45a-4a51-9f0a-46ac23aded02",
+      "values": {
+        "reviewed_user_input": {
+          "value": "Kaynak: Deneyimsel öğrenme kuramını geliştiren eğitimci olarak bilinen John Dewey, alanında kalıcı bir etki bırakmıştır.\n\nSoru: Deneyimsel öğrenme kuramını kim geliştirmiştir?\n\nCevap:"
+        },
+        "reviewed_target": {
+          "value": "John Dewey"
+        }
+      },
+      "status": "submitted",
+      "record_id": "9e0d3a2c-b8cd-49a7-90ac-7d1e014a4a46",
+      "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+      "inserted_at": "2026-09-17T15:17:25.264164",
+      "updated_at": "2026-09-17T15:17:25.264164"
+    }
+  }
+}

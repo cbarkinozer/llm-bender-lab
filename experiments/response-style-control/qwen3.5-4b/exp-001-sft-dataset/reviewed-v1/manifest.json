@@ -1,0 +1,56 @@
+{
+  "version": "reviewed-v1",
+  "created_at": "2026-09-15T22:02:21.981220+00:00",
+  "review_source": "Argilla v1: 28 submitted unchanged, 19 reviewer-flagged rows repaired from explicit feedback",
+  "accepted_count": 47,
+  "pending_count": 2400,
+  "patched_ids": [
+    "bare_gec__098",
+    "bare_gec__207",
+    "bare_qa_span__164",
+    "bare_qa_span__303",
+    "bare_qa_span__359",
+    "bare_qa_span__457",
+    "bare_qa_span__505",
+    "numeric_entity_precision_qa__015",
+    "numeric_entity_precision_qa__482",
+    "open_ended_counterexample__120",
+    "open_ended_counterexample__128",
+    "open_ended_counterexample__147",
+    "open_ended_counterexample__157",
+    "open_ended_counterexample__256",
+    "open_ended_counterexample__310",
+    "terse_summary__231",
+    "terse_summary__261",
+    "terse_summary__268",
+    "terse_summary__340"
+  ],
+  "decision_snapshot_sha256": "aabb64c6a0df6e20eb18fc3d6aec71503d1c77812a0907395620a2c7dbb96987",
+  "source_sha256": {
+    "bare_gec.csv": "6c4b5302e27d81dd6327795f7ab96fc584243940ab9a6a3a2ecef8f05bbe17eb",
+    "bare_qa_span.csv": "0af7e0ea5914dc5feaba45658168fd47ce97f0502fdd1556d86bb9af6c45cf5b",
+    "terse_summary.csv": "eb576b61b7ce8bf2f90dc4f5960d476a7747647f0887627ee4859b3af54343eb",
+    "numeric_entity_precision_qa.csv": "954d3b9652c5709bdd458981c51a029116bfca86adf81881f58877bcacb87ba5",
+    "open_ended_counterexample.csv": "054d4a2611d42d66e40b06eede471043e085183653479997699f7c08faf02caa"
+  },
+  "output_sha256": {
+    "accepted-reviewed.csv": "dccef71192eb74a0fc0e2dbaefb65642e1e2db742b9b60aa1f9419173caf2def",
+    "pending-after-v1.csv": "90174dfd0f65af7897add0e1aabf9d195cc512a259e7f355104007b4f6cf5588"
+  },
+  "category_counts": {
+    "accepted": {
+      "bare_gec": 13,
+      "bare_qa_span": 13,
+      "numeric_entity_precision_qa": 6,
+      "open_ended_counterexample": 6,
+      "terse_summary": 9
+    },
+    "pending": {
+      "bare_gec": 487,
+      "bare_qa_span": 534,
+      "terse_summary": 491,
+      "numeric_entity_precision_qa": 494,
+      "open_ended_counterexample": 394
+    }
+  }
+}

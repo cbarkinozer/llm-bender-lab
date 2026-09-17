@@ -57,18 +57,23 @@ See `exp-001-sft-dataset/` for the taxonomy. Summary of what to build:
 
 ## Capability budget
 
+The CETVEL generation measurements above established the diagnosis; they are
+not the evaluation protocol for this new response-policy hypothesis. The
+frozen `exp-002` benchmark supplies both target and supporting checks under
+one paired, blind protocol:
+
 | Capability | Requirement |
 | --- | --- |
-| `gecturk` exact match | Improve over reused baseline (1.0%) |
-| `tquad`/`xquad_tr` exact match | Improve over reused baseline (0.7% / 0.7%) without F1 dropping (19.4% / 15.7%) |
-| `mlsum_tr` ROUGE-L | Improve over reused baseline (20.5%) without collapsing into under-informative one-liners |
-| `wmt_en_tr` BLEU/chrF | No regression below reused baseline (13.0 / 52.6) |
-| Instruction following on open-ended prompts | Maximum 2-point absolute regression |
-| General reasoning | Maximum 5-point absolute regression |
+| Communication-policy score | At least +10 percentage points over the base model |
+| Directness / neutrality / brevity | Fewer social-wrapper failures; no blanket terseness |
+| Task completion | No more than 2 points absolute overall drop |
+| Every capability family | No more than 5 points task-completion drop |
+| Factual / multi-step families | Preserve correct concise facts and necessary procedural detail |
 | Invalid or non-terminating outputs | No increase |
 
-The regression benchmark for open-ended instruction-following/reasoning is
-not yet selected.
+The base model must be generated on this exact benchmark before training. The
+final adapter is then evaluated once with the identical non-thinking protocol;
+the test set is not used to choose a later recipe or checkpoint.
 
 ## Relationship to the project roadmap / 0.8B
 
@@ -85,11 +90,17 @@ attempted once this experiment's dataset and method are validated here.
 
 ## Current selection
 
-None yet. Dataset construction (`exp-001-sft-dataset/`) is the next step.
+`exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv` is the frozen SFT v1
+training artifact (2,442 accepted and exact-deduplicated rows). It is intentionally train-only: a
+random split of its synthetic task templates would be a misleading policy
+test. The independent communication-policy benchmark is being authored under
+`exp-002-communication-policy-benchmark/`.
 
 ## Experiment registry
 
 | ID | Status | Main change | Notes |
 | --- | --- | --- | --- |
 | `exp-000-baseline` | reused | N/A — reuses `turkish-capability/qwen3.5-4b/exp-000-baseline` | No re-run needed |
-| `exp-001-sft-dataset` | planned | Narrow style-control dataset (GEC/QA/summarization bare-output + open-ended counter-set) | Taxonomy draft in progress |
+| `exp-001-sft-dataset` | ready | Narrow style-control dataset (GEC/QA/summarization bare-output + open-ended counter-set) | Final reviewed SFT v1: 2,442 accepted, exact-deduplicated rows |
+| `exp-002-communication-policy-benchmark` | ready | Independent direct/neutral/tool-like response-policy evaluation | 100 original Turkish final-test prompts; held out from SFT |
+| `exp-003-unsloth-sft` | ready for preflight | bf16 LoRA SFT on the frozen v1 data | Full run is gated on representation, smoke, and tiny-overfit evidence |

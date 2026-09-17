@@ -1,0 +1,58 @@
+{
+  "version": "reviewed-v3-final-deduplicated",
+  "created_at": "2026-09-17T18:04:17.751969+00:00",
+  "source_candidate_count": 2447,
+  "total_candidate_count": 2442,
+  "accepted_count": 2442,
+  "pending_count": 0,
+  "v3_hand_review_count": 56,
+  "finalization_counts": {
+    "accepted_by_saturation": 2314,
+    "submitted_review": 44,
+    "explicit_review_repair": 3,
+    "generic_template_repair": 1,
+    "summary_optional_improvement": 1,
+    "open_ended_optional_improvement": 7
+  },
+  "temporal_qa_template_repairs": {
+    "question_initial_i": 22,
+    "records_year_copula": 27,
+    "historical_records_made_occur": 27
+  },
+  "additional_qa_source_template_repairs": {
+    "year_happened_variant": 35,
+    "location_research_template": 24,
+    "expert_as_defined_template": 73,
+    "ascii_i_orthography": 16
+  },
+  "explicit_review_repair_ids": [
+    "bare_gec__226",
+    "bare_qa_span__006",
+    "bare_qa_span__138"
+  ],
+  "input_sha256": {
+    "pending-after-v2.csv": "04b34f77a1b5bfd96e97242a3db12631797781bbc548e2f7e487871e8951e0c6",
+    "accepted-reviewed.csv": "2535d5241f246c25e23c98c5e401d28b4c815238fdbbd93a5ce6cc08080233bb"
+  },
+  "decision_snapshot_sha256": "40e28bff9ed152f49c8095aec52cab68b37b933189547c8a2337b2b924bc545e",
+  "deduplication_repair": {
+    "reason": "Removed five exact duplicate user/assistant GEC pairs from the final training artifact; source artifact is now itself the unique training set.",
+    "removed_ids": [
+      "bare_gec__254",
+      "bare_gec__261",
+      "bare_gec__278",
+      "bare_gec__285",
+      "bare_gec__292"
+    ],
+    "removed_count": 5
+  },
+  "output_sha256": "961f253df675272f6e420554f575246f176ce3946c46adb4ed36fe1842f85268",
+  "category_counts": {
+    "bare_gec": 495,
+    "bare_qa_span": 547,
+    "numeric_entity_precision_qa": 500,
+    "open_ended_counterexample": 400,
+    "terse_summary": 500
+  },
+  "quality_status": "accepted for every row"
+}

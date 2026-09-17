@@ -1,0 +1,56 @@
+{
+  "version": "reviewed-v2",
+  "created_at": "2026-09-17T15:29:01.207470+00:00",
+  "v1_accepted_count": 47,
+  "v2_reviewed_count": 30,
+  "accepted_total_count": 77,
+  "pending_count": 2370,
+  "explicit_review_repair_ids": [
+    "bare_gec__017",
+    "bare_gec__340",
+    "bare_gec__378",
+    "bare_gec__446",
+    "bare_qa_span__131",
+    "bare_qa_span__165",
+    "bare_qa_span__375",
+    "numeric_entity_precision_qa__444",
+    "numeric_entity_precision_qa__484",
+    "open_ended_counterexample__001",
+    "open_ended_counterexample__067",
+    "open_ended_counterexample__141",
+    "open_ended_counterexample__264",
+    "terse_summary__114"
+  ],
+  "repeated_pattern_repairs": {
+    "qa_malformed_year_source": 27,
+    "numeric_price_question_copula": 35,
+    "numeric_redundant_product_word": 73,
+    "numeric_arttirdi_spelling": 4
+  },
+  "input_sha256": {
+    "pending-after-known-repairs-v1.csv": "34a6af1ea48224ad5f1b439b074c915076b6ad17680c307ce3c4fc7579822105",
+    "accepted-reviewed.csv": "dccef71192eb74a0fc0e2dbaefb65642e1e2db742b9b60aa1f9419173caf2def"
+  },
+  "decision_snapshot_sha256": "bf5be47eb64a2d5bd693ef5342a0f942efba32c47e728697415c281b18d36a87",
+  "output_sha256": {
+    "accepted-reviewed.csv": "2535d5241f246c25e23c98c5e401d28b4c815238fdbbd93a5ce6cc08080233bb",
+    "pending-after-v2.csv": "04b34f77a1b5bfd96e97242a3db12631797781bbc548e2f7e487871e8951e0c6"
+  },
+  "category_counts": {
+    "accepted": {
+      "bare_gec": 24,
+      "bare_qa_span": 19,
+      "numeric_entity_precision_qa": 13,
+      "open_ended_counterexample": 10,
+      "terse_summary": 11
+    },
+    "pending": {
+      "bare_gec": 476,
+      "bare_qa_span": 528,
+      "terse_summary": 489,
+      "numeric_entity_precision_qa": 487,
+      "open_ended_counterexample": 390
+    }
+  },
+  "pending_quality_status": "needs_review for every row"
+}

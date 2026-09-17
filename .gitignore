@@ -160,6 +160,16 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local Argilla runtime state and reviewer exports. Export artifacts are
+# deliberately generated outside the canonical candidate pools and should be
+# explicitly reviewed/versioned when a review pass is finalized.
+experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/review-exports/
+
+# Keep experiment manifests, configs, JSONL outputs, and logs in Git, but not
+# large resumable checkpoints or adapter weights produced on GPU storage.
+experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/results/**/checkpoints/
+experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/results/**/lora-adapter/
+
 # Spyder project settings
 .spyderproject
 .spyproject

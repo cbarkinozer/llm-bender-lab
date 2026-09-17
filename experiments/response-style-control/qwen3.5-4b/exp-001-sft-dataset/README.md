@@ -68,3 +68,45 @@ All five candidate pools are now generated and through initial structural,
 diversity, and correctness triage. The next gate is a final combined manual
 review, then contamination/deduplication checks, splitting, and full
 pre-training validation.
+
+## Manual review UI
+
+`annotation/argilla/` provides a localhost-only Argilla review workflow for
+the five candidate pools. It preserves candidates as immutable source artifacts
+and exports submitted human edits as separate, ID-keyed review artifacts. See
+[`annotation/argilla/README.md`](annotation/argilla/README.md).
+
+## Current manual-review state
+
+The immutable candidate pools are never edited during review. Reviewed layers
+are derived artifacts, with a hash-checked decision snapshot and manifest.
+
+- `reviewed-v1/` records the first 47 human-reviewed rows and its 2,400-row
+  pending pool.
+- `reviewed-v2/` adds the next 30 human-reviewed rows: 77 accepted rows in
+  total and 2,370 records still awaiting review.
+- `reviewed-v2/argilla-v2-decisions.json` preserves the exact Argilla
+  responses and notes used for that derived version.
+- `reviewed-v2/pending-after-v2.csv` is the only active review input. All of
+  its rows are explicitly marked `needs_review`.
+
+The second pass also repaired only repeated defects directly evidenced by the
+reviewer: 27 malformed year-source sentences, 35 missing `TL'dir` copulas in
+price questions, 73 redundant product labels, and 4 `arttırdı` spellings.
+These mechanical repairs are not approvals; the rows remain in the manual
+review queue.
+
+## Final reviewed layer
+
+`reviewed-v3/accepted-reviewed.csv` is the final exp-001 reviewed artifact:
+all 2,442 rows are marked `accepted`, with no exact duplicate user/assistant
+pairs. Five duplicate GEC copies were removed from the source artifact rather
+than merely filtered at training time. `argilla-v3-decisions.json` preserves the 56 saved decisions
+from the final sampling pass and `manifest.json` records every input/output
+hash and finalization rule.
+
+Before finalization, the QA source text received a last template-level repair
+pass. It removed malformed temporal formulations, 24 remaining
+`Yapılan araştırmalara göre … konumlandırılmıştır` location templates, and 73
+`uzmanlara göre … olarak tanımlanmaktadır` templates. These became direct,
+natural source sentences while keeping each target answer span unchanged.

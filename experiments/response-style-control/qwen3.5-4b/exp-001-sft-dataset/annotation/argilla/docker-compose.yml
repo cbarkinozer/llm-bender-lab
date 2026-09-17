@@ -1,0 +1,86 @@
+services:
+  argilla:
+    image: argilla/argilla-server:v2.8.0
+    restart: unless-stopped
+    ports:
+      # Localhost only: do not expose review data on the network.
+      - "127.0.0.1:6900:6900"
+    environment: &argilla_environment
+      ARGILLA_HOME_PATH: /var/lib/argilla
+      ARGILLA_ELASTICSEARCH: http://elasticsearch:9200
+      ARGILLA_DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/argilla
+      ARGILLA_REDIS_URL: redis://redis:6379/0
+      USERNAME: ${ARGILLA_USERNAME:-argilla}
+      PASSWORD: ${ARGILLA_PASSWORD:-12345678}
+      API_KEY: ${ARGILLA_API_KEY:-argilla.apikey}
+      WORKSPACE: ${ARGILLA_WORKSPACE:-sft-review}
+      HF_HUB_DISABLE_TELEMETRY: "1"
+    depends_on:
+      - postgres
+      - elasticsearch
+      - redis
+    volumes:
+      - argilla-data:/var/lib/argilla
+    networks:
+      - argilla
+
+  worker:
+    image: argilla/argilla-server:v2.8.0
+    restart: unless-stopped
+    environment:
+      <<: *argilla_environment
+      BACKGROUND_NUM_WORKERS: "2"
+    command: sh -c 'python -m argilla_server worker --num-workers $${BACKGROUND_NUM_WORKERS}'
+    depends_on:
+      - postgres
+      - elasticsearch
+      - redis
+    networks:
+      - argilla
+
+  postgres:
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: argilla
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - argilla
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0
+    restart: unless-stopped
+    environment:
+      # Keep this x86_64-compatible; the upstream example's UseSVE flag is
+      # ARM-specific and prevents Elasticsearch from starting on Docker Desktop.
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      node.name: elasticsearch
+      cluster.name: sft-review-local
+      discovery.type: single-node
+      cluster.routing.allocation.disk.threshold_enabled: "false"
+      xpack.security.enabled: "false"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - argilla
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    networks:
+      - argilla
+
+networks:
+  argilla:
+
+volumes:
+  argilla-data:
+  elasticsearch-data:
+  postgres-data:

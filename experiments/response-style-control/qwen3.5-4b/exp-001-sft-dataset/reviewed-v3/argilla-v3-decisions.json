@@ -1,0 +1,1110 @@
+{
+  "version": "argilla-v3-finalization",
+  "dataset_id": "bcedb991-50c4-4bc2-9467-611bf991bfc1",
+  "retrieved_at": "2026-09-17T18:04:17.749968+00:00",
+  "reviewer_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+  "review_count": 56,
+  "responses": {
+    "bare_gec__108": {
+      "response": {
+        "id": "f0307c1d-ede1-4026-a44e-54b39c14a8ad",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Toplantı başlamadan birkaç dakika önce, tren yolcusu aktarma süresini istasyondaki panodan kontrol etti ve Ankara'da ki merkez aynı gün bilgilendirildi.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Toplantı başlamadan birkaç dakika önce, tren yolcusu aktarma süresini istasyondaki panodan kontrol etti ve Ankara'daki merkez aynı gün bilgilendirildi."
+          }
+        },
+        "status": "submitted",
+        "record_id": "a54ad618-90f8-4932-88dc-52305bd5bb38",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:45:56.253655",
+        "updated_at": "2026-09-17T17:45:56.253655"
+      },
+      "category": "bare_gec"
+    },
+    "bare_qa_span__036": {
+      "response": {
+        "id": "dc2f7c47-e4db-469e-89f9-46b3946ab9f0",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Alanındaki çalışmalarıyla tanınan Dr. Sabin, ağızdan alınan çocuk felci aşısını geliştirmiştir.\n\nSoru: Ağızdan alınan çocuk felci aşısını kim geliştirmiştir?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Dr. Sabin"
+          }
+        },
+        "status": "submitted",
+        "record_id": "ac0f2eac-8e85-47da-8331-ada16febf16a",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:46:08.962332",
+        "updated_at": "2026-09-17T17:46:08.962332"
+      },
+      "category": "bare_qa_span"
+    },
+    "open_ended_counterexample__312": {
+      "response": {
+        "id": "8c3022fc-d771-4d14-963b-5d57780d2894",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Hatalardan sistemli öğrenmek için uğraşıyorum ama aynı yöntemi uyguladığımı düşünsem de sonuçlar değişiyor. Nerede hata yaptığımı nasıl anlayabilirim?"
+          },
+          "reviewed_target": {
+            "value": "Öncelikle bir sonraki parçada yalnızca kalınlık veya nem gibi tek bir noktayı değiştirerek sonuçtaki farkın kaynağını izole et. Özellikle hobi ve üretim söz konusu olduğunda, ardından sorunun yinelendiği koşullarda değişen unsurun ne olduğunu karşılaştırarak belirle. Süreç boyunca kısa not ve fotoğraf al. Buna rağmen değişmiyorsa sonuçla uyguladığın değişikliği eşleştir."
+          },
+          "review_note": {
+            "value": "Önce gerçekten aynı yöntemi uygulayıp uygulamadığını kontrol edebilmek için süreci küçük parçalara ayır. Her denemede mümkün olduğunca tek bir değişkeni değiştir ve ne yaptığını kısaca not et. Sonuç farklı çıktığında ortam, süre, kullanılan malzeme veya uygulama sırası gibi fark etmiş olabileceğin ayrıntıları karşılaştır. Böylece hatanın yöntemden mi, yoksa fark etmeden değişen başka bir koşuldan mı kaynaklandığını daha kolay görebilirsin."
+          }
+        },
+        "status": "discarded",
+        "record_id": "ded3741c-e582-40cf-9880-dc3bd56527e7",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:46:48.794177",
+        "updated_at": "2026-09-17T17:46:53.714439"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "open_ended_counterexample__307": {
+      "response": {
+        "id": "b1d721df-c152-4681-9060-a8ba428e16ac",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Evde küçük bir video projesi çekmek istiyorum. Önümüzdeki iki hafta içinde sınırlı imkânla tutarlı video hazırlamak için gerçekçi bir planı nasıl kurabilirim?"
+          },
+          "reviewed_target": {
+            "value": "Başlangıçta videonun amacını tek cümlede yaz. İlk hafta içinde çekilecek sahneleri sıraya koy. Düzenin oturup oturmadığını gördükten sonra sessiz bir yerde kısa test çekimiyle ses ve ışığı kontrol et; özellikle hobi ve üretim söz konusu olduğunda, planı ağırlaştırmak yerine, sorunlu adımı küçük parçalara ayırarak hafiflet."
+          },
+          "review_note": {
+            "value": "Önce videonun amacını ve yaklaşık süresini belirle, ardından çekmek istediğin sahneleri kısa bir liste hâline getir. İlk hafta birkaç deneme çekimi yaparak ışık, ses ve kadrajı test et; işe yarayan düzeni mümkün olduğunca sabit tut. İkinci hafta asıl çekimleri tamamlayıp basit bir kurgu yap. Sınırlı imkânla çalışırken her şeyi geliştirmeye çalışmak yerine, görüntü ve sesin tutarlı olmasına öncelik vermek daha gerçekçi olur."
+          }
+        },
+        "status": "discarded",
+        "record_id": "176e77e3-afeb-4395-aac3-9fbca00f63b0",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:47:38.943708",
+        "updated_at": "2026-09-17T17:47:38.943708"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "bare_gec__270": {
+      "response": {
+        "id": "14cf16eb-bcbb-4723-b462-3156e5c35178",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Günlükte şu gelişme kaydedildi araç kiralama sorumlusu sis yoğunlaşınca güvenli bir dinlenme noktası seçti; ilgili kişiler bilgilendirilince, notlar ortak klasöre yüklendi.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Günlükte şu gelişme kaydedildi: araç kiralama sorumlusu sis yoğunlaşınca güvenli bir dinlenme noktası seçti; ilgili kişiler bilgilendirilince, notlar ortak klasöre yüklendi."
+          }
+        },
+        "status": "submitted",
+        "record_id": "31a399a1-e1a2-4f1b-b366-6d363bcef021",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:47:58.080918",
+        "updated_at": "2026-09-17T17:47:58.080918"
+      },
+      "category": "bare_gec"
+    },
+    "terse_summary__474": {
+      "response": {
+        "id": "0379b161-2b13-4961-9810-bd004c969504",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Belediye projesi\n\nMetin: Yerel yönetim, Konya'da on haftalık kültürel miras koruma projesini başlattı. Projenin amacı ziyaretçi deneyimini geliştirmek. Çalışma için ayrılan bütçe 3 milyon lira olarak açıklandı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "3 milyon lira bütçeli on haftalık kültürel miras koruma projesi Konya'da Yerel yönetim tarafından ziyaretçi deneyimini geliştirmek amacıyla başlatıldı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "126fafd7-3131-42a2-badf-bb4ad096d82c",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:48:47.289720",
+        "updated_at": "2026-09-17T17:48:47.289720"
+      },
+      "category": "terse_summary"
+    },
+    "terse_summary__186": {
+      "response": {
+        "id": "cc818ada-cad7-481f-b876-3c54404d0264",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Ürün tanıtımı\n\nMetin: Kuzey Yazılım, Balıkesir'de düzenlenen tanıtımda yeni mini projeksiyon cihazı modelini tanıttı. Ürünün uzun pil ömrü özelliğiyle öne çıktığı belirtildi. Cihazın satış fiyatı 4 bin lira olarak açıklandı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Kuzey Yazılım, 4 bin lira fiyatla satışa sunulacak uzun pil ömrü özellikli yeni mini projeksiyon cihazı modelini tanıttı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "a605f4ed-c81a-4bac-95fa-f632575961b4",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:48:23.216984",
+        "updated_at": "2026-09-17T17:48:23.216984"
+      },
+      "category": "terse_summary"
+    },
+    "numeric_entity_precision_qa__328": {
+      "response": {
+        "id": "0267f371-28a9-4f20-8c3a-bd0ea5ee783d",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Kurumsal paket ücreti bedeli Kod Vadisi Girişimi tarafından İzmir'de 750 TL olarak duyurulurken, temel paket ücreti için 250 TL uygulanacak. Yama, önceki sürümdeki gecikme sorununu ortadan kaldırdı.\n\nSoru: Aşağıdaki metne göre, temel paket ücreti için belirlenen ücret kaç TL'dir?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "250 TL"
+          }
+        },
+        "status": "submitted",
+        "record_id": "d013c8be-545e-44d0-9498-6b3c155d22be",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:48:09.109383",
+        "updated_at": "2026-09-17T17:48:09.109383"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "open_ended_counterexample__400": {
+      "response": {
+        "id": "02852083-0537-417c-abed-8f11532fb84d",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Günlük enerji düzeyimin neden değiştiğini anlamıyorum. İlk gün, ilk hafta ve devamında neye odaklanmam mantıklı olur?"
+          },
+          "reviewed_target": {
+            "value": "İlk aşamada iki hafta boyunca uyku süreni, öğün düzenini ve hareketini kısa notlarla takip et. Bu hazırlığın ardından uygulama sırasında enerjini aynı saatlerde basit bir ölçekle değerlendir. Haftanın sonunda kısaca değerlendirme yaparak tek bir kötü güne değil tekrarlanan örüntülere bak; çok fazla veri toplamak sürdürülemez ve rastlantısal değişimleri anlamlı sanma riskini artırır."
+          },
+          "review_note": {
+            "value": "İlk gün sadece birkaç temel şeyi not etmeye başla: ne kadar uyuduğun, öğünlerin, hareket düzeyin ve gün içinde kendini ne kadar enerjik hissettiğin. İlk hafta boyunca bunu mümkün olduğunca aynı saatlerde kısa şekilde sürdür. Haftanın sonunda tek tek günlere değil, tekrar eden örüntülere bak; örneğin az uyuduğun veya öğün atladığın günlerde enerjin düşüyor mu? Sonrasında yalnızca işe yarayan birkaç göstergiyi takip etmeye devam et, çünkü çok fazla veri toplamak düzeni sürdürmeyi zorlaştırır."
+          }
+        },
+        "status": "discarded",
+        "record_id": "1f3d6f37-7e2d-48cb-ba5d-60a59664de30",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:50:33.151050",
+        "updated_at": "2026-09-17T17:50:33.151050"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "open_ended_counterexample__281": {
+      "response": {
+        "id": "72cdda75-85d7-43e7-a252-33538fa3d184",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Çizim öğrenirken yalnızca referans kopyalıyorum. Bana uygulanabilir ve abartısız bir yol önerebilir misin?"
+          },
+          "reviewed_target": {
+            "value": "Başlangıçta referansta oran ve ışık gibi tek bir konu seç; sonraki adımda kısa bir kopyadan sonra görüntüyü kapat. Düzen oturdukça aynı fikri farklı açı veya biçimde yeniden çiz. Referans gözlem öğretir; dönüşüm aşaması eklenmediğinde karar verme becerisi daha az çalışır."
+          },
+          "review_note": {
+            "value": "Referans kopyalamayı tamamen bırakmana gerek yok. Bir süre kopya çizdikten sonra referansı kapatıp aynı şeyi hafızadan çizmeyi dene; ardından tekrar açıp nerelerde hata yaptığını karşılaştır. Zamanla aynı nesneyi farklı açıdan, farklı ışıkta veya biraz değiştirerek çizmeye geç. Böylece hem gözlem yapmayı hem de gördüğünü kendi kararlarınla yeniden kurmayı çalışmış olursun."
+          }
+        },
+        "status": "discarded",
+        "record_id": "af40c3cf-68f0-4d6c-80f0-1fd973b6c576",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:49:57.069963",
+        "updated_at": "2026-09-17T17:49:57.069963"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "terse_summary__393": {
+      "response": {
+        "id": "7df2f0f8-4e74-41f5-b061-b070e8f7e8a1",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Belediye projesi\n\nMetin: İlçe belediyesi, Rize'de üç aylık diyabet önleme programı projesini başlattı. Projenin amacı kronik hastalık takibini iyileştirmek. Çalışma için ayrılan bütçe 3 milyon lira olarak açıklandı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Rize'de başlatılan üç aylık diyabet önleme programı projesi, 3 milyon lira maliyetle kronik hastalık takibini iyileştirmek amacıyla yürütülüyor."
+          }
+        },
+        "status": "submitted",
+        "record_id": "8b5e9a2e-55c7-4174-a764-a909d77e0f38",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:50:43.813251",
+        "updated_at": "2026-09-17T17:50:43.813251"
+      },
+      "category": "terse_summary"
+    },
+    "terse_summary__117": {
+      "response": {
+        "id": "2b4edc97-ba12-4f0e-a5fa-512796f75e0e",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Belediye projesi\n\nMetin: Gençlik merkezi, Balıkesir'de dört haftalık diyabet önleme programı projesini başlattı. Projenin amacı erken teşhisi artırmak. Çalışma için ayrılan bütçe 750 bin lira olarak açıklandı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Balıkesir'de başlatılan dört haftalık diyabet önleme programı projesi, 750 bin lira maliyetle erken teşhisi artırmak amacıyla yürütülüyor."
+          }
+        },
+        "status": "submitted",
+        "record_id": "fe0b7363-41d5-4fc6-bc49-60a944820194",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:48:54.957374",
+        "updated_at": "2026-09-17T17:48:54.957374"
+      },
+      "category": "terse_summary"
+    },
+    "terse_summary__282": {
+      "response": {
+        "id": "f23886af-c9a5-4e6d-bf3f-3e89186ad2cc",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Belediye projesi\n\nMetin: Kalkınma ajansı, Muğla'da on haftalık müze genişletme projesini başlattı. Projenin amacı belgelere erişimi kolaylaştırmak. Çalışma için ayrılan bütçe 1,4 milyon lira olarak açıklandı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Muğla'da başlatılan on haftalık müze genişletme projesi, 1,4 milyon lira maliyetle belgelere erişimi kolaylaştırmak amacıyla yürütülüyor."
+          }
+        },
+        "status": "submitted",
+        "record_id": "86021c3d-4bfc-4dd0-87c5-cec82aa8700e",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:50:14.262985",
+        "updated_at": "2026-09-17T17:50:14.262985"
+      },
+      "category": "terse_summary"
+    },
+    "numeric_entity_precision_qa__080": {
+      "response": {
+        "id": "30fd7370-6d6f-4f41-99ac-d9d601950565",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Kızılay Şube Müdürlüğü, mobil aşı noktası için Denizli'de yeni bir birim açtı. Fizik tedavi birimi ise Kayseri'de yürütülüyor. Karar, sağlık kurulu onayının ardından yürürlüğe girdi.\n\nSoru: Aşağıdaki metne göre, fizik tedavi birimi hangi ilde yürütülüyor?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Kayseri"
+          }
+        },
+        "status": "submitted",
+        "record_id": "f970ebca-f8c5-4265-a57c-967beff1fa7f",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:48:59.330575",
+        "updated_at": "2026-09-17T17:48:59.330575"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "numeric_entity_precision_qa__342": {
+      "response": {
+        "id": "bc8d716b-9c1c-46c3-907a-fe85cc42302c",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Mesleki Eğitim Merkezi, Ordu'da yürütülen sürecin kayıt aşamasının 10 ay süreceğini açıkladı. Yerleştirme aşaması ise 12 ay sürecek. Sonuçlar, geçen yılın verileriyle karşılaştırıldı.\n\nSoru: Aşağıdaki metne göre, kayıt aşaması kaç ay sürecek?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "10 ay"
+          }
+        },
+        "status": "submitted",
+        "record_id": "52573de3-753c-4ce3-8f12-2f34f7b11c53",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:47:02.238680",
+        "updated_at": "2026-09-17T17:47:02.238680"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "bare_qa_span__006": {
+      "response": {
+        "id": "747ce7a6-e189-4c2a-9f3b-539ed9cda892",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Alanındaki çalışmalarıyla tanınan Cem Öztürk, kırtasiyeyi açmıştır.\n\nSoru: Kırtasiyeyi kim açmıştır?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Cem Öztürk"
+          },
+          "review_note": {
+            "value": "Alanındaki çalışmalarıyla tanınan Cem Öztürk, kırtasiye açmıştır. daha doğru olurdu soruda."
+          }
+        },
+        "status": "discarded",
+        "record_id": "7e099c9b-9347-48b5-8adf-1fc47857baa5",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:51:08.440908",
+        "updated_at": "2026-09-17T17:51:08.440908"
+      },
+      "category": "bare_qa_span"
+    },
+    "numeric_entity_precision_qa__174": {
+      "response": {
+        "id": "98654ab0-c897-4e2b-97b5-27b7036c5fe0",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Veri Ağı Teknoloji, Diyarbakır'da düzenlenen etkinlikte aktif kullanıcı sayısının 85 kişi, kayıtlı geliştirici sayısının ise 14 kişi olduğunu bildirdi. Yama, önceki sürümdeki gecikme sorununu ortadan kaldırdı.\n\nSoru: Aşağıdaki metne göre, kayıtlı geliştirici sayısı kaç kişi olarak bildirildi?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "14 kişi"
+          }
+        },
+        "status": "submitted",
+        "record_id": "388b3cfe-4ee7-4e70-8126-fc3cb67580e6",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:51:32.540865",
+        "updated_at": "2026-09-17T17:51:32.540865"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "terse_summary__457": {
+      "response": {
+        "id": "42b7e9a3-bca2-418c-8ce1-a519e6513c72",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Kazı bulgusu\n\nMetin: Araştırmacılar, Samsun'da yürüttükleri kazıda bronz bir sikke keşfetti. Buluntunun yaklaşık 800 yıllık olduğu ve Erken Bronz Çağı dönemine ait olduğu belirlendi.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Erken Bronz Çağı dönemine ait yaklaşık 800 yıllık bronz bir sikke, Samsun'da yürütülen kazıda gün yüzüne çıktı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "1d6767d3-3e89-413f-9993-2d8968dea3ab",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:51:49.828277",
+        "updated_at": "2026-09-17T17:51:49.828277"
+      },
+      "category": "terse_summary"
+    },
+    "bare_gec__021": {
+      "response": {
+        "id": "285edd20-25f0-463c-9688-54b57e3ff825",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Numuneler laboratuvara ulaşana kadar sabit sıcaklıktaki kutularda tutuldu ve sonunda herşey açıklığa kavuştu.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Numuneler laboratuvara ulaşana kadar sabit sıcaklıktaki kutularda tutuldu ve sonunda her şey açıklığa kavuştu."
+          }
+        },
+        "status": "submitted",
+        "record_id": "0f465801-e285-45f1-b0e5-ccf035b5b008",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:52:06.986169",
+        "updated_at": "2026-09-17T17:52:06.986169"
+      },
+      "category": "bare_gec"
+    },
+    "bare_qa_span__040": {
+      "response": {
+        "id": "0569186c-8af0-4f72-9dad-da24a33aa547",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Kadın hekimliğinin önünü açan çalışmaları gerçekleştiren hekim olarak bilinen Dr. Elizabeth Blackwell, alanında kalıcı bir etki bırakmıştır.\n\nSoru: Kadın hekimliğinin önünü açan çalışmaları kim gerçekleştirmiştir?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Dr. Elizabeth Blackwell"
+          }
+        },
+        "status": "submitted",
+        "record_id": "b6085e6f-aaf2-4b10-9c54-e293b98a1978",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:51:39.236483",
+        "updated_at": "2026-09-17T17:51:39.236483"
+      },
+      "category": "bare_qa_span"
+    },
+    "open_ended_counterexample__368": {
+      "response": {
+        "id": "c5f126f7-f797-49ee-a14f-8b3bbc47e5c2",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Gün içinde su içmeyi unutuyorum. İlk gün, ilk hafta ve devamında neye odaklanmam mantıklı olur?"
+          },
+          "reviewed_target": {
+            "value": "İlk aşamada sabah en sık uğradığın yere görünür bir su şişesi yerleştir. Bu hazırlığın ardından uygulama sırasında öğünler ve kısa molalarla su içmeyi eşleştir. Haftanın sonunda ilerlemeyi kısaca değerlendirip gün sonunda yaklaşık tüketimi tek kez kontrol et; davranışı zaten yaptığın olaylara bağlamak rastgele alarmdan daha doğal bir tetikleyici oluşturur."
+          },
+          "review_note": {
+            "value": "İlk gün işe görünür bir yere su şişesi koyarak başla. İlk hafta boyunca su içmeyi zaten yaptığın şeylere bağla; örneğin kahvaltıdan sonra, öğle yemeğinde veya kısa molalarda birkaç yudum iç. Haftanın sonunda ne kadar düzenli olduğunu kabaca değerlendir. Sonrasında işe yarayan bu tetikleyicileri koruyup yalnızca gerektiğinde küçük hatırlatıcılar eklemek daha sürdürülebilir olur."
+          }
+        },
+        "status": "discarded",
+        "record_id": "0c2b1183-ac00-4cd6-b668-8e5835ad56bf",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:54:28.632118",
+        "updated_at": "2026-09-17T17:54:28.632118"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "open_ended_counterexample__016": {
+      "response": {
+        "id": "ffe0b85d-714d-4cdb-9837-93a2d858aaab",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Küçük evimde çalışma alanıyla dinlenme alanı birbirine karışıyor. İlk gün, ilk hafta ve devamında neye odaklanmam mantıklı olur?"
+          },
+          "reviewed_target": {
+            "value": "İlk aşamada çalışırken kullandığın eşyaları tek bir sepette toplayarak başla. Bu hazırlığın ardından uygulama sırasında masanın yönünü mümkünse dinlenme köşesinden uzağa çevir. Haftanın sonunda kısaca değerlendirme yaparak iş bitince bilgisayarı ve sepeti kaldır. Haftanın sonunda göreceğin şey, sınırlar küçük olsa da görünür bir geçişin zihinsel olarak işin bittiğini hissettirdiğidir."
+          }
+        },
+        "status": "submitted",
+        "record_id": "3f902946-0aea-4bd3-aeae-917af04d7580",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:54:47.378831",
+        "updated_at": "2026-09-17T17:54:47.378831"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "open_ended_counterexample__089": {
+      "response": {
+        "id": "80d88295-a451-4497-b08d-2893923efa58",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Bir iş arkadaşım mesajlarıma çok geç dönüyor. Bana uygulanabilir ve abartısız bir yol önerebilir misin?"
+          },
+          "reviewed_target": {
+            "value": "Başlangıçta mesajda ihtiyaç duyduğun kararı tek cümlede yaz. Sonraki adımda neden ve ne zamana kadar gerektiğini ekle. Düzen oturdukça acil değilse yanıt için makul bir pencere tanı. Karşı taraf gecikmenin etkisini görmediğinde mesajı sıradan bir bilgilendirme gibi değerlendirebilir."
+          },
+          "review_note": {
+            "value": "Önce mesajlarını mümkün olduğunca net ve kısa tut; neye ihtiyacın olduğunu ve varsa ne zamana kadar yanıt gerektiğini açıkça yaz. Acil olmayan konularda karşı tarafa makul bir süre tanı. Gecikme işini aksatıyorsa bunu suçlayıcı olmadan belirtip, “Bu konuda bugün içinde dönüş yapabilir misin?” gibi daha net bir beklenti koyabilirsin. Böylece sorun mesajın belirsizliğinden mi, yoksa gerçekten geç yanıt verme alışkanlığından mı kaynaklanıyor daha kolay anlarsın."
+          }
+        },
+        "status": "discarded",
+        "record_id": "045d1345-5618-4e02-968a-625d9ff18d87",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:53:23.766855",
+        "updated_at": "2026-09-17T17:53:23.766855"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "bare_gec__226": {
+      "response": {
+        "id": "2023b764-783c-4e6f-985b-58d2b7ea3142",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Toplantıdan sonra ev sahibi bozulan musluğu öğleden önce tamir ettirdi; günün son işlemi olarak, sonuç, ilgililere bildirildi.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Toplantıdan sonra, ev sahibi bozulan musluğu öğleden önce tamir ettirdi; günün son işlemi olarak, sonuç, ilgililere bildirildi."
+          },
+          "review_note": {
+            "value": "Toplantıdan sonra ev sahibi bozulan musluğu öğleden önce tamir ettirdi; günün son işlemi olarak sonuç ilgililere bildirildi."
+          }
+        },
+        "status": "discarded",
+        "record_id": "98b7108d-1320-4b78-8615-6cbb56eaff69",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:52:38.173559",
+        "updated_at": "2026-09-17T17:52:55.079342"
+      },
+      "category": "bare_gec"
+    },
+    "numeric_entity_precision_qa__084": {
+      "response": {
+        "id": "80f40dc0-0538-4624-a116-6e3f8cdb1ebb",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Anadolu Sağlık Vakfı, Samsun'da yürütülen çalışmada muayene süreci için 30 dakika, tahlil süreci için ise 40 dakika ayırdı. Değişiklik, önceki döneme kıyasla bekleme süresini azalttı.\n\nSoru: Aşağıdaki metne göre, Anadolu Sağlık Vakfı tahlil süreci için kaç dakika ayırdı?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "40 dakika"
+          }
+        },
+        "status": "submitted",
+        "record_id": "aef38da2-0a2d-48c4-9d68-f1cd910a8f5e",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:54:55.349673",
+        "updated_at": "2026-09-17T17:54:55.349673"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "bare_qa_span__516": {
+      "response": {
+        "id": "8fdf5771-c3ca-4735-8915-84554e8c91bd",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Şirket, bu yıl temettü dağıtmıştır.\n\nSoru: Şirket temettü dağıtmış mıdır?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Evet"
+          }
+        },
+        "status": "submitted",
+        "record_id": "4061f8f1-778d-4857-821a-828de772a8bf",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:55:00.417130",
+        "updated_at": "2026-09-17T17:55:00.417130"
+      },
+      "category": "bare_qa_span"
+    },
+    "open_ended_counterexample__267": {
+      "response": {
+        "id": "d8dd20a4-c93b-4c32-a92c-6f7cc7423de1",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kararı baskı kurmadan sonuçlandırmak istiyorum. Hangisi daha uygun: onun yerine seçimi yapmak, yoksa seçenekleri azaltıp son tarih vermek?"
+          },
+          "reviewed_target": {
+            "value": "Onun yerine seçimi yapmak daha az kurulum ister, fakat sorunun kökünü her zaman çözmeyebilir. Seçenekleri azaltıp son tarih vermek daha sürdürülebilir görünür; çünkü sınırsız seçenek kararsızlığı besler; küçük ve geri alınabilir seçimler hareket sağlar. Özellikle ilişki ve iletişim söz konusu olduğunda, i̇lk gün ne kadar kolay olduğuna değil, bir ay sonra hâlâ uygulanabilir olup olmadığına bakarak seç."
+          }
+        },
+        "status": "submitted",
+        "record_id": "888d6aaf-502a-4701-9079-c7910933c4b9",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:56:55.053226",
+        "updated_at": "2026-09-17T17:56:55.053226"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "open_ended_counterexample__088": {
+      "response": {
+        "id": "ae4f9018-c049-4283-ba78-3a69a20d8df1",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Beklentiyi netleştirmek için uğraşıyorum ama soru sorunca yetersiz görüneceğimden çekiniyorum. Nerede hata yaptığımı nasıl anlayabilirim?"
+          },
+          "reviewed_target": {
+            "value": "Öncelikle anladığın çıktıyı kendi cümlenle geri söyleyerek soru sormaktan çok teyit ettiğini göster. Bu tür iş ve iletişim sorunlarında, ardından sorunun yinelendiği koşullarda değişen unsurun ne olduğunu karşılaştırarak belirle. Teslim tarihi ve önceliği teyit et. Buna rağmen değişmiyorsa ilk küçük örneği erken paylaş."
+          }
+        },
+        "status": "submitted",
+        "record_id": "e6e8ce0e-c428-4b64-9786-11f46b55800e",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:55:21.885126",
+        "updated_at": "2026-09-17T17:55:21.885126"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "terse_summary__497": {
+      "response": {
+        "id": "d22ba0f9-df87-466c-8593-db005d14622f",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Belediye projesi\n\nMetin: Kalkınma ajansı, Eskişehir'de on haftalık müze genişletme projesini başlattı. Projenin amacı belgelere erişimi kolaylaştırmak. Çalışma için ayrılan bütçe 2,2 milyon lira olarak açıklandı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Kalkınma ajansı Eskişehir'de müze genişletme çalışmasını başlattı; 2,2 milyon lira bütçeli projenin hedefi belgelere erişimi kolaylaştırmak."
+          }
+        },
+        "status": "submitted",
+        "record_id": "9c81f8bd-5988-4e72-9107-78bfa121b533",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:56:39.490490",
+        "updated_at": "2026-09-17T17:56:39.490490"
+      },
+      "category": "terse_summary"
+    },
+    "terse_summary__250": {
+      "response": {
+        "id": "413a78b9-cc24-4551-bd25-3758929d9b44",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Ödül haberi\n\nMetin: Buse Yalçın, yenilenebilir enerji alanındaki on yıllık çalışmalarıyla Yenilikçi Araştırma Ödülü ödülüne layık görüldü. Ödül töreni Trabzon'da gerçekleşti.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Buse Yalçın, on yıldır sürdürdüğü yenilenebilir enerji çalışmalarıyla Trabzon'da düzenlenen törende Yenilikçi Araştırma Ödülü ödülünü aldı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "9370cf72-93c3-40f0-96e7-b0c118d1cc25",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:58:53.800839",
+        "updated_at": "2026-09-17T17:58:53.800839"
+      },
+      "category": "terse_summary"
+    },
+    "numeric_entity_precision_qa__180": {
+      "response": {
+        "id": "0f36a2bb-7d4b-4d5d-a4cb-aed9094e4013",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Çalışma kapsamında Tolga Sarı aşı takvimini planladı. Baş Hemşire Merve Er ise aynı süreçte Samsun'da hasta kayıtlarını güncelledi. Rapor, il sağlık müdürlüğüne iletildi.\n\nSoru: Aşağıdaki metne göre, 'hasta kayıtlarını güncelledi' eylemini kim gerçekleştirdi?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Merve Er"
+          }
+        },
+        "status": "submitted",
+        "record_id": "d24721a5-9e42-42f4-a88b-bb05cf1f6f43",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:59:02.936868",
+        "updated_at": "2026-09-17T17:59:02.936868"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "numeric_entity_precision_qa__262": {
+      "response": {
+        "id": "1975f7eb-ee0b-46f5-9df0-71f2fdbd4f6d",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Rüzgar Atletizm Kulübü tarafından Mersin'de yayımlanan raporda şut başarı oranı yüzde 85, top hakimiyeti oranı ise yüzde 37 olarak kaydedildi. Program, lig takvimine göre belirlendi.\n\nSoru: Aşağıdaki metne göre, şut başarı oranı yüzde kaç olarak kaydedildi?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "yüzde 85"
+          }
+        },
+        "status": "submitted",
+        "record_id": "b0b1a88c-5a29-4b1d-8605-24e40f523c82",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:55:07.780612",
+        "updated_at": "2026-09-17T17:55:07.780612"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "bare_qa_span__138": {
+      "response": {
+        "id": "d2078c10-1962-4ee1-ac1b-81ab2bd5cc97",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Tarih kayıtlarına göre ilk taşınabilir cep telefonunun üretildiği, 1983 senesinde meydana gelmiştir.\n\nSoru: Ilk taşınabilir cep telefonunun üretildiği yıl hangisidir?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "1983"
+          },
+          "review_note": {
+            "value": "Tarih kayıtlarına göre ilk taşınabilir cep telefonu 1983 senesinde geliştirilmiştir."
+          }
+        },
+        "status": "discarded",
+        "record_id": "598730be-3da8-4bfe-9095-975ea75306cc",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:58:44.549050",
+        "updated_at": "2026-09-17T17:58:44.549050"
+      },
+      "category": "bare_qa_span"
+    },
+    "open_ended_counterexample__361": {
+      "response": {
+        "id": "7423b99f-6066-4acf-b148-47acd3b1facf",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Uyku saatim hafta sonları çok kayıyor. Bana uygulanabilir ve abartısız bir yol önerebilir misin?"
+          },
+          "reviewed_target": {
+            "value": "Başlangıçta hafta sonu uyanma saatini hafta içine yakın tut. Sonraki adımda sabah kısa süre gün ışığına çık. Düzen oturdukça uykusuzsan öğleden sonra çok uzun olmayan dinlenme seç; uyanma saatindeki büyük değişim pazar gecesi uykuya dalmayı ve pazartesi sabahını zorlaştırabilir."
+          }
+        },
+        "status": "submitted",
+        "record_id": "3687090c-b5f1-4e92-a48b-9214313a2a7f",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:00.847117",
+        "updated_at": "2026-09-17T18:00:00.847117"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "bare_gec__411": {
+      "response": {
+        "id": "e603a654-8d11-4b6b-992c-415296634a4a",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Sende ayrıntıları okudun; ardından kısa bir görüşmenin ardından, mağaza müdürü düşük talep gören ürünleri farklı rafa taşıdı; sonuç, ilgililere bildirildi.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Sen de ayrıntıları okudun; ardından kısa bir görüşmenin ardından, mağaza müdürü düşük talep gören ürünleri farklı rafa taşıdı; sonuç, ilgililere bildirildi."
+          }
+        },
+        "status": "submitted",
+        "record_id": "201a4bc6-d0b4-449b-8015-f35cde248220",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:59:50.564055",
+        "updated_at": "2026-09-17T17:59:50.564055"
+      },
+      "category": "bare_gec"
+    },
+    "terse_summary__060": {
+      "response": {
+        "id": "aa20df0d-8cee-4d28-82c5-cd55e710353e",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Ödül haberi\n\nMetin: Kerem Aydemir, toplum sağlığı eğitimi alanındaki on yıllık çalışmalarıyla Halk Sağlığı Onur Ödülü ödülüne layık görüldü. Ödül töreni İzmir'de gerçekleşti.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Kerem Aydemir, toplum sağlığı eğitimi alanındaki on yıllık çalışmalarıyla Halk Sağlığı Onur Ödülü ödülünü kazandı ve ödülü İzmir'de düzenlenen törende aldı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "c5783287-5a00-416f-8b1f-2d8545d8dbc3",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:59:55.576247",
+        "updated_at": "2026-09-17T17:59:55.576247"
+      },
+      "category": "terse_summary"
+    },
+    "bare_gec__156": {
+      "response": {
+        "id": "4c182b6f-8632-4751-abec-a0983056ccc0",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Ayrıntılar yeniden incelendiğinde, aile hekimi önceki ölçümleri yeni tahlil sonucuyla karşılaştırdı; konu hakkın da açıklama yapıldı.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Ayrıntılar yeniden incelendiğinde, aile hekimi önceki ölçümleri yeni tahlil sonucuyla karşılaştırdı; konu hakkında açıklama yapıldı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "bec67be2-a34b-4b00-b0bb-9efb6005c401",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:59:18.717671",
+        "updated_at": "2026-09-17T17:59:18.717671"
+      },
+      "category": "bare_gec"
+    },
+    "numeric_entity_precision_qa__315": {
+      "response": {
+        "id": "e3d159a1-e474-480b-94d0-2248e1c81d3a",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Çalışma kapsamında Kaan Aydemir yeni üyelik formunu hazırladı. Kooperatif Sorumlusu Deniz Tan ise aynı süreçte Van'da kooperatif bütçesini gözden geçirdi. Değişiklik, sakinlerin talepleri doğrultusunda yapıldı.\n\nSoru: Aşağıdaki metne göre, 'yeni üyelik formunu hazırladı' eylemini kim gerçekleştirdi?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Kaan Aydemir"
+          }
+        },
+        "status": "submitted",
+        "record_id": "f2a7490a-f681-4499-9250-e5e8fbd324c9",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:59:34.298332",
+        "updated_at": "2026-09-17T17:59:34.298332"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "bare_qa_span__254": {
+      "response": {
+        "id": "ea318c09-6ebf-4b5a-8672-69bfe242d812",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Atomun çekirdeğindeki proton sayısı hidrojen için, yapılan son ölçümlere göre 1 olarak belirlenmiştir.\n\nSoru: Atomun çekirdeğindeki proton sayısı hidrojen için kaçtır?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "1"
+          }
+        },
+        "status": "submitted",
+        "record_id": "16a1eec9-5864-431a-aa19-60cc0d4301e0",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T17:59:25.109885",
+        "updated_at": "2026-09-17T17:59:25.109885"
+      },
+      "category": "bare_qa_span"
+    },
+    "open_ended_counterexample__261": {
+      "response": {
+        "id": "66ca3ad6-ee26-432f-9392-c267fe85e38b",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Bir arkadaşımın başarısını kutlamak istiyorum ama ne söyleyeceğimi bilmiyorum. Bunu daha sürdürülebilir biçimde çözmek için neler yapabilirim?"
+          },
+          "reviewed_target": {
+            "value": "Başarının hangi kısmını fark ettiğini söyle. Ardından geçmişteki çabasına kısa bir gönderme yap. Son olarak isterse birlikte kutlamak için basit bir öneri sun. Özellikle ilişki ve iletişim söz konusu olduğunda, bu sayede tek seferlik bir uğraş yerine, kalıcı ve tekrarlanabilir bir sistem inşa edersin."
+          }
+        },
+        "status": "submitted",
+        "record_id": "a643e339-8c6a-4192-8953-ffc78d002268",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:08.378440",
+        "updated_at": "2026-09-17T18:00:08.378440"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "bare_gec__481": {
+      "response": {
+        "id": "9ec20b57-c749-4d05-8c03-f21351f95b1e",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Belkide sonuç değişmeyecek; sonuçta ikinci denemede sorun tekrarlanmayınca, laboratuvar sorumlusu numuneleri sabit sıcaklıktaki dolaba yerleştirdi; bulgular kısa bir sunumla paylaşıldı.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Belki de sonuç değişmeyecek; sonuçta ikinci denemede sorun tekrarlanmayınca, laboratuvar sorumlusu numuneleri sabit sıcaklıktaki dolaba yerleştirdi; bulgular kısa bir sunumla paylaşıldı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "432925e0-36b2-4b9d-8924-3c62c174d389",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:23.858385",
+        "updated_at": "2026-09-17T18:00:23.858385"
+      },
+      "category": "bare_gec"
+    },
+    "bare_gec__105": {
+      "response": {
+        "id": "a7836db7-dd5e-40df-80b7-3ac7224e0b7c",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Toplantı başlamadan birkaç dakika önce, tedarik yöneticisi teslimat gecikince vardiya planını güncelledi; dosya yı inceleyen uzman rapor yazdı.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Toplantı başlamadan birkaç dakika önce, tedarik yöneticisi teslimat gecikince vardiya planını güncelledi; dosyayı inceleyen uzman rapor yazdı."
+          }
+        },
+        "status": "submitted",
+        "record_id": "449d0d91-a47a-4929-8f33-fa2f929154ad",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:13.260881",
+        "updated_at": "2026-09-17T18:00:13.260881"
+      },
+      "category": "bare_gec"
+    },
+    "bare_gec__135": {
+      "response": {
+        "id": "4335acbe-015f-4b89-a436-942656b6bf02",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Yoğunluğun azaldığı sırada, otel görevlisi görünmeyen rezervasyonu onay e-postasından buldu ve masa daki belgeler sıraya kondu.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Yoğunluğun azaldığı sırada, otel görevlisi görünmeyen rezervasyonu onay e-postasından buldu ve masadaki belgeler sıraya kondu."
+          }
+        },
+        "status": "submitted",
+        "record_id": "3bab72c6-a2aa-4598-b78a-40594b45bedd",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:02.265125",
+        "updated_at": "2026-09-17T18:00:02.265125"
+      },
+      "category": "bare_gec"
+    },
+    "bare_gec__330": {
+      "response": {
+        "id": "8139a0a6-aa65-4268-a973-a4e9c17bf47e",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Ben raporu yarın güncelleyeceğiz; aynı gün satış ekibi müşteri taleplerini tek bir yardım sayfasında topladı; kısa bir görüşmenin ardından, gelişme bir sonraki raporda yer alacak.\nDüzeltilmiş hali:"
+          },
+          "reviewed_target": {
+            "value": "Ben raporu yarın güncelleyeceğim; aynı gün satış ekibi müşteri taleplerini tek bir yardım sayfasında topladı; kısa bir görüşmenin ardından, gelişme bir sonraki raporda yer alacak."
+          }
+        },
+        "status": "submitted",
+        "record_id": "ae09624e-c9cb-44da-858c-107dbc3c98b3",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:48.390772",
+        "updated_at": "2026-09-17T18:00:48.390772"
+      },
+      "category": "bare_gec"
+    },
+    "terse_summary__154": {
+      "response": {
+        "id": "f4ff726e-7dac-459c-8b33-7bdde95fd040",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Ödül haberi\n\nMetin: Burak Yıldız, özel eğitim alanındaki on yıllık çalışmalarıyla Yılın Eğitimcisi ödülüne layık görüldü. Ödül töreni Kayseri'de gerçekleşti.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Yılın Eğitimcisi ödülü, on yıllık özel eğitim çalışmaları nedeniyle Burak Yıldız'a Kayseri'de düzenlenen törende takdim edildi."
+          }
+        },
+        "status": "submitted",
+        "record_id": "02a7effc-3fb2-412a-8ca4-f2503181e71b",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:32.603342",
+        "updated_at": "2026-09-17T18:00:32.603342"
+      },
+      "category": "terse_summary"
+    },
+    "terse_summary__222": {
+      "response": {
+        "id": "5cdd011b-5ee3-4203-85c9-1bd471fd14c5",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Hava durumu\n\nMetin: İstanbul'da üç saat boyunca etkili olan şiddetli rüzgar nedeniyle ana yollarda ulaşım aksadı. Yetkililer vatandaşları temkinli olmaları konusunda uyardı.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "İstanbul'da üç saat süreyle görülen şiddetli rüzgar sonucu ana yollarda ulaşım aksadı, yetkililer durumu yakından izliyor."
+          }
+        },
+        "status": "submitted",
+        "record_id": "3625e284-8f1e-4ad8-86af-71c14aebcd2c",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:29.544110",
+        "updated_at": "2026-09-17T18:00:29.544110"
+      },
+      "category": "terse_summary"
+    },
+    "numeric_entity_precision_qa__191": {
+      "response": {
+        "id": "b844ee7c-66a9-4c75-8262-4a04ef1ceae1",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Konya'da yürütülen Bölge Ulaştırma Müdürlüğü çalışmasında rehberlik süreci 90 dakika sürerken, kayıt işlemi için 15 dakika planlandı. Güncelleme, turist yoğunluğuna göre yapıldı.\n\nSoru: Aşağıdaki metne göre, Bölge Ulaştırma Müdürlüğü rehberlik süreci için kaç dakika ayırdı?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "90 dakika"
+          }
+        },
+        "status": "submitted",
+        "record_id": "9c597947-4d7f-464f-b830-cc9beb7dbc93",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:41.155085",
+        "updated_at": "2026-09-17T18:00:41.155085"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "bare_qa_span__105": {
+      "response": {
+        "id": "b210fbd1-e1c0-4361-aa9c-1a775c9f3819",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Artistik jimnastikte dünya rekorunu kıran sporcu olarak bilinen Simone Biles, alanında kalıcı bir etki bırakmıştır.\n\nSoru: Artistik jimnastikte dünya rekorunu kim kırmıştır?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Simone Biles"
+          }
+        },
+        "status": "submitted",
+        "record_id": "4fdf08c6-a0f9-4857-9ea8-6f0e73448c5d",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:00:38.230703",
+        "updated_at": "2026-09-17T18:00:38.230703"
+      },
+      "category": "bare_qa_span"
+    },
+    "open_ended_counterexample__258": {
+      "response": {
+        "id": "29f9686a-d7db-4ebb-ad22-0d95f1886a76",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Yeni tanıştığım insanlarla konuşma başlatmakta zorlanıyorum. Önceden çok sayıda soru ezberlemek ile ortak ortamdan başlayıp yanıta göre ilerlemek arasında nasıl seçim yapmalıyım?"
+          },
+          "reviewed_target": {
+            "value": "Önceden çok sayıda soru ezberlemek hızlı ve az hazırlık gerektiren bir seçenektir, ancak etkisi sınırlı kalabilir. Ortak ortamdan başlayıp yanıta göre ilerlemek başlangıçta daha çok düzen ister fakat sohbet sorgu dizisi değil karşılıklı bağlantı kurma sürecidir. Özellikle ilişki ve iletişim söz konusu olduğunda, sorun sık tekrarlıyorsa ikinci yaklaşımı, bir kereliğine yaşanıyorsa ilk yaklaşımı tercih etmek daha mantıklıdır."
+          }
+        },
+        "status": "submitted",
+        "record_id": "df1e2f0c-4243-4cdf-aabf-5148860bd906",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:02:42.515403",
+        "updated_at": "2026-09-17T18:02:42.515403"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "terse_summary__339": {
+      "response": {
+        "id": "29d7ef89-cdde-44f9-ac98-87c36ec3dca6",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Başlık: Araştırma bulgusu\n\nMetin: Yapılan yeni bir araştırmaya göre doğada zaman geçirme ile konsantrasyon süresinin uzaması arasında bağlantı bulundu. Çalışma 1200 katılımcı üzerinde bir yıl boyunca yürütüldü.\n\nÖzet:"
+          },
+          "reviewed_target": {
+            "value": "Araştırmacılar, bir yıl süren çalışmada doğada zaman geçirme ile konsantrasyon süresinin uzaması arasında bağlantı bulduklarını duyurdu."
+          },
+          "review_note": {
+            "value": "Araştırmacılar, 1200 katılımcı üzerinde bir yıl süren çalışmada doğada zaman geçirme ile konsantrasyon süresinin uzaması arasında bağlantı bulduklarını duyurdu."
+          }
+        },
+        "status": "discarded",
+        "record_id": "09ec6ca8-20a4-460a-92de-71339084ae0f",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:03:30.431205",
+        "updated_at": "2026-09-17T18:03:30.431205"
+      },
+      "category": "terse_summary"
+    },
+    "open_ended_counterexample__385": {
+      "response": {
+        "id": "8959c9b1-7465-454f-bfcb-5ae4ae0f5a03",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Yeni bir alışkanlığı aynı anda çok fazla hedefle başlatıyorum. Değişimi sürdürülebilir yapmak için nasıl bir yaklaşım izleyebilirim?"
+          },
+          "reviewed_target": {
+            "value": "En fazla değer sağlayacak tek davranışı seç. İki hafta boyunca yalnız devamlılığı izle. Davranış oturduğunda ikinci hedefi ekle. Çoklu başlangıçta hangi engelin hangi alışkanlığı bozduğunu görmek zorlaşır."
+          },
+          "review_note": {
+            "value": "yalnızca olcak yalnız değil."
+          }
+        },
+        "status": "discarded",
+        "record_id": "2adfc185-afeb-44d5-91c5-19a6687ffd38",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:02:27.375502",
+        "updated_at": "2026-09-17T18:02:27.375502"
+      },
+      "category": "open_ended_counterexample"
+    },
+    "numeric_entity_precision_qa__018": {
+      "response": {
+        "id": "031f5cb0-6310-4b71-87b4-f3dd463e4aa6",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Fen Lisesi Müdürlüğü, Rize'de yeni bir burs programı başlattı. Üniversite Kayıt Bürosu ise aynı dönemde uzaktan eğitim altyapısını genişletti. Sonuçlar, geçen yılın verileriyle karşılaştırıldı.\n\nSoru: Aşağıdaki metne göre, 'yeni bir burs programı başlattı' eylemini hangi kurum gerçekleştirdi?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Fen Lisesi Müdürlüğü"
+          }
+        },
+        "status": "submitted",
+        "record_id": "f98f4c09-e2af-462d-92ac-ebc77127be94",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:02:35.982508",
+        "updated_at": "2026-09-17T18:02:35.982508"
+      },
+      "category": "numeric_entity_precision_qa"
+    },
+    "bare_qa_span__366": {
+      "response": {
+        "id": "ec6c608f-98e4-46b3-b9de-e9a8cb49f17b",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Yapılan araştırmalara göre Ünlü bir bilim kampüsü, Massachusetts, Amerika Birleşik Devletleri'nde konumlandırılmıştır.\n\nSoru: Ünlü bir bilim kampüsü nerededir?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Massachusetts, Amerika Birleşik Devletleri'nde"
+          },
+          "review_note": {
+            "value": "Çok saçma, araştırmalara göre kampüs niye amerikada olduğu ortaya çıkıyor."
+          }
+        },
+        "status": "discarded",
+        "record_id": "b0a2c5db-8970-47ab-a8ec-c64ae01db18d",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:01:56.781938",
+        "updated_at": "2026-09-17T18:01:56.781938"
+      },
+      "category": "bare_qa_span"
+    },
+    "bare_qa_span__261": {
+      "response": {
+        "id": "3a851e57-75a9-4f08-ac28-dc1c55cdbdd4",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Yapılan incelemede kaybedilen antik kütüphanedeki tahmini kitap sayısı 400 bin olarak tespit edilmiştir.\n\nSoru: Kaybedilen antik kütüphanedeki tahmini kitap sayısı kaçtır?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "400 bin"
+          }
+        },
+        "status": "submitted",
+        "record_id": "6aae1f38-40c4-4ec4-b3f4-bbfc089ff71e",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:02:05.319344",
+        "updated_at": "2026-09-17T18:02:05.319344"
+      },
+      "category": "bare_qa_span"
+    },
+    "bare_qa_span__120": {
+      "response": {
+        "id": "3d9e21b4-dd02-41f6-bac3-8bb743ea99aa",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Kayıtlara göre mahalle pazarının yeni yerine taşındığı yıl 2019'dir.\n\nSoru: Mahalle pazarının yeni yerine taşındığı yıl hangisidir?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "2019"
+          }
+        },
+        "status": "submitted",
+        "record_id": "2df7af2b-6708-4950-b406-800fcd51456b",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:01:04.108995",
+        "updated_at": "2026-09-17T18:01:04.108995"
+      },
+      "category": "bare_qa_span"
+    },
+    "bare_qa_span__477": {
+      "response": {
+        "id": "3e965929-071d-40df-9bba-6f94cc4eec66",
+        "values": {
+          "reviewed_user_input": {
+            "value": "Kaynak: Uygulamanın ücretsiz sürümünde reklam bulunmamaktadır.\n\nSoru: Ücretsiz sürümde reklam var mı?\n\nCevap:"
+          },
+          "reviewed_target": {
+            "value": "Hayır"
+          }
+        },
+        "status": "submitted",
+        "record_id": "1a441e5f-4672-48e3-8ab2-cafef0f68694",
+        "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+        "inserted_at": "2026-09-17T18:03:34.617601",
+        "updated_at": "2026-09-17T18:03:34.617601"
+      },
+      "category": "bare_qa_span"
+    }
+  },
+  "reviewer_decision": "Apply real corrections from the 30-record sample; accept remaining repetitive examples as reviewed."
+}

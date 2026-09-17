@@ -45,8 +45,8 @@ The goal of this project is not to fine-tune models simply for the sake of produ
 The roadmap progresses through four increasingly difficult problems:
 
 1. Improving an already-known language
-2. Adapting a model to a genuinely low-resource language
-3. Teaching a tiny model a highly efficient communication policy
+2. Teaching a tiny model a highly efficient communication policy
+3. Adapting a model to a genuinely low-resource language
 4. Specializing a model around an agentic software-engineering workflow
 
 The experiments primarily use models from the Qwen3.5 family. `0.8B` is preferred when the target behavior does not require substantial additional model capacity, while `4B` is used when language understanding, reasoning, coding ability, or cross-lingual transfer are likely to become bottlenecks — and, in practice so far, whenever the project is still validating a new dataset/method for the first time, since debugging the method and a weak model simultaneously is avoided. `0.8B` is treated as a later step, attempted once a given behavioral target has already been proven on `4B`.
