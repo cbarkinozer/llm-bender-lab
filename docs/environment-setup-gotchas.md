@@ -222,3 +222,83 @@ property of that specific repo. Cost this session a full task's worth of
 model-load time when it surfaced mid-run after `gecturk` had already
 finished -- check every `load_dataset()` call added for a new task against
 this before a long run, not after.
+
+## 9. Do not let current Unsloth resolve a CUDA 13 Torch stack on a CUDA 12.8 driver
+
+On the `runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04` image,
+the system stack is `torch==2.4.1+cu124` while the RTX 4090 driver reports a
+maximum CUDA version of 12.8. A plain `pip install --upgrade unsloth
+unsloth_zoo ...` attempted to replace this with `torch==2.12.1`, CUDA 13
+libraries, and matching xFormers. That would recreate the driver/runtime
+incompatibility documented above for vLLM.
+
+Before downloading a model or running GPU code, create the persistent venv
+with `--system-site-packages`, do not use unconstrained `--upgrade`, and
+confirm `torch==2.4.1+cu124`, `torch.version.cuda == "12.4"`, and
+`torch.cuda.is_available()`.
+
+## 10. Newest `torchao` is incompatible with the CUDA-12.4 Torch 2.4 path
+
+`torchao==0.18.0` imports `torch.int1`, absent from `torch==2.4.1+cu124`.
+Unsloth then fails at import time with `UnslothTorchTooOldError`, before a
+model is loaded. Pin `torchao==0.5.0` for this pod path and repeat an actual
+`import unsloth` test. A successful pip install alone is not evidence that
+the environment works.
+
+## 11. Unsloth must be imported before `trl` in the same file/module
+
+`from trl import SFTConfig, SFTTrainer` followed later by
+`from unsloth import FastLanguageModel` (wrong order) silently breaks any
+`SFTConfig` kwarg that Unsloth's patch relies on, e.g. `eos_token`. Unsloth
+patches `trl.trainer.sft_trainer.SFTConfig`/`SFTTrainer` at import time. If
+`trl` is imported first, local names bind to the *pre-patch* classes; when
+`SFTTrainer(args=trainer_args)` later runs, its `isinstance(args, SFTConfig)`
+check compares against the *post-patch* class, fails, and silently rebuilds
+`args` via `args.to_dict()` -- which drops fields like `eos_token`, resetting
+it to Unsloth's internal placeholder default (`'<EOS_TOKEN>'`, not in the
+tokenizer vocabulary). This produced a `ValueError: The specified eos_token
+('<EOS_TOKEN>') is not found in the vocabulary...` that looked like a
+tokenizer/model bug but was purely an import-order bug -- confirmed by
+comparing `id(trainer_args)` (what we built) against `id(args)` (what
+`SFTTrainer.__init__` actually received): different objects. Unsloth's own
+runtime warning states this exact requirement ("Unsloth should be imported
+before [trl, transformers, peft]") -- treat it as load-bearing, not
+cosmetic.
+
+## 12. This Unsloth version's patched `SFTTrainer._prepare_dataset` does not support the `messages` conversational format
+
+Vanilla TRL 0.24's `SFTTrainer` accepts a dataset with a `messages` column
+(list of `{"role", "content"}` dicts) and does its own chat-template
+rendering + assistant-turn boundary detection, which `assistant_only_loss`
+needs. Unsloth's patched trainer (`/tmp/unsloth_compiled_cache/
+UnslothSFTTrainer.py`, `_prepare_dataset`) only recognizes `input_ids`,
+`labels`, `prompt`+`completion`, or a pre-rendered `dataset_text_field`
+(default `"text"`) column; anything else raises `RuntimeError: Unsloth: You
+must specify a formatting_func`. Passing a `formatting_func` that returns a
+flat string would bypass TRL's own assistant-only masking logic entirely,
+which is not equivalent to a correctness no-op -- it would silently mask
+loss differently than intended. **Not yet resolved.** Options to evaluate
+next: (a) check the installed `trl`/`unsloth` versions for a documented
+combination that does support conversational `assistant_only_loss` under
+Unsloth's patch, (b) render to `text` ourselves and implement assistant-only
+masking by hand (locate the last `<|im_start|>assistant\n` span per example
+and set labels before it to -100), verified against
+`label-mask-inspection.json`, or (c) pin an Unsloth version whose patched
+trainer supports the conversational path. Do not proceed to `--mode smoke`
+until one of these is chosen and the representation-check passes with
+`label-mask-inspection.json` showing correct assistant-only spans (not "all
+tokens are labels" or "all tokens are masked").
+
+## 13. Fresh-pod setup gate order
+
+```text
+persistent venv + persistent HF/pip caches
+    -> Torch/CUDA availability check
+    -> import Unsloth check
+    -> import TRL/Transformers/W&B check
+    -> tiny local template check
+    -> only then download Qwen3.5 weights
+```
+
+Preserve failed resolver attempts and final versions in the experiment
+environment artifact: setup failures are reproducibility evidence.
