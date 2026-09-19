@@ -535,8 +535,10 @@ def main() -> None:
         trainer.args.max_steps = 20
         trainer.args.num_train_epochs = 1
     elif args.mode == "tiny-overfit":
-        tiny_examples = examples[:32]
-        trainer.train_dataset = Dataset.from_list([to_conversational(example) for example in tiny_examples])
+        # SFTTrainer has already tokenized the full dataset. Select from that
+        # processed dataset; replacing it with raw messages would bypass the
+        # formatter and leave the model with no input_ids column.
+        trainer.train_dataset = trainer.train_dataset.select(range(32))
         trainer.args.max_steps = 100
         trainer.args.num_train_epochs = 20
         trainer.args.learning_rate = max(args.learning_rate, 5e-4)
