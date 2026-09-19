@@ -1,0 +1,15 @@
+{
+  "training_rows": 800,
+  "training_category_counts": {
+    "bare_qa_span": 200,
+    "numeric_entity_precision_qa": 200,
+    "open_ended_counterexample": 200,
+    "terse_summary": 200
+  },
+  "training_sha256": "92ed9c1ddff3e755eafd2361e7a0a7b3a760c3cb943eeca99491d0c841e0e19d",
+  "benchmark_rows": 100,
+  "benchmark_sha256": "2749dbd304c60cdb38a5538fe8684e2a814c5933a35d95057baf5ab3b759a300",
+  "normalized_prompt_overlap_count": 0,
+  "train_path": "/workspace/llm-bender-lab/experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/clean-v2/sft-clean-v2-800.csv",
+  "benchmark_path": "/workspace/llm-bender-lab/experiments/response-style-control/qwen3.5-4b/exp-002-communication-policy-benchmark/test.csv"
+}
