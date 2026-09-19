@@ -152,6 +152,56 @@ majority-vote without distillation, disagreement selection ablation ve aynı
 Bu soru üç günlük tek deney değil; önce küçük coding görevleriyle feasibility
    pilotu yapılmalı.
 
+### Q-009 — TDD-first fine-tuning ile kod doğruluğu ve süreç güvenilirliği
+
+**Soru:** Bir 4B coding modeline, kullanıcı açıkça istemese bile önce
+gereksinimleri netleştirmeyi, bu gereksinimleri doğrulayan unit testleri yazmayı,
+sonra implementasyon yapmayı ve testleri çalıştırarak sonucu doğrulamayı öğreten
+SFT; aynı görevlerde doğrudan kod yazan bir baseline'a göre test geçme oranını,
+gereksinim kapsamını ve hata ayıklama başarısını artırır mı?
+
+**Hedef politika:** Model, kod yazmadan önce gereksinimleri çıkarır ve belirsiz
+noktaları sorar; ardından test planını ve unit testleri üretir; en son kodu yazar,
+testleri çalıştırır ve başarısız test varsa bunu görmezden gelmeden düzeltme
+döngüsüne girer. Kullanıcı “test yazma” dese bile model, doğruluk iddiası için
+testlerin gerekli olduğunu kısa ve teknik biçimde belirtir.
+
+**Kontrollü deney tasarımı:**
+
+- `direct-code` baseline: aynı görevlerde doğrudan implementasyon.
+- `tdd-policy`: requirements → tests → implementation → test execution → fix.
+- `requirements-only` ablation: gereksinim çıkarma var, test-first yok.
+- `tests-only` ablation: test yazma var, açık requirements adımı yok.
+- Her koşulda aynı model revision, görevler, araç bütçesi, seed ve timeout.
+- Testlerin doğru ve görevi gerçekten kapsayıp kapsamadığı, gizli evaluator ve
+  insan örneklemesiyle ayrıca denetlenmeli; yalnızca modelin kendi testlerini
+  geçmesi başarı kabul edilmemeli.
+
+**Bir görevin ideal rollout şeması:**
+
+1. Requirements: kabul kriterleri, varsayımlar ve açık sorular.
+2. Tests: başarısız olacak en az bir başlangıç testi, normal durumlar,
+   sınır durumları ve hata durumları.
+3. Implementation: testleri hedefleyen minimal kod değişikliği.
+4. Execution: test komutu, stdout/stderr, exit code ve süre kaydı.
+5. Repair: başarısız testler için sınırlı düzeltme döngüsü.
+6. Final report: değişen dosyalar, çalıştırılan komutlar ve kalan riskler.
+
+**Birincil metrikler:** gizli test-suite pass rate, ilk denemede pass rate,
+nihai pass rate, gereksinim kapsamı, test kalitesi (mutation score veya seeded
+bug detection), düzeltme başarısı ve yanlış güven (modelin tüm testler geçmeden
+başarılı rapor vermesi). İkincil metrikler token/araç çağrısı, latency, dosya
+değişikliği, test başına maliyet ve insan değerlendirmesidir.
+
+**Ana risk:** Modelin zayıf veya eksik testler yazarak kendisini “başarılı”
+göstermesi. Bu nedenle değerlendirme testleri eğitim rollout'larından gizli
+tutulmalı, test kalitesi bağımsız mutation/hidden-test ölçümüyle raporlanmalı ve
+SFT verisinde requirements ile testlerin birbirini sızdırmadığı kontrol edilmelidir.
+
+Bu soru, yalnızca cevap biçimi fine-tune'ı değil, araç kullanan agentik bir
+workflow fine-tune'ını gerektirir; ilk pilot küçük Python repository görevleriyle
+başlatılmalı ve her rollout'un ham terminal kayıtları saklanmalıdır.
+
 ## Aylık ve üç aylık sentez
 
 Her ay:
