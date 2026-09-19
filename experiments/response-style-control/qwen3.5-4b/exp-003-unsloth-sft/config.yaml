@@ -1,4 +1,4 @@
-experiment:
+﻿experiment:
   id: exp-003-unsloth-sft
   parent: exp-002-communication-policy-benchmark
   status: ready
@@ -19,7 +19,7 @@ model:
 
 dataset:
   path: ../exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv
-  sha256: 961f253df675272f6e420554f575246f176ce3946c46adb4ed36fe1842f85268
+  sha256: 46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163
   rows: 2442
   split: train
   builder_artifact: ../exp-001-sft-dataset/reviewed-v3/manifest.json
