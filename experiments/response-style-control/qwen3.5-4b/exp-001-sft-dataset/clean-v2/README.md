@@ -30,3 +30,8 @@ this candidate set.
 `manifest.json` records the source counts, filtering statistics, answer-span
 rewrites, and SHA-256
 hashes. This is a candidate for review, not yet the final training set.
+
+The 200 open-ended targets were subsequently human-rewritten: 193 were replaced
+and 7 were retained unchanged. The exact three-column review export is archived
+as `open_ended_counterexample_rewrites.csv`, with its hash and ID manifest in
+`open_ended_counterexample.rewrite-manifest.json`.
