@@ -21,9 +21,11 @@ frozen 100-item benchmark and blind human rubric are the quality gate.
 
 Both base and adapter outputs were generated for all 100 test prompts with
 thinking disabled, greedy decoding, temperature 0, and max 256 new tokens.
-`results/blind-review/blind-review.csv` is the only file to import into Argilla.
-It contains anonymous `output_a` and `output_b` columns. The identity map is in
-`blind-mapping-sealed.json` and must remain hidden until scoring is complete.
+`results/blind-review/argilla-review.csv` is the file to import into Argilla.
+It contains anonymous `output_a` and `output_b` columns plus non-decisive
+character/word-length diagnostics and automatic heuristic flags. The identity
+map is in `blind-mapping-sealed.json` and must remain hidden until scoring is
+complete.
 
 ## Reproducibility
 

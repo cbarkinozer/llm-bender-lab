@@ -45,7 +45,7 @@ The reportable final adapter is saved under `results/full-fast/lora-adapter`.
 The final benchmark must use `evaluate.py` twice (`--role base` and
 `--role candidate --adapter ...`) with the same frozen `test.csv`. Build the
 blind paired review file with `scripts/evaluation/build_blind_review.py`; import
-only `results/blind-review/blind-review.csv` into Argilla. Keep
+only `results/blind-review/argilla-review.csv` into Argilla. Keep
 `blind-mapping-sealed.json` private until human scoring is frozen.
 
 ## Local artifacts already saved
