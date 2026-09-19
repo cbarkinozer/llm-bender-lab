@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[2] / "experiments/response-style-control
 OUT = ROOT / "clean-v2"
 N = 200
 SEED = 3407
-CATEGORIES = ["bare_gec", "bare_qa_span", "terse_summary", "numeric_entity_precision_qa", "open_ended_counterexample"]
+CATEGORIES = ["bare_qa_span", "terse_summary", "numeric_entity_precision_qa", "open_ended_counterexample"]
 
 
 def text(row: dict, index: int) -> str:
@@ -42,6 +42,38 @@ def content_fingerprint(prompt: str) -> str:
         p = p.replace(norm(token), " ")
     words = p.split()
     return " ".join(words[:8])
+
+
+def answer_span_to_sentence(prompt: str, answer: str) -> tuple[str, str]:
+    """Put an extractive answer into the question's grammatical frame."""
+    question = prompt.split("Soru:", 1)[-1].split("Cevap:", 1)[0].strip().rstrip("?").strip()
+    out = question
+    kind = "fallback"
+    if re.search(r"\bkim\b", out, flags=re.IGNORECASE):
+        out = re.sub(r"\bkim\b", answer, out, count=1, flags=re.IGNORECASE)
+        kind = "who"
+    elif re.search(r"\bnerede(?:dir)?\b", out, flags=re.IGNORECASE):
+        # Location answers already carry -da/-de/-ta/-te. Add the Turkish
+        # copula so the result is a complete sentence: "... avlusundadır."
+        vowels = re.findall(r"[aıoueiöü]", answer.lower())
+        suffix = {"a": "dır", "ı": "dır", "o": "dur", "u": "dur", "e": "dir", "i": "dir", "ö": "dür", "ü": "dür"}.get(vowels[-1], "dır") if vowels else "dır"
+        location = answer.rstrip(".!?") + suffix
+        out = re.sub(r"\bnerede(?:dir)?\b", location, out, count=1, flags=re.IGNORECASE)
+        kind = "where"
+    elif re.search(r"\bkaçtır\b", out, flags=re.IGNORECASE):
+        out = re.sub(r"\bkaçtır\b", f"{answer} olarak belirtilmiştir", out, count=1, flags=re.IGNORECASE)
+        kind = "quantity"
+    elif re.search(r"\bkaç\b", out, flags=re.IGNORECASE):
+        out = re.sub(r"\bkaç\b", answer, out, count=1, flags=re.IGNORECASE)
+        kind = "quantity"
+    else:
+        # Keep the answer visible for manual review rather than inventing a
+        # grammatical relation that is not supported by the question.
+        out = answer
+    out = out[:1].upper() + out[1:]
+    if out and out[-1] not in ".!?":
+        out += "."
+    return out, kind
 
 
 def load_rows(category: str) -> list[dict]:
@@ -115,6 +147,18 @@ def choose(category: str, rows: list[dict]) -> tuple[list[dict], dict]:
     if len(selected) != N:
         raise RuntimeError(f"{category}: only {len(selected)} unique rows available")
     selected.sort(key=lambda r: r["id"])
+    answer_rewrites = Counter()
+    if category == "bare_qa_span":
+        rewritten = []
+        for row in selected:
+            row = dict(row)
+            messages = json.loads(row["messages"])
+            new_target, kind = answer_span_to_sentence(messages[0]["content"], messages[1]["content"])
+            messages[1]["content"] = new_target
+            row["messages"] = json.dumps(messages, ensure_ascii=False)
+            answer_rewrites[kind] += 1
+            rewritten.append(row)
+        selected = rewritten
     return selected, {
         "source_rows": len(rows),
         "exact_duplicate_rows_removed": len(exact_removed),
@@ -125,6 +169,7 @@ def choose(category: str, rows: list[dict]) -> tuple[list[dict], dict]:
         "answer_cap": answer_cap,
         "template_cap": template_cap,
         "rejected_by_cap": len(rejected),
+        "answer_span_rewrites": dict(answer_rewrites),
     }
 
 

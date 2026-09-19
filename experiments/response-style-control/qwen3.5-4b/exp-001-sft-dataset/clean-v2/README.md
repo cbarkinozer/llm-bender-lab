@@ -1,7 +1,7 @@
 # Clean SFT v2
 
-This is a reviewable 1,000-row candidate SFT set: 200 rows from each source
-category. The original source CSVs and `reviewed-v3` data are unchanged.
+This is a reviewable 800-row candidate SFT set: 200 rows from each of four
+source categories. The original source CSVs and `reviewed-v3` data are unchanged.
 
 The deterministic builder (`scripts/evaluation/build_clean_sft_v2.py`, seed
 `3407`) removes exact prompt/target duplicates, caps repeated exact answers and
@@ -17,11 +17,16 @@ field. The benchmark prompts are not copied into this SFT set.
 
 | Category | Rows | Argilla dataset |
 |---|---:|---|
-| `bare_gec` | 200 | `exp-004-sft-clean-v2-bare_gec` |
 | `bare_qa_span` | 200 | `exp-004-sft-clean-v2-bare_qa_span` |
 | `terse_summary` | 200 | `exp-004-sft-clean-v2-terse_summary` |
 | `numeric_entity_precision_qa` | 200 | `exp-004-sft-clean-v2-numeric_entity_precision_qa` |
 | `open_ended_counterexample` | 200 | `exp-004-sft-clean-v2-open_ended_counterexample` |
 
-`manifest.json` records the source counts, filtering statistics, and SHA-256
+`bare_gec` was intentionally excluded from this candidate because its synthetic
+correction style contained unnatural/inverted Turkish and could teach harmful
+signals. The original `bare_gec.csv` and reviewed data remain available outside
+this candidate set.
+
+`manifest.json` records the source counts, filtering statistics, answer-span
+rewrites, and SHA-256
 hashes. This is a candidate for review, not yet the final training set.

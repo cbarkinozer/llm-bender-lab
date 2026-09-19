@@ -10,7 +10,7 @@ from pathlib import Path
 
 import argilla as rg
 
-CATEGORIES = ["bare_gec", "bare_qa_span", "terse_summary", "numeric_entity_precision_qa", "open_ended_counterexample"]
+CATEGORIES = ["bare_qa_span", "terse_summary", "numeric_entity_precision_qa", "open_ended_counterexample"]
 
 
 def main() -> None:
