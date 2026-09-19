@@ -83,3 +83,20 @@ only `results/blind-review/argilla-review.csv` into Argilla. Keep
 logs, raw base/candidate outputs, blind review files, reproducibility snapshots,
 and the W&B run data. Its verified SHA-256 is recorded beside the archive in
 the handoff notes.
+## Benchmark inference incident (2026-09-19)
+
+The first candidate benchmark attempt appeared stalled before writing its first
+JSONL row. The process was not deadlocked: Qwen3.5's first generation triggered
+slow kernel/backend initialization, and the Transformers/Unsloth fallback showed
+near-zero sampled GPU utilization while the CPU remained busy. A single
+16-token diagnostic response eventually completed; a subsequent three-item
+run also completed and flushed each row successfully.
+
+The original evaluator had no progress output and did not flush after each row,
+which made this look like a hang and risked losing progress. It was patched to
+support `--limit` and `--max-new-tokens`, print `generating` / `completed`
+markers, and flush JSONL after every item. The full candidate benchmark was
+then launched in the background with unbuffered logging and line-count checks.
+
+This is an inference-backend performance limitation, not a training failure:
+the SFT smoke, tiny-overfit, and full training runs completed successfully.
