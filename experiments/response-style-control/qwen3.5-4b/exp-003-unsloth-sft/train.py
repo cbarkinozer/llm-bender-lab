@@ -456,13 +456,15 @@ def main() -> None:
     # even for a conversational dataset. Keep the raw messages available so
     # TRL can derive assistant-only masks, while using the exact same pinned
     # non-thinking template used by the representation checks above.
-    def formatting_func(example: dict[str, Any]) -> str:
-        return text_tokenizer.apply_chat_template(
-            example["messages"],
-            tokenize=False,
-            add_generation_prompt=False,
-            enable_thinking=False,
-        )
+    def formatting_func(example: dict[str, Any]) -> list[str]:
+        return [
+            text_tokenizer.apply_chat_template(
+                example["messages"],
+                tokenize=False,
+                add_generation_prompt=False,
+                enable_thinking=False,
+            )
+        ]
 
     trainer_args = SFTConfig(
             output_dir=str(output_dir / "checkpoints"),
