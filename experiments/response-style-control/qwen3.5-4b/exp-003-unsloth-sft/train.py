@@ -457,13 +457,19 @@ def main() -> None:
     # TRL can derive assistant-only masks, while using the exact same pinned
     # non-thinking template used by the representation checks above.
     def formatting_func(example: dict[str, Any]) -> list[str]:
+        messages = example["messages"]
+        # Unsloth calls formatting_func in batched mode. Normalize both its
+        # batched shape ([[messages], ...]) and the single-example shape.
+        if messages and isinstance(messages[0], dict):
+            messages = [messages]
         return [
             text_tokenizer.apply_chat_template(
-                example["messages"],
+                item,
                 tokenize=False,
                 add_generation_prompt=False,
                 enable_thinking=False,
             )
+            for item in messages
         ]
 
     trainer_args = SFTConfig(
