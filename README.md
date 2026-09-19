@@ -634,3 +634,7 @@ The common experimental principle across all four projects is simple:
 A successful training run is therefore not defined by decreasing loss.
 
 It is defined by measurable improvement on the behavior the experiment was designed to teach.
+
+The ongoing 4B research-question program, including the three-day pilot cadence,
+experiment template, and future architecture/agent questions, is tracked in
+[`experiments/response-style-control/qwen3.5-4b/research-question-program.md`](experiments/response-style-control/qwen3.5-4b/research-question-program.md).
