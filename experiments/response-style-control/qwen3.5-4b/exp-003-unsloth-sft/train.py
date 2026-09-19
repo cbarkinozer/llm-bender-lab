@@ -452,6 +452,18 @@ def main() -> None:
 
     conversational_dataset = Dataset.from_list([to_conversational(example) for example in examples])
 
+    # Unsloth's patched SFTTrainer currently requires an explicit formatter
+    # even for a conversational dataset. Keep the raw messages available so
+    # TRL can derive assistant-only masks, while using the exact same pinned
+    # non-thinking template used by the representation checks above.
+    def formatting_func(example: dict[str, Any]) -> str:
+        return text_tokenizer.apply_chat_template(
+            example["messages"],
+            tokenize=False,
+            add_generation_prompt=False,
+            enable_thinking=False,
+        )
+
     trainer_args = SFTConfig(
             output_dir=str(output_dir / "checkpoints"),
             max_length=args.max_seq_length,
@@ -484,6 +496,7 @@ def main() -> None:
         model=model,
         processing_class=text_tokenizer,
         train_dataset=conversational_dataset,
+        formatting_func=formatting_func,
         args=trainer_args,
     )
     trainable_parameters = sum(parameter.numel() for parameter in model.parameters() if parameter.requires_grad)
