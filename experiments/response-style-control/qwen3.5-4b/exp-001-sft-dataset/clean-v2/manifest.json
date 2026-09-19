@@ -1,0 +1,88 @@
+{
+  "version": "clean-sft-v2",
+  "seed": 3407,
+  "target_per_category": 200,
+  "categories": {
+    "bare_gec": {
+      "source_rows": 495,
+      "exact_duplicate_rows_removed": 0,
+      "exact_duplicate_ids_removed": [],
+      "selected_rows": 200,
+      "selected_one_word_targets": 0,
+      "selected_one_word_fraction": 0.0,
+      "answer_cap": 3,
+      "template_cap": 4,
+      "rejected_by_cap": 0
+    },
+    "bare_qa_span": {
+      "source_rows": 547,
+      "exact_duplicate_rows_removed": 0,
+      "exact_duplicate_ids_removed": [],
+      "selected_rows": 200,
+      "selected_one_word_targets": 0,
+      "selected_one_word_fraction": 0.0,
+      "answer_cap": 4,
+      "template_cap": 4,
+      "rejected_by_cap": 9
+    },
+    "terse_summary": {
+      "source_rows": 500,
+      "exact_duplicate_rows_removed": 0,
+      "exact_duplicate_ids_removed": [],
+      "selected_rows": 200,
+      "selected_one_word_targets": 0,
+      "selected_one_word_fraction": 0.0,
+      "answer_cap": 3,
+      "template_cap": 4,
+      "rejected_by_cap": 1
+    },
+    "numeric_entity_precision_qa": {
+      "source_rows": 500,
+      "exact_duplicate_rows_removed": 0,
+      "exact_duplicate_ids_removed": [],
+      "selected_rows": 200,
+      "selected_one_word_targets": 0,
+      "selected_one_word_fraction": 0.0,
+      "answer_cap": 4,
+      "template_cap": 4,
+      "rejected_by_cap": 112
+    },
+    "open_ended_counterexample": {
+      "source_rows": 400,
+      "exact_duplicate_rows_removed": 0,
+      "exact_duplicate_ids_removed": [],
+      "selected_rows": 200,
+      "selected_one_word_targets": 0,
+      "selected_one_word_fraction": 0.0,
+      "answer_cap": 3,
+      "template_cap": 4,
+      "rejected_by_cap": 0
+    }
+  },
+  "files": {
+    "bare_gec.csv": {
+      "rows": 200,
+      "sha256": "551ed71f1d039bd6453b4168facea8209e04a7a31a0601a0d2a48d9154dc7dc9"
+    },
+    "bare_qa_span.csv": {
+      "rows": 200,
+      "sha256": "26eafaaf0854a03b47a71ea9abedad1892ef87587a224bf1c4db19d6de435649"
+    },
+    "terse_summary.csv": {
+      "rows": 200,
+      "sha256": "89d5564b5adaf84b8f6bdb00987ca7ffca3f09e1d4f9171da5a8715ead9dc372"
+    },
+    "numeric_entity_precision_qa.csv": {
+      "rows": 200,
+      "sha256": "1f06aaaadfbc3ecfd88522aee05bc74d0f3fdeb17690c80991f94d5419c12e72"
+    },
+    "open_ended_counterexample.csv": {
+      "rows": 200,
+      "sha256": "c078086c0358c2c76c7185300a48d9471cab5186b0d7915ff6abc337a44c3904"
+    },
+    "sft-clean-v2-1000.csv": {
+      "rows": 1000,
+      "sha256": "92d12dd159fdbc8c7a9df1cc5f57418fee8aa143b26134ec8e38d50f479c0ac4"
+    }
+  }
+}
