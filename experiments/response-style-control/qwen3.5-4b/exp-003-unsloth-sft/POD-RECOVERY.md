@@ -24,6 +24,35 @@ an importable `fla` package. The direct `causal-conv1d` wheel is intentional:
 building it from source attempted to install an incompatible newer Torch/CUDA
 toolchain.
 
+## Fresh-pod check (2026-09-19)
+
+The new RTX 4090 pod started from the base image with Torch `2.4.1+cu124`
+and Triton `3.0.0`, with no Unsloth stack installed. Installing the current
+`unsloth==2026.9.6` with normal dependency resolution upgraded Torch to
+`2.12.1+cu130`; that is not the reportable setup for this experiment.
+Re-pin Torch, Triton, and torchvision after installing Unsloth:
+
+```bash
+pip install --force-reinstall --no-deps 'torch==2.7.1' 'triton==3.3.1' \
+  --index-url https://download.pytorch.org/whl/cu128
+pip install --force-reinstall --no-deps 'torchvision==0.22.1' \
+  --index-url https://download.pytorch.org/whl/cu128
+```
+
+The resolver-installed `torchao` and `xformers` wheels target the newer Torch
+stack and make `transformers` fail at import (`ScalingType` is missing in
+Torch 2.7). They are optional for this run and were removed:
+
+```bash
+pip uninstall -y torchao xformers
+```
+
+Imports were then verified on the RTX 4090: Torch `2.7.1+cu128`, CUDA runtime
+`12.8`, Triton `3.3.1`, Transformers `5.5.0`, FLA `0.5.2`, and Unsloth
+`2026.9.6`. The supplied causal-conv1d wheel imports but reports that its C++
+extension is skipped for Torch <2.11; this must be recorded in the run
+manifest and not silently described as fully accelerated.
+
 ## W&B
 
 ```bash
