@@ -100,3 +100,12 @@ then launched in the background with unbuffered logging and line-count checks.
 
 This is an inference-backend performance limitation, not a training failure:
 the SFT smoke, tiny-overfit, and full training runs completed successfully.
+
+## Argilla review protocol
+
+The Argilla dataset `exp-004-v2-blind-benchmark` intentionally uses a compact
+review form. For each prompt, the reviewer only selects `A`, `B`, or `Equal`
+for the better response. An optional note is available for a consequential
+error or an explanation, but the reviewer does not fill separate true/false
+fields for every policy dimension. Length checks and pattern diagnostics remain
+in the offline CSV/manifest and are not part of the manual burden.
