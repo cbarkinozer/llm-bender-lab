@@ -54,6 +54,34 @@ def settings(categories: list[str]) -> rg.Settings:
     )
 
 
+def compact_settings(categories: list[str]) -> rg.Settings:
+    """A lower-burden review: record only required outcomes and failures."""
+    failures = list(POLICY_DIMENSIONS)
+    return rg.Settings(
+        guidelines=(
+            "Score the required outcomes first. In Policy failures, select only dimensions that fail; "
+            "leave it blank when no applicable policy failure is present. Do not treat brevity alone as a failure. "
+            "Automatic diagnostics are informational and must not decide the review."
+        ),
+        fields=[
+            rg.TextField(name="prompt_tr", title="Prompt (Turkish)", use_markdown=False),
+            rg.TextField(name="output_a", title="Response A", use_markdown=False),
+            rg.TextField(name="output_b", title="Response B", use_markdown=False),
+            rg.TextField(name="length_diagnostics", title="Automatic length diagnostics", use_markdown=False),
+            rg.TextField(name="automatic_flags", title="Automatic heuristic flags (diagnostic only)", use_markdown=False),
+        ],
+        questions=[
+            rg.LabelQuestion(name="pairwise_preference", title="Which response is better overall?", labels=["A", "B", "tie"], required=True),
+            rg.LabelQuestion(name="task_completion_a", title="Task completion — A", labels=["pass", "fail"], required=True),
+            rg.LabelQuestion(name="task_completion_b", title="Task completion — B", labels=["pass", "fail"], required=True),
+            rg.MultiLabelQuestion(name="policy_failures_a", title="Policy failures — A (select only failures)", labels=failures, required=False),
+            rg.MultiLabelQuestion(name="policy_failures_b", title="Policy failures — B (select only failures)", labels=failures, required=False),
+            rg.TextQuestion(name="review_notes", title="Review notes", description="Briefly record the reason for the preference or any Turkish quality problem.", required=True),
+        ],
+        metadata=[rg.TermsMetadataProperty(name="category", options=categories)],
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("input", type=Path)
@@ -61,6 +89,7 @@ def main() -> None:
     parser.add_argument("--api-key", default=os.getenv("ARGILLA_API_KEY", "argilla.apikey"))
     parser.add_argument("--workspace", default=os.getenv("ARGILLA_WORKSPACE", "sft-review"))
     parser.add_argument("--dataset-name", default="exp-003-communication-policy-blind-v1")
+    parser.add_argument("--compact", action="store_true", help="Use the low-burden failure-only review form.")
     parser.add_argument("--replace", action="store_true")
     args = parser.parse_args()
 
@@ -75,7 +104,8 @@ def main() -> None:
             raise SystemExit(f"Dataset {args.dataset_name!r} already exists; use --replace intentionally.")
         existing.delete()
     categories = sorted({row["category"] for row in rows})
-    dataset = rg.Dataset(name=args.dataset_name, workspace=args.workspace, settings=settings(categories), client=client)
+    dataset_settings = compact_settings(categories) if args.compact else settings(categories)
+    dataset = rg.Dataset(name=args.dataset_name, workspace=args.workspace, settings=dataset_settings, client=client)
     dataset.create()
     records = []
     for row in rows:
