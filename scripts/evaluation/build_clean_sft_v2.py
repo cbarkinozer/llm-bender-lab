@@ -188,7 +188,7 @@ def main() -> None:
         manifest["categories"][category] = stats
         manifest["files"][out.name] = {"rows": len(rows), "sha256": digest}
         all_rows.extend(rows)
-    combined = OUT / "sft-clean-v2-1000.csv"
+    combined = OUT / "sft-clean-v2-800.csv"
     with combined.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(all_rows[0].keys()))
         writer.writeheader(); writer.writerows(all_rows)
