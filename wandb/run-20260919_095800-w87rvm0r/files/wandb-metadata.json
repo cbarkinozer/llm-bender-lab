@@ -1,0 +1,51 @@
+{
+  "os": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.10",
+  "startedAt": "2026-09-19T09:58:00.729241Z",
+  "args": [
+    "--mode",
+    "full",
+    "--allow-dirty-worktree",
+    "--smoke-run",
+    "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/results/smoke-fast",
+    "--tiny-overfit-run",
+    "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/results/tiny-overfit-fast",
+    "--output-dir",
+    "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/results/full-fast"
+  ],
+  "program": "/workspace/llm-bender-lab/experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/train.py",
+  "codePath": "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/train.py",
+  "codePathLocal": "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/train.py",
+  "git": {
+    "remote": "https://github.com/cbarkinozer/llm-bender-lab.git",
+    "commit": "06e8fa4fd659439b61309cdf4c2fd546e3eb8ebd"
+  },
+  "email": "c.barkinozer@gmail.com",
+  "root": "/workspace/llm-bender-lab",
+  "host": "b994377054c4",
+  "executable": "/workspace/.venvs/qwen-fast/bin/python",
+  "cpu_count": 48,
+  "cpu_count_logical": 96,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "21474836480",
+      "used": "3102654464"
+    }
+  },
+  "memory": {
+    "total": "270075150336"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada",
+      "uuid": "GPU-971d1e03-c1b5-c8f4-a8db-3e1e345e6b5a"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "ceg99l8fo4dlwondib5pi6vgqbr1rete"
+}
