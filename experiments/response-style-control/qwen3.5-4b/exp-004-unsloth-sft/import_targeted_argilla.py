@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 import argilla as rg
 
-SOURCE = Path(r"C:\Users\cbark\Downloads\sft_all_60.jsonl")
+SOURCE = Path(__file__).parent / "results" / "targeted-generated" / "sft_all_60.jsonl"
 API_URL = "http://127.0.0.1:6900"
 API_KEY = "argilla.apikey"
 WORKSPACE = "sft-review"

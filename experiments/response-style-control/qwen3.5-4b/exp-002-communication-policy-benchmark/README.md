@@ -1,5 +1,11 @@
 # exp-002 — Communication Policy Benchmark
 
+> **Current role:** development/diagnostic benchmark. Its exp-004 review
+> directly informed exp-005 training-data categories, so it is no longer an
+> independent final test for exp-005 or later data iterations. Historical
+> scores remain valid for their original runs; new final claims must use a
+> fresh holdout such as `exp-005-targeted-policy-sft/evaluation/final-holdout-v1.csv`.
+
 This benchmark evaluates whether fine-tuning changes Qwen3.5-4B's response
 policy while preserving its existing Turkish comprehension and instruction
 following. It is not a Turkish-language benchmark and it is not an SFT source.
@@ -35,7 +41,8 @@ idea should be called infeasible and the relevant constraints should be named.
 
 - `item-schema.csv` — required columns and one non-evaluable schema example.
 - `development.csv` — reserved for a future iterative recipe; currently header-only.
-- `test.csv` — frozen final held-out set of 100 original Turkish prompts.
+- `test.csv` — historical 100-prompt test, now development/diagnostic for
+  exp-005 and later iterations.
 - `scoring-rubric.md` — blind-scoring protocol and pass criteria.
 - `item-authoring-guide.md` — use-case families and authoring rules.
 

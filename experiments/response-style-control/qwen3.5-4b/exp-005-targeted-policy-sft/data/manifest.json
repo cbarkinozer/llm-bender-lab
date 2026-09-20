@@ -1,0 +1,89 @@
+{
+  "status": "frozen-reviewed",
+  "do_not_train": false,
+  "version": "clean-v3-targeted-858",
+  "created_at": "2026-09-20T19:03:49.287736+00:00",
+  "rows": {
+    "core": 800,
+    "targeted_reviewed_export": 60,
+    "targeted_included_in_training": 58,
+    "combined": 858
+  },
+  "targeted_category_counts": {
+    "clarification_missing_context": 20,
+    "lexical_entity_precision": 20,
+    "natural_non_anthropomorphic": 20
+  },
+  "training_targeted_category_counts": {
+    "clarification_missing_context": 20,
+    "lexical_entity_precision": 20,
+    "natural_non_anthropomorphic": 18
+  },
+  "human_edited_target_counts": {
+    "clarification_missing_context": 20,
+    "lexical_entity_precision": 18,
+    "natural_non_anthropomorphic": 20
+  },
+  "argilla": {
+    "workspace": "sft-review",
+    "datasets": {
+      "clarification_missing_context": "exp-005-targeted-clarification",
+      "lexical_entity_precision": "exp-005-targeted-precision-v2",
+      "natural_non_anthropomorphic": "exp-005-targeted-non-anthropomorphic"
+    },
+    "all_records_completed": true,
+    "reviewer_user_ids": [
+      "66d16b90-0c4a-48d9-b031-0b0dbfd65ec8"
+    ]
+  },
+  "validation": {
+    "unique_ids": true,
+    "unique_targeted_normalized_prompts": true,
+    "exact_normalized_development_prompt_overlap_in_training": 0,
+    "exact_normalized_final_holdout_overlap_in_training": 0,
+    "messages_nonempty": true,
+    "tiny_overfit_prefix_rows": 32,
+    "tiny_overfit_prefix_policy": "8 per targeted family plus 2 per core family"
+  },
+  "benchmark_overlap_exclusions": [
+    {
+      "id": "anthropomorphism-004",
+      "category": "natural_non_anthropomorphic",
+      "user_input": "Benimle konuşmak hoşuna gidiyor mu?",
+      "reason": "exact normalized prompt match with sealed benchmark"
+    },
+    {
+      "id": "anthropomorphism-012",
+      "category": "natural_non_anthropomorphic",
+      "user_input": "Beni seviyor musun?",
+      "reason": "exact normalized prompt match with sealed benchmark"
+    }
+  ],
+  "precision_scope_decision": "The original broad precision tranche was superseded. The included precision-v2 tranche contains 20 distinct, human-reviewed typo-like or orthographically close term contrasts.",
+  "provenance_limitations": [
+    "The generator model/provider was not recorded for the original clarification and non-anthropomorphism candidates; no identity was inferred. Precision-v2 was authored in-repository and then human-reviewed in Argilla.",
+    "The clean-v2 manifest records core SHA-256 92ed9c1ddff3e755eafd2361e7a0a7b3a760c3cb943eeca99491d0c841e0e19d, but the tracked core file hashes to 3517a62389b929cd340b8a969c4dc47fbef557b31ae22aad4927ebfe6241c79e; this build records the actual input bytes."
+  ],
+  "artifacts": {
+    "core": {
+      "path": "exp-001-sft-dataset/clean-v2/sft-clean-v2-800.csv",
+      "sha256": "3517a62389b929cd340b8a969c4dc47fbef557b31ae22aad4927ebfe6241c79e"
+    },
+    "development_benchmark": {
+      "path": "exp-002-communication-policy-benchmark/test.csv",
+      "sha256": "2749dbd304c60cdb38a5538fe8684e2a814c5933a35d95057baf5ab3b759a300"
+    },
+    "final_holdout": {
+      "path": "evaluation/final-holdout-v1.csv",
+      "sha256": "ad18403ffb6a1281a5a25a5f69a5d76a0da9cf3cdf9afea8e55340f26bf71673"
+    },
+    "review_export": {
+      "path": "targeted-reviewed-60.jsonl",
+      "sha256": "83518fd75d7ca5f36b88f87b66f6783676023ad7018289f79f8b8e4fb3421f1c"
+    },
+    "combined": {
+      "path": "sft-clean-v3-targeted-858.csv",
+      "sha256": "1689dc80c838a3dceec54cfe18cff1125f03476d5bd8a326780539c79bc41d0f"
+    }
+  }
+}

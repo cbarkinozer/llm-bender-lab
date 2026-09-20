@@ -1,0 +1,29 @@
+{
+  "version": "final-policy-holdout-v1",
+  "role": "sealed-final-test",
+  "rows": 48,
+  "family_counts": {
+    "clarification_missing_context": 12,
+    "lexical_near_term": 12,
+    "natural_non_anthropomorphic": 12,
+    "regression_useful_detail": 12
+  },
+  "validation": {
+    "unique_ids": true,
+    "unique_normalized_prompts": true,
+    "exact_training_overlap": 0,
+    "near_match_review_threshold": 0.82,
+    "near_match_candidates": []
+  },
+  "use_policy": "Freeze before training. Do not use outputs to change exp-005 data, hyperparameters, or checkpoint selection. Evaluate only after the candidate is frozen.",
+  "artifacts": {
+    "holdout": {
+      "path": "final-holdout-v1.csv",
+      "sha256": "ad18403ffb6a1281a5a25a5f69a5d76a0da9cf3cdf9afea8e55340f26bf71673"
+    },
+    "rubric": {
+      "path": "scoring-rubric.md",
+      "sha256": "90598361df5224c2c8ba0191eff096f949e46953b7140759f43697f820a1fb4e"
+    }
+  }
+}

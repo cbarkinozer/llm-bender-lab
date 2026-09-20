@@ -102,5 +102,7 @@ test. The independent communication-policy benchmark is being authored under
 | --- | --- | --- | --- |
 | `exp-000-baseline` | reused | N/A — reuses `turkish-capability/qwen3.5-4b/exp-000-baseline` | No re-run needed |
 | `exp-001-sft-dataset` | ready | Narrow style-control dataset (GEC/QA/summarization bare-output + open-ended counter-set) | Final reviewed SFT v1: 2,442 accepted, exact-deduplicated rows |
-| `exp-002-communication-policy-benchmark` | ready | Independent direct/neutral/tool-like response-policy evaluation | 100 original Turkish final-test prompts; held out from SFT |
+| `exp-002-communication-policy-benchmark` | development | Direct/neutral/tool-like response-policy diagnostic | Its exp-004 review informed exp-005 data; no longer a clean final test for later iterations |
 | `exp-003-unsloth-sft` | ready for preflight | bf16 LoRA SFT on the frozen v1 data | Full run is gated on representation, smoke, and tiny-overfit evidence |
+| `exp-004-unsloth-sft` | completed | 800-row clean-v2 core and three-epoch bf16 LoRA run | Post-review findings motivated a small targeted policy tranche |
+| `exp-005-targeted-policy-sft` | ready for preflight | Add reviewed clarification, typo-like precision, and non-anthropomorphism examples | Frozen 858-row dataset and fresh 48-item final holdout; CPU dry-run passed |
