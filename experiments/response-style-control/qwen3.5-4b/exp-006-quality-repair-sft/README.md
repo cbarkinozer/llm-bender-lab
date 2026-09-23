@@ -2,8 +2,10 @@
 
 ## Status
 
-Design frozen; corrective candidates awaiting human review. No training artifact
-may be built until every candidate has an explicit review decision.
+Design frozen; human review is in progress. The completed calibrated-emotional
+category is exported under `data/partial-reviews/`; the remaining four
+categories still gate dataset construction. No training artifact may be built
+until every candidate has an explicit review decision.
 
 ## Primary hypothesis
 

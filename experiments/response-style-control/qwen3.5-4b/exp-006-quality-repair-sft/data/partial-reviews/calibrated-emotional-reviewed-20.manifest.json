@@ -1,0 +1,22 @@
+{
+  "status": "completed-category-review; experiment-review-still-in-progress",
+  "category": "calibrated_emotional",
+  "dataset_name": "exp-006-calibrated-emotional",
+  "dataset_id": "a9cb2457-6b13-41ef-afb2-7a54365c40fe",
+  "candidate_records": 20,
+  "reviewed_records": 20,
+  "decisions": {
+    "rewrite": 20
+  },
+  "artifacts": {
+    "candidate_pool": {
+      "path": "data\\quality-repair-candidates-100.jsonl",
+      "sha256": "f7995b86cf20e5587a04e1d02141c17a1c623dfc306021ebde4f95233a33bb7e"
+    },
+    "review_export": {
+      "path": "calibrated-emotional-reviewed-20.jsonl",
+      "sha256": "5686eb8fce5622d7e2df1dc04211106a24c0492e2da67efb1b526bee18d39da3"
+    }
+  },
+  "scope": "This is a durable category-level review export, not an exp-006 training artifact or experiment finalization."
+}
