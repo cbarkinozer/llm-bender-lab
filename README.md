@@ -40,6 +40,14 @@ Start with a general model, bend it toward a specific capability, and measure wh
 
 ## Fine-Tuning Roadmap (TODO)
 
+The breadth-first post-training curriculum, including SFT, preference
+optimization, RLVR, reasoning training, CPT/DAPT, distillation, tool use,
+cross-lingual transfer, quantization, MoE, VLM, text diffusion, decision models,
+and the later depth phase, is maintained in
+[`docs/post-training-learning-roadmap.md`](docs/post-training-learning-roadmap.md).
+The domain roadmap below provides the original project context; the curriculum
+document is the source of truth for the order of future method-learning pilots.
+
 The goal of this project is not to fine-tune models simply for the sake of producing another adapter. Each experiment should answer a concrete question about what fine-tuning can realistically teach a small language model.
 
 The roadmap progresses through four increasingly difficult problems:
