@@ -47,7 +47,7 @@ under a protocol frozen before results are inspected.
 - parent artifact: 858 rows from exp-005,
 - reviewed repair tranche: 100 accepted rows, 20 per repair family,
 - combined artifact: `data/sft-clean-v4-quality-repair-958.csv`,
-- combined SHA-256: `20d6600938fab016d41fea5b653f1161e52df1115bf0c722f2f53f0c37446485`.
+- canonical-LF combined SHA-256: `bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff`.
 
 The full reviewed export is `data/quality-repair-reviewed-100.jsonl`. Two
 issues found during the final full-tranche QA pass were corrected only after

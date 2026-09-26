@@ -15,7 +15,9 @@ ROOT=Path(__file__).parent; DATA=ROOT/"data"; EVAL=ROOT/"evaluation"
 PARENT=ROOT.parent/"exp-005-targeted-policy-sft"; CAND=DATA/"quality-repair-candidates-100.jsonl"
 PARTIAL=DATA/"partial-reviews"
 
-def sha(path:Path)->str: return hashlib.sha256(path.read_bytes()).hexdigest()
+def sha(path:Path)->str:
+    """Hash repository text in its canonical LF form on every platform."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n",b"\n")).hexdigest()
 
 def load_review_exports(candidates: dict[str, dict]) -> list[dict]:
     """Load the durable category exports and bind them to the frozen candidates."""

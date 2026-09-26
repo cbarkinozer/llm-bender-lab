@@ -13,13 +13,13 @@ model:
   thinking_mode: false
 dataset:
   path: data/sft-clean-v4-quality-repair-958.csv
-  sha256: 20d6600938fab016d41fea5b653f1161e52df1115bf0c722f2f53f0c37446485
+  sha256: bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff
   rows: 958
   split: train
   builder_artifact: data/manifest.json
 evaluation:
   benchmark_path: evaluation/final-holdout-v2.csv
-  benchmark_sha256: 32bd815aba0811d084fe462031e80a6f749899e40960b924a43aeb999a8abebf
+  benchmark_sha256: 1eb26264e79e0818200d06d959625c31786818c26f9ff2bc6105b69921e135fb
   benchmark_split: sealed-final
   protocol: evaluation/scoring-rubric.md
   thinking_mode: false

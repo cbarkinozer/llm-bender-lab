@@ -24,7 +24,7 @@ EXPECTED = {
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def normalized(text: str) -> str:
@@ -84,6 +84,13 @@ def main() -> None:
     assert len({row["id"] for row in combined}) == len(combined)
     assert sha256(reviewed_path) == manifest["artifacts"]["review_export"]["sha256"]
     assert sha256(combined_path) == manifest["artifacts"]["combined"]["sha256"]
+    partial_manifests = sorted((DATA / "partial-reviews").glob("*.manifest.json"))
+    assert len(partial_manifests) == 5
+    for manifest_path in partial_manifests:
+        partial = json.loads(manifest_path.read_text(encoding="utf-8"))
+        export_path = manifest_path.parent / partial["artifacts"]["review_export"]["path"]
+        assert sha256(export_path) == partial["artifacts"]["review_export"]["sha256"]
+        assert sha256(DATA / "quality-repair-candidates-100.jsonl") == partial["artifacts"]["candidate_pool"]["sha256"]
 
     report = {
         "status": "passed",
@@ -110,6 +117,7 @@ def main() -> None:
             "hidden_ambiguity_questions": "passed",
             "combined_id_uniqueness": "passed",
             "artifact_hashes": "passed",
+            "category_export_hashes": "passed",
         },
         "manual_qa": {
             "full_tranche_read": True,
