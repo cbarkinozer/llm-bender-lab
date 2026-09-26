@@ -335,3 +335,7 @@ Finally, add each experiment's generated `results/` directory to `.gitignore`
 before producing the required pre-training base output. Otherwise the
 subsequent representation check correctly refuses to run from the newly dirty
 worktree even though the only untracked file is the base result.
+
+Unsloth 2026.9.6 may also create `unsloth_compiled_cache/` in the current
+working directory during import. Keep that generated directory outside Git (or
+ignore it explicitly) before enforcing the clean-worktree training gate.
