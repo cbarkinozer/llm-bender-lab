@@ -302,3 +302,36 @@ persistent venv + persistent HF/pip caches
 
 Preserve failed resolver attempts and final versions in the experiment
 environment artifact: setup failures are reproducibility evidence.
+
+## 14. Vast.ai first-boot and SSH environment behavior
+
+The `vastai/pytorch:cuda-12.4.1-auto` image was about 9 GB compressed but took
+15 minutes to become SSH-ready on one verified Denmark RTX 4090 host and 45
+minutes on a Bulgaria host. Daemon logs showed that network downloads had
+completed while Docker was still extracting large layers; advertised network
+speed therefore did not predict boot time. Prefer hosts with high disk
+bandwidth, impose a time limit on loading, and destroy rather than merely stop
+an abandoned instance because storage billing continues while it exists.
+
+On the tested 2026-09-26 image, the name `vastai/pytorch` did not mean that
+PyTorch was installed: system Python was 3.12 and `import torch` failed. The
+reportable environment was instead recreated under `/workspace` with uv-managed
+Python 3.11 and `/workspace/.venvs/qwen-fast`, then pinned to the previously
+validated Torch 2.7.1+cu128 / Triton 3.3.1 / Unsloth 2026.9.6 stack.
+
+Vast template environment variables are visible to the on-start script but are
+not all inherited by later SSH sessions. In this run only `DATA_DIRECTORY` and
+`LANG` survived. Export `HF_HOME`, `PIP_CACHE_DIR`, `WANDB_DIR`, and related
+cache variables explicitly for every non-interactive SSH command, or write
+non-secret values to `/etc/environment` and verify them in a fresh SSH session.
+
+When invoking Linux commands through Windows PowerShell and `ssh`, unescaped
+remote shell variables such as `$UV` and command substitutions such as `$(...)`
+may be expanded or corrupted by the local shell before reaching the pod. For
+automation, prefer literal absolute remote paths and simple commands; test
+quoting with a read-only probe before starting a long installation or run.
+
+Finally, add each experiment's generated `results/` directory to `.gitignore`
+before producing the required pre-training base output. Otherwise the
+subsequent representation check correctly refuses to run from the newly dirty
+worktree even though the only untracked file is the base result.
