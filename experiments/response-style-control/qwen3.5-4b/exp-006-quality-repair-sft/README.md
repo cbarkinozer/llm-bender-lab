@@ -2,10 +2,10 @@
 
 ## Status
 
-Design frozen; human review is in progress. The completed calibrated-emotional
-category is exported under `data/partial-reviews/`; the remaining four
-categories still gate dataset construction. No training artifact may be built
-until every candidate has an explicit review decision.
+Dataset frozen after human review and post-review QA. All 100 candidates have
+an explicit decision: 69 were rewritten, 31 were accepted, and none were
+rejected. The resulting 958-row training artifact is ready for GPU preflight;
+full training remains gated on representation, smoke, and tiny-overfit checks.
 
 ## Primary hypothesis
 
@@ -36,25 +36,65 @@ diagnostic material. It cannot support an independent final exp-006 claim.
 `evaluation/final-holdout-v2.csv` is a fresh, sealed final test. Do not inspect
 model outputs from it or use them for data, recipe, or checkpoint decisions.
 
-## Human-review gate
+This internal holdout measures the five repair families, but it is not by
+itself independent third-party proof of general model quality. Any later
+release claim must also use a version-pinned benchmark not authored for this
+project, with its untouched test split excluded from training and evaluated
+under a protocol frozen before results are inspected.
 
-Review the five 20-record Argilla datasets. For each proposed answer choose
-`accept`, `rewrite`, or `reject`. A rewrite requires a complete replacement
-answer. The reviewed tranche is not frozen until all 100 decisions are
-submitted and the exporter passes schema, leakage, and hash checks.
+## Frozen dataset
 
-Review links:
+- parent artifact: 858 rows from exp-005,
+- reviewed repair tranche: 100 accepted rows, 20 per repair family,
+- combined artifact: `data/sft-clean-v4-quality-repair-958.csv`,
+- combined SHA-256: `20d6600938fab016d41fea5b653f1161e52df1115bf0c722f2f53f0c37446485`.
 
-- calibrated emotional responses: `http://127.0.0.1:6900/dataset/5a08780f-fead-4a3d-87a9-0bd7f02cf478/annotation-mode?page=1&status=pending`
-- consistency and semantic integrity: `http://127.0.0.1:6900/dataset/9c148d1c-9551-4d4e-84dd-63f5eafe5afc/annotation-mode?page=1&status=pending`
-- hidden ambiguity: `http://127.0.0.1:6900/dataset/e87c9dbd-0189-4874-9d33-2313dcf7496e/annotation-mode?page=1&status=pending`
-- Turkish precision: `http://127.0.0.1:6900/dataset/0d98912f-99c8-4a15-b462-f46919369fc6/annotation-mode?page=1&status=pending`
-- unsupported completion: `http://127.0.0.1:6900/dataset/09aec3a7-7636-4c72-968f-93f8d8d94799/annotation-mode?page=1&status=pending`
+The full reviewed export is `data/quality-repair-reviewed-100.jsonl`. Two
+issues found during the final full-tranche QA pass were corrected only after
+explicit reviewer approval; their IDs and rationale remain in the category
+exports and quality report.
 
-After all reviews are submitted:
+Validation results:
+
+- exact overlap with the 1,006-prompt prior train/evaluation pool: 0,
+- near overlap with that pool at the frozen 0.86 threshold: 0,
+- candidate-to-final-holdout near overlap at the frozen 0.82 threshold: 0,
+- empty, duplicate, malformed-Unicode, markdown-like, or overlength targets: 0.
+
+Rebuild and validate from the durable category exports:
 
 ```powershell
 & '..\exp-001-sft-dataset\annotation\argilla\.venv\Scripts\python.exe' .\export_and_finalize.py
+& '..\exp-001-sft-dataset\annotation\argilla\.venv\Scripts\python.exe' .\validate_artifacts.py
+& '..\exp-001-sft-dataset\annotation\argilla\.venv\Scripts\python.exe' .\validate_reviewed.py
 ```
 
-The command intentionally fails while any record remains pending.
+## GPU preflight and run order
+
+Use the exp-004 shared training/evaluation entrypoints with this experiment's
+complete config. From a clean committed checkout, first generate the untouched
+base output on the sealed holdout without inspecting it or changing the
+experiment. Then run representation-check, smoke, and tiny-overfit. Start the
+full run only after all three pass.
+
+```bash
+python experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/evaluate.py \
+  --config experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/config.yaml \
+  --role base \
+  --output experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/results/final-base.jsonl
+
+python experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/train.py \
+  --config experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/config.yaml \
+  --mode representation-check \
+  --output-dir experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/results/representation-check
+
+python experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/train.py \
+  --config experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/config.yaml \
+  --mode smoke \
+  --output-dir experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/results/smoke
+
+python experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/train.py \
+  --config experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/config.yaml \
+  --mode tiny-overfit \
+  --output-dir experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/results/tiny-overfit
+```

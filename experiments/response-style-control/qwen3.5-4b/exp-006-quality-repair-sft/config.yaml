@@ -1,0 +1,80 @@
+experiment:
+  id: exp-006-quality-repair-sft
+  parent: exp-005-targeted-policy-sft
+  status: ready-for-preflight
+  hypothesis: A human-reviewed quality-repair tranche reduces hidden-assumption, unsupported-completion,
+    Turkish-integrity, emotional-calibration, and semantic-consistency failures while
+    preserving exp-005 surface-policy gains.
+model:
+  name: unsloth/Qwen3.5-4B
+  revision: 3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636
+  tokenizer_name: unsloth/Qwen3.5-4B
+  tokenizer_revision: 3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636
+  thinking_mode: false
+dataset:
+  path: data/sft-clean-v4-quality-repair-958.csv
+  sha256: 20d6600938fab016d41fea5b653f1161e52df1115bf0c722f2f53f0c37446485
+  rows: 958
+  split: train
+  builder_artifact: data/manifest.json
+evaluation:
+  benchmark_path: evaluation/final-holdout-v2.csv
+  benchmark_sha256: 32bd815aba0811d084fe462031e80a6f749899e40960b924a43aeb999a8abebf
+  benchmark_split: sealed-final
+  protocol: evaluation/scoring-rubric.md
+  thinking_mode: false
+  do_sample: false
+  temperature: 0.0
+  max_new_tokens: 256
+  selection_policy: Sealed final test; do not use for data, recipe, hyperparameter,
+    or checkpoint decisions. Exp-005 final holdout is development/diagnostic.
+training:
+  framework: unsloth
+  method: bf16_lora_sft
+  starting_artifact: base-model-not-exp-004-adapter
+  max_seq_length: 1024
+  epochs: 3.0
+  learning_rate: 0.0001
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 8
+  effective_batch_size: 8
+  optimizer: adamw_8bit
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  seed: 3407
+  assistant_only_loss: true
+  packing: false
+  lora:
+    rank: 16
+    alpha: 16
+    dropout: 0.0
+    bias: none
+    target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+  checkpointing:
+    strategy: steps
+    save_steps: 100
+    save_total_limit: 2
+capability_budget:
+  target_families: improve
+  overall_task_completion_max_regression_points: 2
+  per_family_max_regression_points: 5
+  invalid_or_nonterminating_max_increase: 0
+tracking:
+  provider: wandb
+  project: llm-bender-lab-response-style-control
+  log_model: false
+reproducibility:
+  allow_dirty_worktree: false
+  determinism: best_effort_cuda
+  output_root: results
+  required_preflight_modes:
+  - representation-check
+  - smoke
+  - tiny-overfit

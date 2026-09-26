@@ -1,0 +1,28 @@
+{
+  "status": "completed-category-review; experiment-review-still-in-progress",
+  "category": "hidden_ambiguity",
+  "dataset_name": "exp-006-hidden-ambiguity",
+  "dataset_id": "e87c9dbd-0189-4874-9d33-2313dcf7496e",
+  "candidate_records": 20,
+  "reviewed_records": 20,
+  "decisions": {
+    "rewrite": 18,
+    "accept": 2
+  },
+  "artifacts": {
+    "candidate_pool": {
+      "path": "data\\quality-repair-candidates-100.jsonl",
+      "sha256": "bc7c238b62e921e9b144f56feb65f319bd2db9d3458db1f5b2fd78eac600d629"
+    },
+    "review_export": {
+      "path": "hidden-ambiguity-reviewed-20.jsonl",
+      "sha256": "60da4a95a0f002c8a8c0d4f05dc5ed03510adf6aac7a150d996e4f7b91dcc8c7"
+    }
+  },
+  "post_review_qa": {
+    "corrections": 1,
+    "record_ids": ["hidden_ambiguity-020"],
+    "approval": "Explicitly approved by the human reviewer on 2026-09-26."
+  },
+  "scope": "This is a durable category-level review export, not an exp-006 training artifact or experiment finalization."
+}

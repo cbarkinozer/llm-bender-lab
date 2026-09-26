@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "candidate_rows": 100,
+  "reviewed_rows": 100,
+  "accepted_rows": 100,
+  "rejected_rows": 0,
+  "combined_rows": 958,
+  "categories": {
+    "calibrated_emotional": 20,
+    "consistency_integrity": 20,
+    "hidden_ambiguity": 20,
+    "turkish_precision": 20,
+    "unsupported_completion": 20
+  },
+  "decisions": {
+    "rewrite": 69,
+    "accept": 31
+  },
+  "response_characters": {
+    "min": 8,
+    "median": 55,
+    "max": 273
+  },
+  "checks": {
+    "candidate_binding": "passed",
+    "category_balance": "passed",
+    "nonempty_targets": "passed",
+    "unique_targets": "passed",
+    "unicode_integrity": "passed",
+    "plain_format": "passed",
+    "length_limit": "passed",
+    "hidden_ambiguity_questions": "passed",
+    "combined_id_uniqueness": "passed",
+    "artifact_hashes": "passed"
+  },
+  "manual_qa": {
+    "full_tranche_read": true,
+    "human_approved_post_review_corrections": [
+      "hidden_ambiguity-020",
+      "turkish_precision-012"
+    ]
+  }
+}

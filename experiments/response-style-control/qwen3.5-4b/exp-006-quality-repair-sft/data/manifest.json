@@ -1,0 +1,39 @@
+{
+  "status": "frozen-reviewed",
+  "rows": {
+    "parent": 858,
+    "reviewed": 100,
+    "accepted": 100,
+    "rejected": 0,
+    "combined": 958
+  },
+  "decisions": {
+    "rewrite": 69,
+    "accept": 31
+  },
+  "accepted_categories": {
+    "calibrated_emotional": 20,
+    "consistency_integrity": 20,
+    "hidden_ambiguity": 20,
+    "turkish_precision": 20,
+    "unsupported_completion": 20
+  },
+  "artifacts": {
+    "candidates": {
+      "sha256": "bc7c238b62e921e9b144f56feb65f319bd2db9d3458db1f5b2fd78eac600d629"
+    },
+    "review_export": {
+      "path": "quality-repair-reviewed-100.jsonl",
+      "sha256": "f07a253f0293149183846c0c44bac850ea8e0ff41aa68400202da90d465376ce"
+    },
+    "combined": {
+      "path": "sft-clean-v4-quality-repair-958.csv",
+      "sha256": "20d6600938fab016d41fea5b653f1161e52df1115bf0c722f2f53f0c37446485"
+    },
+    "holdout": {
+      "path": "evaluation\\final-holdout-v2.csv",
+      "sha256": "32bd815aba0811d084fe462031e80a6f749899e40960b924a43aeb999a8abebf"
+    }
+  },
+  "tiny_overfit_prefix": "first 30 rows contain six accepted examples per repair family when no family has >14 rejects; next two rows are parent core"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "completed-category-review; experiment-review-still-in-progress",
+  "category": "consistency_integrity",
+  "dataset_name": "exp-006-consistency-integrity",
+  "dataset_id": "9c148d1c-9551-4d4e-84dd-63f5eafe5afc",
+  "candidate_records": 20,
+  "reviewed_records": 20,
+  "decisions": {
+    "rewrite": 17,
+    "accept": 3
+  },
+  "artifacts": {
+    "candidate_pool": {
+      "path": "data\\quality-repair-candidates-100.jsonl",
+      "sha256": "bc7c238b62e921e9b144f56feb65f319bd2db9d3458db1f5b2fd78eac600d629"
+    },
+    "review_export": {
+      "path": "consistency-integrity-reviewed-20.jsonl",
+      "sha256": "0262fc31a4736f76a50b956ff0c029b521c33852d8c366625fd8318db74ad839"
+    }
+  },
+  "scope": "This is a durable category-level review export, not an exp-006 training artifact or experiment finalization."
+}

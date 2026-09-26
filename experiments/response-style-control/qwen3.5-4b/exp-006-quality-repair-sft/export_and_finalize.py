@@ -6,33 +6,52 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
-import os
 from collections import Counter, defaultdict
 from pathlib import Path
 
-import argilla as rg
 import yaml
 
 ROOT=Path(__file__).parent; DATA=ROOT/"data"; EVAL=ROOT/"evaluation"
 PARENT=ROOT.parent/"exp-005-targeted-policy-sft"; CAND=DATA/"quality-repair-candidates-100.jsonl"
+PARTIAL=DATA/"partial-reviews"
 
 def sha(path:Path)->str: return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def load_review_exports(candidates: dict[str, dict]) -> list[dict]:
+    """Load the durable category exports and bind them to the frozen candidates."""
+    reviewed=[]
+    for path in sorted(PARTIAL.glob("*-reviewed-20.jsonl")):
+        rows=[json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        if len(rows)!=20:
+            raise ValueError(f"Expected 20 rows in {path}, found {len(rows)}")
+        reviewed.extend(rows)
+
+    expected_ids=set(candidates); reviewed_ids=[row.get("id") for row in reviewed]
+    if len(reviewed_ids)!=100 or set(reviewed_ids)!=expected_ids or len(set(reviewed_ids))!=100:
+        missing=sorted(expected_ids-set(reviewed_ids)); unexpected=sorted(set(reviewed_ids)-expected_ids)
+        raise RuntimeError(
+            f"Review exports do not cover the candidate pool exactly: rows={len(reviewed_ids)} "
+            f"unique={len(set(reviewed_ids))} missing={missing} unexpected={unexpected}"
+        )
+
+    source_fields=("id","category","messages","source","generation_method","language","quality_status")
+    for row in reviewed:
+        source=candidates[row["id"]]
+        if any(row.get(field)!=source.get(field) for field in source_fields):
+            raise ValueError(f"Reviewed source differs from frozen candidate: {row['id']}")
+        decision=row.get("review_decision")
+        response=(row.get("reviewed_response") or "").strip()
+        if decision not in {"accept","rewrite","reject"}:
+            raise ValueError(f"Missing or invalid decision: {row['id']}")
+        if decision!="reject" and not response:
+            raise ValueError(f"Accepted review has no target response: {row['id']}")
+        if decision=="reject" and response:
+            raise ValueError(f"Rejected review unexpectedly has a target response: {row['id']}")
+    return sorted(reviewed,key=lambda row:row["id"])
+
 def main()->None:
     candidates={r["id"]:r for r in (json.loads(x) for x in CAND.read_text(encoding="utf-8").splitlines() if x.strip())}
-    client=rg.Argilla(api_url=os.getenv("ARGILLA_API_URL","http://127.0.0.1:6900"),api_key=os.getenv("ARGILLA_API_KEY","argilla.apikey"))
-    reviewed=[]; incomplete=[]
-    for category in sorted({r["category"] for r in candidates.values()}):
-        dataset=client.datasets(name=f"exp-006-{category.replace('_','-')}",workspace="sft-review")
-        for record in dataset.records:
-            if str(record.status)!="completed": incomplete.append(record.id); continue
-            answers={x.question_name:x.value for x in (record.responses or [])}; decision=answers.get("decision")
-            rewritten=(answers.get("rewritten_response") or "").strip()
-            if decision not in {"accept","rewrite","reject"}: raise ValueError(f"Missing decision: {record.id}")
-            if decision=="rewrite" and not rewritten: raise ValueError(f"Rewrite has no replacement: {record.id}")
-            source=candidates[record.id]; proposed=source["messages"][1]["content"]
-            reviewed.append({**source,"review_decision":decision,"reviewed_response":rewritten if decision=="rewrite" else (proposed if decision=="accept" else ""),"failure_tags":answers.get("failure_tags") or [],"review_notes":answers.get("review_notes") or "","argilla_dataset_id":str(dataset.id)})
-    if incomplete or len(reviewed)!=100: raise RuntimeError(f"Human review incomplete: completed={len(reviewed)} pending={len(incomplete)}")
+    reviewed=load_review_exports(candidates)
     accepted=[r for r in reviewed if r["review_decision"]!="reject"]
     if len(accepted)<80: raise RuntimeError(f"Too many rejects for the planned tranche: accepted={len(accepted)}")
     review_path=DATA/"quality-repair-reviewed-100.jsonl"

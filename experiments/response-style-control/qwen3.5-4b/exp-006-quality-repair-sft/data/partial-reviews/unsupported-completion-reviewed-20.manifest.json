@@ -1,0 +1,23 @@
+{
+  "status": "completed-category-review; experiment-review-still-in-progress",
+  "category": "unsupported_completion",
+  "dataset_name": "exp-006-unsupported-completion",
+  "dataset_id": "09aec3a7-7636-4c72-968f-93f8d8d94799",
+  "candidate_records": 20,
+  "reviewed_records": 20,
+  "decisions": {
+    "accept": 7,
+    "rewrite": 13
+  },
+  "artifacts": {
+    "candidate_pool": {
+      "path": "data\\quality-repair-candidates-100.jsonl",
+      "sha256": "bc7c238b62e921e9b144f56feb65f319bd2db9d3458db1f5b2fd78eac600d629"
+    },
+    "review_export": {
+      "path": "unsupported-completion-reviewed-20.jsonl",
+      "sha256": "5adf8ded8ec62ec56efd96bb7d4f045607142e998dc53c100485010db4ae5a74"
+    }
+  },
+  "scope": "This is a durable category-level review export, not an exp-006 training artifact or experiment finalization."
+}

@@ -1,0 +1,28 @@
+{
+  "status": "completed-category-review; experiment-review-still-in-progress",
+  "category": "turkish_precision",
+  "dataset_name": "exp-006-turkish-precision",
+  "dataset_id": "0d98912f-99c8-4a15-b462-f46919369fc6",
+  "candidate_records": 20,
+  "reviewed_records": 20,
+  "decisions": {
+    "accept": 19,
+    "rewrite": 1
+  },
+  "artifacts": {
+    "candidate_pool": {
+      "path": "data\\quality-repair-candidates-100.jsonl",
+      "sha256": "bc7c238b62e921e9b144f56feb65f319bd2db9d3458db1f5b2fd78eac600d629"
+    },
+    "review_export": {
+      "path": "turkish-precision-reviewed-20.jsonl",
+      "sha256": "299f0b7a53b0bcc82344c8e418a2aaee8225d9184e122d4e2b5ca6dfd381b889"
+    }
+  },
+  "post_review_qa": {
+    "corrections": 1,
+    "record_ids": ["turkish_precision-012"],
+    "approval": "Explicitly approved by the human reviewer on 2026-09-26."
+  },
+  "scope": "This is a durable category-level review export, not an exp-006 training artifact or experiment finalization."
+}
