@@ -1,0 +1,50 @@
+{
+  "status": "human-reviewed; post-review-QA-required",
+  "reviewed": 100,
+  "accepted": 100,
+  "rejected": 0,
+  "decisions": {
+    "rewrite": 82,
+    "accept": 18
+  },
+  "accepted_families": {
+    "hidden_ambiguity": 20,
+    "unsupported_completion": 20,
+    "turkish_precision": 20,
+    "calibrated_emotional": 20,
+    "consistency_integrity": 20
+  },
+  "datasets": [
+    {
+      "name": "exp-008-calibrated-emotional",
+      "id": "53697ccd-98b4-4dee-a77a-99e806ece0d2",
+      "records": 20
+    },
+    {
+      "name": "exp-008-consistency-integrity",
+      "id": "48d7f05b-cc0d-4667-b74b-3cb1b7badc71",
+      "records": 20
+    },
+    {
+      "name": "exp-008-hidden-ambiguity",
+      "id": "b109486c-d31c-47b4-bba8-a7c9d92a4ad1",
+      "records": 20
+    },
+    {
+      "name": "exp-008-turkish-precision",
+      "id": "09b844e9-7032-4f22-8de7-ace9454fa07a",
+      "records": 20
+    },
+    {
+      "name": "exp-008-unsupported-completion",
+      "id": "ffdfbc36-c11e-483e-afe5-62516077109f",
+      "records": 20
+    }
+  ],
+  "artifacts": {
+    "candidates-v1.csv": "f27780c875b95b8ecb5561dd09e88c8ab9f64832195a054008e05a4d39aa1513",
+    "generalization-reviewed-100.jsonl": "5cea8524e776d0341ca9cb77281d0caf345e70efcc0917287f220ba89c82f4cb",
+    "sft-generalization-reviewed-100.csv": "4ed8d617c373316f048df33e57eb938efbea1dd611de1d1b17d58a3d174bcf6a"
+  },
+  "mixture": "Standalone reviewed tranche; not appended to exp-006. Final training recipe remains pending."
+}

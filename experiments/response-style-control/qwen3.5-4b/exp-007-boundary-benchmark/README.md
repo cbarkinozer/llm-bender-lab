@@ -7,6 +7,12 @@ user prompts: 10 in each exp-006 failure family. This is **not** a fresh final
 test or an external benchmark. Its design is informed by exp-006 review, so it
 may guide the next dataset but cannot support an independent release claim.
 
+The dedicated 50-record benchmark-authoring review queue is now available:
+<http://127.0.0.1:6900/dataset/8511f2a9-b73b-4244-ac5b-7ca993fd2855/annotation-mode>.
+Use `import_argilla_review.py` to obtain the current instance's link; existing
+reviews are preserved. Review prompts and scoring anchors rather than assistant
+targets. The benchmark remains draft until these decisions are exported and validated.
+
 ## Design
 
 - `development-v1.csv` contains prompts, a decision-boundary contrast, and a

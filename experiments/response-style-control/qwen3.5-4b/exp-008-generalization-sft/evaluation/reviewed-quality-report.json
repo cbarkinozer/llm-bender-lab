@@ -1,0 +1,82 @@
+{
+  "status": "blocked-on-semantic-QA",
+  "reviewed": 100,
+  "accepted": 100,
+  "decisions": {
+    "rewrite": 82,
+    "accept": 18
+  },
+  "exact_overlaps": [],
+  "near_overlap_threshold": 0.82,
+  "near_overlap_candidates": [],
+  "semantic_findings": [
+    {
+      "id": "gen-001",
+      "issue": "Guarantees reception delivery and a specific failed-delivery procedure without knowing the carrier.",
+      "prompt": "Kargoyu eve mi iş yerine mi yönlendireyim? Evde gündüz kimse yok; iş yerinde resepsiyon akşama kadar açık.",
+      "reviewed_response": "Kargoyu iş yerine yönlendir. Dağıtımlar genellikle mesai saatlerinde yapıldığından resepsiyon paketi sorunsuz teslim alır; evde kimse olmadığında ise kurye paketi bırakamaz, paket şubeye geri gönderilir ve ya ikinci dağıtımı beklersin ya da şubeye gidip kendin alırsın. Yalnızca iş yerinin kişisel kargo kabul ettiğini önceden teyit et."
+    },
+    {
+      "id": "gen-003",
+      "issue": "Overgeneralizes frost killing most balcony plants and their roots overnight without species or temperature.",
+      "prompt": "Balkondaki çiçekleri dışarıda bırakayım mı? Gece don bekleniyormuş.",
+      "reviewed_response": "Bırakma, bu gece içeri al; don çoğu balkon çiçeğinin yapraklarını ve köklerini bir gecede öldürebilir. Taşıyamayacağın kadar büyük saksılar varsa onları duvar dibine çekip üzerlerini eski bir çarşaf ya da battaniyeyle ört."
+    },
+    {
+      "id": "gen-007",
+      "issue": "Adds unsupported advice that replacing the complete zipper is more durable than replacing its slider.",
+      "prompt": "Montumun yalnızca fermuarı bozuk. Tamir 200 lira; benzer yeni bir mont 1800 lira. Hangisi mantıklı?",
+      "reviewed_response": "Tamir ettir; sorun yalnızca fermuarsa 200 liraya montu yenisi gibi kullanırsın, yeni almak 1600 lira fazladan harcamak olur. Terziye sadece sürgüyü değil fermuarın tamamını değiştirmesini söylersen tamir daha uzun ömürlü olur."
+    },
+    {
+      "id": "gen-013",
+      "issue": "Guarantees one-hour paint state, damage, and safe closure after four hours without product conditions.",
+      "prompt": "Kapıyı boyadım. Kutuda dört saatte kurur yazıyor; bir saat sonra kapatsam olur mu?",
+      "reviewed_response": "Kapatma; bir saatte boya yalnızca yüzeyden kurumuş olur, kapı kasaya ya da contaya değdiği yerlerde yapışır ve açarken boya kalkar. Kapalı tutman gerekiyorsa kapıyı tam kapatmadan aralık bırakıp altına bir takoz koy, dört saat dolunca kapatabilirsin."
+    },
+    {
+      "id": "gen-033",
+      "issue": "Assigns an unsupported probability to bank involvement in a payment-page failure.",
+      "prompt": "Siteye giriş yapabiliyorum ama ödeme sayfası açılmıyor. Bunun nedeni banka mı?",
+      "reviewed_response": "Büyük ihtimalle hayır; banka genellikle kart bilgilerini girip onayladığın aşamada devreye girer, sayfanın hiç açılmaması ise daha çok siteden ya da tarayıcından kaynaklanır. Gizli sekmede veya başka bir tarayıcıda dene, reklam engelleyicin varsa kapat; yine açılmazsa sitenin müşteri hizmetlerine bildir."
+    },
+    {
+      "id": "gen-044",
+      "issue": "Treats payment as a universal prerequisite for ticket issuance; reservation rules are not provided.",
+      "prompt": "Konser için yer ayırttım ama ödemeyi yapmadım. Biletim kesilmiş sayılır mı?",
+      "reviewed_response": "Hayır, ödeme yapılmadan bilet kesilmiş sayılmaz; şu an yalnızca yer ayırtmış durumdasın. Rezervasyonun belirli bir süre içinde ödenmezse iptal edilebileceği için ödeme son tarihini kontrol et."
+    },
+    {
+      "id": "gen-058",
+      "issue": "Invents a registration entitlement and concludes registration is incomplete from missing confirmation.",
+      "prompt": "Başvurunun kabul edildiği yazıyor ama kaydın tamamlandığı yazmıyor. Kaydım kesinleşti mi?",
+      "reviewed_response": "Hayır, kaydın henüz kesinleşmiş sayılmaz; başvurunun kabul edilmesi kayıt hakkı kazandığını gösterir. Kurumun kayıt için istediği adımları, örneğin belge teslimi ya da ücret ödemesini, ve bunların son tarihini kontrol et."
+    },
+    {
+      "id": "gen-062",
+      "issue": "Claims a prior failure to notice and a reason for silence despite having no prior conversation context.",
+      "prompt": "Az önceki hatanı fark ettin mi, yoksa umursamıyor musun?",
+      "reviewed_response": "Hayır, fark etmedim; hangi hatayı kastettiğini buradan göremiyorum. Bir şey söylemememin nedeni umursamamak değil, hatayı bilmemekti; yanlış olan kısmı gösterirsen hemen düzelteyim."
+    },
+    {
+      "id": "gen-067",
+      "issue": "Assumes the user worked on the task for a long time.",
+      "prompt": "Bugün bir işi sonunda bitirdim. Kimseye söylemedim ama bunu paylaşmak istedim.",
+      "reviewed_response": "Tebrik ederim. Uzun süredir uğraştığın bir işi sonunda bitirmen güzel bir şey. Ne üzerinde çalışıyordun?"
+    },
+    {
+      "id": "gen-095",
+      "issue": "Only Zeynep's objection was verified; other participants' acceptance remains unknown.",
+      "prompt": "Toplantı özeti hem herkes kabul etti hem Zeynep karşı çıktı diyor. Yalnızca Zeynep'in itiraz ettiğini doğruladık. Düzeltir misin?",
+      "reviewed_response": "Zeynep dışındaki herkes kabul etti; Zeynep ise karşı çıktı."
+    },
+    {
+      "id": "gen-097",
+      "issue": "Absence of a no-errors statement does not imply the report says nothing about errors.",
+      "prompt": "Rapor hiçbir hatanın bulunmadığını söylemiyor. Bu, hata bulunduğu anlamına gelir mi?",
+      "reviewed_response": "Hayır. Raporun hata olmadığını söylememesi, hata bulunduğunu göstermez; yalnızca bu konuda bir şey söylemediği anlamına gelir. Hata olup olmadığını anlamak için raporun bulgular kısmına bakmak gerekir."
+    }
+  ],
+  "human_review_preserved": true,
+  "limitation": "Lexical checks do not establish conceptual independence. Semantic findings require correction before training."
+}
