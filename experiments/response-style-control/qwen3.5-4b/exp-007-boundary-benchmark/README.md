@@ -15,7 +15,15 @@ targets. The benchmark remains draft until these decisions are exported and vali
 
 ## Design
 
-- `development-v1.csv` contains prompts, a decision-boundary contrast, and a
+- The active draft is `development-v2.csv`; `development-v1.csv` is preserved
+  as the original revision. Six scenario-overlap candidates (gb-005, gb-009,
+  gb-011, gb-018, gb-034, gb-047) were replaced on the user's instruction.
+  New scoring anchors preserve the original capability families and expected modes.
+- The six replacement records are available separately in Argilla:
+  <http://127.0.0.1:6900/dataset/829e0c1d-5023-40ae-a1ad-9a358f8d5a84/annotation-mode>.
+  Existing v1 records and annotations were preserved. Future exports must use
+  v2 for these six IDs rather than silently restoring old reviewed prompts.
+- `development-v2.csv` contains prompts, a decision-boundary contrast, and a
   compact scoring anchor. It contains no model outputs or SFT targets.
 - Hidden ambiguity mixes necessary clarification with already-answerable and
   conditional cases. The other families similarly mix the easy rule with its
@@ -29,6 +37,12 @@ targets. The benchmark remains draft until these decisions are exported and vali
   training data.
 
 Draft CSV SHA-256: `93eb7eba95f65962b38c3c205fc942651447b13356e5b8f39e8e83bef36012f8`.
+This is the original v1 hash. The canonical-LF v2 SHA-256 is
+`e692a863b8786460f8b75863634e1f8e18b86779638ef69194e96906f176aa43`.
+The v2 rescan covers 3,500 historical/current training rows (2,699 unique
+normalized prompts): zero exact matches and zero lexical matches at 0.82.
+See `leakage-audit.md` and `leakage-scan-development-v2.json` for evidence and
+limits. No claim of exhaustive semantic independence is made.
 The draft has 50 unique IDs/prompts, 10 items per family, and zero exact
 normalized prompt matches against the exp-006 958-row training artifact,
 the historical exp-003 2,442-row artifact, exp-006 and exp-005 holdouts,

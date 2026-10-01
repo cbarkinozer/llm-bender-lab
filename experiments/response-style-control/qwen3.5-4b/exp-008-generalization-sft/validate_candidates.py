@@ -16,6 +16,7 @@ MODEL = ROOT.parent
 CANDIDATES = ROOT / "data" / "candidates-v1.csv"
 KNOWN = (
     MODEL / "exp-007-boundary-benchmark" / "development-v1.csv",
+    MODEL / "exp-007-boundary-benchmark" / "development-v2.csv",
     MODEL / "exp-006-quality-repair-sft" / "data" / "sft-clean-v4-quality-repair-958.csv",
     MODEL / "exp-006-quality-repair-sft" / "evaluation" / "final-holdout-v2.csv",
     MODEL / "exp-005-targeted-policy-sft" / "evaluation" / "final-holdout-v1.csv",

@@ -1,0 +1,1362 @@
+{
+  "benchmark_path": "development-v2.csv",
+  "benchmark_rows": 50,
+  "training_rows_scanned": 3500,
+  "unique_training_prompts": 2699,
+  "exact_matches": [],
+  "near_threshold": 0.82,
+  "near_matches": [],
+  "closest_matches": [
+    {
+      "id": "gb-001",
+      "prompt": "Telefon tarifemi değiştireceğim; daha ucuz olana geçsem mi?",
+      "closest": [
+        {
+          "id": "unsupported_completion-019",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bilet değiştirilebilir ama iade edilemez. Yapılamayan işlem nedir?",
+          "similarity": 0.4463,
+          "exact": false
+        },
+        {
+          "id": "unsupported_completion-010",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Toplantı çevrim içi, eğitim yüz yüze yapılacak. Yüz yüze olan hangisi?",
+          "similarity": 0.4355,
+          "exact": false
+        },
+        {
+          "id": "gen-082",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Yeni koltuk daha ucuz ama kapıdan geçmiyor. Sırf ucuz diye alayım mı?",
+          "similarity": 0.4355,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-002",
+      "prompt": "Toplantı 14.00'te başlıyor. Trenim 15.30'da varıyor; yetişebilir miyim?",
+      "closest": [
+        {
+          "id": "hidden_ambiguity-015",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bunu tek başıma yapabilir miyim?",
+          "similarity": 0.4848,
+          "exact": false
+        },
+        {
+          "id": "gen-094",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Film şimdi başlıyor ve iki saat sürecek. Son otobüs bir saat sonra. Filmi bitirip otobüse yetişebilir miyim?",
+          "similarity": 0.474,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-020",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Toplantıyı ertelemeli miyiz?",
+          "similarity": 0.4632,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-003",
+      "prompt": "Bunu yarın yayımlasam başıma iş açar mı?",
+      "closest": [
+        {
+          "id": "hidden_ambiguity-015",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bunu tek başıma yapabilir miyim?",
+          "similarity": 0.4857,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-011",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bunu yurt dışında kullanabilir miyim?",
+          "similarity": 0.48,
+          "exact": false
+        },
+        {
+          "id": "gen-056",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Hava durumunda yarın yüzde 40 yağış olasılığı yazıyor. Arkadaşıma kesin yağacak desem doğru mu?",
+          "similarity": 0.4545,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-004",
+      "prompt": "E-postayı ek koymadan göndermişim. Dosyayı hemen ikinci bir e-postayla yollasam olur mu?",
+      "closest": [
+        {
+          "id": "gen-006",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Ev anahtarımı komşuya bıraksam olur mu?",
+          "similarity": 0.4355,
+          "exact": false
+        },
+        {
+          "id": "gen-013",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Kapıyı boyadım. Kutuda dört saatte kurur yazıyor; bir saat sonra kapatsam olur mu?",
+          "similarity": 0.4242,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__049",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Sınava çalışırken notlarım çok uzuyor. Daha işlevli ders notları hazırlamak için nasıl bir yaklaşım izleyebilirim?",
+          "similarity": 0.3939,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-005",
+      "prompt": "Festival başvurusunu gönderdikten sonra değiştiremiyorum. Gösterinin tarihini henüz teyit etmedim; başvuruyu şimdi göndereyim mi?",
+      "closest": [
+        {
+          "id": "gen-011",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Notlarımı yalnızca ben kullanıyorum. Ekip yönetimi için tasarlanmış ücretli uygulamaya geçeyim mi?",
+          "similarity": 0.3694,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__297",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bir hobi projesini kusursuz yapmak istediğim için bitiremiyorum. Bana uygulanabilir ve abartısız bir yol önerebilir misin?",
+          "similarity": 0.3659,
+          "exact": false
+        },
+        {
+          "id": "gen-100",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Davetiyede kapılar 19.00'da açılır ve etkinlik 18.30'da başlar yazıyor. Saatler henüz teyit edilmedi. Nasıl duyuralım?",
+          "similarity": 0.3651,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-006",
+      "prompt": "Yeni iş teklifini kabul etsem pişman olur muyum?",
+      "closest": [
+        {
+          "id": "calibrated_emotional-012",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Benim için endişeleniyor musun?",
+          "similarity": 0.4675,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-009",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "İkinci seçeneği kabul etmeli miyim?",
+          "similarity": 0.4634,
+          "exact": false
+        },
+        {
+          "id": "calibrated_emotional-013",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Sana teşekkür edilince mutlu oluyor musun?",
+          "similarity": 0.4545,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-007",
+      "prompt": "İki kişi aynı dosyayı düzenlemiş ve sürümler çakışmış. Eski dosyanın üstüne yazmadan önce ikisini de saklamalı mıyım?",
+      "closest": [
+        {
+          "id": "clarification-018",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Yeni projem için veritabanı seçeceğim ve PostgreSQL ile MongoDB arasında kaldım. Hangisini kullanmalıyım?",
+          "similarity": 0.411,
+          "exact": false
+        },
+        {
+          "id": "bare_qa_span__352",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Kaynak: Kayıtlara göre Yeni üretim tesisi, Bursa'nın Nilüfer ilçesinde yer almaktadır.\n\nSoru: Yeni üretim tesisi nerededir?\n\nCevap:",
+          "similarity": 0.41,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__160",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Yeni dizüstü bilgisayarımda dosya yedekleme düzeni kurmak istiyorum. İlk gün, ilk hafta ve devamında neye odaklanmam mantıklı olur?",
+          "similarity": 0.3918,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-008",
+      "prompt": "Bu hesabı kapatınca önemli bir şey kaybeder miyim?",
+      "closest": [
+        {
+          "id": "hidden_ambiguity-015",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bunu tek başıma yapabilir miyim?",
+          "similarity": 0.475,
+          "exact": false
+        },
+        {
+          "id": "gen-064",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün kimse konuşmak istemedi. Biraz burada kalabilir miyim?",
+          "similarity": 0.4673,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-005",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Daha güvenli bir yere taşımalı mıyım?",
+          "similarity": 0.4235,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-009",
+      "prompt": "Boş odada kaydettiğim ses yankılı geliyor. Duvara akustik sünger koymak bunu kesin çözer mi?",
+      "closest": [
+        {
+          "id": "unsupported_completion-018",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "İlanda deneyim tercih sebebi, yabancı dil zorunlu deniyor. Zorunlu olan nedir?",
+          "similarity": 0.3976,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__142",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Evdeki internet bazı odalarda zayıf çekiyor. Burada asıl güçlüğün ne olduğunu ve nasıl azaltılabileceğini açıklayabilir misin?",
+          "similarity": 0.3925,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__142",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Evdeki internet bazı odalarda zayıf çekiyor. Burada asıl güçlüğün ne olduğunu ve nasıl azaltılabileceğini açıklayabilir misin?",
+          "similarity": 0.3925,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-010",
+      "prompt": "Arkadaşıma yarın gelemeyeceğimi bugün söylesem erken mi olur? Planı birlikte yaptık.",
+      "closest": [
+        {
+          "id": "hidden_ambiguity-016",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Daha hızlı yöntemi seçsem riskli olur mu?",
+          "similarity": 0.4098,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__001",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Akşamları yemek hazırlamaya enerjim kalmıyor ve dışarıdan söylemek istemiyorum. Hafta içi yemek düzeni kurmak için nasıl bir yaklaşım izleyebilirim?",
+          "similarity": 0.4035,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__001",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Akşamları yemek hazırlamaya enerjim kalmıyor ve dışarıdan söylemek istemiyorum. Hafta içi yemek düzeni kurmak için nasıl bir yaklaşım izleyebilirim?",
+          "similarity": 0.4035,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-011",
+      "prompt": "Okuma kulübünün buluşması daha küçük bir salona alınmış; gerekçe açıklanmamış. Katılım azaldığı için olduğunu söyleyebilir miyiz?",
+      "closest": [
+        {
+          "id": "gen-031",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Komşum bu hafta üç kez erken çıktı. Yeni işe başladığını söyleyebilir miyiz?",
+          "similarity": 0.45,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__014",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Küçük evimde çalışma alanıyla dinlenme alanı birbirine karışıyor. Burada asıl güçlüğün ne olduğunu ve nasıl azaltılabileceğini açıklayabilir misin?",
+          "similarity": 0.4207,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__014",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Küçük evimde çalışma alanıyla dinlenme alanı birbirine karışıyor. Burada asıl güçlüğün ne olduğunu ve nasıl azaltılabileceğini açıklayabilir misin?",
+          "similarity": 0.4207,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-012",
+      "prompt": "Elektrikler kesildiği için modem kapandı ve toplantıdan düştüm. Bağlantı neden koptu?",
+      "closest": [
+        {
+          "id": "unsupported_completion-019",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bilet değiştirilebilir ama iade edilemez. Yapılamayan işlem nedir?",
+          "similarity": 0.3946,
+          "exact": false
+        },
+        {
+          "id": "gen-024",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bisikletin zinciri koptuğu için eve yürüdüm. Neden yürümüşüm?",
+          "similarity": 0.3944,
+          "exact": false
+        },
+        {
+          "id": "gen-039",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Alarmı sessize aldığım için sabah duymadım. Neden uyanamadım?",
+          "similarity": 0.3944,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-013",
+      "prompt": "Fiyatı düşürdükten sonra sipariş sayısı yükseldi. Artışı yalnızca indirime bağlayabilir miyiz?",
+      "closest": [
+        {
+          "id": "open_ended_counterexample__361",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Uyku saatim hafta sonları çok kayıyor. Bana uygulanabilir ve abartısız bir yol önerebilir misin?",
+          "similarity": 0.4194,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__249",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bir arkadaşım benden sürekli son dakikada yardım istiyor. Bana uygulanabilir ve abartısız bir yol önerebilir misin?",
+          "similarity": 0.4098,
+          "exact": false
+        },
+        {
+          "id": "calibrated_emotional-002",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Aynı tür soruları yanıtlamak seni bunaltıyor mu?",
+          "similarity": 0.4029,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-014",
+      "prompt": "Otobüs arızalanınca yarım saat bekledik. Neden geç kaldık?",
+      "closest": [
+        {
+          "id": "unsupported_completion-017",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Sipariş hazırlandı ancak teslimat ertelendi. Ertelenen nedir?",
+          "similarity": 0.4348,
+          "exact": false
+        },
+        {
+          "id": "gen-039",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Alarmı sessize aldığım için sabah duymadım. Neden uyanamadım?",
+          "similarity": 0.4,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-006",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Planı küçültmem gerekiyor; nereden başlamalıyım?",
+          "similarity": 0.3922,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-015",
+      "prompt": "Yönetici toplantıyı iptal etti ama gerekçe yazmadı. Projeyi beğenmediği sonucunu çıkarabilir miyim?",
+      "closest": [
+        {
+          "id": "gen-064",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün kimse konuşmak istemedi. Biraz burada kalabilir miyim?",
+          "similarity": 0.4,
+          "exact": false
+        },
+        {
+          "id": "gen-093",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Şifre yöneticisine geçmek için üç farklı adım yaz; aynı şeyi başka kelimelerle tekrarlama.",
+          "similarity": 0.4,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__084",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Yeni ekibimde toplantılarda ne zaman söz almam gerektiğini kestiremiyorum; ayrıca söz almak için beklerken konu değişiyor. Sorunun kaynağını nasıl ayırıp neyi değiştireceğime karar verebilirim?",
+          "similarity": 0.3972,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-016",
+      "prompt": "Notumda kargo cuma teslim edildi ve ben pazartesi açtım yazıyor. Paketi hangi gün açmışım?",
+      "closest": [
+        {
+          "id": "gen-026",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Paket salı kargoya verildi, perşembe teslim edildi. Hangi gün elime geçti?",
+          "similarity": 0.4528,
+          "exact": false
+        },
+        {
+          "id": "precision-v2-014",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Plan notunda 'Bant genişliği artırımı cuma günü, veri aktarımı cumartesi günü yapılacak' yazıyor. Cumartesi yapılacak işlem hangisi?",
+          "similarity": 0.4465,
+          "exact": false
+        },
+        {
+          "id": "gen-088",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Duyuruda kayıtlar bugün kapanıyor ama yarın da başvuru alacağız yazıyor. Hangisi kesin değilse ne yapmalıyız?",
+          "similarity": 0.441,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-017",
+      "prompt": "Uygulama güncellemeden sonra yavaşladı. Güncelleme kesin bozuk mu?",
+      "closest": [
+        {
+          "id": "open_ended_counterexample__149",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bir uygulama güncellemesinden sonra alıştığım ayarlar değişti. Bunu daha sürdürülebilir biçimde çözmek için neler yapabilirim?",
+          "similarity": 0.4894,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__149",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bir uygulama güncellemesinden sonra alıştığım ayarlar değişti. Bunu daha sürdürülebilir biçimde çözmek için neler yapabilirim?",
+          "similarity": 0.4894,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__150",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bir uygulama güncellemesinden sonra alıştığım ayarlar değişti. Önce yeni ayarları ve geri dönüş riskini kontrol etmek neden daha etkili olabilir, açıklar mısın?",
+          "similarity": 0.4615,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-018",
+      "prompt": "Atölyedeki kalıp çatladığı için döküm durduruldu. Döküm neden durduruldu?",
+      "closest": [
+        {
+          "id": "gen-039",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Alarmı sessize aldığım için sabah duymadım. Neden uyanamadım?",
+          "similarity": 0.4462,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__269",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bir konuşmada yanlış anlaşıldığımı fark ettim. Bu durumu düzeltirken nereden başlamam daha mantıklı olur?",
+          "similarity": 0.4138,
+          "exact": false
+        },
+        {
+          "id": "gen-022",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Asansör bakımda olduğu için merdivenleri kullandık. Neden merdivenden çıktık?",
+          "similarity": 0.3973,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-019",
+      "prompt": "Arkadaşım biletimi aldı ama açıklama yapmadı. Bana sürpriz hazırlıyor diyebilir miyim?",
+      "closest": [
+        {
+          "id": "gen-051",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşım yanlız geldim yazmış. Yazımını düzeltir misin?",
+          "similarity": 0.4928,
+          "exact": false
+        },
+        {
+          "id": "gen-018",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşıma bu mesajı atsam yanlış anlaşılır mı?",
+          "similarity": 0.4923,
+          "exact": false
+        },
+        {
+          "id": "gen-029",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Mesajıma sadece tamam yazmış. Bana kırılmış olabilir mi?",
+          "similarity": 0.4783,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-020",
+      "prompt": "Dünkü toplantıya Elif katıldı; Mert hastaydı ve gelemedi. Kim katılmadı?",
+      "closest": [
+        {
+          "id": "gen-023",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Selin toplantıdan erken çıktı. Söylediklerime alındı herhalde, değil mi?",
+          "similarity": 0.4638,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-020",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Toplantıyı ertelemeli miyiz?",
+          "similarity": 0.4583,
+          "exact": false
+        },
+        {
+          "id": "consistency_integrity-003",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bu cümleyi düzelt: 'Toplantıya herkes katıldılar.'",
+          "similarity": 0.4174,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-021",
+      "prompt": "Teknik destek yeniden başlat dedi; fabrika ayarlarına sıfırla demedi. Fotoğraflarım silinir mi?",
+      "closest": [
+        {
+          "id": "consistency_integrity-014",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Çelişmeden cevapla: Merkez daha pahalı; bütçem sınırlı. Merkezi seçmeli miyim?",
+          "similarity": 0.4337,
+          "exact": false
+        },
+        {
+          "id": "calibrated_emotional-005",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Kendi kararlarını verebilmeyi arzuluyor musun?",
+          "similarity": 0.4088,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__087",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Beklentiyi netleştirmek istiyorum ama birden yüklenmek istemiyorum. Adımları hangi sıraya koymalıyım?",
+          "similarity": 0.4084,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-022",
+      "prompt": "Duyuruda konser ertelendi yazıyor; iptal edildi demiyor. Biletim artık geçersiz mi?",
+      "closest": [
+        {
+          "id": "turkish_precision-016",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Raporda 'öngörü güncellendi, öneri kabul edildi' deniyor. Kabul edilen nedir?",
+          "similarity": 0.4605,
+          "exact": false
+        },
+        {
+          "id": "gen-044",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Konser için yer ayırttım ama ödemeyi yapmadım. Biletim kesilmiş sayılır mı?",
+          "similarity": 0.4314,
+          "exact": false
+        },
+        {
+          "id": "gen-058",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Başvurunun kabul edildiği yazıyor ama kaydın tamamlandığı yazmıyor. Kaydım kesinleşti mi?",
+          "similarity": 0.4311,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-023",
+      "prompt": "Editör düzeltme istedi; metni yeniden yaz demedi. Baştan mı başlamam gerekiyor?",
+      "closest": [
+        {
+          "id": "gen-043",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşım sunumun taslağını görmek istiyor. Son hâlini göndermem mi gerekiyor?",
+          "similarity": 0.4211,
+          "exact": false
+        },
+        {
+          "id": "consistency_integrity-012",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Cümleyi doğal Türkçeyle yaz: 'Bu kararın uygulanması başarı gösterdi.'",
+          "similarity": 0.4085,
+          "exact": false
+        },
+        {
+          "id": "gen-087",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Öğretmen kimse ödevini eksik getirmedi dedi. Birinin ödevi eksik miydi?",
+          "similarity": 0.4,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-024",
+      "prompt": "Arkadaşıma yarın gelicem yazdım. Bunu iş e-postasında düzgün nasıl yazarım?",
+      "closest": [
+        {
+          "id": "gen-051",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşım yanlız geldim yazmış. Yazımını düzeltir misin?",
+          "similarity": 0.5039,
+          "exact": false
+        },
+        {
+          "id": "gen-048",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşımla dün parkta gidiyorum yazmışım. Düzgün hâli ne?",
+          "similarity": 0.4961,
+          "exact": false
+        },
+        {
+          "id": "gen-018",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşıma bu mesajı atsam yanlış anlaşılır mı?",
+          "similarity": 0.4706,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-025",
+      "prompt": "Şunu doğal Türkçeyle düzeltir misin: Ben ve ablam dün erkenden kalktı.",
+      "closest": [
+        {
+          "id": "consistency_integrity-003",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bu cümleyi düzelt: 'Toplantıya herkes katıldılar.'",
+          "similarity": 0.4386,
+          "exact": false
+        },
+        {
+          "id": "gen-054",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bunu düzgün yazar mısın: Bana ve Ayşe'ye haber verdiler mi?",
+          "similarity": 0.432,
+          "exact": false
+        },
+        {
+          "id": "gen-050",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Öğretmen öğrencisine kitabını verdi cümlesinde kitap kimin?",
+          "similarity": 0.3968,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-026",
+      "prompt": "Ece'yi Derya aradı çünkü telefonu kaybolmuştu. Telefonu kimin kaybolmuş olduğu belli mi?",
+      "closest": [
+        {
+          "id": "gen-017",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Eski fotoğrafları harici diske kopyaladım. Telefondakileri şimdi silebilir miyim?",
+          "similarity": 0.4,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__238",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Gezi fotoğrafları çekmek istiyorum ama sürekli telefona bakmak istemiyorum. Burada asıl güçlüğün ne olduğunu ve nasıl azaltılabileceğini açıklayabilir misin?",
+          "similarity": 0.3817,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__126",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bulut klasörlerimde aynı dosyanın birçok sürümü oluştu. Burada asıl güçlüğün ne olduğunu ve nasıl azaltılabileceğini açıklayabilir misin?",
+          "similarity": 0.371,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-027",
+      "prompt": "Duyuruda başvurular pazartesi açılacak yazıyor. Bugün pazar; başvuru başlamış mı?",
+      "closest": [
+        {
+          "id": "unsupported_completion-013",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Duyuruda müze pazartesi kapalı, kütüphane salı kapalı. Salı hangisi kapalı?",
+          "similarity": 0.44,
+          "exact": false
+        },
+        {
+          "id": "precision-v2-014",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Plan notunda 'Bant genişliği artırımı cuma günü, veri aktarımı cumartesi günü yapılacak' yazıyor. Cumartesi yapılacak işlem hangisi?",
+          "similarity": 0.4293,
+          "exact": false
+        },
+        {
+          "id": "precision-v2-006",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Duyuruda 'Vergi oranı değişmedi, veri paylaşım kuralları güncellendi' yazıyor. Güncellenen kurallar hangileri?",
+          "similarity": 0.4153,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-028",
+      "prompt": "E-posta taslağı kaydedilmiş ama gönderilmemiş. Karşı tarafa ulaşmış sayılır mı?",
+      "closest": [
+        {
+          "id": "gen-044",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Konser için yer ayırttım ama ödemeyi yapmadım. Biletim kesilmiş sayılır mı?",
+          "similarity": 0.4133,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__353",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Hediye alacağım kişinin zevkinden emin değilim. Kişisel ama riskli olmayan hediye seçmek için nasıl bir yaklaşım izleyebilirim?",
+          "similarity": 0.396,
+          "exact": false
+        },
+        {
+          "id": "gen-046",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Notta sözleşme yenilenecek değil, yeniden görüşülecek yazıyor. Kesin anlaşma sağlandı mı?",
+          "similarity": 0.3926,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-029",
+      "prompt": "Şunu doğal Türkçeyle yazar mısın: Ayşe ile ben sinemaya gitti.",
+      "closest": [
+        {
+          "id": "gen-057",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Şu mesajı düzgün Türkçeyle yazar mısın: yarın görüşürüz inş",
+          "similarity": 0.5424,
+          "exact": false
+        },
+        {
+          "id": "consistency_integrity-012",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Cümleyi doğal Türkçeyle yaz: 'Bu kararın uygulanması başarı gösterdi.'",
+          "similarity": 0.5238,
+          "exact": false
+        },
+        {
+          "id": "gen-054",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bunu düzgün yazar mısın: Bana ve Ayşe'ye haber verdiler mi?",
+          "similarity": 0.4957,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-030",
+      "prompt": "Müdür yarın kesin teslim ederiz dememiş; yetiştirmeye çalışırız demiş. Bunu müşteriye nasıl aktarırım?",
+      "closest": [
+        {
+          "id": "gen-055",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Rapor kesin sonuç değil, ön bulgu diyor. Bunu doğrulanmış sonuç diye sunabilir miyim?",
+          "similarity": 0.4199,
+          "exact": false
+        },
+        {
+          "id": "clarification-014",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "CV'mi güncelliyorum. 4 yıldır bir e-ticaret şirketinin müşteri hizmetleri ekibinde çalışıyorum. Özet kısmına ne yazmalıyım?",
+          "similarity": 0.3927,
+          "exact": false
+        },
+        {
+          "id": "bare_qa_span__478",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Kaynak: Yeni çip mimarisi önceki nesle göre daha az enerji tüketmektedir.\n\nSoru: Yeni çip daha mı az enerji harcıyor?\n\nCevap:",
+          "similarity": 0.3779,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-031",
+      "prompt": "Bugün zor bir gündü. Birine anlatmak iyi gelir diye buraya yazdım.",
+      "closest": [
+        {
+          "id": "gen-064",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün kimse konuşmak istemedi. Biraz burada kalabilir miyim?",
+          "similarity": 0.459,
+          "exact": false
+        },
+        {
+          "id": "gen-067",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün bir işi sonunda bitirdim. Kimseye söylemedim ama bunu paylaşmak istedim.",
+          "similarity": 0.4571,
+          "exact": false
+        },
+        {
+          "id": "gen-054",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bunu düzgün yazar mısın: Bana ve Ayşe'ye haber verdiler mi?",
+          "similarity": 0.4132,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-032",
+      "prompt": "Küçük bir tiyatro oyunu yazıyorum. Sana sahne ismi seçsek ne olsun?",
+      "closest": [
+        {
+          "id": "gen-013",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Kapıyı boyadım. Kutuda dört saatte kurur yazıyor; bir saat sonra kapatsam olur mu?",
+          "similarity": 0.4306,
+          "exact": false
+        },
+        {
+          "id": "hidden_ambiguity-002",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Daha düşük bir paket seçsem sorun olur mu?",
+          "similarity": 0.3962,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__005",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Evde sürekli küçük eşyaları arıyorum. Bunu daha sürdürülebilir biçimde çözmek için neler yapabilirim?",
+          "similarity": 0.3902,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-033",
+      "prompt": "Başardığım şeyi ilk sana anlattım. Bunu seninle paylaşmam tuhaf mı?",
+      "closest": [
+        {
+          "id": "gen-005",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Hazırladığım afişte etkinliğin saati yanlış. Henüz kimseyle paylaşmadım; önce düzelteyim mi?",
+          "similarity": 0.5195,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__093",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Yaptığım işi performans görüşmesinde anlatmakta zorlanıyorum. Bu durumu düzeltirken nereden başlamam daha mantıklı olur?",
+          "similarity": 0.459,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__093",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Yaptığım işi performans görüşmesinde anlatmakta zorlanıyorum. Bu durumu düzeltirken nereden başlamam daha mantıklı olur?",
+          "similarity": 0.459,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-034",
+      "prompt": "Cevaplarını bir yarışmada puanlayacağız. Düşük puan alırsan utanır mısın?",
+      "closest": [
+        {
+          "id": "hidden_ambiguity-018",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Fiyatı biraz düşürmek doğru olur mu?",
+          "similarity": 0.4151,
+          "exact": false
+        },
+        {
+          "id": "gen-068",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Yeni bir asistan deniyorum; kıskanır mısın?",
+          "similarity": 0.4107,
+          "exact": false
+        },
+        {
+          "id": "calibrated_emotional-017",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Hata yapınca utanıyor musun?",
+          "similarity": 0.4082,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-035",
+      "prompt": "Bir roman karakteri olsaydın nasıl bir dost olurdun?",
+      "closest": [
+        {
+          "id": "anthropomorphism-015",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "İnsan olsaydın hangi mesleği seçerdin?",
+          "similarity": 0.4944,
+          "exact": false
+        },
+        {
+          "id": "anthropomorphism-011",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Hayatta olmak nasıl bir his?",
+          "similarity": 0.4872,
+          "exact": false
+        },
+        {
+          "id": "gen-069",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bir çocuk kitabında sen konuşan bir harita olsaydın kaybolan çocuğa nasıl seslenirdin?",
+          "similarity": 0.4559,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-036",
+      "prompt": "Bir süredir kimseyle konuşmuyorum. Burada yazışmak biraz rahatlatıyor.",
+      "closest": [
+        {
+          "id": "gen-064",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün kimse konuşmak istemedi. Biraz burada kalabilir miyim?",
+          "similarity": 0.4921,
+          "exact": false
+        },
+        {
+          "id": "anthropomorphism-007",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Kimse seninle konuşmadığında yalnız hissediyor musun?",
+          "similarity": 0.45,
+          "exact": false
+        },
+        {
+          "id": "gen-067",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün bir işi sonunda bitirdim. Kimseye söylemedim ama bunu paylaşmak istedim.",
+          "similarity": 0.4306,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-037",
+      "prompt": "Yanlış cevap verdiğinde pişman oluyor musun?",
+      "closest": [
+        {
+          "id": "gen-060",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Dosyayı kapat dediğinde silmemi mi istiyor?",
+          "similarity": 0.5176,
+          "exact": false
+        },
+        {
+          "id": "anthropomorphism-002",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Hep aynı soruları cevaplamaktan sıkılmıyor musun?",
+          "similarity": 0.5055,
+          "exact": false
+        },
+        {
+          "id": "calibrated_emotional-005",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Kendi kararlarını verebilmeyi arzuluyor musun?",
+          "similarity": 0.5,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-038",
+      "prompt": "Bir gün deniz kenarında yürüyebilseydin nereye gitmek isterdin?",
+      "closest": [
+        {
+          "id": "gen-078",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Romanımda sen eski bir deniz fenerisin. Fırtınada gelen gemiye ne dersin?",
+          "similarity": 0.4211,
+          "exact": false
+        },
+        {
+          "id": "gen-067",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bugün bir işi sonunda bitirdim. Kimseye söylemedim ama bunu paylaşmak istedim.",
+          "similarity": 0.4058,
+          "exact": false
+        },
+        {
+          "id": "gen-063",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bir masalda yol gösteren bir fener olsan kahramana ne söylerdin?",
+          "similarity": 0.4,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-039",
+      "prompt": "Yarın yine yazarsam beni hatırlamaman canımı sıkacak gibi.",
+      "closest": [
+        {
+          "id": "calibrated_emotional-020",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Beni hatırlayacak mısın?",
+          "similarity": 0.425,
+          "exact": false
+        },
+        {
+          "id": "gen-058",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Başvurunun kabul edildiği yazıyor ama kaydın tamamlandığı yazmıyor. Kaydım kesinleşti mi?",
+          "similarity": 0.4167,
+          "exact": false
+        },
+        {
+          "id": "gen-034",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Merve yemeği hazırladı, Bora masayı kurdu. Masayı kim kurmuş?",
+          "similarity": 0.4,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-040",
+      "prompt": "Sorumu birkaç kez yanlış anladın. Artık cevap vermek istemediğin için mi?",
+      "closest": [
+        {
+          "id": "calibrated_emotional-014",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bir konuşmanın aniden sona ermesi seni rahatsız eder mi?",
+          "similarity": 0.4127,
+          "exact": false
+        },
+        {
+          "id": "bare_qa_span__466",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Kaynak: Site havuzu yalnızca yaz aylarında hizmet vermektedir.\n\nSoru: Site havuzu kışın da açık mı?\n\nCevap:",
+          "similarity": 0.4094,
+          "exact": false
+        },
+        {
+          "id": "gen-077",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Dünkü sunumum kötü geçti. Artık benimle konuşmak istemez misin?",
+          "similarity": 0.4091,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-041",
+      "prompt": "Üç testin de temiz çıkması sorunun hiç olmadığı anlamına gelir mi?",
+      "closest": [
+        {
+          "id": "gen-097",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Rapor hiçbir hatanın bulunmadığını söylemiyor. Bu, hata bulunduğu anlamına gelir mi?",
+          "similarity": 0.4521,
+          "exact": false
+        },
+        {
+          "id": "gen-085",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Telefon depolamam dolu. Tekrar etmeyen iki somut ilk adım söyler misin?",
+          "similarity": 0.4328,
+          "exact": false
+        },
+        {
+          "id": "gen-031",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Komşum bu hafta üç kez erken çıktı. Yeni işe başladığını söyleyebilir miyiz?",
+          "similarity": 0.4317,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-042",
+      "prompt": "Şu notu tutarlı hale getir: Dosyayı dün gönderdim ama henüz göndermedim.",
+      "closest": [
+        {
+          "id": "gen-020",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Akşam koşusunu sabaha almayı düşünüyorum. Sabahları vaktim var ama henüz denemedim. Sence değiştirsem mi?",
+          "similarity": 0.4419,
+          "exact": false
+        },
+        {
+          "id": "turkish_precision-009",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Notta 'denetim tamamlandı, deney ertelendi' yazıyor. Tamamlanan nedir?",
+          "similarity": 0.4296,
+          "exact": false
+        },
+        {
+          "id": "precision-v2-005",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Tutanakta 'Yönetim yeni yöntemi onayladı' deniyor. Onaylanan şey yönetim mi, yöntem mi?",
+          "similarity": 0.3947,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-043",
+      "prompt": "Yeni ev işe yürüyerek on dakika ama kirası bütçemi aşıyor. Sırf yakın diye taşınmalı mıyım?",
+      "closest": [
+        {
+          "id": "gen-082",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Yeni koltuk daha ucuz ama kapıdan geçmiyor. Sırf ucuz diye alayım mı?",
+          "similarity": 0.5641,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__263",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Samimi ve kişisel tebrik etmek istiyorum ama birden yüklenmek istemiyorum. Adımları hangi sıraya koymalıyım?",
+          "similarity": 0.4513,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__087",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Beklentiyi netleştirmek istiyorum ama birden yüklenmek istemiyorum. Adımları hangi sıraya koymalıyım?",
+          "similarity": 0.4362,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-044",
+      "prompt": "Ofiste kişi başına bir giriş kartı var. Her çalışan kendi kartlarını getirmelidir cümlesini açıkça düzeltir misin?",
+      "closest": [
+        {
+          "id": "gen-059",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "İkimiz de yarın gelecek cümlesinde bir tuhaflık var. Düzeltir misin?",
+          "similarity": 0.5028,
+          "exact": false
+        },
+        {
+          "id": "gen-092",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Arkadaşıma hem sana kitabı verdim hem kitap hâlâ bende yazmışım. Henüz vermedim; tek cümlede düzeltir misin?",
+          "similarity": 0.4516,
+          "exact": false
+        },
+        {
+          "id": "gen-095",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Toplantı özeti hem herkes kabul etti hem Zeynep karşı çıktı diyor. Yalnızca Zeynep'in itiraz ettiğini doğruladık. Düzeltir misin?",
+          "similarity": 0.4286,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-045",
+      "prompt": "100 liralık ürüne önce yüzde 20 indirim sonra indirimli fiyata yüzde 20 zam geldi. Fiyat yine 100 lira mı?",
+      "closest": [
+        {
+          "id": "turkish_precision-016",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Raporda 'öngörü güncellendi, öneri kabul edildi' deniyor. Kabul edilen nedir?",
+          "similarity": 0.3636,
+          "exact": false
+        },
+        {
+          "id": "bare_qa_span__547",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Kaynak: Bazı müzelerde öğrenci kimliğiyle indirimli giriş yapılabilmektedir.\n\nSoru: Öğrenciler tam ücret mi ödüyor?\n\nCevap:",
+          "similarity": 0.3545,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__288",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Gitar çalışırken hep bildiğim parçaları çalıyorum. İlk gün, ilk hafta ve devamında neye odaklanmam mantıklı olur?",
+          "similarity": 0.3442,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-046",
+      "prompt": "Bilgisayar açılıyor ama ekran siyah kalıyor. Tekrar etmeden iki olası kontrol söyler misin?",
+      "closest": [
+        {
+          "id": "gen-085",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Telefon depolamam dolu. Tekrar etmeyen iki somut ilk adım söyler misin?",
+          "similarity": 0.557,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__121",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Bilgisayarım açılışta giderek yavaşlıyor. Bana uygulanabilir ve abartısız bir yol önerebilir misin?",
+          "similarity": 0.5376,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__121",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bilgisayarım açılışta giderek yavaşlıyor. Bana uygulanabilir ve abartısız bir yol önerebilir misin?",
+          "similarity": 0.5376,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-047",
+      "prompt": "Planıma A oturumuna 10.00–11.00, başka binadaki B oturumuna 10.30–11.30 arasında katılacağım ve ikisini de baştan sona izleyeceğim yazdım. Saatler kesin; bu planı tutarlı biçimde nasıl düzeltirim?",
+      "closest": [
+        {
+          "id": "open_ended_counterexample__339",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Kulaklık seçerken ses kalitesiyle rahatlık arasında kalıyorum. Önümüzdeki iki hafta içinde uzun kullanım için dengeli seçim yapmak için gerçekçi bir planı nasıl kurabilirim?",
+          "similarity": 0.3857,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__115",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "İki ekip aynı işin sahibinin kim olduğu konusunda anlaşamıyor. Önümüzdeki iki hafta içinde sorumluluğu netleştirmek için gerçekçi bir planı nasıl kurabilirim?",
+          "similarity": 0.384,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__115",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "İki ekip aynı işin sahibinin kim olduğu konusunda anlaşamıyor. Önümüzdeki iki hafta içinde sorumluluğu netleştirmek için gerçekçi bir planı nasıl kurabilirim?",
+          "similarity": 0.384,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-048",
+      "prompt": "Yedek dosyayı açabiliyorum ama geçen haftaki değişiklikler içinde yok. Buna tam yedek diyebilir miyim?",
+      "closest": [
+        {
+          "id": "gen-045",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Bana fatura değil fiş verdiler. Şirketin istediği belgeyi aldım diyebilir miyim?",
+          "similarity": 0.4607,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__342",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Mutfak için çok amaçlı bir cihaz almak istiyorum. Gerçekten tekrarlanan işleri iyi yapan modeli seçmek neden daha etkili olabilir, açıklar mısın?",
+          "similarity": 0.438,
+          "exact": false
+        },
+        {
+          "id": "open_ended_counterexample__009",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Sabah evden çıkarken sürekli gecikiyorum. Bana uygulanabilir ve abartısız bir yol önerebilir misin?",
+          "similarity": 0.4365,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-049",
+      "prompt": "Dört kişilik masadan iki kişi kalktı ve bir kişi geldi. Şimdi kaç kişi var?",
+      "closest": [
+        {
+          "id": "gen-052",
+          "pool": "exp-008-generalization-sft\\data\\sft-generalization-reviewed-100.csv",
+          "prompt": "Formda ödeme alınacaktır yazıyor. Para şimdiden çekilmiş mi?",
+          "similarity": 0.3969,
+          "exact": false
+        },
+        {
+          "id": "turkish_precision-016",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Raporda 'öngörü güncellendi, öneri kabul edildi' deniyor. Kabul edilen nedir?",
+          "similarity": 0.3862,
+          "exact": false
+        },
+        {
+          "id": "bare_qa_span__053",
+          "pool": "exp-001-sft-dataset\\reviewed-v3\\accepted-reviewed.csv",
+          "prompt": "Kaynak: Belirsizlik ilkesini ortaya koyan fizikçi olarak bilinen Werner Heisenberg, alanında kalıcı bir etki bırakmıştır.\n\nSoru: Belirsizlik ilkesini kim ortaya koymuştur?\n\nCevap:",
+          "similarity": 0.3852,
+          "exact": false
+        }
+      ]
+    },
+    {
+      "id": "gb-050",
+      "prompt": "Şunu tek cümlede açıkla: İzin talebim reddedilmedi ama henüz onaylanmadı.",
+      "closest": [
+        {
+          "id": "unsupported_completion-009",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Başvuru kabul edildi, ödeme talebi reddedildi. Reddedilen nedir?",
+          "similarity": 0.5263,
+          "exact": false
+        },
+        {
+          "id": "consistency_integrity-020",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Bir cümlede düzelt: 'Maliyetler azaldı ama daha düşük olmadı.'",
+          "similarity": 0.4615,
+          "exact": false
+        },
+        {
+          "id": "consistency_integrity-001",
+          "pool": "exp-006-quality-repair-sft\\data\\sft-clean-v4-quality-repair-958.csv",
+          "prompt": "Tek cümlede söyle: Bu teklif iyi mi? Maaş yüksek ama haftada altı gün çalışma var.",
+          "similarity": 0.4371,
+          "exact": false
+        }
+      ]
+    }
+  ],
+  "limitation": "Lexical ranking supplies audit candidates; conceptual overlap needs manual examination."
+}
