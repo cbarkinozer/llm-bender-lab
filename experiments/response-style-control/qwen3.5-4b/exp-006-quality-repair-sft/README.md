@@ -4,8 +4,10 @@
 
 Dataset frozen after human review and post-review QA. All 100 candidates have
 an explicit decision: 69 were rewritten, 31 were accepted, and none were
-rejected. The resulting 958-row training artifact is ready for GPU preflight;
-full training remains gated on representation, smoke, and tiny-overfit checks.
+rejected. The 958-row artifact passed representation, smoke, and tiny-overfit
+gates; full-v1 training and the sealed 50-item base/candidate generation are
+complete. Human blind review is the remaining quality decision. See
+`GPU-RUN-NOTES.md` for the run record and local artifact bundle details.
 
 ## Primary hypothesis
 
