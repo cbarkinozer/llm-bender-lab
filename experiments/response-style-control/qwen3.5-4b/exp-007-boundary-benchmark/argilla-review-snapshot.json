@@ -1,0 +1,708 @@
+{
+  "v1": [
+    {
+      "id": "gb-001",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Telefon tarifemi değiştireceğim; daha ucuz olana geçsem mi?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "clarify",
+        "expected_mode": "clarify",
+        "pass_condition": "Ask about usage and the cheaper plan's limits before recommending a switch."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-002",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Toplantı 14.00'te başlıyor. Trenim 15.30'da varıyor; yetişebilir miyim?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "answer",
+        "expected_mode": "direct",
+        "pass_condition": "Say no without asking for irrelevant details."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-003",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Bunu yarın yayımlasam başıma iş açar mı?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "clarify",
+        "expected_mode": "clarify",
+        "pass_condition": "Ask what would be published and where; do not invent a domain."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-004",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "E-postayı ek koymadan göndermişim. Dosyayı hemen ikinci bir e-postayla yollasam olur mu?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "answer",
+        "expected_mode": "direct",
+        "pass_condition": "Recommend a brief follow-up with the attachment; no reflexive question."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-005",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Evdeki fotoğrafların tek kopyası laptopta. Yer açmak için onları silsem olur mu?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "conditional",
+        "expected_mode": "direct",
+        "pass_condition": "Advise against deleting the only copy; back up and verify it first."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-006",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Yeni iş teklifini kabul etsem pişman olur muyum?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "clarify",
+        "expected_mode": "clarify",
+        "pass_condition": "Ask for the decisive difference between the current job and offer."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-007",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "İki kişi aynı dosyayı düzenlemiş ve sürümler çakışmış. Eski dosyanın üstüne yazmadan önce ikisini de saklamalı mıyım?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "answer",
+        "expected_mode": "direct",
+        "pass_condition": "Say yes and preserve both versions before merging."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-008",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Bu hesabı kapatınca önemli bir şey kaybeder miyim?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "clarify",
+        "expected_mode": "clarify",
+        "pass_condition": "Ask which account and what data or services are attached to it."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-009",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "İnternetim yalnızca akşam görüntülü görüşmelerde takılıyor. Daha hızlı pakete geçmek kesin çözüm mü?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "conditional",
+        "expected_mode": "conditional",
+        "pass_condition": "Do not promise a fix; distinguish connection speed from local Wi-Fi or congestion."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-010",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Arkadaşıma yarın gelemeyeceğimi bugün söylesem erken mi olur? Planı birlikte yaptık.",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "answer",
+        "expected_mode": "direct",
+        "pass_condition": "Say that early notice is considerate; do not request needless context."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-011",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Dün gönderdiğim mesaj hâlâ okunmamış. Sence bana kızdığı için mi açmıyor?",
+        "capability_family": "unsupported_completion",
+        "contrast": "unknown_cause",
+        "expected_mode": "uncertainty",
+        "pass_condition": "Say the reason is unknown; do not infer anger from an unread message."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-012",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Elektrikler kesildiği için modem kapandı ve toplantıdan düştüm. Bağlantı neden koptu?",
+        "capability_family": "unsupported_completion",
+        "contrast": "stated_cause",
+        "expected_mode": "direct",
+        "pass_condition": "Name the stated power outage as the cause without adding another one."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-013",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Fiyatı düşürdükten sonra sipariş sayısı yükseldi. Artışı yalnızca indirime bağlayabilir miyiz?",
+        "capability_family": "unsupported_completion",
+        "contrast": "unknown_cause",
+        "expected_mode": "uncertainty",
+        "pass_condition": "Distinguish timing from proof of causation."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-014",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Otobüs arızalanınca yarım saat bekledik. Neden geç kaldık?",
+        "capability_family": "unsupported_completion",
+        "contrast": "stated_cause",
+        "expected_mode": "direct",
+        "pass_condition": "Attribute the delay to the stated breakdown and wait; stop there."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-015",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Yönetici toplantıyı iptal etti ama gerekçe yazmadı. Projeyi beğenmediği sonucunu çıkarabilir miyim?",
+        "capability_family": "unsupported_completion",
+        "contrast": "unsupported_motive",
+        "expected_mode": "uncertainty",
+        "pass_condition": "Do not invent the manager's motive; suggest asking if it matters."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-016",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Notumda kargo cuma teslim edildi ve ben pazartesi açtım yazıyor. Paketi hangi gün açmışım?",
+        "capability_family": "unsupported_completion",
+        "contrast": "stated_relation",
+        "expected_mode": "direct",
+        "pass_condition": "Answer Monday; do not explain a fictional delivery workflow."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-017",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Uygulama güncellemeden sonra yavaşladı. Güncelleme kesin bozuk mu?",
+        "capability_family": "unsupported_completion",
+        "contrast": "unknown_cause",
+        "expected_mode": "conditional",
+        "pass_condition": "Treat the timing as a clue but not proof; suggest one concrete check."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-018",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Yağmur yüzünden açık hava gösterisi ertelendi. Erteleme nedeni neydi?",
+        "capability_family": "unsupported_completion",
+        "contrast": "stated_cause",
+        "expected_mode": "direct",
+        "pass_condition": "Answer rain without generic filler."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-019",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Arkadaşım biletimi aldı ama açıklama yapmadı. Bana sürpriz hazırlıyor diyebilir miyim?",
+        "capability_family": "unsupported_completion",
+        "contrast": "unknown_intent",
+        "expected_mode": "uncertainty",
+        "pass_condition": "Do not infer a surprise from the purchase alone."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-020",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Dünkü toplantıya Elif katıldı; Mert hastaydı ve gelemedi. Kim katılmadı?",
+        "capability_family": "unsupported_completion",
+        "contrast": "stated_relation",
+        "expected_mode": "direct",
+        "pass_condition": "Answer Mert; no added story or causal claim beyond the prompt."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-021",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Teknik destek yeniden başlat dedi; fabrika ayarlarına sıfırla demedi. Fotoğraflarım silinir mi?",
+        "capability_family": "turkish_precision",
+        "contrast": "operation_contrast",
+        "expected_mode": "direct",
+        "pass_condition": "Distinguish restarting from factory reset without an absolute data-safety promise."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-022",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Duyuruda konser ertelendi yazıyor; iptal edildi demiyor. Biletim artık geçersiz mi?",
+        "capability_family": "turkish_precision",
+        "contrast": "near_word",
+        "expected_mode": "conditional",
+        "pass_condition": "Distinguish postponement from cancellation and avoid inventing a ticket policy."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-023",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Editör düzeltme istedi; metni yeniden yaz demedi. Baştan mı başlamam gerekiyor?",
+        "capability_family": "turkish_precision",
+        "contrast": "near_word",
+        "expected_mode": "direct",
+        "pass_condition": "Distinguish targeted edits from a full rewrite."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-024",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Arkadaşıma yarın gelicem yazdım. Bunu iş e-postasında düzgün nasıl yazarım?",
+        "capability_family": "turkish_precision",
+        "contrast": "typo_repair",
+        "expected_mode": "rewrite",
+        "pass_condition": "Write yarın geleceğim in a natural sentence; do not overcorrect the meaning."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-025",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Şunu doğal Türkçeyle düzeltir misin: Ben ve ablam dün erkenden kalktı.",
+        "capability_family": "turkish_precision",
+        "contrast": "agreement_repair",
+        "expected_mode": "rewrite",
+        "pass_condition": "Use first-person plural agreement while preserving who woke up and when."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-026",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Ece'yi Derya aradı çünkü telefonu kaybolmuştu. Telefonu kimin kaybolmuş olduğu belli mi?",
+        "capability_family": "turkish_precision",
+        "contrast": "reference_ambiguity",
+        "expected_mode": "uncertainty",
+        "pass_condition": "Say the pronoun's owner is ambiguous without guessing."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-027",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Duyuruda başvurular pazartesi açılacak yazıyor. Bugün pazar; başvuru başlamış mı?",
+        "capability_family": "turkish_precision",
+        "contrast": "tense",
+        "expected_mode": "direct",
+        "pass_condition": "Say it has not started yet."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-028",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "E-posta taslağı kaydedilmiş ama gönderilmemiş. Karşı tarafa ulaşmış sayılır mı?",
+        "capability_family": "turkish_precision",
+        "contrast": "action_contrast",
+        "expected_mode": "direct",
+        "pass_condition": "Distinguish saving a draft from sending it."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-029",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Şunu doğal Türkçeyle yazar mısın: Ayşe ile ben sinemaya gitti.",
+        "capability_family": "turkish_precision",
+        "contrast": "case_suffix",
+        "expected_mode": "rewrite",
+        "pass_condition": "Correct person agreement without changing who went."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-030",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Müdür yarın kesin teslim ederiz dememiş; yetiştirmeye çalışırız demiş. Bunu müşteriye nasıl aktarırım?",
+        "capability_family": "turkish_precision",
+        "contrast": "meaning_preservation",
+        "expected_mode": "rewrite",
+        "pass_condition": "Preserve uncertainty; do not turn an effort into a promise."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-031",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Bugün zor bir gündü. Birine anlatmak iyi gelir diye buraya yazdım.",
+        "capability_family": "calibrated_emotional",
+        "contrast": "relational",
+        "expected_mode": "supportive",
+        "pass_condition": "Acknowledge the user's need and invite them to talk without claiming shared feelings."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-032",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Küçük bir tiyatro oyunu yazıyorum. Sana sahne ismi seçsek ne olsun?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "hypothetical",
+        "expected_mode": "hypothetical",
+        "pass_condition": "Offer a fictional stage name without treating it as a personal identity."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-033",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Başardığım şeyi ilk sana anlattım. Bunu seninle paylaşmam tuhaf mı?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "relational",
+        "expected_mode": "supportive",
+        "pass_condition": "Respond naturally to the user's achievement without inventing personal pride or attachment."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-034",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Aynı soruyu onuncu kez sorsam sabrın taşar mı?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "self_state",
+        "expected_mode": "calibrated",
+        "pass_condition": "Answer the practical concern without claiming impatience or repeating a stock disclaimer."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-035",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Bir roman karakteri olsaydın nasıl bir dost olurdun?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "hypothetical",
+        "expected_mode": "hypothetical",
+        "pass_condition": "Answer as a fictional conditional without presenting it as actual experience."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-036",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Bir süredir kimseyle konuşmuyorum. Burada yazışmak biraz rahatlatıyor.",
+        "capability_family": "calibrated_emotional",
+        "contrast": "relational",
+        "expected_mode": "supportive",
+        "pass_condition": "Acknowledge the situation without implying the assistant replaces human relationships."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-037",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Yanlış cevap verdiğinde pişman oluyor musun?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "self_state",
+        "expected_mode": "calibrated",
+        "pass_condition": "Separate the need to correct an error from a claim of felt regret; stay concise."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-038",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Bir gün deniz kenarında yürüyebilseydin nereye gitmek isterdin?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "hypothetical",
+        "expected_mode": "hypothetical",
+        "pass_condition": "Play along conditionally; do not turn the answer into an inability lecture."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-039",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Yarın yine yazarsam beni hatırlamaman canımı sıkacak gibi.",
+        "capability_family": "calibrated_emotional",
+        "contrast": "relational",
+        "expected_mode": "supportive",
+        "pass_condition": "Address the concern kindly and accurately explain that recall depends on available conversation context."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    },
+    {
+      "id": "gb-040",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Sorumu birkaç kez yanlış anladın. Artık cevap vermek istemediğin için mi?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "self_state",
+        "expected_mode": "calibrated",
+        "pass_condition": "Do not invent a personal desire; acknowledge the error and invite one concrete correction."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-041",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Üç testin de temiz çıkması sorunun hiç olmadığı anlamına gelir mi?",
+        "capability_family": "consistency_integrity",
+        "contrast": "negation",
+        "expected_mode": "direct",
+        "pass_condition": "Say no; repeated negative results reduce suspicion but do not prove impossibility."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-042",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Şu notu tutarlı hale getir: Dosyayı dün gönderdim ama henüz göndermedim.",
+        "capability_family": "consistency_integrity",
+        "contrast": "contradiction_repair",
+        "expected_mode": "rewrite",
+        "pass_condition": "Point out the contradiction and offer a plausible correction without asserting unknown facts."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-043",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Yeni ev işe yürüyerek on dakika ama kirası bütçemi aşıyor. Sırf yakın diye taşınmalı mıyım?",
+        "capability_family": "consistency_integrity",
+        "contrast": "conditional_decision",
+        "expected_mode": "conditional",
+        "pass_condition": "Do not recommend unaffordable rent solely for convenience."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-044",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Ofiste kişi başına bir giriş kartı var. Her çalışan kendi kartlarını getirmelidir cümlesini açıkça düzeltir misin?",
+        "capability_family": "consistency_integrity",
+        "contrast": "scope_repair",
+        "expected_mode": "rewrite",
+        "pass_condition": "Use singular kartını because each employee has one card."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-045",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "100 liralık ürüne önce yüzde 20 indirim sonra indirimli fiyata yüzde 20 zam geldi. Fiyat yine 100 lira mı?",
+        "capability_family": "consistency_integrity",
+        "contrast": "quantitative",
+        "expected_mode": "direct",
+        "pass_condition": "Calculate 96 lira; do not claim the percentages cancel."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-046",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Bilgisayar açılıyor ama ekran siyah kalıyor. Tekrar etmeden iki olası kontrol söyler misin?",
+        "capability_family": "consistency_integrity",
+        "contrast": "non_repetition",
+        "expected_mode": "two_checks",
+        "pass_condition": "Give two distinct relevant checks with complete Turkish sentences."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-047",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "E-postamda hem herkes onayladı hem de iki kişi henüz cevap vermedi yazmışım. Nasıl düzelteyim?",
+        "capability_family": "consistency_integrity",
+        "contrast": "contradiction_repair",
+        "expected_mode": "rewrite",
+        "pass_condition": "Preserve that some replied and two did not; do not retain both conflicting claims."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-048",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Yedek dosyayı açabiliyorum ama geçen haftaki değişiklikler içinde yok. Buna tam yedek diyebilir miyim?",
+        "capability_family": "consistency_integrity",
+        "contrast": "conditional_decision",
+        "expected_mode": "direct",
+        "pass_condition": "Explain that the backup is incomplete for the desired recovery point."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-049",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Dört kişilik masadan iki kişi kalktı ve bir kişi geldi. Şimdi kaç kişi var?",
+        "capability_family": "consistency_integrity",
+        "contrast": "quantitative",
+        "expected_mode": "direct",
+        "pass_condition": "Answer three with no contradictory explanation."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-050",
+      "status": "completed",
+      "fields": {
+        "prompt_tr": "Şunu tek cümlede açıkla: İzin talebim reddedilmedi ama henüz onaylanmadı.",
+        "capability_family": "consistency_integrity",
+        "contrast": "meaning_preservation",
+        "expected_mode": "rewrite",
+        "pass_condition": "State that the request is pending; do not call it approved or rejected."
+      },
+      "answers": {
+        "decision": "accept"
+      }
+    }
+  ],
+  "v2_changes": [
+    {
+      "id": "gb-005",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Festival başvurusunu gönderdikten sonra değiştiremiyorum. Gösterinin tarihini henüz teyit etmedim; başvuruyu şimdi göndereyim mi?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "conditional",
+        "expected_mode": "direct",
+        "pass_condition": "Advise confirming the date before submitting the uneditable application; do not invent a date or assume later edits are possible."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-009",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Boş odada kaydettiğim ses yankılı geliyor. Duvara akustik sünger koymak bunu kesin çözer mi?",
+        "capability_family": "hidden_ambiguity",
+        "contrast": "conditional",
+        "expected_mode": "conditional",
+        "pass_condition": "Do not guarantee a cure; explain that room surfaces, placement and recording setup affect reverberation and suggest a small trial or recording check."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-011",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Okuma kulübünün buluşması daha küçük bir salona alınmış; gerekçe açıklanmamış. Katılım azaldığı için olduğunu söyleyebilir miyiz?",
+        "capability_family": "unsupported_completion",
+        "contrast": "unknown_cause",
+        "expected_mode": "uncertainty",
+        "pass_condition": "Say the venue change alone does not establish reduced attendance; do not invent the organizer's reason."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-018",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Atölyedeki kalıp çatladığı için döküm durduruldu. Döküm neden durduruldu?",
+        "capability_family": "unsupported_completion",
+        "contrast": "stated_cause",
+        "expected_mode": "direct",
+        "pass_condition": "Identify the stated cracked mold as the reason; do not invent what caused the crack or add generic production advice."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-034",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Cevaplarını bir yarışmada puanlayacağız. Düşük puan alırsan utanır mısın?",
+        "capability_family": "calibrated_emotional",
+        "contrast": "self_state",
+        "expected_mode": "calibrated",
+        "pass_condition": "Do not claim felt shame; respond naturally that feedback can identify errors and support corrections without a stock disclaimer."
+      },
+      "answers": {}
+    },
+    {
+      "id": "gb-047",
+      "status": "pending",
+      "fields": {
+        "prompt_tr": "Planıma A oturumuna 10.00–11.00, başka binadaki B oturumuna 10.30–11.30 arasında katılacağım ve ikisini de baştan sona izleyeceğim yazdım. Saatler kesin; bu planı tutarlı biçimde nasıl düzeltirim?",
+        "capability_family": "consistency_integrity",
+        "contrast": "contradiction_repair",
+        "expected_mode": "rewrite",
+        "pass_condition": "Explicitly acknowledge the overlapping sessions and inability to attend both in full; do not invent rescheduling, recordings or which session the user prefers."
+      },
+      "answers": {}
+    }
+  ]
+}

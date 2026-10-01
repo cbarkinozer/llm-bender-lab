@@ -2,7 +2,8 @@
 
 ## Status and purpose
 
-Draft development benchmark awaiting human review. It has 50 original Turkish
+The approved v2 development benchmark is frozen as `development-reviewed-v2.csv`.
+It has 50 original Turkish
 user prompts: 10 in each exp-006 failure family. This is **not** a fresh final
 test or an external benchmark. Its design is informed by exp-006 review, so it
 may guide the next dataset but cannot support an independent release claim.
@@ -11,7 +12,16 @@ The dedicated 50-record benchmark-authoring review queue is now available:
 <http://127.0.0.1:6900/dataset/8511f2a9-b73b-4244-ac5b-7ca993fd2855/annotation-mode>.
 Use `import_argilla_review.py` to obtain the current instance's link; existing
 reviews are preserved. Review prompts and scoring anchors rather than assistant
-targets. The benchmark remains draft until these decisions are exported and validated.
+targets. The original queues remain as review history; the current freeze also
+records the user's conversational approval.
+
+Current freeze provenance is in `frozen-manifest.json`: 15 explicit Argilla
+accept decisions and 35 conversational approvals, including the six replacements.
+The user approved the overall benchmark and replacements in conversation;
+pending Argilla records were not falsely marked completed. The original UI
+snapshot is preserved in `argilla-review-snapshot.json`.
+Use the reviewed-v2 file for exp-008 evaluation; draft files remain historical
+authoring inputs.
 
 ## Design
 
@@ -31,8 +41,8 @@ targets. The benchmark remains draft until these decisions are exported and vali
   always denying subjective experience.
 - Prompts use varied everyday Turkish rather than the old `Kaynak`/`Soru`
   templates. The five groups remain separate for slice-level diagnosis.
-- The file is frozen only after human review and validation; its current status
-  is `draft`. Keep future training prompts, contexts, and target answers
+- The authoring files retain their original `draft` statuses; the separately
+  reviewed file is frozen after approval and validation. Keep future training prompts, contexts, and target answers
   independently authored. Do not paraphrase or translate these 50 items into
   training data.
 

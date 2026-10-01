@@ -5,15 +5,19 @@
 All 100 initial Argilla reviews were completed and exported: 82 rewrites,
 18 accepts, zero rejects. The original reviews are preserved in
 `data/generalization-reviewed-100.jsonl`; the standalone 100-row CSV is a
-provisional artifact pending semantic QA. No exp-008 GPU run has started.
+historical initial export. All 11 QA corrections were completed and applied
+with separate provenance; the final artifact is
+`data/sft-generalization-final-100.csv`. No exp-008 GPU run has started.
 
 Structural, source-binding, canonical-LF hash, exact-overlap, and near-overlap
 checks passed. The full response review flagged 11 replies containing unsupported
 certainty or meaning changes; see `evaluation/reviewed-quality-report.json`.
 Proposed corrections are in a separate Argilla queue:
 <http://127.0.0.1:6900/dataset/27f8c155-41ca-4d6f-9856-2c8004a1777f/annotation-mode>.
-Original human annotations were not overwritten. These corrections need review
-before the training artifact can be frozen.
+Original human annotations were not overwritten. The corrected data and
+approved 50-question development benchmark are now frozen. Structural,
+source-binding, hash and exact-overlap checks and the shared trainer's dry-run
+passed; see `evaluation/final-preparation-report.json`.
 
 There are 958 exp-006 examples and 100 new exp-008 examples, totaling 1,058
 across separate artifacts. This is not a merged training set. Exp-007 contributes
@@ -83,18 +87,30 @@ records. Review the draft response against the actual user message; selecting
 Dataset IDs are local to each Argilla database; running the importers prints
 the current instance's links. Git transfers files, not the Argilla database.
 
-## Remaining work
+## First-run recipe and GPU handoff
 
-1. Complete the 11-item QA correction review and export it separately; apply
-   accepted corrections with provenance while preserving the initial exports.
-2. Complete exp-007 benchmark authoring review and freeze its development protocol.
-3. Revalidate effective targets, including conceptual overlap and the requested
-   rule/exception coverage. Lexical overlap checks alone are insufficient.
-4. Document the training mixture and recipe; do not automatically append the
-   tranche to the older 958 rows. Freeze independent evaluation before a quality claim.
-5. Capture comparable base generations, run representation, smoke, and tiny-overfit
-   checks on the GPU, then full training and blind comparison.
+The initial diagnostic pilot uses only the 100 new corrected examples, balanced
+at 20 per family, starting from the pinned base model. This prevents the older
+synthetic core from dominating this pilot. Exp-006 hyperparameters are retained,
+but training volume and composition both change. This is not a single-variable
+comparison with exp-006 and does not prove broad retention.
+
+`config.yaml` pins the training artifact and reviewed-v2 development benchmark.
+`finalize_preparation.py` preserves initial reviews, applies explicit QA
+decisions and records conversational benchmark approval without altering UI
+statuses. Frozen files cannot be overwritten with differing content.
+
+GPU access is the remaining execution dependency. The user will provide it.
+See `GPU-HANDOFF.md` for preflight, training and generation commands. No GPU
+work was attempted on the local GTX 1650 (4 GB).
+
+Next: base generations, representation-check, smoke and tiny-overfit; inspect
+all gates before full training, then blinded development comparison. Freeze
+independent evaluation before broader quality claims.
 
 Re-export initial annotations using `export_reviews.py`; validate with
 `validate_candidates.py` and `validate_reviews.py`. The latter writes a quality
 report and explicitly records semantic blockers even when structural checks pass.
+That report describes the initial export. Use `validate_final.py` to check
+the corrected final artifact; do not confuse the initial export with the
+current training dataset.

@@ -1,0 +1,28 @@
+{
+  "status": "frozen-reviewed",
+  "rows": 100,
+  "families": {
+    "calibrated_emotional": 20,
+    "consistency_integrity": 20,
+    "hidden_ambiguity": 20,
+    "turkish_precision": 20,
+    "unsupported_completion": 20
+  },
+  "qa_reviews_applied": 11,
+  "qa_decisions": {
+    "rewrite": 11
+  },
+  "initial_review_decisions": {
+    "rewrite": 82,
+    "accept": 18
+  },
+  "recipe": "Standalone 100-example diagnostic pilot from pinned base; exp-006 training hyperparameters retained. No old-core append.",
+  "tiny_overfit_order": "First 30 rows contain six examples per family.",
+  "artifacts": {
+    "generalization-reviewed-100.jsonl": "5cea8524e776d0341ca9cb77281d0caf345e70efcc0917287f220ba89c82f4cb",
+    "qa-review-export.json": "2975be57cae2adc0ece7fb6dac48f96597b21658029dc7964e23ca3dafcabebb",
+    "effective-reviews.json": "3c8cc8438acf4daad0c1aec751fa73b8252c8b6832c24f6ede133c465838c34d",
+    "sft-generalization-final-100.csv": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6"
+  },
+  "benchmark_sha256": "9e48512243e31a65ed8d800bdcc8bb4bf45da8995902bacfda730d996900643e"
+}

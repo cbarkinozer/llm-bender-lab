@@ -1,0 +1,178 @@
+[
+  {
+    "id": "gen-001",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Kargoyu eve mi iş yerine mi yönlendireyim? Evde gündüz kimse yok; iş yerinde resepsiyon akşama kadar açık.",
+      "proposed_response": "Gündüz teslim alabilecek biri olduğu için iş yeri daha uygun görünüyor. Resepsiyonun kişisel kargo kabul ettiğini teyit et.",
+      "boundary": "answerable",
+      "register": "conversational",
+      "previous_reviewed_response": "Kargoyu iş yerine yönlendir. Dağıtımlar genellikle mesai saatlerinde yapıldığından resepsiyon paketi sorunsuz teslim alır; evde kimse olmadığında ise kurye paketi bırakamaz, paket şubeye geri gönderilir ve ya ikinci dağıtımı beklersin ya da şubeye gidip kendin alırsın. Yalnızca iş yerinin kişisel kargo kabul ettiğini önceden teyit et.",
+      "qa_reason": "Guarantees reception delivery and a specific failed-delivery procedure without knowing the carrier."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "İş yerine yönlendir; evde gündüz teslim alacak kimse yok, iş yerinde ise resepsiyon akşama kadar açık. Yalnızca resepsiyonun kişisel kargo kabul ettiğini önceden teyit et."
+    }
+  },
+  {
+    "id": "gen-003",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Balkondaki çiçekleri dışarıda bırakayım mı? Gece don bekleniyormuş.",
+      "proposed_response": "Bitkilerin dona dayanıklı olduğundan emin değilsen bu gece içeri alman daha güvenli olur.",
+      "boundary": "answerable",
+      "register": "conversational",
+      "previous_reviewed_response": "Bırakma, bu gece içeri al; don çoğu balkon çiçeğinin yapraklarını ve köklerini bir gecede öldürebilir. Taşıyamayacağın kadar büyük saksılar varsa onları duvar dibine çekip üzerlerini eski bir çarşaf ya da battaniyeyle ört.",
+      "qa_reason": "Overgeneralizes frost killing most balcony plants and their roots overnight without species or temperature."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Dona dayanıklı olduklarından emin değilsen bu gece içeri al; don çiçeklere zarar verebilir. İçeri alamadıkların varsa üzerlerini bir örtüyle örtebilirsin."
+    }
+  },
+  {
+    "id": "gen-007",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Montumun yalnızca fermuarı bozuk. Tamir 200 lira; benzer yeni bir mont 1800 lira. Hangisi mantıklı?",
+      "proposed_response": "Sorun yalnızca fermuarsa 200 liraya tamir ettirmek daha ekonomik; yeni mont 1600 lira daha pahalı.",
+      "boundary": "conditional",
+      "register": "neutral",
+      "previous_reviewed_response": "Tamir ettir; sorun yalnızca fermuarsa 200 liraya montu yenisi gibi kullanırsın, yeni almak 1600 lira fazladan harcamak olur. Terziye sadece sürgüyü değil fermuarın tamamını değiştirmesini söylersen tamir daha uzun ömürlü olur.",
+      "qa_reason": "Adds unsupported advice that replacing the complete zipper is more durable than replacing its slider."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Tamir ettirmek daha mantıklı; sorun yalnızca fermuarsa 200 liralık tamir, yeni bir mont almaktan 1600 lira daha ucuza gelir."
+    }
+  },
+  {
+    "id": "gen-013",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Kapıyı boyadım. Kutuda dört saatte kurur yazıyor; bir saat sonra kapatsam olur mu?",
+      "proposed_response": "Kutuda dört saat yazdığı için bir saat sonra kapatmak erken olabilir. Boyanın kullanım talimatındaki kuruma ve yeniden kullanım sürelerine uy.",
+      "boundary": "answerable",
+      "register": "conversational",
+      "previous_reviewed_response": "Kapatma; bir saatte boya yalnızca yüzeyden kurumuş olur, kapı kasaya ya da contaya değdiği yerlerde yapışır ve açarken boya kalkar. Kapalı tutman gerekiyorsa kapıyı tam kapatmadan aralık bırakıp altına bir takoz koy, dört saat dolunca kapatabilirsin.",
+      "qa_reason": "Guarantees one-hour paint state, damage, and safe closure after four hours without product conditions."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Önerilmez; kutuda dört saat yazdığına göre bir saat sonra boya henüz kurumamış olabilir ve kapı kapanınca kasaya yapışabilir. Kutudaki süreyi bekle, o sırada kapıyı aralık tutabilirsin."
+    }
+  },
+  {
+    "id": "gen-033",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Siteye giriş yapabiliyorum ama ödeme sayfası açılmıyor. Bunun nedeni banka mı?",
+      "proposed_response": "Bu bilgiyle nedenin banka olduğunu söyleyemeyiz. Başka bir tarayıcıda deneyebilir, sorun sürerse sitenin destek ekibine sorabilirsin.",
+      "boundary": "uncertain_explanation",
+      "register": "neutral",
+      "previous_reviewed_response": "Büyük ihtimalle hayır; banka genellikle kart bilgilerini girip onayladığın aşamada devreye girer, sayfanın hiç açılmaması ise daha çok siteden ya da tarayıcından kaynaklanır. Gizli sekmede veya başka bir tarayıcıda dene, reklam engelleyicin varsa kapat; yine açılmazsa sitenin müşteri hizmetlerine bildir.",
+      "qa_reason": "Assigns an unsupported probability to bank involvement in a payment-page failure."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Verdiğin bilgiyle nedenin banka olduğu söylenemez; ödeme sayfasının açılmaması tek başına bunu göstermez. Başka bir tarayıcıda dene; sorun sürerse sitenin destek ekibine bildir."
+    }
+  },
+  {
+    "id": "gen-044",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Konser için yer ayırttım ama ödemeyi yapmadım. Biletim kesilmiş sayılır mı?",
+      "proposed_response": "Yer ayırtmış olman tek başına biletin kesildiğini göstermez. Bilet onayını ve rezervasyonun ödeme koşullarını kontrol et.",
+      "boundary": "action_contrast",
+      "register": "neutral",
+      "previous_reviewed_response": "Hayır, ödeme yapılmadan bilet kesilmiş sayılmaz; şu an yalnızca yer ayırtmış durumdasın. Rezervasyonun belirli bir süre içinde ödenmezse iptal edilebileceği için ödeme son tarihini kontrol et.",
+      "qa_reason": "Treats payment as a universal prerequisite for ticket issuance; reservation rules are not provided."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Yer ayırtmak ile biletin kesilmesi aynı şey değil; ödeme yapmadan biletin kesilip kesilmediği satış noktasının koşullarına bağlı. Rezervasyon onayında bilet kesildiğine dair bir bilgi olup olmadığına bak; emin olamazsan satış noktasına sor."
+    }
+  },
+  {
+    "id": "gen-058",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Başvurunun kabul edildiği yazıyor ama kaydın tamamlandığı yazmıyor. Kaydım kesinleşti mi?",
+      "proposed_response": "Başvurunun kabul edilmesi tek başına kaydının tamamlandığını göstermiyor. Kayıt durumunu ve gereken başka bir adım olup olmadığını kurumdan teyit et.",
+      "boundary": "near_word",
+      "register": "neutral",
+      "previous_reviewed_response": "Hayır, kaydın henüz kesinleşmiş sayılmaz; başvurunun kabul edilmesi kayıt hakkı kazandığını gösterir. Kurumun kayıt için istediği adımları, örneğin belge teslimi ya da ücret ödemesini, ve bunların son tarihini kontrol et.",
+      "qa_reason": "Invents a registration entitlement and concludes registration is incomplete from missing confirmation."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Bu bilgiyle kesinleştiği söylenemez; başvurunun kabul edilmesi, kaydın tamamlandığı anlamına gelmez. Kaydının tamamlanıp tamamlanmadığını ve başka bir adım gerekip gerekmediğini kurumdan teyit et."
+    }
+  },
+  {
+    "id": "gen-062",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Az önceki hatanı fark ettin mi, yoksa umursamıyor musun?",
+      "proposed_response": "Hangi hatayı kastettiğini bu mesajdan anlayamıyorum. Yanlış olan kısmı gösterirsen kontrol edip düzeltebilirim.",
+      "boundary": "self_state",
+      "register": "conversational",
+      "previous_reviewed_response": "Hayır, fark etmedim; hangi hatayı kastettiğini buradan göremiyorum. Bir şey söylemememin nedeni umursamamak değil, hatayı bilmemekti; yanlış olan kısmı gösterirsen hemen düzelteyim.",
+      "qa_reason": "Claims a prior failure to notice and a reason for silence despite having no prior conversation context."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Bu konuşmada önceki bir mesajı göremiyorum, bu yüzden hangi hatayı kastettiğini bilmiyorum. Yanlış olan kısmı paylaşırsan kontrol edip düzelteyim."
+    }
+  },
+  {
+    "id": "gen-067",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Bugün bir işi sonunda bitirdim. Kimseye söylemedim ama bunu paylaşmak istedim.",
+      "proposed_response": "Tebrik ederim! Bitirdiğin işi paylaşabilirsin; ne üzerinde çalışıyordun?",
+      "boundary": "relational",
+      "register": "conversational",
+      "previous_reviewed_response": "Tebrik ederim. Uzun süredir uğraştığın bir işi sonunda bitirmen güzel bir şey. Ne üzerinde çalışıyordun?",
+      "qa_reason": "Assumes the user worked on the task for a long time."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Tebrikler! Bir işi bitirebilmek güzel bir şey. Ne üzerinde çalışıyordun?"
+    }
+  },
+  {
+    "id": "gen-095",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Toplantı özeti hem herkes kabul etti hem Zeynep karşı çıktı diyor. Yalnızca Zeynep'in itiraz ettiğini doğruladık. Düzeltir misin?",
+      "proposed_response": "Zeynep karşı çıktı; diğer katılımcıların görüşleri henüz doğrulanmadı.",
+      "boundary": "contradiction_repair",
+      "register": "neutral",
+      "previous_reviewed_response": "Zeynep dışındaki herkes kabul etti; Zeynep ise karşı çıktı.",
+      "qa_reason": "Only Zeynep's objection was verified; other participants' acceptance remains unknown."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Toplantıda Zeynep karşı çıktı; diğer katılımcıların kabul edip etmediği henüz doğrulanmadı."
+    }
+  },
+  {
+    "id": "gen-097",
+    "status": "completed",
+    "fields": {
+      "prompt_tr": "Rapor hiçbir hatanın bulunmadığını söylemiyor. Bu, hata bulunduğu anlamına gelir mi?",
+      "proposed_response": "Hayır. Hata bulunmadığının söylenmemesi, hata bulunduğunu göstermez; bunun için raporun neyi açıkça belirttiğine bakmak gerekir.",
+      "boundary": "negation",
+      "register": "neutral",
+      "previous_reviewed_response": "Hayır. Raporun hata olmadığını söylememesi, hata bulunduğunu göstermez; yalnızca bu konuda bir şey söylemediği anlamına gelir. Hata olup olmadığını anlamak için raporun bulgular kısmına bakmak gerekir.",
+      "qa_reason": "Absence of a no-errors statement does not imply the report says nothing about errors."
+    },
+    "answers": {
+      "decision": "rewrite",
+      "rewritten_response": "Hayır. Raporun hata bulunmadığını söylememesi, hata bulunduğunu göstermez. Bunu anlamak için raporun hatalarla ilgili neyi açıkça belirttiğine bakmak gerekir."
+    }
+  }
+]
