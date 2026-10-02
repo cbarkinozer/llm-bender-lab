@@ -59,3 +59,13 @@ penalty recorded in `run-manifest.json` and CLI arguments. The original
 decoding parameter changed; no sampling switch, prompt edits or split edits.
 Use 1.05 for the later base/fine-tuned comparison unless a new protocol is
 explicitly approved and both versions are evaluated under it.
+
+## Completion
+
+The penalty105 full run completed at 2026-10-02 13:27:20 UTC: 100 native
+stops, zero length-limit retries, maximum 1735 output tokens. Final environment:
+vLLM 0.20.1, Torch 2.11.0 / CUDA 13.0, Transformers 4.57.6, tokenizers 0.22.2.
+The clean generation source commit is 6ba79eb8ff1a006c6a06b10ebfa4ff875158c6f5.
+Local backup hashes were matched to the remote artifacts; 80 train and 20
+validation records were imported and re-read from Argilla. No training or W&B
+logging occurred. GPU memory returned to 0 MiB. See BASE-RUN-REPORT.md.

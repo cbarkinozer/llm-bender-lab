@@ -2,13 +2,14 @@
 
 ## Status
 
-Base generation in progress. **Active prompt selection v2: 100 rows, 80 train / 20 validation**.
+Base generation completed. **Active prompt selection v2: 100 rows, 80 train / 20 validation**.
 V1 is retained unchanged as history. See [coverage-v2.md](coverage-v2.md) for
 the full behavior mapping, similar-word priorities, new character contrasts,
 multi-turn clarification resolution, provenance changes and refreshed overlap audit.
-vLLM smoke checks passed; full base generation uses the user-approved small
-repetition penalty increase to 1.05. No human answer editing or training has
-started. Historical assistant targets are excluded. See GPU-RUN-NOTES.md.
+vLLM generated and verified 100 naturally stopped answers with the user-approved
+repetition penalty 1.05. Separate 80-row train and 20-row validation queues are
+in Argilla. No human answer editing or training has started. Historical assistant
+targets are excluded. See [BASE-RUN-REPORT.md](BASE-RUN-REPORT.md).
 
 ## Goal and hypothesis
 
@@ -153,8 +154,8 @@ exist yet; these are later gates, not silently satisfied by prompt curation.
 
 ## Next step
 
-Complete and back up all 100 base drafts, then prepare separate 80-row training
-and 20-row evaluation-only human minimal-edit queues. No automatic
+Human review: edit the separate 80-row training and 20-row evaluation-only
+minimal-edit queues. Base drafts and logs have been backed up. No automatic
 full-data merge or continuation of an old adapter is planned.
 
 CPU checks from the repository root:

@@ -241,7 +241,8 @@ chat template, system prompt, thinking mode, and recorded generation settings.
 Do not invisibly use different instructions for train versus validation.
 Keep the original draft immutable with generation metadata and hashes.
 
-The user will edit the training 80%:
+The user will edit all 100 answers in separate queues; only the training 80%
+may become supervised targets. For both queues:
 
 1. Check factual and semantic correctness before shortening.
 2. Retain correct Qwen wording and word order wherever possible.
@@ -306,5 +307,6 @@ training run, or a claim that forgetting has been prevented.
 The 100 generation-input rows and 80/20 split are now curated and frozen as
 exp-009 v2. Three rows contain authored assistant clarification context, not
 approved target answers. The generator handles full semantic conversations.
-Base generation, Argilla import, editing, preflight, and training follow later.
-The GPU may be stopped now by the user; no remote GPU operation is needed here.
+Base generation and Argilla import are complete (see exp-009/BASE-RUN-REPORT.md).
+Human editing, training preflight and training follow later. The inference GPU
+is idle and may be stopped by the user after the verified local backup.
