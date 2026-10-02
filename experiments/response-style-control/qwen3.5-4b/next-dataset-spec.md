@@ -268,6 +268,41 @@ Do not select a checkpoint merely because it is shorter or copies the base close
 
 ## Immediate next steps
 
+## Retention and minimal-edit design note (2026-10-02)
+
+The user supplied an external review of the token-distribution intuition and
+asked us to keep it in mind. Treat the following as future design considerations,
+not a change to the approved 100-row selection, frozen split or active inference.
+
+- Retaining correct base wording is an editing preference, not an established
+  guarantee against catastrophic forgetting. Literal unigram frequencies or
+  small edit distance are not sufficient evidence of retained capabilities.
+- Monitor task/domain/difficulty coverage, useful formatting diversity and
+  output length **conditional on task**. We deliberately want less filler;
+  do not preserve unnecessary verbosity merely to match the base's length
+  histogram, or compress every answer to the same short size.
+- Our goal is to change default answers to the original questions. Therefore
+  original question -> preferred answer remains the intended SFT task.
+  Supplied long answer -> summary would instead teach explicit summarization;
+  it is not an equivalent replacement for this alignment goal.
+- Consider conservative adapter updates and verified final-assistant-only
+  supervision at the later training-design gate. LoRA or 100 examples alone
+  does not guarantee retention, and no learning rate/epoch/rank recipe is
+  approved yet.
+- General-data replay is a possible separate intervention, not an automatic
+  addition. The suggested 10-30% replay ratio is a heuristic from the supplied
+  advice, not a validated prescription for this model. Adding replay requires
+  explicit approval, provenance and leak checks; never use the 20 validation
+  rows or benchmark answers as replay.
+- Before broader retention claims, use a separate fixed general-capability
+  check alongside target validation. Track correctness/completeness, reasoning,
+  formatting, necessary detailed explanations and per-task output-token
+  quantiles (p10/p50/p90), with identical decoding for base and adapter.
+  Length alone cannot establish preserved capability.
+
+This note does not authorize more rows, a summarization-only dataset, a new
+training run, or a claim that forgetting has been prevented.
+
 The 100 generation-input rows and 80/20 split are now curated and frozen as
 exp-009 v2. Three rows contain authored assistant clarification context, not
 approved target answers. The generator handles full semantic conversations.
