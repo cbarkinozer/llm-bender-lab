@@ -19,6 +19,9 @@ def main():
         raise ValueError('Run not complete')
     if manifest['dataset_sha256'] != cfg['dataset_sha256'] or manifest['backend'] != 'vllm':
         raise ValueError('Wrong dataset or engine')
+    cfg['generation']['repetition_penalty'] = 1.05
+    if manifest['config'] != cfg:
+        raise ValueError('Run does not match the approved penalty105 protocol')
     for name in ['drafts', 'attempts']:
         if sha256(run/f'{name}.jsonl') != manifest[f'{name}_sha256']:
             raise ValueError(f'Artifact hash mismatch: {name}')
@@ -50,6 +53,7 @@ def main():
               splits=dict(Counter(r['split'] for r in drafts)), backend=manifest['backend'],
               native_stop_rows=100, length_limited_rows=0, drafts_sha256=manifest['drafts_sha256'],
               max_output_tokens=max(r['output_tokens'] for r in drafts),
+              effective_generation=manifest['config']['generation'], git=manifest['git'],
               instructions='Edit desired_answer; preserve original_answer. Validation is evaluation-only, never training.'))
     print('Verified 100 complete drafts; exported 80 training / 20 evaluation-only review rows.')
 
