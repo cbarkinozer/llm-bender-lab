@@ -19,12 +19,17 @@ assert api.viewer
 os.environ['WANDB_ENTITY']=api.default_entity
 os.environ['WANDB_RUN_ID']=secrets.token_hex(4)
 os.environ['WANDB_RUN_GROUP']='exp-009-minimal-edit'
-output=Path('/workspace/exp009-runs/full-v1')
+output=Path('/workspace/exp009-runs/full-v2')
 if output.exists():
     raise ValueError('Full run already exists; refusing overwrite')
 gates=Path('/workspace/exp009-runs/gpu-gates.json')
 assert gates.exists()
-log=Path('/workspace/exp009-full.log')
+log=Path('/workspace/exp009-full-v2.log')
+# The API client can start a parent-owned W&B service. Detached training must
+# create its own service rather than inherit a socket closed at launcher exit.
+for name in list(os.environ):
+    if name.startswith('WANDB_SERVICE'):
+        os.environ.pop(name)
 with log.open('x') as handle:
     process=subprocess.Popen([sys.executable,'-u',str(HERE/'train_reviewed.py'),'--mode','full',
         '--gates',str(gates),'--output-dir',str(output)],stdout=handle,stderr=subprocess.STDOUT,
