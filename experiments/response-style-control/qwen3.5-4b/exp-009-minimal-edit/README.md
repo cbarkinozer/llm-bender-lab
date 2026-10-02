@@ -120,9 +120,14 @@ on GPU; forced EOS is disabled. Every attempt and stop reason is preserved.
 Keep the same prompt policy/settings across both splits. Preserve complete raw
 drafts, termination status, token counts, model/template identities and run metadata.
 A generous limit is not infinite: detect and resolve truncation instead of silently
-accepting it. Generation is not authorized to run now; the user is stopping the GPU.
+accepting it. The user subsequently supplied a new Vast.ai GPU and authorized
+inference through vLLM, without W&B logging or training. `generate_vllm.py` is
+the active generation entrypoint; `generate_base.py` remains historical and
+provides shared CPU input validation only.
 
-Import only the 80 training drafts into the answer-editing queue. The reviewer
+Review all 100 drafts, keeping the 80 training and 20 validation queues separate.
+Validation edits are evaluation references only and must never enter training.
+The reviewer
 may accept unchanged, minimally edit, or reject. Keep original drafts immutable.
 Remove filler and fabricated self-experience; retain correct wording, necessary
 explanation, uncertainty, quantities, and Turkish meaning. Fix incorrect content

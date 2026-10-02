@@ -38,11 +38,12 @@ def main():
     json_file(out / 'run-manifest.json', manifest)
     try:
         import torch
-        from transformers import AutoTokenizer, AutoConfig, GenerationConfig
+        from transformers import AutoTokenizer, GenerationConfig
         from vllm import LLM, SamplingParams
+        from vllm.transformers_utils.config import get_config
         model = cfg['model']
         tokenizer = AutoTokenizer.from_pretrained(model['name'], revision=model['tokenizer_revision'])
-        mc = AutoConfig.from_pretrained(model['name'], revision=model['revision'])
+        mc = get_config(model['name'], trust_remote_code=False, revision=model['revision'])
         gc = GenerationConfig.from_pretrained(model['name'], revision=model['revision'])
         native = gc.eos_token_id or tokenizer.eos_token_id
         eos = native if isinstance(native, list) else [native]
