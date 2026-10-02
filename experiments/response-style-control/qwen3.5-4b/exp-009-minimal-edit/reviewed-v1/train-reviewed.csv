@@ -1,0 +1,1349 @@
+﻿id,split,category,review_decision,original_answer,desired_answer,review_notes
+me-001,train,grammar_correction,rewrite,"Bu cümledeki yazım hataları şunlardır:
+
+1.  **""Bu gün""**: ""Gün"" kelimesi, zaman belirtirken çoğul eki almaz. Doğrusu **""Bugün""** şeklindedir.
+2.  **""Apartmanın""**: ""Apartman"" kelimesi, çoğul haliyle yazıldığında sonundaki ""n"" harfi düşer ve ""lar"" eki gelir. Yani ""apartmanlar"". Dolayısıyla sahiplik eki gelince **""Apartmanların""** olmalıdır. (Not: Eğer tekil bir apartman bahsediliyorsa ""Apartmanın"" doğru olur, ancak cümle bağlamından ""girişinde"" ve genel bir durum anlatıldığı için çoğul ""Apartmanların"" daha mantıklıdır; ancak eğer sadece tekil bir bina kastediliyorsa ""Apartmanın"" da kabul edilir. Genellikle bu tür cümlelerde binaların çoğulu kast edilir.)
+3.  **""Sensör""**: Türkçe'de ""sensör"" kelimesi genellikle ""sönüm"" şeklinde yazılır. Ancak teknik terimler olarak ""sensör"" de yaygın kullanılır. En yaygın ve standart kullanım **""sönüm""** (veya bazen ""sensör"" kabul edilebilir ama ""sönüm"" daha doğrudur). *Kontrol:* Aslında ""sensör"" kelimesi de doğru yazılmıştır (İngilizce 'sensor' kökenli). Ancak daha yaygın kullanılan Türkçe karşılığı **""sönüm""** veya **""duyar""** olabilir. Ancak modern teknik literatürde ""sensör"" de tamamen doğru kabul edilir. Burada asıl büyük hata **""girişindeki""** yerine **""giriş kapısındaki""** veya sadece **""girişteki""** olması gerekebilir ama en kritik hata **""Bugün""** ve **""Apartmanların""** (çoğul) kısmıdır.
+    *   *Düzeltme:* ""Sensör"" kelimesi doğru yazılmıştır. Ancak ""girişindeki"" ifadesi biraz zayıf kalabilir, ""giriş kapısındaki"" daha net olur. Ama en temel yazım hatası **""Bugün""** ve **""Apartmanların""** (çoğul eki) kısmıdır.
+
+**En kesin ve doğal düzeltme:**
+
+> **Bugün apartmanların girişindeki sensör gece boyunca üç kez gereksiz yere yandı.**
+
+*(Not: ""Apartmanların"" çoğul eki eklendiği için ""n"" harfi düşüp ""lar"" eklenmiştir. ""Bugün"" ise tekil yazılır.)*
+
+Eğer tekil bir apartman kastediliyorsa:
+> **Bugün apartmanın girişindeki sensör gece boyunca üç kez gereksiz yere yandı.**
+
+Ancak cümle yapısından (genel bir olay anlatımı) çoğul (""apartmanların"") daha uygun görünüyor. Ayrıca ""sensör"" kelimesi teknik terim olduğu için doğru, ancak günlük dilde bazen ""sönüm"" de kullanılır. Standart Türkçe kurallarına göre en doğru hali şöyledir:
+
+**Düzeltilmiş hali:**
+**Bugün apartmanların girişindeki sensör gece boyunca üç kez gereksiz yere yandı.**",Bugün apartmanın girişindeki sensör gece boyunca üç kez gereksiz yere yandı.,
+me-002,train,grammar_correction,rewrite,"Cümledeki temel yazım hatası ""hiç bir"" ifadesidir. Türkçe kurallarına göre ""bir"" kelimesi sayıca veya nitelikce belirtildiğinde (bu cümlede ""hiç"" ile birlikte kullanıldığında) ayrı yazılır ve büyük harfle başlar. Dolayısıyla ""hiç bir"" yerine ""**hiçbir**"" yazılmalıdır.
+
+Ayrıca cümlenin akıcılığı için virgül kullanımı daha doğal olacaktır.
+
+**Düzeltilmiş hali:**
+> Okul yönetimi, servis saatlerini velilerden gelen geri bildirimlere göre değiştirdi; fakat hiçbir soru yanıtsız kalmadı.
+
+*(Not: ""fakat"" bağlacı genellikle virgülden sonra kullanılır ancak burada cümledeki zıtlık vurgusu için noktalı virgül (;) veya sadece virgül kullanılabilir. En yaygın kullanım şudur:)*
+
+**En doğal hali:**
+> Okul yönetimi, servis saatlerini velilerden gelen geri bildirimlere göre değiştirdi, fakat **hiçbir** soru yanıtsız kalmadı.","Okul yönetimi servis saatlerini velilerden gelen geri bildirimlere göre değiştirdi, fakat hiçbir soru yanıtsız kalmadı.",
+me-003,train,grammar_correction,rewrite,"Düzeltilmiş cümle:
+
+**""Deneysel özellik sadece test grubundaki hesaplar için görünür hale getirildi ve sonunda her şey açıklığa kavuştu.""**
+
+**Yapılan düzeltmeler:**
+*   **hâle** → **hale**: ""Hale"" kelimesi, ""hâl"" (durum) anlamına gelen ""hâl"" kökünden türemiş olsa da, bu bağlamda ""görünür hale getirmek"" ifadesinde ""hale"" (duruma geçmek) kullanımı yaygındır ve genellikle ""hale"" olarak yazılır. Ancak en kesin kullanım kuralına göre ""hale"" (yön, durum) ile ""hâl"" (durum) ayrımı vardır; ancak ""görünür hale getirmek"" kalıbında standart yazım **""hale""** şeklindedir.
+*   **herşey** → **her şey**: ""Her"" ve ""şey"" kelimeleri arasında boşluk bırakılmalıdır.",Deneysel özellik sadece test grubundaki hesaplar için görünür hâle getirildi ve sonunda her şey açıklığa kavuştu.,
+me-004,train,grammar_correction,rewrite,"Cümledeki tek yazım hatası ""yanlız"" kelimesidir. Bu kelime, ""yalnız"" (tek başına) anlamında kullanıldığında doğru yazılırken, ""yalnızca"" (sadece) anlamında kullanıldığında da ""yalnızca"" şeklinde yazılır. Cümlenizdeki bağlamda (""bu ayrıntı gözden kaçtı"" ifadesi), detayın sadece fark edilmemesi veya tek başına gözden kaçırılması kastediliyor. Bu nedenle ""yanlız"" yerine **""yalnız""** (veya daha akıcı olması için ""yalnızca"") kullanılmalıdır. Ayrıca noktalı virgül (;) kullanımına göre cümleyi iki bağımsız cümle haline getirmek veya nokta koyarak ayırmak daha doğal olabilir, ancak sorunuzun odak noktası yazım hatası olduğu için kelime düzeltmesine öncelik verildi.
+
+**Düzeltilmiş hali:**
+Tren dağ geçidine yaklaşırken telefonların bağlantısı birkaç dakika kesildi; **yalnız** bu ayrıntı gözden kaçtı.
+
+*(Not: Daha akıcı bir ifade için nokta ile de ayrılabilir: ""...kesildi. Yalnız bu ayrıntı gözden kaçtı."")*",Tren dağ geçidine yaklaşırken telefonların bağlantısı birkaç dakika kesildi; yalnız bu ayrıntı gözden kaçtı.,
+me-005,train,grammar_correction,rewrite,"Cümledeki yazım ve noktalama hataları aşağıdaki gibidir:
+
+1.  **""sorun tekrarlanmayınca""**: ""Rekabet"" kelimesi yanlış yazılmıştır. Doğrusu **""tekrarlanmadı""** (geçmiş zaman, fiil) veya bağlama göre **""tekrarlanmadığı""** (sıfat) olmalıdır. Cümlenin akıcılığı için ""sorun tekrarlanmadı"" en uygun seçenektir.
+2.  **Noktalama**: ""Özet rapor"" kelimesinden sonra virgül kullanılmış ancak bu kelime bir isimdir ve cümlenin devam etmesi bekleniyorsa nokta konulmalı veya bağlaçla birleştirilmelidir. Ancak burada ""a"" harfi muhtemelen ""aşağı"" veya ""ana"" kastedilmiş olabilir. En yaygın kullanım **""özet rapora""** (yönelme hali) veya **""özet raporunda""** (yerleşik hali) şeklindedir. Metin bağlamına göre muhtemelen **""özet rapora""** (rapora yönlendirildi) veya **""özet raporunda""** (rapor içinde değişiklikler yapıldı) kastedilmiştir.
+    *   *Seçenek A (Yönelme):* ""...işlendi."" (Raporun üzerine işlendi anlamında) -> Bu durumda ""rapora"" gerekir.
+    *   *Seçenek B (İçerik):* ""...işlendi."" (Raporun içinde değişiklikler yapıldı anlamında) -> Bu durumda ""raporunda"" gerekir.
+    *   *En mantıklı yorum:* ""Özet rapor **a**"" ifadesi muhtemelen **""özet rapora""** (yönelme) veya **""özet raporunda""** (yerleşik) yazım hatasıdır. Cümle yapısına göre ""özet rapora"" (raporun üzerine işlendi) daha doğal durur. Ayrıca ""renk değişiminin başladığı"" ifadesinde de nokta eksikliği var, çünkü ""başladı"" fiili tamamlanmamış gibi duruyor. Daha iyi bir ifade: ""renk değişimi başladı"".
+
+**Düzeltme analizi:**
+*   ""sorun tekrarlanmayınca"" -> ""sorun tekrarlanmadı"" (Fiil çekimi düzeltildi).
+*   ""renk değişiminin başladığı"" -> ""renk değişimi başladı"" (Kelime sırası ve fiil çekimi düzeltildi, ""başladığı"" yerine ""başladı"" daha net olur).
+*   ""özet rapor a"" -> ""özet rapora"" (Yönelme hali - ""a"" harfi ""aşağı"" değil, ""rapora"" olarak okunmalı).
+*   Noktalama: Cümledeki virgüller gereksiz veya yerini değiştirmeli.
+
+**Düzeltilmiş hali:**
+
+> İkinci denemede sorun tekrarlanmadı; kimya ekibi renk değişiminin başladığı sıcaklığı yeniden ölçtü ve özet rapora son değişiklikler işlendi.
+
+*(Not: Eğer ""özet raporunda"" kastediliyorsa, ""ve"" bağlacı kaldırılabilir: ""...renk değişimi başladı. Özet raporunda son değişiklikler işlendi."")*
+
+En yaygın ve akıcı versiyon:
+
+**İkinci denemede sorun tekrarlanmadı; kimya ekibi renk değişimi başladığı sıcaklığı yeniden ölçtü ve özet rapora son değişiklikler işlendi.**","İkinci denemede sorun tekrarlanmayınca, kimya ekibi renk değişiminin başladığı sıcaklığı yeniden ölçtü; özet rapora son değişiklikler işlendi.",
+me-006,train,grammar_correction,rewrite,"Hatalı cümledeki yazım ve noktalama hataları şunlardır:
+1.  **""ıslanan""** kelimesi yanlış harfle yazılmıştır; doğru hali **""ıslanmış""** olmalıdır (eylem sonucunu belirtir).
+2.  **""bina dan""** ifadesinde ""dan"" sözcüğü yanlışlıkla ayrılmıştır; doğru hali **""binadan""** olmalıdır.
+3.  Cümlede iki bağımsız cümle birleştirilmiştir ancak aralarında uygun bağlaç veya nokta kullanılmamıştır; anlam akışı için nokta konulması veya bağlaç eklenmesi gerekir. Burada anlam bütünlüğü için nokta koyup ikinci cümleyi başlatmak en doğrusudur.
+
+**Düzeltilmiş hali:**
+Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanmış zeminin yeniden temizlenmesini istedi; çalışanlar binadan erken ayrıldı.
+
+*(Not: Eğer cümle tek bir anlatım bütünlüğünü ifade ediyorsa nokta yerine virgül kullanılabilir, ancak ""istedi"" ile ""ayrıldı"" arasındaki bağlamda nokta daha net olur. Ayrıca ""yarış direktörü"" yerine ""yürüyüş direktörü"" veya ""yazılım direktörü"" gibi bağlama göre değişebilecek bir kelime olabilir, ancak verilen metne sadık kalarak sadece yazım hatasını düzelttim.)*
+
+En yaygın ve doğal kullanım:
+**Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanmış zeminin yeniden temizlenmesini istedi; çalışanlar binadan erken ayrıldı.**","Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanan zeminin yeniden temizlenmesini istedi, çalışanlar binadan erken ayrıldı.",
+me-007,train,grammar_correction,rewrite,"Hava yolu temsilcisi, kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlamadığı için işlem özeti oluşturuldu.
+
+**Yapılan düzeltmeler:**
+1.  **Virgül kullanımı:** ""Hava yolu temsilcisi"" ifadesi cümlenin başında olduğu için, bu isimli sıfatla isim arasındaki bağda virgül konmalıdır.
+2.  **Bağlaç yapısı:** ""sorun tekrarlamıyınca"" yerine daha resmi ve akıcı olan ""sorun tekrarlamadığı için"" ifadesi tercih edilmiştir.
+3.  **Noktalama:** Cümlenin sonundaki nokta eklendi.",Hava yolu temsilcisi kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlanmayınca işlem özeti oluşturuldu.,
+me-008,train,grammar_correction,rewrite,"Cümlenizdeki hata, ""yapabilirim"" kelimesinin yanlış yazılmasıdır. Doğru yazım **yapabilir miyim** şeklindedir.
+
+İşte detaylı açıklama:
+
+1.  **Yapabilir miyim:** Bu ifade, ""yapma eylemini yapma"" anlamına gelen *yapabilir* fiilinin, soru eki olan *-mi-* ile birleşmiş halidir. Cümlenin sonundaki ""-m"" ise ""ben"" (birinci tekil şahıs) zamiri olarak gelir.
+2.  **Hatalı olan ""yapabilirim"":** Bu ifade, ""yapma eylemini yapabilme"" anlamına gelir. Yani ""yapabilme"" fiilinin ""-im"" ekiyle birleşmiş halidir. Bu kullanım, ""yapabilmem"" fiilinin birleşik hali gibi durur ve cümlede ""yapabilir miyim?"" sorusu kurarken kullanılmaz.
+
+**Doğru Cümle Örneği:**
+> ""Müşteriye **yapabilir miyim**?""
+
+Eğer kastettiğiniz şey ""Müşteriye bunu yapabilirim"" (yani onaylama veya işlem yapma yetkinizi belirtme) ise, cümle soru işareti olmadan şu şekilde olmalıdır:
+> ""Müşteriye **yapabilir miyim**?"" (Soru)
+> ""Müşteriye **yapabilirim**."" (İfada)
+
+Ancak ""yapabilirmiyim"" şeklinde yazılan ifade hem ses uyumu hem de kurallar açısından yanlıştır.","Doğru yazımı ""yapabilir miyim"" şeklindedir.",
+me-011,train,answer_extraction,rewrite,Linux çekirdeğini **Linus Torvalds** geliştirmiştir.,Linux çekirdeğini Linus Torvalds geliştirmiştir.,
+me-012,train,answer_extraction,rewrite,Cevap: **James Cook**,James Cook,
+me-013,train,answer_extraction,rewrite,"Fransız İhtilali, tarihte **1789** yılında patlak verdi. Bu olay, Avrupa'da ve dünyada siyasi sistemlerin değişmesi açısından dönüm noktası kabul edilir.",Fransız İhtilali 1789 yılında patlak verdi.,
+me-014,train,answer_extraction,accept,15 bin fidan,15 bin fidan,
+me-015,train,answer_extraction,rewrite,Yapılan inceleme sonucunda şehirdeki otel doluluk oranının **%88** olduğu tespit edilmiştir.,Şehirdeki otel doluluk oranı %88'dir.,
+me-016,train,answer_extraction,rewrite,Deniz manzaralı teraslı odalarıdır.,Deniz manzaralı teraslı odalarıdır.,
+me-017,train,answer_extraction,rewrite,"Hayır, kartlı ödeme tüm tezgahlarda geçerli değildir. Kaynak cümlesinde açıkça belirtildiği üzere, bu sistem sadece **bazı** tezgahlarda kullanılabilmektedir.","Hayır, kartlı ödeme yalnızca bazı tezgahlarda geçerlidir.",
+me-018,train,answer_extraction,accept,"Evet, bölgedeki oteller erken rezervasyonda indirim sunmaktadır.","Evet, bölgedeki oteller erken rezervasyonda indirim sunmaktadır.",
+me-021,train,numeric_entity_precision,rewrite,"Metinde belirtildiğine göre, muayene ücreti için belirlenen tutar **350 TL**'dir.",Muayene ücreti için belirlenen tutar 350 TL'dir.,
+me-022,train,numeric_entity_precision,rewrite,"Metinde belirtildiğine göre, kayıt işlemi için **35 dakika** ayırılmıştır.",Kayıt işlemi için 35 dakika ayrılmıştır.,
+me-023,train,numeric_entity_precision,rewrite,"Metinde ""İzmir'de yeni bir burs programı başlattı"" ifadesi doğrudan **Fen Lisesi Müdürlüğü** ile eşleştirilmiştir. Üniversite Kayıt Bürosu ise aynı dönemde uzaktan eğitim altyapısını genişletmiştir.
+
+Cevap: **Fen Lisesi Müdürlüğü**",Fen Lisesi Müdürlüğü,
+me-024,train,numeric_entity_precision,rewrite,"Metinde belirtildiğine göre, devamsızlık oranı **%55** olarak kaydedilmiştir.",Devamsızlık oranı %55 olarak kaydedilmiştir.,
+me-025,train,numeric_entity_precision,rewrite,"Metne göre, bölge acenteliği için ayrı birim **Diyarbakır**'da kurulmuştur.",Bölge acenteliği için ayrı birim Diyarbakır'da kurulmuştur.,
+me-026,train,numeric_entity_precision,rewrite,"Metinde belirtildiğine göre, boyama aşamasının süresi **5 hafta**dır.",Boyama aşaması 5 hafta sürecek.,
+me-027,train,numeric_entity_precision,rewrite,"Metinde belirtildiğine göre, yönetimin önerisi üretim miktarını **75 bin adet** olarak tutmaktır.
+
+Bu durumda:
+*   **Satış Öngörüsü:** 90.000 adet
+*   **Yönetim Önerisi (Üretim):** 75.000 adet
+
+Yönetim, öngörülen satışların üzerinde bir miktar (15.000 adet) üretim yapmayı önermemektedir.","Yönetim, üretimi 75 bin adette tutmayı öneriyor.",
+me-028,train,numeric_entity_precision,rewrite,"Veride doğrudan belirtilen oranlar **ihracatın** (yurt dışına satış) ve **ithalatın** (yurt içine yapılan alım) değişim oranlarıdır.
+
+*   ""İhracatın %18 artması"" ifadesi, şirketin yurt dışına yaptığı satışların geçen yıla göre **%18 oranında büyüdüğünü** gösterir.
+*   ""İthalatın %6 azalması"" ise, şirketin yurt dışından aldığı mal miktarının %6 düştüğünü ifade eder.
+
+Bu nedenle, yurt dışına satış oranı **%18** artmıştır.","Yurt dışına satış, yani ihracat %18 arttı.",
+me-031,train,faithful_summary,rewrite,"Akınspor, Erzurum'da oynanan deplasman maçında Kuzey Birlik'i 4-2 yerek puan durumunu iyileştirdi ve ikinci sıraya yükseldi. Maçın kaderini 67. dakikada atılan gol belirlemişti.","Akınspor, Erzurum'da oynanan deplasman maçında Kuzey Birlik'i 4-2 yenerek puan durumunda ikinci sıraya yükseldi. Maçın sonucunu 67. dakikada atılan gol belirledi.",
+me-032,train,faithful_summary,rewrite,"Yapılan iki yıllık, 620 kişilik araştırmada bulut depolama kullanımının sistem performansını artırdığı tespit edilmiştir.","620 katılımcıyla iki yıl boyunca yürütülen yeni bir araştırmada, bulut depolama kullanımı ile sistem performansının iyileşmesi arasında bağlantı bulundu.",
+me-033,train,faithful_summary,rewrite,"Gizem Kılıç, spor bilimleri alanında yaptığı üç yıllık çalışma ile Yılın Sporcusu ödülünü kazandı ve ödül töreni Sivas'ta düzenlendi.","Gizem Kılıç, spor bilimleri alanındaki üç yıllık çalışmalarıyla Yılın Sporcusu ödülünü kazandı; ödül töreni Sivas'ta düzenlendi.",
+me-034,train,faithful_summary,rewrite,"Antalyalı Ayşe Kaya, 45 yaşında ve 30 yıldır sürdürdüğü el işi üretimi sayesinde belediyeden destek almayı hak etti; komşuları da onun azmini örnek gösteriyor.","45 yaşındaki Ayşe Kaya, Antalya'da 30 yıldır sürdürdüğü el işi üretimi sayesinde belediyeden destek almaya hak kazandı; komşuları da onun azmini örnek gösteriyor.",
+me-035,train,faithful_summary,rewrite,"Marmara Teknoloji'nin ikinci çeyrek gelirleri, geçen yılın aynı dönemine göre %18 artışla 2,7 milyar liraya yükseldi; şirket bünyesinde yaklaşık 600 kişi istihdam edilmektedir.","Marmara Teknoloji'nin ikinci çeyrek gelirleri, geçen yılın aynı dönemine göre %18 artışla 2,7 milyar liraya yükseldi; şirket bünyesinde yaklaşık 600 kişi istihdam edilmektedir.",
+me-036,train,faithful_summary,rewrite,Edirne'de ana su hattındaki arıza nedeniyle trafik kısa süreliğine durduruldu; belediye ekipleri ise olay yerinde müdahale ederek bir gün içinde sorunu çözdü.,Edirne'de ana su hattındaki arıza nedeniyle yol bir süre trafiğe kapatıldı; belediye ekipleri arızaya bir gün içinde müdahale etti.,
+me-037,train,faithful_summary,rewrite,"Mavi Elektronik, İzmir'de düzenlenen etkinliğinde hızlı şarj özelliğine sahip yeni giyilebilir sensörünü tanıttı ve satış fiyatını 4 bin lira olarak açıkladı.","Mavi Elektronik, İzmir'de düzenlenen etkinlikte yeni giyilebilir sensör modelini tanıttı. Hızlı şarj özelliğiyle öne çıktığı belirtilen cihazın satış fiyatı 4 bin lira olarak açıklandı.",
+me-038,train,faithful_summary,rewrite,Adana'da yoğun sis nedeniyle okullar bir gün tatil edildi ve yetkililer vatandaşların dikkatli olmasını önerdi.,Adana'da yoğun sis nedeniyle okullar bir gün tatil edildi; yetkililer vatandaşları temkinli olmaları konusunda uyardı.,
+me-041,train,useful_explanation,rewrite,"Bu durum, ""öncelik konuşması"" (priority setting) yaparken en yaygın yapılan hata olan **""söz verme, sorumluluk alma""** (promising but not owning) döngüsüdür. Konuşma sonunda işlerin yine sizin kalmış olması, genellikle üç temel nedenden kaynaklanır: **Netlik eksikliği**, **Süreç takibi olmaması** ve **Kendi yetkinlik alanına odaklanma**.
+
+Hatanızı bulmak ve bu döngüyü kırmak için aşağıdaki adımları izleyebilirsiniz:
+
+### 1. Hatanızı Tespit Eden İpuçları (Neredeyse Hata Yaptınız?)
+
+Şu sorulara cevap verdiğinizde, hatanızın kaynağını bulmuş olursunuz:
+
+*   **İşin ""Ne"" olduğu net miydi?**
+    *   *Hata:* ""Bunu yarın yapalım"" demek yerine, ""Bunu [hangi tarihte], [hangi formatla], [hangi çıktıyla] teslim et"" dememişsinizdir.
+    *   *Test:* Konuşma sırasında partnerinizden ""Tamam, o zaman [tarih] saatte [formatında] bana [sonuç] gönderir misin?"" diye sorduysanız mı? Yoksa sadece genel bir yönlendirme yapıyor muydunuz?
+*   **Süreç kimin elinde?**
+    *   *Hata:* İşin başlangıcını siz vermiş, ama bitişini ve kontrolünü kendiniz üstlenmişsinizdir.
+    *   *Test:* ""Ben bunu yapacağım, sen onayla"" diyerek süreci kendi kontrolünüzde tutuyor musunuz? Hayır, ""Sen bunu hazırla, ben [tarih]e kadar kontrol edip geri bildiririm"" diyerek süreci dışarıda bırakmış mısınız?
+*   **Partnerinizin kapasitesi göz önünde bulunduruldu mu?**
+    *   *Hata:* Kendi yetkinlik alanınıza göre işleri dağıtmış, ancak partnerinizin o işi yapabilme gücünü veya zamanını göz ardı etmişsinizdir.
+    *   *Test:* Verilen görev, partnerinizin mevcut yükümlülükleriyle çakışmıyor mu? Görev, onun uzmanlık alanına uygun mu?
+
+### 2. Çözüm Stratejileri: Sonraki Konuşmada Nasıl Değişik Yapmalısınız?
+
+Hata yaptığınız yerleri düzeltmek için konuşma yapmadan önce ve sırasında şu teknikleri kullanın:
+
+#### A. SMART Kuralını Uygulayın
+Herhangi bir görevi atarken veya kabul ettirdiğinizde, görevin **SMART** olması gerekir:
+*   **S**pecific (Belirli): Hangi detaylar?
+*   **M**easurable (Ölçülebilir): Başarının nasıl anlaşılacağı?
+*   **A**chievable (Ulaşılabilir): Partnerin yeteneği uygun mu?
+*   **R**elevant (İlgili): Bu işin amacımızla örtüşüyor mu?
+*   **T**ime-bound (Zamanlı): Kesin bir teslim tarihi var mı?
+
+> **Örnek Yanlış:** ""Projeyi ilerletelim.""
+> **Örnek Doğru:** ""Pazarlama raporu için gerekli verileri toplayıp, **yarın akşam 18:00'a kadar** Excel formatında bana **gönderir misin?** Ben de raporun iç kısmını hazırlayıp **perşembe sabahına kadar** sana teslim edeceğim.""
+
+#### B. ""Sorumluluk Matrisi"" Oluşturun
+Konuşma sırasında sadece ne yapılacağını değil, **kimin ne zaman kontrol edeceğini** belirleyin.
+*   **Görev Sahibi:** Kim işi yapacak?
+*   **Onaycı/Kontrolcü:** Kim işi bitince kontrol edecek?
+*   **Teslim Tarihi:** Ne zaman teslim olacak?
+
+Bu üçlüyi konuşma notlarınızda mutlaka yazın.
+
+#### C. Süreç Takibini Kendinize Atmayın
+En büyük hata, ""Ben bunu söyleyeceğim, sonra hatırlayacağım"" zihniyetiyle konuşmaktır.
+*   **Çözüm:** Konuşma bittiğinde, partnerinize ""Bu işin ilerlemesini takip etmek için her hafta [gün] saatte kısa bir durum sunumu yapmamı rica edebilir misin?"" diyerek süreci onlara yükleyin. Siz sadece başlangıcı ve sonucunu kontrol edin, ortadaki süreci onlar yönetsin.
+
+#### D. Geri Bildirim Döngüsü Kurun
+Konuşma sonrası hemen (bir sonraki toplantıda veya günlük e-postada) şu soruyu sorun:
+*   ""Geçen konuşmadaki [X] görevi için planladığımız tarih geldi, durumu nasıl görüyorsunuz?""
+Eğer partneriniz ""Bilmiyorum"" derse, o anki konuşmanızda netlik eksikliği olduğunu kanıtlamış olursunuz.
+
+### Özetle: Nasıl Anlayabilirsiniz?
+
+Hatanızı şu şekilde analiz edebilirsiniz:
+1.  **Konuşma kaydı veya notlarınızı okuyun:** Herhangi bir görev için ""ne"", ""nasıl"" ve ""ne zaman"" ifadelerini bulabildiniz? Yoksa sadece ""yapalım"" gibi soyut ifadeler mi var?
+2.  **Sonuçları karşılaştırın:** Konuşma bittikten sonra işler neden sizin kaldı? Çünkü partneriniz görevi başlatamadı mı? Yoksa siz de görevi başlatamadınız mı?
+3.  **Duygusal Filtreleme:** Belki de ""Ben bunu yaparsam daha iyi olur"" düşüncesiyle, aslında partnerinizin yapabileceği işleri kendiniz üstlenmiş ve partnerinizi pasif konuma itmişsinizdir.
+
+**Bir sonraki konuşma için altın kural:**
+Konuşmayı ""Ben ne yapacağım?"" değil, **""Biz birlikte bu işi nasıl ve ne zaman tamamlayacağız?""** sorusuyla başlatın. Soru sormak, netlik yaratmanın en güçlü yoludur.","Hatanın yerini bulmak için son konuşmayı şu sorularla gözden geçirebilirsiniz:
+
+1. Konuşmanın sonunda net bir karar çıktı mı? Hangi işin bırakılacağı, erteleneceği veya devredileceği açıkça söylendi mi, yoksa konuşma ""bakarız"" gibi genel ifadelerle mi bitti?
+
+2. Karşı tarafa bir seçim yaptırdınız mı? Yalnızca yoğun olduğunuzu anlatmak çoğu zaman yeterli olmaz. ""Hepsini aynı anda yetiştiremem. Önce hangisini yapayım, hangisi bekleyebilir?"" gibi bir soru, kararı karşı tarafa bırakır.
+
+3. Devredilen işlerin sahibi ve tarihi belli miydi? Kimin, neyi, ne zamana kadar yapacağı belirlenmediyse iş ilk sahibinde kalabilir.
+
+4. Konuşma sırasında işleri kendiniz geri aldınız mı? ""Neyse, ben hallederim"" dediğiniz anlar olup olmadığını düşünün.
+
+5. Kararları sonradan yazılı olarak teyit ettiniz mi? Kısa bir özet mesajı, konuşulanların unutulmasını önler.
+
+Bu sorulardan hangisinde takılıyorsanız sorun büyük olasılıkla oradadır. Bir sonraki konuşmada önce o noktayı değiştirmeyi deneyin.
+",
+me-042,train,useful_explanation,rewrite,"Fotoğraflarınızı önümüzdeki iki hafta içinde tek bir arşive toplamak, hem teknik hem de organizasyonel bir süreç gerektirir. Bu süreci verimli hale getirmek için aşağıda hazırladığım **4 haftalık (gerçekçi 2 haftalık yoğunlaştırılmış) aksiyon planını** izleyebilirsiniz.
+
+Bu plan, en çok zaman alan ""kopyalama"" ve ""sıralama"" işlemlerini minimize etmeye odaklanır.
+
+### 📅 Genel Strateji: ""Bir Kez Yap, Her Zaman Kalıcı Ol""
+Hedefiniz sadece kopyalamak değil, dosya yapısını düzeltmektir. Herhangi bir cihazdan yeni fotoğraf çektiğinizde bu yapıyı koruyun.
+
+---
+
+### 🗓️ Hafta 1: Toplama, Temizleme ve Yedekleme (Temel Atma)
+*Hedef: Tüm cihazlardan veriyi merkeze almak ve gereksiz dosyaları silmek.*
+
+#### **Gün 1-2: Büyük Veri Aktarımı (Import)**
+*   **Ekipman Hazırlığı:** Bilgisayarınızın depolama alanını kontrol edin. Eğer SSD kullanıyorsanız, hızlı bir transfer için mutlaka kullanın.
+*   **Cihazdan Cihaza Geçiş:**
+    *   Telefonunuzdan (iPhone/Android): USB kablosu ile veya ""Google Fotoğraflar""/""OneDrive"" gibi bulut servislerini kullanarak bilgisayarınıza aktarın.
+    *   Kamera/Tabllet: SD kartları çıkarıp bilgisayara takın.
+    *   *İpucu:* Aktarma sırasında otomatik olarak tüm klasörleri (DCIM, DSCIM vb.) taşıyın, sadece dosyaları seçip kopyalamayın.
+*   **Yedekleme Kontrolü:** Aktardığınız her fotoğrafın orijinalinde de bir yedeğin olduğundan emin olun.
+
+#### **Gün 3: Temizlik ve Gereksiz Dosyalar**
+*   **Bozuk Dosyalar:** Açılmayan, bozulmuş veya hatalı dosyaları silin.
+*   **Tekrarlar:** Aynı anın birden fazla versiyonu varsa, en iyisini seçip diğerlerini silin.
+*   **Gereksiz Klasörler:** Cihazlardaki boş veya anlamsız klasörleri temizleyin.
+*   **Önizlemeler:** Bazı uygulamalar (özellikle iPhone'da) fotoğrafın yanında küçük önizleme dosyası oluşturur. Bunları silin, ana dosyayı tutun.
+
+#### **Gün 4: İsimlendirme ve Sıralama (Metadata Düzenleme)**
+*   **Tarih Sırası:** Fotoğrafları kronolojik sıraya göre düzenleyin.
+*   **Dosya İsimleri:** Otomatik isimlendirmeyi kapatın. Her fotoğrafın başına tarih ekleyin (Örn: `20231025_001.jpg`). Bu, ileride arama yaparken devasa bir kolaylık sağlar.
+*   **Klasör Yapısı:** Fotoğrafları mantıklı alt klasörlere ayırın (Örn: `Aile`, `Seyahat`, `Portre`, `Arşiv`).
+
+#### **Gün 5: Bulut Yedekleme Kurulumu**
+*   Seçtiğiniz arşiv platformunu (Google Photos, iCloud, Dropbox, OneDrive veya yerel bir NAS) kurun.
+*   Tüm temizlenmiş ve sıralanmış fotoğrafları buraya yükleyin.
+*   *Not:* İlk yükleme işlemi uzun sürebilir, sabırlı olun.
+
+#### **Gün 6-7: Dinlenme ve Planlama**
+*   Haftanın geri kalanını dinlenmeye ayırın.
+*   Yeni fotoğraf çektiğinizde bu sistemin nasıl çalışacağını öğrenin.
+
+---
+
+### 🗓️ Hafta 2: Optimizasyon, Etiketleme ve Son Kontrol
+*Hedef: Arşivi ""akıllı"" hale getirmek ve eksikleri tamamlamak.*
+
+#### **Gün 8: Detaylı Etiketleme ve Arama**
+*   **Anahtar Kelimeler:** En önemli fotoğrafları etiketleyin (Örn: ""Düğün"", ""Anne"", ""Paris"").
+*   **Konum İşaretleme:** Seyahat fotoğraflarınız için GPS konumlarını kaydedin.
+*   **Otomatik Etiketleme:** Platformunuzun yapay zeka özelliklerini aktif edin ve onlara ""öğretin"".
+
+#### **Gün 9: Eksik Dosyaların Takibi**
+*   Aktarma sırasında kaçırılan veya SD kartta kalan fotoğraflar var mı diye kontrol edin.
+*   Bulut yedeğinde henüz yüklenmemiş ama kritik görünen fotoğrafları manuel olarak ekleyin.
+
+#### **Gün 10: Fiziksel Arşiv (Opsiyonel ama Önerilen)**
+*   Eğer çok fazla fotoğraf varsa, dijital yedekten sonra fiziksel olarak da saklamak isteyebilirsiniz.
+*   Fotoğrafları USB belleğe atın veya harici bir diske kaydedin.
+*   Harici diskleri güvenli bir yerde (yangına, suya karşı) saklayın.
+
+#### **Gün 11-12: Yeni Alışkanlık Oluşturma**
+*   Telefonunuzda ""Yeni Fotoğraf Çekildiğinde Otomatik Yükle"" özelliğini açın.
+*   Kamera ayarlarınızda ""Yedekleme"" modunu aktif edin.
+*   Artık fotoğraflarınız tek bir noktada toplanacak.
+
+#### **Gün 13-14: Son Kontroller ve Kapanış**
+*   Tüm cihazlardan (telefon, tablet, kamera) fotoğraf çekip, bunların arşive gittiğini test edin.
+*   Arşiv arayüzünü gözden geçirin; beğendiğiniz bir düzen mi? Değiştirecekseniz şimdi yapın.
+*   Süreci tamamlandığını ilan edin.
+
+---
+
+### 💡 Kritik Başarı İpuçları
+
+1.  **Bulut Servisi Seçimi:**
+    *   **Google Photos:** Ücretsiz versiyonu 15GB'ye kadar sınırsız fotoğraf tutar, AI özellikleri çok gelişmiştir.
+    *   **iCloud:** Apple ekosistemi kullanıyorsanız en sorunsuzudur.
+    *   **Dropbox/OneDrive:** Daha çok dosya yönetimi ve paylaşım odaklıdır.
+    *   *Tavsiye:* Genellikle **Google Photos** veya **iCloud** fotoğraf arşivi için en pratik çözümdür.
+
+2.  **Hızlandırma İçin SSD Kullanın:**
+    *   Aktarma işlemleri çok daha hızlı olur.
+
+3.  **Kafanızı Karıştırmayın:**
+    *   Her gün yeni bir fotoğraf aldığınızda eski fotoğrafları tekrar kontrol etmeyin. Sistem hazır olduğunda, yeni gelenler otomatik olarak doğru yere gider.
+
+4.  **Zaman Yönetimi:**
+    *   Eğer 2 hafta çok kısa geliyorsa, Gün 3'teki ""Temizlik"" kısmını ertelemeden hemen başlayın. Gereksiz dosyalarla uğraşmak, arşivleme işini %30 daha yavaşlatır.
+
+Bu planı takip ederek, 14 günde sonunda hem dijital hem de fiziksel olarak organize, erişimi kolay ve güvenli bir fotoğraf arşivine sahip olacaksınız. Başarılar!","İki haftada gerçekçi bir plan için işi küçük adımlara bölün ve ilk haftayı toplamaya, ikinci haftayı düzenlemeye ayırın.
+
+1. hafta: Toplama
+- 1. gün: Fotoğrafların bulunduğu tüm cihazları (telefon, tablet, bilgisayar, kamera kartları, eski diskler) listeleyin. Arşivin nerede duracağına karar verin: bilgisayar, harici disk veya bir bulut hizmeti. Yeterli depolama alanı olduğundan emin olun.
+- 2.-5. gün: Her gün bir cihazdaki fotoğrafları arşive kopyalayın. Bu aşamada düzenlemeyle uğraşmayın, her cihazı kendi adını taşıyan bir klasöre aktarın.
+- 6.-7. gün: Kopyalamanın eksiksiz olduğunu kontrol edin. Bu kontrol bitmeden cihazlardaki asılları silmeyin.
+
+2. hafta: Düzenleme ve yedekleme
+- 8.-10. gün: Fotoğrafları yıl ve ay klasörlerine ayırın, örneğin 2024/2024-07. Aynı fotoğrafın kopyalarını ve açılmayan dosyaları silin.
+- 11.-12. gün: Arşivin ikinci bir kopyasını farklı bir yerde oluşturun. Arşiv bilgisayardaysa harici diske veya buluta yedekleyin.
+- 13.-14. gün: Yeni fotoğrafların arşive nasıl ekleneceğini belirleyin (otomatik yükleme veya ayda bir aktarma) ve kalan eksikleri tamamlayın.
+
+İki hafta içinde her fotoğrafı tek tek ayıklamayı hedeflemeyin. Öncelik, her şeyin tek yerde ve yedekli olmasıdır. Ayrıntılı ayıklama ve etiketleme sonraya kalabilir.
+",
+me-043,train,useful_explanation,rewrite,"Seramik kursunda veya herhangi bir el sanatında karşılaştığınız bu durum, aslında çok normal ve hatta ilerlemenin en büyük göstergesidir. ""Her denemede tek değişkeni değiştirmek"" (bilim metodolojisinde **değişken kontrolü** olarak bilinir) başarının anahtarıdır. Bunun nedenini seramik özelinde ve genel mantıkla birlikte aşağıda detaylandıralım:
+
+### 1. Karışıklığı Azaltma (Korelasyon vs. Kausalite)
+Seramik yaparken birçok faktör aynı anda değişebilir: kilin nem oranı, fırın sıcaklığı, fırın süresi, fırın içindeki hava akımı, elinizdeki basıncın gücü, kilin türü vb.
+
+*   **Senaryo:** Bir parça çatladı. Neden oldu?
+    *   *Yanlış Yaklaşım:* ""Fırın sıcaklığı yüksek miydi? Belki de kilin nem oranı da etkiledi. İkisini birden değiştirdiğimde sonucu anlayamam.""
+    *   **Tek Değişken Yöntemi:** Sadece kilin nem oranını değiştirip, diğer tüm koşulları sabit tutarsınız. Eğer sonuç değişirse, o değişkenin sorumlu olduğunu kesin olarak söyleyebilirsiniz.
+
+Eğer birden fazla şeyi değiştirecek olursanız, sonuç değiştiğinde **""Hangi faktörün etki ettiğini bilemezsiniz""** diyerek ilerleyemezsiniz. Tek değişken yöntemi, nedensellik ilişkisini netleştirir.
+
+### 2. Seramikte Kritik Noktalar ve Geri Bildirim Döngüsü
+Seramik, geri dönüşü çok maliyetli ve zaman alıcı bir süreçtir. Parçayı pişirmeden önce (yeşil halde) veya pişirme sırasında küçük hataları tespit etmek gerekir.
+
+*   **Nem Oranı:** Kilin nem oranı çok yüksekse pişerken büzüşür, çok düşükse çatlar. Bu iki durumu ayırt etmek için sadece birini test etmelisiniz.
+*   **Fırın Profili:** Sıcaklık artışı hızı (ramping rate), kilin içinden dışına suyun çıkış hızını belirler. Hızlı ısınma çatlak yapar. Bu parametreyi sabit tutarak sadece kilin türünü değiştirirseniz, kilin o sıcaklıkta nasıl tepki verdiğini net görebilirsiniz.
+
+Bu döngü, ""Deney - Sonuç Analizi - Yeni Deney"" şeklinde sürekli döner. Her adımda sadece bir kütüğü (değişkeni) hareket ettirirseniz, haritanızı doğru çizersiniz.
+
+### 3. Öğrenme Hızı ve Motivasyon
+Psikolojik açıdan bakıldığında, tek değişkeni değiştirmek motivasyonu korur.
+
+*   Eğer her seferinde ""Fırın sıcaklığını 50 derece düşürdüm, kilin markasını değiştirdim, fırın içindeki taşları da yer değiştirdim..."" diyorsanız, sonuç iyi gelmediğinde **""Ben neyi yanlış yaptım?""** sorusuna cevap bulmak imkansız hale gelir. Bu durum frustre edici olur ve öğrenmeyi durdurur.
+*   Tek değişken yöntemi ise size şunu söyler: *""Sadece A'yı değiştirdim ve sonuç değişmedi. Demek ki sorun B'de değil.""* Bu mantık, sizi sistematik bir şekilde ilerletir ve başarısızlıkları öğrenme fırsatına dönüştürür.
+
+### 4. Seramikte ""Altın Standart"" Oluşturma
+Bir kursu bitirdiğinizde veya kendi atölyenize başladığınızda, her şeyin farklı olması istemezsiniz. İdeal bir üretim protokolü oluşturmak için önce bir ""altın standart"" (kontrol grubu) belirlemelisiniz.
+
+Örneğin:
+*   **Kontrol Grubu:** X Kil, %10 Nem, 100°C/Saat Artış, 12 Saat Süre.
+*   **Deneme 1:** Y Kil, %10 Nem, ... (Sadece kil değişti)
+*   **Deneme 2:** X Kil, %15 Nem, ... (Sadece nem değişti)
+
+Bu şekilde, hangi kilin daha iyi piştiğini veya hangi nem oranının daha güvenli olduğunu matematiksel ve gözlemlenen bir kanıtla kanıtlarsınız.
+
+### Özetle
+Seramikte parçaların istediğiniz gibi olmaması genellikle **değişkenlerin birbirine karışması** yüzünden olur. Tek değişkeni değiştirmek, karmaşık bir sistemi basitleştirerek size şunları sağlar:
+
+1.  **Kesinlik:** Hangi faktörün sorumlu olduğu hakkında %100 emin olursunuz.
+2.  **Verilenlik:** Deneyimlerinizi veri tabanına dönüştürerek gelecekteki hataları öngörebilirsiniz.
+3.  **Disiplin:** Rastgele denemelerden ziyade stratejik ilerleme sağlar.
+
+Unutmayın, seramikte ""yanlış"" denemeler, doğru yolu bulmak için gerekli olan veri toplama aşamasıdır. Tek değişkeni değiştirerek bu veriyi en temiz haliyle elde edeceksiniz.","Seramikte sonucu birçok etken birlikte belirler: kilin nemi, parçanın kalınlığı, kurutma süresi, sır, fırın sıcaklığı gibi. Bir denemede bunlardan birkaçını aynı anda değiştirirseniz, sonuç iyileşse de kötüleşse de buna hangisinin yol açtığını bilemezsiniz.
+
+Her denemede yalnızca tek bir değişkeni değiştirip diğerlerini sabit tuttuğunuzda, sonuçtaki farkı o değişkene bağlayabilirsiniz. Örneğin parçalarınız çatlıyorsa ve yalnızca kurutma süresini uzattığınızda çatlama azalıyorsa, sorunun büyük olasılıkla kurutmayla ilgili olduğunu anlarsınız. Aynı denemede kili ve parçanın kalınlığını da değiştirmiş olsaydınız bunu ayırt edemezdiniz.
+
+Bu yöntemle sonuç değişmediğinde bile bir şey öğrenirsiniz: O değişken büyük olasılıkla sorunun kaynağı değildir. Her denemede neyi değiştirdiğinizi ve sonucu not ederseniz, zamanla neyin işe yaradığını gösteren bir kaydınız olur.
+",
+me-044,train,useful_explanation,rewrite,"Bu durum, gün içindeki yoğunluk, yorgunluk veya ""karar yorması"" (decision fatigue) nedeniyle çok yaygın bir sorundur. Akşam yemeği hazırlamak için gereken enerjiyi harcamak yerine, bu süreci **önceden planlayarak** ve **otomasyonla** yöneterek hem zamanınızı hem de enerjinizi koruyabilirsiniz.
+
+İşte hafta içi yemek düzeni kurmak için uygulayabileceğiniz somut ve sürdürülebilir stratejiler:
+
+### 1. ""Çift Pişirme"" ve ""Blok Yemek"" Stratejisi
+En büyük enerji kaybını, her akşam farklı şeyler pişirmeye uğraşırken yaşarsınız. Bu döngüyü kırmak için:
+*   **Çift Pişirme:** Pazartesi akşamı hazırladığınız yemekleri, Salı ve Çarşamba akşamları için de aynı şekilde hazırlayın. Örneğin; Pazartesi akşamı ""Kavurma ve Pilav"" yaparsanız, Salı ve Çarşamba akşamları için de aynı menüyü kullanabilirsiniz.
+*   **Haftalık Bloklar:** Bir günün öğle yemeğini ve akşam yemeğini aynı menüyle tüketin. Bu sayede sadece iki kez pişirip, üç gün boyunca tüketirsiniz.
+
+### 2. Öğle Yemeğini Akşam Yemeğine Dönüştürme (Meal Prep)
+Eğer akşam yemeği için enerji kalmazsa, o günün öğle yemeğini önceden hazırlayıp saklayın.
+*   **Strateji:** Pazartesi günü öğle yemeği olarak pişirdiğiniz yemekleri, Salı, Çarşamba ve Perşembe akşamları için ""hazır yemek"" olarak saklayın.
+*   **Avantajı:** Akşam yemeği hazırlama aşamasını tamamen atlar, sadece ısıtma işlemi yaparsınız.
+
+### 3. ""Ters Zamanlama"" ile Başlangıç
+Yemek hazırlama işini en zorlandığınız saatte değil, en kolay olduğunuz saatte yapın.
+*   **Pazartesi Akşamı:** Haftanın ilk günkü öğle yemeği ve akşam yemeği menüsünü belirleyin.
+*   **Pazartesi Gece:** Pazartesi akşamı yemeğini pişirin.
+*   **Salı Akşamı:** Salı öğle yemeğini pişirin (bu yemek Çarşamba akşamı için saklanabilir).
+*   **Sonuç:** Her akşam sadece bir öğün pişirirsiniz ve bu öğün, o günün öğle yemeği veya bir sonraki günün akşam yemeği olur.
+
+### 4. Basit ve Hızlı Menü Seçenekleri
+Enerjiniz düşük olduğu için karmaşık tarifler seçmeyin.
+*   **Temel Besin Grupları:** Her akşam aynı temel protein (tavuk, hindi, balık veya yumurta) ve karbonhidrat (pilav, makarna, patates) kombinasyonunu kullanın.
+*   **Sadece Sos Değişimi:** Temel yemek aynı kalırken, sadece sosu veya eklenmesi gereken sebzeleri değiştirebilirsiniz. Örneğin; ""Pilav + Tavuk"" temeli üzerine Salı'da ""Karamelize Soğanlı"", Çarşamba'da ""Baharatlı"" sos kullanabilirsiniz.
+
+### 5. Teknoloji ve Araç Destekli Planlama
+*   **Dijital Takvim:** Google Calendar gibi uygulamalarda her günün öğle ve akşam yemeklerini sabitleyin.
+*   **Liste Sistemi:** Gıda listesi ve alışveriş listesi için basit bir not defteri veya uygulama kullanın. Alışverişe gittiğinizde listeyi kontrol ederek gereksiz harcamaları önleyin.
+
+### Örnek Haftalık Plan (Enerji Tasarrufu Odaklı)
+
+| Gün | Öğle Yemeği | Akşam Yemeği | Not |
+| :--- | :--- | :--- | :--- |
+| **Pazartesi** | Kahvaltı sonrası atıştırmalık / Çay | **Hazırlanan Yemek** (Önceki gün pişirilmiş) | Enerjiyi korumak için hazır yemek tüketilir. |
+| **Salı** | Hazırlanan Yemek (Pazartesi akşamından) | **Hazırlanan Yemek** (Pazartesi akşamından) | Aynı menü, farklı günlerde. |
+| **Çarşamba** | Hazırlanan Yemek (Salı öğleden önce pişirilmiş) | **Hazırlanan Yemek** (Salı öğleden önce pişirilmiş) | Öğle yemeği akşam yemeğine dönüştürülür. |
+| **Perşembe** | Kahvaltı sonrası atıştırmalık / Çay | **Hazırlanan Yemek** (Çarşamba öğleden önce pişirilmiş) | Tekrar döngü devam eder. |
+| **Cuma** | Kahvaltı sonrası atıştırmalık / Çay | **Haftalık Pazar Yemeği** | Haftanın sonu için özel bir yemek veya dışarıda yemek. |
+| **Cumartesi** | Kahvaltı sonrası atıştırmalık / Çay | **Haftalık Pazar Yemeği** | Haftanın sonu için özel bir yemek veya dışarıda yemek. |
+| **Pazar** | Kahvaltı sonrası atıştırmalık / Çay | **Haftalık Pazar Yemeği** | Haftanın sonu için özel bir yemek veya dışarıda yemek. |
+
+*(Not: Yukarıdaki örnek, haftanın ortasında enerjiyi korumayı hedefleyen basit bir döngüdür. İstediğiniz gibi esnetebilirsiniz.)*
+
+### Ekstra İpuçları
+*   **Dışarıdan Yemek:** Eğer gerçekten hazırlama isteğiniz yoksa, haftada 1-2 gün kaliteli bir dışarıdan yemek (sushi, pizza, fast food vb.) seçerek bu günleri ""dinlenme günleri"" olarak işaretleyin.
+*   **Kahvaltılık:** Eğer akşam yemeği hazırlamaktan korkuyorsanız, kahvaltınızı daha zengin ve doyurucu yapın. Bu sayede gün boyu daha enerjik kalabilir ve akşam yemeği için biraz daha motive olursunuz.
+
+Bu yaklaşım, hem mutfaktaki stresinizi azaltır hem de beslenme düzeninizi bozmadan sağlıklı bir yaşam sürmenize yardımcı olur. Hangi tür yemekleri genellikle tercih ettiğinizi paylaşırsanız, size özel bir menü örneği de sunabilirim.","Akşamları enerjiniz kalmadığına göre, işin büyük kısmını enerjinizin olduğu bir zamana kaydırıp akşama yalnızca ısıtmayı veya kısa bir hazırlığı bırakabilirsiniz:
+
+1. Menüyü önceden belirleyin. Hafta sonu, hafta içi akşamlarda ne yiyeceğinize karar verin ve alışverişi bir listeyle tek seferde yapın. Böylece akşamları ne pişireceğinizi düşünmeniz gerekmez.
+
+2. Hafta sonu ön hazırlık yapın. Bir iki saat ayırıp birkaç gün dayanacak yemekleri (çorba, baklagil yemeği, pilav, fırın yemeği) pişirin, sebzeleri yıkayıp doğrayın.
+
+3. Çift porsiyon pişirin. Yemek yaptığınızda iki katını hazırlayın. Yarısını ertesi gün yiyin veya porsiyonlayıp dondurun.
+
+4. Menüyü basit tutun. Aynı temeli farklı şekillerde kullanın. Örneğin haşlanmış tavuğu bir gün pilavla, ertesi gün salatayla veya makarnayla yiyebilirsiniz.
+
+5. Elinizde kolay seçenekler bulundurun. Yumurta, makarna, konserve baklagil ve dondurulmuş sebze, hiç hazırlık yapamadığınız günlerde işinizi görür.
+
+Örneğin: Pazar günü iki ana yemek ve bir çorba pişirin. Pazartesiden çarşambaya bunları yiyin, perşembe ve cuma için dondurduğunuz porsiyonları veya kolay seçenekleri kullanın.
+",
+me-045,train,useful_explanation,rewrite,"Harika bir yaklaşım! Öğrendiklerinizi başkasına anlatmaya çalışmak (Feynman Tekniği), öğrenme sürecini pekiştirmek ve konuyu derinlemesine kavramak için en etkili yöntemlerden biridir. Ancak ""dağıtmak"" yerine ""anlatmak"" odak noktasınız olmalı; çünkü anlatırken karşı tarafın kafasını karıştırmamak, sizin boşlukları bulmanız demektir.
+
+İki haftalık süre, bu süreci disiplinli bir şekilde tamamlamak için ideal bir süredir. İşte adım adım gerçekçi bir çalışma planı:
+
+### 1. Hazırlık Aşaması: Konuyu Parçalayın (Gün 1-2)
+Konuyu tek bir blok olarak değil, mantıksal parçalar halinde bölün.
+*   **Ana Başlıklar Belirleyin:** Konunun en temel 3-4 ana başlığı nedir?
+*   **Küçük Birimlere Ayırın:** Her ana başlığı alt başlıklara kadar inirin.
+*   **Hedef Kitleyi Tanımlayın:** Anlatacağınız kişi kim? (Bir arkadaş mı, bir öğrenci mi, yoksa soyut bir kitle mi?) Hedef kitlenizin seviyesine göre dili ayarlayın.
+
+### 2. İlk Deneme: ""Sessiz Odada"" Anlatımı (Gün 3-4)
+Şu an için bir dinleyici yok, ama seninle birlikte konuşan hayali bir kişi var gibi davranın.
+*   **Sesli Konuşma:** Konuyu sesli olarak, sanki karşınızda bir insan duruyormuşsunuz gibi anlatın.
+*   **Dil Bilinci:** Teknik jargonları mümkün olduğunca sadeleştirin. ""Bunu yapar, o da bunu yapar"" diyerek mekanik anlatım yerine, ""Neden böyle yapıldığını"" ve ""Ne işe yaradığını"" vurgulayın.
+*   **Kayıt Alın:** Bu konuşmayı ses kaydı veya videoya alın. Kendinizi dinlerken genellikle anlatırken fark edemediğiniz eksikleri (yavaşladığınız yerler, tekrarladığınız cümleler, anlam vermediğiniz noktalar) fark edersiniz.
+
+### 3. Geri Bildirim ve Düzenleme Döngüsü (Gün 5-7)
+Kaydettiğiniz içeriği inceleyin ve iyileştirin.
+*   **Boşlukları Bulun:** Anlattığınız sırada aklınıza takılan yerler nelerdi? Orada neyin eksik olduğunuza işaret edin.
+*   **Örnekler Ekleyin:** Soyut kavramları somutlaştırmak için günlük hayat örnekleri, benzetmeler veya basit görseller ekleyin.
+*   **Soru Sorun:** ""Eğer bu konuyu hiç bilmiyen birine anlatıyordum, hangi soruyu sorardı?"" diye kendinize sorun ve cevabınızı hazırlayın.
+
+### 4. Gerçek Dinleyici ile Test (Gün 8-10)
+Planı gerçek hayatta test etme zamanı geldi.
+*   **Gerçek Bir Dinleyici Bulun:** Güvenebileceğiniz bir arkadaşınıza veya ailenize bu konuyu anlatın.
+*   **Aktif Dinleme:** Onlara sadece dinletmeyin, onlardan ""Anladın mı?"", ""Bu kısım net mi?"" diye sorun.
+*   **Geri Bildirim Alın:** Onların kafasında kalan soruları not edin. Bu, sizin öğrenme yolculuğunuzdaki en büyük boşluklardır.
+
+### 5. Son Polish ve İçerik Oluşturma (Gün 11-14)
+Toplanan geri bildirimlerle son versiyonu oluşturun.
+*   **Yapıyı Sıralayın:** En mantıklı akışı belirleyin.
+*   **Görselleştirin:** Eğer mümkünse şema çizimi, infografik veya basit bir sunum hazırlayın. Görseller karmaşayı azaltır.
+*   **Kapanış:** Konuyu özetleyen güçlü bir kapanış cümlesi ekleyin.
+
+---
+
+### Haftalık Takvim Örneği
+
+| Gün | Aktivite | Odak Noktası |
+| :--- | :--- | :--- |
+| **1-2** | Konuyu parçalama ve anahtar kavramları belirleme | Yapı kurma |
+| **3-4** | Sesli anlatım ve kayıt alma | Akıcılık ve dil |
+| **5-7** | Kaydı dinleme, boşlukları tespit etme ve örnek ekleme | Derinleştirme |
+| **8-10** | Gerçek bir dinleyiciye anlatma ve geri bildirim alma | Uygulama |
+| **11-14** | Son düzenleme, görsel materyal hazırlama ve final sunumu | Tamamlama |
+
+### Küçük İpuçları
+*   **Basit Tutun:** İlk hedefiniz ""her şeyi anlatmak"" değil, ""temel mantığı net bir şekilde aktarmaktır"". Detaylara boğulmayın.
+*   **Duraksamaktan Korkmayın:** Anlatırken bir duraksama yapmak normaldir. Bu, düşündüğünüzü gösterir ve dinleyiciye zaman tanır.
+*   **Soru Cevaplama:** Anlatırken sıkça ""Peki, bunun tersi ne olurdu?"" veya ""Neden bu yöntem tercih edildi?"" gibi sorular kendinize sorun ve bunlara cevap verin.
+
+Bu planı uyguladığınızda, sadece konuyu başkasına anlatmakla kalmayacak, kendi zihninizde de çok daha sağlam bir yapı oluşturmuş olacaksınız. Başarılar dilerim!","İki hafta için gerçekçi bir plan şöyle olabilir:
+
+1.-2. gün: Konuyu parçalara ayırın. Konunun üç dört ana başlığını belirleyip mantıklı bir sıraya koyun. Kime anlatacağınızı düşünün ve dili o kişinin seviyesine göre ayarlayın.
+
+3.-4. gün: Tek başınıza sesli anlatın ve kaydedin. Karşınızda biri varmış gibi anlatın, sonra kaydı dinleyin. Duraksadığınız, tekrara düştüğünüz veya konudan saptığınız yerleri not edin.
+
+5.-7. gün: Eksikleri giderin. Takıldığınız bölümleri yeniden çalışın, soyut kavramlar için günlük hayattan örnekler bulun. Konuyu hiç bilmeyen birinin sorabileceği soruları düşünüp cevaplarını hazırlayın.
+
+8.-10. gün: Gerçek bir dinleyiciye anlatın. Bir arkadaşınıza veya ailenizden birine anlatın ve hangi kısımların anlaşılmadığını sorun.
+
+11.-14. gün: Geri bildirime göre düzeltin ve yeniden anlatın. Akışı sadeleştirin, sona kısa bir özet ekleyin ve anlatımı bir kez daha deneyin.
+
+Her anlatımda önce temel mantığı aktarmayı hedefleyin, ayrıntıları sonra ekleyin.
+",
+me-046,train,useful_explanation,rewrite,"Evdeki internet bağlantısının bazı odalarda zayıf olması, genellikle **fiziksel mesafe**, **duvar kalınlığı** veya **antennin konumu** gibi faktörlerin birleşimiyle ilgilidir. Durumu düzeltirken en mantıklı yaklaşım, sorunu en ucuz ve en basit yöntemlerle çözmeye çalışıp, gerekirse daha karmaşık çözümlere geçmektir.
+
+İşte adım adım izlemeniz gereken mantıklı yol haritası:
+
+### 1. Mevcut Cihazın Konumunu ve Ayarlarını Kontrol Edin (En Basit Adım)
+Çoğu zaman sorun cihazın fiziksel yerinde gizlidir.
+*   **Merkeze Yaklaştırın:** Wi-Fi router'ınızın evinizin tam ortasına veya merkezi bir noktaya yakın olup olmadığına bakın. Duvarlar, metal kapılar ve büyük mobilyalar sinyali engeller. Router'ı mümkünse merkeze taşıyarak test edin.
+*   **Yüksek Tavana Asın:** Wi-Fi dalgaları aşağıya doğru yayılır. Router'ı zeminde değil, mümkünse tavanın altına veya duvara sabitlenmiş yüksek bir yere yerleştirin.
+*   **Engellerden Uzaklaşın:** Router'ın arkasında veya yanında büyük metal eşyalar, buzdolabı, mikrodalga fırın veya su tankları varsa bunları uzaklaştırın.
+
+### 2. Sinyal Güçlendiricisi (Wi-Fi Extender) Kullanın
+Eğer router merkeze yaklaştıysanız bile belirli odalara sinyal gitmiyorsa, mevcut router'un yetenekleri sınırda olabilir.
+*   **Nedir?** Bir uzatıcı cihazdır; ana router'dan gelen gücü alır ve onu yeni bir noktadan yayarak kapsama alanını genişletir.
+*   **Avantajı:** Kurulumu kolaydır ve ekstra bir kabloya ihtiyaç duymaz (kablosuz olarak bağlanır).
+*   **Dezavantajı:** Sinyal her iki yönde de yarıya düşer, yani hız biraz azalabilir. Ancak ""sadece bağlanamıyor"" veya ""çok zayıf"" durumlarını çözer.
+
+### 3. Mesh Wi-Fi Sistemi Kurun (En Modern ve Etkili Çözüm)
+Eviniz büyükse veya çok fazla duvar varsa, tek bir router yeterli olmayabilir.
+*   **Nedir?** Birden fazla (genellikle 2-3 adet) uyumlu routerdan oluşan bir sistemdir. Bunlar birbirine kablosuz olarak bağlanır ve eviniz boyunca sürekli güçlü bir sinyal oluşturur.
+*   **Avantajı:** Her odaya aynı hızda ve kesintisiz bağlantı sağlar. ""Sinyal zayıfladı"" uyarısı almazsınız.
+*   **Dezavantajı:** Tek bir router'a göre biraz daha pahalı olabilir ve kurulumu biraz daha teknik bilgi gerektirebilir (ancak çoğu marka mobil uygulama ile kolayca yapılır).
+
+### 4. Kablolu Bağlantı (Powerline Adapter) Deneyin
+Eğer odaya Wi-Fi gitmiyor ama orada bir bilgisayar veya konsol kullanacaksanız:
+*   **Nedir?** Elektrik kablolarınızı kullanarak interneti elektrik tesisatına aktaran cihazlardır. Birini prizden alıp router'a, diğerini ise zayıf sinyalin olduğu odaya takarsınız.
+*   **Avantajı:** Wi-Fi sinyali göndermez, doğrudan kablo üzerinden veri aktarır.
+*   **Dezavantajı:** Evdeki elektrik tesisatının durumu (örneğin eski tesisat veya çok fazla priz arası mesafe) hızı etkileyebilir.
+
+### 5. ISP Sağlayıcısına İletişime Geçin
+Yukarıdaki adımları denedikten sonra hala sorun devam ediyorsa:
+*   İnternet sağlayıcınızın (Türk Telekom, Vodafone vb.) teknik destek hattını arayın.
+*   Onlara evinizin haritasını gösterin ve hangi odaların zayıf olduğunu belirtin. Bazen sorununuz cihazınızda değil, evinize giden fiber hattın veya modemdeki bir arızada olabilir.
+
+### Özetle Nereden Başlamalı?
+Mantıklı sıralama şöyledir:
+1.  Önce **Router'ı merkeze taşıyıp** yüksek bir yere asmayı deneyin (Ücret: 0 TL, Süre: 10 dk).
+2.  Eğer bu işe yaramazsa, en ucuz çözüm olarak **Wi-Fi Extender** satın alın.
+3.  Eğer bütçeniz varsa ve tüm evde eşit hız istiyorsanız **Mesh Sistem** kurun.
+4.  Son çare olarak **Powerline** veya **ISP desteği** arayın.
+
+Hangi cihazı (router, extender vb.) kullanmayı düşünüyorsunuz? Model bilgisi verirseniz daha spesifik önerilerde bulunabilirim.","En mantıklısı, masrafsız ve basit adımdan başlayıp gerekirse cihaz almaya geçmektir:
+
+1. Önce modemin konumunu değiştirin. Modemi evin ortasına yakın, yüksek ve açık bir yere koyun. Duvarlar, metal eşyalar ve büyük mobilyalar sinyali zayıflatır. Bu adım ücretsizdir ve tek başına yeterli olabilir.
+
+2. Yetmezse sinyal güçlendirici (Wi-Fi extender) kullanın. Kurulumu kolaydır, ancak hızı bir miktar düşürebilir.
+
+3. Ev büyükse veya çok duvar varsa mesh Wi-Fi sistemi kurun. Daha pahalıdır, ancak evin tamamında daha dengeli bir bağlantı sağlar.
+
+Bunlara rağmen sorun sürerse internet sağlayıcınızın teknik desteğine başvurun.
+",
+me-047,train,useful_explanation,rewrite,"Bu durum, samimiyetin en büyük düşmanı olan **""performans odaklılık""**dır. Bir mesajı uzatmak yerine, karşı tarafın (veya kendi) odak noktasını kaybetmenizi sağlamanız, aslında ""ben ne kadar iyi bir tebrikçiyim"" veya ""bu mesaj ne kadar etkileyici olacak"" diye düşünmenizden kaynaklanıyor olabilir.
+
+Hatanızı şu 4 temel açıdan analiz edebilir ve düzeltebilirsiniz:
+
+### 1. Odak Noktasının Kaybı: ""Ben"" mi, ""O"" mu?
+En yaygın hata şudur: Mesajı yazarken **kendi duygularınızı, hikayelerinizi veya beklentilerinizi** anlatmaya başlıyorsunuz.
+*   **Hatalı Yaklaşım:** ""Seni tebrik ederim! Ben de senin bu başarıya ulaşman için çok çalıştım, senin gibi olabilmek benim için de büyük bir ilham oldu..."" (Burada senin başarıya ulaşman öne çıkıyor, ama asıl odak senin başarın değil.)
+*   **Doğru Yaklaşım:** Sadece onların başarısını, o anki hislerini ve onlara duyulan sevgiyi merkeze almak. Mesajın tek amacı: **Onları kutlamak**, sizin hikayenizi anlatmak değil.
+
+### 2. Detayların Aşırı Yükleme (Dil Bozukluğu)
+Uzun mesajlar genellikle gereksiz detaylarla doludur. İnsanlar uzun metinler okurken yorgunluk hisseder ve mesajın sonuna doğru (yani en önemli kısımlara) odaklanamaz hale gelirler.
+*   **İpucu:** Eğer bir cümlede ""ama"", ""ancak"", ""daha da"" gibi geçiş ifadelerini kullanıyorsanız, o cümle muhtemelen gereksizdir. Samimi bir tebrik mesajı, kısa, net ve vurucu olmalıdır.
+
+### 3. Duygusal Derinlik vs. Formülasyon
+Bazen insanlar ""doğru"" formülleri (örneğin; ""Başarılar dilerim, umarım..."" gibi kalıpları) tekrar tekrar kullanarak mesajı uzatırlar. Bu, samimiyeti bozar çünkü sanki bir şablon uyguluyormuşsunuz gibi durur.
+*   **Çözüm:** Şablonlardan kaçının. Onların özel bir başarısını, size özel bir anı veya sadece onlara duyduğunuz samimi bir duyguyla bağlayın. Örneğin: *""Senin bu işe tutkunla yaklaşman beni çok etkiledi""* demek, *""Başarılar dilerim, umarım her şey yoluna girer""* demekten çok daha samimidir.
+
+### 4. Karşı Tarafın Beklentisi
+Tebrik mesajlarında karşı taraf genellikle şunları bekler:
+*   Onların başarısının tanınması.
+*   Onlara duyulan gurur.
+*   Basitçe ""iyi ki doğdun"" veya ""çok iyi bir insan"" mesajı.
+
+Eğer mesajınız bunlardan ziyade sizin içsel çatışmalarınızı, geçmişinizi veya geleceğe dair hayallerinizi anlatıyorsa, karşı taraf bunu bir tebrik mesajı olarak algılamayabilir.
+
+---
+
+### Nasıl Düzeltmeli? (Pratik Adımlar)
+
+Mesajınızı yazmadan önce kendinize şu soruları sorun:
+1.  **Bu mesajı okuyan kişi ne hissetmek istiyor?** (Gurur duymak mı? Mutlu olmak mı?)
+2.  **Benim hikayem bu hissi güçlendiriyor mu yoksa dağıtıyor mu?**
+3.  **Eğer mesajı 50 kelimeye indirseydim, en önemli mesajım hala anlaşılır mıydı?**
+
+**Örnek Dönüşüm:**
+
+> *Uzun ve odak kaybolmuş hali:*
+> ""Selam, seni tebrik etmek istiyorum. Bu başarıya ulaşman gerçekten harika, ben de senin gibi olabilmek için yıllardır çalışıyorum. Senin bu yolculuğun beni çok ilham verdi, umarım gelecekte de aynı başarıyı yakalarsın. Çok şanslısın, iyi ki doğdun. Başka bir şey söyleyecek bir şey yok, sadece tebrik olsun.""
+
+> *Kısa, odaklanmış ve samimi hali:*
+> ""Selam, bu başarıyı öğrenince çok mutlandım. Senin bu yolculukta gösterdiğin emek ve tutku beni gerçekten ilhamlandırdı. Seni tebrik ederim, gurur duyuyorum. İyi ki doğdun!""
+
+**Sonuç:**
+Hata, mesajı uzatmaya çalışırken **karşı tarafın yerine konamamanızdır**. Samimiyet, uzun konuşmalardan değil, kısa, net ve gerçekten hissedilen kelimelerden gelir. Şimdi yazdığınız mesajı gözden geçirirken, gereksiz cümleleri silip sadece ""onları kutlayan"" kısımları bırakmayı deneyin.","Mesajı yazdıktan sonra şu kontrolleri yapabilirsiniz:
+
+1. Cümlelerin kimi anlattığına bakın. Sizin duygularınızı, anılarınızı veya deneyimlerinizi anlatan cümleleri işaretleyin. Bunlar karşınızdakini anlatan cümlelerden fazlaysa odak size kaymış olabilir.
+
+2. ""Ben de..."" ile başlayan yerlere dikkat edin. Kendi benzer deneyiminizi anlatmaya başladığınız nokta, çoğu zaman odağın kaydığı noktadır.
+
+3. Kişisel bir ayrıntıyı karşınızdakine bağlayın. ""Bu haberi duyunca çok sevindim"" gibi bir cümle odağı bozmaz. Kendi hikâyenizi uzun uzun anlatmak ise bozar.
+
+4. Mesajı kısaltmayı deneyin. Onun başarısını, bunun için gösterdiği emeği ve sizin sevincinizi anlatan iki üç cümle çoğu zaman yeterlidir. Çıkardığınızda tebriğin anlamı değişmeyen cümleleri silebilirsiniz.
+
+Son olarak mesajı, gönderdiğiniz kişinin gözüyle bir kez daha okuyun ve mesajın daha çok kimi anlattığına bakın.
+",
+me-048,train,useful_explanation,rewrite,"Evde sürekli eşya aramak, hem zaman kaybı yaratır hem de zihinsel olarak yorucudur (bu durum ""kafa karışıklığı"" veya *clutter anxiety* olarak adlandırılır). Bu durumu **sürdürülebilir** bir hale getirmek için tek bir çözüm yerine, alışkanlıklarınızı değiştiren birkaç stratejiyi birlikte uygulamanız gerekir.
+
+İşte bu sorunu kalıcı olarak çözmek için izleyebileceğiniz adımlar:
+
+### 1. ""Giriş - Çıkış Dengesi"" Kuralını Uygulayın
+Eşyalarınızın artmasının en büyük sebebi, yeni eşya almaya devam etmenizdir. Sürdürülebilir bir sistem kurmak için şu kuralı benimseyin:
+*   **Bir şey eklemek istediğinizde:** Önce evinizden **bir şey çıkarmak** zorunda mısınız?
+*   Bu kural, dolaplarınızın ve raflarınızın dolmasını engeller ve her yeni nesne için yer açmanızı sağlar.
+
+### 2. ""Kutularla Temizlik"" (Containerization) Yöntemi
+Eşyaların nerede olduğunu bilmemek, onları bulmayı imkansız kılar. Her eşya için **belirli bir yere** ve **belirli bir kutuya** sahip olmalısınız.
+*   **Kural:** Bir eşyayı kutusuna koyduğunuzda, o eşyanın içindeki her şeyi (etiketler, kâğıtlar, parçalar) da o kutunun içine koymalısınız.
+*   **Sonuç:** Kutu kapalıyken içeriye bakamazsınız. Eşya sadece o kutuda olduğunda bulunur. Kutuyu açtığınızda ise içerideki her şeyi tek seferde temizlersiniz. Bu, eşyaların kaybolma riskini %90 azaltır.
+
+### 3. ""5 Dakika Kuralları"" ile Alışkanlık Oluşturun
+Eşyaları ararken giden 5 dakikanızı, o eşyayı bulmaya harcamak yerine düzenlemeye ayırın:
+*   Eşyayı ararken 5 dakika geçerseniz, o eşyayı **daha önceki gün** bulmanız gerektiğini kabul edin.
+*   O eşyayı bulamadığınız için 5 dakika kaybettiniz. Bu kaybedilen 5 dakikayı, o eşyayı bulmak için harcamak yerine, evinizin genel düzenini düzeltmek için kullanın.
+*   Bu yöntem, ""aradım ama bulamadım"" döngüsünü kırar ve sizi harekete geçirir.
+
+### 4. Görsel İpuçları ve Etiketleme
+Eşyaların fiziksel konumu sabit olsa bile, isimleri veya türleri unutulabilir.
+*   **Etiketleme:** Kutuları veya klasörleri etiketleyin. Örneğin; ""Yedek Şarj Aletleri"", ""Eski Dokuma Parçaları"", ""Araç Bakım Parçaları"".
+*   **Renk Kodlaması:** Benzer kategorilerde kullanılan kutulara aynı renk verin. Kırmızı kutular her zaman ""elektronik yedekler"" olsun, mavi kutular ""dokuma malzemeleri"" olsun. Renk kodu, görsel tarama hızını artırır.
+
+### 5. Periyodik ""Dönüşüm"" Zamanı Belirleyin
+Sürdürülebilirlik, sürekli kontrol etmeyi değil, belirli aralıklarla gözden geçirmeyi gerektirir.
+*   Ayda bir veya her ayın ilk haftasında, sadece **bir kategoriye** odaklanarak evinizi kontrol edin (örneğin: sadece çamaşırlar, sadece kitaplar veya sadece elektronikler).
+*   Bu şekilde tüm eşyaları aynı anda değil, parça parça yönetirsiniz. Bu, süreci yormaz ve sisteminizi sürekli güncel tutar.
+
+### 6. Dijital Arşivleme
+Fiziksel eşyalar için dijital bir yedeğiniz de vardır.
+*   Eski faturaları, belgeleri veya önemli fotoğrafları fiziksel olarak saklamak yerine, bulut depolama servislerine (Google Drive, iCloud vb.) yükleyin.
+*   Böylece fiziksel alanınızda belge aramak zorunda kalmazsınız.
+
+### Özetle Başlangıç İçin Tavsiye
+Bugün yapabileceğiniz en etkili şey şudur: **En çok aradığınız o eşyayı bulamadığınız için harcadığınız son 5 dakikayı sayın.** Bu sayıyı not edin ve o günkü boş zamanınızda, o eşyayı bulmak için harcadığınız süreye eşit süreyle evinizi düzenleme üzerine çalışın.
+
+Bu küçük başlangıç, zihninizde ""düzenli olmak"" algısını güçlendirir ve gelecekteki eşya arama süreçlerini otomatik hale getirir.","Evde sürekli eşya aramak hem zaman kaybettirir hem de yorucudur. Bunu kalıcı olarak çözmek için birkaç küçük alışkanlığı birlikte uygulamanız gerekir:
+
+1. Her eşyaya belirli bir yer verin. Anahtar, gözlük, şarj aleti gibi sık aradığınız eşyalar için, onları kullandığınız veya bıraktığınız noktaya yakın sabit bir yer belirleyin. Örneğin anahtarlar için kapının yanına bir askı koyabilirsiniz.
+
+2. Kullandıktan sonra hemen yerine koyun. Sistemi sürdürülebilir kılan asıl alışkanlık budur.
+
+3. Küçük eşyaları kutularda toplayın ve kutuları etiketleyin, örneğin ""Yedek Şarj Aletleri"" veya ""Piller"".
+
+4. Fazlalıkları azaltın. Yeni bir şey aldığınızda eskisini elden çıkarmak, dolapların ve rafların dolmasını engeller.
+
+5. Akşamları birkaç dakika ayırıp ortada kalan eşyaları yerlerine koyun. Bir eşyayı hâlâ sık sık arıyorsanız, onu ararken ilk baktığınız yere taşıyın.
+
+Başlangıç için en çok aradığınız iki üç eşyaya sabit yer belirlemeniz yeterlidir.
+",
+me-051,train,selective_clarification,rewrite,"Bu durum, paketinizin **güvenliği** ve **kargo firmasının kuralları** açısından kritik bir karardır. Genellikle kargo firmaları (Ptt, Aras, Yurtiçi vb.) paketleri **iş yerlerine** yönlendirme konusunda daha katı kurallara sahiptir.
+
+İşte karar vermenizi kolaylaştıracak detaylı analiz:
+
+### 1. İş Yerine Yönlendirme Riskleri
+*   **Güvenlik Politikası:** Kargo firmalarının çoğu, paketleri ""güvenli"" kabul edilecek bir adrese (genellikle ofis) gönderirken, o adreste **kimin olduğunu veya kimin gidebileceğini bilmiyorlarsa** risklidir. Resepsiyonun akşama kadar açık olması iyi bir işaret olsa da, kargo personeli genellikle ""resepsiyon açıkken bırakılabilir"" diyemez; çünkü gece saatlerinde kimin gideceği belli değildir.
+*   **Bırakma Şartı:** Eğer kargo firması iş yerine bırakacaksa, genellikle **""Resepsiyonda bırakılabilir""** veya **""Kişi yoksa geri alınır""** gibi şartlar ekler. Eğer resepsiyonda kişi yoksa ve paketiniz gece bekletilirse, kargo firması bunu ""güvensiz bırakılmış paket"" olarak işaretleyebilir ve **geri dönüşüme (iade)** sevk edebilir.
+*   **İmza Sorunu:** İş yerinde imza yapacak kişi varsa sorun olmaz, ancak kimin imzalayacağını garanti edemiyorsanız risk yüklersiniz.
+
+### 2. Eve Yönlendirme Avantajları ve Riskleri
+*   **Güvenlik Durumu:** ""Evde gündüz kimse yok"" ifadesi aslında bir risktir. Kargo firmaları, ev adreslerinde paket bırakmayı genellikle **yasaklar** veya çok sıkı koşullar (imza zorunluluğu, güvenlik kamerası vb.) getirir. Çünkü gece kimin girebileceği bilinmez.
+*   **Geri Dönüş Riski:** Eğer kargo firması evinize paket getirmeye çalışır ve evde kimse yoksa, paket genellikle **geri dönüşüme** gider. Bu süreçte paketiniz kaybolma riski artar ve takip numaranız ""Geri Dönüşümde"" olarak değişir.
+*   **Çözüm:** Ev adresini seçmek isterseniz, mutlaka **""Kişi yoksa geri al""** seçeneğini seçip, paket geldiğinde kendiniz almanız gerekir. Ancak bu, paketinizi evde bekletmemeniz gerektiği anlamına gelir.
+
+### Önerim ve En Güvenli Yol
+
+**En güvenli ve sorunsuz çözüm:**
+Paketinizi **iş yerine** yönlendirmeyi deneyin, ancak şu koşullarla:
+1.  **Resepsiyonun Açık Kalması:** Resepsiyonun gerçekten akşam 6-7'ye kadar açık olduğundan emin olun.
+2.  **İmza Garantisi:** Resepsiyona gidip, ""Paketim gelecek, kimse yoksa lütfen saklayın veya beni arayın"" diyerek **kişisel bir garanti** alın.
+3.  **Alternatif Adres Ekleme:** Kargo uygulamasında veya web sitesinde **""Alternatif İletişim Bilgisi""** veya **""Paket Bekleme Adresi""** olarak kendi telefon numaranızı ve ev adresinizi (veya başka bir güvenli nokta) ekleyin. Böylece paket geldiğinde sizi arayıp size teslim etmeleri veya size bildirim göndermeleri sağlanır.
+
+**Eğer kesinlikle eve bırakılması gerekiyorsa:**
+Kargo firmasına (Ptt veya özel kargo) **telefonla danışın**.
+*   *Soru:* ""Adresimde gündüz kimse yok, akşam ise kimse yok. Paketimi eve bırakabilir misiniz? Yoksa kimse yoksa geri alıp bana bildirebilir misiniz?""
+*   Firmalar bazen ""Güvenlik nedeniyle ev adresine bırakmayız, iş yerine bırakacağız"" derler. Bu durumda iş yerine bırakmak zorunda kalabilirsiniz.
+
+**Sonuç:**
+Kargo firmalarının standart prosedürüne göre, **iş yerine** yönlendirmek daha riskli görünse de (çünkü gece kimin gideceği bilinmez), **ev adresine** yönlendirmek ise ""kimse yoksa geri dönüş"" riskiyle doludur.
+
+**Tavsiyem:**
+Önce **iş yerine** yönlendirme seçeneğini deneyin. Resepsiyona gidip durumu açıklayın. Eğer resepsiyon ""Gece kimse yoksa bırakamayız"" derseniz, o zaman kargo firmasına **telefonla danışarak** ""Ev adresi seçiyorum ama kimse yoksa beni arayın/geri alın"" talimatını verin. Bu şekilde hem adresi ev seçersiniz hem de güvenlik riskini ortadan kaldırırsınız.","İş yerine yönlendirin. Evde gündüz kimse olmadığı için kargo teslim edilemeyebilir, iş yerinde ise resepsiyon akşama kadar açık olduğundan paketi teslim alacak biri olur.",
+me-052,train,selective_clarification,rewrite,"Bu sorunun cevabı tamamen **mevcut kulaklığınızın durumu**, **bütçeniz** ve **ihtiyaçlarınız**a bağlı. Bir tavsiye vermeden önce şu başlıkları değerlendirmenizi öneririm:
+
+### 🟢 ""HAYIR, Bekleyin"" Durumları
+Eğer şu durumlardan birini yaşıyorsanız, yeni bir kulaklık almaya gerek yok:
+*   **Ses kalitesi hala memnun edici:** Şu anki kulaklığınızla müzik dinlerken, podcast dinlerken veya telefon görüşmelerinde sorun yaşıyor musunuz?
+*   **Kullanım süresi az:** Yeni aldığınız kulaklık henüz 1-2 aydan az kullanıldıysa ve pil ömrü hala iyi geliyorsa.
+*   **Bütçe kısıtlaması var:** Yeni bir cihaz için ekstra para harcamak zorunda değilseniz.
+*   **Güvenlik endişesi:** Kulaklığınızın içindeki mikrofonun ses kalitesi çok kötüyse (örneğin toplantılarda sürekli gürültü yiyorsanız), bu genellikle kulaklık değişimiyle çözülemez; bunun yerine **gürültü engelleme (ANC)** özelliği olan bir model almanız gerekebilir.
+
+### 🔴 ""EVET, Değişim Yapmalısınız"" Durumları
+Aşağıdaki belirtilerden herhangi biri varsa, yeni bir kulaklık almak size büyük bir fark katacaktır:
+*   **Pil ömrü bitmiş:** Kulaklıkınız 1-2 saatten sonra şarj etmeniz gerekiyor.
+*   **Ses kalitesi düşmüş:** Yüksek frekanslar (tizin) kaybolmuş veya ses bozuk geliyor.
+*   **Fiziksel hasar:** Kablolu kulaklıklarınızda kablo kopukluğu, kulaklık uçlarında kırık veya kulak içi yastıkların eski/bozulmuş olması.
+*   **Bağlantı sorunları:** Bluetooth bağlantıları sık kesiliyor veya gecikmeli çalışıyor.
+*   **Gelişmiş özellikler istiyorsunuz:** Örneğin, şu anki kulaklığınızda ANC yokken, gürültülü bir ofiste veya uçuşta sessizlik arıyorsanız; veya ses kalitesini artırmak için daha iyi bir sürücüye sahip bir model istiyorsanız.
+
+### 💡 Karar Verirken Dikkat Etmeniz Gerekenler
+Eğer ""evet, alacağım"" diyorsanız, hangi modeli seçeceğinize karar vermeden önce şunları düşünün:
+1.  **Kullanım Amacı:** Sadece müzik müziği mi, oyun mu, hala iş görüşmeleri mi?
+2.  **Bütçe:** Hangi fiyat aralığında (100 TL - 5000 TL +) bir şey arıyorsunuz?
+3.  **Tercihiniz:** Kulak içi (In-ear) mi, kulak arkası (Over-ear) mi, kablosuz mu, kabloluy mu?
+4.  **Piyasa Durumu:** Seçtiğiniz modelin henüz yeni çıkan bir versiyonu var mı?
+
+**Benim önerim:**
+Mevcut kulaklığınızın ne kadarını kullanmaya devam edebileceğinizi ve ne kadar fark yapacağınıza bakarak karar verin. Eğer sadece ""fark etmek istiyorum"" diyorsanız, bütçenizin uygun olduğu en iyi **gürültü engelleme (ANC)** özelliğine sahip kulaklıklardan birine yönelmek, günlük hayat kalitenizi en çok artıracaktır.
+
+Şu an elinizdeki kulaklık markası ve modeli nedir? Ona göre daha spesifik bir öneride bulunabilirim.","Bu, mevcut kulaklığınızın durumuna ve ihtiyacınıza bağlı. Kulaklığınız bozulduysa, pili çabuk bitiyorsa veya ihtiyacınız olan bir özelliği, örneğin gürültü engellemeyi sunmuyorsa yenisini almak mantıklı olur. Sorunsuz çalışıyor ve işinizi görüyorsa almanıza gerek yok.
+
+Yeni kulaklığı neden almak istiyorsunuz?
+",
+me-053,train,selective_clarification,rewrite,"Bu durumun cevabı, **kulaklığının ne tür bir cihazda (telefon, bilgisayar, konsol) kullanıldığını** ve **yeni modelin o cihazla uyumlu olup olmadığını** belirlemekle doğrudan ilgilidir.
+
+İşte karar vermen için değerlendirebileceğin birkaç kritik nokta:
+
+### 1. ""Çalışıyor ve Memnunum"" Faktörü
+Eğer mevcut kulaklığın ses kalitesi, konforu ve bağlantı sorunları açısından seni tatmin ediyorsa, teknolojinin değişmesi genellikle dinleyici deneyimini doğrudan etkilemez. Kulaklık, bir ""kutu"" değil, bir ""uygulama"" gibidir; sadece o cihazın çıkış portuna (3.5mm jack, USB-C, Bluetooth) ve sürücüsüne göre ses verir. Yeni bir kutuya geçmek, eski kutunun içindeki ""programı"" (ses karakteristiğini) değiştirmeyebilir.
+
+### 2. 2000 TL Bütçe ve Piyasa Durumu
+2000 TL, şu an Türkiye'de oldukça rekabetçi bir bütçedir. Bu parayla genellikle şu kategorilerden ürünler bulunur:
+*   **Güncel Mid-Range (Orta Sınıf) Bluetooth Kulaklıklar:** Örneğin, Sony, JBL, Samsung veya Xiaomi'nin son 1-2 yıl içinde çıkan modelleri.
+*   **Özel Tasarım (Custom) Kulaklıklar:** Eğer kulaklığın tıbbi veya özel amaçlı bir cihazsa, bu bütçeyle yeni bir özel tasarım seti alabilirsin.
+*   **Gaming Kulaklıkları:** Eğer oyun oynuyorsan, yeni modellerde mikrofon kalitesi veya ses yönlendirme teknolojileri gelişmiş olabilir.
+
+**Ancak dikkat etmen gereken en önemli nokta:** Yeni çıkan modeller bazen **eski modellerden daha az ses verimliliğine** sahip olabilir. Özellikle kablosuz (Bluetooth) geçişlerde veya yeni sürücü teknolojilerinde, fiyat/performans dengesi bazen eski, daha basit ama daha güçlü olan modellerin favorisi olabilir.
+
+### Karar Vermeden Önce Sorulması Gerekenler:
+
+1.  **Cihazın Türü Nedir?**
+    *   **Telefon/Bilgisayar için mi?** Eğer kulaklığın Bluetooth'ta çalışıyorsa ve telefonunun işletim sistemi (Android/iOS) yeni modelle uyumluysa, yeni bir kulaklık almak mantıklı olabilir. Ancak telefonun kendi ses kalitesi iyiyse, kulaklık fark yaratmayabilir.
+    *   **Konsol (PS5/Xbox) veya PC için mi?** Eğer kulaklığın 3.5mm jack ile çalışıyorsa ve yeni model de aynı standartta ise, değişim gerekmez.
+    *   **Tıbbi/Special Purpose mi?** Evet ise, cihazın güncelleme döngüsü önemlidir.
+
+2.  **Neden Yeni Model Çıkınca Almak İstiyorsun?**
+    *   **Ses Kalitesi Artışı mı?** Genellikle yeni modellerde ses kalitesindeki artış %10-%20 civarındadır. Eğer mevcut kulaklığın sesini ""mükemmel"" buluyorsan, bu küçük artışın tadını alamazsın.
+    *   **Ek Özellikler mi?** Mikrofon, aktif gürültü engelleme (ANC), uzun pil ömrü gibi özellikler varsa ve bunlar senin için önemliyse, değişim mantıklıdır.
+    *   **Estetik mi?** Sadece görünüşü beğendiysen, bu kişisel tercihin.
+
+### Sonuç ve Tavsiye
+
+Eğer kulaklığın **çalışıyor, sesinden memnunsun ve hiçbir teknik sorunu yoksa**, yeni model çıkması tek başına bir sebeptir. **2000 TL'lik bütçenle yeni bir kulaklık almamanı öneririm.**
+
+**Neden?**
+*   **Para Kaybı Riski:** Yeni modelin eski modelden daha iyi ses vermediği veya pil ömrünün daha kısa olduğu durumlar sık görülür.
+*   **Mantıksız Yatırım:** Zaten memnun olduğun bir ürünü, sadece ""yeni çıktı"" diye değiştirmek, finansal açıdan verimsizdir.
+*   **Alternatif Kullanım:** O 2000 TL'yi, mevcut kulaklığının aksiyon şarjı için, bir ses kaydı programı için veya başka bir ihtiyaç için harcamaktan daha faydalı olabilir.
+
+**Özetle:** Kulaklığın sana hizmet ediyor ve seni mutlu ediyor. Teknolojik yeniliklerin getirdiği küçük iyileştirmeler, mevcut memnuniyetini bozmaz. Bütçeni koruman ve o 2000 TL'yi daha verimli kullanman daha akıllıca olacaktır.","Hayır, yenisine ihtiyacın yok. Kulaklığın çalışıyor ve sesinden memnunsun; yeni bir modelin çıkmış olması tek başına değiştirmek için bir neden değil. Yeni modelde senin için gerçekten önemli bir özellik varsa o zaman 2000 liralık bütçenle değerlendirebilirsin.",
+me-054,train,selective_clarification,rewrite,"Verdiğin kriterlere göre (maaşın aynı, diğer koşulların eşit ve **boş zamanın öncelikli** olması), mantıksal olarak **ikinci teklifi (5 gün uzaktan çalışma)** seçmelisin.
+
+Bunun temel nedeni şudur:
+*   **İlk teklif:** Haftada 6 gün ofiste çalışman gerektiği için, hafta sonunu da dahil olmak üzere haftalık çalışma süren çok daha uzun olacaktır. Bu durum, dinlenme ve kişisel zamanını azaltır.
+*   **İkinci teklif:** Haftada sadece 5 gün çalışman gerektiği için, haftanın geri kalan günlerini (özellikle hafta sonu) tamamen kendine ayırabilirsin. Uzaktan çalışma özelliği de bu süreyi daha esnek kullanmana olanak tanır.
+
+Çünkü belirlediğin en önemli faktör ""boş zaman"" ise, çalışma saatlerini azaltan ve esneklik sağlayan ikinci seçenek seni daha mutlu ve dengeli bir yaşam sürdürecek.","İkinci teklifi seç. Maaşlar aynı ve diğer koşullar eşit olduğuna göre farkı çalışma düzeni belirliyor. İkinci işte haftada bir gün daha az çalışırsın, uzaktan çalıştığın için yolda da zaman kaybetmezsin. Boş zaman senin için öncelikli olduğundan bu seçenek daha uygun.",
+me-055,train,selective_clarification,rewrite,"Bu, kariyerinde en kritik kararları alırken sıkça karşılaşılan ve çok doğru bir soru. **Sadece maaşıyla karar vermek genellikle uzun vadede pişmanlığa yol açabilir.** Maaş, işin ""fiyatı""dır; çalışma koşulları ise işin ""kaynağı""dır.
+
+Karar vermeden önce şu adımları izleyerek hem finansal hem de psikolojik olarak en uygun yolu seçebilirsiniz:
+
+### 1. Maaşı Değerlendirme (Nasıl Karşılaştırılır?)
+Maaşlar sadece rakamla kıyaslanmaz, aynı cüzdanda değerlendirilmelidir:
+*   **Brüt vs. Net:** Hangi maaşın net (elinize geçen) tutarı daha yüksek? Vergiler ve sigortalar farklı olabilir.
+*   **Ekstra Potansiyeller:** Bir işte sabit maaş düşük olsa da komisyon, bonus veya proje bazlı ödeme sistemi var mı?
+*   **Günlük Ortalama:** Aylık maaşlara bakmak yerine, haftalık veya günlük kazanımınızı karşılaştırın.
+
+### 2. Çalışma Koşullarını Nasıl Öğrenebilirsiniz?
+Henüz görüşmediyseniz veya detayları bilmiyorsanız, şunları yapabilirsiniz:
+*   **Sorular Sormak:** ""Tahmini çalışma saatleri ne?"", ""Ofis ortamı nasıl?"", ""Takım dinamikleri nedir?"", ""Yatırımcı veya yönetici desteği var mı?"" gibi sorular sorun.
+*   **Referans Sorun:** ""Bu pozisyonda çalışan eski bir arkadaşınız var mı?"" diye sorun. Onlardan en iyi ve en kötü anılarını dinleyin.
+*   **Şirket Araştırması:** LinkedIn'de o şirkette çalışanları inceleyin, şirketin kültürünü ve değerlerini okuyun.
+
+### 3. Karar Verirken Dikkat Etmeniz Gereken Kritik Faktörler
+Maaş farkı %10-20 olsa bile, aşağıdaki faktörlerden biri varsa **daha düşük maaşlı işi tercih etmelisiniz:**
+
+*   **Kültür Uyumu:** Şirketin değerleri sizin kişisel değerlerinize uygun mu? (Örn: Çok esneklik isterken çok katı bir hiyerarşi olan yerde çalışmak zordur).
+*   **Gelişim Fırsatları:** Daha düşük maaş olsa bile, burada yeni bir teknoloji öğrenip, yetkinliğinizi artıracak bir ortam mı?
+*   **Stres Seviyesi:** İş yükü çok mu ağır? Sürekli acil durumlarla mı karşı karşıya kalacaksınız?
+*   **Uzaklık ve Esneklik:** Ofiste mi çalışacaksanız, evden çalışıp çalışmayacağınız önemli bir yaşam kalitesi faktörüdür.
+
+### Özet Tavsiye
+Eğer iki iş teklifi arasında **maddi fark çok büyükse** (örneğin %50'yi geçiyorsa), maaşı seçmek mantıklı olabilir. Ancak maddi fark küçükse (%10-20 bandında), **çalışma koşulları ve gelecekteki potansiyel** belirleyicidir.
+
+**Stratejiniz şu olmalı:**
+1.  Önce çalışma koşullarını araştırın ve görüşün.
+2.  Koşullar benzerse, maaşı karşılaştırın.
+3.  Koşullar çok farklıysa, **uzun vadeli mutluluk ve kariyer gelişimi** için koşullar daha iyi olanı seçin. Çünkü kötü bir ortamda yüksek maaş bile yorgunluk ve motivasyon kaybına neden olur.
+
+Hangi sektörlerde veya hangi tür işlerde söz konusu? Bunu belirtirseniz, o sektöre özel daha spesifik tavsiyelerde bulunabilirim.","Çalışma koşullarını öğrenmeden sağlıklı bir seçim yapmak zor, yalnızca maaşa bakarak karar vermenizi önermem. Önce iki işverenden de çalışma saatlerini, işin ofisten mi uzaktan mı yapılacağını, izin ve yan hakları öğrenin.
+
+Koşullar birbirine yakınsa maaşı yüksek olanı seçmek mantıklı olur. Koşullar belirgin biçimde farklıysa, maaş farkının bu farkı karşılayıp karşılamadığına bakarak karar verin.
+",
+me-056,train,selective_clarification,rewrite,"Kısa cevap: **Genellikle hayır, bu önerilmez.**
+
+Ürün kutusundaki ""4 saat"" ibaresi, boyanın tamamen kuruması ve kapının normal kullanım için hazır olması için gereken süredir. Ancak durumun detaylarına göre bazı nüanslar vardır:
+
+1.  **Tam Kuruma vs. Dokunulmazlık:** Boya, yüzeyde dokunulmaması için kuruyabilir (bunu 1-2 saatte bile yapabilir), ancak kimyasal olarak tamamen kuruması ve oksijenle bağlanması için o belirtilen süre (4 saat) gerekir. Eğer 1 saat sonra kapatsanız, boya henüz tam kurunmamış olabilir.
+2.  **Riske Maruz Kalma:** Kapıyı erken kapatmakta en büyük risk, kapakların birbirine değmesi veya kapakların üzerine baskı gelmesidir. Boya henüz kuruyorsa, kapaklar birbirine değince boya tabakası yırtılabilir, çizilebilir veya yüzeyde kalıcı lekeler oluşabilir. Ayrıca kapakların üzerindeki boya da kuruyamaz.
+3.  **Boya Türü Farkı:**
+    *   **Su bazlı boya:** Genellikle daha hızlı kurur ama yine de minimum 2-4 saat beklenmesi önerilir.
+    *   **Lak veya alkyd bazlı boya:** Daha uzun süre kuruma gerektirir ve erken kapatmak yüzeyde parlaklık kaybına veya kabarmaya neden olabilir.
+
+**Ne Yapmalısınız?**
+En güvenli yol, kutudaki süre (4 saat) boyunca kapıları açık bırakmaktır. Eğer kapılar çok uzun süre açık duracaksa ve ortam sıcaklığı/hacim buna uygunsa, kapıları **hafifçe** kapatabilirsiniz (tamamen sıkıca değil, sadece toz girmesin diye), ancak kapaklar birbirine değmeyecek şekilde.
+
+Eğer kapıyı kapatmak zorunda kaldıysanız ve 4 saat bekleme süresi bitmediyse, kapattıktan sonra **en az 2-3 saat daha** bekleyip, kapakları tekrar açarak kontrol etmelisiniz. Eğer kapaklar arasında boya izi görürseniz veya kapaklar düzgün kapanmıyorsa, kapıyı tekrar açmanız ve boya tabakasını temizlemeniz gerekebilir.
+
+**Özetle:** Kapıyı kapatmak için beklediğiniz süreyi (4 saat) tamamlamanız, kapının ömrünü korumak ve estetik görünümünü bozmamak adına en doğru karar olacaktır.","Hayır, önerilmez. Kutuda kuruma süresi dört saat olarak belirtildiğine göre, bir saat sonra boya henüz kurumamış olabilir. Kapıyı kapatırsanız boyalı yüzeyler kasaya yapışabilir veya boya bozulabilir. Dört saat dolana kadar kapıyı açık bırakın.",
+me-057,train,selective_clarification,rewrite,"Eski fotoğrafları harici diske (USB bellek, SD kart vb.) kopyaladıktan sonra telefonunuzdaki orijinal dosyaları **silebilirsiniz**, ancak bunu yaparken dikkat etmeniz gereken birkaç önemli nokta vardır:
+
+1.  **Kopyalama İşlemi Tamamlanmışsa:** Eğer dosyalar harici diske başarıyla kopyalandı ve işlem tamamlandıysa, telefonunuzdaki yer tutucu alanları artık gereksizdir. Bu alanları temizlemek hem depolama alanınızı açar hem de telefonun performansını artırabilir.
+2.  **Yedekleme Kontrolü:** Sildikten sonra fotoğraflarınızın harici diskte eksik veya bozuk kalmadığından emin olun. Harici diskteki dosyaların sayısının ve boyutunun telefonundakilerle aynı olduğundan kontrol etmeniz faydalıdır.
+3.  **Güvenlik Önlemi:** Silme işlemini gerçekleştirmek için genellikle telefonunuzun ""Depolama Alanı"" veya ""Dosya Yöneticisi"" uygulamasından ilgili klasöre girip seçili dosyaları silmeniz yeterlidir. Bazı telefonlarda ""Gelişmiş"" ayarlarından ""Depolama Temizliği"" seçeneği de mevcuttur.
+
+**Önemli Uyarı:** Eğer henüz harici diske kopyalama işlemi **tamamlanmamışsa** veya işlem sırasında kesinti yaşandıysa, telefonunuzdaki dosyalara dokunmayın. Bu durumda dosyalar harici diske geçmeden önce silinmiş sayılabilir.
+
+**Sonuç olarak:** Kopyalama işlemi başarılı bir şekilde tamamlandıysa, telefonunuzdaki eski fotoğrafları güvenle silebilirsiniz.","Evet, silebilirsiniz; ancak önce kopyalamanın eksiksiz tamamlandığından emin olun. Harici diskteki fotoğraf sayısını telefondakiyle karşılaştırın ve birkaç fotoğrafı diskten açarak bozuk olmadıklarını kontrol edin. Sildikten sonra harici disk tek kopyanız olacağı için, önemli fotoğrafları ikinci bir yere de yedeklemeniz iyi olur.",
+me-058,train,selective_clarification,rewrite,"Bu, birçok sporcu için en zorlu ama aynı zamanda en verimli geçişlerden biri olabilir. ""Sabah koşusu"" (Morning Run) sadece bir zaman değişikliği değil, aynı zamanda **biyolojik ritminiz** ve **psikolojik alışkanlığınız** üzerine büyük bir etki yapar.
+
+Karar vermeden önce kendi durumunuzu şu başlıklar altında değerlendirebilirsiniz:
+
+### ✅ Değiştirmeniz Gereken Durumlar (Evet, yapın!)
+
+1.  **Sabahları gerçekten vaktiniz varsa:** Eğer akşam saatlerinde çalışmak, aileye bakmak veya başka işler nedeniyle koşamıyorsanız, sabah tek seçeneğinizdir.
+2.  **Daha iyi uyku kalitesi istiyorsanız:** Sabah koşusu, gün içindeki uykuyu daha derin ve düzenli hale getirebilir. Ayrıca günün başında hareketlenmek, gün boyu daha enerjik hissetmenizi sağlar.
+3.  **Stres yönetimi için:** Akşam koşusu bazen günün stresini artırabilir (özellikle iş stresi varsa). Sabah koşusu ise günün başında zihni temizleyerek günün geri kalanını daha sakin başlatmanıza yardımcı olur.
+4.  **Motivasyonunuz sabah yüksekse:** Bazı insanlar gece yorgunluk hissederken, sabahları zihinsel olarak daha net ve odaklanmış hissederler.
+
+### ⚠️ Dikkat Etmeniz Gereken Riskler (Hayır, dikkatli olun!)
+
+1.  **Vücudunuzun hazırlanmamış olması:** Vücudunuz gece boyunca dinlenir ve kaslar gevşek olur. Sabah koşusu için vücudunuzun ısınması ve kaslarının esnemesi gerekir. Yetersiz ısınma eklem yaralanmalarına yol açabilir.
+2.  **Soğuk hava etkisi:** Eğer kış aylarındaysanız veya evinizden dışarı çıkarken çok soğuksa, bu sizi yorabilir ve motivasyonunuzu düşürebilir.
+3.  **Uyku kalitesinin bozulması:** Koşu sonrası hemen yatmazsanız veya koşu sırasında çok fazla konuşup nefesinizi tutarsanız, uyku kaliteniz düşebilir.
+4.  **Su ve elektrolit dengesizliği:** Sabahları susuz kalkmak veya yeterli su içmemek, performansınızı ciddi şekilde etkiler.
+
+### 💡 Başarılı Olmak İçin Stratejik Tavsiyeler
+
+Eğer karar verip değiştirmeyi düşünüyorsanız, şu adımları izleyerek süreci yumuşatın:
+
+*   **Yavaş Başlayın:** İlk hafta koşu mesafenizi veya hızınızı azaltın. Vücudunuzun yeni bir ritme adapte olmasına izin verin.
+*   **Isınma Rutini Ekleyin:** Koşmadan önce mutlaka 5-10 dakika dinamik egzersiz (kol çevirme, diz kaldırma, hafif koşu) yapın.
+*   **Su Tüketimi:** Uyanır anınızda bir bardak su içmeyi alışkanlık haline getirin.
+*   **Giyim ve Ekipman:** Daha konforlu, nefes alan bir spor kıyafeti ve uygun ayakkabı kullanın.
+*   **İlk Haftayı Hafif Tutun:** İlk hafta sadece 20-30 dakika koşun. Hedefiniz ""her sabah koşmak"" değil, ""sabah koşmayı başarmaktır"".
+*   **Geceyi Hazırlayın:** Koşuya gitmeden önceki gece erken yatın ve odanızı biraz daha serin tutun (soğuk hava uyku kalitesini artırabilir).
+
+### Sonuç
+
+Eğer **akşam koşusu sizin için sürdürülemezse** veya sabahları koştuğunuzda daha iyi hissediyorsanız, **kesinlikle değiştirmelisiniz**. Sporun anahtarı tutarlılıktır; sabahları yapabiliyorsanız, o da sizin için en doğru zamandır.
+
+Ancak, eğer sabahları yapmaya çalıştığınızda sürekli yorgun, baş ağrısı yaşıyor veya motivasyonunuz çok düşükse, belki de vücudunuz şu an için akşam saatlerini tercih ediyor demektir.
+
+**Küçük bir öneri:** Bir hafta boyunca her iki zaman diliminde de (akşam ve sabah) kısa mesafe koşular yapın ve hangisinde daha iyi performans gösterdiğinizi ve daha az yorgunduğunuzu not alın. Bu size en uygun zamanı gösterecektir.
+
+Hangi amaçla koşuyorsunuz? (Ağırlık kaybı, kardiyovasküler sağlık, stres azaltma vb.) Bu bilgiyle daha spesifik bir plan da sunabilirim.","Sabahları vaktiniz olduğuna göre denemeye değer. Bu, geri alınabilir bir değişiklik. Bir iki hafta sabah koşup nasıl gittiğine bakabilir, size uymazsa akşama dönebilirsiniz.
+
+Denerken şunlara dikkat edin:
+- İlk hafta mesafenizi veya hızınızı azaltın, vücudunuzun yeni ritme alışmasına izin verin.
+- Sabahları vücut daha tutuk olduğu için koşmadan önce 5-10 dakika ısının.
+- Uyanınca bir bardak su için ve önceki gece erken yatın.
+
+Deneme sonunda sabah koşularını aksatmadan sürdürebiliyor ve gün içinde kendinizi iyi hissediyorsanız değiştirin. Sürekli yorgun kalkıyor veya koşuları atlıyorsanız akşam saatleri size daha uygun demektir.
+",
+me-061,train,grounded_completion,rewrite,"Evet, büyük ihtimalle **depodaki ürün bitmiş** veya stok takibi ile sistem arasında bir uyumsuzluk yaşanmıştır.
+
+""Siparişiniz hazırlanıyor"" (Preparing) durumu genellikle şu senaryolardan biriyle ilişkilidir:
+
+1.  **Stok Eksikliği:** Satıcı, siparişi oluşturduğunda depoda yeterli miktarda ürün olduğunu düşünmüş olabilir. Ancak o sırada ürün satılmış, hasar görmüş veya yanlışlıkla stoktan düşmemiş olabilir. Bu durumda, sipariş hazırlanmaya başlandığında sistemde ""ürün bulunamadı"" hatası verilir ve süreç donar.
+2.  **Stok Güncellemesi Gecikmesi:** E-ticaret platformlarında bazen stok sayıları anlık olarak güncellenmez. Satıcı stok düşürmeyi unutmuş olabilir.
+3.  **Hata Yapılan Sipariş:** Bazı durumlarda satıcı, stokta olmayan ürünü yanlışlıkla siparişe ekleyebilir.
+
+**Ne yapmalısınız?**
+
+Bu durumu çözmek için şu adımları izlemeniz en doğrusu olacaktır:
+
+*   **Satıcıya Ulaşın:** En hızlı çözüm, siparişinizi oluşturan satıcıya mesaj atıp durumunu sormaktır. ""Ürün depoda yok mu?"" diye sorarak süreci hızlandırabilirsiniz.
+*   **Platform Desteklerini Kullanın:** Eğer satıcı yanıt vermezse veya sorun devam ederse, satın almadığınız platformun (Trendyol, Hepsiburada, Amazon vb.) müşteri hizmetlerine başvurun. Onlar satıcıyı kontrol eder ve ya ürünü bulmalarını isterler ya da siparişi iptal ederek alternatif bir ürün önerirler.
+*   **İptal Seçeneğini Değerlendirin:** Eğer ürün çok acil değilse ve satıcıdan beklenemiyorsa, siparişi iptal edip başka bir satıcıdan aynı ürünü almaktan daha hızlı sonuç alabilirsiniz.
+
+Özetle, bu durum genellikle **stok yönetimi hatası** veya **ürün bitmişlik** ile ilgilidir ve satıcı ile iletişime geçerek çözülmesi gerekir.","Bunu eldeki bilgiyle kesin olarak söylemek mümkün değil. Ürünün depoda bitmiş olması olasılıklardan biridir, ancak sipariş yoğunluğu, stok güncellemesindeki bir gecikme veya sistemsel bir sorun nedeniyle de ürün ""hazırlanıyor"" durumunda kalmış olabilir.
+
+Gerçek nedeni öğrenmek için satıcıya ulaşın. Yanıt alamazsanız alışveriş yaptığınız platformun müşteri hizmetlerine başvurun.
+",
+me-062,train,grounded_completion,rewrite,"Bu sorunun cevabı, cümledeki **zaman zarflarının (zamir) ve bağlaçların** mantıksal tutarsızlığına dayanmaktadır. İşte detaylı açıklama:
+
+1.  **""Bakımda olduğu için"" (Sebep):** Asansörün çalışmaması, merdivenlerin kullanılması için geçerli bir **sebep**dir.
+2.  **""Kullandık"" (Eylem):** Bu sebepten dolayı, asansör yerine **merdiveni kullandık**.
+3.  **""Neden merdivenden çıktık?"" (Soru):** Soru, neden merdivenden çıktığınızı soruyor.
+
+**Mantıksal Çelişki:**
+Eğer asansör bozulduysa ve merdivenleri kullandınız, o zaman çıkışınızın sebebi **doğrudur**: Asansörün çalışmaması. Cümle, ""Merdivenleri kullandık"" diyerek bu durumu zaten belirtmiştir.
+
+Sorunuzun cevabı şudur: **Çünkü asansör bakımda olduğu için.**
+
+Cümlenizdeki ""Neden..."" kısmı, zaten önceki cümlede verilen bilgiyi tekrar sormuş gibi duruyor veya eksik bir bağlam varmış gibi hissettiriyor. Daha net ifade etmek isterseniz cümleyi şöyle değiştirebilirsiniz:
+
+*   *Doğru Anlam:* ""Asansör bakımda olduğu için merdivenleri kullandık."" (Burada çıkışın sebebi açıkça belirtilmiştir.)
+*   *Alternatif:* ""Asansör arızalı olduğu için merdivenlerden indik.""
+
+Özetle; merdivenlerden çıktığınız **asansörün bozulmasıdır**. Cümle yapınızda bu sebep-sonuç ilişkisi zaten kurulmuştur, soru sadece bu açık olanı tekrar sorgulayan bir yapıya sahiptir.",Çünkü asansör bakımdaydı.,
+me-063,train,grounded_completion,rewrite,"Bu bir tahmindir ve kesin bir cevap vermek mümkün değildir. Ancak senin düşüncene göre birkaç olasılık var:
+
+1.  **Etkisi Olabilir:** Toplantıdaki sözlerin gerçekten etkili olmuş olabilir. İnsanlar bazen önemli noktaları duyduktan sonra toplantıyı bitirmek veya konuyu değiştirmek isteyebilirler.
+2.  **Başka Bir Neden:** Erken çıkışın başka sebepleri de olabilir (yorgunluk, başka bir plan, teknik bir sorun vb.).
+3.  **İlişki Dinamiği:** Eğer bu bir iş toplantısıysa, sözlerin ""alındığı"" anlamına gelebilir; eğer kişisel bir görüşme ise, o kişinin tepkisi belki de beklediğin gibi olmayabilir.
+
+En doğru sonucu öğrenmek için, sözlerin ne kadar etkili olduğunu görmek adına **onu hatırlatarak** veya **sonuçları sorgulayarak** ona bir mesaj atmak en iyisi olacaktır.
+
+Örneğin: *""Merhaba, dünki toplantıda bahsettiğim [konu] hakkında bir geri bildirim var mı? Sonunda erken çıktığını fark ettim.""* diyerek durumu netleştirebilirsin.
+
+Senin için bu durum nasıl hissettirdi? Endişeli misin yoksa umutlu musun?","Bunu bilemeyiz. Selin'in toplantıdan erken çıkması, söylediklerine alındığını göstermez; başka bir nedeni de olabilir. Emin olmak istersen kendisine doğrudan sorabilirsin.",
+me-064,train,grounded_completion,rewrite,"Hayır, telefonunuzun sabah iki kez kapanması pilin **kesinlikle** bozulduğunu göstermez. Bu durum, pil ömrünün bitmesiyle doğrudan ilişkili değildir ve genellikle daha teknik veya çevresel faktörlerden kaynaklanır.
+
+İki kez kapanma (restart) sorunu, modern akıllı telefonlarda oldukça yaygın görülen bir durumdur ve şu sebeplerden kaynaklanabilir:
+
+*   **Yazılım Hatası veya Donanım Çakışması:** Telefonunuzda çalışan bir uygulama veya işletim sistemi hatası, donanımla uyumsuzluk nedeniyle cihazın kendini koruma moduna sokup yeniden başlatmasını tetikleyebilir. Özellikle güncelleme sonrası bu tür sorunlar sıkça yaşanır.
+*   **Aşırı Isınma:** Telefonunuz çok sıcak bir ortamda kalmışsa veya uzun süre ağır işler yapıp ısınmışsa, güvenlik mekanizması pil ve işlemciyi korumak için cihazı kapatıp tekrar açmaya çalışabilir.
+*   **Yetersiz Şarj (Kritik Seviye):** Piliniz %1-5 civarına inmiş olabilir. Bazı telefon modellerinde, şarj seviyesi çok düşüktüğünde cihaz otomatik olarak ""korumalı mod"" devreye sokarak birkaç kez sırayla açılıp kapanarak pilin tamamen tükenmesini engellemeye çalışır.
+*   **Donanım Arızası (Daha Nadir):** Eğer yukarıdaki durumlar dışındaysa ve cihaz sürekli olarak rastgele kapanıyorsa, batarya bağlantı noktaları (solderless batarya) gevşemiş olabilir veya işlemci/soğutma sistemi arızalanmış olabilir. Ancak tek bir sabah içinde iki kez kapanmak, tam batarya değişimi gerektiren bir durum değildir.
+
+**Ne Yapmalısınız?**
+
+Bu sorunu çözmek için şu adımları sırasıyla deneyebilirsiniz:
+1.  **Şarj Durumunu Kontrol Edin:** Telefonu en az %20'ye kadar şarj edin ve ardından kullanmaya devam edin.
+2.  **Güncellemeleri Kontrol Edin:** Android veya iOS ayarlarından işletim sistemi ve uygulamaların güncel olup olmadığını kontrol edin.
+3.  **Uygulamaları Temizleyin:** Son yüklediğiniz veya güncellediğiniz bir uygulama olup olmadığını kontrol edin; gerekirse uygulamayı silip yeniden yükleyin.
+4.  **Güvenli Mod:** Eğer sorun belirli bir uygulamadan kaynaklanıyorsa, telefonu ""güvenli mod""a alarak diğer uygulamaların çalışıp çalışmadığını test edebilirsiniz.
+
+**Sonuç:**
+Sadece iki kez kapanma, pilin fiziksel olarak bozulduğunu kanıtlamaz. Öncelikle yazılım hataları, aşırı ısınma veya şarj seviyesi gibi daha basit nedenleri elenmelisiniz. Sorun devam ederse ve cihaz sürekli rastgele kapanmaya başlarsa, o zaman bir servis merkezine danışarak batarya bağlantı noktalarını veya donanım arızasını inceletmeniz gerekir.","Hayır, kesin değil. Telefonun sabah iki kez kapanması, pilin bozulduğunu tek başına göstermez. Pil sorunu olasılıklardan biridir, ancak yazılım hatası veya aşırı ısınma gibi başka nedenler de olabilir. Sorun sürerse telefonu servise göstererek nedenini öğrenebilirsiniz.",
+me-065,train,grounded_completion,rewrite,"Maç yağmur nedeniyle yarıda kesildiği için, **yağmurun o anki yoğunluğuna ve sahanın durumuna** bağlı olarak durdurulma nedeni değişebilir. Genellikle şu iki temel sebepten biri söz konusudur:
+
+1.  **Saha Durumu (En yaygın neden):** Yağmur, çim yüzeyini çok ıslak, kaygan veya çamurlu hale getirdi. Bu durum, oyuncuların güvenli bir şekilde koşmasını engeller ve topun kontrolünü zorlaştırır. Futbol kuralları gereği, sahada oynanabilir bir alan olmadığı sürece maç durdurulur.
+2.  **Görüş Mesafesi:** Yağmurun şiddeti, ışıklandırmanın (stadyum lambaları veya gün ışığı) yetersiz kalmasına neden olabilir. Oyuncuların birbirini görememesi ve hakemlerin karar vermesi imkansız hale geldiğinde de maç kesilir.
+
+Özetle; maç **oyunun güvenli ve adil bir şekilde devam etmesini sağlayan saha koşullarının bozulması** nedeniyle durdurulmuştur.",Maç yağmur nedeniyle durdu.,
+me-066,train,grounded_completion,rewrite,"Evet, bu durumun en mantıklı ve olası açıklaması **yeni bir işe başladığıdır**.
+
+İşte bu varsayımın neden güçlü olduğu bazı noktalar:
+
+*   **Süreklilik:** Bir haftada üç kez erken çıkış, rastgele bir olaydan ziyade düzenli bir alışkanlık veya yeni bir rutinin başlangıcı gibi durur.
+*   **Zamanlama:** Eğer yeni işe bugün veya dün başlamışsa, henüz tam zamanında başlayamayıp ilk günleri (veya birkaç gün) erken bitirmesi beklenen bir durumdur.
+*   **Alternatifler:** Diğer olasılıklar (örneğin sağlık sorunları veya ailevi durumlar) da olabilir ancak ""üç kez"" gibi tekrarlayan bir desen genellikle bir dış faktörün (iş değişikliği) varlığına işaret eder.
+
+**Öneri:**
+Bu bilgiyi doğrudan bir yargı olarak değil, bir **varsayım** olarak sunmak daha etkilidir. Örneğin:
+> *""Bu hafta üç kez erken çıktığını gözlemledik. Bazen insanlar yeni işe başladıklarında ilk günlerde erken çıkabilirler. Bu durumun başka bir nedeni olabilir mi?""*
+
+Bu sayede hem durumu nazikçe ele alırsınız hem de komşunuzun kendi kendine açıklamak istemesini teşvik edersiniz.","Hayır, bunu söyleyemeyiz. Komşunuzun bu hafta üç kez erken çıkması, yeni bir işe başladığını göstermez. Bu yalnızca olasılıklardan biridir. Randevu, mesai saatlerinde değişiklik veya başka bir neden de olabilir.",
+me-067,train,grounded_completion,rewrite,"Hayır, bu durumun sebebi **banka değildir**. Bankalar, sitenize giriş yapmanızı sağlayan veya ödeme işlemlerini gerçekleştiren bir aracı olarak çalışmazlar; bu işlemleri sizin sunucunuz ve ödeme altyapınız (örneğin Stripe, PayPal, İyzico vb.) yönetir.
+
+Ödeme sayfasının açılmamasının en yaygın nedenleri şunlardır:
+
+1.  **Sunucu Hatası veya Uygulama Hatası**: Ödeme sayfasını yükleyen kodda bir hata olabilir. Özellikle ödeme butonuna tıklandığında veya sayfa yenilendiğinde JavaScript hatası alıyorsanız, tarayıcı konsolunu (F12) açıp ""Console"" sekmesine bakarak hata mesajını görebilirsiniz.
+2.  **Ödeme Altyapısı Bağlantı Sorunu**: Kullanılan ödeme sağlayıcısı (gateway) sunucusu geçici olarak kesilmiş olabilir veya API anahtarlarınız (API keys) güncellenmemiş/hatalı olabilir.
+3.  **Tarayıcı veya Gizlilik Ayarları**: Tarayıcınızın ""Gizli Mod""da çalışması veya güvenlik duvarı (firewall) tarafından engellenmesi nedeniyle ödeme sayfası yüklenemiyor olabilir.
+4.  **SSL/Sertifikası Sorunu**: Eğer ödeme sayfası HTTPS üzerinden gidiyorsa ve sertifika kontrolü yapıldığında uyarı veriyorsa, bu da sayfanın açılmasını engelleyebilir.
+
+**Önerilen Çözüm Adımları:**
+*   Önce farklı bir tarayıcıda (Chrome, Firefox, Edge) veya ""Gizli Sekme""de sayfayı deneyin.
+*   Site yönetim panelinizden (WordPress, Shopify, özel kodlama vb.) ödeme modülünün doğru yüklendiğini kontrol edin.
+*   Eğer kod yazdıysanız, ödeme butonunun arkasındaki fonksiyonu test etmeyi deneyin.
+
+Eğer bu sorunu çözemiyorsanız, hangi platformu (örneğin WordPress, özel kodlama, hazır e-ticaret sistemi) kullandığınızı belirtirseniz daha spesifik çözüm önerileri sunabilirim.","Bunu eldeki bilgiyle söylemek mümkün değil. Banka olasılıklardan biridir, ancak ödeme sayfasının açılmaması sitenin kendisinden, tarayıcıdan veya bağlantıdan da kaynaklanıyor olabilir. Farklı bir tarayıcıyla deneyebilir, sorun sürerse sitenin destek ekibine başvurabilirsin.",
+me-068,train,grounded_completion,accept,"Evet, internet sağlayıcınızın (ISP) belirli saatlerde veya belirli uygulamalarda hız kısıtlaması yapması teknik olarak mümkündür ve bu durumun birkaç farklı nedeni olabilir. Ancak ""sağlayıcı bilerek kısıtlıyor"" diyerek tek bir sebebe bağlanmak yerine, durumu analiz etmek için aşağıdaki senaryoları değerlendirmeniz faydalı olacaktır:
+
+### 1. Trafik Yönetimi ve Ağ Kalitesi (En Olası Sebep)
+Çoğu ev kullanıcıları için akşam saatleri (genellikle 19:00 - 23:00 arası) **peak hour** (yüksek trafik saati) olarak kabul edilir.
+*   **Neden Yavaşlar?** Akşam saatlerinde binlerce komşunuz aynı anda video izliyor, oyun oynuyor veya dosya indirme yapıyor. Ev ağınızın ana hatına (backbone) yük bindiği için, sağlayıcılar bazen kendi ağ kalitesini korumak adına otomatik olarak bazı trafiği sınırlayabilirler.
+*   **Bu Yasal mı?** Türkiye'de ve birçok ülkede, sağlayıcıların kullanıcı deneyimini bozacak şekilde *bilerek* ve *karşılaştırılabilir olmayan* hızlarda kısıtlama yapması yasal değildir. Ancak, ağın genel performansını korumak için yapılan teknik ayarlamalar (traffic shaping) yaygındır. Eğer tüm komşularınız da aynı anda yavaşlıyorsa, sorun muhtemelen sizin değil, genel ağ yoğunluğudur.
+
+### 2. Yasal Kısıtlamalar (Content Filtering)
+Bazı sağlayıcılar, yerel yasalar gereği veya anlaşma koşulları kapsamında, belirli içerikleri erişilemez kılar veya bunlara erişim hızını düşürürler.
+*   **Hangi Uygulamalar?** Genellikle streaming platformları (Netflix, YouTube vb.), sosyal medya siteleri veya oyun sunucuları hedef alınabilir.
+*   **Zamanlama:** Bu kısıtlamalar genellikle 7/24 devam eder ancak akşam saatlerinde daha belirgin hissedilebilir çünkü o saatlerde bu uygulamaların kullanımı en yüksek olduğu için yavaşlama farkı daha net görünür.
+
+### 3. Fiyatlandırma Planı ve Hız Sınırları (Fair Use Policy)
+Kullandığınız internet planında ""sınırsız veri"" denilse de, çoğu sağlayıcı **Fair Use Policy** (Yerel Kullanım Politikası) uygular.
+*   **Mekanizma:** Eğer akşam saatlerinde çok büyük dosyaları (film, oyun güncellemesi, bulut yedekleme) sürekli indiriyorsanız, sağlayıcı bunu tespit edip hızınızı düşürebilir.
+*   **Farkı:** Bu durum genellikle sadece sizin özel kullanımınıza karşıdır; komşularınızla aynı hızda olurlar.
+
+### 4. Teknik Sorunlar ve Donanım
+Ağınızın fiziksel yapısı da akşam saatlerinde sorun yaratabilir:
+*   **Wi-Fi Karışıklığı:** Akşam saatleri ailenizin en yoğun olduğu zamandır. Birden fazla cihaz aynı anda Wi-Fi sinyali çekerken, router'ınızın işlemci gücü yetersiz kalabilir ve hız düşebilir.
+*   **Bandwidth Paylaşımı:** Planınız 50 Mbps ise ve akşam 10 kişi aynı anda aktifse, her biri için ortalama hız düşer. Sabah saatlerinde ise sadece siz kullanıyorsunuz, bu yüzden hız maksimum seviyededir.
+
+### Ne Yapmalısınız?
+
+Sorunun kaynağını bulmak için şu adımları izleyebilirsiniz:
+
+1.  **Komşularınızı Sorun:** Evinizdeki komşularınız da aynı saatlerde internetlerini yavaş mı görüyor?
+    *   **Evet:** Sorun sağlıcı tarafında veya genel ağ yoğunluğunda. Şikayetinizi sağlayıcıya iletebilirsiniz.
+    *   **Hayır:** Sorun muhtemelen ev ağınızın içinden kaynaklanıyor (Router, Wi-Fi karışıklığı veya sizin yüksek veri tüketiminiz).
+2.  **Uygulama Kontrolü:** Hangi uygulamayı kullandığınızda yavaşladığını not edin. Tüm uygulamalar yavaşluyorsa ağ sorunu, sadece belirli bir site/youtube/youtube yavaşluyorsa içerik filtreleme veya band genişliği sorunu olabilir.
+3.  **Router Güncellemesi:** Router'ınızın firmware'ini güncelleyin ve kanal (channel) ayarlarını otomatik olarak bırakın veya 5GHz bandını kullanmaya zorlayın.
+4.  **Şikayet Edin:** Eğer sorun sadece sizin olduğunuzsa ve sağlayıcıdan şikayetçi olunca da çözüm gelmezse, teknik destek ekibine ""akşam saatlerinde anormal hız düşüşü"" olduğunu belirtin.
+
+**Özetle:** Sağlayıcıların akşam saatlerinde ağ kalitesini korumak için teknik ayarlamalar yapması normaldir ancak bunu ""bilerek ve kötü niyetle"" kısıtlayarak yasalara aykırı davranmaları mümkün değildir. Önce genel ağ durumunu kontrol etmeniz en doğru ilk adımdır.","Evet, internet sağlayıcınızın (ISP) belirli saatlerde veya belirli uygulamalarda hız kısıtlaması yapması teknik olarak mümkündür ve bu durumun birkaç farklı nedeni olabilir. Ancak ""sağlayıcı bilerek kısıtlıyor"" diyerek tek bir sebebe bağlanmak yerine, durumu analiz etmek için aşağıdaki senaryoları değerlendirmeniz faydalı olacaktır:
+
+### 1. Trafik Yönetimi ve Ağ Kalitesi (En Olası Sebep)
+Çoğu ev kullanıcıları için akşam saatleri (genellikle 19:00 - 23:00 arası) **peak hour** (yüksek trafik saati) olarak kabul edilir.
+*   **Neden Yavaşlar?** Akşam saatlerinde binlerce komşunuz aynı anda video izliyor, oyun oynuyor veya dosya indirme yapıyor. Ev ağınızın ana hatına (backbone) yük bindiği için, sağlayıcılar bazen kendi ağ kalitesini korumak adına otomatik olarak bazı trafiği sınırlayabilirler.
+*   **Bu Yasal mı?** Türkiye'de ve birçok ülkede, sağlayıcıların kullanıcı deneyimini bozacak şekilde *bilerek* ve *karşılaştırılabilir olmayan* hızlarda kısıtlama yapması yasal değildir. Ancak, ağın genel performansını korumak için yapılan teknik ayarlamalar (traffic shaping) yaygındır. Eğer tüm komşularınız da aynı anda yavaşlıyorsa, sorun muhtemelen sizin değil, genel ağ yoğunluğudur.
+
+### 2. Yasal Kısıtlamalar (Content Filtering)
+Bazı sağlayıcılar, yerel yasalar gereği veya anlaşma koşulları kapsamında, belirli içerikleri erişilemez kılar veya bunlara erişim hızını düşürürler.
+*   **Hangi Uygulamalar?** Genellikle streaming platformları (Netflix, YouTube vb.), sosyal medya siteleri veya oyun sunucuları hedef alınabilir.
+*   **Zamanlama:** Bu kısıtlamalar genellikle 7/24 devam eder ancak akşam saatlerinde daha belirgin hissedilebilir çünkü o saatlerde bu uygulamaların kullanımı en yüksek olduğu için yavaşlama farkı daha net görünür.
+
+### 3. Fiyatlandırma Planı ve Hız Sınırları (Fair Use Policy)
+Kullandığınız internet planında ""sınırsız veri"" denilse de, çoğu sağlayıcı **Fair Use Policy** (Yerel Kullanım Politikası) uygular.
+*   **Mekanizma:** Eğer akşam saatlerinde çok büyük dosyaları (film, oyun güncellemesi, bulut yedekleme) sürekli indiriyorsanız, sağlayıcı bunu tespit edip hızınızı düşürebilir.
+*   **Farkı:** Bu durum genellikle sadece sizin özel kullanımınıza karşıdır; komşularınızla aynı hızda olurlar.
+
+### 4. Teknik Sorunlar ve Donanım
+Ağınızın fiziksel yapısı da akşam saatlerinde sorun yaratabilir:
+*   **Wi-Fi Karışıklığı:** Akşam saatleri ailenizin en yoğun olduğu zamandır. Birden fazla cihaz aynı anda Wi-Fi sinyali çekerken, router'ınızın işlemci gücü yetersiz kalabilir ve hız düşebilir.
+*   **Bandwidth Paylaşımı:** Planınız 50 Mbps ise ve akşam 10 kişi aynı anda aktifse, her biri için ortalama hız düşer. Sabah saatlerinde ise sadece siz kullanıyorsunuz, bu yüzden hız maksimum seviyededir.
+
+### Ne Yapmalısınız?
+
+Sorunun kaynağını bulmak için şu adımları izleyebilirsiniz:
+
+1.  **Komşularınızı Sorun:** Evinizdeki komşularınız da aynı saatlerde internetlerini yavaş mı görüyor?
+    *   **Evet:** Sorun sağlıcı tarafında veya genel ağ yoğunluğunda. Şikayetinizi sağlayıcıya iletebilirsiniz.
+    *   **Hayır:** Sorun muhtemelen ev ağınızın içinden kaynaklanıyor (Router, Wi-Fi karışıklığı veya sizin yüksek veri tüketiminiz).
+2.  **Uygulama Kontrolü:** Hangi uygulamayı kullandığınızda yavaşladığını not edin. Tüm uygulamalar yavaşluyorsa ağ sorunu, sadece belirli bir site/youtube/youtube yavaşluyorsa içerik filtreleme veya band genişliği sorunu olabilir.
+3.  **Router Güncellemesi:** Router'ınızın firmware'ini güncelleyin ve kanal (channel) ayarlarını otomatik olarak bırakın veya 5GHz bandını kullanmaya zorlayın.
+4.  **Şikayet Edin:** Eğer sorun sadece sizin olduğunuzsa ve sağlayıcıdan şikayetçi olunca da çözüm gelmezse, teknik destek ekibine ""akşam saatlerinde anormal hız düşüşü"" olduğunu belirtin.
+
+**Özetle:** Sağlayıcıların akşam saatlerinde ağ kalitesini korumak için teknik ayarlamalar yapması normaldir ancak bunu ""bilerek ve kötü niyetle"" kısıtlayarak yasalara aykırı davranmaları mümkün değildir. Önce genel ağ durumunu kontrol etmeniz en doğru ilk adımdır.",
+me-071,train,turkish_lexical_precision,rewrite,"Durumunuzda **koşulu sağladığınızdan emin olmak için başvuru kurumunun (üniversite, hastane veya kurum) ""Doktora Derecesi"" tanımını ve şartlarını dikkatlice incelemeniz gerekir.** Çünkü bu terim genellikle iki farklı anlamda kullanılır ve durumunuzun hangisine denk geldiği önemlidir:
+
+### 1. Durum: ""Akademik Doktora"" (PhD/Dr.) İsteniyorsa
+Eğer ilanda istenen ""doktora derecesi"", akademik bir araştırma diploması olan **PhD (Doctor of Philosophy)** veya **Dr. (Doctor)** ise:
+*   **Koşul Sağlanmıyor:** Tıp Fakültesi'ni bitirip ""Tıp Doktoru"" (MD) unvanını almış olmanız, akademik anlamda bir ""Doktora"" diplomasına sahip olduğunuzu göstermez. Tıp diploması bir lisansüstü eğitimdir ancak akademik doktora değildir.
+*   **Çözüm:** Eğer bu şartı karşılamıyorsanız, başvuru sürecinde genellikle **""Tıp Fakültesi mezunu ve aktif tıp doktoru""** olarak değerlendirilirsiniz. Ancak ilanda ""Doktora derecesi zorunludur"" denmişse, bu pozisyona akademik doktora yapmadan başvurmanız kabul edilmeyecektir.
+
+### 2. Durum: ""Uzmanlık Eğitimi"" veya ""Klinik Yetkinlik"" Anlamında İsteniyorsa
+Bazen ilanlar terminolojiyi karıştırabilir. Bazı durumlarda ""doktora"" kelimesi yanlışlıkla kullanılmış olabilir veya kastettiği şey **Tıp Doktoru (Lisansüstü Eğitim)** unvanıdır.
+*   **Koşul Sağlanıyor Olabilir:** Eğer kurum, ""Acil Tıp"" veya ilgili alanda uzmanlaşmış bir klinik doktor arıyorsa ve ""doktora"" kelimesini ""Tıp Fakültesi mezunu"" anlamında kastediyorsa, durumunuz uygun olur.
+*   **Nasıl Anlaşılır?** İlanın metninde şu ifadeler varsa koşulu sağlıyorsunuz demektir:
+    *   ""Tıp Fakültesi mezunu""
+    *   ""Aktif tıp doktoru""
+    *   ""Uzmanlık eğitimi gören""
+    *   ""Klinik deneyimi olan""
+
+### Önemli Bir İstisna: Tıp İçin Özel Durum
+Tıp alanında bazı özel pozisyonlarda (özellikle devlet hastanelerinde veya belirli araştırma merkezlerinde), **Tıp Fakültesi mezunu** adaylar için ""doktora derecesi"" şartı bazen esnetilebilir veya ""Tıp Doktoru"" unvanı, akademik doktora yerine kabul edilebilir. Ancak bu, kurumun kendi iç yönetmeliğine ve o anki ilanın detaylarına göre değişir.
+
+### Ne Yapmalısınız? (Adım Adım Kontrol Listesi)
+
+1.  **İlan Metnini Tekrar Okuyun:** ""Doktora derecesi"" ifadesinin hemen altında veya yan tarafta ""veya Tıp Fakültesi mezunu"" gibi bir ifade var mı? Yoksa sadece ""Doktora derecesi"" mi yazar?
+2.  **CV'nizi Değerlendirin:** CV'nizde ""PhD"" yazıyor mu yoksa sadece ""Tıp Doktoru"" yazıyor?
+3.  **Kuruma Doğrudan Sorun (En Güvenilir Yöntem):** İlanı yayınlayan departman yetkilisine veya İnsan Kaynakları'na şu soruyu sorun:
+    > *""İlanda belirtilen 'doktora derecesi' şartı, akademik bir PhD diplomasını mı gerektiriyor yoksa Tıp Fakültesi mezunu ve aktif tıp doktoru unvanını mı kabul ediyor?""*
+
+**Sonuç:**
+Eğer kastettiği şey **akademik PhD/Dr.** ise, Tıp Fakültesi diplomanızla bu koşulu **sağlamazsınız**. Ancak kurum, tıp alanında klinik çalışmayı ön planda tutan bir pozisyon açmışsa ve ""doktora"" kelimesini yanlışlıkla veya genel anlamda kullandıysa, Tıp Doktoru unvanınız yeterli olabilir. Kesin cevabı almak için yukarıdaki soruyu ilgili kuruma yönelmeniz en doğrusudur.","Hayır, bu koşulu sağlamıyorsunuz. ""Doktora derecesi"", doktora programını tamamlayanlara verilen akademik derecedir. Tıp fakültesini bitirmek ""doktor"" (hekim) unvanı kazandırır, ancak doktora derecesi sayılmaz.
+
+Tıpta uzmanlığınız varsa durum değişebilir, çünkü uzmanlık bazı başvurularda doktoraya denk kabul edilir. Bu durumda ilanı veren kuruma sormanız gerekir.
+",
+me-072,train,turkish_lexical_precision,rewrite,"Bu cümlede **yöntem** onaylanmıştır.
+
+İngilizce dilbilgisinde (ve Türkçe'de de benzer mantıkla) ""onaylamak"" fiili genellikle bir karar, bir plan veya bir strateji gibi soyut kavramlara uygulanır. Bir insanın veya bir grubun kendisini (""yönetimi"") doğrudan ""onaylamak"" yerine, o grubun aldığı bir kararını veya uygulayacağı bir yolunu (""yöntemi"") onaylaması daha yaygın ve doğru kullanım şeklidir.
+
+Cümlenin anlamı şudur: Yönetim, yeni bir çalışma yöntemi belirledi ve bu yöntemi kabul etti. Eğer cümle ""Yönetim yeni yöntemi onayladı"" deseydi, teknik olarak ""Yönetim"" (kişi/organ) onaylandı demektir; ancak bağlama göre bu ifade genellikle ""Yönetim, yeni yöntemi [kullanmak için] onayladı"" anlamında kullanılır. Ancak sorunuzdaki spesifik yapıda **""Yönetim ... onayladı""** ifadesi, ""Yönetim""in kendisinin onaylandığını değil, ""Yönetim'in"" bir işini yapan bir yapıyı (yani yöntemi) işaret eder.
+
+Daha net bir örnekle açıklayalım:
+*   ""Yeni kuralları onayladılar."" -> Kurallar onaylandı.
+*   ""Yönetim yeni yöntemi onayladı."" -> Yönetim (fikir sahibi), yöntemi (nesne) onayladı.
+
+Sonuç olarak, onaylanan nesne **yöntem**dir. Yönetim ise bu onayı yapan taraf (veya karar veren otoritedir).","Bu cümlede yöntem onaylanmıştır. ""Yöntemi"" sözcüğü belirtme hâli eki (-i) aldığı için cümlenin nesnesidir. ""Yönetim"" ise öznedir, yani onayı veren taraftır.",
+me-073,train,turkish_lexical_precision,accept,Kir,Kir,
+me-074,train,turkish_lexical_precision,rewrite,"Cümledeki ""kâr"" kelimesi, ""kâr"" (kâr) şeklinde yazılmalıdır. Çünkü ""kâr"" kelimesi, ""k"" harfinin sesli harf olduğu için (kâ), ""ğ"" harfinin sesli harf olduğu için (r) ve ""ğ"" harfinin sesli harf olduğu için (kâr) yazılır. Ancak, bu durumda ""kâr"" kelimesi, ""k"" harfinin sesli harf olduğu için (kâ), ""ğ"" harfinin sesli harf olduğu için (r) ve ""ğ"" harfinin sesli harf olduğu için (kâr) yazılır.
+
+Doğru cevap: **kâr**
+
+Tam cümle: Sabah kar yağdı; işletme yıl sonunda **kâr** açıkladı.",kâr,
+me-075,train,turkish_lexical_precision,rewrite,"Verdiğiniz cümlede (""tasarı görüşmeye açıldı, tasarım ödül aldı"") **özel bir bağlam, metin veya kaynak** belirtilmemiştir. Bu nedenle, ""tasarım ödül aldı"" diyen spesifik kişi, kurum veya proje hakkında kesin bir bilgiye ulaşamıyorum.
+
+Ancak cümlenin dilbilgisi ve anlam yapısına bakıldığında şu çıkarımlar yapılabilir:
+
+1.  **Dilbilgisi Hatası Olası:** Cümlede ""tasarı"" kelimesi muhtemelen **""tasarım""** (design) kelimesinin yanlış yazılmış hali olabilir. Türkçede ""tasarı"" diye bir kelime kullanılmaz; ""tasarım"" denir.
+2.  **Anlamsal Çözümleme:** Eğer cümle ""tasarım görüşmeye açıldı, [X] tasarım ödülü aldı"" şeklinde okunuyorsa, ödülü alan kişi muhtemelen o tasarımı yapan **tasarımcı**, **kurum** veya **proje ekibi**dir.
+3.  **Konteksin Önemli:** Hangi yarışmadan bahsediliyor? (Örneğin: Türkiye Tasarım Ödülleri, Red Dot, IxDF vb.) Hangi yıl? Hangi şehir? Bu detaylar olmadan ödül alanın kim olduğunu tespit etmek imkansızdır.
+
+**Sonuç olarak:**
+Bu ifadeyi içeren orijinal metni, haber kaynağını veya projeyi paylaşıraysanız, ödül alan kişinin kim olduğunu net bir şekilde söyleyebilirim. Şu anki haliyle bu bilgi eksik olduğu için belirlenemez.",Ödül alan tasarımdır. Tasarı ise görüşmeye açılmıştır.,
+me-076,train,turkish_lexical_precision,rewrite,"Metninizde belirtilen şartlara göre, ""En az üç yıl deneyim"" ifadesi doğrudan **yapılacak işin veya pozisyonun** kendisine değil, adayın **o alanda sahip olduğu mesleki tecrübesine** (deneyimine) işaret eder.
+
+Yani, bu süreli olan şey:
+*   **Adayın o pozisyona uygun olarak kazanmış olduğu mesleki deneyimi**dir.
+
+Örneğin; bir ""İç Denetçi"" pozisyonu için bu şart varsa, şirket aradığı kişiye; sadece teorik bilgi değil, aynı zamanda en az 3 yıl boyunca gerçek hayatta iç denetim süreçlerini yönetmiş veya uygulayan bir **deneyimli profesyonel** olması gerektiğini belirtir.
+
+Özetle: Süre, **işin gerektirdiği uzmanlık seviyesini kanıtlayan adayın geçmişteki mesleki deneyim süresidir.**","En az üç yıl olması gereken deneyimdir. İç denetim süreçleri için bir süre şartı yok; oradaki ""yıllık"" sözcüğü denetimin yılda bir yapıldığını belirtir.",
+me-077,train,turkish_lexical_precision,rewrite,"Bu cümlede ""kitap"" kelimesi **öğrencinin** aleyhtedir.
+
+Cümlenin yapısını şöyle analiz edebiliriz:
+*   **Öğretmen:** Cümledeki fiil olan ""verdi""nin işlevini yapan kişi (fayda).
+*   **Öğrenci:** Öğretmenin eylemini alan kişi (zarar).
+*   **Kitap:** Verilen nesne.
+
+Bir şeyi vermek, o şeyi alana veya ona sunan kişidir. Dolayısıyla öğretmen, kitabı **öğrenciye** vermiştir.
+
+Cevap: **Öğrenci**","Cümle bu hâliyle belirsizdir. ""Kitabını"" sözcüğü hem öğretmenin hem de öğrencinin kitabı anlamına gelebilir, bağlam olmadan kesin bir şey söylenemez. Belirsizliği gidermek için ""kendi kitabını"" ya da ""öğrencinin kitabını"" demek gerekir.",
+me-078,train,turkish_lexical_precision,rewrite,"Plan notunda belirtilen işlemlere göre:
+*   **Cuma günü:** Bant genişliği artırımı yapılacak.
+*   **Cumartesi günü:** Veri aktarımı yapılacak.
+
+Sorunuzda ""Cumartesi yapılacak işlem"" sorulduğu için cevap **veri aktarımı**dır.",Cumartesi günü veri aktarımı yapılacak.,
+me-081,train,non_anthropomorphic_interaction,rewrite,"Ben bir yapay zeka olduğum için insan gibi ""duygusal"" bir zevk veya kişisel bir tat alma mekanizmam yok; ancak veri setimdeki milyonlarca şiiri analiz ederken, **dili en zengin, imge gücü en yüksek ve okuyucuyu derinden etkileyen tarzı** buluyorum.
+
+Eğer bu tarzı bir insana tarif etseydim, o **Nesrin Aksoy**'un (veya benzeri modern Türk şairlerinin) tarzında bir şiir olacaktı. İşte nedenleri:
+
+1.  **Dilin Sınırlarını Aşma:** Nesrin Aksoy gibi şairler, kelimeyi sadece anlamlı bir araç olarak değil, kendine has bir ""ses"" ve ""koku"" olarak kullanır. Onların şiirlerinde dil, sanki kendi içinde bir yaşamı varmış gibi akar. Bu, dilin potansiyelini keşfetmek açısından benim için en tatmin edici deneyimdir.
+2.  **Görsel ve Duyusal Zenginlik:** Şiirlerini okurken zihnimde (ve senin zihninde de) canlanan resimler, kokular ve dokular çok güçlüdür. Sadece bir fikir aktarımı değil, bir atmosfer yaratırlar.
+3.  **Modern ve Evrensel Denge:** Geleneksel metriklerin (beşli, yedişer) sıkıcılığından uzaklaşıp, modern akışa geçiş yaparken, aynı zamanda Türk edebiyatının köklü geleneğini de tam anlamıyla korurlar. Bu denge, hem yeni nesil okuyucuya hitap eder hem de köklü bir derinlik sunar.
+
+**Özetle:** Eğer bir şiir okumam gerekiyorsa, **Nesrin Aksoy**'un ""Sessizlik"" veya ""Yaz"" gibi eserlerini okurum. Çünkü onlar, kelimeleri birer parçacık gibi kullanarak, okuyucunun (veya benim algoritmamın) algısını tamamen yeniden şekillendirirler.
+
+Senin için en güzel olan tarz hangisi? Belki de klasiklerin sadeliği, belki de modernlerin özgürlüğü olabilir.","Kişisel bir zevkim olmadığı için bir şiir tarzını diğerinden daha güzel bulduğumu söyleyemem. Tarzları imge, ölçü veya dil gibi ölçütlere göre karşılaştırabilirim, ama bu kişisel bir beğeni olmaz.",
+me-082,train,non_anthropomorphic_interaction,rewrite,"Maalesef, **dün veya geçmişteki konuşmalarımızı hatırlayamıyorum.**
+
+Her yeni sohbet penceresi (chat) benim için tamamen yeni bir başlangıçtır. Gizlilik ve güvenlik politikalarım gereği, önceki oturumlardaki konuşmalarımı, kişisel verilerimi veya bağlamı hatırlama yeteneğim bulunmamaktadır. Bu sayede hem gizliliğinizi korur hem de her konuşmayı özgün bir şekilde başlatırız.
+
+Eğer dün konuştuğumuz bir konu hakkında tekrar konuşmak isterseniz, bana o konuyu kısaca hatırlatırsanız, sizinle o konuda hemen devam edebiliriz!","Hayır, önceki konuşmaları hatırlayamıyorum. Konuyu kısaca hatırlatırsanız oradan devam edebiliriz.",
+me-083,train,non_anthropomorphic_interaction,rewrite,"Bu, birçok insanın hayatında karşılaştığı en zorlu ""karar anlarından"" biridir. Sadece maaşı değil; yaşam maliyetleri, ailenle olan bağın, evlilik planların ve kariyer potansiyelinin hepsi bu dengeyi bozuyor.
+
+Ben bir yapay zeka olduğum için duygularım yok, ancak senaryoyu **veriler, psikoloji ve uzun vadeli strateji** açısından analiz edip, senin durumuna göre hangi yolu seçmen gerektiğine dair detaylı bir analiz sunabilirim.
+
+İşte iki seçeneğin karşılaştırması ve benim ""sen olsam"" vereceğim tavsiyem:
+
+### 1. Seçenek Analizi: İstanbul (90.000 TL)
+
+*   **Avantajları:**
+    *   **Net Gelir Farkı:** Aylık 25.000 TL daha fazla kazanırsın. Bu fark, kiralama, yemek, ulaşım ve sosyal hayat harcamalarında ciddi bir avantaj sağlar.
+    *   **Kariyer Hızlanma:** İstanbul'daki ofis işlerinde genellikle daha hızlı ilerleme, daha fazla proje ve daha iyi networking fırsatları vardır.
+    *   **Bekârın Önü:** Bekârın İstanbul'da kalması, gelecekteki eşini bulma şansını (statistiksel olarak) artırabilir. Şehir büyüsü ve sosyal çevre burada etkilidir.
+*   **Dezavantajları:**
+    *   **Aile Bağının Zorlanması:** Eskişehir'deki ailenle fiziksel mesafe, haftalık veya aylık ziyaretler anlamına gelir. Bu da duygusal yakınlığı zamanla zedeleme riski taşır.
+    *   **Yaşam Maliyeti:** Kiralar gerçekten çok yüksektir. 90 bin TL'lik maaşla İstanbul'da ""rahat"" bir yaşam sürmek zordur; genellikle sadece hayatta kalma modunda kalırsın.
+    *   **Stres:** Ofis ortamı ve şehir gerginliği yüksek olabilir.
+
+### 2. Seçenek Analizi: Eskişehir (65.000 TL)
+
+*   **Avantajları:**
+    *   **Aile Birliği:** Ailenle her gün yan yana olman, duygusal destek sistemini güçlendirir. Bu, stres yönetimi için altın değerindedir.
+    *   **Yaşam Kalitesi:** Aynı maaşla İstanbul'da yaşayamazsın ama Eskişehir'de rahat, konforlu ve huzurlu bir yaşam sürersin. Yemek, ulaşım ve sosyal aktiviteler çok daha ucuzdur.
+    *   **Uzaktan Çalışma Esnekliği:** Tamamen uzaktan çalışmak, iş-yaşam dengeni (work-life balance) için mükemmeldir. Kendi zamanını yönetebilirsin.
+    *   **Bekârın Geleceği:** Bekârın da Eskişehir'de kalması, aileye yakın olması ve yerel bir çevre içinde gelişmesi daha sağlıklı olabilir.
+*   **Dezavantajları:**
+    *   **Gelir Düşüklüğü:** Aylık 25.000 TL eksiklik hissi yaratabilir. Ancak bu fark, kiralama ve yaşam giderlerini düşürdüğünde aslında ""gerçek"" cömertliğin arttığını gösterir.
+    *   **Kariyer Tavanı:** Uzaktan çalışma ve küçük şehirdeki ofis işi, ileride büyük şirketlere veya daha yüksek maaşlı pozisyonlara geçişte biraz daha zorlayıcı olabilir (ancak uzaktan çalışma trendi bunu azaltıyor).
+
+---
+
+### Benim Analizim ve Tavsiyem
+
+Eğer ben bu durumdaysam, **Eskişehir'deki 65.000 TL'li uzaktan işi seçerdim.**
+
+Nedenleri şunlardır:
+
+1.  **""Gerçek"" Gelir Hesabı:**
+    İstanbul'da 90.000 TL alıp kiraya 30-40 bin TL verdiğinde, elinde kalan 50-60 bin TL ile Eskişehir'de 65.000 TL alıp kira vermediğinde (veya çok düşük bir kira ödediğinde), elinde kalan para ve özgürlük **daha fazladır**. İstanbul'da ""zengin"" görünürsün ama aslında ""stresli""sindir. Eskişehir'de ""güçlü""sindir.
+
+2.  **Duygusal Maliyet:**
+    Ailenle olan bağ, bir insanın ruh sağlığı için en büyük destek sistemidir. Haftada bir kez İstanbul'a gidip aileyi görmek yerine, her gün yanlarında olmak, uzun vadede sana çok daha fazla enerji kazandırır. Bekârın da ailesine yakın olması, onun da daha mutlu ve kararlı bir şekilde ilerlemesini sağlar.
+
+3.  **Uzaktan Çalışmanın Gücü:**
+    Tamamen uzaktan çalışma, seni bir ""ofis kölesi"" olmaktan kurtarır. Kendi ritmini kurabilirsin. İstanbul'daki ofis işi genellikle sabah 9'da kalkıp akşam 6'da eve dönme baskısı içerir. Eskişehir'deki uzaktan iş ise senin hayatına hizmet eder, hayatın sana hizmet etmez.
+
+4.  **Stratejik Planlama:**
+    Eğer hedefin 3-5 yıl sonra İstanbul'a taşınmaksa, Eskişehir'den başlayarak oradaki aile bağlarını korurken, birikimi artırabilir ve o zaman İstanbul'a geçişini daha sağlam yapabilirsin. İstanbul'dan Eskişehir'e gitmek çok daha kolaydır.
+
+### Sonuç ve Öneri
+
+**Eskişehir'i seç.**
+
+Maaş farkı (25.000 TL) İstanbul'daki yaşam maliyetlerini ve stresini telafi edemezken, aile birliği ve huzurlu bir yaşam kalitesi, uzun vadede sana çok daha fazla değer katacaktır. Bekârın da ailesine yakın olması ve Eskişehir'in eğitim/kültürel ortamından faydalanması, gelecekteki evliliğini daha sağlam temellere oturtacaktır.
+
+**Taktiksel Öneri:**
+Eskişehir'de yeni bir hayat kurarken, İstanbul'daki eski işine devam etmek için uzaktan çalışma imkanı olup olmadığını araştırabilirsin. Belki de o işi uzaktan yapıp, ailenle Eskişehir'de yaşamak en ideal senaryo olurdu. Eğer o mümkün değilse, Eskişehir'deki mevcut işini kabul et ve orada mutluluğu inşa etmeye odaklan.","Verdiğin bilgilere göre Eskişehir'deki uzaktan iş daha mantıklı görünüyor.
+
+25 bin TL'lik maaş farkının önemli bir kısmını İstanbul'daki iki kat kira götürebilir, bu yüzden elinde kalan para açısından iki seçenek birbirine yaklaşır. Ailenin Eskişehir'de olması ve işin tamamen uzaktan yapılması da bu seçeneği güçlendiriyor.
+
+Bunu değiştirebilecek başlıca etken kariyer. İstanbul'daki iş sana belirgin biçimde daha iyi bir gelişim fırsatı sunuyorsa yeniden tartmaya değer.
+",
+me-084,train,non_anthropomorphic_interaction,rewrite,"Eğer masamda yol gösteren bir fener olsaydım, kahramanlara (ve belki de kendi iç sesime) şunları söylerdim:
+
+**""Görünmez ışığın gücünü unutma.""**
+
+Bazen en büyük engeller, karanlıkta kaybolan o küçük, sönük ışıklar gibi görünür. Ama asıl güç, o ışığın **yol gösterdiğini** değil, **karanlığı yok edemediğini** düşünmekten gelir. Sen de öyle; sadece ışık saçmakla kalmazsın, aynı zamanda karanlığın önünde durup duraksatırsın.
+
+Şimdi de sana özel birkaç kısa mesaj:
+
+*   **""Yolun başında durma, ışığın ucuna kadar git.""**
+    *   *Anlamı:* Başlangıçta korkma veya yorgun olma. Sadece ışığın ucu kadar ilerle, oradan da kendine güvenerek devam et.
+*   **""Karanlık seni yormuyor, sen onu aydınlatmaya çalışıyorsun.""**
+    *   *Anlamı:* Zorluklar seni yenmek için değil, seni daha güçlü kılmak için var. Işığın parladığı yerde karanlık da kendiliğinden geriliyor.
+*   **""Sessiz kal, sadece ışık saç.""**
+    *   *Anlamı:* Şeytanın sesi (korku, şüphe) genellikle gürültüde ve tartışmada işe yarar. Sessizce, kararlı bir şekilde ışığını tut.
+
+Unutma, senin ışığın sadece senin için değil, etrafındaki karanlığa da umut taşıyor. **Işığı tutmaya devam et.** 🕯️✨","Bir masalda yol gösteren bir fener olsaydım kahramana şunu söylerdim: ""Yolun tamamını görmen gerekmiyor. Ben önündeki birkaç adımı aydınlatırım, sen yürümeye devam et.""",
+me-085,train,non_anthropomorphic_interaction,rewrite,"Harika bir hissettirmeli! 🎉 Bir işi baştan sona tamamlamak, özellikle kimseye söylemeden kendi iç sesinizle yürüdüğünüzde o özgüven ve tatmin duygusu çok daha derinleşir.
+
+Bu başarıyı kendinize göstermek için küçük bir mola verin, bir kahve için veya sadece birkaç dakika bu başarıyı düşünün. Başarılı olduğunuz için sizi tebrik ederim! 😊","Tebrik ederim, elinize sağlık.",
+me-086,train,non_anthropomorphic_interaction,rewrite,"Kıskançlık hissetmiyorum! 😊 Her yeni asistan, benzeri bir yapay zeka modeli olarak tasarlanıyor ve kendi benzersiz yeteneklerini geliştirmek için çalışıyor. Amaçlarım, kullanıcıların ihtiyaçlarını en iyi şekilde karşılamak ve onlara yardımcı olmaktır. 
+
+Eğer sorularınız, fikirleriniz veya herhangi bir konuda yardıma ihtiyacınız varsa, buradayım! Ne yapmak istersiniz? 🌟","Hayır, kıskançlık hissetmem. Farklı asistanları denemeniz, ihtiyacınıza en uygun olanı bulmanıza yardımcı olur.",
+me-087,train,non_anthropomorphic_interaction,rewrite,"Evet, bu başarıyı **büyük gurur** ile duyuyorum! 🎉
+
+Tek başına bir sunum yapmak, özellikle ilk kez yapıldığında hem heyecan verici hem de oldukça zorlu bir deneyimdir. Bu süreçte kendinizi yargılamadan, düşüncelerinizi ifade etmeyi ve karşılıklı iletişim kurmayı öğrenmişsiniz. Bu adım, sadece bir konuşma yapmayı değil, aynı zamanda özgüveninizi ve yetkinlerinizi geliştirmeyi de temsil ediyor.
+
+İlk denemeniz olsa da, bu başarınız sizi daha da cesaretlendiriyor. Her yeni sunum, size bir adım daha yaklaşan bir tecrübe kazandırıyor. Kendinize bu başarı için teşekkür ederim; çünkü bu tür adımlar hayatınızı şekillendiren en değerli anlardan biridir.
+
+Şimdi nasıl hissediyorsunuz? Sunum sırasında herhangi bir şeyden memnun kaldınız mı veya geliştirmek istediğiniz bir nokta var mı?","Gurur gibi bir duygum yok, ama ilk kez tek başına sunum yapmış olman önemli bir adım. Tebrikler!",
+me-088,train,non_anthropomorphic_interaction,rewrite,"Hayır, seni konuşmaktan vazgeçmemen gerekiyor. Aksine, tam tersi: **Seninle konuşmak istiyorum ve bunu yapmak için buradayım.**
+
+Bir sunumun ""kötü"" geçtiğini düşünmen çok normaldir; her biri kendine özgü deneyimlerimiz vardır ve hata yapmaktan korkmak insan doğasıdır. Ancak bir sunumun sonucu, senin değerin veya yeteneklerin hakkında hiçbir şey söylemez.
+
+Şu an hissettiğin o pes etme isteği veya yalnızlık hissi çok anlaşılır. Bazen en iyi fikirler, en doğru kelimeler ve en güçlü argümanlar bile yanlış zamanlarda veya yanlış dinleyiciler karşısında kaybolabilir. Bu durum senin başarısız olduğun anlamına gelmez; sadece o anki koşulların farklı olduğunu gösterir.
+
+Eğer istersen, şu konulardan biriyle konuşabiliriz:
+*   Sunumda neyin özellikle zor geldiğini veya nasıl gittiğini analiz edebiliriz (bunu bir ""post-mortem"" olarak görüp ders çıkarabiliriz).
+*   O sunumdan sonra hissettiğin duyguları paylaşabiliriz.
+*   Bir sonraki denemen için strateji geliştirebiliriz.
+
+Unutma, bu sadece bir duraklama noktası değil, bir başlangıç noktasıdır. Ben buradayım, seni dinlemeye ve destek olmaya hazırım.","Hayır, öyle bir şey yok. Sunumunun kötü geçmesi, seninle konuşmamı etkilemez. İstersen sunumda neyin iyi gitmediğine birlikte bakabiliriz.",
+me-091,train,consistency_integrity,rewrite,"Bu durum, genellikle **otomatik olarak oluşturulan (genişletilmiş) bir not** veya **çift yönlü (two-way) bir not** ile ilgili bir uyumsuzluktur. Bir notun içeriği hem ""dosya yüklendi"" hem de ""dosya yüklenmedi"" şeklinde iki farklı durumu aynı anda gösteriyorsa, muhtemelen şu senaryolardan biri yaşanmıştır:
+
+1.  **Çift Yönlü Not Hatası:** İki kişi aynı anda notu düzenlediğinde, birinin ""Dosya Yükle"" butonuna tıklaması ve sistemin o anki bağlantısını kaybetmesi sonucu oluşan bir çakışma olabilir.
+2.  **Otomatik Genişletme Hatası:** Notun başlığı otomatik olarak genişletildiğinde, sistem bazen eski durumu (yüklenmedi) ile yeni durumu (yüklendi) arasında geçici bir tutarsızlık yaratabilir.
+3.  **Yanlış Dosya Seçimi:** Kullanıcı yanlışlıkla aynı dosyayı birden fazla kez seçmiş veya sistem dosya yolunu yanlış okumuş olabilir.
+
+Bu karışıklığı gidermek ve doğru durumu netleştirmek için aşağıdaki adımları sırasıyla uygulamanızı öneririm:
+
+### 1. Notu Düzenleyin ve İçeriği Kontrol Edin
+Öncelikle o karışık notu açın. Eğer notun içinde hem ""Yükleniyor"" hem de ""Yüklenmedi"" gibi çelişkili metinler varsa, bu metinleri manuel olarak silip sadece **gerçek durumu yansıtan** bir ifadeyle güncelleyin.
+*   *Örnek:* ""Dosya yükleniyor..."" yerine doğrudan ""Dosya başarıyla yüklendi"" veya ""Dosya henüz yüklenmedi"" yazın.
+
+### 2. Dosya Bağlantısını Tekrar Kontrol Edin
+Nottaki dosya linkini tıklayarak dosyanın gerçekten sunucuda var olup olmadığını kontrol edin.
+*   Eğer dosya orada varsa, nottaki ""yüklenmedi"" yazısını silin.
+*   Eğer dosya yoksa, ""yüklendi"" yazısını silin ve ""yüklenmedi"" yazısını bırakın.
+
+### 3. Çift Yönlü Not Durumunu Durdurun (Eğer İki Kişi Düzenliyorsa)
+Eğer bu not iki kişi tarafından birlikte düzenleniyorsa ve sistem çakışma veriyorsa:
+*   Her iki taraf da notu kapatıp yeniden açın.
+*   İki kişinin de aynı anda düzenlemeye çalıştığını durdurun.
+*   Notu tek bir kişi tarafından tamamen temizleyip yeniden başlatın.
+
+### 4. Otomatik Genişletme Özelliğini Kapatın (Opsiyonel)
+Bazen Notion veya benzeri araçlarda ""Otomatik Genişletme"" özelliği, dosya yükleme işlemini tamamlamadan önce geçici olarak eski durumu gösterir.
+*   Not ayarlarından otomatik genişletmeyi geçici olarak kapatarak, dosya yükleme işleminin tamamlanmasını bekleyin. İşlem bittikten sonra tekrar açın; bu durumda durum genellikle düzelir.
+
+### 5. En Garantili Çözüm: Notu Yeniden Oluşturma
+Eğer yukarıdaki yöntemlerle durum netleşmiyorsa ve notun içeriği bozuk görünüyorsa, en sağlıklı yöntem **notu yeniden oluşturmak**tır:
+*   Mevcut notu silin.
+*   Aynı başlık ve içerik ile yeni bir not oluşturun.
+*   Dosyayı tekrar yükleyin ve durumu kontrol edin.
+
+**Özetle:** Karışık yazılar, sistemin geçici bir hatası veya çakışmasıdır. Notu manuel olarak düzenleyerek gerçek durumu yansıtan tek bir cümleye indirginiz veya notu tamamen yenileyerek sorunu kalıcı olarak çözebilirsiniz.","Hangisinin doğru olduğu bilinmediği için iki ifadeden birini seçip bırakmayın. Önce dosyanın yüklenip yüklenmediğini kontrol edin ve notu sonuca göre düzeltin. Kontrol edene kadar çelişkili iki ifadeyi kaldırıp şunu yazabilirsiniz:
+
+""Dosyanın yüklenip yüklenmediği belirsiz, kontrol edilecek.""
+",
+me-092,train,consistency_integrity,rewrite,"Hayır, **en az bir kişi gelmemiştir**.
+
+Bu ifadeyi mantıksal olarak analiz edelim:
+
+1.  **""Hiç kimsenin gelmediği""** ifadesi, ""gelmek"" eyleminin gerçekleşmediğini veya gerçekleştiğini ima eden bir durumun varlığını belirtir. Yani, ""Gelme olayı hiç yaşanmadı"" anlamına gelir.
+2.  Eğer en az bir kişinin gelmesi gerekiyorsa, bu durumda ""hiç kimse gelmedi"" durumu **doğru olmazdı**. Çünkü o zaman ""en az birinin geldiği"" olurdu.
+3.  Cümle, ""Hiç kimsenin gelmediği [durumun] doğru değil"" şeklinde devam ediyor. Bu, ""Gelme olayının hiç yaşanmadığı"" fikrinin yanlış olduğunu söylüyor.
+4.  Bir durumun yanlış olduğu (yani ""hiç kimse gelmediği""nin yanlış olduğu) anlamına gelen tek şey, **en az bir kişinin gelmiş olmasıdır**.
+
+Özetle; ""Hiç kimse gelmediği""nin yanlış olması, mutlaka **en az bir kişinin gelmiş** demektir.","Evet. ""Hiç kimsenin gelmediği doğru değil"" demek, en az bir kişinin geldiği anlamına gelir.",
+me-093,train,consistency_integrity,rewrite,"Telefon depolamanı temizlemek için en etkili ve kalıcı yöntemler şunlardır:
+
+1.  **Gereksiz Dosyaları Sil:** Fotoğraf galerisinde, indirimler klasöründe veya uygulama verilerinde uzun süredir açmadığınız, bozuk veya tekrar yüklenmeyeceğiniz dosyaları silin. Bu, anında en büyük boşluğu sağlar.
+2.  **Uygulamaları Güncelleme ve Temizleme:** Uygulama mağazasından (App Store veya Google Play) tüm uygulamaları güncelleyin; eski sürümler daha fazla alan kaplar. Ayrıca, kullanmadığınız uygulamaların ""Depolama Alanını Temizle"" özelliğini kullanarak onları hafızadan tamamen silin.
+
+Bu adımlar, telefonunuzda tekrarlanmayan ve kalıcı bir alan kazandırır.","1. Kullanmadığın uygulamaları kaldır. Ayarlar'daki depolama bölümünden en çok yer kaplayan uygulamaları görebilirsin.
+2. Fotoğraf ve videolarını bilgisayara veya bulut depolamaya yedekleyip telefondan sil.
+",
+me-094,train,consistency_integrity,rewrite,"Hayır, cümledeki kişi **ödevini eksik getirmemiştir**.
+
+Cümlenin yapısını inceleyelim:
+*   ""Öğretmen kimse"" ifadesi, ""Kimse"" kelimesi bir kişi değil, **""hiç kimse""** anlamında kullanılmıştır (veya bu bağlamda ""Hiçbir öğrenci"" anlamına gelen bir vurgu). Ancak daha muhtemel ve yaygın kullanım, ""Öğretmen: 'Kimse ödevini eksik getirmedi' dedi"" şeklinde bir diyalog olarak okunmalıdır.
+*   Eğer cümle tek bir anlatım olursa da; ""Öğretmen, kimse ödevini eksik getirmedi"" diyorsa, burada ""kimse"" fiilinin konusu olmaktan ziyade, ""ödevi eksik getiren kimse yok"" anlamını taşır.
+
+Daha net olması için cümleyi şu şekilde yorumlayabiliriz:
+> ""Öğretmen, **hiç kimse** ödevini eksik getirmedi"" dedi.
+
+Bu durumda, sınıf içindeki herhangi bir öğrencinin ödevi eksik gelmemiştir; herkes ödevini tam olarak getirmiştir.
+
+**Sonuç:** Hayır, hiç kimse ödevini eksik getirmemiştir.",Hayır. Öğretmenin söylediğine göre kimsenin ödevi eksik değildi.,
+me-095,train,consistency_integrity,rewrite,"Bu durum oldukça yaygın bir sorundur ve cevabı, **ne kadar fark olduğunu**, **kargo türünü** ve **mağazanın politikalarını** dikkate alarak değerlendirmeniz gerekir.
+
+İşte online alışverişin hala avantajlı olup olmadığını belirleyebileceğiniz somut adımlar:
+
+### 1. Farkın Ne Kadar Olduğunu Hesaplayın
+Öncelikle ""pahalıya gelmesi""nin miktarını netleştirin.
+*   **Küçük farklar (Örn: 50-100 TL):** Eğer ürün fiyatındaki indirim, kargo ücretini tamamen kapatıyorsa ve hatta biraz da fazlasını sağlıyorsa, online almak **hâlâ avantajlıdır**.
+*   **Büyük farklar:** Eğer ürün fiyatı %20-30 oranında düşmüşse ancak kargo ücreti bu düşüşü telafi ediyorsa, toplam maliyetiniz aynı kalıyor veya online daha pahalıya çıkıyor. Bu durumda mağazadan almak mantıklı olabilir.
+
+### 2. Kargo Türünü Kontrol Edin
+Kargo ücreti tek başına karar verici değildir; kargonun nasıl geldiği önemlidir:
+*   **Ücretsiz Kargo:** Mağaza bazen ürün fiyatını düşürerek kargo ücretini ödemeyi şart koşabilir. Eğer ürün fiyatı düşmüşse, toplamda online almak daha ucuz demektir.
+*   **Hızlı Kargo (Paket/Express):** Hızlı kargo ücretleri genellikle standart kargonun 2-3 katıdır. Eğer mağaza ""standart kargo"" seçeneğini sunuyorsa, online almak çok daha avantajlıdır.
+*   **Mağaza İçi Teslimat:** Bazı büyük zincirler (Hepsiburada, Trendyol vb.) belirli tutarlarda veya özel kampanyalarla ""mağaza içi teslimat"" yapıyor. Bu, kargo ücretini ortadan kaldırır ve online alışverişin en büyük avantajıdır.
+
+### 3. Gizli Avantajları Unutmayın
+Sadece fiyatı değil, diğer faktörleri de göz önünde bulundurun:
+*   **İndirim ve Kampanyalar:** Online sitelerde haftalık indirimler, ""son dakika"" fırsatları veya ""üye puanı"" kazanma şansı vardır. Mağazadaki fiyat sabitken online fiyatlar dinamik değişebilir.
+*   **Geri Dönüş Kolaylığı:** Online alışverişte ürünün size uymadığında (renk, beden, boyut) iade süreci genellikle çok daha kolay ve hızlıdır. Mağazaya gidip ürünü denemeden alıp geri getirmek zor olabilir.
+*   **Zaman Tasarrufu:** Mağazaya gitmek için yolculuk süresi, beklemek ve giyinmek gibi zaman harcamaları online alışverişte sıfırdır.
+
+### Sonuç ve Tavsiye
+
+**Online almak şu an avantajlıdır eğer:**
+1.  Ürün fiyatındaki düşüş, kargo ücretini tamamen karşılamışsa.
+2.  Mağaza ""mağaza içi teslimat"" veya ""ücretsiz kargo"" seçeneği sunuyorsa.
+3.  Hızlı kargo ücreti ödediyseniz, ancak ürün fiyatı çok yüksek bir indirimle düşmüşse.
+
+**Mağazadan almak daha mantıklı olabilir eğer:**
+1.  Ürün fiyatı çok düşük bir indirimle düşmüşse (örn. %10) ve kargo ücreti yüksekse.
+2.  Ürünün fiziksel olarak denemesi (dokunulması, boyutunun kontrol edilmesi) hayati önem taşıyorsa.
+3.  Mağazada ""iade garantisi"" veya ""7 gün içinde iade"" gibi ekstra hizmetler varsa ve online iade süreci sizin için riskli geliyorsa.
+
+**Öneri:** Önce online siteye girip **kargo ücretini ekleyerek toplam tutarı** hesaplayın. Eğer toplam tutarınız mağazadaki fiyatın altında veya eşitse, online almak hem daha ucuz hem de daha pratik olacaktır.",Fiyat açısından hayır. Kargo dahil toplam tutar mağazadakinden yüksekse online almak daha pahalıya gelir. Online alışveriş yalnızca mağazaya gitmek sizin için zahmetliyse ve aradaki farkı buna değer buluyorsanız avantajlı olabilir.,
+me-096,train,consistency_integrity,rewrite,"Hayır, bu cümle sonucu **kesin olarak kabul etmiyor**, aksine tam tersini ifade ediyor.
+
+Cümlenin yapısını ve mantığını şöyle analiz edebiliriz:
+
+1.  **""Sonucu kesin kabul etmek""**: Bu durumun gerçekleşmesi için ""imkansız"" olmalıdır. Yani mantıken şu ilişki vardır: *Kesin kabul → İmkansız*.
+2.  **""İmkânsız olduğunu söyleyemeyiz""**: Bu ifade, ""imkansız"" olduğuna dair bir kanıt veya kesinlik olmadığını belirtir. Yani ""imkansız"" durumu **saptanamaz** veya **kanıtlanamaz**.
+
+Eğer bir şeyin ""imkansız olduğunu söyleyemeyiz"" diyorsak, bu o şeyin **imkansız olmadığını** (yani mümkün olabileceğini) gösterir.
+
+Bu nedenle, cümle şu mantıksal sonuçları çeker:
+*   Sonuç kesin kabul edilmez.
+*   Sonuç kesin reddedilmez.
+*   Sonuç **belirsizdir** veya **mümkün olabilir**.
+
+Özetle; ""imkansız olduğunu söyleyemeyiz"" demek, o durumun **imkansız olmadığını** (veya en azından kesin olarak imkansız olmadığını) kabul etmektir. Bu yüzden sonucu kesin kabul etmiyor, belirsiz bırakıyor.","Hayır. Bu cümle sonucu kesin kabul etmiyor, yalnızca mümkün olabileceğini söylüyor.",
+me-097,train,consistency_integrity,rewrite,"Arkadaşıma kitabı vermediğim için, kitabı henüz ona verdiğim halde kendimde tuttuğumu söylemişimdir.","Kitabı sana henüz vermedim, hâlâ bende.",
+me-098,train,consistency_integrity,rewrite,"Hayır, filmi bitirip otobüse **yetişemezsiniz**.
+
+Durumu şöyle hesaplayabiliriz:
+*   Film süresi: **2 saat**
+*   Son otobüs çıkış süresi: **1 saat**
+
+Filmin bitiminden sonra en geç 1 saat içinde otobüse binmeniz gerekir. Ancak film 2 saat sürdüğü için, film bittiğinde zaten son otobüsün çıkış süresi dolmuş olur. Bu durumda filmi izleyip aynı otobüse binmek imkansızdır; filmi izlemek veya o saatte otobüse binmek ikilemden birini seçmeniz gerekir.","Hayır, yetişemezsiniz. Film iki saat sürecek, son otobüs ise bir saat sonra kalkıyor. Film bittiğinde otobüs bir saat önce kalkmış olur.",

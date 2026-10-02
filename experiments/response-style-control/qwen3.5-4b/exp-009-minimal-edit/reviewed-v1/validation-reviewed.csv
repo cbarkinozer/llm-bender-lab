@@ -1,0 +1,309 @@
+﻿id,split,category,review_decision,original_answer,desired_answer,review_notes
+me-009,validation,grammar_correction,rewrite,"Cümlede küçük bir **yazım hatası** ve **noktalama noktası eksikliği** var.
+
+1.  **""Gidiyorum""** kelimesi yanlış kullanılmıştır. Burada ""gidiyorum"" (ben gidiyorum) demek yerine, ""gidiyoruz"" (biz gidiyoruz) veya ""gidiyordum"" (dün biz gidiyorduk - geçmiş zaman) kullanılmalıdır. Cümlenin başındaki ""dün"" kelimesi geçmiş zamanı işaret ettiği için fiil de buna uygun olmalı.
+2.  **Noktalama:** ""Yazmışım"" kelimesinden sonra cümle devam ettiğinden için virgül konulmalıdır.
+
+İşte düzeltilmiş halleri:
+
+**En doğal ve doğru hali:**
+> ""Arkadaşımla dün parkta **gidiyordum**.""
+*(Not: Eğer sadece arkadaşınızla değil, birlikte iki kişiyle de gittiyseniz ""gidiyorduk"" kullanılabilir, ancak tekil bir anlatım için ""gidiyordum"" daha yaygındır.)*
+
+**Alternatif (Biraz daha resmi/akıcı):**
+> ""Dün arkadaşım ile parkta **geçiyordum**.""
+
+**Özetle yapılan değişiklikler:**
+*   ❌ gidiyorum → ✅ gidiyordum (veya gidiyorduk)
+*   ❌ ...yazmışım. → ✅ ...yazmışım, (Virgül eklendi)",Arkadaşımla dün parka gittim.,
+me-010,validation,grammar_correction,rewrite,"Evet, cümlenizde **zaman zarfı** ile **gelecek zaman** arasındaki bir çelişki (tuhaflık) var.
+
+Cümle: *""İkimiz de yarın gelecek.""*
+
+**Sorun:** ""Yarın"" kelimesi zaten geleceği ifade eder. Bir şeyin ""yarın"" olması ve aynı zamanda ""gelecek"" olması gereksiz tekrar yaratır. Türkçede bu durum genellikle şu şekilde düzeltilir:
+
+1.  **En doğal kullanım:** Zaman zarfını kaldırıp sadece gelecek zamanı kullanmak.
+    *   *""İkimiz de gelecek.""*
+2.  **Alternatif kullanım:** Gelecek zamanı belirtmeden sadece zamanı vurgulamak.
+    *   *""İkimiz de yarın gelecek.""* (Bu aslında yaygın bir kullanım olsa da, dilbilgisi açısından yukarıdaki gibi daha temiz durur; ancak günlük konuşmada ""yarın gelecek"" ifadesi de kabul görür. Ancak sizin dediğiniz gibi, eğer ""gelecek"" fiilini de kullanacaksanız, ""yarın"" kelimesi gereksiz kalabilir veya tam tersi.)
+
+**Daha net bir analiz:**
+Aslında en sık yapılan hata şudur: *""Yarın gelecek""* demek yerine *""Yarın geleceğiz""* veya sadece *""Geleceğiz""* demek.
+
+Ancak cümlenizin kendisi (""İkimiz de yarın gelecek"") günlük dilde **tamamen doğru** kabul edilir. Belki de kastettiğiniz tuhaflık şudur:
+
+*   Eğer **fiil çekimini** değiştirmeyi düşünüyorsanız:
+    *   Yanlış: İkimiz de yarın gelecek. (Çoğul şahıs eki -iz- ile tekil gelecek zaman -ecek- birleşince anlam karışıklığı yaratabilir, ama bu çok nadirdir).
+    *   Doğrusu: **Biz yarın gelecekiz.** (veya **İkimiz yarın gelecek**).
+
+**Özetle en düzgün ve akıcı hali:**
+> **""İkimiz de yarın gelecek.""** (Bu cümle zaten doğrudur, ancak daha resmiyse: **""Biz yarın gelecekiz.""**)
+
+Eğer cümlenizde başka bir tuhaflık hissediyorsanız (örneğin bağlaç veya isim sayısı), lütfen cümleyi tekrar yazarsanız daha spesifik yardımcı olabilirim. Şimdilik yukarıdaki analiz, muhtemelen kastettiğiniz nokta.",İkimiz de yarın geleceğiz.,
+me-019,validation,answer_extraction,rewrite,"Dünyanın en yüksek gökdeleni olan Burj Khalifa, **Dubai**'de, **Birleşik Arap Emirlikleri**'nde yer almaktadır.","Burj Khalifa, Dubai'de, Birleşik Arap Emirlikleri'nde yer almaktadır.",
+me-020,validation,answer_extraction,rewrite,"Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden **derinlemesine deneyimlemektir**. Bu yaklaşım, gezginlerin yerel kültürleri, mutfakları ve doğasını daha yavaş, bilinçli ve detaylı bir şekilde keşfetmesini hedefler; böylece sadece görkemli anıtları değil, o bölgenin ruhunu da anlamaya çalışır.","Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden derinlemesine deneyimlemektir.",
+me-029,validation,numeric_entity_precision,rewrite,"Metne göre, ""İl Spor Federasyonu tarafından Antalya'da tanıtılan **Sağlık Tarama Modülü** ürünü"" kulüplerle paylaşılmıştır. Performans Takip Uygulaması ise milli takıma entegre edilmiştir.
+
+Cevap: **Sağlık Tarama Modülü**",Sağlık Tarama Modülü,
+me-030,validation,numeric_entity_precision,rewrite,"Metne göre, ""yalnızca özel kliniklerde sunuldu"" ifadesi **Fizik Tedavi Paketi** için geçerlidir.
+
+Metinde açıkça belirtilmiştir ki; Ateş Ölçüm Cihazı şehir hastanesi tarafından tanıtılırken, Fizik Tedavi Paketi yalnızca özel kliniklerde sunulmuştur.",Fizik Tedavi Paketi,
+me-039,validation,faithful_summary,rewrite,"Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretlerinde değişiklik yapılacağına dair bilgi verdi ve bu değişikliğin iki hafta içinde gerçekleşeceğini belirtti.","Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretleri hakkında konuştu ve iki hafta içinde adım atılacağını vurguladı.",
+me-040,validation,faithful_summary,rewrite,"Denizli'de üç ay süren eski çalışan davasında mahkeme, eski çalışan hakkında para cezası vermesine hükmetti.","Denizli'de üç ay süren davada mahkeme, eski çalışan hakkında para cezası verilmesine hükmetti.",
+me-049,validation,useful_explanation,rewrite,"Sabahları sürekli gecikme, genellikle sadece ""yavaş olma"" veya ""hazırlanmama"" gibi yüzeysel bir sorun değil; beyninizin ve vücudunuzun uyku döngüsüyle olan ilişkisiyle ilgili derin bir mekanizmadır.
+
+İşte bu sorunun arkasındaki temel psikolojik ve biyolojik mekanizmalar ve çözümün neden işe yarayacağı:
+
+### 1. Temel Mekanizma: ""Uyanış Yorgunluğu"" ve Prefrontal Kabus
+Sabahları gecikmenin en büyük sebebi, beyninizin **prefrontal kabusu** (karar verme, planlama ve odaklanma merkezi) henüz tam olarak uyanmamış olmasıdır.
+
+*   **Biyolojik Gerçek:** Beyniniz gece boyunca yavaşça uyanır. Sabah saatlerinde (özellikle 7-9 arası), kortizol seviyesi artarak sizi uyandırmaya çalışır ancak bu artış bazen yetersiz kalabilir veya anlık bir ""düşük enerji"" hissi yaratır. Bu durumda beyniniz, en az enerji harcayacak şekilde hareket etmeye zorlanır.
+*   **Psikolojik Gerçek:** Uyanış yorgunluğu sırasında beyniniz **hiper-fokus** yerine **hiper-dikkatsizlik** moduna geçer. Sadece bir şeyi düşünmek bile zordur; bu yüzden ""hızlıca giyinip kapıdan çıkmak"" gibi basit çözümlere yönelirsiniz. Ancak bu çözümler, beyninizi daha fazla yorar çünkü karar vermeden önceki süreçte zihinsel sürtünme yaratır.
+
+### 2. İkincil Mekanizma: ""Korku Tepkisi"" ve Zaman Algısı
+Gecikme korkusu, gecikmeyi daha da körükleyen bir döngüdür.
+*   Beyniniz, ""Geç kalırsam ne olacak?"" sorusuna cevap ararken, stres hormonlarını (kortizol ve adrenalin) salgılar.
+*   Bu stres, vücutta **güvenli alan dışına çıkma** isteğini tetikler. Yani aslında beyniniz, ""Hızlıca gitmem, belki de yavaşça kalmayı tercih edeceğim"" diyerek sizi yavaşlatmaya çalışır. Bu, bir kaçınma davranışıdır.
+
+---
+
+### Çözümün Neden İşe Yaradığı: ""Düşük Dirençli Başlangıç"" Stratejisi
+
+Çözümün temel mantığı, beyninizin o yorgun ve kararsız haldeyken **karar verme yükünü ortadan kaldırmaktır.**
+
+Eğer sabahı ""tam zamanında olmak"" hedefiyle başlarsanız, beyniniz bu hedefe ulaşmak için tüm gücünü harcar ve bu da gecikmeye yol açar. Ancak aşağıdaki stratejiyi uyguladığınızda:
+
+1.  **Hedef Değişimi:** Hedefi ""Zamanında olmak"" değil, **""Sadece kapıdan çıkmak""** yaparsınız.
+2.  **Direnç Azaltma:** Beyniniz için ""Kapıdan çıkmak"" artık karmaşık bir görev değil, rutin bir eylemdir. Karar verme süreci (Hangi kıyafeti giyeceğim? Ne yemeliyim?) tamamen ortadan kalkar.
+3.  **Momentum Kazanma:** Bir kez kapıdan çıktığınızda, beyniniz ""Şimdi ne yapmalıyım?"" sorusunu sormadan, otomatik pilot moduna geçer. Yolculuk sırasında veya duraklarda zamanınızı yönetme şansınız doğar.
+
+### Uygulanabilir Adımlar
+
+Bu mekanizmayı bozmak için şu adımları deneyebilirsiniz:
+
+*   **Gece Hazırlığı (Önemli):** Giyinmek ve çantayı hazırlamak için gece yatmadan önce hazır olun. Sabahın ilk 15 dakikasını beyninize ""sıfır enerji"" bırakın.
+*   **Çok Düşük Hedef Belirleyin:** Sabahın ilk göreviniz olarak ""Yataktan kalkıp tuvalette durmak"" olsun. Sonra ""Yatak odasından salonu geçmek"". Sonra ""Kapıdan çıkmak"". Her adım çok küçük olmalı.
+*   **Zamanı Esnetin:** Kendinize ""Tam 08:00'de çıkacağım"" deyin, bunun yerine ""08:00'de kapıdan çıkacağım, sonra da 08:00'e kadar varacağım"" deyin. Yolculuk esnasında zamanı doldurursunuz.
+*   **Stres Korkusunu Kesin:** Geciktiğinizde kendinizi suçlamayın. Beyninizin yorgun olduğunu kabul edin ve ""Bir sonraki sabah daha iyi başlayacağım"" diyerek döngüyü kırın.
+
+Özetle; gecikmeyi durdurmanın yolu, beyninizi zorlamaktan ziyade, onu **otomatik hale getirmektir**. Basitlik, sabahları hızlandıran tek anahtardır.","Sabah gecikmelerinin arkasında çoğu zaman iki mekanizma bulunur:
+
+1. Süreyi eksik tahmin etmek. İnsanlar hazırlanma süresini genellikle her şeyin sorunsuz gittiği duruma göre hesaplar. Oysa sabahları küçük aksaklıklar olur: anahtarı aramak, kıyafet seçmek, unutulan bir şey için geri dönmek. Her biri birkaç dakika alır ve toplamda gecikmeye dönüşür.
+
+2. Kararların sabaha kalması. Ne giyeceğinize, ne yiyeceğinize, çantaya ne koyacağınıza sabah karar veriyorsanız her karar zaman alır. Yeni uyanmışken bu kararları vermek daha da yavaş olabilir.
+
+Çözüm bu iki mekanizmayı hedef alır:
+
+- Akşamdan hazırlık yapmak (kıyafeti, çantayı, anahtarı hazır etmek) kararları ve aksaklık riskini sabahtan çıkarır. Sabaha yalnızca uygulamak kalır.
+- Gerçek sürenizi ölçmek tahmin hatasını düzeltir. Birkaç gün boyunca uyanmanızla evden çıkmanız arasındaki süreyi ölçün ve planınızı bu süreye göre yapın.
+- Araya pay koymak, küçük aksaklıkların gecikmeye dönüşmesini önler. Çıkış saatinizi, çıkmanız gereken saatten 10-15 dakika önceye ayarlayın.
+
+Kısacası sorun genellikle yavaşlıktan değil, sabaha gerçekte sığmayacak kadar iş ve karar bırakmaktan kaynaklanır. Çözüm de sabahki yükü azalttığı ve planı gerçek süreye dayandırdığı için işe yarar.
+",
+me-050,validation,useful_explanation,rewrite,"Bu durum, özellikle küçük evlerde sıkça karşılaşılan ama yaşam kalitesini doğrudan etkileyen klasik bir ikilemdir. ""Çalışma"" (odaklanmayı gerektiren) ve ""dinlenme"" (rahatlamayı gerektiren) alanlarının birbirine karışması, hem verimliliğinizi düşürür hem de zihinsel yorgunluğu artırır.
+
+Verdiğiniz iki seçeneği (kısa vadeli: yeni masa; uzun vadeli: bölme) değerlendirmek için sadece maliyet veya konfor değil, **psikolojik etki** ve **esneklik** açısından da bakmanız gerekir. İşte bu ödünleşmeyi yönetmek için stratejik bir yaklaşım:
+
+### 1. Seçenekleri Derinlemesine Analiz Edelim
+
+#### A. Kısa Vadeli Çözüm: Yeni Bir Masa Almak
+Bu çözüm genellikle ""fiziksel bir engel"" kurarak işe yarar ancak kök sorunu çözmez.
+*   **Avantajları:** Hemen uygulanabilir, mevcut mobilya düzenini bozmaz, geçici bir çözüm olarak esnektir.
+*   **Dezavantajları:** Eğer oda çok küçüyse, yeni bir masanın eklenmesi hareket alanını daha da daraltabilir. Ayrıca, sadece masayı değiştirdiğinizde zihniniz ""burada çalışıyorum"" algısını koruyabilir; oda hala karışık hissedebilir.
+*   **Ne zaman uygun?** Eğer odanızda zaten boş bir köşe varsa veya mevcut masanız çok büyükse ve onu başka bir yere taşıyabilirsiniz.
+
+#### B. Uzun Vadeli Çözüm: Işık ve Eşya Yerleşimiyle Bölme
+Bu çözüm, alanı **görsel ve psikolojik olarak** ayırarak kök sorunu çözer.
+*   **Avantajları:** Alanın işlevselliğini artırır, odaklanma ve dinlenme modlarını netleştirir, mekandan daha fazla fayda sağlar.
+*   **Dezavantajları:** Tasarım süreci biraz daha uzun sürer, bazı malzemeler (perde, bitki, aydınlatma) maliyetli olabilir ve zaman alabilir.
+*   **Ne zaman uygun?** Odanızda fiziksel bir duvar yoksa ve alanınız gerçekten darıyorsa.
+
+---
+
+### 2. Karar Verirken Sormalısınız: Hangi Kriter Önemli?
+
+Bu ikilemi çözmek için şu üç soruyu kendinize sorun:
+
+1.  **Alanınız ne kadar dar?**
+    *   *Çok dar ise:* Yeni bir masa almak risklidir; hareket alanı tamamen kapanabilir. Bu durumda **bölme stratejisi** (özellikle dikey bölme) daha mantıklıdır.
+    *   *Orta boy ise:* Her iki yöntem de uygulanabilir.
+
+2.  **İhtiyaçlarınız ne kadar sabittir?**
+    *   *Sabit (Örn: Her gün 8 saat bilgisayar başında çalışıyorum):* Uzun vadeli bir **bölme** yapmanız, zihninizde ""iş modu"" ve ""rahat modu"" ayrımı oluşturmanızı sağlayacaktır.
+    *   *Esnek (Örn: Sadece haftada 2 gün çalışıyorum):* Kısa vadeli bir **masa değişikliği** veya mekansal esneklik (örneğin bir sandalyeyi hareketli tutmak) yeterli olabilir.
+
+3.  **Bütçeniz ve Zamanınız nedir?**
+    *   Kısa vadede bütçe kısıtlıysa, düşük maliyetli bir aydınlatma değişikliği ile başlayıp, zamanla bölme sistemine geçiş yapabilirsiniz.
+
+---
+
+### 3. Stratejik Öneri: ""Hibrit Yaklaşım"" (En Akıllı Yol)
+
+Genellikle en iyi sonuç, bu iki seçeneği birleştirmek veya sırayla uygulamaktır. İşte adım adım bir yol haritası:
+
+#### Adım 1: Hızlı Psikolojik Bölme (Düşük Maliyetli)
+Yeni bir masa almadan önce, mevcut alanı aydınlık ve eşya yerleşimiyle **hemen** değiştirebilirsiniz. Bu, kısa vadeli çözümün avantajını uzun vadeli bir planın içine sokar.
+*   **Aydınlatma:** Çalışma alanına odaklanmayı sağlayan soğuk beyaz ışık (4000K-5000K), dinlenme alanına ise sıcak ve yumuşak ışık (2700K-3000K) geçiş yapın. Işık, beynin ""iş moduna"" girmesini tetikler.
+*   **Renk ve Dokular:** Çalışma masasının etrafına daha sert, koyu veya nötr dokular ekleyin; dinlenme köşesine ise yumuşak tekstiller, yeşil bitkiler veya pastel tonlar ekleyin.
+*   **Bitkiler:** Büyük bir bitkiyi çalışma alanının kenarına yerleştirerek görsel bir bariyer oluşturun.
+
+#### Adım 2: Fiziksel Düzenleme (Kısa Vade)
+Eğer yukarıdaki adımlar yeterli gelirse, **mevcut masanızı** mümkün olduğunca küçük bir masaya veya bir sandalyeye çevirin.
+*   Büyük bir ofis masası yerine, üzerinde sadece laptop ve belgeler olacak şekilde düzenlenmiş küçük bir masa kullanın. Bu, alanı kaplamadan odaklanmayı sağlar.
+*   Eğer yeni bir masa alacaksanız, onu **duvara yaslayarak** veya köşeye yerleştirerek alanı en azından görsel olarak genişletin.
+
+#### Adım 3: Uzun Vadeli Planlama (Bölme Sistemi)
+Zaman ve bütçe elverdiğinde, yukarıdaki geçici düzenlemelerin üzerine **kalıcı bir bölme** ekleyin.
+*   **Dikey Bölme:** Duvar boyama, perde sistemi veya yüksek bir bitki duvarı.
+*   **Yerçekimsel Bölme:** Çalışma alanını aşağıya, dinlenme alanını yukarıya (veya tam tersi) yerleştirerek görsel hiyerarşi oluşturun.
+
+### Sonuç ve Tavsiye
+
+Eğer **acilen** bir çözüm arıyorsanız ve bütçeniz kısıtlıysa: **Mevcut alanı ışık ve renk düzeniyle (Adım 1) hemen değiştirin.** Bu, en ucuz ve hızlı ""bölme"" yöntemidir.
+
+Eğer **kalıcı ve sürdürülebilir** bir çözüm istiyorsanız: **Uzun vadeli bölme planını (Adım 3) hazırlayın**, ancak bunu beklerken çalışma alanınızı optimize edecek şekilde (küçük masa veya düzenleme - Adım 2) geçici bir çözüm uygulayın.
+
+**Özetle:** Yeni bir masa almak sadece fiziksel bir alan eklemek değil, aynı zamanda zihinsel bir sınırlandırma demektir. Ancak gerçek çözüm, o alanı ""iş"" ve ""rahat"" olarak algılayan **ışık ve dekorasyonun** doğru kullanılmasıdır. Masayı bekleyin, önce ışığı ve renkleri değiştirin; bu, size uzun vadeli bölmenin yarattığı rahatlığı hemen verecektir.","Bu ödünleşmeyi değerlendirirken önce sorunun kaynağına bakın: Sorun uygun bir çalışma yüzeyinin olmaması mı, yoksa iki alanın sınırının belirsiz olması mı?
+
+- Yeni masa hızlı bir çözümdür ve uygun bir çalışma yüzeyiniz yoksa işe yarar. Ancak para ve yer gerektirir, küçük bir evde alanı daha da daraltabilir ve alanların karışması sorununu tek başına çözmeyebilir.
+
+- Işık ve eşya yerleşimiyle bölmek daha fazla zaman ve deneme gerektirir, ama maliyeti düşüktür, geri alınabilir ve doğrudan alanların karışması sorununa yöneliktir. Örneğin masayı dinlenme alanına sırtı dönük yerleştirebilir, çalışma köşesine ayrı bir lamba koyabilir veya bir kitaplıkla sınır oluşturabilirsiniz.
+
+Sorunu alanların karışması olarak tanımladığınıza göre, önce yerleşim ve ışıkla bölmeyi denemek daha mantıklı görünüyor. Bu düzeni kurduktan sonra hâlâ uygun bir çalışma yüzeyine ihtiyaç duyarsanız, masayı yeni yerleşime uygun boyutta seçebilirsiniz.
+",
+me-059,validation,selective_clarification,rewrite,"Evet, **son derece mantıklı ve stratejik bir karar**. Durumunuzda şu avantajlar var:
+
+1.  **Zaman Kaybı Yok:** Katılımcılar zaten ""bir saat erken başlayabilir"" dediği için, siz de aynı anda erken başlayarak o bir saati kaybetmezsiniz.
+2.  **Stres Azalır:** Salonun boş olması ve herkesin hazır olduğu bir ortamda sunum yaparken, teknik aksaklıklar veya son anki hazırlık gereksinimleri (projeor, ses sistemi vb.) daha az risk taşır.
+3.  **Enerji Yönetimi:** Şehir dışına çıkacağınız için, sunumdan hemen sonra yorgun bir şekilde kalkmak yerine, sunumu bitirdikten sonra dinlenerek veya hafif bir ara vererek seyahate geçmek daha sağlıklı olacaktır.
+4.  **Profesyonellik:** Sabahın erken saatlerinde, sessiz ve düzenli bir ortamda sunum yapmak, katılımcılarda daha ciddi ve odaklanmış bir algı yaratır.
+
+**Tek bir küçük tavsiye:**
+Erken başlayıp sunumu bitirdikten sonra, şehir dışına çıkmadan önce **en az 15-20 dakika bir ""geçiş süresi"" ayırın**. Bu süre zarfında:
+*   Katılımcıların sorularını cevaplayabilirsiniz.
+*   Sonuçları özetleyip not bırakabilirsiniz.
+*   Kendinizi ve ekibinizi dinlendirerek seyahata geçebilirsiniz.
+
+Özetle; hazırlıklarınız tamam, onaylarınız da var. **Kesinlikle erken başlayın.** Başarılar dilerim!","Evet, erkene al. Herkes onayladı, salon boş ve hazırlıklar tamam olduğuna göre bir engel görünmüyor. Böylece şehir dışına çıkmadan önce daha fazla vaktin kalır.",
+me-060,validation,selective_clarification,rewrite,"**Hayır, ev anahtarınızı komşuya bırakmamalısınız.** Bu durum hem güvenlik açısından ciddi riskler taşır hem de hukuki sorumluluklar doğurabilir.
+
+İşte neden bu davranışın önerilmediği temel sebepleri:
+
+*   **Güvenlik Riski:** Anahtarınızın komşunun elinde olması, evinize girmesini sağlayacak tek bir zayıf noktadır. Komşunuzun aklına takılan bir fikirle veya başka bir mazeretle eve girebilme ihtimali doğar. Evinizde kimse yokken (gece veya hafta sonu) bu durum hayati tehlike oluşturabilir.
+*   **Hukuki Sorumluluk:** Türkiye'de ve birçok ülkede, ev sahibi anahtarını üçüncü şahıslara (özellikle güvenliği doğrudan etkileyen kişilerle) verirse, o kişi evi işgal ederse veya zarar verirse, ev sahibi **maddi ve manevi tazminat** ödemek zorunda kalabilir. Ayrıca, komşunuzun evinize girmesi durumunda polis tarafından ""ev hırsızlığı"" veya ""yasal giriş"" olarak değerlendirilebilir; ancak anahtar teslimi yapılmışsa durum daha karmaşık hale gelebilir.
+*   **Güven Kaybı:** Bir evin anahtarı sadece sahibine veya yetkili kişilere (kiralık evde yönetici gibi) verilmelidir. Anahtarın başkasında olması, evinizin güvenliğini alt üst eder ve psikolojik rahatsızlık yaratır.
+
+**Ne Yapmalısınız?**
+Eğer evde bulunmuyorsanız ve bir acil durumla karşılaşıyorsanız:
+1.  En yakın **polis istasyonuna** giderek durumu bildirin.
+2.  Acil durum için yetkili birini arayın.
+3.  Eğer anahtarınız kaybolmuşsa, hemen yeni bir anahtar yaptırın ve eski anahtarları yok sayın.
+
+Özetle, ev anahtarınızı kimseye (komşu dahil) vermemeniz en doğru ve güvenli karardır.",Güvendiğiniz bir komşuysa bırakabilirsiniz. Komşunuzu iyi tanımıyorsanız veya içiniz rahat değilse anahtarı bir yakınınıza bırakmanız daha doğru olur.,
+me-069,validation,grounded_completion,rewrite,"Bu durum, işletmeniz için **çok olumlu bir başlangıç** olsa da, tabloyu tek başına tüm artışın sorumlusu olarak kabul etmek **istatistiksel olarak riskli** olabilir.
+
+İşte bu durumu daha net değerlendirmeniz için dikkate almanız gereken bazı noktalar:
+
+### 1. Neden ""Yeterli"" Değil? (Dikkat Edilmesi Gerekenler)
+*   **Doğal Büyüme:** Her sezon değişimi, hava durumu faktörü veya yerel bir etkinlik (örneğin bir festival veya spor müsabakası) nedeniyle müşteri sayısında doğal artışlar olur. Bu artışlar tabelaya bağlı değil de kendi kendine gerçekleşebilir.
+*   **Pazarlama Etkisi:** Sadece tabela değil, sosyal medya paylaşımınız, çevredeki diğer işletmelerden gelen tavsiyeler veya fiyat politikalarınız da etkileyici olabilir.
+*   **Veri Eksikliği:** Artışın gerçekten %X kadarını tabelanın getirdiğini bilmek için önceki haftanın verilerini ve o hafta dışarıdan gelen müşterilerin nereden geldiğini anlamak gerekir.
+
+### 2. Tablonun Gerçek Etkisini Nasıl Ölçersiniz?
+Eğer bu artışın büyük kısmının tabelaya ait olduğunu ispatlamak istiyorsanız, şu adımları izleyebilirsiniz:
+
+*   **Bölümleme Yapın:** Müşterilerinizi ""Yerel"" (mahalle sakinleri), ""Uzak Mesafe"" (şehir merkezinden gelenler) ve ""Yeni Tanıdıklar"" olarak ayırın. Tabela genellikle ""Uzak Mesafe"" kitleyi çeker. Eğer uzak mesafeden gelen müşterileriniz arttıysa, tabela işe yaramıştır demektir.
+*   **Ölçüm Aralığı:** Tek bir hafta çok kısa bir süredir. En azından **3-4 hafta** boyunca verileri takip edip ortalamayı almanız daha sağlıklı sonuç verir.
+*   **Kontrol Grubu:** Çevrenizde benzer bir kafe var mı? O kafenin tabelası değişmediyse, sizin müşteriniz artarken onların artmadıysa, tablonun etkisi daha net görülür.
+
+### 3. Sonraki Adımlarınız Olmalı
+Artışın tabelaya ait olma ihtimalini yüksek tutmak için şu aksiyonları alabilirsiniz:
+
+*   **Müşteri Soruşturma:** Bir sonraki hafta, yeni gelen müşterilere ""Nasıl bulduk?"" diye sorarak kaynaklarını (Google Haritalar, arkadaş tavsiyesi, tabela vb.) tespit etmeye çalışın.
+*   **Tabelayı Optimize Edin:** Eğer tablonuz görünüyor ama yazı okunmuyorsa veya renk uyumu yoksa, bunu düzeltmekle birlikte mevcut müşterileri korumaya devam edin.
+*   **Diğer Kanalları Güncelleyin:** Tabela fiziksel bir çekicilik sağlar ancak dijital dünyada da görünür olmalısınız. Google İşletme Profili'nizi güncelleyin ve fotoğraflar ekleyin.
+
+**Özetle:**
+Müşteri artışınız harika bir haber! Ancak bunu tamamen tabelaya bağlamadan önce, **doğal büyüme faktörlerini** de göz önünde bulundurarak en az 3-4 haftalık bir veri analizi yapmanızı öneririm. Bu sayede hem motivasyonunuz yüksek kalacak hem de stratejiniz daha sağlam temellere oturmuş olur.
+
+Başarılar dilerim, yeni tabela harika bir yatırım oldu! ☕🚀","Hayır, tek başına yeterli değil. Tabelanın asılması ile müşteri artışının aynı haftaya denk gelmesi, artışa tabelanın yol açtığını göstermez. Hava durumu, yakındaki bir etkinlik veya dönemsel bir hareketlilik de etkili olmuş olabilir. Ayrıca bir hafta, sonuç çıkarmak için kısa bir süredir.
+
+Daha sağlam bir fikir edinmek için müşteri sayısını birkaç hafta daha izleyebilir ve yeni gelen müşterilere kafeyi nasıl fark ettiklerini sorabilirsiniz.
+",
+me-070,validation,grounded_completion,rewrite,"Evet, bu çok önemli bir soru ve genellikle yapay zeka modellerinin (ve insanların) öğrenme süreçlerinde karşılaşılan en kritik noktalarından biridir.
+
+Ancak, **şu anki konuşmamızın bağlamına veya geçmişteki spesifik denemelerinizin detaylarına erişimim yok.** Ben bir yapay zeka modeliyim; her yeni sohbet penceresi (sessyon) benim için sıfırdan başlar. Eğer bu konuşma önceki iki başarısız denemenizin olduğu bir oturumun devamıysa, o başarısızlıkların nedenlerini analiz etmemiz için o denemelerin **ne yaptığını, ne hataya yol açtığını ve hangi verileri kullandığını** bana hatırlatmanız gerekir.
+
+Genellikle başarısız denemelerde şu senaryolar görülür:
+
+1.  **Veri Eksikliği veya Kalitesi:** Modelin soruyu çözmek için yeterli bilgiye veya doğru formata sahip veriye sahip olup olmadığı.
+2.  **Karmaşıklık Seviyesi:** Sorunun veya görevin aşırı karmaşık olması ve modelin mevcut kapasitesini zorlaması.
+3.  **Hatalı Prompt (İstek):** Verilen talimatların net olmaması veya modelin yanlış anlama riski taşıması.
+4.  **Bellek Sınırları:** Çok uzun metinler veya çok fazla adım gerektiren işlemlerde modelin bağlam penceresini aşması.
+
+**Şimdi ne yapabiliriz?**
+
+Eğer bu bir kodlama, matematik veya mantık problemiyle ilgili bir deneme ise, lütfen şu bilgileri paylaşır mısınız:
+*   İlk iki denemede ne tür bir hata aldınız? (Örn: Yanlış sonuç, syntax hatası, mantık tutarsızlığı?)
+*   Kullanılan giriş verisi veya prompt nedir?
+*   Üçüncü denemedeki başarılı çözüm nasıl gerçekleşti?
+
+Bu detayları paylaştığınızda, önceki başarısızlıkların **kök nedenlerini** analiz edebilir ve üçüncü denemenin başarı mantığını temel alarak gelecekteki denemelerinizde daha sağlam bir strateji geliştirebiliriz.","Hayır, bilmiyoruz. Verilen bilgi yalnızca üçüncü denemenin başarılı olduğunu söylüyor, önceki iki denemenin neden başarısız olduğunu belirtmiyor.",
+me-079,validation,turkish_lexical_precision,rewrite,"Verdiğiniz cümlede **""Vergi oranı değişmedi""** ifadesi, vergi oranlarının (örneğin KDV oranları veya gelir vergisi faiz oranları) güncelleme yapılmadığını belirtir. Ancak cümlenin ikinci kısmında **""veri paylaşım kuralları güncellendi""** denmektedir.
+
+Bu durum genellikle **verilerin nasıl paylaşılacağına, kiminle paylaşılacağına veya hangi formatlarda paylaşılacağına** dair teknik veya yasal düzenlemelerle ilgilidir. Ancak, bu spesifik güncellemelerin detaylarını (hangi kuralların değiştiğini) bilmek için şu bilgileri ihtiyacınız olduğunu belirtmeniz gerekir:
+
+1.  **Hangi kurum veya platformdan duyuru geliyor?** (Örneğin: Türkiye İstatistik Kurumu, Vergi Dairesi Başkanlığı, bir banka, bir e-ticaret sitesi vb.)
+2.  **Hangi tarihte yapılan duyuru?**
+
+Bu bağlam olmadan ""veri paylaşım kuralları""nın içeriğini kesin olarak söylemek mümkün değildir; çünkü farklı sektörlerde (vergi maaş verileri, istatistik verileri, kişisel veriler vb.) tamamen farklı kurallar geçerlidir.
+
+Eğer bu duyuru **Türkiye İstatistik Kurumu (TÜİK)** veya benzeri resmi bir kurumdan geliyorsa, genellikle güncellenen kurallar şunlar olabilir:
+*   Verilerin **açıklık belgesi** (Open Data) kapsamında yayınlanması.
+*   Veri setlerinin **API üzerinden** erişilebilir hale getirilmesi.
+*   Kişisel verilerin anonimleştirilme yöntemlerinin güncellenmesi.
+*   Veri kullanım haklarının genişletilmesi veya sınırlanması.
+
+Lütfen duyurunun kaynağını veya tam metnini paylaşır mısınız? O zaman size o kurumun güncellediği spesifik kuralları net bir şekilde açıklayabilirim.","Güncellenen, veri paylaşım kurallarıdır. Vergi oranı ise değişmemiştir.",
+me-080,validation,turkish_lexical_precision,rewrite,Yolculuğun devam ettiğini belirten sözcük: **hâlâ**,hâlâ,
+me-089,validation,non_anthropomorphic_interaction,rewrite,"Bu çok yaygın ve aslında oldukça insani bir durum. Yeni evde ""misafir"" hissetmek, genellikle evin fiziksel olarak tamamen sizin kontrolünüzde olmamasından kaynaklanır; daha çok **duygusal ve psikolojik bir sahiplik** meselesidir.
+
+İşte bu hissi aşmanıza yardımcı olacak bazı somut adımlar ve zihinsel yaklaşımlar:
+
+### 1. ""Sahiplenme"" Ritüelleri Başlatın
+Evin her köşesine küçük ama anlamlı dokunuşlar yapın. Bu, beyninize ""Bu alan artık benim"" mesajı verir.
+*   **Fotoğraflar ve Hatıralar:** Duvarlara sadece dekoratif değil, ailenizden veya sevdiklerinizden çekilmiş fotoğrafları asın.
+*   **Kişisel Dokunuşlar:** Sevdiğiniz bir koku (yağlı mum, diffüzör), özel bir kitap, çocuklarınızın çizimleri veya sevdiklerinize ait eşyaları yerleştirin.
+*   **Renk Değişikliği:** Duvar boyasını veya perde renklerini değiştirmek, odaya tamamen yeni bir hava katar ve ""bu artık eski ev değil, yeni ev"" algısını güçlendirir.
+
+### 2. Evinizi ""Kendi Diliyle"" Konuşun
+Mutfakta yemek pişirdiğinizde, yatak odasında uyurken veya banyoda duş aldığınızda, bu alanları sadece kullanmakla kalmayıp **onlarla iletişim kurun**.
+*   Mutfakta ""Bugün ne pişireceğim?"" diye düşünün.
+*   Yatak odasında ""Gece yatmadan önce ne okuyacağım?"" diye planlayın.
+*   Bu alışkanlıklar, evin sizin yaşam tarzınıza entegre olduğunu gösterir.
+
+### 3. Düzenleme ve Sıfırlama
+Bazen evde ""misafir"" hissi, kaotik veya boş görünen alanlardan kaynaklanır.
+*   Gereksiz eşyaları çıkarın. Boşluklar, düzenli bir şekilde doldurulduğunda daha sıcak ve ""sahibi var"" bir his yaratır.
+*   Her odanın bir amacı olsun (Örn: Çalışma alanı, dinlenme alanı, oyun alanı). Her şeyine bir görev yüklemek, o alanın sizin için önemli olduğunu hissettirir.
+
+### 4. Zaman Verin
+Yeni evde hissettiğiniz bu ""misafirlik"", zamanla doğal olarak geçer. Beyniniz yeni bir mekana alışması ve ona duygusal bağ kurması için zaman ister. Kendinize sabır gösterin; bugün tam bir ""sahip"" hissetmeyebilirsiniz, yarın daha yakın olabilirsiniz.
+
+### 5. Küçük Bir ""İmza"" Atın
+Evinizin en gizli köşesinde veya en kullanılmayan bir yerinde, sadece sizin için özel bir şey bırakın. Belki de hiç kullanmayacağınız bir eşya olabilir ama onu oraya koyduğunuzda, ""Burada ben varım"" hissini pekiştirirsiniz.
+
+Unutmayın, yeni ev sadece beton, tuğla ve mobilyadan ibaret değildir; **yaşamınızın uzantısıdır.** Odaya girdiğinizde kendinizi rahat hissettiğiniz an, o ev artık tamamen size aittir.
+
+Şu anda hangi odada veya hangi alanda bu hissi en çok yaşıyorsunuz? Belki o alana özel bir çözüm bulabiliriz.","Bu, taşındıktan sonra sık görülen bir durumdur ve genellikle zamanla geçer. Kişisel eşyalarınızı yerleştirmek, fotoğraf asmak ve evde kendi günlük düzeninizi kurmak, evi benimsemenizi kolaylaştırabilir.",
+me-090,validation,non_anthropomorphic_interaction,rewrite,"Tamam, anladım. Sınavdan çıkışın için tebrik ederim! 🎉
+
+Şu an sadece deneyimlerini, hislerini veya süreci paylaşmak istiyorsan, buradayım. Ne hakkında konuşmak istersin?
+
+*   Sınavın kendisi mi?
+*   Sonuçlar mı?
+*   Ya da sınav öncesi/sonrası yaşadığın bir anı mı?
+
+İstersen detaylıca anlat, ben dinleyici olarak yanındayım.","Geçmiş olsun. Tavsiye vermeyeceğim, anlatmak istediğini yazabilirsin.",
+me-099,validation,consistency_integrity,rewrite,"Ürün şu an stokta yok, ancak gelecek ay tekrar satışa çıkacak.","Ürün stokta yok, gelecek ay yeniden satışa çıkması bekleniyor.",
+me-100,validation,consistency_integrity,accept,"Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.","Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.",

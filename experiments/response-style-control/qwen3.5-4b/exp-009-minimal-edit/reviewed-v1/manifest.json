@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-10-02T20:09:23.325247+00:00",
+  "status": "exported-qa-pending",
+  "rows": 100,
+  "splits": {
+    "train": 80,
+    "validation": 20
+  },
+  "decisions": {
+    "rewrite": 95,
+    "accept": 5
+  },
+  "cross_split_pairs": 1600,
+  "exact_group_source_overlap": 0,
+  "near_flags": [
+    {
+      "train": "me-008",
+      "validation": "me-009",
+      "sequence": 0.6338797814207651,
+      "jaccard": 0.23529411764705882
+    },
+    {
+      "train": "me-052",
+      "validation": "me-010",
+      "sequence": 0.6134969325153374,
+      "jaccard": 0.16666666666666666
+    },
+    {
+      "train": "me-052",
+      "validation": "me-060",
+      "sequence": 0.6716417910447762,
+      "jaccard": 0.21428571428571427
+    },
+    {
+      "train": "me-052",
+      "validation": "me-089",
+      "sequence": 0.6621621621621622,
+      "jaccard": 0.26666666666666666
+    },
+    {
+      "train": "me-056",
+      "validation": "me-060",
+      "sequence": 0.6096256684491979,
+      "jaccard": 0.25
+    },
+    {
+      "train": "me-077",
+      "validation": "me-010",
+      "sequence": 0.6113989637305699,
+      "jaccard": 0.21052631578947367
+    },
+    {
+      "train": "me-082",
+      "validation": "me-060",
+      "sequence": 0.6993006993006993,
+      "jaccard": 0.23076923076923078
+    },
+    {
+      "train": "me-086",
+      "validation": "me-009",
+      "sequence": 0.6347305389221557,
+      "jaccard": 0.17647058823529413
+    },
+    {
+      "train": "me-086",
+      "validation": "me-089",
+      "sequence": 0.6172839506172839,
+      "jaccard": 0.25
+    },
+    {
+      "train": "me-092",
+      "validation": "me-010",
+      "sequence": 0.6078431372549019,
+      "jaccard": 0.16666666666666666
+    }
+  ],
+  "prompt_changes": [
+    "me-088"
+  ],
+  "training_started": false,
+  "warning": "Review artifacts are not yet training-ready; original drafts immutable; validation evaluation-only.",
+  "files": {
+    "argilla-train-snapshot.json": "4dd1c8e357a22c043316890868f42117d78d0f21e48f42a99cf50817d8dbd101",
+    "argilla-validation-snapshot.json": "7320b914b1c209a1e8df9a0e8dbe46775072000c78ba80dc6a265b8cc8f11d88",
+    "train-reviewed.csv": "25edb4610bdb208e802f8a589eec21e095235bfad7660088a29ce942c3633b57",
+    "train-reviewed.jsonl": "cf8175cfc9e9ab079443290943bf93ad4870a26e8b732bba5d0ba606a59fae4e",
+    "validation-reviewed.csv": "225a8ad6d39ef6567330b5f2e1345cf4c681539b79039beb0dfb1cf31473c7e7",
+    "validation-reviewed.jsonl": "5a1a0a3ddd0e3cbc5ec71584db5df32eab1708ec341342e03d4f1c4a63846cbe"
+  }
+}

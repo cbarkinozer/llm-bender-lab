@@ -2,6 +2,22 @@
 
 ## Status
 
+Local training preparation completed: see [TRAINING-HANDOFF.md](TRAINING-HANDOFF.md)
+and training-preflight-v1/report.json. Pinned tokenizer/masks and 80/20 separation
+verified, zero truncations. Initial 2-epoch, LR 5e-5 LoRA recipe prepared.
+GPU runner integration/smoke/reload/tiny-overfit/W&B checks remain pending;
+no GPU training started.
+
+2026-10-02 review update: all 100 records submitted and exported to `reviewed-v1/`.
+User subsequently authorized direct scoped QA fixes (no Argilla UI): active
+corrected targets are in `reviewed-v2/`, 9 train fixes and 1 validation-reference
+fix; remaining 90 answers unchanged. Original annotations and reviewed-v1 remain
+untouched. See reviewed-v2/REVIEW.md for the change log. Training has not begun.
+See [REVIEW-QA.md](REVIEW-QA.md): targeted corrections still need approval before
+training preparation. Original drafts/annotations preserved; me-088 wording
+change exists only in the new exported version. Historical status below predates
+human review.
+
 Base generation completed. **Active prompt selection v2: 100 rows, 80 train / 20 validation**.
 V1 is retained unchanged as history. See [coverage-v2.md](coverage-v2.md) for
 the full behavior mapping, similar-word priorities, new character contrasts,

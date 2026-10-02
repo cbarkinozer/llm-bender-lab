@@ -1,0 +1,77 @@
+{
+  "experiment_id": "exp-009-minimal-edit",
+  "status": "prepared-not-trained",
+  "model": {
+    "name": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter": null,
+    "thinking_mode": false
+  },
+  "dataset": {
+    "train": "reviewed-v2/train-reviewed.jsonl",
+    "validation": "reviewed-v2/validation-reviewed.jsonl",
+    "hashes": {
+      "train-reviewed.jsonl": "bb66be2853f866b6b463f80d62cc7d388b4a3a203e22fa6d9909a6123ffd4ec9",
+      "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "train_rows": 80,
+    "validation_rows": 20,
+    "loss": "final-assistant-only"
+  },
+  "training": {
+    "framework": "unsloth",
+    "method": "bf16-lora",
+    "max_seq_length": 1024,
+    "epochs": 2,
+    "learning_rate": 5e-05,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "expected_optimizer_steps": 20,
+    "optimizer": "adamw_8bit",
+    "scheduler": "cosine",
+    "warmup_steps": 2,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "seed": 3407,
+    "packing": false,
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "save_strategy": "epoch",
+    "eval_strategy": "epoch",
+    "report_to": "wandb"
+  },
+  "inference": {
+    "backend": "vllm",
+    "temperature": 0.0,
+    "repetition_penalty": 1.05,
+    "thinking_mode": false,
+    "additional_system_prompt": null,
+    "output_token_budgets": [
+      4096,
+      8192,
+      16384
+    ]
+  },
+  "notes": [
+    "New combined data/recipe phase, not an isolated comparison with exp008.",
+    "2 epochs and 5e-5 are a conservative initial hypothesis, not a retention guarantee.",
+    "Validation references only used for no-grad evaluation, never training or replay.",
+    "Old exp004 trainer rejects multi-turn rows and masks all assistant turns; do not launch it unchanged.",
+    "GPU runner must consume explicit labels, preserve -100 padding and verify actual batches against this preflight.",
+    "Each GPU preflight uses fresh base/adapters; do not continue smoke or tiny-overfit adapter into full run."
+  ]
+}

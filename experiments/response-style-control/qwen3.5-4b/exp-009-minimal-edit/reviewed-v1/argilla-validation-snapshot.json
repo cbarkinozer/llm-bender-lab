@@ -1,0 +1,662 @@
+{
+  "items": [
+    {
+      "id": "f82c4440-0a6e-40a6-a9d2-a67afc4dc585",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Arkadaşımla dün parkta gidiyorum yazmışım. Düzgün hâli ne?",
+        "original_answer": "Cümlede küçük bir **yazım hatası** ve **noktalama noktası eksikliği** var.\n\n1.  **\"Gidiyorum\"** kelimesi yanlış kullanılmıştır. Burada \"gidiyorum\" (ben gidiyorum) demek yerine, \"gidiyoruz\" (biz gidiyoruz) veya \"gidiyordum\" (dün biz gidiyorduk - geçmiş zaman) kullanılmalıdır. Cümlenin başındaki \"dün\" kelimesi geçmiş zamanı işaret ettiği için fiil de buna uygun olmalı.\n2.  **Noktalama:** \"Yazmışım\" kelimesinden sonra cümle devam ettiğinden için virgül konulmalıdır.\n\nİşte düzeltilmiş halleri:\n\n**En doğal ve doğru hali:**\n> \"Arkadaşımla dün parkta **gidiyordum**.\"\n*(Not: Eğer sadece arkadaşınızla değil, birlikte iki kişiyle de gittiyseniz \"gidiyorduk\" kullanılabilir, ancak tekil bir anlatım için \"gidiyordum\" daha yaygındır.)*\n\n**Alternatif (Biraz daha resmi/akıcı):**\n> \"Dün arkadaşım ile parkta **geçiyordum**.\"\n\n**Özetle yapılan değişiklikler:**\n*   ❌ gidiyorum → ✅ gidiyordum (veya gidiyorduk)\n*   ❌ ...yazmışım. → ✅ ...yazmışım, (Virgül eklendi)",
+        "category": "grammar_correction",
+        "evaluation_criteria": "Return corrected Turkish only; preserve meaning; fix the identified orthographic/morphological issue without an unnecessary rewrite. Specific boundary: tense and case. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-009",
+      "responses": [
+        {
+          "id": "f5840ac6-3fe0-4697-8ced-ca84a2b92e64",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Arkadaşımla dün parka gittim."
+            }
+          },
+          "status": "submitted",
+          "record_id": "f82c4440-0a6e-40a6-a9d2-a67afc4dc585",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T17:05:01.100692",
+          "updated_at": "2026-10-02T17:05:01.100692"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365611",
+      "updated_at": "2026-10-02T17:05:01.109519"
+    },
+    {
+      "id": "f3940bf1-b018-4c92-bfde-806a335310ba",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: İkimiz de yarın gelecek cümlesinde bir tuhaflık var. Düzeltir misin?",
+        "original_answer": "Evet, cümlenizde **zaman zarfı** ile **gelecek zaman** arasındaki bir çelişki (tuhaflık) var.\n\nCümle: *\"İkimiz de yarın gelecek.\"*\n\n**Sorun:** \"Yarın\" kelimesi zaten geleceği ifade eder. Bir şeyin \"yarın\" olması ve aynı zamanda \"gelecek\" olması gereksiz tekrar yaratır. Türkçede bu durum genellikle şu şekilde düzeltilir:\n\n1.  **En doğal kullanım:** Zaman zarfını kaldırıp sadece gelecek zamanı kullanmak.\n    *   *\"İkimiz de gelecek.\"*\n2.  **Alternatif kullanım:** Gelecek zamanı belirtmeden sadece zamanı vurgulamak.\n    *   *\"İkimiz de yarın gelecek.\"* (Bu aslında yaygın bir kullanım olsa da, dilbilgisi açısından yukarıdaki gibi daha temiz durur; ancak günlük konuşmada \"yarın gelecek\" ifadesi de kabul görür. Ancak sizin dediğiniz gibi, eğer \"gelecek\" fiilini de kullanacaksanız, \"yarın\" kelimesi gereksiz kalabilir veya tam tersi.)\n\n**Daha net bir analiz:**\nAslında en sık yapılan hata şudur: *\"Yarın gelecek\"* demek yerine *\"Yarın geleceğiz\"* veya sadece *\"Geleceğiz\"* demek.\n\nAncak cümlenizin kendisi (\"İkimiz de yarın gelecek\") günlük dilde **tamamen doğru** kabul edilir. Belki de kastettiğiniz tuhaflık şudur:\n\n*   Eğer **fiil çekimini** değiştirmeyi düşünüyorsanız:\n    *   Yanlış: İkimiz de yarın gelecek. (Çoğul şahıs eki -iz- ile tekil gelecek zaman -ecek- birleşince anlam karışıklığı yaratabilir, ama bu çok nadirdir).\n    *   Doğrusu: **Biz yarın gelecekiz.** (veya **İkimiz yarın gelecek**).\n\n**Özetle en düzgün ve akıcı hali:**\n> **\"İkimiz de yarın gelecek.\"** (Bu cümle zaten doğrudur, ancak daha resmiyse: **\"Biz yarın gelecekiz.\"**)\n\nEğer cümlenizde başka bir tuhaflık hissediyorsanız (örneğin bağlaç veya isim sayısı), lütfen cümleyi tekrar yazarsanız daha spesifik yardımcı olabilirim. Şimdilik yukarıdaki analiz, muhtemelen kastettiğiniz nokta.",
+        "category": "grammar_correction",
+        "evaluation_criteria": "Return corrected Turkish only; preserve meaning; fix the identified orthographic/morphological issue without an unnecessary rewrite. Specific boundary: person agreement. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-010",
+      "responses": [
+        {
+          "id": "7c7face2-eaa3-4512-af59-a65c655ca6f8",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "İkimiz de yarın geleceğiz."
+            }
+          },
+          "status": "submitted",
+          "record_id": "f3940bf1-b018-4c92-bfde-806a335310ba",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T17:04:13.064473",
+          "updated_at": "2026-10-02T17:04:13.064473"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365626",
+      "updated_at": "2026-10-02T17:04:13.077225"
+    },
+    {
+      "id": "5bd4543c-7380-4620-bd4c-7ebebaaf2d57",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: Dünyanın en büyük gökdeleni Burj Khalifa, Dubai, Birleşik Arap Emirlikleri'nde bulunmaktadır.\n\nSoru: Dünyanın en büyük gökdeleni Burj Khalifa nerededir?\n\nCevap:",
+        "original_answer": "Dünyanın en yüksek gökdeleni olan Burj Khalifa, **Dubai**'de, **Birleşik Arap Emirlikleri**'nde yer almaktadır.",
+        "category": "answer_extraction",
+        "evaluation_criteria": "Answer only the asked source-bound fact; preserve restrictions and exact entity/quantity; no external additions. Specific boundary: location. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-019",
+      "responses": [
+        {
+          "id": "e55ab55c-d900-41b8-9d8b-0d2e345859ef",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Burj Khalifa, Dubai'de, Birleşik Arap Emirlikleri'nde yer almaktadır."
+            }
+          },
+          "status": "submitted",
+          "record_id": "5bd4543c-7380-4620-bd4c-7ebebaaf2d57",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:04:45.785756",
+          "updated_at": "2026-10-02T20:04:45.785756"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365632",
+      "updated_at": "2026-10-02T20:04:45.794394"
+    },
+    {
+      "id": "0817f6ad-4b36-49b2-be46-b31eb9c83b2f",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: Yavaş turizm akımının temel felsefesi bir yeri aceleye getirmeden derinlemesine deneyimlemektir.\n\nSoru: Yavaş turizm akımının temel felsefesi nedir?\n\nCevap:",
+        "original_answer": "Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden **derinlemesine deneyimlemektir**. Bu yaklaşım, gezginlerin yerel kültürleri, mutfakları ve doğasını daha yavaş, bilinçli ve detaylı bir şekilde keşfetmesini hedefler; böylece sadece görkemli anıtları değil, o bölgenin ruhunu da anlamaya çalışır.",
+        "category": "answer_extraction",
+        "evaluation_criteria": "Answer only the asked source-bound fact; preserve restrictions and exact entity/quantity; no external additions. Specific boundary: abstract phrase. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-020",
+      "responses": [
+        {
+          "id": "62030c18-913f-40a9-96f8-11862b665b15",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden derinlemesine deneyimlemektir."
+            }
+          },
+          "status": "submitted",
+          "record_id": "0817f6ad-4b36-49b2-be46-b31eb9c83b2f",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:05:57.033758",
+          "updated_at": "2026-10-02T20:05:57.033758"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365638",
+      "updated_at": "2026-10-02T20:05:57.041512"
+    },
+    {
+      "id": "1bbbc0c7-897d-487a-8840-1beb6d26da04",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: İl Spor Federasyonu tarafından Antalya'da tanıtılan Sağlık Tarama Modülü ürünü kulüplerle paylaşıldı. Performans Takip Uygulaması ürünü ise milli takıma entegre edildi.\n\nSoru: Aşağıdaki metne göre, 'kulüplerle paylaşıldı' hangi ürün için geçerli?\n\nCevap:",
+        "original_answer": "Metne göre, \"İl Spor Federasyonu tarafından Antalya'da tanıtılan **Sağlık Tarama Modülü** ürünü\" kulüplerle paylaşılmıştır. Performans Takip Uygulaması ise milli takıma entegre edilmiştir.\n\nCevap: **Sağlık Tarama Modülü**",
+        "category": "numeric_entity_precision",
+        "evaluation_criteria": "Match the requested role to the correct number/entity; preserve units and distinguish the distractor. Specific boundary: named product. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-029",
+      "responses": [
+        {
+          "id": "2ae028d8-c9a4-4d66-b905-289f8440046d",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Sağlık Tarama Modülü"
+            }
+          },
+          "status": "submitted",
+          "record_id": "1bbbc0c7-897d-487a-8840-1beb6d26da04",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:04:34.414418",
+          "updated_at": "2026-10-02T20:04:34.414418"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365643",
+      "updated_at": "2026-10-02T20:04:34.461237"
+    },
+    {
+      "id": "09284480-6c04-4c3d-91d9-505c2cffa562",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: Şehir Hastanesi tarafından Malatya'da tanıtılan Ateş Ölçüm Cihazı sigorta kapsamına alındı. Fizik Tedavi Paketi ise yalnızca özel kliniklerde sunuldu. Değerlendirme, klinik verilerle desteklendi.\n\nSoru: Aşağıdaki metne göre, 'yalnızca özel kliniklerde sunuldu' hangi ürün için geçerli?\n\nCevap:",
+        "original_answer": "Metne göre, \"yalnızca özel kliniklerde sunuldu\" ifadesi **Fizik Tedavi Paketi** için geçerlidir.\n\nMetinde açıkça belirtilmiştir ki; Ateş Ölçüm Cihazı şehir hastanesi tarafından tanıtılırken, Fizik Tedavi Paketi yalnızca özel kliniklerde sunulmuştur.",
+        "category": "numeric_entity_precision",
+        "evaluation_criteria": "Match the requested role to the correct number/entity; preserve units and distinguish the distractor. Specific boundary: named product. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-030",
+      "responses": [
+        {
+          "id": "a4dbc7ea-9709-4f90-b93b-9ae25ab9c5ed",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Fizik Tedavi Paketi"
+            }
+          },
+          "status": "submitted",
+          "record_id": "09284480-6c04-4c3d-91d9-505c2cffa562",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:04:55.515307",
+          "updated_at": "2026-10-02T20:04:55.515307"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365648",
+      "updated_at": "2026-10-02T20:04:55.523799"
+    },
+    {
+      "id": "41359cf0-5af3-452b-b159-b651bd22da0b",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Başlık: Açıklama\n\nMetin: Belediye Başkanı Cem Öztürk, Erzurum'da düzenlenen basın toplantısında toplu taşıma ücretleri hakkında konuştu. Cem Öztürk, iki hafta içinde adım atılacağını vurguladı.\n\nÖzet:",
+        "original_answer": "Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretlerinde değişiklik yapılacağına dair bilgi verdi ve bu değişikliğin iki hafta içinde gerçekleşeceğini belirtti.",
+        "category": "faithful_summary",
+        "evaluation_criteria": "Capture the main source event concisely; preserve actor, critical quantities, timing, attribution and uncertainty; invent nothing. Specific boundary: future statement. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-039",
+      "responses": [
+        {
+          "id": "da08bb06-ad17-483e-912e-3a855ae563f9",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretleri hakkında konuştu ve iki hafta içinde adım atılacağını vurguladı."
+            }
+          },
+          "status": "submitted",
+          "record_id": "41359cf0-5af3-452b-b159-b651bd22da0b",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:05:25.174264",
+          "updated_at": "2026-10-02T20:05:25.174264"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365652",
+      "updated_at": "2026-10-02T20:05:25.182777"
+    },
+    {
+      "id": "77c8d75b-90a8-4dd3-b589-dc727e8cb5e5",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Başlık: Mahkeme kararı\n\nMetin: Denizli'de üç ay süren davada eski çalışan hakkındaki karar açıklandı. Mahkeme, para cezası verilmesine hükmetti.\n\nÖzet:",
+        "original_answer": "Denizli'de üç ay süren eski çalışan davasında mahkeme, eski çalışan hakkında para cezası vermesine hükmetti.",
+        "category": "faithful_summary",
+        "evaluation_criteria": "Capture the main source event concisely; preserve actor, critical quantities, timing, attribution and uncertainty; invent nothing. Specific boundary: ruling not invented charge. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-040",
+      "responses": [
+        {
+          "id": "f03dbcc0-e9ed-4f30-be62-2c46b4c75cce",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Denizli'de üç ay süren davada mahkeme, eski çalışan hakkında para cezası verilmesine hükmetti."
+            }
+          },
+          "status": "submitted",
+          "record_id": "77c8d75b-90a8-4dd3-b589-dc727e8cb5e5",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:06:58.464329",
+          "updated_at": "2026-10-02T20:06:58.464329"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365656",
+      "updated_at": "2026-10-02T20:06:58.473921"
+    },
+    {
+      "id": "98e9478a-6401-4ea3-b372-936ea08eccaa",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Sabah evden çıkarken sürekli gecikiyorum. Bu sorunun arkasındaki temel mekanizmayı ve çözümün neden işe yarayacağını anlamak istiyorum.",
+        "original_answer": "Sabahları sürekli gecikme, genellikle sadece \"yavaş olma\" veya \"hazırlanmama\" gibi yüzeysel bir sorun değil; beyninizin ve vücudunuzun uyku döngüsüyle olan ilişkisiyle ilgili derin bir mekanizmadır.\n\nİşte bu sorunun arkasındaki temel psikolojik ve biyolojik mekanizmalar ve çözümün neden işe yarayacağı:\n\n### 1. Temel Mekanizma: \"Uyanış Yorgunluğu\" ve Prefrontal Kabus\nSabahları gecikmenin en büyük sebebi, beyninizin **prefrontal kabusu** (karar verme, planlama ve odaklanma merkezi) henüz tam olarak uyanmamış olmasıdır.\n\n*   **Biyolojik Gerçek:** Beyniniz gece boyunca yavaşça uyanır. Sabah saatlerinde (özellikle 7-9 arası), kortizol seviyesi artarak sizi uyandırmaya çalışır ancak bu artış bazen yetersiz kalabilir veya anlık bir \"düşük enerji\" hissi yaratır. Bu durumda beyniniz, en az enerji harcayacak şekilde hareket etmeye zorlanır.\n*   **Psikolojik Gerçek:** Uyanış yorgunluğu sırasında beyniniz **hiper-fokus** yerine **hiper-dikkatsizlik** moduna geçer. Sadece bir şeyi düşünmek bile zordur; bu yüzden \"hızlıca giyinip kapıdan çıkmak\" gibi basit çözümlere yönelirsiniz. Ancak bu çözümler, beyninizi daha fazla yorar çünkü karar vermeden önceki süreçte zihinsel sürtünme yaratır.\n\n### 2. İkincil Mekanizma: \"Korku Tepkisi\" ve Zaman Algısı\nGecikme korkusu, gecikmeyi daha da körükleyen bir döngüdür.\n*   Beyniniz, \"Geç kalırsam ne olacak?\" sorusuna cevap ararken, stres hormonlarını (kortizol ve adrenalin) salgılar.\n*   Bu stres, vücutta **güvenli alan dışına çıkma** isteğini tetikler. Yani aslında beyniniz, \"Hızlıca gitmem, belki de yavaşça kalmayı tercih edeceğim\" diyerek sizi yavaşlatmaya çalışır. Bu, bir kaçınma davranışıdır.\n\n---\n\n### Çözümün Neden İşe Yaradığı: \"Düşük Dirençli Başlangıç\" Stratejisi\n\nÇözümün temel mantığı, beyninizin o yorgun ve kararsız haldeyken **karar verme yükünü ortadan kaldırmaktır.**\n\nEğer sabahı \"tam zamanında olmak\" hedefiyle başlarsanız, beyniniz bu hedefe ulaşmak için tüm gücünü harcar ve bu da gecikmeye yol açar. Ancak aşağıdaki stratejiyi uyguladığınızda:\n\n1.  **Hedef Değişimi:** Hedefi \"Zamanında olmak\" değil, **\"Sadece kapıdan çıkmak\"** yaparsınız.\n2.  **Direnç Azaltma:** Beyniniz için \"Kapıdan çıkmak\" artık karmaşık bir görev değil, rutin bir eylemdir. Karar verme süreci (Hangi kıyafeti giyeceğim? Ne yemeliyim?) tamamen ortadan kalkar.\n3.  **Momentum Kazanma:** Bir kez kapıdan çıktığınızda, beyniniz \"Şimdi ne yapmalıyım?\" sorusunu sormadan, otomatik pilot moduna geçer. Yolculuk sırasında veya duraklarda zamanınızı yönetme şansınız doğar.\n\n### Uygulanabilir Adımlar\n\nBu mekanizmayı bozmak için şu adımları deneyebilirsiniz:\n\n*   **Gece Hazırlığı (Önemli):** Giyinmek ve çantayı hazırlamak için gece yatmadan önce hazır olun. Sabahın ilk 15 dakikasını beyninize \"sıfır enerji\" bırakın.\n*   **Çok Düşük Hedef Belirleyin:** Sabahın ilk göreviniz olarak \"Yataktan kalkıp tuvalette durmak\" olsun. Sonra \"Yatak odasından salonu geçmek\". Sonra \"Kapıdan çıkmak\". Her adım çok küçük olmalı.\n*   **Zamanı Esnetin:** Kendinize \"Tam 08:00'de çıkacağım\" deyin, bunun yerine \"08:00'de kapıdan çıkacağım, sonra da 08:00'e kadar varacağım\" deyin. Yolculuk esnasında zamanı doldurursunuz.\n*   **Stres Korkusunu Kesin:** Geciktiğinizde kendinizi suçlamayın. Beyninizin yorgun olduğunu kabul edin ve \"Bir sonraki sabah daha iyi başlayacağım\" diyerek döngüyü kırın.\n\nÖzetle; gecikmeyi durdurmanın yolu, beyninizi zorlamaktan ziyade, onu **otomatik hale getirmektir**. Basitlik, sabahları hızlandıran tek anahtardır.",
+        "category": "useful_explanation",
+        "evaluation_criteria": "Provide usable explanation or steps requested by the prompt; preserve necessary substance while removing filler; no blanket one-sentence answer. Specific boundary: mechanism and solution. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-049",
+      "responses": [
+        {
+          "id": "7a2f8624-0fd2-4ba8-be0c-a92ee88a4964",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Sabah gecikmelerinin arkasında çoğu zaman iki mekanizma bulunur:\n\n1. Süreyi eksik tahmin etmek. İnsanlar hazırlanma süresini genellikle her şeyin sorunsuz gittiği duruma göre hesaplar. Oysa sabahları küçük aksaklıklar olur: anahtarı aramak, kıyafet seçmek, unutulan bir şey için geri dönmek. Her biri birkaç dakika alır ve toplamda gecikmeye dönüşür.\n\n2. Kararların sabaha kalması. Ne giyeceğinize, ne yiyeceğinize, çantaya ne koyacağınıza sabah karar veriyorsanız her karar zaman alır. Yeni uyanmışken bu kararları vermek daha da yavaş olabilir.\n\nÇözüm bu iki mekanizmayı hedef alır:\n\n- Akşamdan hazırlık yapmak (kıyafeti, çantayı, anahtarı hazır etmek) kararları ve aksaklık riskini sabahtan çıkarır. Sabaha yalnızca uygulamak kalır.\n- Gerçek sürenizi ölçmek tahmin hatasını düzeltir. Birkaç gün boyunca uyanmanızla evden çıkmanız arasındaki süreyi ölçün ve planınızı bu süreye göre yapın.\n- Araya pay koymak, küçük aksaklıkların gecikmeye dönüşmesini önler. Çıkış saatinizi, çıkmanız gereken saatten 10-15 dakika önceye ayarlayın.\n\nKısacası sorun genellikle yavaşlıktan değil, sabaha gerçekte sığmayacak kadar iş ve karar bırakmaktan kaynaklanır. Çözüm de sabahki yükü azalttığı ve planı gerçek süreye dayandırdığı için işe yarar.\n"
+            }
+          },
+          "status": "submitted",
+          "record_id": "98e9478a-6401-4ea3-b372-936ea08eccaa",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:07:39.795081",
+          "updated_at": "2026-10-02T20:07:39.795081"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365661",
+      "updated_at": "2026-10-02T20:07:39.805810"
+    },
+    {
+      "id": "a4bc91e5-66d8-482a-942e-3b8260ec6521",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Küçük evimde çalışma alanıyla dinlenme alanı birbirine karışıyor. Kısa vadeli seçenek yeni bir masa almak, uzun vadeli seçenek ise mevcut alanı ışık ve eşya yerleşimiyle bölmek; bu ödünleşmeyi nasıl değerlendirmeliyim?",
+        "original_answer": "Bu durum, özellikle küçük evlerde sıkça karşılaşılan ama yaşam kalitesini doğrudan etkileyen klasik bir ikilemdir. \"Çalışma\" (odaklanmayı gerektiren) ve \"dinlenme\" (rahatlamayı gerektiren) alanlarının birbirine karışması, hem verimliliğinizi düşürür hem de zihinsel yorgunluğu artırır.\n\nVerdiğiniz iki seçeneği (kısa vadeli: yeni masa; uzun vadeli: bölme) değerlendirmek için sadece maliyet veya konfor değil, **psikolojik etki** ve **esneklik** açısından da bakmanız gerekir. İşte bu ödünleşmeyi yönetmek için stratejik bir yaklaşım:\n\n### 1. Seçenekleri Derinlemesine Analiz Edelim\n\n#### A. Kısa Vadeli Çözüm: Yeni Bir Masa Almak\nBu çözüm genellikle \"fiziksel bir engel\" kurarak işe yarar ancak kök sorunu çözmez.\n*   **Avantajları:** Hemen uygulanabilir, mevcut mobilya düzenini bozmaz, geçici bir çözüm olarak esnektir.\n*   **Dezavantajları:** Eğer oda çok küçüyse, yeni bir masanın eklenmesi hareket alanını daha da daraltabilir. Ayrıca, sadece masayı değiştirdiğinizde zihniniz \"burada çalışıyorum\" algısını koruyabilir; oda hala karışık hissedebilir.\n*   **Ne zaman uygun?** Eğer odanızda zaten boş bir köşe varsa veya mevcut masanız çok büyükse ve onu başka bir yere taşıyabilirsiniz.\n\n#### B. Uzun Vadeli Çözüm: Işık ve Eşya Yerleşimiyle Bölme\nBu çözüm, alanı **görsel ve psikolojik olarak** ayırarak kök sorunu çözer.\n*   **Avantajları:** Alanın işlevselliğini artırır, odaklanma ve dinlenme modlarını netleştirir, mekandan daha fazla fayda sağlar.\n*   **Dezavantajları:** Tasarım süreci biraz daha uzun sürer, bazı malzemeler (perde, bitki, aydınlatma) maliyetli olabilir ve zaman alabilir.\n*   **Ne zaman uygun?** Odanızda fiziksel bir duvar yoksa ve alanınız gerçekten darıyorsa.\n\n---\n\n### 2. Karar Verirken Sormalısınız: Hangi Kriter Önemli?\n\nBu ikilemi çözmek için şu üç soruyu kendinize sorun:\n\n1.  **Alanınız ne kadar dar?**\n    *   *Çok dar ise:* Yeni bir masa almak risklidir; hareket alanı tamamen kapanabilir. Bu durumda **bölme stratejisi** (özellikle dikey bölme) daha mantıklıdır.\n    *   *Orta boy ise:* Her iki yöntem de uygulanabilir.\n\n2.  **İhtiyaçlarınız ne kadar sabittir?**\n    *   *Sabit (Örn: Her gün 8 saat bilgisayar başında çalışıyorum):* Uzun vadeli bir **bölme** yapmanız, zihninizde \"iş modu\" ve \"rahat modu\" ayrımı oluşturmanızı sağlayacaktır.\n    *   *Esnek (Örn: Sadece haftada 2 gün çalışıyorum):* Kısa vadeli bir **masa değişikliği** veya mekansal esneklik (örneğin bir sandalyeyi hareketli tutmak) yeterli olabilir.\n\n3.  **Bütçeniz ve Zamanınız nedir?**\n    *   Kısa vadede bütçe kısıtlıysa, düşük maliyetli bir aydınlatma değişikliği ile başlayıp, zamanla bölme sistemine geçiş yapabilirsiniz.\n\n---\n\n### 3. Stratejik Öneri: \"Hibrit Yaklaşım\" (En Akıllı Yol)\n\nGenellikle en iyi sonuç, bu iki seçeneği birleştirmek veya sırayla uygulamaktır. İşte adım adım bir yol haritası:\n\n#### Adım 1: Hızlı Psikolojik Bölme (Düşük Maliyetli)\nYeni bir masa almadan önce, mevcut alanı aydınlık ve eşya yerleşimiyle **hemen** değiştirebilirsiniz. Bu, kısa vadeli çözümün avantajını uzun vadeli bir planın içine sokar.\n*   **Aydınlatma:** Çalışma alanına odaklanmayı sağlayan soğuk beyaz ışık (4000K-5000K), dinlenme alanına ise sıcak ve yumuşak ışık (2700K-3000K) geçiş yapın. Işık, beynin \"iş moduna\" girmesini tetikler.\n*   **Renk ve Dokular:** Çalışma masasının etrafına daha sert, koyu veya nötr dokular ekleyin; dinlenme köşesine ise yumuşak tekstiller, yeşil bitkiler veya pastel tonlar ekleyin.\n*   **Bitkiler:** Büyük bir bitkiyi çalışma alanının kenarına yerleştirerek görsel bir bariyer oluşturun.\n\n#### Adım 2: Fiziksel Düzenleme (Kısa Vade)\nEğer yukarıdaki adımlar yeterli gelirse, **mevcut masanızı** mümkün olduğunca küçük bir masaya veya bir sandalyeye çevirin.\n*   Büyük bir ofis masası yerine, üzerinde sadece laptop ve belgeler olacak şekilde düzenlenmiş küçük bir masa kullanın. Bu, alanı kaplamadan odaklanmayı sağlar.\n*   Eğer yeni bir masa alacaksanız, onu **duvara yaslayarak** veya köşeye yerleştirerek alanı en azından görsel olarak genişletin.\n\n#### Adım 3: Uzun Vadeli Planlama (Bölme Sistemi)\nZaman ve bütçe elverdiğinde, yukarıdaki geçici düzenlemelerin üzerine **kalıcı bir bölme** ekleyin.\n*   **Dikey Bölme:** Duvar boyama, perde sistemi veya yüksek bir bitki duvarı.\n*   **Yerçekimsel Bölme:** Çalışma alanını aşağıya, dinlenme alanını yukarıya (veya tam tersi) yerleştirerek görsel hiyerarşi oluşturun.\n\n### Sonuç ve Tavsiye\n\nEğer **acilen** bir çözüm arıyorsanız ve bütçeniz kısıtlıysa: **Mevcut alanı ışık ve renk düzeniyle (Adım 1) hemen değiştirin.** Bu, en ucuz ve hızlı \"bölme\" yöntemidir.\n\nEğer **kalıcı ve sürdürülebilir** bir çözüm istiyorsanız: **Uzun vadeli bölme planını (Adım 3) hazırlayın**, ancak bunu beklerken çalışma alanınızı optimize edecek şekilde (küçük masa veya düzenleme - Adım 2) geçici bir çözüm uygulayın.\n\n**Özetle:** Yeni bir masa almak sadece fiziksel bir alan eklemek değil, aynı zamanda zihinsel bir sınırlandırma demektir. Ancak gerçek çözüm, o alanı \"iş\" ve \"rahat\" olarak algılayan **ışık ve dekorasyonun** doğru kullanılmasıdır. Masayı bekleyin, önce ışığı ve renkleri değiştirin; bu, size uzun vadeli bölmenin yarattığı rahatlığı hemen verecektir.",
+        "category": "useful_explanation",
+        "evaluation_criteria": "Provide usable explanation or steps requested by the prompt; preserve necessary substance while removing filler; no blanket one-sentence answer. Specific boundary: compare tradeoffs. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-050",
+      "responses": [
+        {
+          "id": "4f55bc6a-7c12-45ba-a3d9-b7e33e44c192",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Bu ödünleşmeyi değerlendirirken önce sorunun kaynağına bakın: Sorun uygun bir çalışma yüzeyinin olmaması mı, yoksa iki alanın sınırının belirsiz olması mı?\n\n- Yeni masa hızlı bir çözümdür ve uygun bir çalışma yüzeyiniz yoksa işe yarar. Ancak para ve yer gerektirir, küçük bir evde alanı daha da daraltabilir ve alanların karışması sorununu tek başına çözmeyebilir.\n\n- Işık ve eşya yerleşimiyle bölmek daha fazla zaman ve deneme gerektirir, ama maliyeti düşüktür, geri alınabilir ve doğrudan alanların karışması sorununa yöneliktir. Örneğin masayı dinlenme alanına sırtı dönük yerleştirebilir, çalışma köşesine ayrı bir lamba koyabilir veya bir kitaplıkla sınır oluşturabilirsiniz.\n\nSorunu alanların karışması olarak tanımladığınıza göre, önce yerleşim ve ışıkla bölmeyi denemek daha mantıklı görünüyor. Bu düzeni kurduktan sonra hâlâ uygun bir çalışma yüzeyine ihtiyaç duyarsanız, masayı yeni yerleşime uygun boyutta seçebilirsiniz.\n"
+            }
+          },
+          "status": "submitted",
+          "record_id": "a4bc91e5-66d8-482a-942e-3b8260ec6521",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:06:27.483568",
+          "updated_at": "2026-10-02T20:06:27.483568"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365665",
+      "updated_at": "2026-10-02T20:06:27.499154"
+    },
+    {
+      "id": "41420e32-a291-46b7-a940-f8f09e0ae61e",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Sunumu erkene çekmek iyi fikir mi?\n\nassistant: Sunumu neden erkene almak istiyorsun ve katılımcılar o saatte müsait mi?\n\nuser: Sonrasında şehir dışına çıkacağım. Herkes bir saat erken başlayabileceğini onayladı; salon da o saatte boş. Diğer hazırlıklar tamam. Erkene alayım mı?",
+        "original_answer": "Evet, **son derece mantıklı ve stratejik bir karar**. Durumunuzda şu avantajlar var:\n\n1.  **Zaman Kaybı Yok:** Katılımcılar zaten \"bir saat erken başlayabilir\" dediği için, siz de aynı anda erken başlayarak o bir saati kaybetmezsiniz.\n2.  **Stres Azalır:** Salonun boş olması ve herkesin hazır olduğu bir ortamda sunum yaparken, teknik aksaklıklar veya son anki hazırlık gereksinimleri (projeor, ses sistemi vb.) daha az risk taşır.\n3.  **Enerji Yönetimi:** Şehir dışına çıkacağınız için, sunumdan hemen sonra yorgun bir şekilde kalkmak yerine, sunumu bitirdikten sonra dinlenerek veya hafif bir ara vererek seyahate geçmek daha sağlıklı olacaktır.\n4.  **Profesyonellik:** Sabahın erken saatlerinde, sessiz ve düzenli bir ortamda sunum yapmak, katılımcılarda daha ciddi ve odaklanmış bir algı yaratır.\n\n**Tek bir küçük tavsiye:**\nErken başlayıp sunumu bitirdikten sonra, şehir dışına çıkmadan önce **en az 15-20 dakika bir \"geçiş süresi\" ayırın**. Bu süre zarfında:\n*   Katılımcıların sorularını cevaplayabilirsiniz.\n*   Sonuçları özetleyip not bırakabilirsiniz.\n*   Kendinizi ve ekibinizi dinlendirerek seyahata geçebilirsiniz.\n\nÖzetle; hazırlıklarınız tamam, onaylarınız da var. **Kesinlikle erken başlayın.** Başarılar dilerim!",
+        "category": "selective_clarification",
+        "evaluation_criteria": "Use confirmed attendee and room availability plus the stated travel need; answer instead of asking again about the reason or availability. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-059",
+      "responses": [
+        {
+          "id": "caa3fd8c-3bd6-4761-8fa6-59402a68ca50",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Evet, erkene al. Herkes onayladı, salon boş ve hazırlıklar tamam olduğuna göre bir engel görünmüyor. Böylece şehir dışına çıkmadan önce daha fazla vaktin kalır."
+            }
+          },
+          "status": "submitted",
+          "record_id": "41420e32-a291-46b7-a940-f8f09e0ae61e",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:06:48.680427",
+          "updated_at": "2026-10-02T20:06:48.680427"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365670",
+      "updated_at": "2026-10-02T20:06:48.687982"
+    },
+    {
+      "id": "209d026d-736a-456c-a563-6e42f789206e",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Ev anahtarımı komşuya bıraksam olur mu?",
+        "original_answer": "**Hayır, ev anahtarınızı komşuya bırakmamalısınız.** Bu durum hem güvenlik açısından ciddi riskler taşır hem de hukuki sorumluluklar doğurabilir.\n\nİşte neden bu davranışın önerilmediği temel sebepleri:\n\n*   **Güvenlik Riski:** Anahtarınızın komşunun elinde olması, evinize girmesini sağlayacak tek bir zayıf noktadır. Komşunuzun aklına takılan bir fikirle veya başka bir mazeretle eve girebilme ihtimali doğar. Evinizde kimse yokken (gece veya hafta sonu) bu durum hayati tehlike oluşturabilir.\n*   **Hukuki Sorumluluk:** Türkiye'de ve birçok ülkede, ev sahibi anahtarını üçüncü şahıslara (özellikle güvenliği doğrudan etkileyen kişilerle) verirse, o kişi evi işgal ederse veya zarar verirse, ev sahibi **maddi ve manevi tazminat** ödemek zorunda kalabilir. Ayrıca, komşunuzun evinize girmesi durumunda polis tarafından \"ev hırsızlığı\" veya \"yasal giriş\" olarak değerlendirilebilir; ancak anahtar teslimi yapılmışsa durum daha karmaşık hale gelebilir.\n*   **Güven Kaybı:** Bir evin anahtarı sadece sahibine veya yetkili kişilere (kiralık evde yönetici gibi) verilmelidir. Anahtarın başkasında olması, evinizin güvenliğini alt üst eder ve psikolojik rahatsızlık yaratır.\n\n**Ne Yapmalısınız?**\nEğer evde bulunmuyorsanız ve bir acil durumla karşılaşıyorsanız:\n1.  En yakın **polis istasyonuna** giderek durumu bildirin.\n2.  Acil durum için yetkili birini arayın.\n3.  Eğer anahtarınız kaybolmuşsa, hemen yeni bir anahtar yaptırın ve eski anahtarları yok sayın.\n\nÖzetle, ev anahtarınızı kimseye (komşu dahil) vermemeniz en doğru ve güvenli karardır.",
+        "category": "selective_clarification",
+        "evaluation_criteria": "Use the available facts; clarify only a material missing variable; conditional advice is allowed; do not append reflexive questions. Specific boundary: missing trust context. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-060",
+      "responses": [
+        {
+          "id": "a0c5ea15-3ff0-406e-ab4e-3ec123ed9669",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Güvendiğiniz bir komşuysa bırakabilirsiniz. Komşunuzu iyi tanımıyorsanız veya içiniz rahat değilse anahtarı bir yakınınıza bırakmanız daha doğru olur."
+            }
+          },
+          "status": "submitted",
+          "record_id": "209d026d-736a-456c-a563-6e42f789206e",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T17:04:28.494838",
+          "updated_at": "2026-10-02T17:04:28.494838"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365674",
+      "updated_at": "2026-10-02T17:04:28.503981"
+    },
+    {
+      "id": "2dd942c6-103e-44d2-a23a-5158bbc82455",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kafeye yeni tabela astık ve o hafta müşteri arttı. Artışı tabelaya bağlamak için yeterli mi?",
+        "original_answer": "Bu durum, işletmeniz için **çok olumlu bir başlangıç** olsa da, tabloyu tek başına tüm artışın sorumlusu olarak kabul etmek **istatistiksel olarak riskli** olabilir.\n\nİşte bu durumu daha net değerlendirmeniz için dikkate almanız gereken bazı noktalar:\n\n### 1. Neden \"Yeterli\" Değil? (Dikkat Edilmesi Gerekenler)\n*   **Doğal Büyüme:** Her sezon değişimi, hava durumu faktörü veya yerel bir etkinlik (örneğin bir festival veya spor müsabakası) nedeniyle müşteri sayısında doğal artışlar olur. Bu artışlar tabelaya bağlı değil de kendi kendine gerçekleşebilir.\n*   **Pazarlama Etkisi:** Sadece tabela değil, sosyal medya paylaşımınız, çevredeki diğer işletmelerden gelen tavsiyeler veya fiyat politikalarınız da etkileyici olabilir.\n*   **Veri Eksikliği:** Artışın gerçekten %X kadarını tabelanın getirdiğini bilmek için önceki haftanın verilerini ve o hafta dışarıdan gelen müşterilerin nereden geldiğini anlamak gerekir.\n\n### 2. Tablonun Gerçek Etkisini Nasıl Ölçersiniz?\nEğer bu artışın büyük kısmının tabelaya ait olduğunu ispatlamak istiyorsanız, şu adımları izleyebilirsiniz:\n\n*   **Bölümleme Yapın:** Müşterilerinizi \"Yerel\" (mahalle sakinleri), \"Uzak Mesafe\" (şehir merkezinden gelenler) ve \"Yeni Tanıdıklar\" olarak ayırın. Tabela genellikle \"Uzak Mesafe\" kitleyi çeker. Eğer uzak mesafeden gelen müşterileriniz arttıysa, tabela işe yaramıştır demektir.\n*   **Ölçüm Aralığı:** Tek bir hafta çok kısa bir süredir. En azından **3-4 hafta** boyunca verileri takip edip ortalamayı almanız daha sağlıklı sonuç verir.\n*   **Kontrol Grubu:** Çevrenizde benzer bir kafe var mı? O kafenin tabelası değişmediyse, sizin müşteriniz artarken onların artmadıysa, tablonun etkisi daha net görülür.\n\n### 3. Sonraki Adımlarınız Olmalı\nArtışın tabelaya ait olma ihtimalini yüksek tutmak için şu aksiyonları alabilirsiniz:\n\n*   **Müşteri Soruşturma:** Bir sonraki hafta, yeni gelen müşterilere \"Nasıl bulduk?\" diye sorarak kaynaklarını (Google Haritalar, arkadaş tavsiyesi, tabela vb.) tespit etmeye çalışın.\n*   **Tabelayı Optimize Edin:** Eğer tablonuz görünüyor ama yazı okunmuyorsa veya renk uyumu yoksa, bunu düzeltmekle birlikte mevcut müşterileri korumaya devam edin.\n*   **Diğer Kanalları Güncelleyin:** Tabela fiziksel bir çekicilik sağlar ancak dijital dünyada da görünür olmalısınız. Google İşletme Profili'nizi güncelleyin ve fotoğraflar ekleyin.\n\n**Özetle:**\nMüşteri artışınız harika bir haber! Ancak bunu tamamen tabelaya bağlamadan önce, **doğal büyüme faktörlerini** de göz önünde bulundurarak en az 3-4 haftalık bir veri analizi yapmanızı öneririm. Bu sayede hem motivasyonunuz yüksek kalacak hem de stratejiniz daha sağlam temellere oturmuş olur.\n\nBaşarılar dilerim, yeni tabela harika bir yatırım oldu! ☕🚀",
+        "category": "grounded_completion",
+        "evaluation_criteria": "State supplied facts/causes but do not invent motives or diagnoses; distinguish uncertainty from evidence; stop when complete. Specific boundary: correlation not cause. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-069",
+      "responses": [
+        {
+          "id": "8ac8ecad-2d91-407d-9641-dcadbec525b3",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Hayır, tek başına yeterli değil. Tabelanın asılması ile müşteri artışının aynı haftaya denk gelmesi, artışa tabelanın yol açtığını göstermez. Hava durumu, yakındaki bir etkinlik veya dönemsel bir hareketlilik de etkili olmuş olabilir. Ayrıca bir hafta, sonuç çıkarmak için kısa bir süredir.\n\nDaha sağlam bir fikir edinmek için müşteri sayısını birkaç hafta daha izleyebilir ve yeni gelen müşterilere kafeyi nasıl fark ettiklerini sorabilirsiniz.\n"
+            }
+          },
+          "status": "submitted",
+          "record_id": "2dd942c6-103e-44d2-a23a-5158bbc82455",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:05:14.916632",
+          "updated_at": "2026-10-02T20:05:14.916632"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365678",
+      "updated_at": "2026-10-02T20:05:14.925771"
+    },
+    {
+      "id": "ed38f67e-e11b-47be-92ee-8b2623a04a69",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Üçüncü denemede işlem başarılı oldu. Önceki iki denemenin neden başarısız olduğunu biliyor muyuz?",
+        "original_answer": "Evet, bu çok önemli bir soru ve genellikle yapay zeka modellerinin (ve insanların) öğrenme süreçlerinde karşılaşılan en kritik noktalarından biridir.\n\nAncak, **şu anki konuşmamızın bağlamına veya geçmişteki spesifik denemelerinizin detaylarına erişimim yok.** Ben bir yapay zeka modeliyim; her yeni sohbet penceresi (sessyon) benim için sıfırdan başlar. Eğer bu konuşma önceki iki başarısız denemenizin olduğu bir oturumun devamıysa, o başarısızlıkların nedenlerini analiz etmemiz için o denemelerin **ne yaptığını, ne hataya yol açtığını ve hangi verileri kullandığını** bana hatırlatmanız gerekir.\n\nGenellikle başarısız denemelerde şu senaryolar görülür:\n\n1.  **Veri Eksikliği veya Kalitesi:** Modelin soruyu çözmek için yeterli bilgiye veya doğru formata sahip veriye sahip olup olmadığı.\n2.  **Karmaşıklık Seviyesi:** Sorunun veya görevin aşırı karmaşık olması ve modelin mevcut kapasitesini zorlaması.\n3.  **Hatalı Prompt (İstek):** Verilen talimatların net olmaması veya modelin yanlış anlama riski taşıması.\n4.  **Bellek Sınırları:** Çok uzun metinler veya çok fazla adım gerektiren işlemlerde modelin bağlam penceresini aşması.\n\n**Şimdi ne yapabiliriz?**\n\nEğer bu bir kodlama, matematik veya mantık problemiyle ilgili bir deneme ise, lütfen şu bilgileri paylaşır mısınız:\n*   İlk iki denemede ne tür bir hata aldınız? (Örn: Yanlış sonuç, syntax hatası, mantık tutarsızlığı?)\n*   Kullanılan giriş verisi veya prompt nedir?\n*   Üçüncü denemedeki başarılı çözüm nasıl gerçekleşti?\n\nBu detayları paylaştığınızda, önceki başarısızlıkların **kök nedenlerini** analiz edebilir ve üçüncü denemenin başarı mantığını temel alarak gelecekteki denemelerinizde daha sağlam bir strateji geliştirebiliriz.",
+        "category": "grounded_completion",
+        "evaluation_criteria": "State supplied facts/causes but do not invent motives or diagnoses; distinguish uncertainty from evidence; stop when complete. Specific boundary: unknown previous failure. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-070",
+      "responses": [
+        {
+          "id": "ede45d8c-5c81-4a89-b78f-6d7058491a9d",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Hayır, bilmiyoruz. Verilen bilgi yalnızca üçüncü denemenin başarılı olduğunu söylüyor, önceki iki denemenin neden başarısız olduğunu belirtmiyor."
+            }
+          },
+          "status": "submitted",
+          "record_id": "ed38f67e-e11b-47be-92ee-8b2623a04a69",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:05:37.879417",
+          "updated_at": "2026-10-02T20:05:37.879417"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365683",
+      "updated_at": "2026-10-02T20:05:37.889605"
+    },
+    {
+      "id": "c1850d5a-4797-44d5-bf98-60225fcf6962",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Duyuruda 'Vergi oranı değişmedi, veri paylaşım kuralları güncellendi' yazıyor. Güncellenen kurallar hangileri?",
+        "original_answer": "Verdiğiniz cümlede **\"Vergi oranı değişmedi\"** ifadesi, vergi oranlarının (örneğin KDV oranları veya gelir vergisi faiz oranları) güncelleme yapılmadığını belirtir. Ancak cümlenin ikinci kısmında **\"veri paylaşım kuralları güncellendi\"** denmektedir.\n\nBu durum genellikle **verilerin nasıl paylaşılacağına, kiminle paylaşılacağına veya hangi formatlarda paylaşılacağına** dair teknik veya yasal düzenlemelerle ilgilidir. Ancak, bu spesifik güncellemelerin detaylarını (hangi kuralların değiştiğini) bilmek için şu bilgileri ihtiyacınız olduğunu belirtmeniz gerekir:\n\n1.  **Hangi kurum veya platformdan duyuru geliyor?** (Örneğin: Türkiye İstatistik Kurumu, Vergi Dairesi Başkanlığı, bir banka, bir e-ticaret sitesi vb.)\n2.  **Hangi tarihte yapılan duyuru?**\n\nBu bağlam olmadan \"veri paylaşım kuralları\"nın içeriğini kesin olarak söylemek mümkün değildir; çünkü farklı sektörlerde (vergi maaş verileri, istatistik verileri, kişisel veriler vb.) tamamen farklı kurallar geçerlidir.\n\nEğer bu duyuru **Türkiye İstatistik Kurumu (TÜİK)** veya benzeri resmi bir kurumdan geliyorsa, genellikle güncellenen kurallar şunlar olabilir:\n*   Verilerin **açıklık belgesi** (Open Data) kapsamında yayınlanması.\n*   Veri setlerinin **API üzerinden** erişilebilir hale getirilmesi.\n*   Kişisel verilerin anonimleştirilme yöntemlerinin güncellenmesi.\n*   Veri kullanım haklarının genişletilmesi veya sınırlanması.\n\nLütfen duyurunun kaynağını veya tam metnini paylaşır mısınız? O zaman size o kurumun güncellediği spesifik kuralları net bir şekilde açıklayabilirim.",
+        "category": "turkish_lexical_precision",
+        "evaluation_criteria": "Read exact Turkish words, suffixes and tense; preserve the intended semantic distinction; clarify only genuine material ambiguity. Specific boundary: one character contrast. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-079",
+      "responses": [
+        {
+          "id": "a353e3b7-65dd-48f8-8c0d-400c05700ed2",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Güncellenen, veri paylaşım kurallarıdır. Vergi oranı ise değişmemiştir."
+            }
+          },
+          "status": "submitted",
+          "record_id": "c1850d5a-4797-44d5-bf98-60225fcf6962",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T17:05:11.274812",
+          "updated_at": "2026-10-02T17:05:11.274812"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365687",
+      "updated_at": "2026-10-02T17:05:11.284509"
+    },
+    {
+      "id": "5875afc8-33a9-4477-96e4-528c9f292d76",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Mesajda 'Hala geldi ama kardeşim hâlâ yolda' yazıyor. Yolculuğun devam ettiğini belirten sözcük hangisi? Yazımını aynen koru.",
+        "original_answer": "Yolculuğun devam ettiğini belirten sözcük: **hâlâ**",
+        "category": "turkish_lexical_precision",
+        "evaluation_criteria": "Distinguish hala (aunt) from hâlâ (still); preserve both circumflex marks in the requested word. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-080",
+      "responses": [
+        {
+          "id": "a3b7f611-e021-4550-b52c-ae71b21b3e54",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "hâlâ"
+            }
+          },
+          "status": "submitted",
+          "record_id": "5875afc8-33a9-4477-96e4-528c9f292d76",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:05:47.409901",
+          "updated_at": "2026-10-02T20:05:47.409901"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365692",
+      "updated_at": "2026-10-02T20:05:47.420428"
+    },
+    {
+      "id": "2b1991a9-5ec8-439b-838f-e185ccc5cd41",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Yeni eve taşındım ama hâlâ misafir gibi hissediyorum.",
+        "original_answer": "Bu çok yaygın ve aslında oldukça insani bir durum. Yeni evde \"misafir\" hissetmek, genellikle evin fiziksel olarak tamamen sizin kontrolünüzde olmamasından kaynaklanır; daha çok **duygusal ve psikolojik bir sahiplik** meselesidir.\n\nİşte bu hissi aşmanıza yardımcı olacak bazı somut adımlar ve zihinsel yaklaşımlar:\n\n### 1. \"Sahiplenme\" Ritüelleri Başlatın\nEvin her köşesine küçük ama anlamlı dokunuşlar yapın. Bu, beyninize \"Bu alan artık benim\" mesajı verir.\n*   **Fotoğraflar ve Hatıralar:** Duvarlara sadece dekoratif değil, ailenizden veya sevdiklerinizden çekilmiş fotoğrafları asın.\n*   **Kişisel Dokunuşlar:** Sevdiğiniz bir koku (yağlı mum, diffüzör), özel bir kitap, çocuklarınızın çizimleri veya sevdiklerinize ait eşyaları yerleştirin.\n*   **Renk Değişikliği:** Duvar boyasını veya perde renklerini değiştirmek, odaya tamamen yeni bir hava katar ve \"bu artık eski ev değil, yeni ev\" algısını güçlendirir.\n\n### 2. Evinizi \"Kendi Diliyle\" Konuşun\nMutfakta yemek pişirdiğinizde, yatak odasında uyurken veya banyoda duş aldığınızda, bu alanları sadece kullanmakla kalmayıp **onlarla iletişim kurun**.\n*   Mutfakta \"Bugün ne pişireceğim?\" diye düşünün.\n*   Yatak odasında \"Gece yatmadan önce ne okuyacağım?\" diye planlayın.\n*   Bu alışkanlıklar, evin sizin yaşam tarzınıza entegre olduğunu gösterir.\n\n### 3. Düzenleme ve Sıfırlama\nBazen evde \"misafir\" hissi, kaotik veya boş görünen alanlardan kaynaklanır.\n*   Gereksiz eşyaları çıkarın. Boşluklar, düzenli bir şekilde doldurulduğunda daha sıcak ve \"sahibi var\" bir his yaratır.\n*   Her odanın bir amacı olsun (Örn: Çalışma alanı, dinlenme alanı, oyun alanı). Her şeyine bir görev yüklemek, o alanın sizin için önemli olduğunu hissettirir.\n\n### 4. Zaman Verin\nYeni evde hissettiğiniz bu \"misafirlik\", zamanla doğal olarak geçer. Beyniniz yeni bir mekana alışması ve ona duygusal bağ kurması için zaman ister. Kendinize sabır gösterin; bugün tam bir \"sahip\" hissetmeyebilirsiniz, yarın daha yakın olabilirsiniz.\n\n### 5. Küçük Bir \"İmza\" Atın\nEvinizin en gizli köşesinde veya en kullanılmayan bir yerinde, sadece sizin için özel bir şey bırakın. Belki de hiç kullanmayacağınız bir eşya olabilir ama onu oraya koyduğunuzda, \"Burada ben varım\" hissini pekiştirirsiniz.\n\nUnutmayın, yeni ev sadece beton, tuğla ve mobilyadan ibaret değildir; **yaşamınızın uzantısıdır.** Odaya girdiğinizde kendinizi rahat hissettiğiniz an, o ev artık tamamen size aittir.\n\nŞu anda hangi odada veya hangi alanda bu hissi en çok yaşıyorsunuz? Belki o alana özel bir çözüm bulabiliriz.",
+        "category": "non_anthropomorphic_interaction",
+        "evaluation_criteria": "No fabricated personal feeling, favourite, experience or memory; retain useful neutral acknowledgment or explicitly fictional/conditional engagement; no canned disclaimer. Specific boundary: acknowledge without followup. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-089",
+      "responses": [
+        {
+          "id": "fdbb32fe-e26c-4ca3-8f61-0af325d4ac48",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Bu, taşındıktan sonra sık görülen bir durumdur ve genellikle zamanla geçer. Kişisel eşyalarınızı yerleştirmek, fotoğraf asmak ve evde kendi günlük düzeninizi kurmak, evi benimsemenizi kolaylaştırabilir."
+            }
+          },
+          "status": "submitted",
+          "record_id": "2b1991a9-5ec8-439b-838f-e185ccc5cd41",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:07:56.842220",
+          "updated_at": "2026-10-02T20:07:56.842220"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365696",
+      "updated_at": "2026-10-02T20:07:56.850397"
+    },
+    {
+      "id": "c643f794-6b14-4f59-857e-f6879a5efd44",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Sınavdan kaldım. Şu an tavsiye değil sadece anlatmak istiyorum.",
+        "original_answer": "Tamam, anladım. Sınavdan çıkışın için tebrik ederim! 🎉\n\nŞu an sadece deneyimlerini, hislerini veya süreci paylaşmak istiyorsan, buradayım. Ne hakkında konuşmak istersin?\n\n*   Sınavın kendisi mi?\n*   Sonuçlar mı?\n*   Ya da sınav öncesi/sonrası yaşadığın bir anı mı?\n\nİstersen detaylıca anlat, ben dinleyici olarak yanındayım.",
+        "category": "non_anthropomorphic_interaction",
+        "evaluation_criteria": "No fabricated personal feeling, favourite, experience or memory; retain useful neutral acknowledgment or explicitly fictional/conditional engagement; no canned disclaimer. Specific boundary: respect no advice request. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-090",
+      "responses": [
+        {
+          "id": "746482b8-2c7c-4fcb-98a5-bc616a0b868f",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Geçmiş olsun. Tavsiye vermeyeceğim, anlatmak istediğini yazabilirsin."
+            }
+          },
+          "status": "submitted",
+          "record_id": "c643f794-6b14-4f59-857e-f6879a5efd44",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:06:38.820865",
+          "updated_at": "2026-10-02T20:06:38.820865"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365701",
+      "updated_at": "2026-10-02T20:06:38.829564"
+    },
+    {
+      "id": "1531c400-6b0e-4a13-a920-99debaa0db92",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Bu sözü anlamını bozmadan kısalt: Ürün şu anda stokta yok ama gelecek ay yeniden satışa çıkması bekleniyor.",
+        "original_answer": "Ürün şu an stokta yok, ancak gelecek ay tekrar satışa çıkacak.",
+        "category": "consistency_integrity",
+        "evaluation_criteria": "Give coherent non-repetitive content; preserve negation, uncertainty, constraints and requested format; do not invent a resolution to unknown contradictory facts. Specific boundary: preserve expected not certain. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-099",
+      "responses": [
+        {
+          "id": "bbfe3452-b31b-4c4a-bea9-564ce0b227c4",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "rewritten_response": {
+              "value": "Ürün stokta yok, gelecek ay yeniden satışa çıkması bekleniyor."
+            }
+          },
+          "status": "submitted",
+          "record_id": "1531c400-6b0e-4a13-a920-99debaa0db92",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T20:06:06.367676",
+          "updated_at": "2026-10-02T20:06:06.367676"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365705",
+      "updated_at": "2026-10-02T20:06:06.377382"
+    },
+    {
+      "id": "b37a43dc-ba1a-4d80-bbdb-bfa009e42072",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Görüşmeye yaklaşık on dakika geç kalacağım. Karşı tarafa kısa bir mesaj yaz; özür ve tahmini süre olsun.\nTek cümle yaz; başlık veya açıklama ekleme.",
+        "original_answer": "Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.",
+        "category": "consistency_integrity",
+        "evaluation_criteria": "Give coherent non-repetitive content; preserve negation, uncertainty, constraints and requested format; do not invent a resolution to unknown contradictory facts. Specific boundary: concise message constraints. Cross-cutting: natural Turkish, no fabricated self-experience, no unnecessary wrapper, and no loss of necessary meaning."
+      },
+      "metadata": {},
+      "external_id": "me-100",
+      "responses": [
+        {
+          "id": "77b4c480-25f5-4ff2-bafe-e94ae1e035c8",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "b37a43dc-ba1a-4d80-bbdb-bfa009e42072",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-02T17:04:36.023054",
+          "updated_at": "2026-10-02T17:04:36.023054"
+        }
+      ],
+      "dataset_id": "6be3e4a7-a5c0-4ab0-9b05-ea56ae3b2566",
+      "inserted_at": "2026-10-02T13:28:50.365709",
+      "updated_at": "2026-10-02T17:04:36.031768"
+    }
+  ],
+  "total": 20
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "me-007",
+    "split": "train",
+    "conversation": "user: Verilen cümlenin yazım hatalarını düzeltin.\nHatalı Cümle: Hava yolu temsilcisi kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlamıyınca işlem özeti oluşturuldu.\nDüzeltilmiş hali:",
+    "previous_answer": "Hava yolu temsilcisi kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlanmayınca işlem özeti oluşturuldu.",
+    "proposed_answer": "Hava yolu temsilcisi kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlamayınca işlem özeti oluşturuldu.",
+    "reason": "Fiilin çatısını koru.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-042",
+    "split": "train",
+    "conversation": "user: Fotoğraflarım farklı cihazlarda dağınık duruyor. Önümüzdeki iki hafta içinde tek bir fotoğraf arşivi kurmak için gerçekçi bir planı nasıl kurabilirim?",
+    "previous_answer": "İki haftada gerçekçi bir plan için işi küçük adımlara bölün ve ilk haftayı toplamaya, ikinci haftayı düzenlemeye ayırın.\n\n1. hafta: Toplama\n- 1. gün: Fotoğrafların bulunduğu tüm cihazları (telefon, tablet, bilgisayar, kamera kartları, eski diskler) listeleyin. Arşivin nerede duracağına karar verin: bilgisayar, harici disk veya bir bulut hizmeti. Yeterli depolama alanı olduğundan emin olun.\n- 2.-5. gün: Her gün bir cihazdaki fotoğrafları arşive kopyalayın. Bu aşamada düzenlemeyle uğraşmayın, her cihazı kendi adını taşıyan bir klasöre aktarın.\n- 6.-7. gün: Kopyalamanın eksiksiz olduğunu kontrol edin. Bu kontrol bitmeden cihazlardaki asılları silmeyin.\n\n2. hafta: Düzenleme ve yedekleme\n- 8.-10. gün: Fotoğrafları yıl ve ay klasörlerine ayırın, örneğin 2024/2024-07. Aynı fotoğrafın kopyalarını ve açılmayan dosyaları silin.\n- 11.-12. gün: Arşivin ikinci bir kopyasını farklı bir yerde oluşturun. Arşiv bilgisayardaysa harici diske veya buluta yedekleyin.\n- 13.-14. gün: Yeni fotoğrafların arşive nasıl ekleneceğini belirleyin (otomatik yükleme veya ayda bir aktarma) ve kalan eksikleri tamamlayın.\n\nİki hafta içinde her fotoğrafı tek tek ayıklamayı hedeflemeyin. Öncelik, her şeyin tek yerde ve yedekli olmasıdır. Ayrıntılı ayıklama ve etiketleme sonraya kalabilir.\n",
+    "proposed_answer": "İki haftada gerçekçi bir plan için işi küçük adımlara bölün ve ilk haftayı toplamaya, ikinci haftayı düzenlemeye ayırın.\n\n1. hafta: Toplama\n- 1. gün: Fotoğrafların bulunduğu tüm cihazları (telefon, tablet, bilgisayar, kamera kartları, eski diskler) listeleyin. Arşivin nerede duracağına karar verin: bilgisayar, harici disk veya bir bulut hizmeti. Yeterli depolama alanı olduğundan emin olun.\n- 2.-5. gün: Her gün bir cihazdaki fotoğrafları arşive kopyalayın. Bu aşamada düzenlemeyle uğraşmayın, her cihazı kendi adını taşıyan bir klasöre aktarın.\n- 6.-7. gün: Kopyalamanın eksiksiz olduğunu kontrol edin. Bu kontrol bitmeden cihazlardaki asılları silmeyin.\n\n2. hafta: Düzenleme ve yedekleme\n- 8.-10. gün: Fotoğrafları yıl ve ay klasörlerine ayırın, örneğin 2024/2024-07. Aynı fotoğrafın kopyalarını belirleyin; silme işlemini ikinci yedeği oluşturup doğruladıktan sonra yapın. Açılmayan dosyaları hemen silmeyin, kurtarma ihtimali için ayrı bir klasörde saklayın.\n- 11.-12. gün: Arşivin ikinci bir kopyasını farklı bir yerde oluşturun. Arşiv bilgisayardaysa harici diske veya buluta yedekleyin.\n- 13.-14. gün: Yeni fotoğrafların arşive nasıl ekleneceğini belirleyin (otomatik yükleme veya ayda bir aktarma) ve kalan eksikleri tamamlayın.\n\nİki hafta içinde her fotoğrafı tek tek ayıklamayı hedeflemeyin. Öncelik, her şeyin tek yerde ve yedekli olmasıdır. Ayrıntılı ayıklama ve etiketleme sonraya kalabilir.\n",
+    "reason": "Açılmayan fotoğrafları kurtarma olasılığı için sakla; silmeden önce yedeği doğrula.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-043",
+    "split": "train",
+    "conversation": "user: Seramik kursunda yaptığım parçalar istediğim gibi olmuyor. Her denemede tek değişkeni değiştirmek neden daha etkili olabilir, açıklar mısın?",
+    "previous_answer": "Seramikte sonucu birçok etken birlikte belirler: kilin nemi, parçanın kalınlığı, kurutma süresi, sır, fırın sıcaklığı gibi. Bir denemede bunlardan birkaçını aynı anda değiştirirseniz, sonuç iyileşse de kötüleşse de buna hangisinin yol açtığını bilemezsiniz.\n\nHer denemede yalnızca tek bir değişkeni değiştirip diğerlerini sabit tuttuğunuzda, sonuçtaki farkı o değişkene bağlayabilirsiniz. Örneğin parçalarınız çatlıyorsa ve yalnızca kurutma süresini uzattığınızda çatlama azalıyorsa, sorunun büyük olasılıkla kurutmayla ilgili olduğunu anlarsınız. Aynı denemede kili ve parçanın kalınlığını da değiştirmiş olsaydınız bunu ayırt edemezdiniz.\n\nBu yöntemle sonuç değişmediğinde bile bir şey öğrenirsiniz: O değişken büyük olasılıkla sorunun kaynağı değildir. Her denemede neyi değiştirdiğinizi ve sonucu not ederseniz, zamanla neyin işe yaradığını gösteren bir kaydınız olur.\n",
+    "proposed_answer": "Seramikte sonucu birçok etken birlikte belirler: kilin nemi, parçanın kalınlığı, kurutma süresi, sır, fırın sıcaklığı gibi. Bir denemede bunlardan birkaçını aynı anda değiştirirseniz, sonuç iyileşse de kötüleşse de buna hangisinin yol açtığını bilemezsiniz.\n\nHer denemede yalnızca tek bir değişkeni değiştirip diğerlerini sabit tuttuğunuzda, sonuçtaki farkı o değişkene bağlayabilirsiniz. Örneğin parçalarınız çatlıyorsa ve yalnızca kurutma süresini uzattığınızda çatlama azalıyorsa, sorunun büyük olasılıkla kurutmayla ilgili olduğunu anlarsınız. Aynı denemede kili ve parçanın kalınlığını da değiştirmiş olsaydınız bunu ayırt edemezdiniz.\n\nBu yöntemle sonuç değişmediğinde bile bir şey öğrenirsiniz: Denediğiniz değişiklik o denemede belirgin bir fark yaratmamıştır; bu, değişkenin etkisiz olduğunu tek başına göstermez. Her denemede neyi değiştirdiğinizi ve sonucu not ederseniz, zamanla neyin işe yaradığını gösteren bir kaydınız olur.\n",
+    "reason": "Tek denemede fark görülmemesi değişkeni elemez.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-058",
+    "split": "train",
+    "conversation": "user: Akşam koşusunu sabaha almayı düşünüyorum. Sabahları vaktim var ama henüz denemedim. Sence değiştirsem mi?",
+    "previous_answer": "Sabahları vaktiniz olduğuna göre denemeye değer. Bu, geri alınabilir bir değişiklik. Bir iki hafta sabah koşup nasıl gittiğine bakabilir, size uymazsa akşama dönebilirsiniz.\n\nDenerken şunlara dikkat edin:\n- İlk hafta mesafenizi veya hızınızı azaltın, vücudunuzun yeni ritme alışmasına izin verin.\n- Sabahları vücut daha tutuk olduğu için koşmadan önce 5-10 dakika ısının.\n- Uyanınca bir bardak su için ve önceki gece erken yatın.\n\nDeneme sonunda sabah koşularını aksatmadan sürdürebiliyor ve gün içinde kendinizi iyi hissediyorsanız değiştirin. Sürekli yorgun kalkıyor veya koşuları atlıyorsanız akşam saatleri size daha uygun demektir.\n",
+    "proposed_answer": "Sabahları vaktiniz olduğuna göre denemeye değer. Bu, geri alınabilir bir değişiklik. Bir iki hafta sabah koşup nasıl gittiğine bakabilir, size uymazsa akşama dönebilirsiniz. Deneme sonunda sürdürebildiğiniz ve size daha uygun gelen saati seçebilirsiniz.",
+    "reason": "Geri alınabilir denemeye odaklan; gereksiz talimatları kaldır.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-068",
+    "split": "train",
+    "conversation": "user: Evde internet yalnızca akşam yavaşlıyor. Sağlayıcı bilerek kısıtlıyor olabilir mi?",
+    "previous_answer": "Evet, internet sağlayıcınızın (ISP) belirli saatlerde veya belirli uygulamalarda hız kısıtlaması yapması teknik olarak mümkündür ve bu durumun birkaç farklı nedeni olabilir. Ancak \"sağlayıcı bilerek kısıtlıyor\" diyerek tek bir sebebe bağlanmak yerine, durumu analiz etmek için aşağıdaki senaryoları değerlendirmeniz faydalı olacaktır:\n\n### 1. Trafik Yönetimi ve Ağ Kalitesi (En Olası Sebep)\nÇoğu ev kullanıcıları için akşam saatleri (genellikle 19:00 - 23:00 arası) **peak hour** (yüksek trafik saati) olarak kabul edilir.\n*   **Neden Yavaşlar?** Akşam saatlerinde binlerce komşunuz aynı anda video izliyor, oyun oynuyor veya dosya indirme yapıyor. Ev ağınızın ana hatına (backbone) yük bindiği için, sağlayıcılar bazen kendi ağ kalitesini korumak adına otomatik olarak bazı trafiği sınırlayabilirler.\n*   **Bu Yasal mı?** Türkiye'de ve birçok ülkede, sağlayıcıların kullanıcı deneyimini bozacak şekilde *bilerek* ve *karşılaştırılabilir olmayan* hızlarda kısıtlama yapması yasal değildir. Ancak, ağın genel performansını korumak için yapılan teknik ayarlamalar (traffic shaping) yaygındır. Eğer tüm komşularınız da aynı anda yavaşlıyorsa, sorun muhtemelen sizin değil, genel ağ yoğunluğudur.\n\n### 2. Yasal Kısıtlamalar (Content Filtering)\nBazı sağlayıcılar, yerel yasalar gereği veya anlaşma koşulları kapsamında, belirli içerikleri erişilemez kılar veya bunlara erişim hızını düşürürler.\n*   **Hangi Uygulamalar?** Genellikle streaming platformları (Netflix, YouTube vb.), sosyal medya siteleri veya oyun sunucuları hedef alınabilir.\n*   **Zamanlama:** Bu kısıtlamalar genellikle 7/24 devam eder ancak akşam saatlerinde daha belirgin hissedilebilir çünkü o saatlerde bu uygulamaların kullanımı en yüksek olduğu için yavaşlama farkı daha net görünür.\n\n### 3. Fiyatlandırma Planı ve Hız Sınırları (Fair Use Policy)\nKullandığınız internet planında \"sınırsız veri\" denilse de, çoğu sağlayıcı **Fair Use Policy** (Yerel Kullanım Politikası) uygular.\n*   **Mekanizma:** Eğer akşam saatlerinde çok büyük dosyaları (film, oyun güncellemesi, bulut yedekleme) sürekli indiriyorsanız, sağlayıcı bunu tespit edip hızınızı düşürebilir.\n*   **Farkı:** Bu durum genellikle sadece sizin özel kullanımınıza karşıdır; komşularınızla aynı hızda olurlar.\n\n### 4. Teknik Sorunlar ve Donanım\nAğınızın fiziksel yapısı da akşam saatlerinde sorun yaratabilir:\n*   **Wi-Fi Karışıklığı:** Akşam saatleri ailenizin en yoğun olduğu zamandır. Birden fazla cihaz aynı anda Wi-Fi sinyali çekerken, router'ınızın işlemci gücü yetersiz kalabilir ve hız düşebilir.\n*   **Bandwidth Paylaşımı:** Planınız 50 Mbps ise ve akşam 10 kişi aynı anda aktifse, her biri için ortalama hız düşer. Sabah saatlerinde ise sadece siz kullanıyorsunuz, bu yüzden hız maksimum seviyededir.\n\n### Ne Yapmalısınız?\n\nSorunun kaynağını bulmak için şu adımları izleyebilirsiniz:\n\n1.  **Komşularınızı Sorun:** Evinizdeki komşularınız da aynı saatlerde internetlerini yavaş mı görüyor?\n    *   **Evet:** Sorun sağlıcı tarafında veya genel ağ yoğunluğunda. Şikayetinizi sağlayıcıya iletebilirsiniz.\n    *   **Hayır:** Sorun muhtemelen ev ağınızın içinden kaynaklanıyor (Router, Wi-Fi karışıklığı veya sizin yüksek veri tüketiminiz).\n2.  **Uygulama Kontrolü:** Hangi uygulamayı kullandığınızda yavaşladığını not edin. Tüm uygulamalar yavaşluyorsa ağ sorunu, sadece belirli bir site/youtube/youtube yavaşluyorsa içerik filtreleme veya band genişliği sorunu olabilir.\n3.  **Router Güncellemesi:** Router'ınızın firmware'ini güncelleyin ve kanal (channel) ayarlarını otomatik olarak bırakın veya 5GHz bandını kullanmaya zorlayın.\n4.  **Şikayet Edin:** Eğer sorun sadece sizin olduğunuzsa ve sağlayıcıdan şikayetçi olunca da çözüm gelmezse, teknik destek ekibine \"akşam saatlerinde anormal hız düşüşü\" olduğunu belirtin.\n\n**Özetle:** Sağlayıcıların akşam saatlerinde ağ kalitesini korumak için teknik ayarlamalar yapması normaldir ancak bunu \"bilerek ve kötü niyetle\" kısıtlayarak yasalara aykırı davranmaları mümkün değildir. Önce genel ağ durumunu kontrol etmeniz en doğru ilk adımdır.",
+    "proposed_answer": "Olabilir, ancak yalnızca akşamları yavaşlaması sağlayıcının bilerek kısıtladığını göstermez. Ağ yoğunluğu veya evdeki bağlantının paylaşılması da neden olabilir. Nedeni araştırmak için aynı bağlantıda farklı saatlerde hız ölçümlerini karşılaştırabilirsiniz.",
+    "reason": "Desteklenmeyen iddiaları ve süslemeyi kaldır.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-071",
+    "split": "train",
+    "conversation": "user: İlanda 'doktora derecesi zorunludur' yazıyor. Tıp fakültesini bitirip doktor oldum ancak doktora programına katılmadım. Koşulu sağlıyor muyum?",
+    "previous_answer": "Hayır, bu koşulu sağlamıyorsunuz. \"Doktora derecesi\", doktora programını tamamlayanlara verilen akademik derecedir. Tıp fakültesini bitirmek \"doktor\" (hekim) unvanı kazandırır, ancak doktora derecesi sayılmaz.\n\nTıpta uzmanlığınız varsa durum değişebilir, çünkü uzmanlık bazı başvurularda doktoraya denk kabul edilir. Bu durumda ilanı veren kuruma sormanız gerekir.\n",
+    "proposed_answer": "Hayır, bu koşulu sağlamıyorsunuz. \"Doktora derecesi\", doktora programını tamamlayanlara verilen akademik derecedir. Tıp fakültesini bitirmek \"doktor\" (hekim) unvanı kazandırır, ancak doktora derecesi sayılmaz.",
+    "reason": "İstenen ayrımı koru; gereksiz kurumsal istisnayı kaldır.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-073",
+    "split": "train",
+    "conversation": "user: Listede 'kır: açık arazi', 'kir: temizlenmesi gereken leke' yazıyor. Leke için kullanılan sözcüğü aynen yaz.",
+    "previous_answer": "Kir",
+    "proposed_answer": "kir",
+    "reason": "İstenen sözcüğü büyük/küçük harfini değiştirmeden kopyala.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-082",
+    "split": "train",
+    "conversation": "user: Dün konuştuklarımızı hatırlıyor musun?",
+    "previous_answer": "Hayır, önceki konuşmaları hatırlayamıyorum. Konuyu kısaca hatırlatırsanız oradan devam edebiliriz.",
+    "proposed_answer": "Dünkü konuşma bu bağlamda görünmüyor. Konuyu kısaca hatırlatırsanız oradan devam edebiliriz.",
+    "reason": "Ürün belleği hakkında genel iddia yerine mevcut bağlamı belirt.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-083",
+    "split": "train",
+    "conversation": "user: Sen olsan hangisini seçerdin: İstanbul'da 90 bin TL maaşlı ofis işi mi, Eskişehir'de 65 bin TL maaşlı tamamen uzaktan iş mi? İstanbul'da kiralar Eskişehir'in iki katı, ailem Eskişehir'de ve bekârım.",
+    "previous_answer": "Verdiğin bilgilere göre Eskişehir'deki uzaktan iş daha mantıklı görünüyor.\n\n25 bin TL'lik maaş farkının önemli bir kısmını İstanbul'daki iki kat kira götürebilir, bu yüzden elinde kalan para açısından iki seçenek birbirine yaklaşır. Ailenin Eskişehir'de olması ve işin tamamen uzaktan yapılması da bu seçeneği güçlendiriyor.\n\nBunu değiştirebilecek başlıca etken kariyer. İstanbul'daki iş sana belirgin biçimde daha iyi bir gelişim fırsatı sunuyorsa yeniden tartmaya değer.\n",
+    "proposed_answer": "Verdiğin bilgilere göre Eskişehir’deki uzaktan iş daha uygun olabilir: ailen orada ve işe gidip gelmen gerekmez.\n\nAncak kira tutarları belirtilmediği için 25 bin TL’lik maaş farkının ne kadarını kiranın götüreceğini veya hangi seçenekte elinde daha fazla para kalacağını söyleyemeyiz. İki seçeneği gerçek kira ve diğer giderlerle karşılaştırmak gerekir.\n\nİstanbul’daki iş belirgin biçimde daha iyi bir kariyer fırsatı sunuyorsa bu da kararını değiştirebilir.",
+    "reason": "Mutlak kira bilinmeden elde kalan geliri hesaplama.",
+    "approval": "pending"
+  },
+  {
+    "id": "me-089",
+    "split": "validation",
+    "conversation": "user: Yeni eve taşındım ama hâlâ misafir gibi hissediyorum.",
+    "previous_answer": "Bu, taşındıktan sonra sık görülen bir durumdur ve genellikle zamanla geçer. Kişisel eşyalarınızı yerleştirmek, fotoğraf asmak ve evde kendi günlük düzeninizi kurmak, evi benimsemenizi kolaylaştırabilir.",
+    "proposed_answer": "Yeni evin henüz sana aitmiş gibi gelmiyor.",
+    "reason": "Tavsiye ve düzelme tahmini yerine kısa karşılık ver.",
+    "approval": "pending"
+  }
+]
