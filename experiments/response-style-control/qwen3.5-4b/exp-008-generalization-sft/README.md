@@ -7,7 +7,9 @@ All 100 initial Argilla reviews were completed and exported: 82 rewrites,
 `data/generalization-reviewed-100.jsonl`; the standalone 100-row CSV is a
 historical initial export. All 11 QA corrections were completed and applied
 with separate provenance; the final artifact is
-`data/sft-generalization-final-100.csv`. No exp-008 GPU run has started.
+`data/sft-generalization-final-100.csv`. GPU preflight and full training completed
+on 2026-10-02. Base and adapter generations are complete for all 50 development
+questions; blind human review is pending. See `GPU-RUN-NOTES.md`.
 
 Structural, source-binding, canonical-LF hash, exact-overlap, and near-overlap
 checks passed. The full response review flagged 11 replies containing unsupported
@@ -100,13 +102,13 @@ comparison with exp-006 and does not prove broad retention.
 decisions and records conversational benchmark approval without altering UI
 statuses. Frozen files cannot be overwritten with differing content.
 
-GPU access is the remaining execution dependency. The user will provide it.
-See `GPU-HANDOFF.md` for preflight, training and generation commands. No GPU
-work was attempted on the local GTX 1650 (4 GB).
+GPU execution completed on a Vast RTX 4090. See `GPU-HANDOFF.md` for the
+historical commands and `GPU-RUN-NOTES.md` for actual results. No GPU work
+was attempted on the local GTX 1650 (4 GB).
 
-Next: base generations, representation-check, smoke and tiny-overfit; inspect
-all gates before full training, then blinded development comparison. Freeze
-independent evaluation before broader quality claims.
+Next: complete the blinded development comparison in Argilla, then aggregate
+overall and per-family results. Freeze independent evaluation before broader
+quality claims.
 
 Re-export initial annotations using `export_reviews.py`; validate with
 `validate_candidates.py` and `validate_reviews.py`. The latter writes a quality

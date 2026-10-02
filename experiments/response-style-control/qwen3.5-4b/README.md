@@ -108,4 +108,4 @@ test. The independent communication-policy benchmark is being authored under
 | `exp-005-targeted-policy-sft` | completed | Add reviewed clarification, typo-like precision, and non-anthropomorphism examples | Valid 4090 run; qualitative review motivated exp-006 quality repair |
 | `exp-006-quality-repair-sft` | trained; blind review pending | Add five reviewed quality-repair families while keeping the exp-005 recipe fixed | Full-v1 and paired generation complete; see GPU-RUN-NOTES.md |
 | `exp-007-boundary-benchmark` | frozen development v2 | 50 development questions covering rules and exceptions | Six overlapping scenarios replaced; explicit and conversational approvals recorded |
-| `exp-008-generalization-sft` | ready for GPU preflight | Standalone 100-example diagnostic pilot | Eleven completed QA corrections applied; frozen data/config; local validation and dry-run passed |
+| `exp-008-generalization-sft` | trained; blind review pending | Standalone 100-example diagnostic pilot | GPU gates passed; 39-step full run and 50 base/candidate generations complete; W&B finished |

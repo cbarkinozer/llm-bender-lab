@@ -1,7 +1,8 @@
 # GPU handoff
 
-Data and evaluation preparation are complete. User will provide GPU access;
-no GPU run or cloud provisioning has been performed.
+Execution completed on 2026-10-02 on the user-provided Vast RTX 4090.
+This document preserves the pre-run recipe; see `GPU-RUN-NOTES.md` for
+actual gates, training, artifacts and the pending blind review.
 
 Use the repository's existing Unsloth environment setup and consult
 `docs/environment-setup-gotchas.md` before installing on a new/restarted pod.
