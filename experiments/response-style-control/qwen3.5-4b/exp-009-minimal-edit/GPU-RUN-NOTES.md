@@ -13,6 +13,12 @@
   vLLM 0.18.0 declares Transformers <5. No model generation occurred.
 - Next compatibility attempt: vLLM 0.20.1 with its declared dependencies.
   Record actual package freeze and smoke outcome before accepting this stack.
+- vLLM 0.20.1 installs Torch 2.11.0. The runner must use vLLM's
+  `get_config` registry for Qwen3.5 rather than plain AutoConfig on the
+  resolved Transformers 4.x stack. The pinned checkpoint has no separate
+  `generation_config.json`; derive its generation config from the model
+  config, retaining the tokenizer EOS fallback. Both startup failures are
+  preserved in smoke2/smoke3 logs and manifests.
 - All 100 answers can be edited by the user, but the 20 validation answers
   remain evaluation-only. Never merge validation references into training.
 - Download logs, manifests, raw answers and source snapshot before shutdown.

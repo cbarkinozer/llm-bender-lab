@@ -44,7 +44,12 @@ def main():
         model = cfg['model']
         tokenizer = AutoTokenizer.from_pretrained(model['name'], revision=model['tokenizer_revision'])
         mc = get_config(model['name'], trust_remote_code=False, revision=model['revision'])
-        gc = GenerationConfig.from_pretrained(model['name'], revision=model['revision'])
+        try:
+            gc = GenerationConfig.from_pretrained(model['name'], revision=model['revision'])
+        except OSError as error:
+            if 'generation_config.json' not in str(error):
+                raise
+            gc = GenerationConfig.from_model_config(mc)
         native = gc.eos_token_id or tokenizer.eos_token_id
         eos = native if isinstance(native, list) else [native]
         if not eos or any(not isinstance(i, int) for i in eos):
