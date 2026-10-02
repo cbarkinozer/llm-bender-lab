@@ -1,0 +1,97 @@
+{
+  "version": "prompt-selection-v2",
+  "selection_date": "2026-10-02",
+  "parent_version": "prompt-selection-v1",
+  "parent_manifest_sha256": "b3594ef5d2eb00f491c6e754430f36ab57d010278a88dc819eaf57de70221c5b",
+  "inputs": {
+    "exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv": {
+      "sha256_bytes": "46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163",
+      "sha256_canonical_lf": "46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163",
+      "rows": 2442
+    },
+    "exp-006-quality-repair-sft/data/sft-clean-v4-quality-repair-958.csv": {
+      "sha256_bytes": "bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff",
+      "sha256_canonical_lf": "bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff",
+      "rows": 958
+    },
+    "exp-008-generalization-sft/data/sft-generalization-final-100.csv": {
+      "sha256_bytes": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6",
+      "sha256_canonical_lf": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6",
+      "rows": 100
+    }
+  },
+  "artifacts": {
+    "prompts-100.jsonl": {
+      "rows": 100,
+      "sha256": "c4a770780949c2508d5947c881b0f3834b75941674ccac6c5191d5895a0d3713"
+    },
+    "prompts-100.csv": {
+      "rows": 100,
+      "sha256": "c28e2d0b69fe689ed284140def578afe27cbca81ae960821cc90882a9a2b36b4"
+    },
+    "train-prompts-80.jsonl": {
+      "rows": 80,
+      "sha256": "8fdd30e1db38f26a67191b82574869e01bbd1c3b6e76c0010e7c777c8db4d5ce"
+    },
+    "train-prompts-80.csv": {
+      "rows": 80,
+      "sha256": "af214dbb9d3f003105d18a2d25a866d494f8e7e26e444611a9af9ab5a188fedc"
+    },
+    "validation-prompts-20.jsonl": {
+      "rows": 20,
+      "sha256": "8829ca5e34f4ac08de898c4a1c308286cfaf10df0cd698b630d73fec6a73390d"
+    },
+    "validation-prompts-20.csv": {
+      "rows": 20,
+      "sha256": "b88af579717062309cbbeac9e266563cc3896c9718da67f5ffb6f2e20bc578a7"
+    }
+  },
+  "split_counts": {
+    "train": 80,
+    "validation": 20
+  },
+  "group_count": 97,
+  "category_counts": {
+    "grammar_correction": 10,
+    "answer_extraction": 10,
+    "numeric_entity_precision": 10,
+    "faithful_summary": 10,
+    "useful_explanation": 10,
+    "selective_clarification": 10,
+    "grounded_completion": 10,
+    "turkish_lexical_precision": 10,
+    "non_anthropomorphic_interaction": 10,
+    "consistency_integrity": 10
+  },
+  "origin_counts": {
+    "historical-verbatim": 87,
+    "historical-prompt-with-authored-instruction": 2,
+    "historical-prompt-with-authored-context": 3,
+    "new-agent-authored": 4,
+    "historical-reselected": 4
+  },
+  "changed_row_ids": [
+    "me-014",
+    "me-053",
+    "me-054",
+    "me-059",
+    "me-073",
+    "me-074",
+    "me-075",
+    "me-076",
+    "me-078",
+    "me-080",
+    "me-081",
+    "me-088",
+    "me-100"
+  ],
+  "authoring_provenance": "Project agent on 2026-10-02; exact new text and transformations in build_v2.py; no provider identity invented.",
+  "human_target_approval": false,
+  "historical_adapter_novelty_required": false,
+  "limitations": [
+    "Not exhaustive Turkish orthography coverage.",
+    "20-item validation gives coarse estimates.",
+    "Context assistant turns are authored input, not base-model drafts or reviewed training targets.",
+    "Future SFT must mask context and supervise only the final edited response; shared trainer compatibility not yet validated."
+  ]
+}

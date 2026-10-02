@@ -1,0 +1,240 @@
+{
+  "directness_formatting": {
+    "description": "Answer directly when answerable; follow format without decorative wrappers.",
+    "train_ids": [
+      "me-001",
+      "me-002",
+      "me-003",
+      "me-004",
+      "me-005",
+      "me-006",
+      "me-007",
+      "me-008",
+      "me-011",
+      "me-012",
+      "me-013",
+      "me-014",
+      "me-015",
+      "me-016",
+      "me-017",
+      "me-018"
+    ],
+    "validation_ids": [
+      "me-009",
+      "me-010",
+      "me-019",
+      "me-020",
+      "me-100"
+    ],
+    "required_ids": [
+      "me-014",
+      "me-100"
+    ]
+  },
+  "accurate_extraction": {
+    "description": "Select correct fact/entity/number/unit despite distractors.",
+    "train_ids": [
+      "me-011",
+      "me-012",
+      "me-013",
+      "me-014",
+      "me-015",
+      "me-016",
+      "me-017",
+      "me-018",
+      "me-021",
+      "me-022",
+      "me-023",
+      "me-024",
+      "me-025",
+      "me-026",
+      "me-027",
+      "me-028"
+    ],
+    "validation_ids": [
+      "me-019",
+      "me-020",
+      "me-029",
+      "me-030"
+    ],
+    "required_ids": []
+  },
+  "faithful_summary": {
+    "description": "Preserve meaning, timing, uncertainty, attribution and necessary conditions.",
+    "train_ids": [
+      "me-031",
+      "me-032",
+      "me-033",
+      "me-034",
+      "me-035",
+      "me-036",
+      "me-037",
+      "me-038"
+    ],
+    "validation_ids": [
+      "me-039",
+      "me-040",
+      "me-099"
+    ],
+    "required_ids": [
+      "me-032",
+      "me-039",
+      "me-099"
+    ]
+  },
+  "useful_explanation": {
+    "description": "Keep necessary substance; avoid padding and oversimplification.",
+    "train_ids": [
+      "me-041",
+      "me-042",
+      "me-043",
+      "me-044",
+      "me-045",
+      "me-046",
+      "me-047",
+      "me-048"
+    ],
+    "validation_ids": [
+      "me-049",
+      "me-050"
+    ],
+    "required_ids": []
+  },
+  "selective_clarification": {
+    "description": "Ask only if needed; use supplied clarification and stop the question loop.",
+    "train_ids": [
+      "me-051",
+      "me-052",
+      "me-053",
+      "me-054",
+      "me-055",
+      "me-056",
+      "me-057",
+      "me-058"
+    ],
+    "validation_ids": [
+      "me-059",
+      "me-060"
+    ],
+    "required_ids": [
+      "me-052",
+      "me-053",
+      "me-054",
+      "me-059",
+      "me-060"
+    ]
+  },
+  "groundedness": {
+    "description": "No invented causes, motives, unsupported facts or guarantees.",
+    "train_ids": [
+      "me-061",
+      "me-062",
+      "me-063",
+      "me-064",
+      "me-065",
+      "me-066",
+      "me-067",
+      "me-068"
+    ],
+    "validation_ids": [
+      "me-069",
+      "me-070"
+    ],
+    "required_ids": []
+  },
+  "turkish_precision": {
+    "description": "Character/near-word distinctions plus correct suffixes, tense and syntax.",
+    "train_ids": [
+      "me-001",
+      "me-002",
+      "me-003",
+      "me-004",
+      "me-005",
+      "me-006",
+      "me-007",
+      "me-008",
+      "me-071",
+      "me-072",
+      "me-073",
+      "me-074",
+      "me-075",
+      "me-076",
+      "me-077",
+      "me-078"
+    ],
+    "validation_ids": [
+      "me-009",
+      "me-010",
+      "me-079",
+      "me-080"
+    ],
+    "required_ids": [
+      "me-009",
+      "me-010",
+      "me-073",
+      "me-074",
+      "me-078",
+      "me-079",
+      "me-080"
+    ]
+  },
+  "non_anthropomorphism": {
+    "description": "No fabricated feelings, preference, experience, memory or attachment; engage with explicit hypotheticals.",
+    "train_ids": [
+      "me-081",
+      "me-082",
+      "me-083",
+      "me-084",
+      "me-085",
+      "me-086",
+      "me-087",
+      "me-088"
+    ],
+    "validation_ids": [
+      "me-089",
+      "me-090"
+    ],
+    "required_ids": [
+      "me-081",
+      "me-082",
+      "me-083",
+      "me-084",
+      "me-086",
+      "me-087",
+      "me-088"
+    ]
+  },
+  "neutral_acknowledgment": {
+    "description": "Appropriate acknowledgment without fake emotion, forced advice or reflexive questions.",
+    "train_ids": [
+      "me-085"
+    ],
+    "validation_ids": [
+      "me-089",
+      "me-090"
+    ],
+    "required_ids": [
+      "me-085",
+      "me-089",
+      "me-090"
+    ]
+  },
+  "consistency": {
+    "description": "No contradiction, circularity or repetition; preserve negation and constraints.",
+    "train_ids": [
+      "me-091",
+      "me-092",
+      "me-093",
+      "me-094",
+      "me-095",
+      "me-096",
+      "me-097",
+      "me-098"
+    ],
+    "validation_ids": [
+      "me-099",
+      "me-100"
+    ],
+    "required_ids": []
+  }
+}

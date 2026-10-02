@@ -1,0 +1,37 @@
+{
+  "exact_full_prompt_overlap": 0,
+  "cross_split_group_overlap": 0,
+  "cross_split_source_identity_overlap": 0,
+  "pair_count": 4950,
+  "cross_split_pair_count": 1600,
+  "near_thresholds": {
+    "sequence_ratio": 0.6,
+    "token_jaccard": 0.45
+  },
+  "turn_aware_flags": [
+    {
+      "left": "me-042",
+      "right": "me-045",
+      "cross_split": false,
+      "sequence_ratio": 0.6734,
+      "token_jaccard": 0.4074,
+      "same_group": false
+    },
+    {
+      "left": "me-052",
+      "right": "me-053",
+      "cross_split": false,
+      "sequence_ratio": 1.0,
+      "token_jaccard": 1.0,
+      "same_group": true
+    },
+    {
+      "left": "me-054",
+      "right": "me-055",
+      "cross_split": false,
+      "sequence_ratio": 1.0,
+      "token_jaccard": 1.0,
+      "same_group": true
+    }
+  ]
+}

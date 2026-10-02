@@ -1,0 +1,27 @@
+{
+  "rows": 100,
+  "split_counts": {
+    "train": 80,
+    "validation": 20
+  },
+  "exact_normalized_duplicate_prompts": 0,
+  "cross_split_group_overlap": 0,
+  "historical_assistant_targets_copied": 0,
+  "group_count": 99,
+  "near_match_thresholds": {
+    "sequence_ratio": 0.6,
+    "token_jaccard": 0.45
+  },
+  "near_match_pairs_for_review": [
+    {
+      "left": "me-042",
+      "right": "me-045",
+      "left_source": "open_ended_counterexample__147",
+      "right_source": "open_ended_counterexample__067",
+      "cross_split": false,
+      "sequence_ratio": 0.6734,
+      "token_jaccard": 0.4074
+    }
+  ],
+  "semantic_independence": "Requires documented manual pair and full prompt review; lexical checks alone do not prove it."
+}

@@ -1,0 +1,121 @@
+{
+  "version": "prompt-selection-v1",
+  "selection_date": "2026-10-02",
+  "selection_method": "Explicit hand-curated source IDs and scenario-aware split; no random seed applies.",
+  "starting_model": "unsloth/Qwen3.5-4B",
+  "model_revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+  "historical_adapter_novelty_required": false,
+  "inputs": {
+    "exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv": {
+      "sha256_bytes": "46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163",
+      "sha256_canonical_lf": "46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163",
+      "rows": 2442
+    },
+    "exp-006-quality-repair-sft/data/sft-clean-v4-quality-repair-958.csv": {
+      "sha256_bytes": "bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff",
+      "sha256_canonical_lf": "bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff",
+      "rows": 958
+    },
+    "exp-008-generalization-sft/data/sft-generalization-final-100.csv": {
+      "sha256_bytes": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6",
+      "sha256_canonical_lf": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6",
+      "rows": 100
+    }
+  },
+  "artifacts": {
+    "prompts-100.jsonl": {
+      "rows": 100,
+      "sha256": "a1f45fa1f6a91746571511afad6a271a8df5a60bacce00433f4bb253af948b1e"
+    },
+    "prompts-100.csv": {
+      "rows": 100,
+      "sha256": "1a4effd176326594242b7afae7c4b90a65dda114821a29088dd76765083fe6f3"
+    },
+    "train-prompts-80.jsonl": {
+      "rows": 80,
+      "sha256": "e16b48f7d09f244b8a7bf3c1e5b1cd048ddc3bd7a42e3cd0d2c9f529bba92cee"
+    },
+    "train-prompts-80.csv": {
+      "rows": 80,
+      "sha256": "dea36f78d562a64d1beee44606f8f2fa876f01968c76de94a0653dee9517984d"
+    },
+    "validation-prompts-20.jsonl": {
+      "rows": 20,
+      "sha256": "d6e334ee825c6b33df42ea3acfb070bcc06ad621384ff1297e14713122b2f0af"
+    },
+    "validation-prompts-20.csv": {
+      "rows": 20,
+      "sha256": "46bb10bb92bc9fca9b86d636fe8f6d276a561210245ad30d58be907025bbc970"
+    }
+  },
+  "category_counts": {
+    "grammar_correction": 10,
+    "answer_extraction": 10,
+    "numeric_entity_precision": 10,
+    "faithful_summary": 10,
+    "useful_explanation": 10,
+    "selective_clarification": 10,
+    "grounded_completion": 10,
+    "turkish_lexical_precision": 10,
+    "non_anthropomorphic_interaction": 10,
+    "consistency_integrity": 10
+  },
+  "category_split_counts": {
+    "grammar_correction": {
+      "train": 8,
+      "validation": 2
+    },
+    "answer_extraction": {
+      "train": 8,
+      "validation": 2
+    },
+    "numeric_entity_precision": {
+      "train": 8,
+      "validation": 2
+    },
+    "faithful_summary": {
+      "train": 8,
+      "validation": 2
+    },
+    "useful_explanation": {
+      "train": 8,
+      "validation": 2
+    },
+    "selective_clarification": {
+      "train": 8,
+      "validation": 2
+    },
+    "grounded_completion": {
+      "train": 8,
+      "validation": 2
+    },
+    "turkish_lexical_precision": {
+      "train": 8,
+      "validation": 2
+    },
+    "non_anthropomorphic_interaction": {
+      "train": 8,
+      "validation": 2
+    },
+    "consistency_integrity": {
+      "train": 8,
+      "validation": 2
+    }
+  },
+  "mode_counts": {
+    "correct": 13,
+    "extract": 25,
+    "summarize": 11,
+    "explain": 10,
+    "answer": 33,
+    "clarify": 4,
+    "conditional": 4
+  },
+  "limitations": [
+    "Agent curation, not new human approval.",
+    "No multi-turn clarification-resolution rows exist in this selection.",
+    "Targets not generated; no training artifact exists.",
+    "Validation is development, not final test.",
+    "Historical source approvals include saturation-based approvals, not individual review of every original row."
+  ]
+}

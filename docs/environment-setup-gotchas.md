@@ -1,5 +1,22 @@
 # Environment & Pod Setup Gotchas
 
+## Vast.ai inference backend preference (2026-10-02)
+
+The user explicitly wants fast GPU inference with **vLLM** as the default;
+**SGLang** is an acceptable alternative after checking model compatibility.
+This applies to base-answer generation and benchmark inference, including
+exp-009. Do not silently use Hugging Face/Transformers `generate()` or Unsloth
+as the inference engine. Keep those tools for experimentation and fine-tuning;
+using a Hugging Face tokenizer or downloading a checkpoint from the Hub is not
+the same as using Transformers as the generation engine.
+
+On a new Vast.ai instance, check support for the exact model architecture,
+pin a compatible engine version, use persistent environments/caches under
+`/workspace`, and pass a small inference smoke test before the full workload.
+Record engine settings, package versions, actual termination reasons and logs.
+If neither fast backend works, report the blocker before changing this policy.
+Inference-only runs do not need W&B unless explicitly requested.
+
 Concrete mistakes hit while standing up the CETVEL/vLLM environments on
 RunPod, kept here so they aren't silently repeated on the next fresh pod.
 Read this before re-running any `setup_*.sh` script on a new pod, or before

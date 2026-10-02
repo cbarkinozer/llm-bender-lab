@@ -1,0 +1,30 @@
+{
+  "experiment_id": "exp-009-minimal-edit",
+  "dataset_version": "prompt-selection-v2",
+  "dataset_path": "data-v2/prompts-100.jsonl",
+  "dataset_sha256": "c4a770780949c2508d5947c881b0f3834b75941674ccac6c5191d5895a0d3713",
+  "expected_rows": 100,
+  "expected_split_counts": {"train": 80, "validation": 20},
+  "model": {
+    "name": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "tokenizer_revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter": null,
+    "precision": "bfloat16",
+    "context_tokens": 32768
+  },
+  "generation": {
+    "additional_system_prompt": null,
+    "thinking_mode": false,
+    "do_sample": false,
+    "num_beams": 1,
+    "repetition_penalty": 1.0,
+    "seed": 3407,
+    "output_token_budgets": [4096, 8192, 16384],
+    "stop_policy": "native_eos_or_end_of_turn",
+    "forced_eos_token_id": null,
+    "input_truncation": false,
+    "on_length_limit": "rerun_same_input_at_next_budget_keep_all_attempts",
+    "on_exhausted_budget": "mark_incomplete_do_not_import_into_review"
+  }
+}

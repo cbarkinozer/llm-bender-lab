@@ -1,0 +1,345 @@
+{
+  "structural_and_hash_checks": "passed",
+  "source_prompt_binding": "passed",
+  "train_rows": 80,
+  "validation_rows": 20,
+  "cross_split_pairs_checked": 1600,
+  "cross_split_exact_prompt_overlap": 0,
+  "cross_split_group_overlap": 0,
+  "cross_split_source_identity_overlap": 0,
+  "historical_targets_copied": 0,
+  "benchmark_inputs": {
+    "exp-002-communication-policy-benchmark/development.csv": {
+      "rows": 0,
+      "sha256_bytes": "4ea4d167655b36a4fa1c75865dd61678b4fef806f6d3b02b0ba2e349f04ca556"
+    },
+    "exp-002-communication-policy-benchmark/test.csv": {
+      "rows": 100,
+      "sha256_bytes": "2749dbd304c60cdb38a5538fe8684e2a814c5933a35d95057baf5ab3b759a300"
+    },
+    "exp-002-communication-policy-benchmark/test-v2.1.csv": {
+      "rows": 100,
+      "sha256_bytes": "c75587a0921fbe59fcd861392fa21e5771d05d21244f14ce6fb2068dadc2fafd"
+    },
+    "exp-005-targeted-policy-sft/evaluation/final-holdout-v1.csv": {
+      "rows": 48,
+      "sha256_bytes": "ad18403ffb6a1281a5a25a5f69a5d76a0da9cf3cdf9afea8e55340f26bf71673"
+    },
+    "exp-006-quality-repair-sft/evaluation/final-holdout-v2.csv": {
+      "rows": 50,
+      "sha256_bytes": "1eb26264e79e0818200d06d959625c31786818c26f9ff2bc6105b69921e135fb"
+    },
+    "exp-007-boundary-benchmark/development-reviewed-v2.csv": {
+      "rows": 50,
+      "sha256_bytes": "9e48512243e31a65ed8d800bdcc8bb4bf45da8995902bacfda730d996900643e"
+    }
+  },
+  "benchmark_rows_scanned": 348,
+  "benchmark_exact_matches": [],
+  "benchmark_near_threshold": 0.78,
+  "benchmark_near_matches": [],
+  "closest_train_pairs_per_validation": [
+    {
+      "validation_id": "me-009",
+      "train_id": "me-008",
+      "similarity": 0.4444
+    },
+    {
+      "validation_id": "me-009",
+      "train_id": "me-097",
+      "similarity": 0.4337
+    },
+    {
+      "validation_id": "me-009",
+      "train_id": "me-075",
+      "similarity": 0.3916
+    },
+    {
+      "validation_id": "me-010",
+      "train_id": "me-092",
+      "similarity": 0.4348
+    },
+    {
+      "validation_id": "me-010",
+      "train_id": "me-077",
+      "similarity": 0.4252
+    },
+    {
+      "validation_id": "me-010",
+      "train_id": "me-097",
+      "similarity": 0.4205
+    },
+    {
+      "validation_id": "me-019",
+      "train_id": "me-013",
+      "similarity": 0.4043
+    },
+    {
+      "validation_id": "me-019",
+      "train_id": "me-018",
+      "similarity": 0.3986
+    },
+    {
+      "validation_id": "me-019",
+      "train_id": "me-011",
+      "similarity": 0.3896
+    },
+    {
+      "validation_id": "me-020",
+      "train_id": "me-016",
+      "similarity": 0.4252
+    },
+    {
+      "validation_id": "me-020",
+      "train_id": "me-015",
+      "similarity": 0.4175
+    },
+    {
+      "validation_id": "me-020",
+      "train_id": "me-017",
+      "similarity": 0.4
+    },
+    {
+      "validation_id": "me-029",
+      "train_id": "me-024",
+      "similarity": 0.3985
+    },
+    {
+      "validation_id": "me-029",
+      "train_id": "me-026",
+      "similarity": 0.3797
+    },
+    {
+      "validation_id": "me-029",
+      "train_id": "me-011",
+      "similarity": 0.3582
+    },
+    {
+      "validation_id": "me-030",
+      "train_id": "me-023",
+      "similarity": 0.4209
+    },
+    {
+      "validation_id": "me-030",
+      "train_id": "me-026",
+      "similarity": 0.4203
+    },
+    {
+      "validation_id": "me-030",
+      "train_id": "me-022",
+      "similarity": 0.4142
+    },
+    {
+      "validation_id": "me-039",
+      "train_id": "me-032",
+      "similarity": 0.3933
+    },
+    {
+      "validation_id": "me-039",
+      "train_id": "me-038",
+      "similarity": 0.3554
+    },
+    {
+      "validation_id": "me-039",
+      "train_id": "me-031",
+      "similarity": 0.3501
+    },
+    {
+      "validation_id": "me-040",
+      "train_id": "me-034",
+      "similarity": 0.4174
+    },
+    {
+      "validation_id": "me-040",
+      "train_id": "me-036",
+      "similarity": 0.3842
+    },
+    {
+      "validation_id": "me-040",
+      "train_id": "me-033",
+      "similarity": 0.3785
+    },
+    {
+      "validation_id": "me-049",
+      "train_id": "me-048",
+      "similarity": 0.3644
+    },
+    {
+      "validation_id": "me-049",
+      "train_id": "me-044",
+      "similarity": 0.3392
+    },
+    {
+      "validation_id": "me-049",
+      "train_id": "me-041",
+      "similarity": 0.3321
+    },
+    {
+      "validation_id": "me-050",
+      "train_id": "me-098",
+      "similarity": 0.319
+    },
+    {
+      "validation_id": "me-050",
+      "train_id": "me-045",
+      "similarity": 0.3068
+    },
+    {
+      "validation_id": "me-050",
+      "train_id": "me-044",
+      "similarity": 0.306
+    },
+    {
+      "validation_id": "me-059",
+      "train_id": "me-066",
+      "similarity": 0.3636
+    },
+    {
+      "validation_id": "me-059",
+      "train_id": "me-077",
+      "similarity": 0.3441
+    },
+    {
+      "validation_id": "me-059",
+      "train_id": "me-063",
+      "similarity": 0.3396
+    },
+    {
+      "validation_id": "me-060",
+      "train_id": "me-082",
+      "similarity": 0.4675
+    },
+    {
+      "validation_id": "me-060",
+      "train_id": "me-056",
+      "similarity": 0.4298
+    },
+    {
+      "validation_id": "me-060",
+      "train_id": "me-086",
+      "similarity": 0.3415
+    },
+    {
+      "validation_id": "me-069",
+      "train_id": "me-066",
+      "similarity": 0.4048
+    },
+    {
+      "validation_id": "me-069",
+      "train_id": "me-048",
+      "similarity": 0.3731
+    },
+    {
+      "validation_id": "me-069",
+      "train_id": "me-045",
+      "similarity": 0.3598
+    },
+    {
+      "validation_id": "me-070",
+      "train_id": "me-045",
+      "similarity": 0.418
+    },
+    {
+      "validation_id": "me-070",
+      "train_id": "me-091",
+      "similarity": 0.3927
+    },
+    {
+      "validation_id": "me-070",
+      "train_id": "me-042",
+      "similarity": 0.3725
+    },
+    {
+      "validation_id": "me-079",
+      "train_id": "me-076",
+      "similarity": 0.392
+    },
+    {
+      "validation_id": "me-079",
+      "train_id": "me-073",
+      "similarity": 0.3684
+    },
+    {
+      "validation_id": "me-079",
+      "train_id": "me-078",
+      "similarity": 0.3647
+    },
+    {
+      "validation_id": "me-080",
+      "train_id": "me-017",
+      "similarity": 0.3682
+    },
+    {
+      "validation_id": "me-080",
+      "train_id": "me-078",
+      "similarity": 0.3518
+    },
+    {
+      "validation_id": "me-080",
+      "train_id": "me-073",
+      "similarity": 0.3502
+    },
+    {
+      "validation_id": "me-089",
+      "train_id": "me-055",
+      "similarity": 0.3718
+    },
+    {
+      "validation_id": "me-089",
+      "train_id": "me-086",
+      "similarity": 0.3542
+    },
+    {
+      "validation_id": "me-089",
+      "train_id": "me-003",
+      "similarity": 0.3394
+    },
+    {
+      "validation_id": "me-090",
+      "train_id": "me-085",
+      "similarity": 0.4113
+    },
+    {
+      "validation_id": "me-090",
+      "train_id": "me-092",
+      "similarity": 0.3609
+    },
+    {
+      "validation_id": "me-090",
+      "train_id": "me-074",
+      "similarity": 0.3494
+    },
+    {
+      "validation_id": "me-099",
+      "train_id": "me-076",
+      "similarity": 0.3163
+    },
+    {
+      "validation_id": "me-099",
+      "train_id": "me-043",
+      "similarity": 0.3077
+    },
+    {
+      "validation_id": "me-099",
+      "train_id": "me-036",
+      "similarity": 0.2949
+    },
+    {
+      "validation_id": "me-100",
+      "train_id": "me-056",
+      "similarity": 0.3333
+    },
+    {
+      "validation_id": "me-100",
+      "train_id": "me-064",
+      "similarity": 0.3125
+    },
+    {
+      "validation_id": "me-100",
+      "train_id": "me-041",
+      "similarity": 0.3083
+    }
+  ],
+  "scope": "New base-start phase; no novelty claim against historical adapters. No unseen evaluation outputs read.",
+  "limitation": "Lexical checks cannot prove semantic independence. Manual review is separately documented."
+}
