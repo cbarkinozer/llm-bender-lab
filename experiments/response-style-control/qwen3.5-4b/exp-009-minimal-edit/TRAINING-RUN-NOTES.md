@@ -54,4 +54,36 @@ Local destination: C:/Users/cbark/Documents/llm-bender-artifacts/exp-009-minimal
 Expected SHA256: 019e2d0da066464248d936ddee9f9d0be2e931e8ed94d26c70d7008a1214155b.
 No .env or private SSH key included. Source and data are versioned in Git.
 
-Do not stop the GPU until backup verification and required adapter inference.
+## Recovery and validation completed
+
+Final adapter reloaded against the pinned base and answered all 20 frozen
+development-validation inputs using Unsloth/Transformers, BF16, greedy,
+repetition penalty 1.05, non-thinking, no extra system prompt. All 20 stopped
+at native EOS on the first 4096-token budget. No answer/reference was supplied
+as input. Backend differs from the existing vLLM base run; this caveat is
+explicit in the evaluation manifest, so this is not exact backend parity.
+
+Evaluation source: 43fb431. Remote output: /workspace/exp009-runs/validation-v1.
+Local comparison: training/exp009-runs/validation-v1/comparison.csv under the
+artifact root. Contains original base, desired and adapter answers side by side.
+Adapter SHA256: bc71e59277ed168d626571e636bd24b7154ea4f91327fec7d0908a3bab5a7acf.
+
+Two complete archives downloaded and matched remote SHA256:
+
+- exp009-training-backup-verified.tar.gz: 019e2d0da066464248d936ddee9f9d0be2e931e8ed94d26c70d7008a1214155b
+- exp009-evaluation-support.tar.gz: ea9ba94b0665303665494b41add1c8f7b72ccc167e838e7aaa6115ee3024ba52
+
+Single-stream SCP and SFTP connections reset during backup. Split the immutable
+training archive into 16 MiB parts, downloaded eight at a time with retries,
+checked each hash, reconstructed and checked the complete archive. Incomplete
+earlier archive downloads are not valid backups; use the `-verified` archive.
+
+Both archives extracted locally; effective TrainingArguments JSON, training
+checkpoints with resume state, tokenizer/chat template, local W&B files, raw
+validation token IDs/text/attempts, original source data and scripts retained.
+A full source Git bundle is also saved in the local training artifact folder.
+Pinned public base weights remain downloadable, not redundantly backed up.
+Hardware metadata was captured post-run; exact/bitwise reproduction is not claimed.
+
+GPU termination is now safe for this run's artifacts. Human quality review and
+broader retention checks remain; do not infer quality from EOS or training loss.
