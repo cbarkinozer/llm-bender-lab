@@ -4,6 +4,7 @@ import hashlib
 import importlib.metadata
 import json
 import math
+import os
 import subprocess
 from pathlib import Path
 
@@ -30,6 +31,9 @@ def main():
     p.add_argument('--output-dir',type=Path,required=True)
     p.add_argument('--gates',type=Path,help='Manually reviewed GPU gate file; required for full')
     args=p.parse_args()
+    if args.mode=='full':
+        os.environ.setdefault('WANDB_PROJECT','llm-bender-lab-response-style-control')
+        os.environ.setdefault('WANDB_RUN_GROUP','exp-009-minimal-edit')
     config=json.loads((args.preflight_dir/'training-config.json').read_text(encoding='utf-8'))
     report=json.loads((args.preflight_dir/'report.json').read_text(encoding='utf-8'))
     assert report['status']=='local-preflight-passed'

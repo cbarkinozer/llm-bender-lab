@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+unset UV_NO_CACHE
 export HF_HOME=/workspace/.cache/huggingface
 export PIP_CACHE_DIR=/workspace/.cache/pip
 export UV_CACHE_DIR=/workspace/.cache/uv
