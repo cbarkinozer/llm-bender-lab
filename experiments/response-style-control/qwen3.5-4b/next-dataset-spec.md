@@ -266,8 +266,6 @@ anthropomorphism, repetition/contradiction, format compliance, and answer length
 Length and edit-distance statistics are diagnostics, not standalone quality scores.
 Do not select a checkpoint merely because it is shorter or copies the base closely.
 
-## Immediate next steps
-
 ## Retention and minimal-edit design note (2026-10-02)
 
 The user supplied an external review of the token-distribution intuition and
@@ -302,6 +300,8 @@ not a change to the approved 100-row selection, frozen split or active inference
 
 This note does not authorize more rows, a summarization-only dataset, a new
 training run, or a claim that forgetting has been prevented.
+
+## Immediate next steps
 
 The 100 generation-input rows and 80/20 split are now curated and frozen as
 exp-009 v2. Three rows contain authored assistant clarification context, not
