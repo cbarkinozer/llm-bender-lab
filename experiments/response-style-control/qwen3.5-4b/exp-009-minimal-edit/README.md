@@ -2,12 +2,13 @@
 
 ## Status
 
-Planned. **Active prompt selection v2: 100 rows, 80 train / 20 validation**.
+Base generation in progress. **Active prompt selection v2: 100 rows, 80 train / 20 validation**.
 V1 is retained unchanged as history. See [coverage-v2.md](coverage-v2.md) for
 the full behavior mapping, similar-word priorities, new character contrasts,
 multi-turn clarification resolution, provenance changes and refreshed overlap audit.
-No base answers have been generated, no human answer editing has occurred, and
-no GPU operation or training has started. Historical assistant targets are excluded.
+vLLM smoke checks passed; full base generation uses the user-approved small
+repetition penalty increase to 1.05. No human answer editing or training has
+started. Historical assistant targets are excluded. See GPU-RUN-NOTES.md.
 
 ## Goal and hypothesis
 
@@ -19,8 +20,9 @@ it does not guarantee probability preservation or absence of forgetting.
 
 The user explicitly chose reuse of historical prompts for both splits. Novelty
 against old adapters is not required, and this dataset must not later be claimed
-to be unseen by those adapters. All questions are selected from existing training
-artifacts, never from benchmark sources. Broad behavior requirements are in
+to be unseen by those adapters. V2 has 91 verbatim historical prompts, five
+disclosed transformations and four disclosed new prompts, never benchmark
+sources. Broad behavior requirements are in
 [`../next-dataset-spec.md`](../next-dataset-spec.md).
 
 ## Curated coverage (same family counts in v1 and v2)
@@ -151,9 +153,8 @@ exist yet; these are later gates, not silently satisfied by prompt curation.
 
 ## Next step
 
-When GPU access is provided again, check/reuse the established environment,
-run the three-row generation diagnostic, then obtain all 100 base drafts.
-Then prepare the 80-row human minimal-edit queue. No automatic
+Complete and back up all 100 base drafts, then prepare separate 80-row training
+and 20-row evaluation-only human minimal-edit queues. No automatic
 full-data merge or continuation of an old adapter is planned.
 
 CPU checks from the repository root:
@@ -168,11 +169,12 @@ python experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/genera
 GPU commands from the repository root in the validated persistent venv:
 
 ```bash
-python experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/generate_base.py \
-  --ids me-053,me-073,me-081 \
+python experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/generate_vllm.py \
+  --repetition-penalty 1.05 --ids me-001,me-021,me-073,me-079,me-081 \
   --output-dir experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/results/base-v2-smoke
 
-python experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/generate_base.py \
+python experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/generate_vllm.py \
+  --repetition-penalty 1.05 \
   --output-dir experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/results/base-v2-full
 ```
 

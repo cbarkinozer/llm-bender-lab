@@ -42,3 +42,20 @@ and use one consistent documented recipe across both splits and later comparison
 Official reference: https://huggingface.co/Qwen/Qwen3.5-4B
 (non-thinking general tasks: temperature 0.7, top_p 0.8, top_k 20,
 min_p 0, presence_penalty 1.5, repetition_penalty 1).
+
+## User-approved minimal decoding adjustment
+
+The user chose testing a small repetition-penalty increase before changing
+sampling. A five-row vLLM diagnostic at **1.05**, with greedy decoding and
+all other settings unchanged, completed naturally: me-001, me-021, me-073,
+me-079, me-081. Me-001 stopped at 721 tokens rather than looping to 4096.
+This is a stopping gate, not evidence of correct answers or no quality harm:
+grammar explanations, unsupported additions and needless clarification remain
+visible in the base drafts and are deliberately preserved for human review.
+
+The full run uses `generate_vllm.py --repetition-penalty 1.05`, with effective
+penalty recorded in `run-manifest.json` and CLI arguments. The original
+`generation-config.json` remains the historical 1.0 recipe. Only this one
+decoding parameter changed; no sampling switch, prompt edits or split edits.
+Use 1.05 for the later base/fine-tuned comparison unless a new protocol is
+explicitly approved and both versions are evaluated under it.
