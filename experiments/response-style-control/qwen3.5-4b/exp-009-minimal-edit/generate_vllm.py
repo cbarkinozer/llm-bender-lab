@@ -16,9 +16,11 @@ def main():
     p.add_argument('--output-dir', type=Path)
     p.add_argument('--ids')
     p.add_argument('--dry-run', action='store_true')
+    p.add_argument('--repetition-penalty', type=float, choices=[1.0, 1.05, 1.10], default=1.0)
     args = p.parse_args()
     config_path = HERE / 'generation-config.json'
     cfg, dataset, rows = validate_inputs(config_path)
+    cfg['generation']['repetition_penalty'] = args.repetition_penalty
     if args.ids:
         selected = args.ids.split(',')
         if len(set(selected)) != len(selected) or not set(selected) <= {r['id'] for r in rows}:
@@ -82,7 +84,7 @@ def main():
                 if len(prompt_ids) + cfg['generation']['output_token_budgets'][-1] > model['context_tokens']:
                     raise ValueError('Context overflow; input truncation forbidden')
                 for attempt, budget in enumerate(cfg['generation']['output_token_budgets'], 1):
-                    params = SamplingParams(temperature=0, top_p=1, top_k=-1, repetition_penalty=1,
+                    params = SamplingParams(temperature=0, top_p=1, top_k=-1, repetition_penalty=args.repetition_penalty,
                                             max_tokens=budget, seed=cfg['generation']['seed'],
                                             stop_token_ids=eos, ignore_eos=False, skip_special_tokens=True)
                     started = time.monotonic()
@@ -111,7 +113,7 @@ def main():
         json_file(out/'run-manifest.json', manifest)
         if incomplete:
             raise RuntimeError(f'Incomplete drafts: {incomplete}')
-    except Exception as error:
+    except (Exception, KeyboardInterrupt) as error:
         manifest.update(status='failed', error=str(error))
         json_file(out/'run-manifest.json', manifest)
         raise
