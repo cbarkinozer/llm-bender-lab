@@ -81,3 +81,24 @@ Both local archive hashes were verified against the remote copies before handoff
 Support includes exact environment, setup failures/recoveries, orchestration
 scripts, pipeline logs and the local W&B run. Model weights and raw answers
 remain outside Git. The Vast instance is not stopped automatically.
+
+### Backup audit follow-up
+
+The local backup now also contains `exp008-source-at-run.tar.gz` (exact tracked
+source/data/configs at the run commit) and a verified standalone
+`exp008-repository.bundle` with complete history through `08d15d9`.
+A local backup README records their SHA-256 hashes and recovery instructions.
+Checkpoint 39 includes optimizer, scheduler, RNG, trainer state and training
+arguments; runtime backend/environment snapshots and actual chat template are
+also retained. Selection was the predeclared final epoch, not benchmark tuning.
+
+One archive issue was found: W&B `debug-core.log` was an absolute Linux symlink
+outside the archived run directory, which Windows tar could not restore.
+Its actual target was downloaded separately as `support/wandb-debug-core.log`
+(SHA-256 `2368cd5db08d89bffa1388f436dc80aaf0b2812da8e83ba5280c36823570c99b`).
+Other support entries are extracted locally; exclude that symlink on Windows.
+The original verified archives remain unchanged.
+
+Pinned base weights remain a Hugging Face download dependency; they were not
+duplicated into this backup. This supports procedural reconstruction, not a
+claim of tested bitwise reproducibility or a fully offline base-model archive.
