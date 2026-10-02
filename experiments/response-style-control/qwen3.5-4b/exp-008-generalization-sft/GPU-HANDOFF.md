@@ -17,6 +17,21 @@ this is a small diagnostic pilot, not a clean single-variable comparison.
 
 From a clean committed checkout and activated compatible GPU environment:
 
+The user's latest instruction is to run smoke first. Check GPU/driver, available
+disk and persistent venv before installations. Reuse the validated exp-006
+package freeze when available; confirm Torch CUDA/BF16 support, Unsloth import
+and the TRL/Transformers stack before downloading model weights. The launcher
+explicitly sets HF, pip and W&B cache paths under `/workspace`.
+
+```bash
+bash experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/run_gpu_preflight.sh smoke-only
+```
+
+This runs structural checks, representation validation and 20-step smoke, then
+stops. It does not start full training. Inspect the generated evidence before
+continuing with base generation and tiny-overfit. Do not reuse partially failed
+result directories as completed gates.
+
 ```bash
 bash experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/run_gpu_preflight.sh
 ```
