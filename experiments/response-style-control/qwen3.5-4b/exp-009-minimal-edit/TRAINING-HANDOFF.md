@@ -1,5 +1,15 @@
 # exp-009 training preparation — 2026-10-02
 
+## User correction during GPU setup
+
+The user explicitly removed vLLM from the current fine-tuning workflow: existing
+base outputs are sufficient, train with Unsloth and use the saved adapter later.
+The optional vLLM setup was stopped before completion; its scripts remain history,
+not required gates. Verify smoke adapter reload using the training environment;
+no merged smoke checkpoint or additional inference engine is required now.
+Earlier vLLM smoke requirements below are superseded for this run. Do not
+regenerate base answers or launch vLLM setup without a new request.
+
 Local preparation passed. No weights downloaded locally, no GPU contacted,
 no training or W&B run started. Approved data/QA artifacts are reviewed-v2.
 No historical adapter or old 958-row dataset is used in this phase.
