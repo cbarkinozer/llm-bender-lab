@@ -85,5 +85,12 @@ A full source Git bundle is also saved in the local training artifact folder.
 Pinned public base weights remain downloadable, not redundantly backed up.
 Hardware metadata was captured post-run; exact/bitwise reproduction is not claimed.
 
+Windows tar could not extract Linux W&B symlinks from the original archive.
+Downloaded and extracted an additional dereferenced W&B archive, preserving
+the actual linked debug-core log as ordinary files. SHA256:
+7bfa1be8f866a61b60fe13b4a3e40ceafc0fe5a0d9393ddb44f0dcd7b61d2a1a.
+Local: training/exp009-wandb-resolved.tar.gz and training/wandb-resolved/.
+All evaluation file hashes and the extracted final adapter hash also verified.
+
 GPU termination is now safe for this run's artifacts. Human quality review and
 broader retention checks remain; do not infer quality from EOS or training loss.
