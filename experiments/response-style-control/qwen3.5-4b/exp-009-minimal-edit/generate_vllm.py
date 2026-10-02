@@ -52,6 +52,11 @@ def main():
             gc = GenerationConfig.from_model_config(mc)
         native = gc.eos_token_id or tokenizer.eos_token_id
         eos = native if isinstance(native, list) else [native]
+        # Qwen chat terminates with its native im_end marker; config fallback
+        # can expose only endoftext while vLLM's nested text config uses im_end.
+        end_turn = tokenizer.convert_tokens_to_ids('<|im_end|>')
+        if end_turn is not None and end_turn != tokenizer.unk_token_id and '<|im_end|>' in tokenizer.all_special_tokens:
+            eos = sorted(set(eos + [end_turn]))
         if not eos or any(not isinstance(i, int) for i in eos):
             raise ValueError('Missing native stop tokens')
         engine = dict(model=model['name'], revision=model['revision'], tokenizer_revision=model['tokenizer_revision'],
@@ -84,7 +89,7 @@ def main():
                     result = llm.generate([{'prompt_token_ids': prompt_ids}], params, use_tqdm=False)[0].outputs[0]
                     ids = list(result.token_ids)
                     native_stop = result.finish_reason == 'stop' and (result.stop_reason in eos or
-                                  (result.stop_reason is None and (tokenizer.eos_token_id in eos)))
+                                  (bool(ids) and ids[-1] in eos))
                     finish = 'native_eos' if native_stop else ('length_limit' if result.finish_reason == 'length' else 'unexpected_stop')
                     latest = dict(id=row['id'], split=row['split'], category=row['category'], dataset_version=row['dataset_version'],
                                   input_messages_sha256=row['input_messages_sha256'], rendered_prompt=rendered,
