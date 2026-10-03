@@ -99,8 +99,10 @@ test. The independent communication-policy benchmark is being authored under
 ## Experiment registry
 
 Current work and the requested future agentic-RL track: [TODO.md](TODO.md).
-A/B preparation and B's 24 targets are approved; both arms are CPU-prepared.
-Neither new training run has started; next step is GPU access and real GPU gates.
+A/B training and primary inference completed. Both final epoch4 adapters emitted
+20 native-EOS answers. Desired/A/B review is ready; full local backup verification
+and supporting probes are completed. User explicitly waived repeated training
+diagnostics; actual-batch masking and W&B checks passed.
 
 | ID | Status | Main change | Notes |
 | --- | --- | --- | --- |
@@ -115,5 +117,5 @@ Neither new training run has started; next step is GPU access and real GPU gates
 | `exp-008-generalization-sft` | trained; blind review pending | Standalone 100-example diagnostic pilot | GPU gates passed; 39-step full run and 50 base/candidate generations complete; W&B finished |
 | `exp-009-minimal-edit` | trained; rejected by user | 80 reviewed examples, LR 5e-5, two epochs | 20 adapter answers generated; persistent unwanted behavior and poor Turkish reported; backups verified |
 | `exp-010-lr-ablation` | trained; human review pending | Same exp009 data/recipe, LR doubled to 1e-4 only | Both epoch adapters generated 20 development answers; initial repeat loop preserved, bounded rerun completed; backups verified; repeat training diagnostics explicitly waived by user |
-| `exp-011-duration-ablation` | CPU prepared; GPU gates needed | A: same 80 reviewed rows, four epochs instead of two | 40 expected steps; regenerated tokenization matches parent; validation unchanged; duration extends cosine schedule |
-| `exp-012-coverage-ablation` | reviewed and CPU prepared; GPU gates needed | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | User approved all 24 as-is in conversation; approval and raw Argilla snapshot separate; no detected overlap; supervised-token exposure +22.47% |
+| `exp-011-duration-ablation` | trained; human review ready | A: same 80 reviewed rows, four epochs instead of two | 40 steps; 20/20 native EOS; validation unchanged; duration extends cosine schedule |
+| `exp-012-coverage-ablation` | trained; human review ready | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | 40 steps; 20/20 native EOS; no detected overlap; supervised-token exposure +22.47%; paired review in Argilla |

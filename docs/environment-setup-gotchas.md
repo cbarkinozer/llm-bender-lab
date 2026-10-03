@@ -1,5 +1,20 @@
 # Environment & Pod Setup Gotchas
 
+## Windows SSH key creation / empty-passphrase quoting (2026-10-03)
+
+An instance-only key generated through cmd with ssh-keygen -N "" unexpectedly
+received literal quote characters as its passphrase. The server accepted its
+public key, but BatchMode authentication returned Permission denied because
+the client could not decrypt/sign. This was not a missing Vast key.
+
+Inspect verbose SSH: Server accepts key followed by no signed packet points
+to the local private-key/signing path. Do not immediately ask the user to add
+the same public key again. For generated automation keys, prefer interactive
+ssh-keygen with truly blank passphrase entries through a PTY; verify an actual
+BatchMode connection, not only that the public key file exists. A known local
+key can keep pod setup moving while diagnosing the generated key. Correcting
+its passphrase preserves the public key; never print private-key contents.
+
 ## Vast.ai inference backend preference (2026-10-02)
 
 Current exp009/exp010 override: the user explicitly requested Unsloth fine-tuning

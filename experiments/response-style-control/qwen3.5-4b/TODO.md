@@ -1,8 +1,8 @@
 # Response-style-control TODO
 
-Updated: 2026-10-03. User approved preparation of the paired A/B design.
-No GPU training has started. B's 24 new targets were approved as-is in conversation
-and frozen; next boundary is GPU access and real GPU gates for both arms.
+Updated: 2026-10-03. Both A/B SFT runs and primary inference completed. Each
+trained 40 steps / four epochs; all 40 primary outputs reached native EOS.
+Argilla comparison is ready; supporting probes and full backup are completed.
 
 ## Immediate SFT decisions
 
@@ -28,18 +28,30 @@ and frozen; next boundary is GPU access and real GPU gates for both arms.
   Accept or rewrite each; resolve rejected questions. Existing 56 need no new review.
 - [x] Export/freeze B using hash-bound conversational approval; no Argilla responses
   fabricated or changed. Targets unchanged as approved; token exposure remains +22.47%.
-- [ ] Obtain GPU; run genuine GPU gates, then fresh-base A and B sequentially.
-  Download and verify all artifacts before pod termination. No implicit reuse of
-  exp010's LR-only smoke/tiny-overfit waiver.
+- [x] Obtain GPU and train fresh-base A and B sequentially. Genuine actual-batch
+  masking and W&B checks passed; user explicitly waived repeat smoke/tiny-overfit
+  and pre-training reload for this pair. False/waived gates are recorded honestly.
+- [x] Reload both saved adapters and generate the unchanged 20 development
+  questions per arm: all 40 reached native EOS, identical primary settings.
+- [x] Prepare and verify [desired/A/B Argilla comparison](http://127.0.0.1:6900/dataset/e2c4f7ab-8d50-401f-b68c-7eda6323c264/annotation-mode?page=1&status=pending).
+  Existing review queues and annotations are preserved.
+- [x] Download and verify all artifacts before pod termination: archive SHA256
+  and all141 indexed files verified locally, including retained resume state.
+- [ ] Review substantive wins/ties/losses, especially eight diagnostic anchors;
+  choose the next hypothesis after user review, not by minimum loss or shortness.
 - [x] Inspect saved rendered prompts and label masks. Current
   prepare_training.py masks the entire non-thinking generation prefix, including
   its empty think block; supervised_text samples contain answer + native EOS.
   This is not evidence that thinking capability is preserved, nor proof of collapse.
-- [ ] On the next GPU, use a small identical base/adapter thinking-on/off probe
+- [x] Use a small identical base/adapter thinking-on/off probe
   set; log raw output, final_answer_emitted, native EOS, truncation, repetitions,
   reasoning/final token counts and actual rendered input. Use enable_thinking,
   not Qwen3 slash commands, for Qwen3.5. Keep this diagnostic separate from the
   established non-thinking development comparison.
+  Completed for me-070/me-079: base and A did not emit a final answer on me-079
+  thinking-on before their budget/time stops; B emitted final answers and EOS
+  for both thinking-on probes. Two prompts do not establish global preservation.
+  Same retained training IDs me-041/me-051 generated for both adapters separately.
 - [ ] Do not increase rank, batch, LR and duration together. Our existing adapter
   targets include attention projections and MLP gate/up/down projections. No
   evidence currently establishes rank-16 capacity as the bottleneck. FullFT-to-

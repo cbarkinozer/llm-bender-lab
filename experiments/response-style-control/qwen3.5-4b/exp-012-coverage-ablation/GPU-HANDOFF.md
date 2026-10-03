@@ -1,8 +1,14 @@
 # Paired run handoff
 
-Current stop: a GPU is needed. B's 24 answers were approved as-is in conversation
-and frozen; both A and B passed CPU checks. No GPU gates have passed for either
-new run. No current pod is assumed alive.
+Execution completed on 2026-10-03: both four-epoch SFT runs, primary inference,
+supporting probes, Argilla comparison and locally verified backup. GPU may now
+be destroyed. See GPU-RUN-NOTES.md for results, hashes and the explicit new user
+waiver of repeated smoke/tiny-overfit/pre-training reload checks.
+
+The preparation checklist below is preserved as the original run handoff; its
+gate requirement was subsequently overridden by that explicit user instruction.
+Do not fabricate passed diagnostics or implicitly transfer this waiver to future
+experiments. No current pod is assumed alive for future work.
 
 ## Before renting/using GPU
 

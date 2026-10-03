@@ -1,8 +1,11 @@
 # exp-012-coverage-ablation — B
 
-Status: all 24 proposed answers approved as-is by the user in conversation on
-2026-10-03; reviewed B dataset and CPU preflight frozen. GPU gates still needed.
-No GPU execution started. Active config: config-reviewed-v1.yaml, mirrored in
+Status: trained (four epochs / 40 steps); all 20 primary outputs reached native
+EOS. Human comparison is ready; full local backup verification passed.
+All 24 new targets were approved as-is in conversation and frozen on 2026-10-03.
+Actual-batch and W&B checks passed; user explicitly waived repeat smoke/tiny-
+overfit and pre-training reload. Saved-adapter reload passed through inference.
+See GPU-RUN-NOTES.md. Active config: config-reviewed-v1.yaml, mirrored in
 training-preflight-v1/training-config.json. config.yaml remains the draft record.
 
 ## Design
@@ -33,7 +36,7 @@ User message: "i checked them, they seem fine". Approval is recorded in
 user-approval.json and copied into data-reviewed-v1; it binds all 24 IDs and the
 exact draft SHA-256. Argilla had zero responses and was not modified. Do not
 claim that 24 annotation responses were submitted. No further review is needed
-unless the user wants edits; next step is a GPU for both arms.
+unless the user wants edits. Training and primary inference are now completed.
 
 Original review instructions and queue remain below for history:
 
