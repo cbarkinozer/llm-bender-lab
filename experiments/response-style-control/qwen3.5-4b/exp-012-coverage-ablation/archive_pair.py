@@ -27,7 +27,7 @@ def main():
         assert json.loads((root/'validation-v1/manifest.json').read_text())['count']==20
     hardware=subprocess.check_output(['nvidia-smi','-q'],text=True)
     (RUNS/'hardware.txt').write_text(hardware)
-    members=[RUNS,ROOT/'.cache/wandb',ROOT/'exp011-exp012-setup.log',ROOT/'exp010-training-freeze.txt',
+    members=[RUNS,ROOT/'.cache/wandb',ROOT/'wheels',ROOT/'exp011-exp012-setup.log',ROOT/'exp010-training-freeze.txt',
         ROOT/'exp011-exp012-source.bundle',ROOT/'exp011-exp012-source-complete.bundle']
     optional=ROOT/'exp011-exp012-source-diagnostics.bundle'
     if optional.exists():
