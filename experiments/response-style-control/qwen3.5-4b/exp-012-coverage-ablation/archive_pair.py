@@ -32,6 +32,10 @@ def main():
     optional=ROOT/'exp011-exp012-source-diagnostics.bundle'
     if optional.exists():
         members.append(optional)
+    for name in ('archive_pair.py','run_diagnostics.py','exp011-exp012-source-final.bundle'):
+        path=ROOT/name
+        if path.exists():
+            members.append(path)
     inventory={str(file.relative_to(ROOT)):dict(sha256=sha(file),bytes=file.stat().st_size)
         for member in members for file in (sorted(member.rglob('*')) if member.is_dir() else [member]) if file.is_file()}
     # Archive itself is outside all members; all external W&B symlinks are dereferenced.
