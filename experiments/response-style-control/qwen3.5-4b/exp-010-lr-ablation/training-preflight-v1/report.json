@@ -1,0 +1,77 @@
+{
+  "status": "local-preflight-passed",
+  "rows": 100,
+  "splits": {
+    "train": 80,
+    "validation": 20
+  },
+  "split_stats": {
+    "train": {
+      "sequence": {
+        "min": 39,
+        "median": 104,
+        "p90": 219,
+        "p95": 336,
+        "p99": 437,
+        "max": 514,
+        "total": 10052
+      },
+      "target": {
+        "min": 2,
+        "median": 39,
+        "p90": 133,
+        "p95": 293,
+        "p99": 379,
+        "max": 461,
+        "total": 5384
+      }
+    },
+    "validation": {
+      "sequence": {
+        "min": 45,
+        "median": 90,
+        "p90": 146,
+        "p95": 340,
+        "p99": 432,
+        "max": 432,
+        "total": 2298
+      },
+      "target": {
+        "min": 4,
+        "median": 25,
+        "p90": 104,
+        "p95": 266,
+        "p99": 383,
+        "max": 383,
+        "total": 1151
+      }
+    }
+  },
+  "max_seq_length": 1024,
+  "truncated_rows": 0,
+  "zero_target_rows": 0,
+  "all_context_tokens_masked": true,
+  "native_final_end_of_turn_supervised": true,
+  "cross_split_near_flags": [],
+  "benchmark_rows_checked": 348,
+  "benchmark_flags": [],
+  "packing": false,
+  "source_hashes": {
+    "train-reviewed.jsonl": "bb66be2853f866b6b463f80d62cc7d388b4a3a203e22fa6d9909a6123ffd4ec9",
+    "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+  },
+  "limitation": "Zero detected overlap, not proof of semantic independence. Tokenizer-only checks do not validate GPU trainer collator.",
+  "remaining": [
+    "GPU actual-batch label check",
+    "model trainability",
+    "smoke save/reload",
+    "tiny overfit",
+    "W&B connection"
+  ],
+  "files": {
+    "mask-inspection.json": "963be56e6da2bbdbcb506deeb581afafa2891682a745c359e82ffa229e459e89",
+    "tokenizer-template.json": "4297525131efacc180bbe1ae6319a1298f897aa68379d1ca15cb7143850f9800",
+    "train-tokenized.jsonl": "c9d2c033918a283e7fbaea3fb0104f70ffb241671720a8ecf01f9e044fc479a1",
+    "validation-tokenized.jsonl": "0600244c80a0a1c406591b2b2eaf2fc0f89b8316229b487028faf4fbbb755557"
+  }
+}

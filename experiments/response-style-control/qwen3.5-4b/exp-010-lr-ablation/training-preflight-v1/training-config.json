@@ -1,0 +1,79 @@
+{
+  "experiment_id": "exp-010-lr-ablation",
+  "status": "prepared-not-trained",
+  "model": {
+    "name": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter": null,
+    "thinking_mode": false
+  },
+  "dataset": {
+    "train": "reviewed-v2/train-reviewed.jsonl",
+    "validation": "reviewed-v2/validation-reviewed.jsonl",
+    "hashes": {
+      "train-reviewed.jsonl": "bb66be2853f866b6b463f80d62cc7d388b4a3a203e22fa6d9909a6123ffd4ec9",
+      "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "train_rows": 80,
+    "validation_rows": 20,
+    "loss": "final-assistant-only"
+  },
+  "training": {
+    "framework": "unsloth",
+    "method": "bf16-lora",
+    "max_seq_length": 1024,
+    "epochs": 2,
+    "learning_rate": 0.0001,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "expected_optimizer_steps": 20,
+    "optimizer": "adamw_8bit",
+    "scheduler": "cosine",
+    "warmup_steps": 2,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "seed": 3407,
+    "packing": false,
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "save_strategy": "epoch",
+    "eval_strategy": "epoch",
+    "report_to": "wandb"
+  },
+  "inference": {
+    "backend": "unsloth-transformers",
+    "temperature": 0.0,
+    "repetition_penalty": 1.05,
+    "thinking_mode": false,
+    "additional_system_prompt": null,
+    "output_token_budgets": [
+      4096,
+      8192,
+      16384
+    ]
+  },
+  "notes": [
+    "Only training change versus exp009: LR 5e-5 to 1e-4; two epochs and 20 steps retained.",
+    "Fresh pinned base; never initialize from any historical or diagnostic adapter.",
+    "Shared train_reviewed.py resolves dataset paths against its exp009 directory; identical reviewed-v2 data reused by hash.",
+    "Final-assistant-only loss, context and padding masked, native EOS supervised; zero truncation.",
+    "Inference matches actual exp009 adapter backend, greedy repetition penalty 1.05, no extra system prompt.",
+    "Twenty validation items are development data, not a fresh independent test; never contribute gradients.",
+    "Reject exp009 based on user qualitative review; underfitting remains a hypothesis, not a proven diagnosis."
+  ],
+  "parent": "exp-009-minimal-edit"
+}

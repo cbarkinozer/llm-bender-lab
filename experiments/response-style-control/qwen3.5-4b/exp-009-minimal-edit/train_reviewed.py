@@ -31,10 +31,11 @@ def main():
     p.add_argument('--output-dir',type=Path,required=True)
     p.add_argument('--gates',type=Path,help='Manually reviewed GPU gate file; required for full')
     args=p.parse_args()
+    config=json.loads((args.preflight_dir/'training-config.json').read_text(encoding='utf-8'))
+    experiment_id=config['experiment_id']
     if args.mode=='full':
         os.environ.setdefault('WANDB_PROJECT','llm-bender-lab-response-style-control')
-        os.environ.setdefault('WANDB_RUN_GROUP','exp-009-minimal-edit')
-    config=json.loads((args.preflight_dir/'training-config.json').read_text(encoding='utf-8'))
+        os.environ.setdefault('WANDB_RUN_GROUP',experiment_id)
     report=json.loads((args.preflight_dir/'report.json').read_text(encoding='utf-8'))
     assert report['status']=='local-preflight-passed'
     for name,expected in report['files'].items():
@@ -91,7 +92,7 @@ def main():
         lr_scheduler_type=t['scheduler'],optim=t['optimizer'],weight_decay=t['weight_decay'],max_grad_norm=t['max_grad_norm'],
         bf16=True,fp16=False,seed=t['seed'],data_seed=t['seed'],logging_steps=1,
         save_strategy='epoch',eval_strategy='no' if diagnostic else 'epoch',save_total_limit=2,
-        report_to=[] if diagnostic else ['wandb'],run_name='exp009-'+args.mode,
+        report_to=[] if diagnostic else ['wandb'],run_name=experiment_id+'-'+args.mode,
         remove_unused_columns=False,prediction_loss_only=True)
     trainer=Trainer(model=model,args=ta,train_dataset=processed['train'],eval_dataset=processed['validation'],data_collator=collator)
     count=sum(p.numel() for p in model.parameters() if p.requires_grad)
