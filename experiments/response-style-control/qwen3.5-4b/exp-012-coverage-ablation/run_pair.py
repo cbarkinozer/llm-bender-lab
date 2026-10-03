@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import time
 import traceback
 
 HERE=Path(__file__).resolve().parent
@@ -67,11 +68,18 @@ def work():
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--worker',action='store_true')
+    p.add_argument('--wait-for-setup',action='store_true')
     a=p.parse_args()
     os.environ.update(HF_HOME='/workspace/.cache/huggingface',WANDB_DIR='/workspace/.cache/wandb',
         WANDB_MODE='online',WANDB_PROJECT='llm-bender-lab-response-style-control',PYTHONUNBUFFERED='1')
     if a.worker:
         try:
+            if a.wait_for_setup:
+                deadline=time.monotonic()+1800
+                print('Waiting for validated pinned setup/package freeze',flush=True)
+                while not Path('/workspace/exp010-training-freeze.txt').is_file():
+                    assert time.monotonic()<deadline,'Pinned setup did not finish within 30 minutes'
+                    time.sleep(5)
             work()
         except Exception:
             write(ROOT/'status.json',dict(status='failed',traceback=traceback.format_exc()))
@@ -86,7 +94,10 @@ def main():
                 os.environ.pop(name)
         ROOT.mkdir()
         with (ROOT/'pipeline.log').open('x') as log:
-            child=subprocess.Popen([sys.executable,'-u',str(Path(__file__).resolve()),'--worker'],stdin=subprocess.DEVNULL,
+            command=[sys.executable,'-u',str(Path(__file__).resolve()),'--worker']
+            if a.wait_for_setup:
+                command.append('--wait-for-setup')
+            child=subprocess.Popen(command,stdin=subprocess.DEVNULL,
                 stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=os.environ.copy())
         write(ROOT/'status.json',dict(status='running',pid=child.pid))
         print(json.dumps(dict(pid=child.pid,root=str(ROOT))))
