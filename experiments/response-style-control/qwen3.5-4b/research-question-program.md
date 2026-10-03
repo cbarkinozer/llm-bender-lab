@@ -202,6 +202,21 @@ Bu soru, yalnızca cevap biçimi fine-tune'ı değil, araç kullanan agentik bir
 workflow fine-tune'ını gerektirir; ilk pilot küçük Python repository görevleriyle
 başlatılmalı ve her rollout'un ham terminal kayıtları saklanmalıdır.
 
+### Q-010 — Agentic RL ve multi-harness genelleme
+
+- Status: backlog; kullanıcı tarafından 2026-10-03 tarihinde planlanması istendi.
+- Scope: önce küçük feasibility pilotu, sonra kontrollü multi-harness karşılaştırması.
+- Soru: Qwen3.5-4B, sandbox içinde doğrulanabilir araç görevlerinde RL ile gelişir
+  mi; tek-harness eğitimine göre multi-harness eğitimi görülmemiş harness ve
+  görevlere aktarımı iyileştirir mi?
+- Baselines: aynı harness ve bütçede frozen-weight model; sonraki aşamada
+  single-harness RL. Runtime iyileştirmeleri ağırlık eğitimiyle karıştırılmamalı.
+- Ölçüm: bağımsız görev başarısı, araç çağrısı geçerliliği, sonlandırma, maliyet,
+  reward hacking ve görülmemiş görev/harness başarısı.
+- Kaynak: [FineEnvs multi-harness RL](https://huggingface.co/spaces/FineEnvs/multi-harness-rl#introduction).
+- Hazırlık ve koşu öncesi kontroller: [aktif TODO](TODO.md).
+- Henüz environment kurulmadı, model/algoritma seçimi dondurulmadı ve RL başlatılmadı.
+
 ## Aylık ve üç aylık sentez
 
 Her ay:

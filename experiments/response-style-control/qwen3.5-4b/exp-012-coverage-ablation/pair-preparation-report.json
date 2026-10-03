@@ -1,0 +1,37 @@
+{
+  "status": "A-needs-GPU-gates-B-needs-human-review",
+  "optimizer_steps_each": 40,
+  "training_changes_A_vs_exp010": [
+    "epochs: 2 -> 4",
+    "expected optimizer steps: 20 -> 40"
+  ],
+  "training_changes_B_vs_A": [],
+  "dataset_changes_B_vs_A": {
+    "retain": 56,
+    "replace": 24
+  },
+  "target_tokens_per_epoch": {
+    "A": 5384,
+    "B_draft": 6594
+  },
+  "draft_target_token_change_percent": 22.47,
+  "caveats": [
+    "A duration comparison includes extended cosine schedule.",
+    "B changes scenario/task composition, targets and supervised-token exposure; not isolated data quality.",
+    "Equal rows/steps do not mean equal token exposure or equal update magnitude.",
+    "Existing 20 are development, not independent final test."
+  ],
+  "validation_original_sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+  "high_signal_ids": [
+    "me-049",
+    "me-050",
+    "me-059",
+    "me-069",
+    "me-070",
+    "me-079",
+    "me-089",
+    "me-090"
+  ],
+  "original_train_unchanged": true,
+  "training_started": false
+}

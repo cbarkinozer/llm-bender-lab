@@ -1,0 +1,87 @@
+{
+  "experiment_id": "exp-011-duration-ablation",
+  "status": "prepared-needs-gpu-gates",
+  "model": {
+    "name": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter": null,
+    "thinking_mode": false
+  },
+  "dataset": {
+    "train": "reviewed-v2/train-reviewed.jsonl",
+    "validation": "reviewed-v2/validation-reviewed.jsonl",
+    "hashes": {
+      "train-reviewed.jsonl": "bb66be2853f866b6b463f80d62cc7d388b4a3a203e22fa6d9909a6123ffd4ec9",
+      "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "train_rows": 80,
+    "validation_rows": 20,
+    "loss": "final-assistant-only",
+    "review_required": false,
+    "review_status": "original-human-reviewed"
+  },
+  "training": {
+    "framework": "unsloth",
+    "method": "bf16-lora",
+    "max_seq_length": 1024,
+    "epochs": 4,
+    "learning_rate": 0.0001,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "expected_optimizer_steps": 40,
+    "optimizer": "adamw_8bit",
+    "scheduler": "cosine",
+    "warmup_steps": 2,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "seed": 3407,
+    "packing": false,
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "save_strategy": "epoch",
+    "eval_strategy": "epoch",
+    "report_to": "wandb"
+  },
+  "inference": {
+    "backend": "unsloth-transformers",
+    "temperature": 0.0,
+    "repetition_penalty": 1.05,
+    "thinking_mode": false,
+    "additional_system_prompt": null,
+    "output_token_budgets": [
+      4096
+    ],
+    "bounded": true,
+    "stop_policy": "native EOS; exact token loops/180-second timeout are failures, not EOS"
+  },
+  "notes": [
+    "Fresh pinned base for each arm; no earlier adapter initialization.",
+    "A changes 2 to 4 epochs versus exp010; cosine schedule extends with duration.",
+    "B versus A changes 24 scenarios/targets, not LR/rank/batch/epochs; retain 56 original rows.",
+    "80 examples, effective batch 8, four epochs, 40 optimizer steps; target-token exposure can differ.",
+    "Shared train_reviewed.py resolves dataset paths against exp009, not this config folder.",
+    "Final-assistant-only labels, masked empty-think prefix, native EOS supervised.",
+    "Frozen 20 development-validation items, eight high-signal cases, never gradients.",
+    "Use actual exp010 v2 bounded HF/Unsloth evaluation settings; no vLLM for adapter inference.",
+    "Final scheduled epoch-four adapter preselected; no best-checkpoint selection on validation.",
+    "New GPU gates needed; prior LR-only waiver does not automatically apply to these runs."
+  ],
+  "parent": "exp-010-lr-ablation",
+  "tracking": {
+    "run_name": "exp011-sft-duration-80rows-4ep"
+  }
+}

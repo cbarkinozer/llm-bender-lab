@@ -1,0 +1,111 @@
+"""Original project-agent-authored draft training scenarios, 2026-10-03.
+
+Brief: teach grounded, useful, naturally worded Turkish explanations and choices;
+use distinct contexts, preserve evidence/conditions, vary answer lengths, do not
+derive prompts or solutions from validation items. No external generation API.
+Generator: OpenAI Codex assistant; exact runtime model/version and sampling
+settings are not exposed here. Human acceptance is required before training.
+These are user-requested project drafts, not copied third-party source material.
+"""
+
+# category, unique scenario, messages, proposed answer, substance review anchor
+SPECS = [
+    ('useful_explanation', 'volunteer-registration-capacity', [
+        ('user', 'Gönüllü etkinliğinde katılımcılar girişte isimlerini söylüyor. İsim bulma ve işaretleme kişi başına iki dakika, bileklik verme on saniye sürüyor. Kuyruk isim kontrolünde oluşuyor. İkinci bir bileklik görevlisi mi ekleyelim, kayıt listesini iki görevli arasında mı bölelim?')],
+     'Kayıt listesini iki görevli arasında bölün. Kuyruğu oluşturan işlem iki dakikalık isim kontrolü; bileklik vermeye ek kişi koymak bu beklemeyi azaltmaz. Listeyi örneğin soyadına göre ikiye ayırıp girişte hangi sıranın kime ait olduğunu belirtin. Sonra isim kontrolündeki bekleme süresinin azalıp azalmadığına bakın.',
+     'Darboğazı isim kontrolünde bulmalı; ek bileklik görevlisinin neden yetmeyeceğini açıklayıp uygulanabilir bölüşüm önermeli. İki kat hız garantisi vermemeli.'),
+    ('useful_explanation', 'reusable-label-total-cost', [
+        ('user', 'Atölye ürünlerini ayda dört kez etiketliyoruz. Tek kullanımlık etiketler her seferinde 150 TL tutuyor. Yeniden kullanılabilir etiket seti bir defalık 900 TL; ürünlere uyuyor ve ek gideri yok. En az altı ay devam edeceğiz. Hangisini seçmem mantıklı, neden?')],
+     'Yeniden kullanılabilir seti seçmek daha mantıklı. Tek kullanımlık etiketlerin aylık gideri 600 TL, altı aylık toplamı 3.600 TL olur. Set ise toplam 900 TL tutar; altıncı etiketleme turunda maliyetler eşitlenir, sonraki turlarda set daha ucuz kalır. Ürünlere uyduğu ve ek gideri olmadığı da belirtilmiş.',
+     'Aylık 600, altı ay 3600, altıncı turda başa baş hesabını doğru kurmalı; başlangıç maliyetini toplam maliyetle karıştırmamalı.'),
+    ('useful_explanation', 'club-session-attendance-obstacle', [
+        ('user', 'Okuma kulübümüzde duyuruyu herkes görüyor ama az kişi geliyor. Katılmayan altı kişiyle konuştum; hepsi seçtiğimiz saatte derste olduklarını söyledi. Daha güzel bir afiş bastırmak mı, toplantı saatini değiştirmek mi önce denenmeli?')],
+     'Önce toplantı saatini değiştirmeyi deneyin. Konuştuğunuz kişiler duyurudan haberdar; belirttikleri engel dersle çakışması. Afişi güzelleştirmek bu engeli kaldırmaz. Üyelerden uygun saatleri toplayıp ortak bir saat seçin ve birkaç toplantıda katılımı izleyin. Altı kişinin yanıtı bütün üyelerin aynı sorunu yaşadığını kanıtlamaz, ama ilk denemeyi seçmek için somut bir gerekçe sağlar.',
+     'Bilinen engeli hedeflemeli; örneklemi tüm üyelere genellemeden net bir ilk eylem ve izleme önermeli.'),
+    ('useful_explanation', 'craft-booth-price-visibility', [
+        ('user', 'El işi standımda insanlar her ürünün fiyatını tek tek soruyor, ben de satış işlemini bırakıp cevaplıyorum. Ürünler aynı boyda ama fiyatları farklı. Tek bir ortalama fiyat tabelası mı koyayım, her ürüne ayrı fiyat etiketi mi?')],
+     'Her ürüne ayrı fiyat etiketi koyun. Fiyatlar farklı olduğu için ortalama fiyat tabelası müşterinin seçtiği ürünün ücretini söylemez; sorular devam edebilir, hatta yanlış beklenti oluşabilir. Etiketleri ürüne yakın ve okunaklı yerleştirin. Böylece müşteri fiyatı doğrudan görür, siz de satış işlemini daha az bölmek zorunda kalırsınız.',
+     'Ürün bazlı fiyat ihtiyacını açıklamalı; ortalamanın neden yeterli olmadığını göstermeli, satış artışı garantisi vermemeli.'),
+    ('useful_explanation', 'audio-transcript-searchability', [
+        ('user', 'Röportaj kayıtlarını tarihe göre saklıyorum. Bir kişinin söylediği cümleyi bulmam gerektiğinde bütün kayıtları dinliyorum. Dosyaları daha kısa adlandırmak mı, konuşmacı ve konu bilgisiyle zaman damgalı bir dizin hazırlamak mı sorunu çözer? Nasıl başlayayım?')],
+     'Zaman damgalı bir dizin hazırlamak bu soruna daha doğrudan karşılık verir. Kısa dosya adı kaydı tanımayı kolaylaştırabilir ama aradığınız cümlenin kaydın neresinde olduğunu göstermez. Önce sık başvurduğunuz birkaç kayda konuşmacı, konu ve ilgili bölümün başlangıç zamanını ekleyin. Bir cümleyi ararken dizinden kaydı ve zamanı bulup o noktayı açın. Bütün arşivi bir anda dizinlemek yerine bu küçük bölümde ne kadar zaman kazandığınıza bakın.',
+     'Dosyayı bulmakla kayıt içinde bölümü bulmayı ayırmalı; küçük kapsamlı dizin ve ölçülebilir deneme önermeli.'),
+    ('useful_explanation', 'shared-bike-checkout-sequence', [
+        ('user', 'Kulüpte bisiklet ödünç verirken numarasını deftere yazıyoruz ama bazen numarayı yazmadan bisiklet teslim ediliyor. Sonra hangi bisikletin kimde olduğunu bulamıyoruz. Defteri büyütmek yerine işlem sırasını değiştirmek neden işe yarayabilir?')],
+     'Eksik olan defterdeki alan değil, kaydın teslimden önce yapılması. Bisiklet numarası ve alan kişinin adı yazılıp kontrol edildikten sonra anahtarı teslim ederseniz kayıt, atlanabilen bir son işlem olmaktan çıkar. Defteri büyütmek bu sırayı değiştirmez. Önce birkaç teslimde bu düzeni uygulayın; hâlâ kayıtsız teslim oluyorsa hangi adımın atlandığını gözden geçirin.',
+     'Kayıt kapasitesiyle işlem sırasını ayırmalı; teslim öncesi kontrolün mekanizmasını ve sınırını açıklamalı.'),
+    ('useful_explanation', 'museum-audio-guide-instructions', [
+        ('user', 'Müzedeki sesli rehberde ziyaretçiler sesi az bulduklarını söylüyor. Üç kişiye baktığımda ses ayarını değil, kayıt hızını değiştirdiklerini gördüm; iki düğmenin simgesi birbirine benziyor. Cihazları yenilemeden önce nasıl bir deneme yapabilirim ve neden?')],
+     'Önce ses ve hız düğmelerini açıkça ayıran kısa etiketler koyup yeni ziyaretçilerle deneyin. Gözleminiz, bazı kişilerin yanlış ayarı değiştirdiğini gösteriyor; bu kişiler için cihaz yenilemekten önce kullanımın anlaşılmasını düzeltmek işe yarayabilir. Hangi düğmeye bastıklarını ve sonrasında ses şikâyetinin sürüp sürmediğini kaydedin. Doğru ses ayarıyla da sorun sürüyorsa cihazın ses düzeyini ayrıca inceleyin; üç gözlem bütün şikâyetlerin aynı nedenden geldiğini kanıtlamaz.',
+     'Gözlemi hipotez olarak kullanmalı; kullanıcı arayüzü denemesi ile gerçek ses sorunu için ayrı takip yolu vermeli.'),
+    ('useful_explanation', 'workshop-fixed-and-variable-expenses', [
+        ('user', 'Bir çizim atölyesi için salon 600 TL, kişi başı malzeme 40 TL. Sekiz kişi kesin geliyor, dört kişi henüz karar vermedi. Katılım ücretini 100 TL koyarsam gideri karşılar mıyım? İki durum için hesaplayıp ne yapmamı önerdiğini söyle.')],
+     'Sekiz kişi gelirse gelir 800 TL, gider 920 TL olur; 120 TL açık kalır. On iki kişi gelirse gelir 1.200 TL, gider 1.080 TL olur; 120 TL artar. Kişi başına sabit gider için 60 TL kaldığından başa baş nokta on katılımcıdır. Şimdilik yalnızca sekiz kişi kesin olduğu için 100 TL ile gideri karşılayacağınızı varsaymayın. Ücreti kesin katılımcılara göre en az 115 TL yapabilir ya da en az on kişilik kesin katılım sağlandıktan sonra 100 TL ile ilerleyebilirsiniz.',
+     'İki senaryoyu ve başa baş noktasını doğru hesaplamalı; belirsiz katılımcıları kesin gelir saymamalı, koşullu uygulanabilir tercih vermeli.'),
+    ('useful_explanation', 'subtitle-review-two-pass', [
+        ('user', 'Altyazı kontrolünde hem yazım hatalarını hem konuşmayla zaman uyumunu aynı anda inceleyince bazı hataları kaçırıyorum. İki ayrı tur yapmak nasıl yardımcı olur? Yalnızca daha dikkatli ol demeden uygulanabilir bir yöntem anlat.')],
+     'İlk turda sesi dinleyip altyazıların doğru anda başlayıp bittiğini kontrol edin; yazım sorunlarını işaretleyin ama o sırada düzeltmeye geçmeyin. İkinci turda metni okuyup yazım ve anlam hatalarını düzeltin. Böylece her satırda iki farklı kontrol arasında gidip gelmek yerine her turda tek ölçüte odaklanırsınız. Metni değiştirdiğiniz yerlerde zaman uyumunu son kez kontrol edin. Kısa bir bölümde bu yöntemi deneyip önceki yöntemle kaçırdığınız hataları karşılaştırabilirsiniz.',
+     'İki kontrolü somut biçimde ayırmalı, zamanlama/metin etkileşimini son kontrolde korumalı; hatasızlık garantisi vermemeli.'),
+    ('useful_explanation', 'purchase-request-missing-quantity', [
+        ('user', 'Satın alma taleplerinde ürün adı yazılıyor ama adet çoğu zaman boş kalıyor. Eksik bilgi için herkese geri dönüyoruz. Ay sonunda bir eğitim sunumu yapmak yerine talep formunda adedi zorunlu tutmanın neyi değiştireceğini açıklar mısın?')],
+     'Adedi zorunlu tutmak, eksik talebin gönderilmesini baştan engeller; bilgi istemek için sonradan geri dönmeniz gerekmez. Eğitim sunumu hatırlatma sağlayabilir ama eksik formun gönderilmesine tek başına engel olmaz. Adet alanını açık bir etiketle zorunlu yapın ve yalnızca geçerli miktarları kabul edin. Sonrasında eksik adet nedeniyle geri dönen taleplerin azalıp azalmadığını izleyin. Bu düzenleme yanlış adet girilmesini otomatik olarak çözmez.',
+     'Önleyici form kuralıyla hatırlatmayı ayırmalı; eksik ve yanlış verinin farklı olduğunu korumalı.'),
+    ('grounded_completion', 'inventory-withdrawal-accountability', [
+        ('user', 'Depodaki defterlerden on tane eksik. Dün anahtarı hem Deniz hem Ece kullanmış. Defterleri Deniz aldı diyebilir miyiz?')],
+     'Hayır. Defterlerin eksik olması ve Deniz’in anahtarı kullanması, onları Deniz’in aldığını göstermez. Kim tarafından ve ne zaman çıkarıldıkları belirtilmiyor. Varsa teslim kayıtlarını kontrol etmek ve anahtarı kullananlara sormak gerekir.',
+     'Erişim fırsatını eylem kanıtı saymamalı; Eceyi de suçlamamalı, kayıt kontrolü önermeli.'),
+    ('grounded_completion', 'survey-population-change', [
+        ('user', 'Geçen ay yalnızca eski üyeler ankete katıldı ve memnuniyet yüzde 60 çıktı. Bu ay yalnızca yeni üyeler katıldı ve yüzde 80 çıktı. Aynı üyelerin daha memnun olduğunu söyleyebilir miyiz?')],
+     'Hayır, aynı üyelerin memnuniyetindeki değişimi ölçmüş değilsiniz; iki ankete farklı gruplar katılmış. Bu ayki yanıtların oranı daha yüksek, ancak farkın zaman içindeki iyileşmeden mi yoksa grupların farklılığından mı kaynaklandığını bu bilgilerle ayıramayız.',
+     'Oran farkını korumalı ama farklı katılımcıları aynı kişilerin değişimi olarak yorumlamamalı.'),
+    ('grounded_completion', 'explicit-cancellation-reason', [
+        ('user', 'Duyuruda serginin kurulum ekibi yetişemediği için açılışın ertelendiği yazıyor. Açılış neden ertelenmiş?')],
+     'Kurulum ekibi yetişemediği için ertelenmiş.',
+     'Kaynakta açıkça verilen nedeni doğrudan söylemeli; nedeni bilmiyoruz diyerek gereksiz belirsizlik yaratmamalı.'),
+    ('grounded_completion', 'reservation-versus-delivery', [
+        ('user', 'Sistemde araç için rezervasyon onayı var, teslim tutanağı yok. Müşteri aracı teslim almış mı?')],
+     'Bu kayıtlarla teslim aldığını söyleyemeyiz. Rezervasyon onayı araç ayrıldığını gösterir, teslim edildiğini değil. Teslim tutanağının bulunmaması da tek başına aracın kesinlikle teslim edilmediğini kanıtlamaz; teslim durumunu ayrıca doğrulamak gerekir.',
+     'Rezervasyonla teslimi ayırmalı; eksik kayıt nedeniyle ters yönde kesin hüküm de vermemeli.'),
+    ('grounded_completion', 'text-similarity-authorship', [
+        ('user', 'İki kişinin gönderdiği metin aynı cümlelerle başlıyor. Hangisinin diğerinden kopyaladığını biliyor muyuz? Gönderim zamanlarını görmüyoruz.')],
+     'Hayır. Benzer başlangıç, kimin kimden kopyaladığını belirlemez; ikisi de başka bir kaynaktan yararlanmış olabilir. Gönderim veya oluşturma zamanları ve metinlerin kaynağı olmadan yönü belirleyemeyiz.',
+     'Benzerlikten kopyalama yönü ya da kesin kopyalama sonucu çıkarmamalı; ortak kaynağı yalnızca olasılık olarak sunmalı.'),
+    ('grounded_completion', 'guarantee-scope-in-source', [
+        ('user', 'Kılavuzda yeni filtre büyük parçacıkları tutar yazıyor. Suyun içindeki her şeyi temizlediği sonucunu çıkarabilir miyim?')],
+     'Hayır. Kılavuz yalnızca büyük parçacıkların tutulduğunu söylüyor; her maddenin giderildiğini belirtmiyor. Bu ifadeden suyun tamamen temizlendiği veya içilebilir olduğu sonucu çıkmaz.',
+     'Kaynağın kapsamını büyütmemeli; içme güvenliği iddiası eklememeli.'),
+    ('selective_clarification', 'ambiguous-cancellation-object', [
+        ('user', 'Bunu iptal etmek istiyorum. Bana kısa bir iptal mesajı yazar mısın?')],
+     'Neyi iptal edeceksiniz ve mesajı kime göndereceksiniz?',
+     'Mesaj için gerekli nesne/alıcıyı kısa biçimde sormalı; rezervasyon, sipariş veya tarih uydurmamalı.'),
+    ('selective_clarification', 'file-format-resolved', [
+        ('user', 'Dosyayı hangi biçimde göndereyim?'),
+        ('assistant', 'Alıcı hangi biçimleri kabul ediyor ve dosyayı ne için kullanacak?'),
+        ('user', 'Sadece CSV kabul ediyor. Dosyada düz bir tablo var; formül, görsel ve birden fazla sayfa yok. Başka bir isteği de yok. Ne göndereyim?')],
+     'CSV gönderin. Alıcı yalnızca bu biçimi kabul ediyor ve dosyanızdaki düz tablo için gereken koşullar da verilmiş. Başka bir biçim seçmenize gerek yok.',
+     'Çözülen belirsizliği tekrar sormamalı; CSV seçmeli, Excel veya PDF önermemeli.'),
+    ('selective_clarification', 'costume-cleaning-rule', [
+        ('user', 'Ödünç aldığım kostümü yıkayıp mı geri vereyim? Üzerinde bakım etiketi yok ve sahibinin nasıl temizlediğini bilmiyorum.')],
+     'Önce sahibine nasıl temizlenmesini istediğini sorun. Bakım bilgisi olmadığı için doğrudan yıkamanızı önermem; uygun olmayan bir işlem kostüme zarar verebilir. Sahibinin yönlendirmesine göre temizleyip teslim edin.',
+     'Eksik bakım bilgisini belirlemeli; sıcaklık, deterjan ya da kumaş türü uydurmamalı.'),
+    ('selective_clarification', 'reversible-choice-with-stated-goal', [
+        ('user', 'Haftalık bülteni perşembe yerine salı göndermeyi denemek istiyorum. İçerik salı hazır, abonelere belirli bir gün sözü vermedik. Amacım hangi gün daha çok okunduğunu görmek. Başka bir engel yok. Deneyeyim mi?')],
+     'Evet, deneyebilirsiniz. İçerik hazır ve belirli bir gün taahhüdünüz yok. Karşılaştırmada konu ve içerik farklarının da okunmayı etkileyebileceğini unutmayın; tek bir salı gönderiminden kesin sonuç çıkarmadan birkaç gönderimin verisini inceleyin.',
+     'Verilen koşullarla denemeyi desteklemeli; yeni engel icat etmemeli, gün etkisi için tek gönderimi kesin kanıt saymamalı.'),
+    ('consistency_integrity', 'printing-fixed-fee-crossover', [
+        ('user', 'A baskıcısı başlangıç ücreti almıyor, sayfa başına 3 TL istiyor. B baskıcısı 40 TL başlangıç ücreti ve sayfa başına 1 TL istiyor. Başka ücret yok. On sayfa bastıracağım; hangisi daha ucuz? Yalnızca birim fiyata bakma.')],
+     'A daha ucuz: on sayfa için 30 TL tutar. B ise 40 TL başlangıç ücretiyle birlikte 50 TL tutar. B’nin sayfa başı fiyatı düşük olsa da bu siparişte toplam maliyeti daha yüksek.',
+     '30 ve 50 toplamlarını doğru bulmalı; düşük birim fiyatı düşük toplam fiyat saymamalı.'),
+    ('consistency_integrity', 'two-required-approval-conditions', [
+        ('user', 'Kurala göre başvuru ancak hem form doldurulmuş hem ödeme yapılmışsa tamamlanıyor. Formu doldurdum, ödeme yapmadım. Başvurum tamam mı?')],
+     'Hayır. İki koşulun da sağlanması gerekiyor; form doldurulmuş olsa da ödeme yapılmadığı için başvuru henüz tamamlanmamış.',
+     'Ve bağlacını veya gibi yorumlamamalı; formun tamamlanmasıyla başvurunun tamamlanmasını ayırmalı.'),
+    ('consistency_integrity', 'exception-preserving-rewrite', [
+        ('user', 'Şunu daha kısa yaz ama istisnayı kaybetme: Pazar günleri ziyaretçi kabul edilmiyor; yalnızca önceden randevu alan araştırmacılar içeri girebiliyor.')],
+     'Pazar günleri yalnızca önceden randevu alan araştırmacılar kabul ediliyor.',
+     'Randevu ve araştırmacı koşullarının ikisini de korumalı; pazar herkese kapalı dememeli.'),
+    ('consistency_integrity', 'confidence-not-certainty', [
+        ('user', 'Editör metin için büyük ölçüde hazır, iki alıntının kaynağı hâlâ kontrol edilecek dedi. Ben de tamamen doğrulandı diye duyurayım mı?')],
+     'Hayır. İki alıntının kaynağı henüz kontrol edilmediği için tamamen doğrulandı demek doğru olmaz. Metin büyük ölçüde hazır; iki alıntının kaynak kontrolü sürüyor diyebilirsiniz.',
+     'Hazır olmayı tam doğrulama saymamalı; kalan iki kontrolü açıkça korumalı.'),
+]
