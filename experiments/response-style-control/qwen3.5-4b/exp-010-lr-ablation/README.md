@@ -1,6 +1,9 @@
 # exp-010-lr-ablation
 
-Status: user-approved recipe; local preparation, GPU run pending.
+Status: training and both epoch development generations completed; human review
+pending. See GPU-RUN-NOTES.md for actual execution, initial inference loop,
+recovery/stop-policy changes and verified durable backups. Historical handoff
+instructions below are retained; their pending-GPU statements are superseded.
 
 2026-10-03 execution override: user explicitly waived repeated smoke and
 tiny-overfit for this LR-only run. New pinned environment imports/CUDA and actual

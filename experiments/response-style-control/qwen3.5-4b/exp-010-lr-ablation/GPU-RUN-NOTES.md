@@ -83,4 +83,19 @@ files. Source bundles and final inference support backup must also be retained.
 Pinned public base weights remain a download dependency; no claim of fully
 offline or bitwise-identical reproduction.
 
-Inference/support backup final verification is recorded after both epochs finish.
+Both v2 epoch runs completed: 20/20 outputs and 20/20 native EOS each, zero
+guard/length stops. Epoch1 includes eight verified original EOS outputs reused;
+epoch2 is entirely fresh. No repetition penalty change (1.05 throughout).
+This successful rerun does not erase the original loop or prove broad stability.
+
+Inference/support archive downloaded and extracted, SHA256 verified:
+88ab717710d9969414277e992a87c3a2b7954fe5b092659435444393ad2cfd97.
+Includes original failed raw attempts, interrupted-run evidence, both final
+epoch outputs/token IDs/manifests, progress snapshots, all inference logs,
+hardware metadata, finished W&B API history, recovery helper scripts and source
+bundles. All per-file evaluation and corresponding checkpoint adapter/tokenizer
+hashes independently checked after local extraction.
+
+Original interrupted attempts cannot be substituted for the successful rerun
+when discussing stability. Underlying cause remains unisolated; do not label
+this a proven EOS/config bug or a proven LR-induced model regression.
