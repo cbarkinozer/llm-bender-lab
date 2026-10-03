@@ -19,7 +19,7 @@ def main():
     p.add_argument('--results-root',type=Path,required=True)
     p.add_argument('--exp009-results',type=Path,required=True)
     a=p.parse_args()
-    one=read(a.results_root/'validation-epoch1-v1'); two=read(a.results_root/'validation-epoch2-v1'); old=read(a.exp009_results)
+    one=read(a.results_root/'validation-epoch1-v2'); two=read(a.results_root/'validation-epoch2-v2'); old=read(a.exp009_results)
     assert set(one)==set(two)==set(old) and len(two)==20
     url=os.getenv('ARGILLA_API_URL','http://127.0.0.1:6900')
     client=rg.Argilla(api_url=url,api_key=os.getenv('ARGILLA_API_KEY','argilla.apikey'))
@@ -30,10 +30,11 @@ def main():
         assert r['messages']==one[id]['messages']==old[id]['messages']
         records.append(rg.Record(id=id,fields=dict(conversation='\n\n'.join(m['role']+': '+m['content'] for m in r['messages']),
             base_answer=r['original_answer'],desired_answer=r['desired_answer'],exp009_answer=old[id]['adapter_answer'],
-            exp010_epoch1=one[id]['adapter_answer'],exp010_epoch2=r['adapter_answer'],category=r['category'])))
+            exp010_epoch1=one[id]['adapter_answer'],exp010_epoch2=r['adapter_answer'],category=r['category'],
+            termination=f"epoch1: {one[id].get('finish_reason')}; epoch2: {r.get('finish_reason')}. Non-EOS outputs are incomplete failures, not corrected answers.")))
     if dataset is None:
         settings=rg.Settings(guidelines='Exp010 yalnizca LR 5e-5 -> 1e-4 degisikligi: ayni 80 egitim, 20 development-validation sorusu, iki epoch. Epoch1 ve epoch2 cevaplarini hedefe gore degerlendir. Dogruluk ve dogal Turkceyi kisaliktan once tut; gereksiz Markdown/emoji, uzatma, desteksiz iddia ve soru dongusunu isaretle. Bu bir egitim verisi duzeltme ekrani degil, model incelemesidir. Base eski vLLM run; diger cevaplar ayni Unsloth/Transformers backend. Inceleme blind degildir. Onceki exp009 annotasyonlari korunur.',
-            fields=[rg.TextField(name=f,use_markdown=False) for f in ['conversation','base_answer','desired_answer','exp009_answer','exp010_epoch1','exp010_epoch2','category']],
+            fields=[rg.TextField(name=f,use_markdown=False) for f in ['conversation','base_answer','desired_answer','exp009_answer','exp010_epoch1','exp010_epoch2','category','termination']],
             questions=[rg.LabelQuestion(name='best_exp010_epoch',title='Exp010 hangi epoch daha iyi?',labels=['epoch1','epoch2','tie','neither'],required=True),
                 rg.LabelQuestion(name='epoch2_quality',title='Epoch2 hedefi karsiliyor mu?',labels=['pass','partial','fail'],required=True),
                 rg.MultiLabelQuestion(name='epoch2_issues',title='Epoch2 sorunlari (varsa)',labels=['incorrect','turkish','too_long','too_short','markdown_emoji','unsupported_claim','anthropomorphism','unnecessary_question','repetition'],required=False),
