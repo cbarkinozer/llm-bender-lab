@@ -99,8 +99,8 @@ test. The independent communication-policy benchmark is being authored under
 ## Experiment registry
 
 Current work and the requested future agentic-RL track: [TODO.md](TODO.md).
-A/B preparation is approved; neither new training run has started, and B needs
-the user's review of 24 new targets.
+A/B preparation and B's 24 targets are approved; both arms are CPU-prepared.
+Neither new training run has started; next step is GPU access and real GPU gates.
 
 | ID | Status | Main change | Notes |
 | --- | --- | --- | --- |
@@ -116,4 +116,4 @@ the user's review of 24 new targets.
 | `exp-009-minimal-edit` | trained; rejected by user | 80 reviewed examples, LR 5e-5, two epochs | 20 adapter answers generated; persistent unwanted behavior and poor Turkish reported; backups verified |
 | `exp-010-lr-ablation` | trained; human review pending | Same exp009 data/recipe, LR doubled to 1e-4 only | Both epoch adapters generated 20 development answers; initial repeat loop preserved, bounded rerun completed; backups verified; repeat training diagnostics explicitly waived by user |
 | `exp-011-duration-ablation` | CPU prepared; GPU gates needed | A: same 80 reviewed rows, four epochs instead of two | 40 expected steps; regenerated tokenization matches parent; validation unchanged; duration extends cosine schedule |
-| `exp-012-coverage-ablation` | 24 drafts awaiting human review | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | Argilla queue verified; no detected overlap; draft training blocked; supervised-token exposure +22.47% before human edits |
+| `exp-012-coverage-ablation` | reviewed and CPU prepared; GPU gates needed | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | User approved all 24 as-is in conversation; approval and raw Argilla snapshot separate; no detected overlap; supervised-token exposure +22.47% |

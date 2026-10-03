@@ -1,7 +1,8 @@
 # Response-style-control TODO
 
 Updated: 2026-10-03. User approved preparation of the paired A/B design.
-No GPU training has started; B still requires human approval of 24 new targets.
+No GPU training has started. B's 24 new targets were approved as-is in conversation
+and frozen; next boundary is GPU access and real GPU gates for both arms.
 
 ## Immediate SFT decisions
 
@@ -23,9 +24,10 @@ No GPU training has started; B still requires human approval of 24 new targets.
   with exp010 and B with A. Cosine duration and B token-exposure caveats are recorded.
 - [x] CPU-check original hashes, new-scenario overlap, tokenization, native EOS
   and masks. A local preflight passed; B draft preflight passed but is not trainable.
-- [ ] User: review [24 new B answers](http://127.0.0.1:6900/dataset/0e41d340-72a7-4643-a4ec-6c58917873ce/annotation-mode?page=1&status=pending).
+- [x] User: review [24 new B answers](http://127.0.0.1:6900/dataset/0e41d340-72a7-4643-a4ec-6c58917873ce/annotation-mode?page=1&status=pending).
   Accept or rewrite each; resolve rejected questions. Existing 56 need no new review.
-- [ ] Export/freeze the completed B review, recompute token exposure and commit it.
+- [x] Export/freeze B using hash-bound conversational approval; no Argilla responses
+  fabricated or changed. Targets unchanged as approved; token exposure remains +22.47%.
 - [ ] Obtain GPU; run genuine GPU gates, then fresh-base A and B sequentially.
   Download and verify all artifacts before pod termination. No implicit reuse of
   exp010's LR-only smoke/tiny-overfit waiver.

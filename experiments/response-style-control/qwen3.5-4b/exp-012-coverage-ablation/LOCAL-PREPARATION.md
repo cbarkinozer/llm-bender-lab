@@ -42,5 +42,26 @@ different tasks (explicit cancellation cause versus veri/vergi extraction).
 Other nearest pairs and complete source hashes are in data-draft-v1/leakage-report.json.
 Shared behavior categories are intentional, not proof of scenario leakage.
 
-Next stop is human review of 24 drafts. Then export/recheck/commit reviewed targets,
-obtain a GPU and satisfy its gates. Never describe draft CPU checks as GPU evidence.
+## Review finalization follow-up
+
+User approved the 24 drafts as-is: "i checked them, they seem fine". Read-only
+Argilla inspection found zero submitted responses. A separate conversational
+approval record binds the exact candidate hash and IDs; raw snapshot is preserved
+without manufacturing annotation responses. The explicit approval-file exporter
+rejects wrong hashes, missing IDs and conflicting existing responses. Eighteen
+tests passed after adding these checks. Normal export still rejects missing reviews.
+
+The reviewed dataset, config and tokenizer preflight were frozen with:
+
+```powershell
+& C:\Temp\llm-bender-exp009-preflight\Scripts\python.exe experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/export_review.py --approval-file experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/user-approval.json
+& C:\Temp\llm-bender-exp009-preflight\Scripts\python.exe experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/verify_ready.py
+```
+
+All 24 answers and prompts remain as proposed. The 56 original rows, original
+80-row source and 20 validation rows/tokens are unchanged. B target tokens remain
+6,594 per epoch. Active config-reviewed-v1.yaml matches the trainable preflight
+config; draft artifacts remain historical and deliberately non-trainable.
+
+Next stop is GPU access and real GPU gates. No additional review required.
+Never describe these CPU checks as GPU evidence or completed training.

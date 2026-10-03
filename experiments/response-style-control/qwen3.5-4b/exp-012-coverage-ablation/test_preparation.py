@@ -55,6 +55,29 @@ class PreparationTests(unittest.TestCase):
         mapping=approved_targets(records_for(self.new),self.new)
         self.assertEqual(len(mapping),24)
         self.assertTrue(all(mapping[r['replaces_id']]['desired_answer']==r['desired_answer'] for r in self.new))
+    def test_explicit_conversation_approval(self):
+        approval=json.loads((HERE/'user-approval.json').read_text(encoding='utf-8'))
+        rows=records_for(self.new)
+        for row in rows: row['responses']=[]
+        result=approved_targets(rows,self.new,approval)
+        self.assertEqual(len(result),24)
+        self.assertTrue(all(r['review_response_id'] is None for r in result.values()))
+        self.assertTrue(all(r['review_provenance']=='user-conversation-approval' for r in result.values()))
+    def test_conversation_approval_wrong_hash_blocks(self):
+        approval=json.loads((HERE/'user-approval.json').read_text(encoding='utf-8'))
+        approval['candidate_sha256']='wrong'
+        rows=records_for(self.new)
+        for row in rows: row['responses']=[]
+        with self.assertRaises(ValueError): approved_targets(rows,self.new,approval)
+    def test_conversation_approval_missing_id_blocks(self):
+        approval=json.loads((HERE/'user-approval.json').read_text(encoding='utf-8'))
+        approval['candidate_ids'].pop()
+        rows=records_for(self.new)
+        for row in rows: row['responses']=[]
+        with self.assertRaises(ValueError): approved_targets(rows,self.new,approval)
+    def test_conversation_approval_does_not_override_annotations(self):
+        approval=json.loads((HERE/'user-approval.json').read_text(encoding='utf-8'))
+        with self.assertRaises(ValueError): approved_targets(records_for(self.new),self.new,approval)
     def test_incomplete_review_blocks(self):
         rows=records_for(self.new); rows[0]['responses']=[]
         with self.assertRaises(ValueError): approved_targets(rows,self.new)

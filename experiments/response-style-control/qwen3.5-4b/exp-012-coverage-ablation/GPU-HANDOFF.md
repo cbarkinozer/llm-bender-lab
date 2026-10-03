@@ -1,12 +1,14 @@
 # Paired run handoff
 
-Current stop: B needs the user's 24-answer review. A is CPU-prepared but no GPU
-gates have passed for either new run. No current pod is assumed alive.
+Current stop: a GPU is needed. B's 24 answers were approved as-is in conversation
+and frozen; both A and B passed CPU checks. No GPU gates have passed for either
+new run. No current pod is assumed alive.
 
 ## Before renting/using GPU
 
-1. Export completed B review with export_review.py using the CPU tokenizer venv;
-   inspect exported targets/token exposure and commit the reviewed source.
+1. B export is completed and committed with conversational approval provenance;
+   verify its reviewed manifest and active config-reviewed-v1.yaml. Preserve the
+   draft config.yaml as history. No further annotation submission is required.
 2. Verify both original reviewed-v2 hashes and all preflight artifact hashes.
 3. Use the existing exp010 pinned setup/requirements and consult
    docs/environment-setup-gotchas.md and exp010/GPU-RUN-NOTES.md first. No vLLM

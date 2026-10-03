@@ -1,6 +1,9 @@
 # exp-012-coverage-ablation — B
 
-Status: 24 drafts in Argilla; human review required. No GPU execution started.
+Status: all 24 proposed answers approved as-is by the user in conversation on
+2026-10-03; reviewed B dataset and CPU preflight frozen. GPU gates still needed.
+No GPU execution started. Active config: config-reviewed-v1.yaml, mirrored in
+training-preflight-v1/training-config.json. config.yaml remains the draft record.
 
 ## Design
 
@@ -24,7 +27,15 @@ examples. New examples are project-agent-authored Turkish drafts, not summaries
 of newly generated base answers. Their full authoring brief and limitations are
 in candidate_specs.py. No third-party dataset or external generation API was used.
 
-## Your next action
+## Review completed
+
+User message: "i checked them, they seem fine". Approval is recorded in
+user-approval.json and copied into data-reviewed-v1; it binds all 24 IDs and the
+exact draft SHA-256. Argilla had zero responses and was not modified. Do not
+claim that 24 annotation responses were submitted. No further review is needed
+unless the user wants edits; next step is a GPU for both arms.
+
+Original review instructions and queue remain below for history:
 
 Review only the [24 new answers in Argilla](http://127.0.0.1:6900/dataset/0e41d340-72a7-4643-a4ec-6c58917873ce/annotation-mode?page=1&status=pending).
 
@@ -62,12 +73,17 @@ Draft training-preflight-draft-v1/report.json deliberately has status
 draft-not-approved. Planning config.yaml has an invalid sentinel training hash
 and points at absent data-reviewed-v1. The shared GPU runner refuses the draft.
 
-After all 24 reviews, run export_review.py with the tokenizer-capable CPU Python.
+For submitted Argilla reviews, run export_review.py with the tokenizer-capable CPU Python.
 It reads annotations without modifying them, validates frozen input fields,
 requires exactly one submitted accept/rewrite per row, preserves the original
 56 and validation, repeats leakage/tokenization checks and freezes a new reviewed
 dataset/config/preflight. Rejected, missing or empty reviews fail before writing.
 Existing frozen exports are never overwritten.
+
+Alternatively, an explicit --approval-file can record the user's conversational
+accept-all-as-is decision against all 24 IDs and their exact draft hash, only if
+there are no Argilla responses to conflict with it. This option was used for this
+freeze; it does not manufacture responses or auto-approve future candidates.
 
 CPU preparation: python prepare_pair.py. Tests: python test_preparation.py.
 Argilla import: python import_review.py using the existing Argilla SDK venv.
