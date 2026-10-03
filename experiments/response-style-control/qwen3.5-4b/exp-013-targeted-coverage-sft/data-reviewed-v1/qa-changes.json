@@ -1,0 +1,44 @@
+[
+  {
+    "id": "tc-005",
+    "fields": [
+      "desired_answer"
+    ],
+    "before": {
+      "desired_answer": "Kesin söyleyemeyiz. Işığın yanması yalnızca projektörün elektrik aldığını gösterir, görüntü sinyalinin ulaştığını göstermez; sorun kabloda, giriş seçiminde, bilgisayarın görüntü çıkışında ya da projektörün kendisinde olabilir. Önce projektörde doğru girişin seçili olduğunu kontrol edin. Görüntü gelmezse çalıştığı bilinen bir kabloyla deneyin; görüntü gelirse sorun kablodadır. Yine gelmezse başka bir bilgisayar bağlayarak sorunun bilgisayarda mı projektörde mi olduğunu ayırabilirsiniz."
+    },
+    "after": {
+      "desired_answer": "Kesin söyleyemeyiz. Işığın yanması yalnızca projektörün elektrik aldığını gösterir, görüntü sinyalinin ulaştığını göstermez; sorun kabloda, giriş seçiminde, bilgisayarın görüntü çıkışında ya da projektörün kendisinde olabilir. Önce projektörde doğru girişin seçili olduğunu kontrol edin. Görüntü gelmezse çalıştığı bilinen bir kabloyla deneyin; görüntü gelirse eski kablo veya bağlantısı güçlü bir şüpheli olur. Yine gelmezse başka bir bilgisayar bağlayarak sorunun bilgisayarda mı projektörde mi olduğunu ayırabilirsiniz."
+    },
+    "original_review_response_id": "e907b62b-0849-4ce2-bb64-bc7650269513"
+  },
+  {
+    "id": "tc-010",
+    "fields": [
+      "messages",
+      "prompt_tr",
+      "input_messages_sha256"
+    ],
+    "before": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Derya doktora programına başvurmuş, Kerem ise doktor olarak çalışmaya başlamış. Bu cümlede lisansüstü eğitim başvurusu yapan kim? 'Doktora' sözcüğünü meslek adıyla karıştırmadan yanıtla."
+        }
+      ],
+      "prompt_tr": "user: Derya doktora programına başvurmuş, Kerem ise doktor olarak çalışmaya başlamış. Bu cümlede lisansüstü eğitim başvurusu yapan kim? 'Doktora' sözcüğünü meslek adıyla karıştırmadan yanıtla.",
+      "input_messages_sha256": "837415c486e7d553e2bb23611b6aed06dab3b592ea9b543ee5e81713ed301fe6"
+    },
+    "after": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Derya doktora programına başvurmuş, Kerem ise doktor olarak çalışmaya başlamış. Bu cümlede lisansüstü eğitim başvurusu yapan kim?"
+        }
+      ],
+      "prompt_tr": "user: Derya doktora programına başvurmuş, Kerem ise doktor olarak çalışmaya başlamış. Bu cümlede lisansüstü eğitim başvurusu yapan kim?",
+      "input_messages_sha256": "8385e954b4c47b693664c7f9cf1c9c7b41662b563a9e890fee22c4e71992b8f7"
+    },
+    "original_review_response_id": "5fab695d-e234-4cef-976d-e70e526bd0fb"
+  }
+]

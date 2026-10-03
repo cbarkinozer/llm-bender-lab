@@ -1,0 +1,43 @@
+{
+  "status": "reviewed-and-CPU-verified-awaiting-GPU",
+  "training_started": false,
+  "shared_train_rows": 80,
+  "unchanged_validation_rows": 20,
+  "retained_original_rows": 68,
+  "reviewed_new_rows": 12,
+  "argilla_decisions": {
+    "accept": 7,
+    "rewrite": 5
+  },
+  "postreview_qa_rows": 2,
+  "native_EOS_supervised": true,
+  "context_masked": true,
+  "truncated_rows": 0,
+  "shared_train_sha256": "d61bdfab544dc0d3ba5531e74005940d47b6b6af38fba864dbd5ceefcf948d7a",
+  "validation_sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+  "target_tokens_per_epoch": 5653,
+  "target_token_change_vs_A_percent": 5.0,
+  "planned_steps": {
+    "C": 40,
+    "D": 60
+  },
+  "planned_epochs": {
+    "C": 4,
+    "D": 6
+  },
+  "approved_mask_inspection_sha256": "9b1937d67240dc7bd71b7c4b071cf3559f46c439aa04eef3ef4c2aea80a93269",
+  "source_configs": {
+    "exp-013-targeted-coverage-sft": "f287a2478a6ec4d7f97c3ecd43ffd3c32024666ae5725b17d24448233182de9c",
+    "exp-014-targeted-duration-sft": "fc1f361dca93353f68f561616f5c441282090e50e3f5452718a9fe977e0d5c70"
+  },
+  "no_detected_leakage": true,
+  "limitation": "Lexical/provenance checks cannot prove universal semantic independence.",
+  "GPU_gates_passed": false,
+  "remaining": [
+    "GPU endpoint/access",
+    "Pinned environment and actual-batch checks",
+    "Smoke/reload/tiny-overfit checks or explicit scoped waiver",
+    "W&B authentication",
+    "Independent C/D SFT, inference, verified recovery, human comparison"
+  ]
+}

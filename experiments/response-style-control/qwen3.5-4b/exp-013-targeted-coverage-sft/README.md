@@ -2,14 +2,15 @@
 
 ## Status
 
-Planned; twelve draft targets need human review. CPU schema/hash/leakage/
-tokenizer/mask checks passed, but no GPU training or inference has started.
-`config.yaml` is deliberately blocked and has no approved training hash.
-Do not pass draft tokenized files to the trainer.
+Reviewed and CPU verified; awaiting GPU endpoint and run checks. All12 reviews
+exported:7 accept,5 rewrite, plus2 explicitly user-authorized QA corrections.
+Active config-reviewed-v1.yaml, data-reviewed-v1 and training-preflight-v1.
+`config.yaml` remains deliberately blocked draft history, not the active recipe.
+No GPU training or inference has started. Do not use draft tokenized files.
 
 [Review the12 shared C/D candidates](http://127.0.0.1:6900/dataset/c0dc183f-e552-4a7d-9267-08211b88df94/annotation-mode?page=1&status=pending).
 Use accept, or rewrite with the complete corrected answer, or reject with notes.
-Only these12 need review, once for both experiments.
+Review completed; no further candidate annotations required for either experiment.
 
 ## Goal and hypothesis
 
@@ -44,6 +45,7 @@ Scenario/provenance inspection is documented in data-draft-v2/leakage-report.jso
 Lexical checks and manual inspection cannot prove universal semantic independence.
 
 Draft supervised tokens:5578/epoch versus A5384 (+3.60%); recompute after review.
+Final reviewed/QA-corrected tokens5653/epoch versus A5384 (+5.00%).
 Changing composition also changes token exposure, so this is not an isolated
 data-quality causal estimate. Maximum draft train sequence514 tokens; no
 truncation at1024. Native EOS supervised; context including empty-think prefix masked.
@@ -86,6 +88,15 @@ refused unreviewed tc-001, producing no approved data or reviewed configs.
 Preparation found a namesake-module import collision from older helpers changing
 sys.path; restoring this experiment first fixed it. Regression test added.
 No frozen old data, references, reviews or configs modified.
+
+Final freeze: data-reviewed-v1 contains raw12 submissions, original reviewed
+candidates, approved candidates, two before/after QA diffs and the user's
+hash-bound conversational authority. tc-010 lexical-trap hint removed; tc-005
+categorical cable diagnosis softened. Other10 reviewed candidates unchanged.
+All68 original A rows and20 validation rows remain unchanged. All12 CPU tests
+pass. verify_ready.py confirms C/D byte-identical data/tokenization and distinct
+4/6epoch configs, all artifact hashes, native EOS/masks and original provenance.
+[GPU-HANDOFF.md](GPU-HANDOFF.md) records next launch and recovery requirements.
 
 Before handoff, draft v2 corrected tc-010 from ambiguous “doktora başvurmuş”
 to “doktora programına başvurmuş.” Doctor consultation and doctoral education

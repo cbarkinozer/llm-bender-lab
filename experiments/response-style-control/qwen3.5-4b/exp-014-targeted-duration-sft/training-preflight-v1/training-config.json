@@ -1,0 +1,87 @@
+{
+  "experiment_id": "exp-014-targeted-duration-sft",
+  "status": "prepared-needs-gpu-gates",
+  "model": {
+    "name": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter": null,
+    "thinking_mode": false
+  },
+  "dataset": {
+    "train": "../exp-013-targeted-coverage-sft/data-reviewed-v1/train-reviewed.jsonl",
+    "validation": "reviewed-v2/validation-reviewed.jsonl",
+    "hashes": {
+      "train-reviewed.jsonl": "d61bdfab544dc0d3ba5531e74005940d47b6b6af38fba864dbd5ceefcf948d7a",
+      "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "train_rows": 80,
+    "validation_rows": 20,
+    "loss": "final-assistant-only",
+    "review_required": false,
+    "review_status": "12-human-approved-argilla-plus-2-user-authorized-QA"
+  },
+  "training": {
+    "framework": "unsloth",
+    "method": "bf16-lora",
+    "max_seq_length": 1024,
+    "epochs": 6,
+    "learning_rate": 0.0001,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "expected_optimizer_steps": 60,
+    "optimizer": "adamw_8bit",
+    "scheduler": "cosine",
+    "warmup_steps": 2,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "seed": 3407,
+    "packing": false,
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "save_strategy": "epoch",
+    "eval_strategy": "epoch",
+    "report_to": "wandb"
+  },
+  "inference": {
+    "backend": "unsloth-transformers",
+    "temperature": 0.0,
+    "repetition_penalty": 1.05,
+    "thinking_mode": false,
+    "additional_system_prompt": null,
+    "output_token_budgets": [
+      4096
+    ],
+    "bounded": true,
+    "stop_policy": "native EOS; exact token loops/180-second timeout are failures, not EOS"
+  },
+  "notes": [
+    "Fresh pinned base independently; do not initialize from any saved adapter.",
+    "C vs A: retain 68 original rows and replace 12; all original rows above me-040 unchanged.",
+    "D vs C: exact same reviewed80 rows, epochs4 -> 6; cosine trajectory extends.",
+    "Both configs resolve dataset paths against shared exp009 trainer directory.",
+    "Final scheduled adapter preselected; no best-checkpoint selection from20 development items.",
+    "Same generation settings as saved A; no extra system prompt; HF/Unsloth, not vLLM.",
+    "Repeated20 development items are not an independent final test; me-089 reference disputed.",
+    "No inherited smoke/overfit/reload waiver. New GPU gates or explicit scoped user waiver required.",
+    "Token exposure differs vs A. Record it, do not attribute all changes to isolated data quality.",
+    "Two explicit post-review edits; raw12 responses retained; see data-reviewed-v1/qa-changes.json."
+  ],
+  "parent": "exp-013-targeted-coverage-sft",
+  "tracking": {
+    "run_name": "exp014-sft-targeted-80rows-6ep"
+  }
+}

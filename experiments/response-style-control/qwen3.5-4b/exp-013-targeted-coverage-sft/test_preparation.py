@@ -3,7 +3,7 @@ import copy
 import json
 import unittest
 from prepare_next_pair import HERE, D, candidates, assemble, original, make_config, SOURCE_HASHES, sha, PARENT
-from export_review import approved_targets
+from export_review import approved_targets, apply_postreview_qa
 from import_review import payload
 
 
@@ -13,6 +13,36 @@ def records():
 
 
 class PreparationTests(unittest.TestCase):
+    def qa_fixture(self):
+        rs=records()
+        rs[4]['responses'][0]['values']={'decision':{'value':'rewrite'},
+            'corrected_answer':{'value':'Kabloyu deneyin; görüntü gelirse sorun kablodadır.'}}
+        rows=approved_targets(rs,candidates())
+        from prepare_next_pair import jsonl
+        approval=dict(source='user-conversation',decision='apply-two-scoped-postreview-corrections',
+            reviewed_candidates_sha256=sha(jsonl(rows)),user_message='test-only authority',approval_date='test-only',
+            authorized_changes=[{'id':'tc-005'},{'id':'tc-010'}])
+        return rows,approval
+
+    def test_two_qa_edits_preserve_review_provenance_and_others(self):
+        rows,approval=self.qa_fixture()
+        updated,changes=apply_postreview_qa(rows,approval)
+        self.assertEqual({r['id'] for r in changes},{'tc-005','tc-010'})
+        for old,new in zip(rows,updated):
+            self.assertEqual(old['review_decision'],new['review_decision'])
+            self.assertEqual(old['review_response_id'],new['review_response_id'])
+            if old['id'] not in ('tc-005','tc-010'): self.assertEqual(old,new)
+        self.assertNotIn("'Doktora'",updated[9]['messages'][0]['content'])
+        self.assertEqual(updated[9]['desired_answer'],rows[9]['desired_answer'])
+        self.assertIn('bağlantısı güçlü bir şüpheli',updated[4]['desired_answer'])
+
+    def test_qa_rejects_mismatched_hash_or_scope(self):
+        rows,approval=self.qa_fixture()
+        approval['reviewed_candidates_sha256']='wrong'
+        with self.assertRaises(ValueError): apply_postreview_qa(rows,approval)
+        rows,approval=self.qa_fixture(); approval['authorized_changes'].append({'id':'tc-001'})
+        with self.assertRaises(ValueError): apply_postreview_qa(rows,approval)
+
     def test_namesake_modules_resolve_here(self):
         import export_review
         import import_review

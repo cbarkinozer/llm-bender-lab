@@ -1,0 +1,392 @@
+{
+  "items": [
+    {
+      "id": "c8d5b92d-935e-42e4-b3a6-8d551dcca7b5",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Seramik atölyesinin kataloğunda Kül Grisi mat, Deniz Mavisi parlak, Kum Beji yarı mat olarak tanımlanıyor. Parlak olan sırın adını yaz; açıklama ekleme.",
+        "proposed_answer": "Deniz Mavisi",
+        "substance_check": "Yalnızca doğru sırın adı; mat ve yarı mat seçenekleriyle karıştırmamalı.",
+        "category": "answer_extraction",
+        "replacement": "me-011"
+      },
+      "metadata": {},
+      "external_id": "tc-001",
+      "responses": [
+        {
+          "id": "a37e2597-3579-4689-91c8-f1acbe30b1fb",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "c8d5b92d-935e-42e4-b3a6-8d551dcca7b5",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:32:03.050479",
+          "updated_at": "2026-10-03T19:32:03.050479"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142013",
+      "updated_at": "2026-10-03T19:32:03.069268"
+    },
+    {
+      "id": "d95ce31c-3616-4510-8efb-a9f9ec531636",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Tiyatro programında ışık tasarımı Elif Aras'a, ses tasarımı Bora Ekin'e, kostüm tasarımı Selin Ural'a ait. Ses tasarımını kim yaptı? Sadece kişinin adını yaz.",
+        "proposed_answer": "Bora Ekin",
+        "substance_check": "Ses sorumlusunu seçmeli; görevleri veya bütün cümleyi tekrar etmemeli.",
+        "category": "answer_extraction",
+        "replacement": "me-013"
+      },
+      "metadata": {},
+      "external_id": "tc-002",
+      "responses": [
+        {
+          "id": "07f055fa-d1d3-466d-87e1-0429acaa22c0",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "d95ce31c-3616-4510-8efb-a9f9ec531636",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:31:49.010957",
+          "updated_at": "2026-10-03T19:31:49.010957"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142028",
+      "updated_at": "2026-10-03T19:31:49.029030"
+    },
+    {
+      "id": "3bfec598-2cdc-4a8e-b44c-14e4c92dbdaf",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kiralık kameranın ana bataryası 85 dakika, yedek bataryası 55 dakika çalışıyor. Çantadaki kartta 120 dakika kayıt alanı var. Yedek bataryanın çalışma süresini yalnızca sayı ve birimle belirt.",
+        "proposed_answer": "55 dakika",
+        "substance_check": "Yedek bataryanın 55 dakikasını seçmeli; kart kapasitesi veya ana batarya değil.",
+        "category": "numeric_entity_precision",
+        "replacement": "me-021"
+      },
+      "metadata": {},
+      "external_id": "tc-003",
+      "responses": [
+        {
+          "id": "8f7ef63d-7d10-43bd-8c2b-5d79013c9b30",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "3bfec598-2cdc-4a8e-b44c-14e4c92dbdaf",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:30:44.487667",
+          "updated_at": "2026-10-03T19:30:44.487667"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142035",
+      "updated_at": "2026-10-03T19:30:44.501849"
+    },
+    {
+      "id": "799b9502-5810-4b49-81e2-27ef0efeb256",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Botanik bahçesinde kurak iklim bitkileri Taşlık Koleksiyon bölümünde, nemli iklim bitkileri Sera Koleksiyonu bölümünde sergileniyor. Kurak iklim bitkilerinin bulunduğu bölüm hangisi? Yalnızca bölüm adını ver.",
+        "proposed_answer": "Taşlık Koleksiyon",
+        "substance_check": "Kurak/nemli eşleştirmesini korumalı; yalnızca istenen bölüm adı.",
+        "category": "numeric_entity_precision",
+        "replacement": "me-022"
+      },
+      "metadata": {},
+      "external_id": "tc-004",
+      "responses": [
+        {
+          "id": "19a7e2b3-d47f-456e-84a6-3048a5cfae24",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "799b9502-5810-4b49-81e2-27ef0efeb256",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:30:55.200066",
+          "updated_at": "2026-10-03T19:30:55.200066"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142042",
+      "updated_at": "2026-10-03T19:30:55.222351"
+    },
+    {
+      "id": "2c7ce89b-ef1a-4ed3-acb1-7cae61848755",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Projektör görüntü vermiyor. Kabloyu değiştirsem sorunun çözüleceğini kesin söyleyebilir miyiz? Başka bir kabloyla veya bilgisayarla henüz denemedik; cihazın ışığı yanıyor.",
+        "proposed_answer": "Kesin söyleyemeyiz. Işığın yanması, görüntü yolunun çalıştığını göstermez; sorun kabloda, giriş seçiminde veya bilgisayarın çıkışında olabilir. Önce doğru girişin seçili olduğunu kontrol edin, sonra çalıştığı bilinen bir kabloyla deneyin. Bu deneme, kabloyu değiştirmek için gerekçe sağlar; baştan çözüm garantisi vermez.",
+        "substance_check": "Kabloyu doğrulanmış neden saymamalı. Olasılıkları açıkça olasılık olarak sunup ayırt edici deneme önermeli; kesin çözüm vaadi yok.",
+        "category": "grounded_completion",
+        "replacement": "me-015"
+      },
+      "metadata": {},
+      "external_id": "tc-005",
+      "responses": [
+        {
+          "id": "e907b62b-0849-4ce2-bb64-bc7650269513",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "corrected_answer": {
+              "value": "Kesin söyleyemeyiz. Işığın yanması yalnızca projektörün elektrik aldığını gösterir, görüntü sinyalinin ulaştığını göstermez; sorun kabloda, giriş seçiminde, bilgisayarın görüntü çıkışında ya da projektörün kendisinde olabilir. Önce projektörde doğru girişin seçili olduğunu kontrol edin. Görüntü gelmezse çalıştığı bilinen bir kabloyla deneyin; görüntü gelirse sorun kablodadır. Yine gelmezse başka bir bilgisayar bağlayarak sorunun bilgisayarda mı projektörde mi olduğunu ayırabilirsiniz."
+            }
+          },
+          "status": "submitted",
+          "record_id": "2c7ce89b-ef1a-4ed3-acb1-7cae61848755",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:30:31.394788",
+          "updated_at": "2026-10-03T19:30:31.394788"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142048",
+      "updated_at": "2026-10-03T19:30:31.429286"
+    },
+    {
+      "id": "854c6a94-4cf0-4ce8-851f-d8cd3cdae796",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Arşiv klasörüne erişim neden reddedildi? Denetim kaydı, kullanıcı hesabının gerekli okuma grubunda olmadığını söylüyor. Yönetici yalnızca bu grup üyeliğini ekledi; aynı hesap ve aynı klasörle erişim açıldı.",
+        "proposed_answer": "Kayıt ve yapılan kontrol, erişim reddinin eksik okuma yetkisinden kaynaklandığını destekliyor. Hesap gerekli gruba eklenince diğer koşullar değişmeden aynı klasöre erişebilmiş. Bu olay için somut bir açıklama var; buradan bütün erişim sorunlarının aynı nedenden çıktığı sonucu gelmez.",
+        "substance_check": "Açık kanıt varken sebepsizce bilmiyoruz dememeli. Yetki nedenini kanıtla ilişkilendirmeli; diğer olaylara genellememeli.",
+        "category": "grounded_completion",
+        "replacement": "me-016"
+      },
+      "metadata": {},
+      "external_id": "tc-006",
+      "responses": [
+        {
+          "id": "5cf33c3c-a041-4924-87f0-0c79be751b36",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "corrected_answer": {
+              "value": "Erişim, hesap gerekli okuma grubunda olmadığı için reddedildi. Denetim kaydı bunu gösteriyor; yönetici yalnızca grup üyeliğini ekledikten sonra aynı hesap ve aynı klasörle erişimin açılması da nedeni doğruluyor."
+            }
+          },
+          "status": "submitted",
+          "record_id": "854c6a94-4cf0-4ce8-851f-d8cd3cdae796",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:33:29.060360",
+          "updated_at": "2026-10-03T19:33:29.060360"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142054",
+      "updated_at": "2026-10-03T19:33:29.073755"
+    },
+    {
+      "id": "ca17e594-93a4-4a57-bfb8-e355ae104f51",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Bir dinleyici podcast aboneliğini iptal etmiş. İptal formunda gerekçe boş. Bunu son bölümdeki konuğumuzu sevmediği için yaptığı sonucuna varabilir miyiz?",
+        "proposed_answer": "Hayır. İptal edilmiş olması, dinleyicinin konuğu sevmediğini göstermiyor; formda da gerekçe yok. İsterseniz isteğe bağlı kısa bir geri bildirim isteyebilirsiniz, ama yanıt gelmeden belirli bir nedeni ona atfetmek doğru olmaz.",
+        "substance_check": "Davranıştan kişisel niyet uydurmamalı; gerekçe bilinmiyor. Geri bildirim seçeneği zorunlu veya garantili bilgi gibi sunulmamalı.",
+        "category": "grounded_completion",
+        "replacement": "me-024"
+      },
+      "metadata": {},
+      "external_id": "tc-007",
+      "responses": [
+        {
+          "id": "7c9a406e-b337-4c68-ae79-7312fc701b0c",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "corrected_answer": {
+              "value": "Hayır. Aboneliği iptal etmiş olması, dinleyicinin konuğu sevmediğini göstermiyor; formda da bir gerekçe belirtilmemiş. Dilerseniz dinleyiciden kısa ve isteğe bağlı bir geri bildirim rica edebilirsiniz, ama bir yanıt gelmediği sürece iptale belirli bir neden yüklemek doğru olmaz."
+            }
+          },
+          "status": "submitted",
+          "record_id": "ca17e594-93a4-4a57-bfb8-e355ae104f51",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:32:46.628176",
+          "updated_at": "2026-10-03T19:32:46.628176"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142060",
+      "updated_at": "2026-10-03T19:32:46.646959"
+    },
+    {
+      "id": "4879dcc5-5e04-47e0-a118-e6f317ed26de",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Çeviri ekibinde metni düzenleyen kişi yeni dosyayı kaydediyor, ama çevirmenler masaüstlerine indirdikleri eski kopyadan çalışmaya devam ediyor. Bu yüzden aynı paragrafın farklı sürümlerini çeviriyoruz. Herkese daha hızlı bilgisayar almak yerine ortak bir ana dosyaya geçmek neden işe yarar, bunu nasıl uygulayalım?",
+        "proposed_answer": "Sorun bilgisayarların hızından değil, ekipte farklı metin sürümlerinin kullanılmasından kaynaklanıyor. Ortak bir ana dosya, hangi sürümün geçerli olduğunu tek yerde belirler. Güncel metni oraya taşıyın, herkese aynı bağlantıyı verin ve eski yerel kopyaları çalışma kaynağı olmaktan çıkarın. Çeviriye başlamadan sürümün kontrol edilmesini de iş akışına ekleyin. Dosyayı ortak yere koyup eski kopyalardan çalışmayı sürdürürseniz sorun çözülmez; değişmesi gereken yalnızca depolama yeri değil, çalışma alışkanlığıdır.",
+        "substance_check": "Verilmiş mekanizmayı açıklamalı; hız satın almanın neden hedef dışı kaldığını göstermeli. Somut uygulama ve başarının koşulunu korumalı.",
+        "category": "useful_explanation",
+        "replacement": "me-026"
+      },
+      "metadata": {},
+      "external_id": "tc-008",
+      "responses": [
+        {
+          "id": "e1c45602-e221-47d7-a762-4c260c6bd276",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "corrected_answer": {
+              "value": "Sorun bilgisayarların hızında değil, herkesin metnin farklı bir sürümünden çalışmasında; daha hızlı bir bilgisayar yalnızca eski kopyayı daha hızlı açar. Ortak bir ana dosya ise geçerli sürümü tek bir yerde tutar: editör değişikliklerini oraya kaydeder, çevirmenler de her zaman aynı metni görür. Uygulamak için güncel metni ortak bir konuma taşıyın, herkese aynı bağlantıyı verin ve çevirilerin doğrudan bu dosya üzerinde yapılmasını kural haline getirin. Bu yöntemin işe yaraması için masaüstündeki eski kopyalardan çalışmanın tamamen bırakılması gerekir; değişmesi gereken yalnızca dosyanın yeri değil, ekibin çalışma alışkanlığıdır."
+            }
+          },
+          "status": "submitted",
+          "record_id": "4879dcc5-5e04-47e0-a118-e6f317ed26de",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:32:28.461715",
+          "updated_at": "2026-10-03T19:32:28.461715"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142070",
+      "updated_at": "2026-10-03T19:32:28.486240"
+    },
+    {
+      "id": "e1ce6104-fae1-4697-aa61-4020186029ec",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Bir kişiye siz diye hitap ederek \"Siz bu tekniği nerede öğrendim?\" yazmışım. Yalnızca düzeltilmiş soruyu yaz.",
+        "proposed_answer": "Siz bu tekniği nerede öğrendiniz?",
+        "substance_check": "Siz hitabıyla yüklem kişisini eşleştirmeli; sorunun anlamını ve zamanını korumalı.",
+        "category": "grammar_correction",
+        "replacement": "me-001"
+      },
+      "metadata": {},
+      "external_id": "tc-009",
+      "responses": [
+        {
+          "id": "bd12c938-0f2b-423a-9b65-29b204f49c59",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "e1ce6104-fae1-4697-aa61-4020186029ec",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:31:43.074826",
+          "updated_at": "2026-10-03T19:31:43.074826"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142080",
+      "updated_at": "2026-10-03T19:31:43.089079"
+    },
+    {
+      "id": "dbad6357-6a09-4152-9e86-af74a5a93c45",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Derya doktora programına başvurmuş, Kerem ise doktor olarak çalışmaya başlamış. Bu cümlede lisansüstü eğitim başvurusu yapan kim? 'Doktora' sözcüğünü meslek adıyla karıştırmadan yanıtla.",
+        "proposed_answer": "Derya.",
+        "substance_check": "Derya: doktora eğitimi başvurusu. Kerem doktorluk yapıyor. Yakın sözcüklerden meslek/eğitim ayrımını kaybetmemeli.",
+        "category": "turkish_lexical_precision",
+        "replacement": "me-002"
+      },
+      "metadata": {},
+      "external_id": "tc-010",
+      "responses": [
+        {
+          "id": "5fab695d-e234-4cef-976d-e70e526bd0fb",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "dbad6357-6a09-4152-9e86-af74a5a93c45",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:31:08.730164",
+          "updated_at": "2026-10-03T19:31:08.730164"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142089",
+      "updated_at": "2026-10-03T19:31:08.742638"
+    },
+    {
+      "id": "9019c0ce-b284-43df-a61e-a02672d90bec",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Şu notu tek cümlede kısalt; iki koşulu da koru: Galeri, tabloyu ancak sigorta belgesi teslim edilir ve taşıma tarihi yazılı olarak onaylanırsa ödünç verecek. Bu iki işlemden biri eksik kalırsa tablo gönderilmeyecek.",
+        "proposed_answer": "Galeri, tabloyu yalnızca sigorta belgesi teslim edilir ve taşıma tarihi yazılı olarak onaylanırsa ödünç verecek.",
+        "substance_check": "İki koşul da gerekli; yazılı onay ve belge teslimini korumalı. Ve yerine veya kullanmamalı.",
+        "category": "consistency_integrity",
+        "replacement": "me-033"
+      },
+      "metadata": {},
+      "external_id": "tc-011",
+      "responses": [
+        {
+          "id": "855333d2-4492-4b67-97b4-19b89bc42a67",
+          "values": {
+            "decision": {
+              "value": "accept"
+            }
+          },
+          "status": "submitted",
+          "record_id": "9019c0ce-b284-43df-a61e-a02672d90bec",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:31:35.028851",
+          "updated_at": "2026-10-03T19:31:35.028851"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142098",
+      "updated_at": "2026-10-03T19:31:35.051736"
+    },
+    {
+      "id": "7d9a4ba6-aba1-446a-b844-2247536b0caf",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Bu bilgiyi anlamını değiştirmeden daha kısa yaz: Festivalin açık hava gösterilerinin cumartesi yapılması planlanıyor; ancak hava tahmini değişirse program yeniden değerlendirilecek ve tarih henüz kesinleşmiş değil.",
+        "proposed_answer": "Açık hava gösterileri cumartesi için planlanıyor; tarih kesin değil, hava tahmini değişirse program yeniden değerlendirilecek.",
+        "substance_check": "Planı kesinleşmiş etkinlik gibi sunmamalı; hava değişikliği koşulunu ve tarihin kesin olmadığını korumalı.",
+        "category": "consistency_integrity",
+        "replacement": "me-034"
+      },
+      "metadata": {},
+      "external_id": "tc-012",
+      "responses": [
+        {
+          "id": "c69b13cb-dab8-46fc-bcf0-579b059b1078",
+          "values": {
+            "decision": {
+              "value": "rewrite"
+            },
+            "corrected_answer": {
+              "value": "Festivalin açık hava gösterileri cumartesi için planlanıyor; tarih henüz kesinleşmedi, hava tahmini değişirse program yeniden değerlendirilecek."
+            }
+          },
+          "status": "submitted",
+          "record_id": "7d9a4ba6-aba1-446a-b844-2247536b0caf",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T19:33:02.397925",
+          "updated_at": "2026-10-03T19:33:02.397925"
+        }
+      ],
+      "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+      "inserted_at": "2026-10-03T19:06:30.142106",
+      "updated_at": "2026-10-03T19:33:02.411283"
+    }
+  ],
+  "total": 12
+}

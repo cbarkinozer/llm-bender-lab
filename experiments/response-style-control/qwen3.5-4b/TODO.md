@@ -41,10 +41,14 @@ Argilla comparison is ready; supporting probes and full backup are completed.
   A preferred7, B5, tie6, neither2; see [experiment journal](EXPERIMENT-JOURNAL.md).
 - [x] Prepare C/D12-row draft, blocked configs and CPU tokenization/leakage audit:
   68 unchanged A rows +12 replacements, four versus six epochs; tokens/epoch +3.60%.
-- [ ] User: [review shared12 C/D candidates](http://127.0.0.1:6900/dataset/c0dc183f-e552-4a7d-9267-08211b88df94/annotation-mode?page=1&status=pending).
+- [x] User: [review shared12 C/D candidates](http://127.0.0.1:6900/dataset/c0dc183f-e552-4a7d-9267-08211b88df94/annotation-mode?page=1&status=pending).
   Accept/rewrite; reject with notes if prompt needs repair. Only one review per row.
-- [ ] Export actual reviews, re-audit/re-tokenize and freeze exactly one80-row
-  artifact for C/D, then obtain GPU and required run checks. No GPU run started.
+- [x] Export all12 reviews (7accept/5rewrite), apply two explicitly authorized
+  post-review corrections with provenance, re-audit/tokenize, freeze one80-row
+  artifact and verify C/D data/tokenization parity. Final tokens/epoch +5.00% vs A.
+- [ ] User provides GPU endpoint; validate access/environment and required run
+  checks, then independently train C4epochs/40steps and D6epochs/60steps.
+  No GPU run started; prior A/B diagnostic waiver is not inherited.
 - [ ] Resolve disputed me-089 reference with versioned provenance; preserve old
   fields/reviews and report sensitivity without089 until any revision is approved.
 - [ ] Append hypothesis, interventions, measured outcomes, user feedback,

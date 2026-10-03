@@ -1,0 +1,27 @@
+{
+  "source": "user-conversation",
+  "decision": "apply-two-scoped-postreview-corrections",
+  "approval_date": "2026-10-03",
+  "user_message": "Tamamdır tamamla bakalım ben de sana sonra gpu adresini veriyim sen de finetune et",
+  "dataset_id": "c0dc183f-e552-4a7d-9267-08211b88df94",
+  "reviewed_candidates_sha256": "2a5c64be9ac3c6fae68532c0a299fd13b25430566fa521987478714dfc4f472d",
+  "snapshot_sha256": "03de73bcb7c0666b29dd5c669a9c71f4d490269a37bf273bed0d00c69726dc06",
+  "authorized_changes": [
+    {
+      "id": "tc-010",
+      "field": "messages[0].content",
+      "action": "Remove only the explicit doktora lexical-trap hint; retain doctoral-program context and person target."
+    },
+    {
+      "id": "tc-005",
+      "field": "desired_answer",
+      "action": "Replace categorical cable diagnosis with the agreed cable-or-connection suspicion wording; preserve all other reviewed text."
+    }
+  ],
+  "not_authorized": [
+    "Changing other reviewed answers/prompts",
+    "Changing frozen validation references",
+    "Fabricating or replacing Argilla annotations",
+    "Inheriting prior GPU smoke/tiny-overfit waivers"
+  ]
+}

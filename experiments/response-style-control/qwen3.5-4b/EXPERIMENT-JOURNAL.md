@@ -198,6 +198,50 @@ to inherit both A's naturalness and B's precision.
 
 ## What every future round must preserve
 
+### 2026-10-03: C/D approved corrections and immutable freeze
+
+User authorized the two proposed corrections and requested completion before
+providing GPU access. Exported all12 actual submitted responses (7accept/5rewrite)
+and preserved raw Argilla fields/answers; no live mutations or fabricated review.
+Hash-bound approval records the exact user message and original snapshot/row digest.
+Only tc-010 prompt hint removed and tc-005 categorical diagnosis softened to
+old-cable-or-connection suspicion. All other reviewed text preserved. Two
+before/after diffs link actual response IDs;68 A rows/20 validation unchanged.
+
+One frozen shared80-row train SHA256:
+`d61bdfab544dc0d3ba5531e74005940d47b6b6af38fba864dbd5ceefcf948d7a`.
+Reviewed tokens5653/epoch (+5.00% vs A; draft had +3.60%). Re-audit found no
+exact/near flags; all100 rows tokenized without truncation, native EOS supervised,
+context masked. C/D representations match byte-for-byte,68 retained/A rows and
+20 validation representations match original sources. Twelve CPU tests pass;
+verify_ready.py checks file hashes, raw-review-to-QA transformations and recipes.
+Every new approved rendered input/label sample saved. No model-quality result yet.
+
+Separate reviewed C/D configs now active, four/40 versus six/60 epochs/steps;
+other training/inference settings unchanged. GPU access/checks/W&B still pending.
+No C/D smoke/overfit waiver inferred. GPU-HANDOFF.md warns against running the
+old hardcoded A/B launcher, identifies required artifacts and future recovery.
+
+### 2026-10-03: submitted C/D review and prompt-cue QA
+
+All12 active-v2 candidate responses are submitted:7 accept,5 rewrite
+(tc-005/006/007/008/012). Read-only API inspection; no live fields, answers or
+reviews changed and no approved training artifact frozen during this check.
+User asks whether explicit “do not confuse doktora” and answer-only wording
+over-guide learning. Engineering judgment: answer-only wording specifies the
+intended conditional output format, whereas naming the exact lexical trap is
+an avoidable hint. It does not supply the person answer or constitute split
+leakage, but success with that hint would not establish unprompted precision.
+Recommend dropping only that hint, keeping the explicit doctoral-program context.
+
+Additional QA on rewritten tc-005: swapping to a known-good cable and seeing
+an image supports a cable/connection explanation, but “sorun kablodadır” is
+over-certain if reconnection or other settings changed. Recommend conditional
+evidence wording rather than an unconditional diagnosis. Proposed corrections
+have not been applied; preserve actual user submissions and require explicit
+authority/provenance for any post-review prompt or target change. Review
+completion alone does not waive substantive QA.
+
 ### 2026-10-03: C/D preparation (no GPU, no model results)
 
 User said “proceed.” Created exp013/014,12 drafts, shared review queue,

@@ -2,8 +2,10 @@
 
 ## Status
 
-Planned; same12 human reviews as C are pending. No training/inference started.
-Draft config is blocked; data-reviewed-v1 and config-reviewed-v1 do not exist yet.
+Reviewed and CPU verified; awaiting GPU and run checks. Same12 reviews and
+two authorized QA corrections as C; no training/inference started.
+Active config-reviewed-v1.yaml and training-preflight-v1, using C's one frozen
+data-reviewed-v1. Draft config.yaml remains blocked historical preparation.
 
 ## Hypothesis and change
 
@@ -29,7 +31,7 @@ the previous A/B waiver does not authorize this pair.
 
 ## Results / next step
 
-No model-quality results. Review12, freeze shared data, commit provenance,
+No model-quality results. Shared data reviewed/frozen and CPU verified; now
 obtain GPU, pass checks, independently train C/D, generate20 each, verify durable
 backups and prepare desired/A/C/D Argilla comparison. Append all outcomes and
 failures to the parent experiment journal.
