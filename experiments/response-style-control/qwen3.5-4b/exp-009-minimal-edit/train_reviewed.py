@@ -55,7 +55,10 @@ def main():
         for key in ('actual_batch_masking','smoke_finite_loss','adapter_save_reload','tiny_overfit_loss_decreased','wandb_connected'):
             if gate[key] is not True:
                 policy=gate.get('policy')
-                assert policy in ('explicit-user-approved-lr-only-waiver','explicit-user-approved-paired-run-waiver')
+                assert policy in ('explicit-user-approved-lr-only-waiver','explicit-user-approved-paired-run-waiver','explicit-user-approved-targeted-pair-waiver')
+                if policy=='explicit-user-approved-targeted-pair-waiver':
+                    assert experiment_id in ('exp-013-targeted-coverage-sft','exp-014-targeted-duration-sft')
+                    assert gate.get('experiment_id')==experiment_id and gate.get('user_instruction')
                 if policy=='explicit-user-approved-paired-run-waiver':
                     assert experiment_id in ('exp-011-duration-ablation','exp-012-coverage-ablation')
                     assert gate.get('experiment_id')==experiment_id and gate.get('user_instruction')
