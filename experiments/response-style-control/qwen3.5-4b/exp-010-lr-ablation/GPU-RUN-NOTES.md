@@ -99,3 +99,8 @@ hashes independently checked after local extraction.
 Original interrupted attempts cannot be substituted for the successful rerun
 when discussing stability. Underlying cause remains unisolated; do not label
 this a proven EOS/config bug or a proven LR-induced model regression.
+
+Argilla import was attempted after backup verification, but localhost:6900
+refused connections and Docker Desktop's Linux engine was not running. No new
+review dataset was created; comparison CSVs remain locally available. Rerun
+import_comparison.py when the existing local Argilla stack is available.
