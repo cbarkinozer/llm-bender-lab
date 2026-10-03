@@ -2,8 +2,8 @@
 
 ## Status
 
-Reviewed and CPU verified; awaiting GPU and run checks. Same12 reviews and
-two authorized QA corrections as C; no training/inference started.
+SFT6epochs/60steps and20-question inference completed. Same12 reviews and
+two authorized QA corrections as C;20/20 native EOS. Human comparison pending.
 Active config-reviewed-v1.yaml and training-preflight-v1, using C's one frozen
 data-reviewed-v1. Draft config.yaml remains blocked historical preparation.
 
@@ -30,6 +30,16 @@ on development data. New GPU gates or explicit scoped waiver required;
 the previous A/B waiver does not authorize this pair.
 
 ## Results / next step
+
+Mean training loss0.9682095202,132.0165seconds. Lower loss does not establish
+better output quality: preliminary D050 inspection finds619tokens of repeated,
+contradictory advice. Both primary adapters reloaded successfully; W&B finished.
+Retained checkpoint50/60 plus final adapter and logs/config/resume states verified
+locally. User can terminate GPU; agent did not terminate it.
+[Desired/A/C/D comparison](http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=pending).
+See exp013/GPU-RUN-NOTES.md for exact archive digest, authority and evidence.
+
+The earlier preparation plan below is historical; execution is now complete.
 
 No model-quality results. Shared data reviewed/frozen and CPU verified; now
 obtain GPU, pass checks, independently train C/D, generate20 each, verify durable

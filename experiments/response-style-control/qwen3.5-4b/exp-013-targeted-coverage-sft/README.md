@@ -2,11 +2,12 @@
 
 ## Status
 
-Reviewed and CPU verified; awaiting GPU endpoint and run checks. All12 reviews
+SFT and primary inference completed; human comparison pending. All12 reviews
 exported:7 accept,5 rewrite, plus2 explicitly user-authorized QA corrections.
 Active config-reviewed-v1.yaml, data-reviewed-v1 and training-preflight-v1.
 `config.yaml` remains deliberately blocked draft history, not the active recipe.
-No GPU training or inference has started. Do not use draft tokenized files.
+Training4epochs/40steps;20/20 native EOS; backup verified locally. Do not use draft files.
+See [GPU-RUN-NOTES.md](GPU-RUN-NOTES.md) for execution, waived gates and outcomes.
 
 [Review the12 shared C/D candidates](http://127.0.0.1:6900/dataset/c0dc183f-e552-4a7d-9267-08211b88df94/annotation-mode?page=1&status=pending).
 Use accept, or rewrite with the complete corrected answer, or reject with notes.
@@ -82,6 +83,14 @@ is authoritative on the new pair's status. candidate-mask-inspection-v2.json
 contains every new row's actual rendered input and supervised tokens.
 
 ## Results and lessons
+
+Execution complete: mean training loss1.1909237187,153.696seconds; final adapter
+generated20/20 native EOS. User explicitly waived smoke/tiny-overfit/pre-SFT
+diagnostic reload for this pair; actual masks/W&B passed and post-SFT reload
+verified.129 indexed backup files verified. No quality improvement claim yet.
+[Review desired/A/C/D](http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=pending).
+
+The preparation history below is preserved chronologically, not current run status.
 
 No model-quality result yet. Ten CPU tests passed; exporter correctly
 refused unreviewed tc-001, producing no approved data or reviewed configs.

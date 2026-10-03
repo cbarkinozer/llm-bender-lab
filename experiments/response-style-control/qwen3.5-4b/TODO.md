@@ -46,9 +46,15 @@ Argilla comparison is ready; supporting probes and full backup are completed.
 - [x] Export all12 reviews (7accept/5rewrite), apply two explicitly authorized
   post-review corrections with provenance, re-audit/tokenize, freeze one80-row
   artifact and verify C/D data/tokenization parity. Final tokens/epoch +5.00% vs A.
-- [ ] User provides GPU endpoint; validate access/environment and required run
-  checks, then independently train C4epochs/40steps and D6epochs/60steps.
-  No GPU run started; prior A/B diagnostic waiver is not inherited.
+- [x] User provided GPU; same pinned102-package environment verified. Actual masks
+  and W&B passed. NEW explicit C/D waiver skips smoke/tiny-overfit/pre-SFT reload;
+  false/waived recorded honestly. Independent C40step/D60step SFT completed.
+- [x] Infer unchanged20 with each saved adapter:40/40 native EOS; verify prompt/
+  template/settings parity with saved A. Prepare desired/A/C/D comparison.
+- [x] Recover archive and verify SHA256 plus all129 indexed files, retained
+  resume checkpoints, adapters/config/logs/W&B/source. GPU can be terminated.
+- [ ] User: [review desired/A/C/D20](http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=pending).
+  Preliminary substance problems persist; no winner/promotion based on loss or EOS.
 - [ ] Resolve disputed me-089 reference with versioned provenance; preserve old
   fields/reviews and report sensitivity without089 until any revision is approved.
 - [ ] Append hypothesis, interventions, measured outcomes, user feedback,

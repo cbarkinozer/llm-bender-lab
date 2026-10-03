@@ -1,0 +1,72 @@
+{
+  "summary": {
+    "C": {
+      "training": {
+        "train_runtime": 153.696,
+        "train_samples_per_second": 2.082,
+        "train_steps_per_second": 0.26,
+        "total_flos": 955506555494400,
+        "train_loss": 1.1909237187355757,
+        "epoch": 4
+      },
+      "native_eos_count": 20,
+      "outputs": 20,
+      "stops": {
+        "native_eos": 20
+      },
+      "output_tokens": {
+        "total": 1030,
+        "median": 22,
+        "max": 188
+      },
+      "wandb": {
+        "entity": "c-barkinozer",
+        "project": "llm-bender-lab-response-style-control",
+        "run_id": "f71c7df3",
+        "url": "https://wandb.ai/c-barkinozer/llm-bender-lab-response-style-control/runs/f71c7df3"
+      },
+      "wandb_state": "finished"
+    },
+    "D": {
+      "training": {
+        "train_runtime": 132.0165,
+        "train_samples_per_second": 3.636,
+        "train_steps_per_second": 0.454,
+        "total_flos": 1433259833241600,
+        "train_loss": 0.9682095202306906,
+        "epoch": 6
+      },
+      "native_eos_count": 20,
+      "outputs": 20,
+      "stops": {
+        "native_eos": 20
+      },
+      "output_tokens": {
+        "total": 1569,
+        "median": 37,
+        "max": 619
+      },
+      "wandb": {
+        "entity": "c-barkinozer",
+        "project": "llm-bender-lab-response-style-control",
+        "run_id": "9e6ad1e3",
+        "url": "https://wandb.ai/c-barkinozer/llm-bender-lab-response-style-control/runs/9e6ad1e3"
+      },
+      "wandb_state": "finished"
+    }
+  },
+  "archive": {
+    "archive": "exp013-exp014-backup.tar.gz",
+    "sha256": "7ec4c82c39f02a12583d5a885e60736252160872c4b395e4c964916b4bcfe864",
+    "bytes": 847921015,
+    "files": 129,
+    "base_weights": "Pinned public weights remain an explicit download dependency, not included.",
+    "source_commit": "f47abd7fe84259cc242778af83100fa67ac4fc05"
+  },
+  "link": {
+    "name": "exp-013-014-A-C-D-validation-20",
+    "id": "e3b691cb-79fc-4bd8-a358-39f9a23770b5",
+    "count": 20,
+    "url": "http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=pending"
+  }
+}

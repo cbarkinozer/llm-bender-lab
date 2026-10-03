@@ -198,6 +198,49 @@ to inherit both A's naturalness and B's precision.
 
 ## What every future round must preserve
 
+### 2026-10-03: C/D execution, observations and verified pod recovery
+
+User supplied proxy19764/direct43254 and explicitly waived smoke/tiny-overfit,
+requested uninterrupted two-run SFT,inference,comparison and complete backup.
+Separate scoped C/D gate policy recordedfalse/waived for smoke,tiny and pre-SFT
+diagnostic reload; actual100-row masks and W&B authentication genuinely passed.
+Fresh base independently; same80 reviewed targets,4/40 vs6/60 epochs/steps.
+Training sourcef47abd7; exact102-package freeze matches A/B. Setup used prior
+hash-verified196MB CUDA wheel instead of redownloading; same pinned packages.
+
+C:153.696seconds,mean loss1.1909237187355757,W&Bf71c7df3,
+nameexp013-sft-targeted-80rows-4ep. D:132.0165seconds,mean
+loss0.9682095202306906,W&B9e6ad1e3,nameexp014-sft-targeted-80rows-6ep.
+Both finished. Initial compilation makes runtime comparison non-isolated.
+Both20 primary outputs native EOS; no guards/length/time stops. Same inputs,
+render/template/decoding/reference parity with saved A confirmed. C tokens
+total1030/median22/max188; D1569/37/619. Scheduled final adapters preselected;
+C30/40 and D50/60 retained full resume states,not all epoch checkpoints.
+
+Preliminary agent inspection,NOT user grades: C029 exact entity and C079
+veri/vergi extraction improve selected A weaknesses; both099 preserve
+expectation.009/010 grammar failures and049 unsupported neurological causation
+persist. C070 still adds illogical reasoning. D050 expands into619tokens with
+contradictions/repeated list advice; D089 dubious alone-at-home claims and D090
+generic reassurance remain concerning. Lower D loss does NOT establish a gain;
+additional epochs are not currently a demonstrated cure. No global forgetting,
+reasoning-collapse or no-hallucination conclusion from20 development questions.
+Regex bold/headings/emoji flags0/20 each,not evidence of semantic quality.
+
+Argilla desired/A/C/D20,datasete3b691cb-79fc-4bd8-a358-39f9a23770b5,
+fields strictly source-bound and read-back verified,HTTP200. Old reviews untouched;
+me-089 reference dispute displayed. Human comparison pending,not promoted.
+
+Recovered local root:C:/Users/cbark/Documents/llm-bender-artifacts/exp-013-014-paired.
+Archive847,921,015bytes,SHA256
+7ec4c82c39f02a12583d5a885e60736252160872c4b395e4c964916b4bcfe864.
+Full digest plus all129 file sizes/hashes verified; bounded extraction and
+adapter/inference/resume-state parity checked. Source/config/log/package/platform,
+W&B history/local files,raw outputs and post-SFT reload evidence saved. Credential
+used is absent from recovered files. Public pinned base weights still require
+download; no offline/bitwise reproduction claim. GPU can be terminated; agent
+did not shut it down. Actual provider billed cost not measured.
+
 ### 2026-10-03: C/D approved corrections and immutable freeze
 
 User authorized the two proposed corrections and requested completion before

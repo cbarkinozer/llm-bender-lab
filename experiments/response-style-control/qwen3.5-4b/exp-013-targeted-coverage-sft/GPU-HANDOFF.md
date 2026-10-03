@@ -1,5 +1,11 @@
 # C/D GPU handoff — reviewed data frozen, CPU verified
 
+Completion override2026-10-03: C/D SFT,40 primary generations,desired/A/C/D
+comparison and local129-file backup verification complete. GPU can be terminated.
+See GPU-RUN-NOTES.md. User explicitly granted a NEW C/D smoke/tiny-overfit
+waiver after this preparation handoff; false/waived gates are recorded, not passed.
+The original plan below is historical and must not be mistaken for pending work.
+
 Status2026-10-03: awaiting user GPU endpoint; no pod assumed alive, no training
 or inference launched. No further candidate annotation required.
 

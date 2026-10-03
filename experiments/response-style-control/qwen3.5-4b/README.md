@@ -101,8 +101,8 @@ test. The independent communication-policy benchmark is being authored under
 Current work and the requested future agentic-RL track: [TODO.md](TODO.md).
 Blog evidence and dated research decisions: [EXPERIMENT-JOURNAL.md](EXPERIMENT-JOURNAL.md).
 All20 A/B reviews are submitted and frozen in the linked journal; neither arm
-is a universal winner. C/D targets are reviewed/frozen and CPU verified;
-awaiting GPU access/checks. See exp013/GPU-HANDOFF.md for active inputs.
+is a universal winner. C/D SFT/inference and verified recovery are completed;
+desired/A/C/D human review pending. See exp013/GPU-RUN-NOTES.md for evidence.
 A/B training and primary inference completed. Both final epoch4 adapters emitted
 20 native-EOS answers. Desired/A/B review is ready; full local backup verification
 and supporting probes are completed. User explicitly waived repeated training
@@ -123,5 +123,5 @@ diagnostics; actual-batch masking and W&B checks passed.
 | `exp-010-lr-ablation` | trained; human review pending | Same exp009 data/recipe, LR doubled to 1e-4 only | Both epoch adapters generated 20 development answers; initial repeat loop preserved, bounded rerun completed; backups verified; repeat training diagnostics explicitly waived by user |
 | `exp-011-duration-ablation` | trained; human review ready | A: same 80 reviewed rows, four epochs instead of two | 40 steps; 20/20 native EOS; validation unchanged; duration extends cosine schedule |
 | `exp-012-coverage-ablation` | trained; human review ready | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | 40 steps; 20/20 native EOS; no detected overlap; supervised-token exposure +22.47%; paired review in Argilla |
-| `exp-013-targeted-coverage-sft` | reviewed; awaiting GPU checks | C: retain68 A rows, replace12; same four-epoch recipe | Reviewed7accept/5rewrite +2authorized QA edits; CPU verified; tokens +5.00%; no training |
-| `exp-014-targeted-duration-sft` | reviewed; awaiting GPU checks | D: exact same approved80 C targets, six instead of four epochs | 60 planned steps; shared data/tokenization verified; no training |
+| `exp-013-targeted-coverage-sft` | trained; comparison review pending | C: retain68 A rows, replace12; four epochs | 40steps,20/20 EOS; backup verified; substantive failures persist |
+| `exp-014-targeted-duration-sft` | trained; comparison review pending | D: same80 C targets, six instead of four epochs | 60steps,20/20 EOS; lower train loss not quality proof; D050 repeated619token output |
