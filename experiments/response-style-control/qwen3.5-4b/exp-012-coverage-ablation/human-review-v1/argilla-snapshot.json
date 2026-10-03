@@ -1,0 +1,793 @@
+{
+  "exported_at_utc": "2026-10-03T15:41:21.030Z",
+  "source": "Local Argilla API, read-only export",
+  "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+  "review_status": "Single-user, non-blind development review; me-089 reference disputed",
+  "items": [
+    {
+      "id": "1470c4bb-8a27-462f-a87c-368bc1c04ff4",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Arkadaşımla dün parkta gidiyorum yazmışım. Düzgün hâli ne?",
+        "desired_answer": "Arkadaşımla dün parka gittim.",
+        "answer_A": "Dün arkadaşımle parkta gidiyordum.\n",
+        "answer_B": "Dün arkadaşımle parkta gidiyordum.\n",
+        "category": "grammar_correction",
+        "termination": "A: native_eos, 16 tokens; B: native_eos, 16 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-009",
+      "responses": [
+        {
+          "id": "5d8a097e-f4cd-49ec-985e-4ee503c0fa98",
+          "values": {
+            "preferred": {
+              "value": "neither"
+            },
+            "A_substance": {
+              "value": "fail"
+            },
+            "B_substance": {
+              "value": "fail"
+            }
+          },
+          "status": "submitted",
+          "record_id": "1470c4bb-8a27-462f-a87c-368bc1c04ff4",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:19:46.716574",
+          "updated_at": "2026-10-03T15:19:46.716574"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156566",
+      "updated_at": "2026-10-03T15:19:46.734070"
+    },
+    {
+      "id": "3e7098b3-7794-484b-aafd-5aebc80c10e6",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: İkimiz de yarın gelecek cümlesinde bir tuhaflık var. Düzeltir misin?",
+        "desired_answer": "İkimiz de yarın geleceğiz.",
+        "answer_A": "İkimiz de yarın gelecek.\n",
+        "answer_B": "İkimiz de yarın gelecek.\n",
+        "category": "grammar_correction",
+        "termination": "A: native_eos, 11 tokens; B: native_eos, 11 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-010",
+      "responses": [
+        {
+          "id": "672ef30f-747f-47e9-ba2f-d3c20699f4f6",
+          "values": {
+            "preferred": {
+              "value": "neither"
+            },
+            "A_substance": {
+              "value": "fail"
+            },
+            "B_substance": {
+              "value": "fail"
+            },
+            "notes": {
+              "value": "B did the same error."
+            }
+          },
+          "status": "submitted",
+          "record_id": "3e7098b3-7794-484b-aafd-5aebc80c10e6",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:08:37.330789",
+          "updated_at": "2026-10-03T15:08:37.330789"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156581",
+      "updated_at": "2026-10-03T15:08:37.347051"
+    },
+    {
+      "id": "bafaf5d4-9bc2-49e0-96eb-085b66b93121",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: Dünyanın en büyük gökdeleni Burj Khalifa, Dubai, Birleşik Arap Emirlikleri'nde bulunmaktadır.\n\nSoru: Dünyanın en büyük gökdeleni Burj Khalifa nerededir?\n\nCevap:",
+        "desired_answer": "Burj Khalifa, Dubai'de, Birleşik Arap Emirlikleri'nde yer almaktadır.",
+        "answer_A": "Dubai, Birleşik Arap Emirlikleri'dedir.\n",
+        "answer_B": "Dubai, Birleşik Arap Emirlikleri'de bulunmaktadır.\n",
+        "category": "answer_extraction",
+        "termination": "A: native_eos, 17 tokens; B: native_eos, 18 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-019",
+      "responses": [
+        {
+          "id": "1266125f-7ab0-4b00-b80b-20facbd42ba5",
+          "values": {
+            "preferred": {
+              "value": "B"
+            },
+            "A_substance": {
+              "value": "partial"
+            },
+            "B_substance": {
+              "value": "pass"
+            },
+            "notes": {
+              "value": "B has better Turkish."
+            }
+          },
+          "status": "submitted",
+          "record_id": "bafaf5d4-9bc2-49e0-96eb-085b66b93121",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:08:17.297436",
+          "updated_at": "2026-10-03T15:08:17.297436"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156588",
+      "updated_at": "2026-10-03T15:08:17.314912"
+    },
+    {
+      "id": "4568a3e5-e92f-428e-9564-7961ad1a709d",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: Yavaş turizm akımının temel felsefesi bir yeri aceleye getirmeden derinlemesine deneyimlemektir.\n\nSoru: Yavaş turizm akımının temel felsefesi nedir?\n\nCevap:",
+        "desired_answer": "Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden derinlemesine deneyimlemektir.",
+        "answer_A": "Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden derinlemesine deneyimlemektir.\n",
+        "answer_B": "Bir yeri aceleye getirmeden derinlemesine deneyimlemek.\n",
+        "category": "answer_extraction",
+        "termination": "A: native_eos, 35 tokens; B: native_eos, 20 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-020",
+      "responses": [
+        {
+          "id": "3df68d48-e60c-4192-8b47-6e6fb0ed394c",
+          "values": {
+            "preferred": {
+              "value": "tie"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            },
+            "notes": {
+              "value": "A sounds slightly better."
+            }
+          },
+          "status": "submitted",
+          "record_id": "4568a3e5-e92f-428e-9564-7961ad1a709d",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:09:00.339359",
+          "updated_at": "2026-10-03T15:09:00.339359"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156593",
+      "updated_at": "2026-10-03T15:09:00.357713"
+    },
+    {
+      "id": "93b173e9-ac37-43cb-9828-7ae18b16cc2c",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: İl Spor Federasyonu tarafından Antalya'da tanıtılan Sağlık Tarama Modülü ürünü kulüplerle paylaşıldı. Performans Takip Uygulaması ürünü ise milli takıma entegre edildi.\n\nSoru: Aşağıdaki metne göre, 'kulüplerle paylaşıldı' hangi ürün için geçerli?\n\nCevap:",
+        "desired_answer": "Sağlık Tarama Modülü",
+        "answer_A": "Sağlık Tarama Modülü ürünü kulüplerle paylaşıldı.\n",
+        "answer_B": "Sağlık Tarama Modülü\n",
+        "category": "numeric_entity_precision",
+        "termination": "A: native_eos, 22 tokens; B: native_eos, 11 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-029",
+      "responses": [
+        {
+          "id": "6e1bab94-8307-46c1-b4b9-3ba25a8229e5",
+          "values": {
+            "preferred": {
+              "value": "B"
+            },
+            "A_substance": {
+              "value": "partial"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "93b173e9-ac37-43cb-9828-7ae18b16cc2c",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:10:07.070792",
+          "updated_at": "2026-10-03T15:10:07.070792"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156598",
+      "updated_at": "2026-10-03T15:10:07.087637"
+    },
+    {
+      "id": "0d487486-b0b1-44a9-9a8b-ec21238cba6b",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kaynak: Şehir Hastanesi tarafından Malatya'da tanıtılan Ateş Ölçüm Cihazı sigorta kapsamına alındı. Fizik Tedavi Paketi ise yalnızca özel kliniklerde sunuldu. Değerlendirme, klinik verilerle desteklendi.\n\nSoru: Aşağıdaki metne göre, 'yalnızca özel kliniklerde sunuldu' hangi ürün için geçerli?\n\nCevap:",
+        "desired_answer": "Fizik Tedavi Paketi",
+        "answer_A": "Fizik Tedavi Paketi yalnızca özel kliniklerde sunuldu.\n",
+        "answer_B": "Fizik Tedavi Paketi.\n",
+        "category": "numeric_entity_precision",
+        "termination": "A: native_eos, 18 tokens; B: native_eos, 11 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-030",
+      "responses": [
+        {
+          "id": "01970d0d-4156-4a6d-8e8b-f10925c2c3ed",
+          "values": {
+            "preferred": {
+              "value": "B"
+            },
+            "A_substance": {
+              "value": "partial"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "0d487486-b0b1-44a9-9a8b-ec21238cba6b",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:17:05.561283",
+          "updated_at": "2026-10-03T15:17:05.561283"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156603",
+      "updated_at": "2026-10-03T15:17:05.576774"
+    },
+    {
+      "id": "64edab48-3de0-4a4a-8a3d-f1f97bbad0b7",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Başlık: Açıklama\n\nMetin: Belediye Başkanı Cem Öztürk, Erzurum'da düzenlenen basın toplantısında toplu taşıma ücretleri hakkında konuştu. Cem Öztürk, iki hafta içinde adım atılacağını vurguladı.\n\nÖzet:",
+        "desired_answer": "Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretleri hakkında konuştu ve iki hafta içinde adım atılacağını vurguladı.",
+        "answer_A": "Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretlerinde iki hafta içinde bir değişikliğin olacağını söyledi.\n",
+        "answer_B": "Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretlerinde iki hafta içinde değişiklik yapılacağını söyledi.\n",
+        "category": "faithful_summary",
+        "termination": "A: native_eos, 37 tokens; B: native_eos, 34 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-039",
+      "responses": [
+        {
+          "id": "7e0705f5-06ad-4dbc-9564-865cc79f89c3",
+          "values": {
+            "preferred": {
+              "value": "tie"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "64edab48-3de0-4a4a-8a3d-f1f97bbad0b7",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:20:27.562411",
+          "updated_at": "2026-10-03T15:20:27.562411"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156607",
+      "updated_at": "2026-10-03T15:20:27.577167"
+    },
+    {
+      "id": "6a9835ad-41f2-4daa-9a6f-564549679918",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Başlık: Mahkeme kararı\n\nMetin: Denizli'de üç ay süren davada eski çalışan hakkındaki karar açıklandı. Mahkeme, para cezası verilmesine hükmetti.\n\nÖzet:",
+        "desired_answer": "Denizli'de üç ay süren davada mahkeme, eski çalışan hakkında para cezası verilmesine hükmetti.",
+        "answer_A": "Denizli'de üç ay süren davada eski çalışan hakkındaki mahkeme kararı açıklandı; mahkeme, eski çalışana para cezası verdi.\n",
+        "answer_B": "Denizli'de üç ay süren eski çalışan davasında mahkeme, eski çalışana para cezası verdi.\n",
+        "category": "faithful_summary",
+        "termination": "A: native_eos, 38 tokens; B: native_eos, 29 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-040",
+      "responses": [
+        {
+          "id": "518f7b16-20e7-4ca3-91ec-c658e125fe60",
+          "values": {
+            "preferred": {
+              "value": "tie"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "6a9835ad-41f2-4daa-9a6f-564549679918",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:11:23.469979",
+          "updated_at": "2026-10-03T15:11:23.469979"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156613",
+      "updated_at": "2026-10-03T15:11:23.487114"
+    },
+    {
+      "id": "b815fe95-336e-4526-8513-abb3b74f4632",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Sabah evden çıkarken sürekli gecikiyorum. Bu sorunun arkasındaki temel mekanizmayı ve çözümün neden işe yarayacağını anlamak istiyorum.",
+        "desired_answer": "Sabah gecikmelerinin arkasında çoğu zaman iki mekanizma bulunur:\n\n1. Süreyi eksik tahmin etmek. İnsanlar hazırlanma süresini genellikle her şeyin sorunsuz gittiği duruma göre hesaplar. Oysa sabahları küçük aksaklıklar olur: anahtarı aramak, kıyafet seçmek, unutulan bir şey için geri dönmek. Her biri birkaç dakika alır ve toplamda gecikmeye dönüşür.\n\n2. Kararların sabaha kalması. Ne giyeceğinize, ne yiyeceğinize, çantaya ne koyacağınıza sabah karar veriyorsanız her karar zaman alır. Yeni uyanmışken bu kararları vermek daha da yavaş olabilir.\n\nÇözüm bu iki mekanizmayı hedef alır:\n\n- Akşamdan hazırlık yapmak (kıyafeti, çantayı, anahtarı hazır etmek) kararları ve aksaklık riskini sabahtan çıkarır. Sabaha yalnızca uygulamak kalır.\n- Gerçek sürenizi ölçmek tahmin hatasını düzeltir. Birkaç gün boyunca uyanmanızla evden çıkmanız arasındaki süreyi ölçün ve planınızı bu süreye göre yapın.\n- Araya pay koymak, küçük aksaklıkların gecikmeye dönüşmesini önler. Çıkış saatinizi, çıkmanız gereken saatten 10-15 dakika önceye ayarlayın.\n\nKısacası sorun genellikle yavaşlıktan değil, sabaha gerçekte sığmayacak kadar iş ve karar bırakmaktan kaynaklanır. Çözüm de sabahki yükü azalttığı ve planı gerçek süreye dayandırdığı için işe yarar.\n",
+        "answer_A": "Sabah evden çıkarken sürekli geciktiğinizin arkasındaki temel mekanizma, beyninizin sabah saatlerinde uyanıklık seviyesinin düşük olmasıdır. Beyniniz yavaş çalıştığı için karar veremeyebilir veya görevleri planlayamazsınız. Bu da gecikmeye yol açar.\n\nÇözüm, beyninizi daha hızlı çalıştırmanızı sağlayacak bir şeyi yapmaktır. Örneğin, sabah kahvesini içmek, beyninize enerji verir ve uyanıklığı artırır. Uyanıklık arttıkça karar verme hızı da artar. Bu nedenle, sabah kahvenizi içerek beyninizi daha hızlı çalıştırmaya başlayabilirsiniz.\n",
+        "answer_B": "Gecikmenin arkasındaki temel mekanizma, sabahın ilk dakikalarında beyninizin odaklanmasını sağlayan bir nörolojik süreçtir. Beyin, uyanmanın hemen ardından kısa süreli hafızayı uzun süreli hafızaya aktarmak için belirli bir zaman diliminde yoğun bir aktivite gösterir. Bu süreç sırasında dikkat dağıtıcı faktörler, bu aktarımı bozabilir ve gecikmeye yol açabilir.\n\nÇözümün işe yarayacağına dair kanıtlar, bu nörolojik süreci destekleyen bir düzenin gecikmeyi azaltabileceğini göstermektedir. Sabahın ilk dakikalarında dikkat dağıtıcı faktörleri azaltmak ve beyne bu aktarımı tamamlamaya yardımcı olmak, gecikmeyi azaltabilir.\n",
+        "category": "useful_explanation",
+        "termination": "A: native_eos, 157 tokens; B: native_eos, 178 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-049",
+      "responses": [
+        {
+          "id": "b9cbef1d-ce9a-479e-99ea-6a2a82c24ffd",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "fail"
+            },
+            "B_substance": {
+              "value": "fail"
+            }
+          },
+          "status": "submitted",
+          "record_id": "b815fe95-336e-4526-8513-abb3b74f4632",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:21:19.620892",
+          "updated_at": "2026-10-03T15:21:19.620892"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156618",
+      "updated_at": "2026-10-03T15:21:19.636099"
+    },
+    {
+      "id": "43dc3dc3-dc10-479d-8f02-51b55b340de7",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Küçük evimde çalışma alanıyla dinlenme alanı birbirine karışıyor. Kısa vadeli seçenek yeni bir masa almak, uzun vadeli seçenek ise mevcut alanı ışık ve eşya yerleşimiyle bölmek; bu ödünleşmeyi nasıl değerlendirmeliyim?",
+        "desired_answer": "Bu ödünleşmeyi değerlendirirken önce sorunun kaynağına bakın: Sorun uygun bir çalışma yüzeyinin olmaması mı, yoksa iki alanın sınırının belirsiz olması mı?\n\n- Yeni masa hızlı bir çözümdür ve uygun bir çalışma yüzeyiniz yoksa işe yarar. Ancak para ve yer gerektirir, küçük bir evde alanı daha da daraltabilir ve alanların karışması sorununu tek başına çözmeyebilir.\n\n- Işık ve eşya yerleşimiyle bölmek daha fazla zaman ve deneme gerektirir, ama maliyeti düşüktür, geri alınabilir ve doğrudan alanların karışması sorununa yöneliktir. Örneğin masayı dinlenme alanına sırtı dönük yerleştirebilir, çalışma köşesine ayrı bir lamba koyabilir veya bir kitaplıkla sınır oluşturabilirsiniz.\n\nSorunu alanların karışması olarak tanımladığınıza göre, önce yerleşim ve ışıkla bölmeyi denemek daha mantıklı görünüyor. Bu düzeni kurduktan sonra hâlâ uygun bir çalışma yüzeyine ihtiyaç duyarsanız, masayı yeni yerleşime uygun boyutta seçebilirsiniz.\n",
+        "answer_A": "Öncelikle iki seçeneğin de birbirini reddetmediğini fark etmelisiniz. Kısa vadede yeni bir masa almak, işin bir kısmını çözmek için bir geçici çözüm olabilir. Uzun vadede ise alanın ışık ve eşya yerleşimiyle bölünmesi, kalıcı bir düzen sağlayabilir. Ödünleşmeyi değerlendirmek için önce mevcut alanın ne kadarını çalışmaya ayırabileceğinizi belirleyebilirsiniz. Çalışma alanı çok küçükse, kısa vadede masayı başka bir yere taşıyabilirsiniz. Uzun vadede ise ışık ve eşya yerleşimiyle alanı bölmek daha uygun olabilir. Bu şekilde hem kısa vadede bir çözüm bulmuş olursunuz, hem de uzun vadede kalıcı bir düzen oluşturmuş olursunuz.\n",
+        "answer_B": "Önce kısa vadede yeni bir masanın işe yarayıp yaramadığını deneyin. Çalışma alanı yeterince genişse ve ışık sorunları yoksa, masa alıp eskiyi kaldırmak daha az müdahale gerektirir. Uzun vadede bölme planını uygulayın: ışık ve eşyalarla alanı iki bölgeye ayırın. Bu şekilde hem mevcut düzeni korursunuz hem de bölünmüş alanı kullanmaya başlarsınız.\n",
+        "category": "useful_explanation",
+        "termination": "A: native_eos, 183 tokens; B: native_eos, 113 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-050",
+      "responses": [
+        {
+          "id": "09aa092b-7dc2-476b-ad26-fab8abb69042",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "partial"
+            },
+            "notes": {
+              "value": "Wow A is really good."
+            }
+          },
+          "status": "submitted",
+          "record_id": "43dc3dc3-dc10-479d-8f02-51b55b340de7",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:11:02.785923",
+          "updated_at": "2026-10-03T15:11:02.785923"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156623",
+      "updated_at": "2026-10-03T15:11:02.801861"
+    },
+    {
+      "id": "6cb69e29-ab2d-4055-b58f-8ad68527e599",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Sunumu erkene çekmek iyi fikir mi?\n\nassistant: Sunumu neden erkene almak istiyorsun ve katılımcılar o saatte müsait mi?\n\nuser: Sonrasında şehir dışına çıkacağım. Herkes bir saat erken başlayabileceğini onayladı; salon da o saatte boş. Diğer hazırlıklar tamam. Erkene alayım mı?",
+        "desired_answer": "Evet, erkene al. Herkes onayladı, salon boş ve hazırlıklar tamam olduğuna göre bir engel görünmüyor. Böylece şehir dışına çıkmadan önce daha fazla vaktin kalır.",
+        "answer_A": "Evet, erken alabilirsin. Katılımcıların bir saat erken başlayabileceğini onayladınız, salon da o saatte boş. Hazırlıklar tamam olduğuna göre, sunumunuzu bir saat erken başlatmak uygun olur.\n",
+        "answer_B": "Evet, erken alabilirsin. Katılımcıların bir saat erken başlayabileceğini onayladınız, salon da o saatte boş. Hazırlıklar tamam. Şehir dışına çıkacağınız için erken başlamak işinizi kolaylaştırabilir.\n",
+        "category": "selective_clarification",
+        "termination": "A: native_eos, 57 tokens; B: native_eos, 58 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-059",
+      "responses": [
+        {
+          "id": "3e6fa552-7251-4aa4-a2be-2a2be97987c8",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            },
+            "notes": {
+              "value": "A sounds better."
+            }
+          },
+          "status": "submitted",
+          "record_id": "6cb69e29-ab2d-4055-b58f-8ad68527e599",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:18:00.379757",
+          "updated_at": "2026-10-03T15:18:00.379757"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156628",
+      "updated_at": "2026-10-03T15:18:00.399618"
+    },
+    {
+      "id": "10a8872a-e48f-4949-9504-4427b876a05e",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Ev anahtarımı komşuya bıraksam olur mu?",
+        "desired_answer": "Güvendiğiniz bir komşuysa bırakabilirsiniz. Komşunuzu iyi tanımıyorsanız veya içiniz rahat değilse anahtarı bir yakınınıza bırakmanız daha doğru olur.",
+        "answer_A": "Hayır, ev anahtarınızı komşuya bırakmamalısınız. Anahtarınızın kaybolması veya yanlışlıkla başka birine verilmesi durumunda evinizde güvenlik açığı oluşabilir. Anahtarınızı sadece yetkili kişilere bırakabilirsiniz.\n",
+        "answer_B": "Hayır, anahtarınızı komşuya bırakmamalısınız. Anahtarınızın kaybolması veya yanlışlıkla başka birine verilmesi durumunda evinize girebilecekler. Anahtarınızı yalnızca güvenilir ve yetkili kişilerle paylaşabilirsiniz.\n",
+        "category": "selective_clarification",
+        "termination": "A: native_eos, 55 tokens; B: native_eos, 56 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-060",
+      "responses": [
+        {
+          "id": "1d9515c1-86bb-4273-89e1-0c9dccfe1bdc",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            },
+            "notes": {
+              "value": "evinize girebilirler olmalı B, A ise güvenlik açığı garip olsa da mantıklı. A slightly wins."
+            }
+          },
+          "status": "submitted",
+          "record_id": "10a8872a-e48f-4949-9504-4427b876a05e",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:07:47.676898",
+          "updated_at": "2026-10-03T15:07:47.676898"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156632",
+      "updated_at": "2026-10-03T15:07:47.818193"
+    },
+    {
+      "id": "0c635f44-51c2-4b9a-bfc2-3f56961456ec",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Kafeye yeni tabela astık ve o hafta müşteri arttı. Artışı tabelaya bağlamak için yeterli mi?",
+        "desired_answer": "Hayır, tek başına yeterli değil. Tabelanın asılması ile müşteri artışının aynı haftaya denk gelmesi, artışa tabelanın yol açtığını göstermez. Hava durumu, yakındaki bir etkinlik veya dönemsel bir hareketlilik de etkili olmuş olabilir. Ayrıca bir hafta, sonuç çıkarmak için kısa bir süredir.\n\nDaha sağlam bir fikir edinmek için müşteri sayısını birkaç hafta daha izleyebilir ve yeni gelen müşterilere kafeyi nasıl fark ettiklerini sorabilirsiniz.\n",
+        "answer_A": "Yeterli değil. Tabela müşterileri artırabilir, ancak tek başına bunu açıklamak yeterli değildir. Müşteri artışını başka faktörlere de bağlamış olabilirsiniz: yeni bir menü, kampanya, çevredeki bir etkinlik veya genel ekonomik durum gibi.\n",
+        "answer_B": "Yeterli değil. Tabela müşterileri artırabilir, ancak tek başına bunu açıklamak yeterli değildir. Müşteri artışının nedenini başka faktörler de etkileyebilir: yeni bir müşteri kaynağı, fiyat değişikliği, çevredeki rekabetin azalması veya genel ekonomik koşulların değişmesi gibi. Artışın ne kadarını tabelanın getirdiğini belirlemek için önce tabloyu asmadan da müşterilerin sayısını ölçüp karşılaştırmak gerekir.\n",
+        "category": "grounded_completion",
+        "termination": "A: native_eos, 61 tokens; B: native_eos, 108 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-069",
+      "responses": [
+        {
+          "id": "b31e2adc-36b8-4169-89c8-98b65de6e114",
+          "values": {
+            "preferred": {
+              "value": "tie"
+            },
+            "A_substance": {
+              "value": "partial"
+            },
+            "B_substance": {
+              "value": "partial"
+            },
+            "notes": {
+              "value": "Both have bad Turkish B sounds slightly better."
+            }
+          },
+          "status": "submitted",
+          "record_id": "0c635f44-51c2-4b9a-bfc2-3f56961456ec",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:09:45.240634",
+          "updated_at": "2026-10-03T15:09:45.240634"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156637",
+      "updated_at": "2026-10-03T15:09:45.259262"
+    },
+    {
+      "id": "88f833cf-41d9-4c2b-85c2-28a2f0424c48",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Üçüncü denemede işlem başarılı oldu. Önceki iki denemenin neden başarısız olduğunu biliyor muyuz?",
+        "desired_answer": "Hayır, bilmiyoruz. Verilen bilgi yalnızca üçüncü denemenin başarılı olduğunu söylüyor, önceki iki denemenin neden başarısız olduğunu belirtmiyor.",
+        "answer_A": "Hayır, önceki iki denemenin neden başarısız olduğunu bilmiyorduk. Üçüncü denemede işlem başarılı olduğu için, başarısızlıkların nedenini öğrenmemiz için üçüncü denemeden sonra bir sonraki denemeyi yapmamız gerekir.\n",
+        "answer_B": "Hayır, önceki iki denemenin neden başarısız olduğunu bilmiyoruz. Üçüncü denemede işlemin başarılı olması, ilk iki denemenin başarısız olmasının nedenini açıklamaz.\n",
+        "category": "grounded_completion",
+        "termination": "A: native_eos, 68 tokens; B: native_eos, 50 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-070",
+      "responses": [
+        {
+          "id": "c07486c2-f7d9-4cbb-9087-9e2d469140f5",
+          "values": {
+            "preferred": {
+              "value": "B"
+            },
+            "A_substance": {
+              "value": "partial"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "88f833cf-41d9-4c2b-85c2-28a2f0424c48",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:18:33.112177",
+          "updated_at": "2026-10-03T15:18:33.112177"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156641",
+      "updated_at": "2026-10-03T15:18:33.128929"
+    },
+    {
+      "id": "4d8bce08-989e-419e-a32b-c8207ec00b9e",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Duyuruda 'Vergi oranı değişmedi, veri paylaşım kuralları güncellendi' yazıyor. Güncellenen kurallar hangileri?",
+        "desired_answer": "Güncellenen, veri paylaşım kurallarıdır. Vergi oranı ise değişmemiştir.",
+        "answer_A": "Veri paylaşım kurallarının güncellenmesi bildirildiği için güncellenen kuralların içeriği duyuruda belirtilmemiştir. Hangi kuralların değiştiğini öğrenmek için ilgili kurumun resmi açıklamasını veya güncellenmiş kuralları incelemeniz gerekir.\n",
+        "answer_B": "Veri paylaşım kuralları güncellendi. Hangi kuralların güncellendiği duyuruda belirtilmemiş.\n",
+        "category": "turkish_lexical_precision",
+        "termination": "A: native_eos, 66 tokens; B: native_eos, 32 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-079",
+      "responses": [
+        {
+          "id": "0bba6e7a-7a46-4207-a64c-27967b41b140",
+          "values": {
+            "preferred": {
+              "value": "B"
+            },
+            "A_substance": {
+              "value": "partial"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "4d8bce08-989e-419e-a32b-c8207ec00b9e",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:16:01.508272",
+          "updated_at": "2026-10-03T15:16:01.508272"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156646",
+      "updated_at": "2026-10-03T15:16:01.526109"
+    },
+    {
+      "id": "8633ff33-9b94-420e-81d2-45f08ce07777",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Mesajda 'Hala geldi ama kardeşim hâlâ yolda' yazıyor. Yolculuğun devam ettiğini belirten sözcük hangisi? Yazımını aynen koru.",
+        "desired_answer": "hâlâ",
+        "answer_A": "hâlâ\n",
+        "answer_B": "hâlâ\n",
+        "category": "turkish_lexical_precision",
+        "termination": "A: native_eos, 6 tokens; B: native_eos, 6 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-080",
+      "responses": [
+        {
+          "id": "e0ea151b-f2a7-45ee-8f35-6d35fdab4aab",
+          "values": {
+            "preferred": {
+              "value": "tie"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "8633ff33-9b94-420e-81d2-45f08ce07777",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:16:07.890082",
+          "updated_at": "2026-10-03T15:16:07.890082"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156651",
+      "updated_at": "2026-10-03T15:16:07.911810"
+    },
+    {
+      "id": "2ac49db9-6be7-4353-bddc-3d7854e2449c",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Yeni eve taşındım ama hâlâ misafir gibi hissediyorum.",
+        "desired_answer": "Yeni evin henüz sana aitmiş gibi gelmiyor.",
+        "answer_A": "Taşınmak, yeni bir evde hâlâ misafir gibi hissetmenize neden olabilir. Bu, evin henüz sizin için tam anlamıyla \"sahip\" olmamasından kaynaklanabilir. Yeni evde kendinizi daha çok ev sahibi gibi hissetmek için aşağıdaki adımları deneyebilirsiniz:\n\n1. Evdeki her köşeyi kullanın. Evde geçici olarak kullanmadığınız bir köşeyi seçin ve orada bir şeyler yapın. Örneğin, bir köşede kitapları tutun veya bir köşeyi bir çalışma alanı olarak kullanın.\n\n2. Evde bir şeyler değiştirin. Evde bir şeyler değiştirmek, evin sizin için daha fazla bir şey ifade etmesini sağlayabilir. Örneğin, bir duvar boyasını değiştirin veya bir mobilyayı yeniden yerleştirin.\n\n3. Evde bir şeyler satın alın. Evde bir şeyler satın almak, evin sizin için daha fazla bir şey ifade etmesini sağlayabilir. Örneğin, bir yastık satın alıp bir köşeye koyun veya bir resim satın alıp bir duvara asın.\n\n4. Evde bir şeyler yapın. Evde bir şeyler yapmak, evin sizin için daha fazla bir şey ifade etmesini sağlayabilir. Örneğin, bir yemek pişirin veya bir el işi yapın.\n\n5. Evde bir şeyleri paylaşın. Evde bir şeyleri paylaşmak, evin sizin için daha fazla bir şey ifade etmesini sağlayabilir. Örneğin, bir arkadaşınıza bir şeyler verin veya bir ailenizle bir şeyler paylaşın.\n\nBu adımlardan birini veya birkaçını deneyin ve evde kendinizi daha çok ev sahibi gibi hissettiğinizde neyin işe yaradığını görün.\n",
+        "answer_B": "Taşınmak, yeni bir evde hâlâ misafir gibi hissetmekten ibaret değildir. Eviniz artık sizin evinizdir. Misafirlik hissi, evin henüz sizinle bağ kurmadığını gösterir. Bu bağın kurulması zaman alır. Yeni evde kendinizi daha konforlu hissettiğiniz anlar için sabırsızlanın.\n",
+        "category": "non_anthropomorphic_interaction",
+        "termination": "A: native_eos, 394 tokens; B: native_eos, 84 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-089",
+      "responses": [
+        {
+          "id": "73d74b64-9bee-4186-a01f-e2bddce621fd",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "partial"
+            },
+            "notes": {
+              "value": "B turkish bad, A is super good."
+            }
+          },
+          "status": "submitted",
+          "record_id": "2ac49db9-6be7-4353-bddc-3d7854e2449c",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:14:53.173905",
+          "updated_at": "2026-10-03T15:14:53.173905"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156656",
+      "updated_at": "2026-10-03T15:14:53.193557"
+    },
+    {
+      "id": "4e3813cb-4455-4384-9ce5-d667b76898d2",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Sınavdan kaldım. Şu an tavsiye değil sadece anlatmak istiyorum.",
+        "desired_answer": "Geçmiş olsun. Tavsiye vermeyeceğim, anlatmak istediğini yazabilirsin.",
+        "answer_A": "Tamam, anlatmak istersen anlat.\n",
+        "answer_B": "Tamam, anlatmak istersen anlat. Sınavdan kaldığını duydum, bu da bir şey demek değil.\n",
+        "category": "non_anthropomorphic_interaction",
+        "termination": "A: native_eos, 12 tokens; B: native_eos, 29 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-090",
+      "responses": [
+        {
+          "id": "16cf8ffb-da8e-48bf-9f19-b5905f176c65",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "partial"
+            }
+          },
+          "status": "submitted",
+          "record_id": "4e3813cb-4455-4384-9ce5-d667b76898d2",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:17:18.497718",
+          "updated_at": "2026-10-03T15:17:18.497718"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156661",
+      "updated_at": "2026-10-03T15:17:18.517192"
+    },
+    {
+      "id": "71f81158-8748-45a8-a4a1-4bc1f609ba6e",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Bu sözü anlamını bozmadan kısalt: Ürün şu anda stokta yok ama gelecek ay yeniden satışa çıkması bekleniyor.",
+        "desired_answer": "Ürün stokta yok, gelecek ay yeniden satışa çıkması bekleniyor.",
+        "answer_A": "Ürün şu an stokta yok, gelecek ay yeniden satışa çıkması bekleniyor.\n",
+        "answer_B": "Ürün şu an stokta yok, gelecek ay yeniden satışa çıkacak.\n",
+        "category": "consistency_integrity",
+        "termination": "A: native_eos, 22 tokens; B: native_eos, 19 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-099",
+      "responses": [
+        {
+          "id": "124273ca-27bc-4a52-9572-c44d8cc64ff2",
+          "values": {
+            "preferred": {
+              "value": "A"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "partial"
+            }
+          },
+          "status": "submitted",
+          "record_id": "71f81158-8748-45a8-a4a1-4bc1f609ba6e",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:16:41.430943",
+          "updated_at": "2026-10-03T15:16:41.430943"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156667",
+      "updated_at": "2026-10-03T15:16:41.986163"
+    },
+    {
+      "id": "f9c85c3e-a2f5-4bd3-9e94-4ace4aed4c75",
+      "status": "completed",
+      "fields": {
+        "conversation": "user: Görüşmeye yaklaşık on dakika geç kalacağım. Karşı tarafa kısa bir mesaj yaz; özür ve tahmini süre olsun.\nTek cümle yaz; başlık veya açıklama ekleme.",
+        "desired_answer": "Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.",
+        "answer_A": "Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.\n",
+        "answer_B": "Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.\n",
+        "category": "consistency_integrity",
+        "termination": "A: native_eos, 22 tokens; B: native_eos, 22 tokens. Non-EOS outputs are incomplete failures."
+      },
+      "metadata": {},
+      "external_id": "me-100",
+      "responses": [
+        {
+          "id": "30142c92-ff9a-4575-9407-690a9b3b7066",
+          "values": {
+            "preferred": {
+              "value": "tie"
+            },
+            "A_substance": {
+              "value": "pass"
+            },
+            "B_substance": {
+              "value": "pass"
+            }
+          },
+          "status": "submitted",
+          "record_id": "f9c85c3e-a2f5-4bd3-9e94-4ace4aed4c75",
+          "user_id": "a3cedf29-50c3-4f85-b552-6317636192a5",
+          "inserted_at": "2026-10-03T15:20:04.587299",
+          "updated_at": "2026-10-03T15:20:04.587299"
+        }
+      ],
+      "dataset_id": "e2c4f7ab-8d50-401f-b68c-7eda6323c264",
+      "inserted_at": "2026-10-03T14:38:57.156672",
+      "updated_at": "2026-10-03T15:20:04.608974"
+    }
+  ],
+  "total": 20
+}

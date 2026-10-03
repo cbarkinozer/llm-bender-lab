@@ -37,8 +37,13 @@ Argilla comparison is ready; supporting probes and full backup are completed.
   Existing review queues and annotations are preserved.
 - [x] Download and verify all artifacts before pod termination: archive SHA256
   and all141 indexed files verified locally, including retained resume state.
-- [ ] Review substantive wins/ties/losses, especially eight diagnostic anchors;
-  choose the next hypothesis after user review, not by minimum loss or shortness.
+- [x] Review all20 submitted A/B judgments and freeze the response snapshot.
+  A preferred7, B5, tie6, neither2; see [experiment journal](EXPERIMENT-JOURNAL.md).
+- [ ] Prepare proposed C/D pair: narrower12-row replacement, four versus six
+  epochs on the exact same new80-row dataset. Draft/review/leakage audit pending;
+  no GPU run started. Resolve disputed me-089 reference with versioned provenance.
+- [ ] Append hypothesis, interventions, measured outcomes, user feedback,
+  failures/fixes and verified recovery evidence to the journal after every round.
 - [x] Inspect saved rendered prompts and label masks. Current
   prepare_training.py masks the entire non-thinking generation prefix, including
   its empty think block; supervised_text samples contain answer + native EOS.

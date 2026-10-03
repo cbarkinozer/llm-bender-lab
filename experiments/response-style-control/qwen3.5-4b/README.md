@@ -99,6 +99,9 @@ test. The independent communication-policy benchmark is being authored under
 ## Experiment registry
 
 Current work and the requested future agentic-RL track: [TODO.md](TODO.md).
+Blog evidence and dated research decisions: [EXPERIMENT-JOURNAL.md](EXPERIMENT-JOURNAL.md).
+All20 A/B reviews are submitted and frozen in the linked journal; neither arm
+is a universal winner. Next C/D pair remains a proposal, not an executed run.
 A/B training and primary inference completed. Both final epoch4 adapters emitted
 20 native-EOS answers. Desired/A/B review is ready; full local backup verification
 and supporting probes are completed. User explicitly waived repeated training

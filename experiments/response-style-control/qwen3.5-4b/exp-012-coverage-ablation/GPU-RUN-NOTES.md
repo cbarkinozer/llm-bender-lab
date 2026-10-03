@@ -9,7 +9,8 @@ post-SFT inference will establish that saved adapters load.
 Direct endpoint 212.83.33.57:42073; proxy ssh8.vast.ai:15830. RTX4090 24GB,
 driver580.173.02, Ubuntu24.04.4, 80GB disk. Existing local id_ed25519 works.
 Instance-only public key is accepted by server, but Windows client initially
-failed to sign despite valid unencrypted matching key; do not claim server key
+failed to sign because Windows generation unintentionally set a quote-character
+passphrase; the later SSH fix below repaired it. Do not claim the server key
 was absent. Credentials and private keys are never copied into experiment logs.
 
 Reuse exp010/setup_training.sh unchanged, including historical venv name
