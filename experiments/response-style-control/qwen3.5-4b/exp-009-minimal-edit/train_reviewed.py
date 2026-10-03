@@ -6,6 +6,7 @@ import json
 import math
 import os
 import subprocess
+import sys
 from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
@@ -95,6 +96,12 @@ def main():
         report_to=[] if diagnostic else ['wandb'],run_name=experiment_id+'-'+args.mode,
         remove_unused_columns=False,prediction_loss_only=True)
     trainer=Trainer(model=model,args=ta,train_dataset=processed['train'],eval_dataset=processed['validation'],data_collator=collator)
+    save(args.output_dir/'effective-training-arguments.json',ta.to_dict())
+    save(args.output_dir/'invocation.json',dict(argv=sys.argv,cwd=os.getcwd(),
+        precision='bfloat16',float32_matmul_precision=torch.get_float32_matmul_precision(),
+        allow_tf32=torch.backends.cuda.matmul.allow_tf32,
+        deterministic_algorithms=torch.are_deterministic_algorithms_enabled(),
+        environment={k:os.environ[k] for k in ('HF_HOME','WANDB_DIR','CUDA_VISIBLE_DEVICES','OMP_NUM_THREADS') if k in os.environ}))
     count=sum(p.numel() for p in model.parameters() if p.requires_grad)
     assert count>0
     # Verify every collated row against its saved labels, including padding.
