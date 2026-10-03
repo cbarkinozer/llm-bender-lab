@@ -127,4 +127,5 @@ Preserve enough information to reproduce the run later.
 - Prefer simple and explicit implementations.
 - Avoid premature abstractions.
 - Fail loudly when important assumptions are violated.
+- W&B display names must describe the actual work (`sft`, `eval`, etc.) and useful recipe details; do not use `full` as a run-name label. See docs/experiment-guide.md for the user's naming preference.
 - Do not change multiple experimental variables without documenting why.

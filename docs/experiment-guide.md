@@ -607,6 +607,15 @@ completed
 
 Use W&B or another tracker to retain run identities.
 
+User preference (2026-10-03): W&B display names should describe the work, not
+the execution mode `full`. Use `sft`, `eval`, `base-inference`, or another actual
+operation, plus useful recipe details. Example:
+`exp010-sft-lr1e-4-80rows-2ep`. Distinguish diagnostic runs explicitly if logged.
+Internal CLI modes/output paths may remain `full` for compatibility; that word
+must not be the human-facing run-name label. Allow explicit config overrides
+for meaningful experiment-specific names. Renaming a display name must not
+change the run ID, URL, metrics, or historical effective training configuration.
+
 Store relevant IDs in experiment metadata.
 
 ```yaml

@@ -104,3 +104,13 @@ Argilla import was attempted after backup verification, but localhost:6900
 refused connections and Docker Desktop's Linux engine was not running. No new
 review dataset was created; comparison CSVs remain locally available. Rerun
 import_comparison.py when the existing local Argilla stack is available.
+
+Follow-up: Docker Desktop and the existing compose stack restarted; imported
+all 20 verified local comparisons into exp-010-lr-validation-20, dataset
+862ac01e-c408-48dc-9b16-77e190ef1ce9. Includes base, desired, exp009, both
+exp010 epoch answers, and termination status; earlier annotations preserved.
+
+User naming preference: W&B display names use the actual operation, not `full`.
+Exp010 display name updated to exp010-sft-lr1e-4-80rows-2ep; run ID/metrics and
+original effective config remain unchanged. Local rename audit saved alongside
+backups. Shared runner and AGENTS/experiment guide enforce the future preference.

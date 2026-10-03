@@ -95,7 +95,10 @@ def main():
         lr_scheduler_type=t['scheduler'],optim=t['optimizer'],weight_decay=t['weight_decay'],max_grad_norm=t['max_grad_norm'],
         bf16=True,fp16=False,seed=t['seed'],data_seed=t['seed'],logging_steps=1,
         save_strategy='epoch',eval_strategy='no' if diagnostic else 'epoch',save_total_limit=2,
-        report_to=[] if diagnostic else ['wandb'],run_name=experiment_id+'-'+args.mode,
+        report_to=[] if diagnostic else ['wandb'],
+        run_name=(experiment_id+'-'+args.mode if diagnostic else config.get('tracking',{}).get('run_name',
+            'exp'+experiment_id.split('-')[1]+'-sft-lr'+format(t['learning_rate'],'.0e').replace('e-0','e-')+
+            '-'+str(len(processed['train']))+'rows-'+format(t['epochs'],'g')+'ep')),
         remove_unused_columns=False,prediction_loss_only=True)
     trainer=Trainer(model=model,args=ta,train_dataset=processed['train'],eval_dataset=processed['validation'],data_collator=collator)
     save(args.output_dir/'effective-training-arguments.json',ta.to_dict())
