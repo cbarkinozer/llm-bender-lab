@@ -21,7 +21,9 @@ gate_path=ROOT/'gpu-gates.json'
 gate=json.loads(gate_path.read_text())
 assert gate['training_config_sha256']==hashlib.sha256((HERE/'training-preflight-v1/training-config.json').read_bytes()).hexdigest()
 for name in ('actual_batch_masking','smoke_finite_loss','adapter_save_reload','tiny_overfit_loss_decreased'):
-    assert gate[name] is True
+    if gate[name] is not True:
+        assert gate.get('policy')=='explicit-user-approved-lr-only-waiver'
+        assert name in gate.get('waived_checks',[]) and name!='actual_batch_masking'
 output=ROOT/'full-v1'
 assert not output.exists(),'Refusing existing full output'
 gate['wandb_connected']=True

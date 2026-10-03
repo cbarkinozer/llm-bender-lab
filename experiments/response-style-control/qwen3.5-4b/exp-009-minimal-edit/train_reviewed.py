@@ -53,7 +53,9 @@ def main():
         expected_hash=hashlib.sha256((args.preflight_dir/'training-config.json').read_bytes()).hexdigest()
         assert gate['training_config_sha256']==expected_hash
         for key in ('actual_batch_masking','smoke_finite_loss','adapter_save_reload','tiny_overfit_loss_decreased','wandb_connected'):
-            assert gate[key] is True, key
+            if gate[key] is not True:
+                assert gate.get('policy')=='explicit-user-approved-lr-only-waiver'
+                assert key in gate.get('waived_checks',[]) and key in ('smoke_finite_loss','adapter_save_reload','tiny_overfit_loss_decreased'),key
     from unsloth import FastLanguageModel
     import torch
     from datasets import Dataset

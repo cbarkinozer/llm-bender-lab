@@ -2,6 +2,13 @@
 
 Status: user-approved recipe; local preparation, GPU run pending.
 
+2026-10-03 execution override: user explicitly waived repeated smoke and
+tiny-overfit for this LR-only run. New pinned environment imports/CUDA and actual
+GPU representation checks passed. The in-progress smoke was interrupted, not
+declared passed. record_reused_gates.py records skipped checks as false with an
+explicit waiver and prior exp009 evidence. No tiny-overfit repeat is required
+for this run; actual batch masking and W&B authentication remain required.
+
 Hypothesis: doubling LR from 5e-5 to 1e-4 gives the existing reviewed targets
 more behavioral influence without worsening Turkish/task correctness.
 Exp009 was rejected by the user for persistent base-style behavior, verbosity,
