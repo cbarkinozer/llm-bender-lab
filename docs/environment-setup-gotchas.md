@@ -2,6 +2,14 @@
 
 ## Vast.ai inference backend preference (2026-10-02)
 
+Current exp009/exp010 override: the user explicitly requested Unsloth fine-tuning
+and adapter inference without installing vLLM; existing base outputs suffice.
+Use the saved adapter with the validated Unsloth/Transformers environment for
+these runs. Preserve greedy/repetition/template settings and disclose the
+backend difference from the original vLLM base generation. The default below
+remains historical guidance for base generation, not a reason to override this
+later explicit instruction. Do not install vLLM for exp010.
+
 The user explicitly wants fast GPU inference with **vLLM** as the default;
 **SGLang** is an acceptable alternative after checking model compatibility.
 This applies to base-answer generation and benchmark inference, including
@@ -356,3 +364,25 @@ worktree even though the only untracked file is the base result.
 Unsloth 2026.9.6 may also create `unsloth_compiled_cache/` in the current
 working directory during import. Keep that generated directory outside Git (or
 ignore it explicitly) before enforcing the clean-worktree training gate.
+
+## 15. Detached W&B launch must not inherit a parent service socket
+
+Exp009's first full launch failed before training because the launcher API
+client created a W&B service and the detached child inherited its socket token.
+When the launcher exited, the child could no longer connect. Authenticate first,
+then remove WANDB_SERVICE* variables from the child environment before spawning;
+retain WANDB_API_KEY only in process memory. Let the child create its own service.
+The successful retry and exp010 launcher use this pattern.
+
+## 16. Exp009 CUDA wheel transport and Windows backup recovery
+
+uv's remote causal-conv1d URL metadata/download stalled. Download the identical
+official wheel with curl, check SHA256, then uv install --no-deps locally.
+Validated wheel: causal_conv1d-1.7.0+cu12torch2.7cxx11abiTRUE-cp311-cp311-linux_x86_64.whl
+SHA256: 6d04c5b9c675dd68aa4ece694d3c5d1d79b25326757bae567aeb2edfe1dd5cc2.
+
+If single-stream backup transfer resets, split an immutable archive into small
+parts, retry each, verify all part hashes and verify the reconstructed whole
+archive. Windows tar cannot restore absolute Linux W&B symlinks reliably;
+also archive W&B with dereferencing (-h) to retain actual linked debug-core logs.
+Keep weights and archives outside Git, with exact source bundles alongside them.
