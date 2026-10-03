@@ -54,7 +54,11 @@ def main():
         assert gate['training_config_sha256']==expected_hash
         for key in ('actual_batch_masking','smoke_finite_loss','adapter_save_reload','tiny_overfit_loss_decreased','wandb_connected'):
             if gate[key] is not True:
-                assert gate.get('policy')=='explicit-user-approved-lr-only-waiver'
+                policy=gate.get('policy')
+                assert policy in ('explicit-user-approved-lr-only-waiver','explicit-user-approved-paired-run-waiver')
+                if policy=='explicit-user-approved-paired-run-waiver':
+                    assert experiment_id in ('exp-011-duration-ablation','exp-012-coverage-ablation')
+                    assert gate.get('experiment_id')==experiment_id and gate.get('user_instruction')
                 assert key in gate.get('waived_checks',[]) and key in ('smoke_finite_loss','adapter_save_reload','tiny_overfit_loss_decreased'),key
     from unsloth import FastLanguageModel
     import torch
