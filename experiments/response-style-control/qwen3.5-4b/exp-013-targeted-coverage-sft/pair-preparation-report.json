@@ -1,0 +1,31 @@
+{
+  "status": "draft-CPU-passed-human-review-required",
+  "training_started": false,
+  "candidates": 12,
+  "retained": 68,
+  "train_rows": 80,
+  "validation_rows": 20,
+  "shared_dataset_for_C_D": true,
+  "retained_tokenization_matches_A": true,
+  "validation_tokenization_matches_A": true,
+  "expected_optimizer_steps": {
+    "C": 40,
+    "D": 60
+  },
+  "truncated_rows": 0,
+  "target_tokens_per_epoch": {
+    "A": 5384,
+    "C_D_draft": 5578
+  },
+  "target_token_change_percent": 3.6,
+  "candidate_mask_inspection_sha256": "07e6c8560735ef4484de8c6972d7aed103d7c681f16ae8df1291bd64e58a00db",
+  "note": "Historical shared tokenizer report uses human approval for B wording; for this pair it means all12 C/D candidates. This pair report is authoritative on review status.",
+  "remaining": [
+    "12 submitted human accept/rewrite reviews",
+    "reviewed-target re-tokenization and freeze",
+    "GPU actual-batch mask and environment checks",
+    "GPU smoke/reload and tiny-overfit unless explicitly waived for C/D",
+    "W&B authentication"
+  ],
+  "original_frozen_files_unchanged": true
+}

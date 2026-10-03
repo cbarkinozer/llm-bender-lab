@@ -101,7 +101,8 @@ test. The independent communication-policy benchmark is being authored under
 Current work and the requested future agentic-RL track: [TODO.md](TODO.md).
 Blog evidence and dated research decisions: [EXPERIMENT-JOURNAL.md](EXPERIMENT-JOURNAL.md).
 All20 A/B reviews are submitted and frozen in the linked journal; neither arm
-is a universal winner. Next C/D pair remains a proposal, not an executed run.
+is a universal winner. C/D drafts and CPU checks are prepared;12 reviews pending,
+no GPU run. See exp013 for the shared review queue.
 A/B training and primary inference completed. Both final epoch4 adapters emitted
 20 native-EOS answers. Desired/A/B review is ready; full local backup verification
 and supporting probes are completed. User explicitly waived repeated training
@@ -122,3 +123,5 @@ diagnostics; actual-batch masking and W&B checks passed.
 | `exp-010-lr-ablation` | trained; human review pending | Same exp009 data/recipe, LR doubled to 1e-4 only | Both epoch adapters generated 20 development answers; initial repeat loop preserved, bounded rerun completed; backups verified; repeat training diagnostics explicitly waived by user |
 | `exp-011-duration-ablation` | trained; human review ready | A: same 80 reviewed rows, four epochs instead of two | 40 steps; 20/20 native EOS; validation unchanged; duration extends cosine schedule |
 | `exp-012-coverage-ablation` | trained; human review ready | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | 40 steps; 20/20 native EOS; no detected overlap; supervised-token exposure +22.47%; paired review in Argilla |
+| `exp-013-targeted-coverage-sft` | planned;12-row review pending | C: retain68 A rows, replace12; same four-epoch recipe | CPU checks passed; no detected overlap; draft supervised tokens +3.60%; no training |
+| `exp-014-targeted-duration-sft` | planned; shared review pending | D: exact same approved80 C targets, six instead of four epochs | 60 planned steps; extends cosine trajectory; no training |

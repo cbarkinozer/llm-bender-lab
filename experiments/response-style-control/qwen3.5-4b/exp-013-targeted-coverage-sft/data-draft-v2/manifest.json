@@ -1,0 +1,73 @@
+{
+  "status": "awaiting-human-review",
+  "training_started": false,
+  "retained_rows": 68,
+  "new_rows": 12,
+  "removed_ids": [
+    "me-011",
+    "me-013",
+    "me-021",
+    "me-022",
+    "me-015",
+    "me-016",
+    "me-024",
+    "me-026",
+    "me-001",
+    "me-002",
+    "me-033",
+    "me-034"
+  ],
+  "original_hashes": {
+    "train-reviewed.jsonl": "bb66be2853f866b6b463f80d62cc7d388b4a3a203e22fa6d9909a6123ffd4ec9",
+    "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+  },
+  "draft_train_sha256": "01e969f822f542226a67be61dd2deefd02124aac804ddd709d746e0b7b71c6bc",
+  "category_counts_A": {
+    "grammar_correction": 8,
+    "answer_extraction": 8,
+    "numeric_entity_precision": 8,
+    "faithful_summary": 8,
+    "useful_explanation": 8,
+    "selective_clarification": 8,
+    "grounded_completion": 8,
+    "turkish_lexical_precision": 8,
+    "non_anthropomorphic_interaction": 8,
+    "consistency_integrity": 8
+  },
+  "category_counts_C_D": {
+    "grammar_correction": 7,
+    "turkish_lexical_precision": 9,
+    "answer_extraction": 6,
+    "grounded_completion": 11,
+    "numeric_entity_precision": 6,
+    "useful_explanation": 9,
+    "faithful_summary": 6,
+    "consistency_integrity": 10,
+    "selective_clarification": 8,
+    "non_anthropomorphic_interaction": 8
+  },
+  "authoring": {
+    "provider": "OpenAI",
+    "interface": "Codex project agent",
+    "exact_model": "not exposed",
+    "sampling": "not exposed",
+    "external_generation_api": false,
+    "date": "2026-10-03",
+    "source_sha256": "88da1053a27716d51f4b1af1bda2d4b92d2c50b0ac241079f286fdef1480ae5f",
+    "original_specs_sha256": "9b22c9a74e61284c4fa926a8be6a174fc88854ebcbd0907d5f0e94bccd6cf7fb",
+    "permission": "User requested project-local drafts; no third-party corpus copied; no public licensing claim"
+  },
+  "replacement_policy": "2 grammar, 4 extraction, 4 numeric/entity, 2 summary removed; preserve all other rows byte-semantically and in original positions",
+  "target_tokens_per_epoch": {
+    "A": 5384,
+    "C_D_draft": 5578
+  },
+  "target_token_change_percent": 3.6,
+  "files": {
+    "candidates-12.csv": "6870dfc1fef3a3b414f4a71c1d3acb91685ef5952d35eda0146469d0c06ce3af",
+    "candidates-12.jsonl": "0b4612716f566d9f3bd03c7e65f61678d28f629f50a9bb48d5e1305c4e0bdc0a",
+    "leakage-report.json": "df6acf56a48a69e200ed3eee857db710165c4f94196e5e2eeb30f5ea6e5ee69a",
+    "train-reviewed.jsonl": "01e969f822f542226a67be61dd2deefd02124aac804ddd709d746e0b7b71c6bc",
+    "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+  }
+}

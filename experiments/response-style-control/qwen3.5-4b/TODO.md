@@ -39,9 +39,14 @@ Argilla comparison is ready; supporting probes and full backup are completed.
   and all141 indexed files verified locally, including retained resume state.
 - [x] Review all20 submitted A/B judgments and freeze the response snapshot.
   A preferred7, B5, tie6, neither2; see [experiment journal](EXPERIMENT-JOURNAL.md).
-- [ ] Prepare proposed C/D pair: narrower12-row replacement, four versus six
-  epochs on the exact same new80-row dataset. Draft/review/leakage audit pending;
-  no GPU run started. Resolve disputed me-089 reference with versioned provenance.
+- [x] Prepare C/D12-row draft, blocked configs and CPU tokenization/leakage audit:
+  68 unchanged A rows +12 replacements, four versus six epochs; tokens/epoch +3.60%.
+- [ ] User: [review shared12 C/D candidates](http://127.0.0.1:6900/dataset/c0dc183f-e552-4a7d-9267-08211b88df94/annotation-mode?page=1&status=pending).
+  Accept/rewrite; reject with notes if prompt needs repair. Only one review per row.
+- [ ] Export actual reviews, re-audit/re-tokenize and freeze exactly one80-row
+  artifact for C/D, then obtain GPU and required run checks. No GPU run started.
+- [ ] Resolve disputed me-089 reference with versioned provenance; preserve old
+  fields/reviews and report sensitivity without089 until any revision is approved.
 - [ ] Append hypothesis, interventions, measured outcomes, user feedback,
   failures/fixes and verified recovery evidence to the journal after every round.
 - [x] Inspect saved rendered prompts and label masks. Current

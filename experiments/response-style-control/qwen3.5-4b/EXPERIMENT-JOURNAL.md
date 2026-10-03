@@ -192,11 +192,44 @@ A and B abilities can simply be combined.
 - Preserve the20 development items; resolve me-089 reference transparently.
   Record wins, regressions and guard events, not just aggregate preference.
 
-These are hypotheses and a proposed design. No replacement12, GPU run or
-results exist yet. More epochs could worsen generalization; C is not guaranteed
+At proposal time no replacement12, GPU run or results existed; preparation
+progress is appended below. More epochs could worsen generalization; C is not guaranteed
 to inherit both A's naturalness and B's precision.
 
 ## What every future round must preserve
+
+### 2026-10-03: C/D preparation (no GPU, no model results)
+
+User said “proceed.” Created exp013/014,12 drafts, shared review queue,
+blocked configs, exporter that requires actual12 accept/rewrite responses,
+and pre-run evaluation protocol. Preserve68 A rows in place, including every
+original higher-level training row above me-040. Proposed new settings cover
+ceramics/theater/battery/botany, projector/permission/podcast/version control,
+polite-address/doctor-doctoral distinction, art loan and tentative festival.
+
+CPU audit found no exact/near flags against original80/20,348 historical
+benchmark entries,3500 historical training inventory entries and B's24 new rows.
+These inventories overlap; do not call them unique independent questions.
+All68 retained tokenizations and all20 validation tokenizations match A.
+Draft target tokens5578/epoch vs A5384 (+3.60%), max train sequence514,
+zero truncation, native EOS supervision and context masking verified.
+Every new candidate's rendered/masked tokens saved for inspection.
+
+Preparation caught a namesake Python-module import collision caused by older
+helpers inserting sys.path entries. Restoring this experiment first fixed it;
+regression test added. All ten CPU tests passed.
+Live export correctly refused unreviewed tc-001; no approved data/config was
+created. Old frozen experiments and Argilla annotations were not rewritten.
+First queue ID4eeae7d7-af07-47d2-9673-9e368c0aed50 is superseded/preserved.
+Final QA clarified tc-010: bare “doktora başvurmuş” could mean consultation
+with a doctor, so v2 explicitly says “doktora programına başvurmuş.” No target
+or other11 prompt changed. New active queue IDc0dc183f-e552-4a7d-9267-08211b88df94,
+12 records read back and verified. Human review and GPU access are still
+required. No new success claim; old queues/annotations untouched.
+
+Details: [C preparation](exp-013-targeted-coverage-sft/README.md),
+[pre-run protocol](exp-013-targeted-coverage-sft/EVALUATION.md),
+[D plan](exp-014-targeted-duration-sft/README.md).
 
 Before execution: date, hypothesis, exact changed/held-fixed variables, approved
 data and split hashes, leakage checks, source/model/tokenizer revisions,

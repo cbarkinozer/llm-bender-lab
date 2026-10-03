@@ -1,0 +1,300 @@
+{
+  "status": "no-detected-overlap",
+  "candidate_rows": 12,
+  "current_training_rows": 80,
+  "current_validation_rows": 20,
+  "historical_benchmark_rows": 348,
+  "historical_training_rows": 3500,
+  "near_threshold_validation": 0.6,
+  "near_threshold_other": 0.78,
+  "exact_matches": [],
+  "near_flags": [],
+  "internal_exact": [],
+  "internal_near": [],
+  "closest_validation_pairs": [
+    {
+      "candidate": "tc-001",
+      "validation": "me-100",
+      "similarity": 0.3067
+    },
+    {
+      "candidate": "tc-001",
+      "validation": "me-049",
+      "similarity": 0.2997
+    },
+    {
+      "candidate": "tc-001",
+      "validation": "me-079",
+      "similarity": 0.2901
+    },
+    {
+      "candidate": "tc-002",
+      "validation": "me-029",
+      "similarity": 0.2488
+    },
+    {
+      "candidate": "tc-002",
+      "validation": "me-070",
+      "similarity": 0.2431
+    },
+    {
+      "candidate": "tc-002",
+      "validation": "me-080",
+      "similarity": 0.2332
+    },
+    {
+      "candidate": "tc-003",
+      "validation": "me-040",
+      "similarity": 0.3353
+    },
+    {
+      "candidate": "tc-003",
+      "validation": "me-100",
+      "similarity": 0.3068
+    },
+    {
+      "candidate": "tc-003",
+      "validation": "me-039",
+      "similarity": 0.2622
+    },
+    {
+      "candidate": "tc-004",
+      "validation": "me-080",
+      "similarity": 0.3123
+    },
+    {
+      "candidate": "tc-004",
+      "validation": "me-050",
+      "similarity": 0.2629
+    },
+    {
+      "candidate": "tc-004",
+      "validation": "me-070",
+      "similarity": 0.2557
+    },
+    {
+      "candidate": "tc-005",
+      "validation": "me-049",
+      "similarity": 0.3007
+    },
+    {
+      "candidate": "tc-005",
+      "validation": "me-080",
+      "similarity": 0.2838
+    },
+    {
+      "candidate": "tc-005",
+      "validation": "me-059",
+      "similarity": 0.2679
+    },
+    {
+      "candidate": "tc-006",
+      "validation": "me-079",
+      "similarity": 0.2722
+    },
+    {
+      "candidate": "tc-006",
+      "validation": "me-100",
+      "similarity": 0.2712
+    },
+    {
+      "candidate": "tc-006",
+      "validation": "me-059",
+      "similarity": 0.2662
+    },
+    {
+      "candidate": "tc-007",
+      "validation": "me-039",
+      "similarity": 0.2963
+    },
+    {
+      "candidate": "tc-007",
+      "validation": "me-070",
+      "similarity": 0.28
+    },
+    {
+      "candidate": "tc-007",
+      "validation": "me-059",
+      "similarity": 0.2706
+    },
+    {
+      "candidate": "tc-008",
+      "validation": "me-050",
+      "similarity": 0.2594
+    },
+    {
+      "candidate": "tc-008",
+      "validation": "me-049",
+      "similarity": 0.2584
+    },
+    {
+      "candidate": "tc-008",
+      "validation": "me-100",
+      "similarity": 0.2554
+    },
+    {
+      "candidate": "tc-009",
+      "validation": "me-010",
+      "similarity": 0.3955
+    },
+    {
+      "candidate": "tc-009",
+      "validation": "me-069",
+      "similarity": 0.2985
+    },
+    {
+      "candidate": "tc-009",
+      "validation": "me-070",
+      "similarity": 0.2816
+    },
+    {
+      "candidate": "tc-010",
+      "validation": "me-080",
+      "similarity": 0.2667
+    },
+    {
+      "candidate": "tc-010",
+      "validation": "me-100",
+      "similarity": 0.2663
+    },
+    {
+      "candidate": "tc-010",
+      "validation": "me-059",
+      "similarity": 0.2587
+    },
+    {
+      "candidate": "tc-011",
+      "validation": "me-099",
+      "similarity": 0.3168
+    },
+    {
+      "candidate": "tc-011",
+      "validation": "me-070",
+      "similarity": 0.3141
+    },
+    {
+      "candidate": "tc-011",
+      "validation": "me-039",
+      "similarity": 0.3002
+    },
+    {
+      "candidate": "tc-012",
+      "validation": "me-099",
+      "similarity": 0.3178
+    },
+    {
+      "candidate": "tc-012",
+      "validation": "me-100",
+      "similarity": 0.3149
+    },
+    {
+      "candidate": "tc-012",
+      "validation": "me-029",
+      "similarity": 0.2827
+    }
+  ],
+  "source_inventory": {
+    "exp-002-communication-policy-benchmark/development.csv": {
+      "rows": 0,
+      "sha256_bytes": "4ea4d167655b36a4fa1c75865dd61678b4fef806f6d3b02b0ba2e349f04ca556"
+    },
+    "exp-002-communication-policy-benchmark/test.csv": {
+      "rows": 100,
+      "sha256_bytes": "2749dbd304c60cdb38a5538fe8684e2a814c5933a35d95057baf5ab3b759a300"
+    },
+    "exp-002-communication-policy-benchmark/test-v2.1.csv": {
+      "rows": 100,
+      "sha256_bytes": "c75587a0921fbe59fcd861392fa21e5771d05d21244f14ce6fb2068dadc2fafd"
+    },
+    "exp-005-targeted-policy-sft/evaluation/final-holdout-v1.csv": {
+      "rows": 48,
+      "sha256_bytes": "ad18403ffb6a1281a5a25a5f69a5d76a0da9cf3cdf9afea8e55340f26bf71673"
+    },
+    "exp-006-quality-repair-sft/evaluation/final-holdout-v2.csv": {
+      "rows": 50,
+      "sha256_bytes": "1eb26264e79e0818200d06d959625c31786818c26f9ff2bc6105b69921e135fb"
+    },
+    "exp-007-boundary-benchmark/development-reviewed-v2.csv": {
+      "rows": 50,
+      "sha256_bytes": "9e48512243e31a65ed8d800bdcc8bb4bf45da8995902bacfda730d996900643e"
+    },
+    "exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv": {
+      "rows": 2442,
+      "sha256_bytes": "46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163"
+    },
+    "exp-006-quality-repair-sft/data/sft-clean-v4-quality-repair-958.csv": {
+      "rows": 958,
+      "sha256_bytes": "bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff"
+    },
+    "exp-008-generalization-sft/data/sft-generalization-final-100.csv": {
+      "rows": 100,
+      "sha256_bytes": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6"
+    }
+  },
+  "semantic_review": "New fictional scenarios: ceramic finishes, theater roles, battery runtime, botanical collections, projector diagnosis, folder permission logs, podcast cancellation motive, translation version control, polite-address agreement, doctoral education versus doctor job, insured art loan, tentative festival. No validation prompt, solution, paraphrase, number/entity substitution or cafe-sign/morning-departure/desk-layout/home-feeling/exam-venting setting used. Behavior-level error taxonomy informed the brief, not item-level solutions. Human review pending. me-089 reference remains disputed and untouched.",
+  "limitation": "Lexical/provenance checks and agent inspection do not prove universal semantic independence. Shared target behaviors are intentional; no independent-final-test claim.",
+  "previous_B_rows_checked": 24,
+  "previous_B_near_flags": [],
+  "closest_previous_B_pairs": [
+    {
+      "candidate": "tc-001",
+      "other_id": "bc-011",
+      "similarity": 0.3123
+    },
+    {
+      "candidate": "tc-002",
+      "other_id": "bc-019",
+      "similarity": 0.3043
+    },
+    {
+      "candidate": "tc-003",
+      "other_id": "bc-006",
+      "similarity": 0.2837
+    },
+    {
+      "candidate": "tc-004",
+      "other_id": "bc-018",
+      "similarity": 0.3356
+    },
+    {
+      "candidate": "tc-005",
+      "other_id": "bc-004",
+      "similarity": 0.3139
+    },
+    {
+      "candidate": "tc-006",
+      "other_id": "bc-019",
+      "similarity": 0.2963
+    },
+    {
+      "candidate": "tc-007",
+      "other_id": "bc-016",
+      "similarity": 0.3897
+    },
+    {
+      "candidate": "tc-008",
+      "other_id": "bc-006",
+      "similarity": 0.3544
+    },
+    {
+      "candidate": "tc-009",
+      "other_id": "bc-013",
+      "similarity": 0.3192
+    },
+    {
+      "candidate": "tc-010",
+      "other_id": "bc-015",
+      "similarity": 0.2748
+    },
+    {
+      "candidate": "tc-011",
+      "other_id": "bc-023",
+      "similarity": 0.3425
+    },
+    {
+      "candidate": "tc-012",
+      "other_id": "bc-023",
+      "similarity": 0.3546
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "status": "draft-not-approved",
+  "rows": 100,
+  "splits": {
+    "train": 80,
+    "validation": 20
+  },
+  "packing": false,
+  "max_seq_length": 1024,
+  "split_stats": {
+    "train": {
+      "sequence": {
+        "min": 39,
+        "median": 103,
+        "p90": 221,
+        "p95": 336,
+        "p99": 437,
+        "max": 514,
+        "total": 10095
+      },
+      "target": {
+        "min": 2,
+        "median": 44,
+        "p90": 142,
+        "p95": 293,
+        "p99": 379,
+        "max": 461,
+        "total": 5578
+      }
+    },
+    "validation": {
+      "sequence": {
+        "min": 45,
+        "median": 90,
+        "p90": 146,
+        "p95": 340,
+        "p99": 432,
+        "max": 432,
+        "total": 2298
+      },
+      "target": {
+        "min": 4,
+        "median": 25,
+        "p90": 104,
+        "p95": 266,
+        "p99": 383,
+        "max": 383,
+        "total": 1151
+      }
+    }
+  },
+  "all_context_tokens_masked": true,
+  "native_final_end_of_turn_supervised": true,
+  "truncated_rows": 0,
+  "zero_target_rows": 0,
+  "files": {
+    "train-tokenized.jsonl": "c738855c393879f0da8ddc03bc4e7529a37bf30593df37fa824ea75aba1392dc",
+    "validation-tokenized.jsonl": "0600244c80a0a1c406591b2b2eaf2fc0f89b8316229b487028faf4fbbb755557",
+    "mask-inspection.json": "ddf2ec7c8d93a9c1aff5a080eb5fb5793fdb1717c1f755e7670e584d95b4334c",
+    "tokenizer-template.json": "4297525131efacc180bbe1ae6319a1298f897aa68379d1ca15cb7143850f9800"
+  },
+  "validation_tokenization_matches_parent": true,
+  "original_data_hashes": {
+    "train-reviewed.jsonl": "bb66be2853f866b6b463f80d62cc7d388b4a3a203e22fa6d9909a6123ffd4ec9",
+    "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+  },
+  "remaining": [
+    "human approval for B",
+    "GPU smoke/reload",
+    "GPU tiny-overfit",
+    "W&B connection"
+  ],
+  "training_started": false
+}

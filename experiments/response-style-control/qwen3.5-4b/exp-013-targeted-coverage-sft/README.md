@@ -1,0 +1,94 @@
+# exp-013-targeted-coverage-sft (C)
+
+## Status
+
+Planned; twelve draft targets need human review. CPU schema/hash/leakage/
+tokenizer/mask checks passed, but no GPU training or inference has started.
+`config.yaml` is deliberately blocked and has no approved training hash.
+Do not pass draft tokenized files to the trainer.
+
+[Review the12 shared C/D candidates](http://127.0.0.1:6900/dataset/c0dc183f-e552-4a7d-9267-08211b88df94/annotation-mode?page=1&status=pending).
+Use accept, or rewrite with the complete corrected answer, or reject with notes.
+Only these12 need review, once for both experiments.
+
+## Goal and hypothesis
+
+Test whether a narrow intervention fixes precision/unsupported-reasoning errors
+without sacrificing A's useful explanation, natural Turkish and interaction.
+Neither success nor combining all A/B strengths is assumed.
+Parent: exp011 duration-ablation (saved A); fresh pinned base, not A's weights.
+
+## What changed
+
+Retain68 original reviewed A rows in their original positions. Replace12:
+me-001/002, me-011/013/015/016, me-021/022/024/026, me-033/034.
+These are2 grammar,4 extraction,4 numeric/entity,2 summary rows. Keep EVERY
+original training row above me-040, including all explanation, clarification,
+groundedness, Turkish precision, non-anthropomorphism and consistency examples.
+
+New12:4 exact fact/entity answers,4 evidence-bounded reasoning/explanation
+answers,2 Turkish grammar/word-meaning checks,2 condition/uncertainty rewrites.
+They are project-agent-authored drafts in distinct fictional settings, NOT
+summaries of generated base answers and NOT validation paraphrases.
+See candidate_specs.py for the authoring brief and preserved source metadata.
+
+## Data and leakage
+
+80 train / unchanged20 development validation. Original source hashes verified.
+All68 retained rows also have identical tokenized representation to A.
+Checks compare new12 with original80/20,348 historical benchmark entries,
+3500 historical training inventory entries (not unique independent rows),
+and B's24 new entries. No exact matches or near flags detected. Thresholds:
+0.60 for current validation,0.78 for other corpora/new-new comparisons.
+Scenario/provenance inspection is documented in data-draft-v2/leakage-report.json.
+Lexical checks and manual inspection cannot prove universal semantic independence.
+
+Draft supervised tokens:5578/epoch versus A5384 (+3.60%); recompute after review.
+Changing composition also changes token exposure, so this is not an isolated
+data-quality causal estimate. Maximum draft train sequence514 tokens; no
+truncation at1024. Native EOS supervised; context including empty-think prefix masked.
+
+## Training and evaluation
+
+Same pinned model, tokenizer, LR1e-4, BF16 rank/alpha16/16, modules, batch1×8,
+seed3407,1024 sequence, AdamW8bit, cosine/warmup2 as A. Four epochs/40steps.
+Final scheduled checkpoint preselected, no validation-based best selection.
+Shared exp009 trainer/preprocessing and bounded HF/Unsloth inference; no vLLM.
+No earlier gate waiver inherited. New actual-batch/environment/W&B and
+smoke/reload/tiny-overfit gates or explicit scoped user waiver required.
+
+Compare saved A/C/D on the same20; see [EVALUATION.md](EVALUATION.md).
+me-089 reference is disputed and untouched, with separately reported sensitivity.
+No training data contains development prompts or their paraphrases.
+
+## Local workflow
+
+CPU environment used: C:/Temp/llm-bender-exp009-preflight/Scripts/python.exe.
+Argilla SDK environment: exp001 annotation/argilla/.venv/Scripts/python.exe.
+
+1. `prepare_next_pair.py`: immutable drafts, blocked C/D configs, CPU preflight.
+2. `import_review.py`: create/read-back12; existing fields/reviews never overwritten.
+3. User submits12 accept/rewrite decisions, resolves any rejected prompts.
+4. `export_review.py`: read-only Argilla export; fail unless all12 reviewed;
+   re-audit/tokenize, freeze one shared data-reviewed-v1 and C/D reviewed configs.
+5. Commit reviewed provenance, obtain GPU, pass required checks, run C then D
+   independently, infer, download/verify all artifacts, prepare A/C/D comparison.
+
+The historical shared tokenizer's draft report says “human approval for B”;
+for this reused helper it means the12 C/D candidates. pair-preparation-report-v2.json
+is authoritative on the new pair's status. candidate-mask-inspection-v2.json
+contains every new row's actual rendered input and supervised tokens.
+
+## Results and lessons
+
+No model-quality result yet. Ten CPU tests passed; exporter correctly
+refused unreviewed tc-001, producing no approved data or reviewed configs.
+Preparation found a namesake-module import collision from older helpers changing
+sys.path; restoring this experiment first fixed it. Regression test added.
+No frozen old data, references, reviews or configs modified.
+
+Before handoff, draft v2 corrected tc-010 from ambiguous “doktora başvurmuş”
+to “doktora programına başvurmuş.” Doctor consultation and doctoral education
+must not be conflated without context. Targets and other11 prompts unchanged.
+The original draft/source and original12-row queue are preserved, not overwritten.
+Only the v2 queue linked above is active; export reads annotation-link-v2.json.
