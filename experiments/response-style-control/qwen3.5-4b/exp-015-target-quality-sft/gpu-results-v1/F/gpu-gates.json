@@ -1,0 +1,21 @@
+{
+  "training_config_sha256": "2c8c0c817f749bbb689dfe58152518792c55822dbbce5cbb041b5487a6614b44",
+  "experiment_id": "exp-016-diverse-coverage-sft",
+  "actual_batch_masking": true,
+  "smoke_finite_loss": false,
+  "adapter_save_reload": true,
+  "tiny_overfit_loss_decreased": false,
+  "wandb_connected": true,
+  "policy": "explicit-user-approved-EF-smoke-tiny-waiver",
+  "evidence": {
+    "representation": "representation-check",
+    "adapter_reload": "/workspace/exp015-exp016-runs/E/smoke-reload/result.json"
+  },
+  "waived_checks": [
+    "smoke_finite_loss",
+    "tiny_overfit_loss_decreased"
+  ],
+  "user_instruction": "smoke ve tiny overfit yapmaya gerek yok artık vast.ai ortamına hakimiz direkt gir finetune yapmaya başla yani. Sonra da inference yap konuştuğumuz plandaki gibi işte sen halledersin.",
+  "date": "2026-10-04",
+  "caveat": "F smoke/tiny not run and not claimed passed; same-stack reload proof reused from E, final F reload occurs in inference."
+}

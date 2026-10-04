@@ -2,10 +2,13 @@
 
 ## Status
 
-GPU paired pipeline launched 2026-10-04;104 reviewed training rows frozen and
-CPU-checked; canonical baseline generation/required GPU gates precede F SFT.
+Completed2026-10-04:104rows,40steps,3.0769epochs,106.8984seconds;32/32nativeEOS.
+Actual token exposure19131supervised/37334input,320microbatches. Final adapter
+and all essential evidence hash-verified locally; human semantic review pending.
+Canonical base/C/E/F32 comparison and recovery details live in exp015/gpu-results-v1.
+User waived F smoke/tiny explicitly; actual masks/W&B and final reload verified.
 Use config-reviewed-v1.yaml/data-reviewed-v1/training-preflight-v1;
-config.yaml remains blocked draft history. F training has not started at launch.
+config.yaml remains blocked draft history. No quality win claimed before review.
 Shared reviews/export/final leakage signoff live in exp015.
 
 ## Question and parent

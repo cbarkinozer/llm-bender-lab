@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/workspace/repos/llm-bender-lab/experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/train_reviewed.py",
+    "--mode",
+    "smoke",
+    "--preflight-dir",
+    "/workspace/repos/llm-bender-lab/experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/training-preflight-v1",
+    "--output-dir",
+    "/workspace/exp015-exp016-runs/E/smoke"
+  ],
+  "cwd": "/workspace",
+  "precision": "bfloat16",
+  "float32_matmul_precision": "highest",
+  "allow_tf32": false,
+  "deterministic_algorithms": false,
+  "environment": {
+    "HF_HOME": "/workspace/.cache/huggingface",
+    "WANDB_DIR": "/workspace/.cache/wandb"
+  }
+}

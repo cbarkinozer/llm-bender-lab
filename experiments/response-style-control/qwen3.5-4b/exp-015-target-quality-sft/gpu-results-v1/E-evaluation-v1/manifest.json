@@ -1,0 +1,81 @@
+{
+  "status": "completed",
+  "count": 32,
+  "model": "unsloth/Qwen3.5-4B",
+  "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+  "adapter": "/workspace/exp015-exp016-runs/E/sft-v1/adapter",
+  "adapter_hashes": {
+    "README.md": "5b169375120626e236c95bbc8bf5cf1b347bd96013d1f877152151d3aaec9ebc",
+    "adapter_model.safetensors": "1909bd2f7a27fd198dcaaaca3f30cca24d5b083f22928b0ebfad1548f704184d",
+    "adapter_config.json": "6f7f0480fdcf1cc32aed14a1c66981c1a454840ece4f05932b0ef338846a4335",
+    "training_args.bin": "03b03847d39843d823cab3c768209c2f8414af17000113026bbf333156414c46",
+    "chat_template.jinja": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "tokenizer_config.json": "6bc37f286c6841cbd29d70c3d24dbfb8f3a07d2651dc62779848fc6ad302f41f",
+    "tokenizer.json": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4"
+  },
+  "sources": {
+    "data-reviewed-v1/validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+    "controls-reviewed-v1/questions-12.jsonl": "21f46cef4d1e80dbde9ea5db69ea83b409efc67ae6c17260a411938b35dabd05"
+  },
+  "ids": [
+    "me-009",
+    "me-010",
+    "me-019",
+    "me-020",
+    "me-029",
+    "me-030",
+    "me-039",
+    "me-040",
+    "me-049",
+    "me-050",
+    "me-059",
+    "me-060",
+    "me-069",
+    "me-070",
+    "me-079",
+    "me-080",
+    "me-089",
+    "me-090",
+    "me-099",
+    "me-100",
+    "ef-control-001",
+    "ef-control-002",
+    "ef-control-003",
+    "ef-control-004",
+    "ef-control-005",
+    "ef-control-006",
+    "ef-control-007",
+    "ef-control-008",
+    "ef-control-009",
+    "ef-control-010",
+    "ef-control-011",
+    "ef-control-012"
+  ],
+  "backend": "Unsloth/Transformers",
+  "precision": "BF16",
+  "batch_size": 1,
+  "seed": 3407,
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "repetition_penalty": 1.05,
+    "max_new_tokens": 4096,
+    "thinking": false,
+    "additional_system_prompt": null,
+    "guard": "180 seconds or exact 32..512-token period repeated four times; non-EOS failure"
+  },
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "transformers": "5.5.0",
+    "unsloth": "2026.9.6",
+    "peft": "0.21.2"
+  },
+  "git_commit": "77f23617528cedaa3913db19c9fac0d051b6d078",
+  "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+  "eos_token_ids": [
+    248044
+  ],
+  "native_eos_count": 32,
+  "incomplete_ids": [],
+  "answers_sha256": "a8a3e2aef465fb20bbf29fc7d1b621cf8d3433b3e0653b8887af56e9adda9749"
+}

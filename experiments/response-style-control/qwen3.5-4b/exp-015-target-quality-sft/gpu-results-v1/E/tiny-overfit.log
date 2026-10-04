@@ -1,0 +1,68 @@
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.9.6: Fast Qwen3_5 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA GeForce RTX 4090. Num GPUs = 1. Max memory: 23.542 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu128. CUDA: 8.9. CUDA Toolkit: 12.8. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = None. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:   6%|▌         | 45/723 [00:00<00:01, 449.20it/s]Loading weights:  16%|█▌        | 114/723 [00:00<00:01, 590.55it/s]Loading weights:  25%|██▌       | 184/723 [00:00<00:00, 636.08it/s]Loading weights:  35%|███▍      | 251/723 [00:00<00:00, 641.14it/s]Loading weights:  44%|████▎     | 316/723 [00:00<00:00, 632.09it/s]Loading weights:  53%|█████▎    | 383/723 [00:00<00:00, 642.56it/s]Loading weights:  79%|███████▉  | 572/723 [00:00<00:00, 1043.50it/s]Loading weights: 100%|██████████| 723/723 [00:00<00:00, 950.91it/s] 
+Unsloth: Explicit target_modules are constrained by the finetune_(vision|language|attention|mlp) filters; adapters attach only where both select.
+[accelerate.utils.other|WARNING]Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  return original(name)
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  return original(name)
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  return original(name)
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  return original(name)
+  0%|          | 0/16 [00:00<?, ?it/s] 19%|█▉        | 3/16 [00:00<00:00, 19.64it/s] 31%|███▏      | 5/16 [00:00<00:00, 17.17it/s] 44%|████▍     | 7/16 [00:00<00:00, 16.39it/s] 56%|█████▋    | 9/16 [00:00<00:00, 15.59it/s] 69%|██████▉   | 11/16 [00:00<00:00, 15.39it/s] 81%|████████▏ | 13/16 [00:00<00:00, 15.25it/s] 94%|█████████▍| 15/16 [00:00<00:00, 14.46it/s]100%|██████████| 16/16 [00:01<00:00, 15.04it/s]
+==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
+   \\   /|    Num examples = 16 | Num Epochs = 20 | Total steps = 40
+O^O/ \_/ \    Batch size per device = 1 | Gradient accumulation steps = 8
+\        /    Data Parallel GPUs = 1 | Total batch size (1 x 8 x 1) = 8
+ "-____-"     Trainable parameters = 21,233,664 of 4,560,499,200 (0.47% trained)
+  0%|          | 0/40 [00:00<?, ?it/s]  2%|▎         | 1/40 [00:14<09:27, 14.55s/it]                                              {'loss': '1.291', 'grad_norm': '1.448', 'learning_rate': '0', 'epoch': '0.5'}
+  2%|▎         | 1/40 [00:14<09:27, 14.55s/it]  5%|▌         | 2/40 [00:16<04:33,  7.20s/it]                                              {'loss': '0.8482', 'grad_norm': '3.275', 'learning_rate': '0.0001', 'epoch': '1'}
+  5%|▌         | 2/40 [00:16<04:33,  7.20s/it]  8%|▊         | 3/40 [00:18<02:59,  4.86s/it]                                              {'loss': '0.2216', 'grad_norm': '1.172', 'learning_rate': '0.0002', 'epoch': '1.5'}
+  8%|▊         | 3/40 [00:18<02:59,  4.86s/it] 10%|█         | 4/40 [00:20<02:14,  3.74s/it]                                              {'loss': '1.118', 'grad_norm': '1.134', 'learning_rate': '0.0001997', 'epoch': '2'}
+ 10%|█         | 4/40 [00:20<02:14,  3.74s/it] 12%|█▎        | 5/40 [00:22<01:48,  3.11s/it]                                              {'loss': '0.1312', 'grad_norm': '0.76', 'learning_rate': '0.0001986', 'epoch': '2.5'}
+ 12%|█▎        | 5/40 [00:22<01:48,  3.11s/it] 15%|█▌        | 6/40 [00:24<01:32,  2.72s/it]                                              {'loss': '0.5691', 'grad_norm': '0.8523', 'learning_rate': '0.0001969', 'epoch': '3'}
+ 15%|█▌        | 6/40 [00:24<01:32,  2.72s/it] 18%|█▊        | 7/40 [00:26<01:22,  2.51s/it]                                              {'loss': '0.4847', 'grad_norm': '0.9322', 'learning_rate': '0.0001946', 'epoch': '3.5'}
+ 18%|█▊        | 7/40 [00:26<01:22,  2.51s/it] 20%|██        | 8/40 [00:28<01:14,  2.34s/it]                                              {'loss': '0.1741', 'grad_norm': '0.6032', 'learning_rate': '0.0001916', 'epoch': '4'}
+ 20%|██        | 8/40 [00:28<01:14,  2.34s/it] 22%|██▎       | 9/40 [00:30<01:09,  2.24s/it]                                              {'loss': '0.1405', 'grad_norm': '0.6089', 'learning_rate': '0.0001879', 'epoch': '4.5'}
+ 22%|██▎       | 9/40 [00:30<01:09,  2.24s/it] 25%|██▌       | 10/40 [00:32<01:04,  2.16s/it]                                               {'loss': '0.1772', 'grad_norm': '0.6654', 'learning_rate': '0.0001837', 'epoch': '5'}
+ 25%|██▌       | 10/40 [00:32<01:04,  2.16s/it] 28%|██▊       | 11/40 [00:35<01:05,  2.27s/it]                                               {'loss': '0.1271', 'grad_norm': '0.5411', 'learning_rate': '0.0001789', 'epoch': '5.5'}
+ 28%|██▊       | 11/40 [00:35<01:05,  2.27s/it] 30%|███       | 12/40 [00:37<01:02,  2.21s/it]                                               {'loss': '0.01317', 'grad_norm': '0.2583', 'learning_rate': '0.0001736', 'epoch': '6'}
+ 30%|███       | 12/40 [00:37<01:02,  2.21s/it] 32%|███▎      | 13/40 [00:39<00:58,  2.15s/it]                                               {'loss': '0.06542', 'grad_norm': '0.4675', 'learning_rate': '0.0001677', 'epoch': '6.5'}
+ 32%|███▎      | 13/40 [00:39<00:58,  2.15s/it] 35%|███▌      | 14/40 [00:41<00:54,  2.11s/it]                                               {'loss': '0.006389', 'grad_norm': '0.1394', 'learning_rate': '0.0001614', 'epoch': '7'}
+ 35%|███▌      | 14/40 [00:41<00:54,  2.11s/it] 38%|███▊      | 15/40 [00:43<00:52,  2.09s/it]                                               {'loss': '0.01943', 'grad_norm': '0.2411', 'learning_rate': '0.0001547', 'epoch': '7.5'}
+ 38%|███▊      | 15/40 [00:43<00:52,  2.09s/it] 40%|████      | 16/40 [00:45<00:49,  2.08s/it]                                               {'loss': '0.009982', 'grad_norm': '0.1758', 'learning_rate': '0.0001476', 'epoch': '8'}
+ 40%|████      | 16/40 [00:45<00:49,  2.08s/it] 42%|████▎     | 17/40 [00:47<00:47,  2.08s/it]                                               {'loss': '0.005646', 'grad_norm': '0.1318', 'learning_rate': '0.0001402', 'epoch': '8.5'}
+ 42%|████▎     | 17/40 [00:47<00:47,  2.08s/it] 45%|████▌     | 18/40 [00:49<00:45,  2.08s/it]                                               {'loss': '0.006775', 'grad_norm': '0.0882', 'learning_rate': '0.0001325', 'epoch': '9'}
+ 45%|████▌     | 18/40 [00:49<00:45,  2.08s/it] 48%|████▊     | 19/40 [00:51<00:43,  2.08s/it]                                               {'loss': '0.001611', 'grad_norm': '0.03759', 'learning_rate': '0.0001245', 'epoch': '9.5'}
+ 48%|████▊     | 19/40 [00:51<00:43,  2.08s/it] 50%|█████     | 20/40 [00:53<00:41,  2.05s/it]                                               {'loss': '0.00586', 'grad_norm': '0.08852', 'learning_rate': '0.0001165', 'epoch': '10'}
+ 50%|█████     | 20/40 [00:53<00:41,  2.05s/it] 52%|█████▎    | 21/40 [00:56<00:41,  2.20s/it]                                               {'loss': '0.002156', 'grad_norm': '0.03964', 'learning_rate': '0.0001083', 'epoch': '10.5'}
+ 52%|█████▎    | 21/40 [00:56<00:41,  2.20s/it] 55%|█████▌    | 22/40 [00:58<00:38,  2.16s/it]                                               {'loss': '0.004437', 'grad_norm': '0.07721', 'learning_rate': '0.0001', 'epoch': '11'}
+ 55%|█████▌    | 22/40 [00:58<00:38,  2.16s/it] 57%|█████▊    | 23/40 [01:00<00:36,  2.13s/it]                                               {'loss': '0.0006087', 'grad_norm': '0.007707', 'learning_rate': '9.174e-05', 'epoch': '11.5'}
+ 57%|█████▊    | 23/40 [01:00<00:36,  2.13s/it] 60%|██████    | 24/40 [01:02<00:33,  2.11s/it]                                               {'loss': '0.00392', 'grad_norm': '0.05243', 'learning_rate': '8.354e-05', 'epoch': '12'}
+ 60%|██████    | 24/40 [01:02<00:33,  2.11s/it] 62%|██████▎   | 25/40 [01:04<00:31,  2.08s/it]                                               {'loss': '0.001336', 'grad_norm': '0.01795', 'learning_rate': '7.545e-05', 'epoch': '12.5'}
+ 62%|██████▎   | 25/40 [01:04<00:31,  2.08s/it] 65%|██████▌   | 26/40 [01:06<00:29,  2.09s/it]                                               {'loss': '0.002889', 'grad_norm': '0.0409', 'learning_rate': '6.753e-05', 'epoch': '13'}
+ 65%|██████▌   | 26/40 [01:06<00:29,  2.09s/it] 68%|██████▊   | 27/40 [01:08<00:26,  2.06s/it]                                               {'loss': '0.002756', 'grad_norm': '0.03569', 'learning_rate': '5.983e-05', 'epoch': '13.5'}
+ 68%|██████▊   | 27/40 [01:08<00:26,  2.06s/it] 70%|███████   | 28/40 [01:10<00:24,  2.04s/it]                                               {'loss': '0.00101', 'grad_norm': '0.01222', 'learning_rate': '5.241e-05', 'epoch': '14'}
+ 70%|███████   | 28/40 [01:10<00:24,  2.04s/it] 72%|███████▎  | 29/40 [01:12<00:22,  2.03s/it]                                               {'loss': '0.001067', 'grad_norm': '0.01342', 'learning_rate': '4.531e-05', 'epoch': '14.5'}
+ 72%|███████▎  | 29/40 [01:12<00:22,  2.03s/it] 75%|███████▌  | 30/40 [01:14<00:20,  2.02s/it]                                               {'loss': '0.001963', 'grad_norm': '0.02189', 'learning_rate': '3.858e-05', 'epoch': '15'}
+ 75%|███████▌  | 30/40 [01:14<00:20,  2.02s/it] 78%|███████▊  | 31/40 [01:17<00:19,  2.16s/it]                                               {'loss': '0.001878', 'grad_norm': '0.01962', 'learning_rate': '3.227e-05', 'epoch': '15.5'}
+ 78%|███████▊  | 31/40 [01:17<00:19,  2.16s/it] 80%|████████  | 32/40 [01:19<00:16,  2.11s/it]                                               {'loss': '0.000926', 'grad_norm': '0.01141', 'learning_rate': '2.643e-05', 'epoch': '16'}
+ 80%|████████  | 32/40 [01:19<00:16,  2.11s/it] 82%|████████▎ | 33/40 [01:20<00:14,  2.07s/it]                                               {'loss': '0.0006475', 'grad_norm': '0.009568', 'learning_rate': '2.109e-05', 'epoch': '16.5'}
+ 82%|████████▎ | 33/40 [01:20<00:14,  2.07s/it] 85%|████████▌ | 34/40 [01:23<00:12,  2.06s/it]                                               {'loss': '0.001714', 'grad_norm': '0.01571', 'learning_rate': '1.628e-05', 'epoch': '17'}
+ 85%|████████▌ | 34/40 [01:23<00:12,  2.06s/it] 88%|████████▊ | 35/40 [01:25<00:10,  2.05s/it]                                               {'loss': '0.0005669', 'grad_norm': '0.006479', 'learning_rate': '1.205e-05', 'epoch': '17.5'}
+ 88%|████████▊ | 35/40 [01:25<00:10,  2.05s/it] 90%|█████████ | 36/40 [01:27<00:08,  2.05s/it]                                               {'loss': '0.001803', 'grad_norm': '0.0163', 'learning_rate': '8.423e-06', 'epoch': '18'}
+ 90%|█████████ | 36/40 [01:27<00:08,  2.05s/it] 92%|█████████▎| 37/40 [01:29<00:06,  2.05s/it]                                               {'loss': '0.0004833', 'grad_norm': '0.006013', 'learning_rate': '5.418e-06', 'epoch': '18.5'}
+ 92%|█████████▎| 37/40 [01:29<00:06,  2.05s/it] 95%|█████████▌| 38/40 [01:31<00:04,  2.05s/it]                                               {'loss': '0.001749', 'grad_norm': '0.01531', 'learning_rate': '3.06e-06', 'epoch': '19'}
+ 95%|█████████▌| 38/40 [01:31<00:04,  2.05s/it] 98%|█████████▊| 39/40 [01:33<00:02,  2.06s/it]                                               {'loss': '0.000957', 'grad_norm': '0.01045', 'learning_rate': '1.364e-06', 'epoch': '19.5'}
+ 98%|█████████▊| 39/40 [01:33<00:02,  2.06s/it]100%|██████████| 40/40 [01:35<00:00,  2.04s/it]                                               {'loss': '0.001634', 'grad_norm': '0.01633', 'learning_rate': '3.416e-07', 'epoch': '20'}
+100%|██████████| 40/40 [01:35<00:00,  2.04s/it]                                               {'train_runtime': '95.76', 'train_samples_per_second': '3.342', 'train_steps_per_second': '0.418', 'train_loss': '0.1363', 'epoch': '20'}
+100%|██████████| 40/40 [01:35<00:00,  2.04s/it]100%|██████████| 40/40 [01:35<00:00,  2.39s/it]
+  0%|          | 0/16 [00:00<?, ?it/s] 19%|█▉        | 3/16 [00:00<00:00, 22.38it/s] 38%|███▊      | 6/16 [00:00<00:00, 15.51it/s] 50%|█████     | 8/16 [00:00<00:00, 14.88it/s] 62%|██████▎   | 10/16 [00:00<00:00, 14.12it/s] 75%|███████▌  | 12/16 [00:00<00:00, 14.45it/s] 88%|████████▊ | 14/16 [00:00<00:00, 14.55it/s]100%|██████████| 16/16 [00:01<00:00, 14.58it/s]100%|██████████| 16/16 [00:01<00:00, 14.90it/s]

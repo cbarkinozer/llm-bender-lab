@@ -1,0 +1,243 @@
+{
+  "status": "outputs-verified-human-semantic-review-pending",
+  "prompt_parity": true,
+  "caveat": "Regex flags are not semantic/style grades. Length changes are not accuracy gains. Warmup/compilation affects timing.",
+  "models": {
+    "base": {
+      "all32": {
+        "count": 32,
+        "native_eos": 32,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 28.4,
+          "median": 216.0,
+          "p90": 934.7,
+          "maximum": 1614,
+          "total": 12367
+        },
+        "markdown_flag_ids": [
+          "me-009",
+          "me-010",
+          "me-019",
+          "me-020",
+          "me-030",
+          "me-049",
+          "me-050",
+          "me-059",
+          "me-060",
+          "me-069",
+          "me-070",
+          "me-079",
+          "me-080",
+          "me-089",
+          "ef-control-001",
+          "ef-control-002",
+          "ef-control-003",
+          "ef-control-004",
+          "ef-control-005",
+          "ef-control-006",
+          "ef-control-009",
+          "ef-control-010",
+          "ef-control-011"
+        ],
+        "emoji_flag_ids": [
+          "me-090"
+        ]
+      },
+      "development20": {
+        "count": 20,
+        "native_eos": 20,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 22.0,
+          "median": 193.0,
+          "p90": 908.3000000000001,
+          "maximum": 1614,
+          "total": 7629
+        },
+        "markdown_flag_ids": [
+          "me-009",
+          "me-010",
+          "me-019",
+          "me-020",
+          "me-030",
+          "me-049",
+          "me-050",
+          "me-059",
+          "me-060",
+          "me-069",
+          "me-070",
+          "me-079",
+          "me-080",
+          "me-089"
+        ],
+        "emoji_flag_ids": [
+          "me-090"
+        ]
+      },
+      "controls12": {
+        "count": 12,
+        "native_eos": 12,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 54.6,
+          "median": 268.5,
+          "p90": 1036.4,
+          "maximum": 1102,
+          "total": 4738
+        },
+        "markdown_flag_ids": [
+          "ef-control-001",
+          "ef-control-002",
+          "ef-control-003",
+          "ef-control-004",
+          "ef-control-005",
+          "ef-control-006",
+          "ef-control-009",
+          "ef-control-010",
+          "ef-control-011"
+        ],
+        "emoji_flag_ids": []
+      }
+    },
+    "C": {
+      "all32": {
+        "count": 32,
+        "native_eos": 32,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 11.3,
+          "median": 36.5,
+          "p90": 114.60000000000002,
+          "maximum": 188,
+          "total": 1653
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      },
+      "development20": {
+        "count": 20,
+        "native_eos": 20,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 11.0,
+          "median": 22.0,
+          "p90": 136.30000000000007,
+          "maximum": 188,
+          "total": 1030
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      },
+      "controls12": {
+        "count": 12,
+        "native_eos": 12,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 15.400000000000002,
+          "median": 43.0,
+          "p90": 95.6,
+          "maximum": 116,
+          "total": 623
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      }
+    },
+    "E": {
+      "all32": {
+        "count": 32,
+        "native_eos": 32,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 11.3,
+          "median": 36.0,
+          "p90": 109.30000000000008,
+          "maximum": 222,
+          "total": 1586
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      },
+      "development20": {
+        "count": 20,
+        "native_eos": 20,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 11.0,
+          "median": 28.0,
+          "p90": 82.00000000000009,
+          "maximum": 222,
+          "total": 939
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      },
+      "controls12": {
+        "count": 12,
+        "native_eos": 12,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 15.900000000000002,
+          "median": 45.0,
+          "p90": 107.90000000000002,
+          "maximum": 140,
+          "total": 647
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      }
+    },
+    "F": {
+      "all32": {
+        "count": 32,
+        "native_eos": 32,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 11.0,
+          "median": 31.0,
+          "p90": 69.80000000000001,
+          "maximum": 133,
+          "total": 1201
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      },
+      "development20": {
+        "count": 20,
+        "native_eos": 20,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 11.0,
+          "median": 21.5,
+          "p90": 70.00000000000003,
+          "maximum": 133,
+          "total": 689
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      },
+      "controls12": {
+        "count": 12,
+        "native_eos": 12,
+        "incomplete_ids": [],
+        "token_lengths": {
+          "p10": 14.4,
+          "median": 43.5,
+          "p90": 69.6,
+          "maximum": 75,
+          "total": 512
+        },
+        "markdown_flag_ids": [],
+        "emoji_flag_ids": []
+      }
+    }
+  },
+  "historical_C_reproducibility": {
+    "prompt_token_parity": true,
+    "exact_answer_matches": 20,
+    "exact_output_token_matches": 20,
+    "changed_ids": [],
+    "historical_source": "C:\\Users\\cbark\\Documents\\llm-bender-artifacts\\exp-013-014-paired\\backup-extracted\\exp013-exp014-runs\\C\\validation-v1\\answers.jsonl"
+  }
+}

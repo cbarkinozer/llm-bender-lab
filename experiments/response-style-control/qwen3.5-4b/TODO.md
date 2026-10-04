@@ -68,11 +68,16 @@ Argilla comparison is ready; supporting probes and full backup are completed.
   Final E5121/F6216 target tokens; max514/no truncation.5888 train-eval pairs
   plus historical inventories/semantic signoff: no item-level leak identified.
   Shared short "Tamam, dinliyorum." documented. Approved reviewed-v1 authoritative.
-- [ ] GPU: independent fresh-base E/F,40steps each; verify effective row/step
+- [x] GPU: independent fresh-base E/F,40steps each; verify effective row/step
   counts, label masking and required gates. Prior waivers do not transfer.
-- [ ] Canonical HF/Unsloth base/C/E/F inference on original20 +new12 controls;
+- [x] Canonical HF/Unsloth base/C/E/F inference on original20 +new12 controls;
   blinded balanced per-item labels, semantic/Turkish/style separate, explicit ties.
-  Preserve all artifacts and journal outcomes before declaring pod disposable.
+  128/128EOS, input parity and historical C20/20token reproduction verified.
+- [x] User urgently narrowed backup to essentials: final E/F adapters plus155
+  included files/188.9MB whole archive locally SHAverified; GPU can be deleted.
+  Full1.45GB/resume states not fully recovered; omissions explicitly recorded.
+- [ ] Human: blind32 comparison in Argilla; semantic/Turkish/style separately.
+  Do not promote a winner or claim accuracy gains from loss/EOS/length alone.
 - [ ] Resolve disputed me-089 reference with versioned provenance; preserve old
   fields/reviews and report sensitivity without089 until any revision is approved.
 - [ ] Append hypothesis, interventions, measured outcomes, user feedback,

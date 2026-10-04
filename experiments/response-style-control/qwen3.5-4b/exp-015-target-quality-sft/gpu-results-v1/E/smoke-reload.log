@@ -1,0 +1,17 @@
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.9.6: Fast Qwen3_5 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA GeForce RTX 4090. Num GPUs = 1. Max memory: 23.542 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu128. CUDA: 8.9. CUDA Toolkit: 12.8. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = None. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:   6%|▌         | 40/723 [00:00<00:01, 392.92it/s]Loading weights:  13%|█▎        | 95/723 [00:00<00:01, 484.28it/s]Loading weights:  24%|██▍       | 172/723 [00:00<00:00, 603.10it/s]Loading weights:  33%|███▎      | 238/723 [00:00<00:00, 616.34it/s]Loading weights:  42%|████▏     | 304/723 [00:00<00:00, 625.12it/s]Loading weights:  51%|█████     | 367/723 [00:00<00:00, 614.02it/s]Loading weights:  66%|██████▋   | 480/723 [00:00<00:00, 776.62it/s]Loading weights: 100%|██████████| 723/723 [00:00<00:00, 924.55it/s]
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  return original(name)
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  return original(name)
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  return original(name)
+/workspace/.venvs/exp010-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  return original(name)

@@ -2,12 +2,12 @@
 
 ## Status
 
-GPU pipeline launched 2026-10-04; canonical baseline generation in progress.
+Completed SFT/inference2026-10-04; urgent essential recovery hash-verified.
 All33 training and12 control reviews completed and exported read-only.
 Approved data-reviewed-v1, controls-reviewed-v1, config-reviewed-v1.yaml and
-training-preflight-v1 are frozen. CPU readiness passed; GPU gates pending.
-W&B API authenticated; required training gates and full SFT still pending at
-launch. See GPU-HANDOFF.md and external runtime status. config.yaml remains blocked
+training-preflight-v1 remain frozen. E genuine checks passed before later user
+smoke/tiny waiver; F uses explicit waiver, actual masks and same-pod reload proof.
+See GPU-HANDOFF.md and gpu-results-v1. config.yaml remains blocked
 draft history; use the reviewed config, never the draft.
 
 ## Question and hypothesis
@@ -104,8 +104,19 @@ No annotations were moved, overwritten or fabricated.
 
 ## Results and next step
 
-No training/quality results. Review/freeze complete: E5121/F6216 target tokens
+E40steps/4epochs/110.012seconds; F40steps/3.0769epochs/106.8984seconds.
+Actual supervised tokens E20484/F19131; equal steps are not equal exposure.
+Base/C/E/F128answers all nativeEOS, exact per-item render/token parity verified.
+Historical C20 outputs/token IDs reproduce20/20 exactly. No semantic-quality
+claim yet. Human comparison32 is ready:
+[blind review](http://127.0.0.1:6900/dataset/3b2cf5b1-13d2-4ea1-859b-2faa16c029ad/annotation-mode?page=1&status=pending).
+Final adapters and155 essential files locally hash-verified; GPU no longer needed.
+Full1.45GB backup was NOT fully downloaded. User urgently requested essentials;
+optimizer/RNG/intermediate/diagnostic weights omitted, no exact checkpoint resume.
+See gpu-results-v1/essential-recovery-verification.json; weights stay outsideGit.
+
+Review/freeze complete: E5121/F6216 target tokens
 per dataset, max sequence514, no truncation; EOS/masks verified. Final audit5888
 cross-split comparisons found no exact/near/long-reference/embedded-eval flags.
 One short shared listening acknowledgment is documented, not removed. Semantic
-signoff is evidence-bounded, not universal independence proof. GPU checks next.
+signoff is evidence-bounded, not universal independence proof. Human outcome review next.

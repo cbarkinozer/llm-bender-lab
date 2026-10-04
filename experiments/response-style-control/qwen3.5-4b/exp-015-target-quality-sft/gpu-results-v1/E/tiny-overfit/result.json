@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "mode": "tiny-overfit",
+  "metrics": {
+    "train_runtime": 95.756,
+    "train_samples_per_second": 3.342,
+    "train_steps_per_second": 0.418,
+    "total_flos": 706980712488960.0,
+    "train_loss": 0.1362978385965107,
+    "epoch": 20.0
+  },
+  "tiny_before": {
+    "eval_loss": 0.8339521288871765,
+    "eval_model_preparation_time": 0.0133,
+    "eval_runtime": 12.181,
+    "eval_samples_per_second": 1.314,
+    "eval_steps_per_second": 1.314,
+    "epoch": 0
+  },
+  "tiny_after": {
+    "eval_loss": 0.000703503261320293,
+    "eval_model_preparation_time": 0.0133,
+    "eval_runtime": 1.1532,
+    "eval_samples_per_second": 13.875,
+    "eval_steps_per_second": 13.875,
+    "epoch": 20.0
+  },
+  "adapter_reload_verified": false
+}

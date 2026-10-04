@@ -1,0 +1,16 @@
+{
+  "training_config_sha256": "980335e83661e57a33308bcd74a1ca81557a2fec18618015cfe1117fdabedae3",
+  "experiment_id": "exp-015-target-quality-sft",
+  "actual_batch_masking": true,
+  "smoke_finite_loss": true,
+  "adapter_save_reload": true,
+  "tiny_overfit_loss_decreased": true,
+  "wandb_connected": true,
+  "policy": "genuine-checks-passed",
+  "evidence": {
+    "representation": "representation-check",
+    "smoke": "smoke",
+    "reload": "smoke-reload",
+    "tiny": "tiny-overfit"
+  }
+}

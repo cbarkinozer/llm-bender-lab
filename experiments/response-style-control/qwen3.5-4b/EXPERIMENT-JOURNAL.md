@@ -5,6 +5,51 @@ fixes and decisions so a later blog can tell the complete story.
 This is an evidence journal, not a claim that the project has already succeeded.
 Append dated entries for every future round; preserve previous snapshots.
 
+### 2026-10-04: E/F complete; urgent essential recovery verified
+
+E80rows/40steps/4epochs,110.012seconds,train loss1.2226915773;
+W&B64a31c42. F104rows/40steps/3.076923epochs,106.8984seconds,loss1.3473353401;
+W&B3a59cda8. Fresh base each, unchanged approved data/LR/rank/scheduler/seed.
+Different target distributions mean these losses are not a quality ranking.
+320actual microbatches each: E20484supervised/38472input tokens;
+F19131supervised/37334input (-6.61%target exposure versusE despite more rows).
+Final40selected beforehand; no control-based checkpoint/data selection.
+
+128/128canonical base/C/E/F answers nativeEOS; render/token parity verified.
+C's old20 regenerated answers AND output token IDs exactly20/20same as saved C.
+Blind32 UI created/read-back verified, including desired answers; balancedP/Q/R/S
+mapping stays external, no model identity in fields. Separate semantic/Turkish/style
+ratings and explicit multi-selected best outputs. Dataset3b2cf5b1-13d2-4ea1-859b-2faa16c029ad.
+No semantic improvement/generalization or overall winner claimed before review.
+
+Full1,447,180,265-byte archive SHA800cdf2dd663cc7eae1bccb43d0273cb762fbcaacb9d897637ef12d48dca8a36
+passed206internal file checks on pod, but NOT fully downloaded locally.
+Transfers hit SSH banner/KEX/connect/keepalive timeouts and resets on both direct
+and proxy routes. ClassicSCP(-O) helped transport but did not eliminate failures;
+proxy matched container55d58cf4f885. Loopback HTTP through encrypted SSH tunnel
+test was also slow (~1.5MB/120seconds); local test tunnel stopped, no public HTTP
+listener/upload. Root cause not established; do not label this a training failure.
+64MiB parts resized4MiB;95smaller chunks salvaged from prior complete/partial files
+only after matching independently recorded hashes. Later four parallel small
+transfers improved throughput. Retained partial full-backup files are not a valid
+whole backup and must not be confused with verified recovery.
+
+User urgently prioritized GPU deletion in5-10minutes; explicitly narrowed scope
+to essentials and deferred local paperwork. Created188,913,259-byte essential
+archive SHA2ca2d0021908f1f76470f7baff690ece83fd259b579487c7426511e2eabe2a0e.
+All46parts, whole archive and155included files verified locally, both final
+adapters verified against inference hashes,128outputs/configs/globalstep40/W&B
+finished checks passed. Sources347b563(E) and77f2361(F) both bundled; split change
+is only orchestration/gate waiver and evidence tools, not different optimization.
+Final adapters, tokenizers, logs/configs/masks/exposure, W&B history/summary/binary
+logs, source/data revisions retained. Base weights remain pinned public dependency.
+Omitted optimizer/scheduler/RNG resume binaries, intermediate checkpoint weights,
+diagnostic adapter weights; wheel/C comparator already in prior verified local
+recovery. Exact checkpoint resume unavailable, reproducible fresh rerun still
+possible. User told GPU safe to close only after successful local verification;
+agent did not stop/destroy instance.85small evidence files exported toGit;
+weights/private blind mapping remain external under Documents/llm-bender-artifacts/exp-015-016-paired/essential-extracted.
+
 ### 2026-10-04: E/F GPU pipeline launch (not a quality result)
 
 Later on this same turn user explicitly requested skipping smoke/tiny and directly
