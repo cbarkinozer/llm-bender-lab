@@ -28,6 +28,18 @@ uses fresh model processes; F is not initialized from E. Genuine representation,
 reload/finite forward pass are required. No earlier user's waiver is inherited.
 Diagnostic runs have no W&B reporting and do not count as experimental outcomes.
 
+Later user instruction on the same2026-10-04 explicitly waives smoke/tiny for
+this pair. E's genuine checks were already completed and E SFT was running;
+parent orchestration only was SIGSTOPped to prevent launching F diagnostics.
+E training continued uninterrupted, finishing40steps/4epochs in110seconds.
+Original parent terminated after E finished; state-aware resume skips completed
+base/C/E stages, performs F actual masking, reuses this pod's genuine E reload
+proof for identical base/LoRA/implementation, waives F smoke/tiny without claiming
+they passed, and validates final F adapter by inference. No training restart,
+checkpoint selection or hyperparameter/data change. Source revisions and original/
+resumed pipeline logs are preserved separately. New waiver policy is restricted
+to E/F smoke/tiny only; masking/W&B/reload are not waived.
+
 Full E/F each40 optimizer steps, checkpoints/eval every10, final40 preselected;
 trainer asserts actual global_step40. Added runtime exposure trace records actual
 training microbatches/supervised tokens, excluding evaluation/collator diagnostics.

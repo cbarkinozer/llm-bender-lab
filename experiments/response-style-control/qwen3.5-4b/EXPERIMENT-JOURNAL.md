@@ -7,6 +7,20 @@ Append dated entries for every future round; preserve previous snapshots.
 
 ### 2026-10-04: E/F GPU pipeline launch (not a quality result)
 
+Later on this same turn user explicitly requested skipping smoke/tiny and directly
+training/inferencing this pair. E checks were already finished and full SFT was
+running. Paused only orchestrationPID816, not its trainer, to prevent future F
+diagnostics; E completed uninterrupted40steps/4epochs in110seconds, train loss
+1.223. W&B64a31c42, exp015-sft-target-quality-80rows-40steps. No quality claim.
+Resume path preserves completed base/C/E stages and full E state; F does only
+actual masks plus W&B, reuses same-pod E reload proof for identical LoRA stack,
+records smoke/tiny as explicitly waived NOT passed, trains fresh base40steps and
+reloads final F for inference. Trainer waiver policy restricted to E/F smoke/tiny;
+no data/LR/rank/step or evaluation-code changes. Source revisions/logs kept.
+Default SCP download stalled/reset; classic SCP(-O) recovered source bundle with
+matching SHA c42e756814d5c2c43013ec010a66844f5818a6117d29bd1a8965d9f2bfbb4161.
+One later SSH banner timed out; retry worked. Root cause not established.
+
 User supplied direct81.27.69.180:52991/proxyssh7.vast.ai:36350 and existing public
 key. Direct authenticated successfully; recorded new host key on first contact,
 no mismatch verification bypass. RTX4090/24564MiB, driver565.77, CUDA maximum

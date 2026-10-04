@@ -35,6 +35,8 @@ def main():
     members=[RUNS,ROOT/'.cache/wandb',ROOT/'wheels',ROOT/'comparators/C-adapter',ROOT/'exp015-exp016-setup.log',
         ROOT/'exp010-training-freeze.txt',ROOT/'exp015-exp016-source.bundle',ROOT/'setup-exp015-exp016.sh',ROOT/'requirements-exp009.txt',
         ROOT/'archive_pair.py']
+    if (ROOT/'exp015-exp016-source-resume.bundle').exists():
+        members.append(ROOT/'exp015-exp016-source-resume.bundle')
     inventory={str(file.relative_to(ROOT)):dict(sha256=sha(file),bytes=file.stat().st_size)
         for member in members for file in (sorted(member.rglob('*')) if member.is_dir() else [member]) if file.is_file()}
     assert not any(Path(name).name=='.env' or Path(name).suffix in ('.pem','.key') for name in inventory)
@@ -46,7 +48,8 @@ def main():
             out.add(member,arcname=str(member.relative_to(ROOT)))
     result=dict(archive=archive.name,sha256=sha(archive),bytes=archive.stat().st_size,files=len(inventory),
         base_weights='Pinned public weights are a download dependency, excluded from archive',
-        source_commit=json.loads((RUNS/'E/sft-v1/environment.json').read_text())['git_commit'])
+        source_commit=json.loads((RUNS/'E/sft-v1/environment.json').read_text())['git_commit'],
+        training_source_commits={arm:json.loads((RUNS/arm/'sft-v1/environment.json').read_text())['git_commit'] for arm in ('E','F')})
     (ROOT/'exp015-exp016-backup.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result))
 

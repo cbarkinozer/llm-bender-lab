@@ -14,6 +14,7 @@ HERE=Path(__file__).resolve().parent
 ROOT=Path('/workspace/exp015-exp016-runs')
 RUNNER=HERE.parent/'exp-009-minimal-edit/train_reviewed.py'
 C_ADAPTER=Path('/workspace/comparators/C-adapter')
+WAIVER='smoke ve tiny overfit yapmaya gerek yok artık vast.ai ortamına hakimiz direkt gir finetune yapmaya başla yani. Sonra da inference yap konuştuğumuz plandaki gibi işte sen halledersin.'
 
 def write(path,value):
     path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -26,7 +27,7 @@ def execute(argv,log):
 def read(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
-def work():
+def work(skip_smoke_tiny=False,resume=False):
     import wandb
     api=wandb.Api()
     assert api.viewer
@@ -36,40 +37,60 @@ def work():
         if name.startswith('WANDB_SERVICE'):
             os.environ.pop(name)
     write(ROOT/'tracking-auth.json',dict(authenticated=True,entity=entity,project=os.environ['WANDB_PROJECT']))
-    execute([HERE/'verify_ready.py'],ROOT/'cpu-readiness.log')
+    if not (ROOT/'cpu-readiness.log').exists():
+        execute([HERE/'verify_ready.py'],ROOT/'cpu-readiness.log')
     for arm,adapter in [('base',None),('C',C_ADAPTER)]:
+        if resume and (ROOT/(arm+'-evaluation-v1')/'manifest.json').is_file():
+            assert read(ROOT/(arm+'-evaluation-v1')/'manifest.json')['status']=='completed'
+            continue
         command=[HERE/'evaluate_models.py','--output-dir',ROOT/(arm+'-evaluation-v1')]
         if adapter:
             assert (adapter/'adapter_model.safetensors').is_file()
             command+=['--adapter',adapter]
         execute(command,ROOT/(arm+'-evaluation.log'))
     for arm,folder in [('E','exp-015-target-quality-sft'),('F','exp-016-diverse-coverage-sft')]:
-        run=ROOT/arm; run.mkdir()
+        run=ROOT/arm; run.mkdir(exist_ok=resume)
         preflight=HERE.parent/folder/'training-preflight-v1'
-        for mode in ('representation-check','smoke','tiny-overfit'):
-            execute([RUNNER,'--mode',mode,'--preflight-dir',preflight,'--output-dir',run/mode],run/(mode+'.log'))
-        mask=read(run/'representation-check/mask-check.json')
-        smoke=read(run/'smoke/result.json'); tiny=read(run/'tiny-overfit/result.json')
-        assert mask['all_rows_verified'] and mask['trainable_parameters']==21233664
-        assert smoke['status']=='completed' and math.isfinite(smoke['metrics']['train_loss'])
-        assert tiny['status']=='completed' and tiny['tiny_after']['eval_loss']<tiny['tiny_before']['eval_loss']
-        execute([HERE/'evaluate_models.py','--adapter',run/'smoke/adapter','--reload-check',preflight/'train-tokenized.jsonl',
-            '--output-dir',run/'smoke-reload'],run/'smoke-reload.log')
-        assert read(run/'smoke-reload/result.json')['adapter_save_reload']
-        gate=dict(training_config_sha256=hashlib.sha256((preflight/'training-config.json').read_bytes()).hexdigest(),
-            experiment_id=folder,actual_batch_masking=True,smoke_finite_loss=True,adapter_save_reload=True,
-            tiny_overfit_loss_decreased=True,wandb_connected=True,policy='genuine-checks-passed',
-            evidence=dict(representation='representation-check',smoke='smoke',reload='smoke-reload',tiny='tiny-overfit'))
-        write(run/'gpu-gates.json',gate)
-        os.environ.update(WANDB_RUN_GROUP=folder,WANDB_RUN_ID=secrets.token_hex(4))
-        info=dict(entity=entity,project=os.environ['WANDB_PROJECT'],run_id=os.environ['WANDB_RUN_ID'])
-        info['url']=f"https://wandb.ai/{entity}/{info['project']}/runs/{info['run_id']}"
-        write(run/'wandb-run.json',info)
-        execute([RUNNER,'--mode','full','--preflight-dir',preflight,'--output-dir',run/'sft-v1','--gates',run/'gpu-gates.json'],run/'sft.log')
+        if not (run/'sft-v1/result.json').exists():
+            assert not (run/'sft-v1').exists(),'Interrupted training needs explicit state-aware recovery, not restart'
+            modes=('representation-check',) if skip_smoke_tiny else ('representation-check','smoke','tiny-overfit')
+            for mode in modes:
+                execute([RUNNER,'--mode',mode,'--preflight-dir',preflight,'--output-dir',run/mode],run/(mode+'.log'))
+            mask=read(run/'representation-check/mask-check.json')
+            assert mask['all_rows_verified'] and mask['trainable_parameters']==21233664
+            gate=dict(training_config_sha256=hashlib.sha256((preflight/'training-config.json').read_bytes()).hexdigest(),
+                experiment_id=folder,actual_batch_masking=True,smoke_finite_loss=not skip_smoke_tiny,adapter_save_reload=True,
+                tiny_overfit_loss_decreased=not skip_smoke_tiny,wandb_connected=True,policy='genuine-checks-passed',
+                evidence=dict(representation='representation-check',smoke='smoke',reload='smoke-reload',tiny='tiny-overfit'))
+            if skip_smoke_tiny:
+                # Same pinned base, rank/modules and save/reload implementation; actual E evidence on this pod.
+                reload=ROOT/'E/smoke-reload/result.json'
+                assert read(reload)['adapter_save_reload'] is True
+                gate.update(policy='explicit-user-approved-EF-smoke-tiny-waiver',
+                    waived_checks=['smoke_finite_loss','tiny_overfit_loss_decreased'],user_instruction=WAIVER,date='2026-10-04',
+                    evidence=dict(representation='representation-check',adapter_reload=str(reload)),
+                    caveat='F smoke/tiny not run and not claimed passed; same-stack reload proof reused from E, final F reload occurs in inference.')
+            else:
+                smoke=read(run/'smoke/result.json'); tiny=read(run/'tiny-overfit/result.json')
+                assert smoke['status']=='completed' and math.isfinite(smoke['metrics']['train_loss'])
+                assert tiny['status']=='completed' and tiny['tiny_after']['eval_loss']<tiny['tiny_before']['eval_loss']
+                execute([HERE/'evaluate_models.py','--adapter',run/'smoke/adapter','--reload-check',preflight/'train-tokenized.jsonl',
+                    '--output-dir',run/'smoke-reload'],run/'smoke-reload.log')
+                assert read(run/'smoke-reload/result.json')['adapter_save_reload']
+            write(run/'gpu-gates.json',gate)
+            os.environ.update(WANDB_RUN_GROUP=folder,WANDB_RUN_ID=secrets.token_hex(4))
+            info=dict(entity=entity,project=os.environ['WANDB_PROJECT'],run_id=os.environ['WANDB_RUN_ID'])
+            info['url']=f"https://wandb.ai/{entity}/{info['project']}/runs/{info['run_id']}"
+            write(run/'wandb-run.json',info)
+            execute([RUNNER,'--mode','full','--preflight-dir',preflight,'--output-dir',run/'sft-v1','--gates',run/'gpu-gates.json'],run/'sft.log')
         assert read(run/'sft-v1/result.json')['status']=='completed'
         state=read(run/'sft-v1/checkpoints/checkpoint-40/trainer_state.json')
         assert state['global_step']==40
-        execute([HERE/'evaluate_models.py','--adapter',run/'sft-v1/adapter','--output-dir',ROOT/(arm+'-evaluation-v1')],run/'evaluation.log')
+        config=read(run/'sft-v1/source-config.json')
+        assert config==read(preflight/'training-config.json')
+        if not (ROOT/(arm+'-evaluation-v1')/'manifest.json').exists():
+            execute([HERE/'evaluate_models.py','--adapter',run/'sft-v1/adapter','--output-dir',ROOT/(arm+'-evaluation-v1')],run/'evaluation.log')
+        info=read(run/'wandb-run.json')
         tracking=api.run(f"{entity}/{info['project']}/{info['run_id']}")
         write(run/'wandb-history.json',list(tracking.scan_history()))
         write(run/'wandb-summary.json',dict(state=tracking.state,config=dict(tracking.config),summary=dict(tracking.summary)))
@@ -83,24 +104,33 @@ def work():
     write(ROOT/'status.json',dict(status='completed',arms=['base','C','E','F'],rows_per_arm=32,prompt_parity=True))
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('--worker',action='store_true'); a=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument('--worker',action='store_true')
+    p.add_argument('--resume',action='store_true',help='Continue only completed immutable stages; never restart interrupted SFT')
+    p.add_argument('--skip-smoke-tiny',action='store_true',help='User explicitly waived these E/F checks on 2026-10-04')
+    a=p.parse_args()
     os.environ.update(HF_HOME='/workspace/.cache/huggingface',WANDB_DIR='/workspace/.cache/wandb',
         WANDB_MODE='online',WANDB_PROJECT='llm-bender-lab-response-style-control',PYTHONUNBUFFERED='1')
     if a.worker:
         try:
-            work()
+            work(a.skip_smoke_tiny,a.resume)
         except Exception:
             write(ROOT/'status.json',dict(status='failed',traceback=traceback.format_exc())); raise
     else:
-        assert not ROOT.exists(),'Refusing overwrite'
+        assert a.resume or not ROOT.exists(),'Refusing overwrite'
+        if a.resume:
+            assert read(ROOT/'E/sft-v1/result.json')['status']=='completed'
+            assert not (ROOT/'F').exists(),'Resume is scoped to completed E only'
         key=sys.stdin.read().strip(); assert key,'Missing stdin W&B key'
         os.environ['WANDB_API_KEY']=key
         for name in list(os.environ):
             if name.startswith('WANDB_SERVICE'):
                 os.environ.pop(name)
-        ROOT.mkdir()
-        with (ROOT/'pipeline.log').open('x') as log:
-            child=subprocess.Popen([sys.executable,'-u',str(Path(__file__).resolve()),'--worker'],stdin=subprocess.DEVNULL,
+        ROOT.mkdir(exist_ok=a.resume)
+        with (ROOT/('pipeline-resumed.log' if a.resume else 'pipeline.log')).open('x') as log:
+            command=[sys.executable,'-u',str(Path(__file__).resolve()),'--worker']
+            if a.resume: command.append('--resume')
+            if a.skip_smoke_tiny: command.append('--skip-smoke-tiny')
+            child=subprocess.Popen(command,stdin=subprocess.DEVNULL,
                 stdout=log,stderr=subprocess.STDOUT,start_new_session=True,env=os.environ.copy(),cwd='/workspace')
         write(ROOT/'status.json',dict(status='running',pid=child.pid)); print(json.dumps(dict(pid=child.pid,root=str(ROOT))))
 
