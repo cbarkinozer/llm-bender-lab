@@ -1,0 +1,66 @@
+{
+  "status": "completed",
+  "count": 100,
+  "arm": "F",
+  "config": {
+    "experiment_id": "exp-002-cetvel-tiny",
+    "status": "prepared-needs-gpu",
+    "role": "external-task-development-pilot-not-final-test",
+    "model": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter_experiment": "exp-016-diverse-coverage-sft",
+    "adapter_hashes": {
+      "adapter_model.safetensors": "7ec9b04a5ecac7a031352fb5d0db281ef018c11951a4b4862c418e2b7a002ca1",
+      "adapter_config.json": "6f7f0480fdcf1cc32aed14a1c66981c1a454840ece4f05932b0ef338846a4335"
+    },
+    "seed": 3407,
+    "precision": "BF16",
+    "batch_size": 8,
+    "thinking": false,
+    "additional_system_prompt": null,
+    "max_context_tokens": 8192,
+    "max_new_tokens": 4096,
+    "repetition_penalty": 1.05,
+    "wall_time_guard_seconds": 180,
+    "backend": "vLLM",
+    "stop_policy": "native EOS; no task-specific newline stops; timeout/exact-loop/length stops reported as incomplete",
+    "wandb": false,
+    "official_cetvel_score": false,
+    "vllm_version": "0.30.0",
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "gpu_memory_utilization": 0.85,
+    "language_model_only": true,
+    "model_eos_token_id": 248044,
+    "tokenizer_eos_token_id": 248046
+  },
+  "questions_sha256": "6bfb23966fb8e8bea277fc8a6f912ac404fc3d1a4d24c2dd669670ef35057310",
+  "packages": {
+    "torch": "2.13.0",
+    "transformers": "5.18.0",
+    "vllm": "0.30.0",
+    "peft": "0.21.2"
+  },
+  "backend": "vLLM",
+  "precision": "BF16",
+  "adapter_hashes": {
+    "adapter_model.safetensors": "7ec9b04a5ecac7a031352fb5d0db281ef018c11951a4b4862c418e2b7a002ca1",
+    "adapter_config.json": "6f7f0480fdcf1cc32aed14a1c66981c1a454840ece4f05932b0ef338846a4335"
+  },
+  "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+  "eos_token_ids": [
+    248044
+  ],
+  "probe_only": false,
+  "device": "NVIDIA GeForce RTX 4090",
+  "source_hashes": {
+    "evaluate_vllm.py": "cedd0950d73afcf61dacac965622ac68943388fd1787f8933551d90330999440",
+    "config.json": "b6fc29f55c20baac15a9e89106b0fe841c56022d6ff7ccdf559a6ffaf8f60d0f",
+    "score_pair.py": "42fc3886d0ca4c576206e2f2fc5e8b49e445ec4cd337f24808f4755547ab1370",
+    "score_cetvel_generation.py": "941abcb5c1fe403d31f8dd23657b970babeebac14444cd3df6af3f3a86df7e8a",
+    "evaluate_models.py": "dc35f665b89044f9b1de6a6551c0c55571a32bc27032a077f6ac4aeda5a9257c"
+  },
+  "native_eos_count": 100,
+  "incomplete_ids": [],
+  "answers_sha256": "507f95fc5e8b64f6b25114b297508756783ba21a98b5e8a4307e649daafd881a"
+}

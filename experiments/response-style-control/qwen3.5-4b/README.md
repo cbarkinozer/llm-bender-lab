@@ -2,6 +2,14 @@
 
 ## Origin
 
+Current phase closed2026-10-04. Selected experimental candidate: exp016/F,
+step40,104 reviewed rows.32 development passes F26/base17; external500 matched
+base/F generations and30 blind human reviews completed. Preferences F19/base6,
+tie2/neither3. QA12 reviewed answers pass for both; summaries favor base.
+Share as Turkish response-style adaptation, not general capability superiority
+or zero forgetting. [Publication/cards/Turkish blog](../../../docs/publication/README.md).
+No more GPU work now; publication rights/licenses still require owner decisions.
+
 Split out of `experiments/turkish-capability/` after that line's Phase 2
 diagnostic (`turkish-capability/qwen3.5-4b/exp-000-baseline/protocol-notes.md`)
 found no Turkish-fluency gap. The actual, reproducible weakness found there
@@ -127,5 +135,5 @@ diagnostics; actual-batch masking and W&B checks passed.
 | `exp-012-coverage-ablation` | trained; human review ready | B: retain 56 rows, replace 24 with grounded/useful-reasoning scenarios; same four-epoch recipe as A | 40 steps; 20/20 native EOS; no detected overlap; supervised-token exposure +22.47%; paired review in Argilla |
 | `exp-013-targeted-coverage-sft` | completed; not promoted | C: retain68 A rows, replace12; four epochs | Human11pass/5partial/4fail vs A9/6/5; targeted gains and regressions |
 | `exp-014-targeted-duration-sft` | completed; not promoted | D: same80 C targets, six instead of four epochs | Human10pass/5partial/5fail; mixed duration result, D050 repetition and D090 regression |
-| `exp-015-target-quality-sft` | planned; reviewed data frozen, GPU gates pending | E: exact C80 prompts,9 reviewed target repairs | Final5121 target tokens;32 eval questions separate; no training result |
-| `exp-016-diverse-coverage-sft` | planned; reviewed data frozen, GPU gates pending | F: E80 plus24 reviewed scenarios | Same40step budget,104rows;6216 target tokens; no training result |
+| `exp-015-target-quality-sft` | completed; not selected | E: exact C80 prompts,9 reviewed target repairs | 40steps; development24/32pass; full review/recovery complete |
+| `exp-016-diverse-coverage-sft` | selected; phase closed | F: E80 plus24 reviewed scenarios | 40steps; development26/32pass; external500 +blind30 completed; summary limitation disclosed |

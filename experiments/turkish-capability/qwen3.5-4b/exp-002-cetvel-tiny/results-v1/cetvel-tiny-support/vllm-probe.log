@@ -1,0 +1,8 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate_vllm.py", line 132, in <module>
+    main()
+  File "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate_vllm.py", line 45, in main
+    assert tokenizer.eos_token_id == 248044
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

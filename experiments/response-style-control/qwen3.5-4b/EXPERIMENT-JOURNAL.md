@@ -5,6 +5,201 @@ fixes and decisions so a later blog can tell the complete story.
 This is an evidence journal, not a claim that the project has already succeeded.
 Append dated entries for every future round; preserve previous snapshots.
 
+### 2026-10-04: human30 complete; selected F and closed this SFT phase
+
+Actual30 Argilla submissions exported read-only. F19 preferences/base6/tie2/
+neither3; grades F23pass/4partial/3fail versus base21/3/6. QA12/12 pass BOTH,
+all12 prefer F. GEC4/6 vs0/6 pass; translation5/6 each with balanced preferences.
+Summary pass F2/6 vs base4/6, preferences base4/F1/neither1 despite higher ROUGE.
+One reviewer; latest30 notes blank. User-supplied other-AI critique is qualitative
+feedback, not a second saved blind rating. Do not infer zero capability damage.
+
+User chose to close the phase and share adapter/dataset/model card and Turkish
+journey blog. F step40 selected as a usable experimental Turkish response-style
+candidate, not a certified general Turkish upgrade. No new GPU task or training.
+Source configs/results remain immutable; phase-closure.json records lifecycle.
+HF cards/blog/guide and local hash-checking builder prepared in docs/publication.
+Public upload and GitHub push not performed; owner IDs, licenses and historical
+synthetic/personal-assistant terms/provenance need completion before redistribution.
+External CETVEL source-bearing files stay local, not auto-relicensed as SFT data.
+All recovery archives/weights remain outside Git; no secrets or keys in new cards.
+Deferred future work: faithful summary, de/da, correct-input preservation, fresh
+retention tests; agentic RL remains a separate planned track.
+
+### 2026-10-04: human20 completed; freeze fresh500 before changing F
+
+Fresh500 subsequently completed1000 outputs, scoring and paired bootstrap in
+1215.82seconds (~20m16s), excluding setup/download/recovery.45 files and both
+500-output hashes/config/prompt/token/package parity verified locally before
+declaring GPU safe to close. Archive SHAabcd9cc94a7562e8c7f6a70685aa11ba54e39d0f81b4666a2f610035dc7ecf5a.
+GEC EM0/100 to30/100; TQUAD F1.2006 to.6458 (EM0 to36), XQuAD F1.1368 to.5584
+(EM0 to29). Translation BLEU16.84 to16.81/chrF52.16 to52.43, mean-sentence-chrF
+paired95% interval includes zero. Summary ROUGE-L.1845 to.2093, paired difference
+interval.0118 to.0380. Strong reference/compliance signal, not proven semantic
+knowledge or general Turkish improvement. Pilot QA human grades already showed
+both arms correct despite automatic score gaps; keep this warning in blog claims.
+Base496 nativeEOS plus4 repetition guards; F499 plus1 repetition guard at
+tquad-00747. All retained/scored, no retries or silent filtering. No length/wall
+terminations; final long F answer eventually reached EOS. Median tokens98/26.
+Blind30 queue1ddfe4d9-5d36-46bc-a1c8-0ebc4959c941 created,6/task frozen before
+outputs, P/Q shuffled; all30 fields and HTTP200 verified. Private map external.
+Review pending, no agent-authored judgments or new fine-tune/W&B. GPU work complete.
+
+New GPU then supplied: direct143.131.225.132:41841 and proxyssh9.vast.ai:19562
+accepted established key, same containerc9995edb168b. No key content in Markdown.
+RTX4090/24GB, driver590.48.01,80GB workspace,Python3.12.3; pinned vLLM0.30.0,
+Torch2.13.0+cu130,Transformers5.18.0 CUDA/import checks passed. Source archive
+SHAe26142ffc6c6600d874f16ae550089a7871b7effd444775d7619278ea252e789.
+Adapter extraction tried before asynchronous SCP completion: unexpected EOF,
+not a model/benchmark failure. Waited for transfer exit0, archive SHA matched,
+re-extracted and weight/config hashes passed before generation. Reusable note added.
+Detached launch_remote.py queued setup-waiting coordinator; no W&B/training,
+no extra smoke/overfit. At this update pinned base download ongoing, no scores yet.
+
+Exported actual Argilla20/20 submissions read-only, verified raw answers and
+external blind mapping. One missing submission arrived during export; no agent
+labels authored. F preference12/base2/tie4/neither2, passes F13/base12;
+partials F5/base6, fails2 each. QA all8 pass for both arms, indicating much of
+automatic QA gain is compliance rather than proven knowledge improvement.
+GEC reviewed4: zero pass for either. Translation base3pass/F2; summaries base1/F3.
+Notes flag de/da, question particle/person, over-correction, translation roles,
+summary attribution/negation. Preserve even notes/grade inconsistencies; no
+silent regrading. Strong useful preference signal, limited correctness evidence.
+
+User decision: no de/da fix yet. Freeze final F; characterize weaknesses with
+500 NEW balanced generation questions, then decide training. Created
+turkish-capability/qwen3.5-4b/exp-003-cetvel-500. Full pinned source splits,
+not old700 leftovers. Excluded historical700 rows/source groups and pilot100;
+one question per source group, seeded selection, training104 string screening,
+conservative near-source withholding. All700 historical documents/prompts/targets
+verified against downloaded sources before selection. TQUAD string ID/int offsets
+match HF schema; official MLSum converted-Parquet separately pinned/hashed.
+One near-source summary candidate withheld, no selected training candidate;
+maximum input3410, no truncation or budget-driven omission encountered.
+500 SHA2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93.
+Human30 chosen before model outputs. Same vLLM generation settings/F hashes.
+Prepared1000-output coordinator, task scores, paired bootstrap and recovery.
+Six new CPU tests and four pilot tests pass; GPU execution NOT performed.
+Both previous SSH routes unavailable (direct timeout/proxy refusal); need new GPU.
+No new fine-tune/W&B. If future training uses500 feedback,500 becomes development
+and needs a fresh final test; never train these rows/targets/paraphrases.
+
+### 2026-10-04: CETVEL-tiny200 inference completed and recovered
+
+Base100/F100 same-engine outputs and task-native scores completed;290.56seconds
+for benchmark plus scoring, excluding setup. Verified62 recovered file hashes,
+200 outputs, prompt/config/package parity and final F adapter identity before
+announcing GPU safe to close. No W&B or new training. Local evidence and report:
+turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/results-v1 and REPORT.md.
+
+GEC exact base0/20,F6/20; TQUAD EM0/20 versus8/20,F1.2044 versus.7219;
+XQuAD EM0/20 versus11/20,F1.1292 versus.6083. Translation BLEU12.63 versus12.39,
+chrF52.82 versus53.84: mixed. Summary ROUGE-L.1791 versus.2289. Base96 nativeEOS
+and4 repetition guards; F100 nativeEOS. Guarded answers retained, no retry.
+Median output83 versus24.5tokens. Strong compliance/reference-overlap signal,
+not established general fluency/semantic superiority; extra prose affects scores.
+
+Created frozen blind20 Argilla queue f6719ded-3baf-4d32-bbf2-885e175f1413:
+4/task preselected before outputs, balanced shuffled P/Q, both grades and best
+P/Q/tie/neither. Verified20 raw-output fields and HTTP200. Private mapping outside
+Git, no human judgments authored by agent. Human review pending, then decide
+whether to confirm on fresh additional300/500 source groups. No benchmark training.
+
+### 2026-10-04: CETVEL-tiny GPU authentication and fast engine preparation
+
+Non-benchmark probes also caught two API compatibility issues before the100-row
+benchmark: Transformers5.18 tokenized chat rendering returned a dict-like object
+without explicitreturn_dict=False; vLLM0.30 add_request returned randomized
+internal IDs but outputs used external IDs. Fixed explicit token-list contract
+and external-ID routing with fail-loud empty-engine check. Stopped only the owned
+diagnostic parent/core for the routing issue; no benchmark restarted or altered.
+All4 corrected probe base/F outputs reached modelEOS248044. Actual benchmark then
+launched; no training/smoke/overfit or W&B. Detailed reusable fixes in gotchas.
+
+Established default key rejected at both direct83.195.246.217:50675 and
+proxyssh2.vast.ai:14266. Private/public pair matched; server rejected the offer.
+New per-instance Ed25519 key, blank passphrase viaPTY, attached by user, then
+BatchMode/IdentitiesOnly authenticated both routes to containerd8a5dd33868f.
+No key content in Markdown or repository. Server-side cause not established.
+Reusable procedure added to environment-setup-gotchas.md.
+
+RTX4090,driver595.71.05,CUDA maximum13.2,Python3.12.3. vLLM0.30.0 and
+Torch2.13.0+cu130 installed in persistent venv; import/CUDA passed. Base download
+completed~72seconds; final F weight/config hashes verified before transfer.
+User explicitly permits vLLM if worthwhile. Same-engine base/F batch8,context8192,
+eager/no-prefix-cache,BF16,output4096 is explicit fast-protocol amendment;
+preselected human20 unchanged. No inference/training/W&B result claimed yet.
+Initial probe stopped at a tokenizer-EOS assertion before generation: tokenizer
+im_end248046 versus modelendoftext248044. Corrected by reading model config and
+explicitly matching earlier HF248044 stop, not treating im_end as native modelEOS.
+Logs retained. Benchmark remains pending until LoRA/EOS execution is verified.
+
+HF upstream metadata confirms both pinned Qwen/Unsloth safetensors shards have
+identical content hashes; prior wording implying different weights was corrected.
+Config/template/tokenizer files differ. Base rerun justified by stop/cap/backend
+changes, not repository branding. No benchmark rows used for compatibility probe.
+
+### 2026-10-04: freeze external CETVEL-tiny100 base/F pilot
+
+User requested an external100-question pilot before larger300/500 evaluation.
+Located historical CETVEL-mini700, not500:200GEC,150TQUAD,150XQuAD,100translation,
+100summaries, originally task-prefix pools. New exp002 under turkish-capability
+is evaluation only. Seeded20-per-task subset selected from frozen input/document
+fields without consulting old outputs/scores.100 question SHA
+6bfb23966fb8e8bea277fc8a6f912ac404fc3d1a4d24c2dd669670ef35057310.
+Existing documents/references/prompts preserved. Not all-CETVEL representative,
+no MCQ included, not a pristine unseen holdout because old diagnostic was inspected.
+F104 exact/near-string screening zero candidates; no semantic-independence proof.
+Tokenizer profile100inputs maximum1487, no input truncation; four CPU tests pass.
+
+Planned same pinned unsloth base/exp016 final40 F, BF16 HF/Unsloth batch1,
+thinkingoff/greedy/rep1.05/output4096/context32768,180s/exact-loop guards, nativeEOS.
+Removing CETVEL's small caps/newline stops is explicit protocol adaptation, not
+official CETVEL scores. Existing task-native scorers reused; human20 selected
+before outputs. No training, no W&B, no model judge calls. Local final F identity
+preserved by recorded weight/config SHA. Scripts prepared; GPU inference NOT run.
+Need new GPU address. Future benchmark-guided tuning makes tiny100 development;
+confirmation must use additional fresh rows/source groups, never train targets.
+
+### 2026-10-04: simplify E/F human review at user request
+
+Review subsequently completed32/32 and exported read-only to exp015/human-review-v3.
+Full32 pass/partial/fail: base17/11/4, C23/3/6, E24/3/5, F26/3/3.
+EvsC gains two pass records but loses one; FvsE gains two without pass losses.
+F is the strongest observed grade candidate, not proven general superiority.
+Old20 F14/3/3 versus E12/3/5; both E/F new12 all pass. Fourteen ties remain
+unallocated; preferences base2/C4/E4/F6, neither2. Preserve exact review notes,
+timestamps and external raw API snapshot; no annotations created by agent.
+User requested avoiding repeated all-pass review. Partitioned future manual
+focus16/regression-watch16 with IDs and selection provenance. None deleted from
+Argilla or frozen validation; no training reuse. Keep full32 inference and
+denominators; inspect changed/new failing watch outputs, reuse grades only for
+identical prompt/output/settings with provenance. All-pass16 outputs are not
+all byte-identical, so do not label them identical ties or permanently solved.
+Focus is an outcome-selected diagnostic slice, not a replacement full benchmark.
+
+User immediately clarified the requested layout: keep best P/Q/R/S/tie/neither
+plus one pass/partial/fail grade each for P/Q/R/S. Active v3 dataset
+ff9f4e4c-796b-4595-aa33-0229137b6258 now has these five required questions and
+optional notes. Tie guidance asks for exact tied positions in notes; absent notes
+cannot be treated as a known subset. Both prior queues preserved with zero saved
+responses at v3 creation; external snapshot retained. Answers and balanced mapping
+unchanged/read-back verified. Report one grade per output, not separate axis rates.
+The v2 creation below is retained as superseded interface history.
+
+User found the32-item detailed queue too complicated. Created a separate v2 queue
+with only one required best-output multi-selection and optional notes. Dataset
+5d0f657e-0abe-49cf-865b-d2800028a273; old detailed queue unchanged, zero saved
+responses at creation, read-only snapshot stored with external review artifacts.
+All32 original conversations/references and128 output strings verified against
+frozen artifacts and original queue. Same balanced private P/Q/R/S mapping;
+no new inference or changes to answers, data or model settings. Model identities
+remain hidden. me089 reference warning preserved. Importer is idempotent and checks
+all fields without overwriting responses. Categories/termination retained in raw
+artifacts, omitted from UI clutter. v2 is an explicit post-output usability-driven
+scoring change: report preferences/qualitative notes, not invented per-axis grades
+or claims of semantic accuracy improvement. Historical v1 protocol retained.
+
 ### 2026-10-04: E/F complete; urgent essential recovery verified
 
 E80rows/40steps/4epochs,110.012seconds,train loss1.2226915773;

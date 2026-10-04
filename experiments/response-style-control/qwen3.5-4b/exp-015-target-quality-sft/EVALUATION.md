@@ -1,5 +1,76 @@
 # E/F evaluation protocol v1 (pre-output)
 
+## Completed review and future manual-focus partition (2026-10-04)
+
+All32 v3 records submitted and exported read-only to `human-review-v3/`.
+Sixteen items have pass for every model; sixteen have at least one partial/fail.
+The all-pass items are not literally identical outputs across all four models;
+some still have a distinct preferred answer. All-pass does not imply no preference
+signal or permanent mastery. User requested reducing repeated annotation effort.
+
+`human-review-v3/manual-review-partition.json` records a versioned future manual
+focus16 and regression-watch16. No records are deleted from Argilla, frozen inputs
+or validation loss, and no evaluation items move to training. Keep full32 inference
+and historical full32 denominators; report a focus subset separately as an
+outcome-selected diagnostic slice, never as a directly comparable full score.
+Prioritize focus16 for manual review; check changed outputs and new failures on
+watch16. Reuse a previous grade only for unchanged prompt/output/settings with
+provenance; never automatically grant pass to a new generation. Periodically
+re-review the watch set. This is a manual workload policy, not a generation change.
+
+Full32 pass/partial/fail: base17/11/4, C23/3/6, E24/3/5, F26/3/3.
+Old20: base8/8/4, C12/3/5, E12/3/5, F14/3/3. New12: base9/3/0,
+C11/0/1, E12/0/0, F12/0/0. No broad accuracy or statistical significance claim.
+Fourteen ties retained without invented tie allocations; see raw notes in the
+per-item export. Original API snapshot with response/user provenance stays external.
+
+## Active user-requested simplified grades v3 (2026-10-04)
+
+The user clarified that simplification must retain per-output pass/partial/fail.
+Active queue: `exp-015-016-simple-grades-32-v3`, dataset
+`ff9f4e4c-796b-4595-aa33-0229137b6258`. Five required questions: single best-output
+selection P/Q/R/S/tie/neither, and one pass/partial/fail grade each for P/Q/R/S.
+Optional notes; when selecting tie, specify the tied subset in notes. This
+conditional note rule is guidance, not enforced by the UI. Missing tie subsets
+remain ambiguous and must not be converted to invented model wins.
+
+Grades prioritize correctness/usefulness: pass=correct and sufficient;
+partial=partly correct with important omissions/problems; fail=wrong, unsupported,
+contradictory or fails the task. Consider natural Turkish and appropriate length
+when preferring answers; Markdown alone is not a semantic failure. Do not report
+separate Turkish/style pass rates from a single combined grade.
+
+Same32 inputs/references,128 outputs and private per-item positions; no inference
+change. Both prior queues preserved, zero saved responses at v3 creation; external
+read-only snapshot taken. This usability-driven post-output protocol supersedes
+v2 and the detailed v1 grades. Report per-output grades/preferences, old20/new12,
+category slices and me089 sensitivity with small-sample limitations.
+
+## User-approved simplified review v2 (2026-10-04)
+
+After inference, the user found the detailed annotation interface too complicated.
+Active review now uses `exp-015-016-simple-comparison-32-v2`, dataset
+`5d0f657e-0abe-49cf-865b-d2800028a273`: one required best-output multi-selection
+and optional notes. Multiple selected positions mean that exact subset is jointly
+best; `neither` must be selected alone. Prioritize correct/useful content, natural
+Turkish and appropriate length; reference wording need not match exactly.
+
+The same32 prompts, references, untouched output strings and private balanced
+P/Q/R/S mapping are retained. Category/group/termination fields are omitted from
+the UI only; all remain available in frozen inference artifacts. The me089 warning
+is retained. No extra generation, data repair, checkpoint or model selection.
+Original detailed queue is preserved, not deleted or overwritten. It had zero
+saved responses when v2 was created; a read-only snapshot is stored outside Git.
+
+This is a documented post-output scoring-protocol change requested for usability,
+not a performance-driven change. Report overall preferences and optional qualitative
+notes by category and old20/new12, plus me089 sensitivity. Do not invent separate
+semantic/Turkish/style pass rates from preferences or optional notes. The detailed
+v1 rubric below is historical; v2 does not collect its per-output grades. Overall
+preference alone cannot establish a semantic gain or measure absolute accuracy.
+If separating style from substance remains unclear, retain that uncertainty rather
+than claim the content hypothesis has been confirmed.
+
 ## Questions and comparators
 
 Primary E vs C: necessary target repairs at identical80 prompts/40steps.

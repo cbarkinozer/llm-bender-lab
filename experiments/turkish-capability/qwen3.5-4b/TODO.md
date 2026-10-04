@@ -1,5 +1,33 @@
 # Turkish Capability TODO
 
+## 2026-10-04: external-task retention evaluation (not new training)
+
+- [x] Locate historical CETVEL-mini700 (prefix pools, not random500).
+- [x] Prepare exp002 CETVEL-tiny100:20 each of five generation tasks, seed frozen.
+- [x] Screen against F104 training prompts; no exact/near-string candidates.
+- [x] Verify pinned tokenizer input lengths; maximum1487, no input truncation.
+- [x] Preserve final exp016/F weight/config identity and CPU preparation tests.
+- [x] Obtain new GPU address; run same-backend pinned base and final F,200 outputs.
+- [x] Task-native CPU scoring, EOS/parity/termination audit; no W&B or fine-tune.
+- [x] Download evidence; verify62 file hashes,200 outputs and final F identity.
+- [x] Prepare blind human20 Argilla queue,4 per task chosen before output.
+- [x] Human20 review; export grades/preferences and inspect semantic quality.
+- [x] Freeze exp003500 fresh source-group-disjoint questions (100/task).
+- [x] Prepare runner/scoring/paired bootstrap/recovery and frozen blind human30.
+- [x] Obtain new GPU endpoint; established key worked on both new routes.
+- [x] Run Base500 + fixed F500, score, download and verify1000-output/45-file recovery.
+- [x] Create verified blind human30 Argilla queue (6/task, seeded before outputs).
+- [x] Blind human30 review and task-specific error analysis before new training.
+      Tiny100 remains development if it guides training; never train on benchmark rows.
+      Fresh500 becomes development if its results guide subsequent training.
+
+Closed2026-10-04: F style candidate selected with summary limitation;
+no new training now. Publication drafts in docs/publication, owner rights/license
+decisions pending. Older baseline/training checklists below are historical.
+
+The historical closure below applies to the original baseline investigation.
+This new evaluation measures adapter retention, not a reopened Turkish-training line.
+
 **Closed.** The baseline measurement below is done; see `README.md`
 ("Outcome") for the result — no Turkish-fluency gap found. Follow-up work
 moved to `experiments/response-style-control/`. Left as-is below for the

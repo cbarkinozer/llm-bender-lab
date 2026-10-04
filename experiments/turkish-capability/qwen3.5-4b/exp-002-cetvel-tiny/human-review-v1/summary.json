@@ -1,0 +1,123 @@
+{
+  "count": 20,
+  "expected_count": 20,
+  "pending_ids": [],
+  "status": "completed",
+  "grades": {
+    "base": {
+      "pass": 12,
+      "partial": 6,
+      "fail": 2
+    },
+    "F": {
+      "pass": 13,
+      "partial": 5,
+      "fail": 2
+    }
+  },
+  "preferences": {
+    "neither": 2,
+    "F": 12,
+    "base": 2,
+    "tie": 4
+  },
+  "by_task": {
+    "gecturk": {
+      "grades": {
+        "base": {
+          "pass": 0,
+          "partial": 2,
+          "fail": 2
+        },
+        "F": {
+          "pass": 0,
+          "partial": 2,
+          "fail": 2
+        }
+      },
+      "preferences": {
+        "neither": 1,
+        "F": 2,
+        "base": 1
+      }
+    },
+    "mlsum_tr": {
+      "grades": {
+        "base": {
+          "pass": 1,
+          "partial": 3,
+          "fail": 0
+        },
+        "F": {
+          "pass": 3,
+          "partial": 1,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "F": 4
+      }
+    },
+    "tquad": {
+      "grades": {
+        "base": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 0
+        },
+        "F": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "F": 3,
+        "tie": 1
+      }
+    },
+    "wmt_en_tr": {
+      "grades": {
+        "base": {
+          "pass": 3,
+          "partial": 1,
+          "fail": 0
+        },
+        "F": {
+          "pass": 2,
+          "partial": 2,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "tie": 2,
+        "base": 1,
+        "neither": 1
+      }
+    },
+    "xquad_tr": {
+      "grades": {
+        "base": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 0
+        },
+        "F": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "F": 3,
+        "tie": 1
+      }
+    }
+  },
+  "ties_not_allocated": true,
+  "raw_snapshot_sha256": "a3d046edb4c57cd6738a437d74d908eaa4b293c78818194113291ef31488e78c",
+  "limitations": [
+    "One human reviewer, four random items per task, diagnostic pilot.",
+    "No separate numeric fluency/grammar scores; do not infer them from preference."
+  ]
+}

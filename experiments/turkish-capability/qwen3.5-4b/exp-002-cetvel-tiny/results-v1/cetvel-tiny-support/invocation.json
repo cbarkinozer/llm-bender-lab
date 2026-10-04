@@ -1,0 +1,26 @@
+{
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "executable": "/workspace/.venvs/cetvel-vllm/bin/python",
+  "platform": "Linux-5.15.0-186-generic-x86_64-with-glibc2.39",
+  "started_at_unix": 1791124758.1986725,
+  "commands": [
+    [
+      "/workspace/.venvs/cetvel-vllm/bin/python",
+      "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate_vllm.py",
+      "--adapter",
+      "/workspace/F-adapter",
+      "--output-dir",
+      "/workspace/cetvel-tiny-runs"
+    ],
+    [
+      "/workspace/.venvs/cetvel-vllm/bin/python",
+      "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/score_pair.py",
+      "--results-root",
+      "/workspace/cetvel-tiny-runs"
+    ]
+  ],
+  "wandb": false,
+  "training": false,
+  "completed_at_unix": 1791125048.7566001,
+  "elapsed_seconds": 290.5579285621643
+}

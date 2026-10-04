@@ -1,0 +1,105 @@
+{
+  "status": "prepared",
+  "count": 500,
+  "per_task_count": 100,
+  "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+  "near_duplicate_candidates": 0,
+  "sources": {
+    "gecturk": {
+      "repo": "mcemilg/GECTurk-generation",
+      "revision": "36f6a61aca96cafc4149fa823510a3fa81b98ee3",
+      "file": "test.csv",
+      "git_blob": "e797d51ce5aa06e536a83a86b0edd7b396d27b8f",
+      "kind": "csv",
+      "url": "https://huggingface.co/datasets/mcemilg/GECTurk-generation/resolve/36f6a61aca96cafc4149fa823510a3fa81b98ee3/test.csv",
+      "bytes": 3874730,
+      "file_sha256": "2524fe64420a4f577e0b5788e4f999c44f72cbe9b24defffd98f3310d7072d13",
+      "full_split_count": 20769,
+      "historical_documents_verified": 200,
+      "eligible_exact_disjoint_groups": 20569,
+      "source_group_policy": "one item per normalized underlying source",
+      "exclusions": {
+        "historical_row_or_source_group": 200
+      }
+    },
+    "tquad": {
+      "url": "https://raw.githubusercontent.com/TQuad/turkish-nlp-qa-dataset/3bece60f62569182476fe00683793745ba92c32e/dev-v0.1.json",
+      "revision": "3bece60f62569182476fe00683793745ba92c32e",
+      "file": "dev-v0.1.json",
+      "kind": "squad-json",
+      "bytes": 458494,
+      "file_sha256": "1a42c8b00222db18331cbaa5b20d3f21c29196c46892e9602cc9a2a9b6b819b2",
+      "full_split_count": 892,
+      "historical_documents_verified": 150,
+      "eligible_exact_disjoint_groups": 217,
+      "source_group_policy": "one item per normalized underlying source",
+      "exclusions": {
+        "historical_row_or_source_group": 150
+      }
+    },
+    "xquad_tr": {
+      "repo": "google/xquad",
+      "revision": "51adfef1c1287aab1d2d91b5bead9bcfb9c68583",
+      "file": "xquad.tr/validation-00000-of-00001.parquet",
+      "kind": "parquet",
+      "sha256": "6f788cc02246404a76bb890c3fc7beede9b6d4933f0fd23e841de95f7db3f5e9",
+      "url": "https://huggingface.co/datasets/google/xquad/resolve/51adfef1c1287aab1d2d91b5bead9bcfb9c68583/xquad.tr/validation-00000-of-00001.parquet",
+      "bytes": 228364,
+      "file_sha256": "6f788cc02246404a76bb890c3fc7beede9b6d4933f0fd23e841de95f7db3f5e9",
+      "full_split_count": 1190,
+      "historical_documents_verified": 150,
+      "eligible_exact_disjoint_groups": 215,
+      "source_group_policy": "one item per normalized underlying source",
+      "exclusions": {
+        "historical_row_or_source_group": 153
+      }
+    },
+    "wmt_en_tr": {
+      "repo": "wmt/wmt16",
+      "revision": "41d8a4013aa1489f28fea60ec0932af246086482",
+      "file": "tr-en/validation-00000-of-00001.parquet",
+      "kind": "parquet",
+      "sha256": "76f7f6c9b43d09ee013ee9494009d0cd1835d773a258bc847c22f3d3ee29fa31",
+      "url": "https://huggingface.co/datasets/wmt/wmt16/resolve/41d8a4013aa1489f28fea60ec0932af246086482/tr-en/validation-00000-of-00001.parquet",
+      "bytes": 152526,
+      "file_sha256": "76f7f6c9b43d09ee013ee9494009d0cd1835d773a258bc847c22f3d3ee29fa31",
+      "full_split_count": 1001,
+      "historical_documents_verified": 100,
+      "eligible_exact_disjoint_groups": 901,
+      "source_group_policy": "one item per normalized underlying source",
+      "exclusions": {
+        "historical_row_or_source_group": 100
+      }
+    },
+    "mlsum_tr": {
+      "repo": "reciTAL/mlsum",
+      "revision": "0064616e75e0645465d07e98c1447ee6613f61e8",
+      "file": "tu/test/0000.parquet",
+      "kind": "parquet",
+      "sha256": "fba3e9fd97a09ee3ca86229ccca36a65ce491cd01d5ae1236e6bfeb6d4ddd27e",
+      "note": "HF converted-Parquet snapshot pinned separately; all historical100 documents must match exactly.",
+      "url": "https://huggingface.co/datasets/reciTAL/mlsum/resolve/0064616e75e0645465d07e98c1447ee6613f61e8/tu/test/0000.parquet",
+      "bytes": 14356424,
+      "file_sha256": "fba3e9fd97a09ee3ca86229ccca36a65ce491cd01d5ae1236e6bfeb6d4ddd27e",
+      "full_split_count": 12775,
+      "historical_documents_verified": 100,
+      "eligible_exact_disjoint_groups": 11803,
+      "source_group_policy": "one item per normalized underlying source",
+      "exclusions": {
+        "historical_row_or_source_group": 109,
+        "near_source_group_candidate": 1
+      }
+    }
+  },
+  "seed": 3407,
+  "selection": "seeded shuffled source groups from full splits; one random row per eligible group",
+  "historical700_excluded": true,
+  "pilot100_excluded": true,
+  "training104_screened": true,
+  "outputs_used_for_selection": false,
+  "human_review_ids_sha256": "1a59ed640792d4b9b91257bded3922d625d783749f34a15ee430e26011d4c183",
+  "leakage_sha256": "9191b1c0ed5194e91b07e664280295f0c9c93855275315e26278b23921497550",
+  "whole_cetvel_representative": false,
+  "official_cetvel_score": false,
+  "role": "independent-source confirmation of fixed F; development if later used to guide training"
+}

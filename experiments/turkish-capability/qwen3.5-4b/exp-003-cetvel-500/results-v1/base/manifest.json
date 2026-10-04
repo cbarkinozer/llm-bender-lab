@@ -1,0 +1,77 @@
+{
+  "status": "completed",
+  "count": 500,
+  "arm": "base",
+  "config": {
+    "experiment_id": "exp-003-cetvel-500",
+    "status": "prepared-needs-gpu",
+    "role": "external-task-confirmation-frozen-F",
+    "model": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter_experiment": "exp-016-diverse-coverage-sft",
+    "adapter_hashes": {
+      "adapter_model.safetensors": "7ec9b04a5ecac7a031352fb5d0db281ef018c11951a4b4862c418e2b7a002ca1",
+      "adapter_config.json": "6f7f0480fdcf1cc32aed14a1c66981c1a454840ece4f05932b0ef338846a4335"
+    },
+    "seed": 3407,
+    "precision": "BF16",
+    "batch_size": 8,
+    "thinking": false,
+    "additional_system_prompt": null,
+    "max_context_tokens": 8192,
+    "max_new_tokens": 4096,
+    "repetition_penalty": 1.05,
+    "wall_time_guard_seconds": 180,
+    "backend": "vLLM",
+    "stop_policy": "native EOS; no task-specific newline stops; timeout/exact-loop/length stops reported as incomplete",
+    "wandb": false,
+    "official_cetvel_score": false,
+    "vllm_version": "0.30.0",
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "gpu_memory_utilization": 0.85,
+    "language_model_only": true,
+    "model_eos_token_id": 248044,
+    "tokenizer_eos_token_id": 248046,
+    "parent": "exp-002-cetvel-tiny",
+    "expected_count": 500,
+    "per_task_count": 100,
+    "questions_file": "data-v1/questions-500.jsonl",
+    "human_review_ids_file": "data-v1/human-review-30-ids.json",
+    "human_review_count": 30,
+    "human_review_blind_seed": "cetvel-fresh500-human-blind-3407",
+    "argilla_dataset_name": "cetvel-500-base-f-blind-30-v1",
+    "training": false
+  },
+  "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+  "packages": {
+    "torch": "2.13.0",
+    "transformers": "5.18.0",
+    "vllm": "0.30.0",
+    "peft": "0.21.2"
+  },
+  "backend": "vLLM",
+  "precision": "BF16",
+  "adapter_hashes": {},
+  "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+  "eos_token_ids": [
+    248044
+  ],
+  "probe_only": false,
+  "device": "NVIDIA GeForce RTX 4090",
+  "source_hashes": {
+    "evaluate_vllm.py": "357cf146af43981c5cc328c0bb316e4db40d56fd35ae04f48ff5b5a8aa73f360",
+    "config.json": "889f4e5e133cee24788e92c8997d39d81dd2ba3a0125e1384b8bd0940326ea86",
+    "score_pair.py": "81d92f11fb747de7e85eb0bcbdbe568fba63c45fd246436f80917433b4884af1",
+    "score_cetvel_generation.py": "941abcb5c1fe403d31f8dd23657b970babeebac14444cd3df6af3f3a86df7e8a",
+    "evaluate_models.py": "dc35f665b89044f9b1de6a6551c0c55571a32bc27032a077f6ac4aeda5a9257c"
+  },
+  "native_eos_count": 496,
+  "incomplete_ids": [
+    "gecturk-02614",
+    "gecturk-00400",
+    "gecturk-13950",
+    "gecturk-15107"
+  ],
+  "answers_sha256": "b8cd16c70bc20155e68e7cdffeb7f41246d1d8b47a0f16d6d563027c5c89af83"
+}

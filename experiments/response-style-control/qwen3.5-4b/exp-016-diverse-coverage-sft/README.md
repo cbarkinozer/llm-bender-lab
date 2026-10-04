@@ -4,11 +4,12 @@
 
 Completed2026-10-04:104rows,40steps,3.0769epochs,106.8984seconds;32/32nativeEOS.
 Actual token exposure19131supervised/37334input,320microbatches. Final adapter
-and all essential evidence hash-verified locally; human semantic review pending.
+and all essential evidence hash-verified locally; human review completed.
 Canonical base/C/E/F32 comparison and recovery details live in exp015/gpu-results-v1.
 User waived F smoke/tiny explicitly; actual masks/W&B and final reload verified.
 Use config-reviewed-v1.yaml/data-reviewed-v1/training-preflight-v1;
-config.yaml remains blocked draft history. No quality win claimed before review.
+config.yaml remains blocked draft history. Selected experimental style candidate;
+this SFT phase closed2026-10-04. See phase-closure.json and publication drafts.
 Shared reviews/export/final leakage signoff live in exp015.
 
 ## Question and parent
@@ -56,8 +57,19 @@ logs, source/env/W&B, adapters/resume state and inference before pod termination
 
 ## Results
 
-No model results yet. Reviewed data ready locally, not GPU-ready/completed/selected.
+The paragraph below records the pre-run freeze, not the current lifecycle status.
 Final F6216 vs E5121 supervised tokens per dataset (+21.4%, not runtime exposure).
 All24 new rows reviewed; retained80 E rows identical.32 eval questions remain
 separate. No item-level leak identified; shared task-family/generic-answer
 limitations documented in exp015/data-reviewed-v1/SEMANTIC-LEAKAGE-REVIEW.md.
+
+Final32 development grades: F26pass/3partial/3fail, E24/3/5, base17/11/4.
+External500 new source-group questions: median tokens98 base vs26 F;
+blind30 preferences F19/base6/tie2/neither3, grades F23/4/3 vs base21/3/6.
+Reviewed QA12/12 pass for BOTH; preference/compliance is not new knowledge.
+GEC pass4/6 vs0/6; translation5/6 each. Summary pass F2/6 vs base4/6:
+possible task regression despite higher ROUGE. No zero-forgetting/hallucination claim.
+Selected for concise/direct Turkish response style with these documented limits.
+No further GPU work now; summary/de-da interventions and agentic RL are deferred.
+Model/dataset cards and Turkish blog: ../../../../docs/publication/README.md.
+Publication is not yet executed; rights/provenance/license choices remain required.

@@ -1,5 +1,20 @@
 # Response-style-control TODO
 
+## Phase closure2026-10-04
+
+- [x] Complete32-item base/C/E/F human review and export actual submissions.
+- [x] Select F step40 for response-style use; not a universal capability win.
+- [x] Complete CETVEL-source pilot100 and new500, both paired base/F.
+- [x] Complete blind20/30 human reviews; disclose summary weakness.
+- [x] Verify local adapter/log/config/runtime/output recovery; no more GPU work.
+- [x] Prepare local HF model/data cards, hash-checked release builder and Turkish blog.
+- [ ] Owner: HF IDs, license decisions, source/provider terms and final privacy review.
+- [ ] Publish private staging, verify downloadable artifact, then public release.
+- [ ] Future only: summary faithfulness/de-da and correct-input preservation;
+  use independent new training scenarios and a fresh test if500 informs training.
+
+Older checklists below are historical round planning, not active GPU tasks.
+
 Updated: 2026-10-03. Both A/B SFT runs and primary inference completed. Each
 trained 40 steps / four epochs; all 40 primary outputs reached native EOS.
 Argilla comparison is ready; supporting probes and full backup are completed.
@@ -76,7 +91,7 @@ Argilla comparison is ready; supporting probes and full backup are completed.
 - [x] User urgently narrowed backup to essentials: final E/F adapters plus155
   included files/188.9MB whole archive locally SHAverified; GPU can be deleted.
   Full1.45GB/resume states not fully recovered; omissions explicitly recorded.
-- [ ] Human: blind32 comparison in Argilla; semantic/Turkish/style separately.
+- [x] Human: blind32 comparison in Argilla; semantic/Turkish/style separately.
   Do not promote a winner or claim accuracy gains from loss/EOS/length alone.
 - [ ] Resolve disputed me-089 reference with versioned provenance; preserve old
   fields/reviews and report sensitivity without089 until any revision is approved.

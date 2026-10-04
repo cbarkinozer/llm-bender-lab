@@ -4,6 +4,11 @@ A reproducible lab for fine-tuning and specializing language models for targeted
 
 Repository-specific agent instructions live in [AGENTS.md](./AGENTS.md). Operational fine-tuning, dataset, evaluation, experiment, and reproducibility guidance is available under [`docs/`](./docs/).
 
+Turkish response-style SFT phase closed2026-10-04: exp016/F is the selected
+experimental LoRA candidate. [Release guide/model/data cards](docs/publication/README.md)
+and [Turkish journey blog draft](docs/publication/BLOG-TR.md) document the result
+and limitations. Public Hub upload is pending owner license/provenance decisions.
+
 ![LLM Bender Lab](./llm-bender-lab.png)
 
 llm-bender-lab is an experimentation repository for adapting language models to tasks such as Turkish language improvement, tool calling, code generation, structured output, and other specialized capabilities.

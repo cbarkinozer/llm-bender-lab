@@ -1,0 +1,122 @@
+{
+  "count": 30,
+  "expected_count": 30,
+  "pending_ids": [],
+  "status": "completed",
+  "grades": {
+    "base": {
+      "pass": 21,
+      "partial": 3,
+      "fail": 6
+    },
+    "F": {
+      "pass": 23,
+      "partial": 4,
+      "fail": 3
+    }
+  },
+  "preferences": {
+    "F": 19,
+    "neither": 3,
+    "base": 6,
+    "tie": 2
+  },
+  "by_task": {
+    "gecturk": {
+      "grades": {
+        "base": {
+          "pass": 0,
+          "partial": 1,
+          "fail": 5
+        },
+        "F": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 2
+        }
+      },
+      "preferences": {
+        "F": 4,
+        "neither": 2
+      }
+    },
+    "mlsum_tr": {
+      "grades": {
+        "base": {
+          "pass": 4,
+          "partial": 2,
+          "fail": 0
+        },
+        "F": {
+          "pass": 2,
+          "partial": 3,
+          "fail": 1
+        }
+      },
+      "preferences": {
+        "base": 4,
+        "neither": 1,
+        "F": 1
+      }
+    },
+    "tquad": {
+      "grades": {
+        "base": {
+          "pass": 6,
+          "partial": 0,
+          "fail": 0
+        },
+        "F": {
+          "pass": 6,
+          "partial": 0,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "F": 6
+      }
+    },
+    "wmt_en_tr": {
+      "grades": {
+        "base": {
+          "pass": 5,
+          "partial": 0,
+          "fail": 1
+        },
+        "F": {
+          "pass": 5,
+          "partial": 1,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "base": 2,
+        "tie": 2,
+        "F": 2
+      }
+    },
+    "xquad_tr": {
+      "grades": {
+        "base": {
+          "pass": 6,
+          "partial": 0,
+          "fail": 0
+        },
+        "F": {
+          "pass": 6,
+          "partial": 0,
+          "fail": 0
+        }
+      },
+      "preferences": {
+        "F": 6
+      }
+    }
+  },
+  "ties_not_allocated": true,
+  "raw_snapshot_sha256": "cc8b4f9fe93e98159be6ffaa71983ed7655b24647acd854f9e686a04b5e9f6a3",
+  "limitations": [
+    "One human reviewer, 6 random items per task, diagnostic generation subset.",
+    "No separate numeric fluency/grammar scores; do not infer them from preference."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "training_sha256": "fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950",
+  "train_rows": 104,
+  "eval_rows": 500,
+  "tasks": {
+    "gecturk": {
+      "selected_count": 100,
+      "selected_unique_groups": 100,
+      "training_candidates_in_selected": 0,
+      "old_source_groups_in_selected": 0,
+      "withheld_candidates": []
+    },
+    "tquad": {
+      "selected_count": 100,
+      "selected_unique_groups": 100,
+      "training_candidates_in_selected": 0,
+      "old_source_groups_in_selected": 0,
+      "withheld_candidates": []
+    },
+    "xquad_tr": {
+      "selected_count": 100,
+      "selected_unique_groups": 100,
+      "training_candidates_in_selected": 0,
+      "old_source_groups_in_selected": 0,
+      "withheld_candidates": []
+    },
+    "wmt_en_tr": {
+      "selected_count": 100,
+      "selected_unique_groups": 100,
+      "training_candidates_in_selected": 0,
+      "old_source_groups_in_selected": 0,
+      "withheld_candidates": []
+    },
+    "mlsum_tr": {
+      "selected_count": 100,
+      "selected_unique_groups": 100,
+      "training_candidates_in_selected": 0,
+      "old_source_groups_in_selected": 0,
+      "withheld_candidates": [
+        {
+          "index": 2807,
+          "reason": "source five-word containment>=.8"
+        }
+      ]
+    }
+  },
+  "note": "Conservative string/group screening, not semantic or pretraining contamination proof. Candidates withheld, not relabeled as true duplicates."
+}

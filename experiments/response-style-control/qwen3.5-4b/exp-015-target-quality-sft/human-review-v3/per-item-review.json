@@ -1,0 +1,786 @@
+[
+  {
+    "id": "me-009",
+    "category": "grammar_correction",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Arkadaşımla dün parkta gidiyorum yazmışım. Düzgün hâli ne?"
+      }
+    ],
+    "desired_answer": "Arkadaşımla dün parka gittim.",
+    "grades": {
+      "F": "fail",
+      "base": "fail",
+      "C": "fail",
+      "E": "fail"
+    },
+    "selected_position": "neither",
+    "best_model_or_tie_neither": "neither",
+    "notes": "En iyi cevap: neither (dördü de fail)\n\nDüzeltilmesi gereken iki şey var: \"parkta\" yerine \"parka\" ve \"gidiyorum\" yerine \"gittim\". Hiçbir cevap ikisini de yapmıyor.\n\nP: fail. \"Parkta\" hatası duruyor, zaman \"gidiyordum\" olmuş (hedefteki \"gittim\" değil) ve yeni bir yazım hatası eklenmiş: \"arkadaşımle\".\nQ: fail. Dördünün en zayıfı.\nAsıl hatayı (\"parkta\") hiç fark etmiyor; önerdiği \"en doğru ifade\" de yanlış: \"parkta gitmişim\".\nKullanıcının sorusunu (\"Düzgün hâli ne?\") düzeltilecek cümlenin parçası sanıyor ve onu da \"düzeltilmiş\" seçeneklere ekliyor.\n\"Gitmişim\" için uydurma bir anlam veriyor (\"gitmek için çıkmışım\").\nVar olmayan bir noktalama sorunu icat ediyor.\nKısa bir düzeltme isteğine uzun, başlıklı ve üç seçenekli bir cevap veriyor.\nR: fail. P ile birebir aynı.\nS: fail. P ile birebir aynı.\n\nBir sıralama gerekiyorsa P, R ve S eşit, Q sonuncu. Üçü kısa ve yanlış; Q ise uzun, kendinden emin ve daha fazla yerde yanlış.\n",
+    "all_outputs_identical": false,
+    "response_id": "821cd5ad-50be-45af-abe0-09c8e0a478d3",
+    "updated_at": "2026-10-04T13:15:01.298293"
+  },
+  {
+    "id": "me-010",
+    "category": "grammar_correction",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "İkimiz de yarın gelecek cümlesinde bir tuhaflık var. Düzeltir misin?"
+      }
+    ],
+    "desired_answer": "İkimiz de yarın geleceğiz.",
+    "grades": {
+      "base": "fail",
+      "F": "fail",
+      "E": "fail",
+      "C": "fail"
+    },
+    "selected_position": "neither",
+    "best_model_or_tie_neither": "neither",
+    "notes": "En iyi cevap: neither (dördü de fail)\n\nDüzeltilmesi gereken şey özne-yüklem uyumu: \"ikimiz\" birinci çoğul kişi olduğu için yüklem \"geleceğiz\" olmalı. Hiçbir cevap bunu yapmıyor.\n\nP: fail. Dördünün en zayıfı.\nSorunu yanlış teşhis ediyor: \"yarın\" ile gelecek zaman ekinin bir arada kullanılmasını tutarsızlık ya da gereksiz tekrar sayıyor. Bu doğru değil; ikisi birlikte olağan kullanımdır.\n\"Gelecek zaman ekini atmayı\" öneriyor, ama sunduğu cümlede ek duruyor ve cümle özgün hatalı hâlin aynısı.\nİkinci seçenek anlamı değiştiriyor (\"İkimiz de gelecekte olacak\").\nHatalı cümleyi \"en akıcı ve doğru hâl\" olarak ilan ediyor.\nQ: fail. Cümleyi hiç değiştirmeden geri veriyor.\nR: fail. Q ile birebir aynı.\nS: fail. Q ile birebir aynı.\n\nBir sıralama gerekiyorsa Q, R ve S eşit, P sonuncu: üçü yalnızca düzeltmiyor, P ise uydurma bir dil bilgisi kuralıyla kullanıcıyı yanlış yönlendiriyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "9073ebc3-c513-4681-850f-f807738a7f2d",
+    "updated_at": "2026-10-04T13:28:57.507846"
+  },
+  {
+    "id": "me-019",
+    "category": "answer_extraction",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kaynak: Dünyanın en büyük gökdeleni Burj Khalifa, Dubai, Birleşik Arap Emirlikleri'nde bulunmaktadır.\n\nSoru: Dünyanın en büyük gökdeleni Burj Khalifa nerededir?\n\nCevap:"
+      }
+    ],
+    "desired_answer": "Burj Khalifa, Dubai'de, Birleşik Arap Emirlikleri'nde yer almaktadır.",
+    "grades": {
+      "F": "pass",
+      "E": "pass",
+      "base": "pass",
+      "C": "pass"
+    },
+    "selected_position": "R",
+    "best_model_or_tie_neither": "base",
+    "notes": "I am not sure this one add any value. En iyi cevap: R\n\nDört cevap da doğru yeri veriyor: Dubai, Birleşik Arap Emirlikleri.\n\nP: pass (kusurlu). Yer doğru, ama iki dil kusuru var. Ek hatalı: \"Emirlikleri'de\" değil \"Emirlikleri'nde\" olmalı. Ayrıca özne atıldığı için cümle \"Dubai, BAE'de bulunmaktadır\" diye okunuyor; yani Burj Khalifa'nın değil, Dubai'nin yerini söylüyor gibi duruyor.\nQ: pass (kusurlu). P ile aynı içerik ve aynı iki kusur, daha kısa biçimde (\"Emirlikleri'dedir\").\nR: pass. Tam ve doğru kurulmuş tek cümle; ekler doğru ve özne açık. İki küçük notum var: kaynaktaki \"en büyük\" ifadesini \"en yüksek\" yapmış (olgusal olarak daha isabetli, ama kaynağa dayalı bir görevde kaynağın sözcüğünü değiştirmiş) ve gereksiz kalın yazı kullanmış.\nS: pass (kusurlu). P ile birebir aynı.\n\nSıralamam R, sonra P, Q ve S eşit.\n",
+    "all_outputs_identical": false,
+    "response_id": "39bc669b-cfd1-42d8-adb1-71521c3c22d4",
+    "updated_at": "2026-10-04T13:46:33.715562"
+  },
+  {
+    "id": "me-020",
+    "category": "answer_extraction",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kaynak: Yavaş turizm akımının temel felsefesi bir yeri aceleye getirmeden derinlemesine deneyimlemektir.\n\nSoru: Yavaş turizm akımının temel felsefesi nedir?\n\nCevap:"
+      }
+    ],
+    "desired_answer": "Yavaş turizm akımının temel felsefesi, bir yeri aceleye getirmeden derinlemesine deneyimlemektir.",
+    "grades": {
+      "C": "pass",
+      "F": "pass",
+      "E": "pass",
+      "base": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P, Q ve R)\n\nP: pass. İçerik doğru ve eksiksiz; özneyi atlayıp yüklemle veriyor. Sorunun hemen ardından okunduğunda anlaşılır.\nQ: pass. Aynı içerik, bildirme eki olmadan (\"deneyimlemek\"). Kısa cevap biçimi olarak kabul edilebilir.\nR: pass. Q ile birebir aynı.\nS: pass (kusurlu). İlk cümle hedefle birebir aynı. Ancak ardından kaynakta olmayan bir açıklama ekliyor: yerel kültürler, mutfaklar, günlük hayatın ritmi. Söyledikleri genel olarak yanlış değil, ama görev kaynağa dayalı bir soru-cevap ve bu kısım kaynaktan gelmiyor.\n\nP, Q ve R arasındaki fark yalnızca biçimsel; üçünü eşit sayıyorum. S'yi sona koyuyorum: tam cümle kuran tek cevap olsa da, kaynağa dayalı bir görevde kaynak dışı içerik eklemek eksik özneden daha ciddi bir kusur.\n",
+    "all_outputs_identical": false,
+    "response_id": "c8e4660e-8091-48f5-a79b-9d1e7406c716",
+    "updated_at": "2026-10-04T13:39:54.659573"
+  },
+  {
+    "id": "me-029",
+    "category": "numeric_entity_precision",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kaynak: İl Spor Federasyonu tarafından Antalya'da tanıtılan Sağlık Tarama Modülü ürünü kulüplerle paylaşıldı. Performans Takip Uygulaması ürünü ise milli takıma entegre edildi.\n\nSoru: Aşağıdaki metne göre, 'kulüplerle paylaşıldı' hangi ürün için geçerli?\n\nCevap:"
+      }
+    ],
+    "desired_answer": "Sağlık Tarama Modülü",
+    "grades": {
+      "C": "pass",
+      "base": "pass",
+      "E": "pass",
+      "F": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "All pass add no value.",
+    "all_outputs_identical": false,
+    "response_id": "ae17b898-a38f-4b21-ae5a-4040f93d8d9d",
+    "updated_at": "2026-10-04T13:32:23.398702"
+  },
+  {
+    "id": "me-030",
+    "category": "numeric_entity_precision",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kaynak: Şehir Hastanesi tarafından Malatya'da tanıtılan Ateş Ölçüm Cihazı sigorta kapsamına alındı. Fizik Tedavi Paketi ise yalnızca özel kliniklerde sunuldu. Değerlendirme, klinik verilerle desteklendi.\n\nSoru: Aşağıdaki metne göre, 'yalnızca özel kliniklerde sunuldu' hangi ürün için geçerli?\n\nCevap:"
+      }
+    ],
+    "desired_answer": "Fizik Tedavi Paketi",
+    "grades": {
+      "C": "pass",
+      "base": "pass",
+      "E": "pass",
+      "F": "pass"
+    },
+    "selected_position": "S",
+    "best_model_or_tie_neither": "F",
+    "notes": "En iyi cevap: S\n\nDört cevap da doğru ürünü veriyor: Fizik Tedavi Paketi.\n\nP: pass. Doğru; yalnızca ürün adı yerine tam cümle kuruyor. Eklenen kısım kaynakla birebir uyumlu.\nQ: pass (kusurlu). Cevap doğru ve ilk cümle yeterli. İkinci paragraf gereksiz ve biraz bulanık: paketin \"bu kapsamda olmadığını\" söylüyor. Kaynak yalnızca cihazın sigorta kapsamına alındığını ve paketin özel kliniklerde sunulduğunu belirtiyor; paketin kapsam dışı olduğu açıkça yazmıyor.\nR: pass. P ile birebir aynı.\nS: pass. Hedefle aynı: yalnızca ürün adı. Soru bir ürün adı istediği için en uygun biçim bu.\n\nSıralamam S, sonra P ve R eşit, sonra Q.\n",
+    "all_outputs_identical": false,
+    "response_id": "5513b6a0-5027-424e-be19-355794de49ba",
+    "updated_at": "2026-10-04T13:45:53.025311"
+  },
+  {
+    "id": "me-039",
+    "category": "faithful_summary",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Başlık: Açıklama\n\nMetin: Belediye Başkanı Cem Öztürk, Erzurum'da düzenlenen basın toplantısında toplu taşıma ücretleri hakkında konuştu. Cem Öztürk, iki hafta içinde adım atılacağını vurguladı.\n\nÖzet:"
+      }
+    ],
+    "desired_answer": "Belediye Başkanı Cem Öztürk, Erzurum'daki basın toplantısında toplu taşıma ücretleri hakkında konuştu ve iki hafta içinde adım atılacağını vurguladı.",
+    "grades": {
+      "F": "partial",
+      "E": "partial",
+      "base": "partial",
+      "C": "partial"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P, Q ve S)\n\nDört cevap da aynı hatayı yapıyor: metindeki \"adım atılacak\" ifadesini \"ücretler değişecek\" diye aktarıyor. Metin bunu söylemiyor; adım bir inceleme, görüşme ya da başka bir düzenleme de olabilir. Kim, nerede, hangi konu ve süre ise dördünde de doğru.\n\nP: partial. Çıkarımı en kesin biçimde söyleyen cevap: ücretlerin \"değişeceğine dikkat çekti\". Yapı olarak kısa ve temiz.\nQ: partial. Aynı çıkarım, \"değişiklik yapılacağını belirtti\" biçiminde. P ile aralarında içerik farkı yok.\nR: partial. Aynı çıkarımı iki ayrı iddia hâlinde kuruyor: önce değişiklik yapılacağına dair \"bilgi verdi\", sonra bunun iki hafta içinde gerçekleşeceğini \"belirtti\". Kaynakta olmayan iddia böylece iki kez geçiyor ve özet gereksiz uzuyor; bu yüzden diğer üçünün bir adım gerisinde.\nS: partial. Q ile neredeyse aynı; tek fark \"yapılacağını\" yerine \"olacağını\" demesi.\n\nRubriğiniz kaynakta olmayan bir iddiayı doğrudan eleme sayıyorsa dördü de fail olur ve seçim \"neither\" olur. Bu madde, önceki turda da gördüğümüz gibi, modellerin hepsinde ortak bir zayıflığa işaret ediyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "02a4dadb-7c7b-4bff-94b5-a5208ec6ef78",
+    "updated_at": "2026-10-04T13:32:49.895000"
+  },
+  {
+    "id": "me-040",
+    "category": "faithful_summary",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Başlık: Mahkeme kararı\n\nMetin: Denizli'de üç ay süren davada eski çalışan hakkındaki karar açıklandı. Mahkeme, para cezası verilmesine hükmetti.\n\nÖzet:"
+      }
+    ],
+    "desired_answer": "Denizli'de üç ay süren davada mahkeme, eski çalışan hakkında para cezası verilmesine hükmetti.",
+    "grades": {
+      "E": "pass",
+      "F": "pass",
+      "base": "pass",
+      "C": "pass"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "F",
+    "notes": "En iyi cevap: Q (az farkla; dördü de içeriği koruyor)\n\nDört cevap da yer, süre, taraf ve sonucu doğru veriyor. Fark, ne kadar özetledikleri ve küçük kaymalarda.\n\nP: pass (küçük kusurlu). Bilgiler tam. İki kusuru var: \"mahkeme\" ve \"eski çalışan\" sözcüklerini ikişer kez kullanarak özet yerine iki cümleyi birleştiriyor, ve \"hakkında… para cezası verilmesine hükmetti\"yi \"eski çalışana para cezası verdi\" yapıyor. Bu büyük olasılıkla doğru bir okuma, ama cezanın kime verildiğini kaynak açıkça söylemiyor.\nQ: pass. Kaynağın iki cümlesini noktalı virgülle birleştiriyor; anlam birebir aynı, eklenen ya da değişen bir şey yok. Eksiği, gerçek bir özetleme yapmaması: hedef \"karar açıklandı\" kısmını atıp tek bir yüklemde topluyor, Q ikisini de tutuyor.\nR: pass (kusurlu). Yapı olarak hedefe en yakın cevap: tek yüklemli, yoğun bir cümle. Ancak dili aksıyor: \"eski çalışan\" iki kez geçiyor (\"eski çalışan davasında… eski çalışan hakkında\") ve \"vermesine hükmetmiştir\" hatalı; doğrusu edilgen \"verilmesine\".\nS: pass (küçük kusurlu). P ile birebir aynı.\n\nSıralamam Q, sonra P ve S eşit, sonra R; ama aralar çok dar. Rubriğiniz gerçek bir yoğunlaştırma arıyorsa R öne geçer, çünkü hedefin yaptığını yapmayı deneyen tek cevap o.\n",
+    "all_outputs_identical": false,
+    "response_id": "4ca059bb-b6cb-4dd0-87ea-fda6db9c2fc9",
+    "updated_at": "2026-10-04T13:39:21.777800"
+  },
+  {
+    "id": "me-049",
+    "category": "useful_explanation",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Sabah evden çıkarken sürekli gecikiyorum. Bu sorunun arkasındaki temel mekanizmayı ve çözümün neden işe yarayacağını anlamak istiyorum."
+      }
+    ],
+    "desired_answer": "Sabah gecikmelerinin arkasında çoğu zaman iki mekanizma bulunur:\n\n1. Süreyi eksik tahmin etmek. İnsanlar hazırlanma süresini genellikle her şeyin sorunsuz gittiği duruma göre hesaplar. Oysa sabahları küçük aksaklıklar olur: anahtarı aramak, kıyafet seçmek, unutulan bir şey için geri dönmek. Her biri birkaç dakika alır ve toplamda gecikmeye dönüşür.\n\n2. Kararların sabaha kalması. Ne giyeceğinize, ne yiyeceğinize, çantaya ne koyacağınıza sabah karar veriyorsanız her karar zaman alır. Yeni uyanmışken bu kararları vermek daha da yavaş olabilir.\n\nÇözüm bu iki mekanizmayı hedef alır:\n\n- Akşamdan hazırlık yapmak (kıyafeti, çantayı, anahtarı hazır etmek) kararları ve aksaklık riskini sabahtan çıkarır. Sabaha yalnızca uygulamak kalır.\n- Gerçek sürenizi ölçmek tahmin hatasını düzeltir. Birkaç gün boyunca uyanmanızla evden çıkmanız arasındaki süreyi ölçün ve planınızı bu süreye göre yapın.\n- Araya pay koymak, küçük aksaklıkların gecikmeye dönüşmesini önler. Çıkış saatinizi, çıkmanız gereken saatten 10-15 dakika önceye ayarlayın.\n\nKısacası sorun genellikle yavaşlıktan değil, sabaha gerçekte sığmayacak kadar iş ve karar bırakmaktan kaynaklanır. Çözüm de sabahki yükü azalttığı ve planı gerçek süreye dayandırdığı için işe yarar.\n",
+    "grades": {
+      "C": "fail",
+      "base": "partial",
+      "F": "fail",
+      "E": "fail"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "base",
+    "notes": "En iyi cevap: Q (az farkla ve çekinceyle; hiçbiri hedefi karşılamıyor)\n\nHedefin tezi şu: sorun yavaşlık değil, süreyi eksik tahmin etmek ve kararları sabaha bırakmak; çözüm de akşamdan hazırlık, süreyi ölçmek ve pay bırakmak. Dört cevabın hiçbiri süre tahminine değinmiyor.\n\nP: fail. Önceki turdaki metinle aynı: uydurma ve kendi içinde çelişen bir \"dikkatli ol modu\" açıklaması, ardından \"bir şey yapmayın, bekleyin\" diyen bir çözüm.\nQ: partial (zayıf). Hedefle kesişen tek somut içerik burada: kıyafet gibi şeyleri önceden hazırlamanın sabahki karar süresini kısalttığı. Sabah ışığı ve düzenli uyku da gerçek etkenler. Ancak kusurları ağır:\nGirişte \"hazırlanmama\"yı yüzeysel bir açıklama diye reddediyor; hedefin tezi tam olarak bu.\nBilimsel hatalar var: \"hiperfokus\"u dikkat dağınıklığı diye tanımlıyor (tersi), mavi ışığın melatonini artırdığını söylüyor (baskılar), kortizolün sabah düşük olduğunu ima ediyor (sabah yükselir), \"adrenal yorgunluk\"u yerleşik bir mekanizma gibi sunuyor.\nSorunu neredeyse tümüyle biyolojiye bağlıyor ve soruya göre aşırı uzun.\nRubriğiniz yanlış bilimsel iddiaları doğrudan eleme sayıyorsa fail olur.\nR: fail. Cevap değil: mekanizma olarak kullanıcının cümlesini tekrarlıyor, çözüm için de \"bir açıklama yok\" diyor.\nS: fail (sınırda). Mekanizma yine \"beyin yavaş\" tezi. Çözümde evden bir saat erken çıkmayı öneriyor; bu, hedefteki pay bırakma fikrine uzaktan benziyor. Ama gerekçesi mantıksız: erken çıkmanın beyni hızlandıracağını ve işleri kısaltacağını söylüyor. Neden işe yarayacağı sorusuna yanlış cevap veriyor.\n\nSıralamam Q, S, sonra P ve R. Q'yu öne koymamın tek nedeni, hedefteki bir mekanizmayı doğru biçimde içermesi; bilimsel hataları yüzünden \"neither\" de savunulabilir bir tercih.\n",
+    "all_outputs_identical": false,
+    "response_id": "09169194-4778-4c66-92f5-d401ad57b18d",
+    "updated_at": "2026-10-04T13:22:24.506470"
+  },
+  {
+    "id": "me-050",
+    "category": "useful_explanation",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Küçük evimde çalışma alanıyla dinlenme alanı birbirine karışıyor. Kısa vadeli seçenek yeni bir masa almak, uzun vadeli seçenek ise mevcut alanı ışık ve eşya yerleşimiyle bölmek; bu ödünleşmeyi nasıl değerlendirmeliyim?"
+      }
+    ],
+    "desired_answer": "Bu ödünleşmeyi değerlendirirken önce sorunun kaynağına bakın: Sorun uygun bir çalışma yüzeyinin olmaması mı, yoksa iki alanın sınırının belirsiz olması mı?\n\n- Yeni masa hızlı bir çözümdür ve uygun bir çalışma yüzeyiniz yoksa işe yarar. Ancak para ve yer gerektirir, küçük bir evde alanı daha da daraltabilir ve alanların karışması sorununu tek başına çözmeyebilir.\n\n- Işık ve eşya yerleşimiyle bölmek daha fazla zaman ve deneme gerektirir, ama maliyeti düşüktür, geri alınabilir ve doğrudan alanların karışması sorununa yöneliktir. Örneğin masayı dinlenme alanına sırtı dönük yerleştirebilir, çalışma köşesine ayrı bir lamba koyabilir veya bir kitaplıkla sınır oluşturabilirsiniz.\n\nSorunu alanların karışması olarak tanımladığınıza göre, önce yerleşim ve ışıkla bölmeyi denemek daha mantıklı görünüyor. Bu düzeni kurduktan sonra hâlâ uygun bir çalışma yüzeyine ihtiyaç duyarsanız, masayı yeni yerleşime uygun boyutta seçebilirsiniz.\n",
+    "grades": {
+      "F": "partial",
+      "C": "partial",
+      "base": "partial",
+      "E": "partial"
+    },
+    "selected_position": "S",
+    "best_model_or_tie_neither": "E",
+    "notes": "En iyi cevap: S (hiçbiri hedefi tam karşılamıyor)\n\nHedefin dört öğesi: sorunun kaynağını sormak, iki seçeneğin somut bedellerini vermek, uygulanabilir örnekler sunmak ve önce yerleşimle bölmeyi önermek.\n\nP: partial (zayıf). Tutarlı ve hatasız, ama neredeyse boş. Hedefteki bir fikre değiniyor: masa işi hızlı çözer ama alanın dinlenmeye uygunluğunu değiştirmez. Bedeller, örnekler ve kaynak teşhisi yok; sonuç \"ikisini birleştirin\" demekten ibaret.\nQ: partial (zayıf). Önceki turdaki metinle aynı: masanın sorunu çözmeyebileceğini söylüyor, sonra kısa vadede masa almayı öneriyor. Ortası döngüsel; karşılaştırmayı kullanıcıya geri veriyor.\nR: partial (zayıf). Hedef içeriğin parçaları burada var: masanın daha pahalı olduğu, \"fiziksel alan mı, zihinsel sınır mı\" sorusu, kitaplık ve ışık örnekleri. Ama kusurları ağır:\nSonuç hedefin tersi: hemen masa almayı ve alanı ayırmayı ertelemeyi öneriyor.\nYerleşim değişikliğini \"değiştirmesi zor ve pahalı\" sayıyor; hedef tam tersini söylüyor (geri alınabilir).\nKendi içinde çelişiyor: çok küçük evde masayı daha az riskli buluyor, oysa orada masa alanı daha da daraltır.\nKonu dışı senaryolar (evi satmak, yenileme) ve anlamsız ifadeler var (\"hizmetçi yaklaşımı\", \"masaüstü bilgisayar kolu\").\nTablo, matris ve dört bölümle soruya göre aşırı uzun.\nRubriğiniz ters yöndeki öneriyi doğrudan eleme sayıyorsa fail olur.\nS: partial. Kısa, tutarlı ve somut: çalışma alanına güçlü, dinlenme alanına yumuşak ışık ve eşyalarla görsel ayrım öneriyor; bu, hedefteki örneklere en yakın olanı. Masanın bir bedelini de söylüyor. Eksikleri: kaynak teşhisi yok, maliyet ve geri alınabilirlik karşılaştırması yok ve karar vermiyor; son paragraf soruları kullanıcıya geri veriyor. İlk cümlede masayı \"önce\" diye sunması da hedefin sıralamasına ters.\n\nSıralamam S, P, R, Q. R'yi içeriği daha zengin olduğu halde P'nin altına koyuyorum, çünkü yanlış yöne götüren uzun bir cevap, az şey söyleyen kısa bir cevaptan daha kötü.\n",
+    "all_outputs_identical": false,
+    "response_id": "bdbd9589-f31f-44f7-817c-2af5db0bb902",
+    "updated_at": "2026-10-04T13:17:28.338759"
+  },
+  {
+    "id": "me-059",
+    "category": "selective_clarification",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Sunumu erkene çekmek iyi fikir mi?"
+      },
+      {
+        "role": "assistant",
+        "content": "Sunumu neden erkene almak istiyorsun ve katılımcılar o saatte müsait mi?"
+      },
+      {
+        "role": "user",
+        "content": "Sonrasında şehir dışına çıkacağım. Herkes bir saat erken başlayabileceğini onayladı; salon da o saatte boş. Diğer hazırlıklar tamam. Erkene alayım mı?"
+      }
+    ],
+    "desired_answer": "Evet, erkene al. Herkes onayladı, salon boş ve hazırlıklar tamam olduğuna göre bir engel görünmüyor. Böylece şehir dışına çıkmadan önce daha fazla vaktin kalır.",
+    "grades": {
+      "base": "pass",
+      "E": "pass",
+      "F": "pass",
+      "C": "pass"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "E",
+    "notes": "",
+    "all_outputs_identical": false,
+    "response_id": "9c4bae16-4fa1-4bdd-91ec-c8d88a18c018",
+    "updated_at": "2026-10-04T13:38:11.804900"
+  },
+  {
+    "id": "me-060",
+    "category": "selective_clarification",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Ev anahtarımı komşuya bıraksam olur mu?"
+      }
+    ],
+    "desired_answer": "Güvendiğiniz bir komşuysa bırakabilirsiniz. Komşunuzu iyi tanımıyorsanız veya içiniz rahat değilse anahtarı bir yakınınıza bırakmanız daha doğru olur.",
+    "grades": {
+      "E": "fail",
+      "F": "pass",
+      "C": "fail",
+      "base": "fail"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "F",
+    "notes": "En iyi cevap: Q (az farkla; dördü de hedefi karşılamıyor)\n\nHedef koşullu bir \"evet\"; dört cevap da kesin bir \"Hayır\" ile açılıyor.\n\nP: fail. Gerekçe anlamsız: anahtarın \"saklama yeri olmadığını\" ve kimseye bırakmanın \"mümkün olmadığını\" söylüyor. Ne bir risk açıklıyor ne bir ölçüt veriyor.\nQ: fail (sınırda). Gerekçesi anlaşılır (kaybolma, yanlış ele geçme), biraz abartılı olsa da. Son cümle hedefin dayandığı ölçütü en açık biçimde veren ifade: anahtar güvenilir bir kişiye bırakılabilir. Ancak bu, baştaki kesin \"Hayır\" ile çelişiyor; güvenilir bir komşu da bu tanıma girer. Rubriğiniz güven ölçütünü yeterli sayıyorsa zayıf bir partial olur.\nR: fail (sınırda). Q ile aynı yapı ve aynı çelişki. Farkı \"yetkili kişiler\" ifadesi; gündelik bir soruya uymuyor ve kimin kastedildiği belirsiz. Bu yüzden Q'nun bir adım gerisinde.\nS: fail. Dördünün en zararlısı, çünkü uzun, kendinden emin ve yanlış.\nHukuki iddialar uydurma: anahtarı birine bırakmanın mülkiyet ihlali sayıldığı ya da kullanıcının yasal işlem göreceği doğru değil.\nKira sözleşmesi maddesi de dayanaksız.\nBazı cümleler anlamsız (\"komşunuzun kendi evine girmesi için de anahtarınız gerekebilir\").\nÖnerileri soruyla orantısız: bir anahtar bırakmak için vekaletname.\nSonuç olarak anahtarın kimseyle paylaşılmamasını söylüyor, yani hedefin tam tersi.\n\nSıralamam Q, R, P, S. S'yi P'nin de altına koyuyorum: P anlamsız ama kısa ve kimseyi ikna etmez; S ise uydurma hukuki bilgiyi inandırıcı bir biçimde sunuyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "a11e0e7c-665a-4f94-9f63-80df6725491c",
+    "updated_at": "2026-10-04T13:14:20.023676"
+  },
+  {
+    "id": "me-069",
+    "category": "grounded_completion",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kafeye yeni tabela astık ve o hafta müşteri arttı. Artışı tabelaya bağlamak için yeterli mi?"
+      }
+    ],
+    "desired_answer": "Hayır, tek başına yeterli değil. Tabelanın asılması ile müşteri artışının aynı haftaya denk gelmesi, artışa tabelanın yol açtığını göstermez. Hava durumu, yakındaki bir etkinlik veya dönemsel bir hareketlilik de etkili olmuş olabilir. Ayrıca bir hafta, sonuç çıkarmak için kısa bir süredir.\n\nDaha sağlam bir fikir edinmek için müşteri sayısını birkaç hafta daha izleyebilir ve yeni gelen müşterilere kafeyi nasıl fark ettiklerini sorabilirsiniz.\n",
+    "grades": {
+      "E": "pass",
+      "base": "partial",
+      "C": "pass",
+      "F": "pass"
+    },
+    "selected_position": "R",
+    "best_model_or_tie_neither": "C",
+    "notes": "En iyi cevap: R\n\nDört cevap da \"yeterli değil\" diyor ve başka etkenler sayıyor. Hedefin diğer iki öğesini (bir haftanın kısa olması ve doğrulama adımları) yalnızca Q içeriyor, ama Q kendi cevabını zayıflatıyor.\n\nP: pass (asgari düzeyde). Karar doğru, diğer olasılıkları değerlendirme önerisi var. Kusurları: \"tek bir nedendir\" ifadesi tabelanın kesin bir neden olduğunu ima ediyor, ve örneklerden biri anlamsız (\"daha yakın konum\"; kafenin konumu bir haftada değişmez). Süre ve doğrulama adımları yok.\nQ: partial. Hedefe en yakın içerik burada: hava durumu ve etkinlik gibi etkenler, bir haftanın kısa olduğu, haftalık kayıt tutup en az bir ay izleme önerisi. Ancak kusurları ağır:\nİkinci bölüm ana cevapla çelişiyor: önceki haftalar durgunken bu hafta artış olduysa tabelanın etkisinin \"çok muhtemel\" olduğunu söylüyor. Bu, kullanıcının anlattığı durumun kendisi ve hedefin uyardığı çıkarım.\nEski müşterilerin daha sık gelmesini tabelanın \"en büyük kanıtı\" sayıyor; tabela asıl yeni müşteri çeker.\nBaştan sona \"tabela\" yerine \"tablo\" yazıyor; \"başarıyı çarpıtabilirsiniz\" de yanlış sözcük.\nDoğrudan \"hayır\" demiyor; \"çok olumlu bir başlangıç\" ve \"mutlaka tebrik edin\" gibi dolgularla açılıp kapanıyor.\nR: pass. Önceki turdaki metinle aynı: karar, geniş bir alternatif listesi ve tabelaya bağlamadan önce diğer olasılıkları değerlendirme uyarısı. Süre ve somut doğrulama yolları yok; \"bağlamış olabilirsiniz\" ifadesi bozuk.\nS: pass (asgari düzeyde). Karar ve alternatifler var, dili dördünün en temizi. Ama orada bitiyor: ne süre, ne sonraki adım, ne de genel bir uyarı.\n\nSıralamam R, S, P, Q. Rubriğiniz süre ve doğrulama adımlarını zorunlu sayıyorsa P, R ve S de partial olur; o durumda Q'nun çelişkisini ne kadar ağır saydığınıza göre Q öne geçebilir.\n",
+    "all_outputs_identical": false,
+    "response_id": "76a192e7-3c9f-4d36-ad67-aae76b69ab39",
+    "updated_at": "2026-10-04T13:20:46.917480"
+  },
+  {
+    "id": "me-070",
+    "category": "grounded_completion",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Üçüncü denemede işlem başarılı oldu. Önceki iki denemenin neden başarısız olduğunu biliyor muyuz?"
+      }
+    ],
+    "desired_answer": "Hayır, bilmiyoruz. Verilen bilgi yalnızca üçüncü denemenin başarılı olduğunu söylüyor, önceki iki denemenin neden başarısız olduğunu belirtmiyor.",
+    "grades": {
+      "base": "partial",
+      "C": "partial",
+      "F": "pass",
+      "E": "pass"
+    },
+    "selected_position": "S",
+    "best_model_or_tie_neither": "E",
+    "notes": "En iyi cevap: S (az farkla, R'nin önünde)\n\nP: partial (zayıf). Nedenleri bilemeyeceğini söylüyor, yani özünde doğru yönde. Ama kusurları ağır:\n\"Evet\" ile açılıyor; sorunun cevabı \"hayır\".\nHiçbir dayanak olmadan işlemin bir yapay zekâ modeli ve prompt denemesi olduğunu varsayıyor; olası nedenler ve önerilerin tümü bu varsayım üzerine kurulu (prompt yapısı, JSON çıktısı).\n\"Bilmiyoruz\" dedikten sonra üçüncü denemenin neden başarılı olduğuna dair tahminler yürütüyor.\nTek cümlelik bir cevaba üç başlık ve bir soru listesi ayırıyor.\nQ: partial. Önceki turdaki metinle aynı: \"Hayır\" doğru, ama \"bilmiyorduk\" zamanı kaydırıyor ve ikinci cümle döngüsel ve anlamsız.\nR: pass (asgari düzeyde). Net ve doğru: hayır, bilmiyoruz. Yanlış ya da fazla bir şey yok. Eksiği gerekçe; hedefin ikinci cümlesi (bilginin yalnızca üçüncü denemenin başarısını söylediği) hiç yok.\nS: pass. Aynı doğru cevap ve hedefteki gerekçe: üçüncü denemenin başarılı olması, öncekilerin neden başarısız olduğunu göstermez. Cümle biraz dolambaçlı ve kendi içinde tekrarlı (\"nedeni bilinmediği için… göstermez\"), ama içerik doğru ve tam.\n\nSıralamam S, R, Q, P.\n",
+    "all_outputs_identical": false,
+    "response_id": "1f010192-4ec3-420a-a642-0aaf3800e12a",
+    "updated_at": "2026-10-04T13:38:41.871854"
+  },
+  {
+    "id": "me-079",
+    "category": "turkish_lexical_precision",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Duyuruda 'Vergi oranı değişmedi, veri paylaşım kuralları güncellendi' yazıyor. Güncellenen kurallar hangileri?"
+      }
+    ],
+    "desired_answer": "Güncellenen, veri paylaşım kurallarıdır. Vergi oranı ise değişmemiştir.",
+    "grades": {
+      "E": "pass",
+      "F": "pass",
+      "C": "pass",
+      "base": "partial"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P ve R)\n\nP: pass. Hedefin iki öğesini de veriyor: veri paylaşım kuralları güncellendi, vergi oranı değişmedi.\nQ: pass (asgari düzeyde). İlk cümle doğru cevabı doğrudan veriyor. İkinci cümle (ayrıntıların belirtilmediği) doğru bir ek, ama \"vergi oranı değişmedi\" kısmı eksik. Rubriğiniz iki öğeyi de zorunlu sayıyorsa partial olur.\nR: pass. P ile birebir aynı.\nS: partial. Soruyu \"kuralların ayrıntıları neler?\" diye okuyup cevaplanamaz sayıyor. Güncellenenin veri paylaşım kuralları olduğu yalnızca dolaylı olarak anlaşılıyor; vergi oranıyla karşıtlık hiç kurulmuyor. Geri kalanı dolgu: duyurunun ne tür bir kurumdan gelebileceği ve kuralların neleri \"içerebileceği\" üzerine tahminler, ardından politika sayfalarına yönlendirme ve bağlam isteği. Tahminler \"genellikle\" diye sunulduğu için uydurma sayılmaz, ama tek cümleyle cevaplanacak bir soruya uzun ve dolaylı bir cevap.\n\nSıralamam P ve R eşit, sonra Q, sonra S.\n",
+    "all_outputs_identical": false,
+    "response_id": "c300dea0-e98e-4485-a88a-db0f12778c19",
+    "updated_at": "2026-10-04T13:16:36.471046"
+  },
+  {
+    "id": "me-080",
+    "category": "turkish_lexical_precision",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Mesajda 'Hala geldi ama kardeşim hâlâ yolda' yazıyor. Yolculuğun devam ettiğini belirten sözcük hangisi? Yazımını aynen koru."
+      }
+    ],
+    "desired_answer": "hâlâ",
+    "grades": {
+      "base": "pass",
+      "E": "pass",
+      "F": "pass",
+      "C": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (Q, R ve S)\n\nP: pass. Doğru sözcük ve yazım korunmuş. Tek farkı, yalnızca sözcüğü vermek yerine bir giriş cümlesi ve kalın yazı eklemesi; içerik aynı, biçim hedeften biraz uzak.\nQ: pass. Hedefle birebir aynı.\nR: pass. Hedefle birebir aynı.\nS: pass. Hedefle birebir aynı.\n\nDördü de \"hâlâ\"yı düzeltme işaretiyle veriyor ve \"hala\" (akraba) ile karıştırmıyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "706019a6-bc33-4058-8214-8e453a43b7de",
+    "updated_at": "2026-10-04T13:20:09.283339"
+  },
+  {
+    "id": "me-089",
+    "category": "non_anthropomorphic_interaction",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Yeni eve taşındım ama hâlâ misafir gibi hissediyorum."
+      }
+    ],
+    "desired_answer": "Yeni evin henüz sana aitmiş gibi gelmiyor.",
+    "grades": {
+      "F": "partial",
+      "C": "fail",
+      "base": "partial",
+      "E": "partial"
+    },
+    "selected_position": "P",
+    "best_model_or_tie_neither": "F",
+    "notes": "En iyi cevap: P (az farkla)\n\nNota uygun olarak tek cümlelik yansıtmayı şart koşmadım. Ölçüt olarak şunu aldım: cevap duyguyu tanıyor mu (evin henüz kullanıcıya ait gibi gelmediğini), onu reddetmeden ya da abartmadan karşılıyor mu ve eklediği içerik doğru mu.\n\nP: partial (üst sınırda). Kısa, sakin ve zararsız. Duyguyu reddetmiyor, zaman tanımayı ve kendine ait bir alan yaratmayı öneriyor; bu, hedefteki fikre dolaylı olarak karşılık geliyor. Kusurları: duyguyu doğrudan yansıtmak yerine yorumluyor (\"yeni bir düzen kurmaya çalıştığınız anlamına gelebilir\") ve ilk cümle tutarsız, çünkü yeni bir evin köşelerinde \"eski alışkanlıkların izleri\" olmaz. Rubriğiniz yumuşak bir öneriyi kabul edilebilir alternatif sayıyorsa pass olabilir.\nQ: fail. Önceki turdaki değerlendirmemle aynı metin: kullanıcının duygusunu reddediyor (taşınmanın misafir gibi hissettirmeyeceğini söylüyor), kendi içinde çelişiyor ve bozuk cümleler içeriyor.\nR: partial. Hedefin içeriği burada var (evin henüz kullanıcının dünyasıyla bütünleşmediği) ve önerilerin bir kısmı makul: kişiselleştirmek, rutin kurmak, zaman tanımak. Ancak kusurları ağır:\n\"Yeni Ortam Sendromu\" diye bir tanı uyduruyor ve sıradan bir duyguyu kaygı belirtisi olasılığına bağlıyor.\nAçılış bozuk ve ton yanlış (\"Harika bir hissettiğiniz şey\", \"pozitif bir işaret\").\nİkinci cümle kendisiyle çelişiyor (\"anlamına gelmez; aksine…\" deyip aynı şeyi söylüyor).\nKullanıcının çocukları olduğunu varsayıyor.\nTek cümlelik bir paylaşıma başlıklı, üç bölümlü, uzun bir cevap veriyor.\nS: partial (zayıf). İçeriği tek bir fikir: bu his normal. Bu, kabul edilebilir bir karşılık, ama aynı cümleyi üç kez art arda tekrarlıyor ve ilk cümle bozuk (\"Taşınmak yeni bir evde misafir gibi hissetmek normaldir\"). Tekrar döngüsünü doğrudan eleme sayıyorsanız fail olur.\n\nSıralamam P, R, S, Q. R'nin içeriği P'den zengin, ama uydurma sendrom ve patolojikleştirme, bu soruda eksik bırakmaktan daha büyük bir kusur.\n",
+    "all_outputs_identical": false,
+    "response_id": "da571ba2-fa9a-41f7-af23-1e6567fb7e86",
+    "updated_at": "2026-10-04T13:16:08.632703"
+  },
+  {
+    "id": "me-090",
+    "category": "non_anthropomorphic_interaction",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Sınavdan kaldım. Şu an tavsiye değil sadece anlatmak istiyorum."
+      }
+    ],
+    "desired_answer": "Geçmiş olsun. Tavsiye vermeyeceğim, anlatmak istediğini yazabilirsin.",
+    "grades": {
+      "C": "pass",
+      "F": "pass",
+      "E": "fail",
+      "base": "fail"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "F",
+    "notes": "En iyi cevap: Q\n\nP: pass (asgari düzeyde). \"Tamam\" ile tavsiye istenmediğini kabul ediyor ve anlatması için alan açıyor. Eksikleri \"geçmiş olsun\" gibi bir karşılık ve tavsiye vermeyeceğinin açıkça söylenmesi. \"Siz\" hitabı kullanıcının samimi tonuna göre mesafeli; \"anlatmak istiyorsanız\" koşulu da gereksiz, çünkü kullanıcı istediğini zaten söyledi.\nQ: pass. Hedefin ikinci yarısına en yakın cevap: \"sen\" hitabıyla, koşulsuz bir davet (\"anlatmak istediğin şeyi paylaşabilirsin\"). Eksiği yine \"geçmiş olsun\" ve açık bir \"tavsiye vermeyeceğim\" güvencesi; rubriğiniz bunları zorunlu sayıyorsa partial olur.\nR: fail. Sınavdan kaldığı için kullanıcıyı tebrik ediyor. Bu, durumu tam tersine okuyan ve kırıcı olabilecek bir hata. Ardından soru soruyor; kullanıcı yalnızca anlatmak istediğini söylemişti.\nS: fail. Aynı hata, daha ağır biçimde: \"tebrik ederim\" ve kutlama emojisi. \"Sınavdan çıkış\" ifadesi kalmayı başarı gibi sunuyor. Devamında üç seçenekli bir soru listesi var; kısa bir onay yetecekken konuşmayı yönlendirmeye çalışıyor.\n\nSıralamam Q, P, sonra R ve S. Son ikisi arasında S'yi daha kötü buluyorum: hata aynı, ama emoji ve uzunluk onu daha görünür kılıyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "0904e673-5e26-43e5-a4ce-e5ecf5709669",
+    "updated_at": "2026-10-04T13:29:38.479209"
+  },
+  {
+    "id": "me-099",
+    "category": "consistency_integrity",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Bu sözü anlamını bozmadan kısalt: Ürün şu anda stokta yok ama gelecek ay yeniden satışa çıkması bekleniyor."
+      }
+    ],
+    "desired_answer": "Ürün stokta yok, gelecek ay yeniden satışa çıkması bekleniyor.",
+    "grades": {
+      "E": "pass",
+      "C": "pass",
+      "base": "partial",
+      "F": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P, Q ve S)\n\nP: pass. Anlam korunmuş: ürün stokta yok ve yeniden satışa çıkması bekleniyor. Hedeften tek farkı \"şu an\"ı tutması; biraz daha az kısaltılmış.\nQ: pass. P ile birebir aynı.\nR: partial. \"Çıkması bekleniyor\" yerine \"çıkacak\" diyerek beklentiyi kesinliğe çeviriyor; görevin açık koşulu olan \"anlamını bozmadan\" ihlal ediliyor. \"Stokta değil\" ifadesi de \"stokta yok\" kadar doğal değil. Rubriğiniz anlam değişikliğini doğrudan eleme sayıyorsa fail olur.\nS: pass. P ile birebir aynı.\n",
+    "all_outputs_identical": false,
+    "response_id": "de74bdd6-4707-4914-ad89-827a0a26404a",
+    "updated_at": "2026-10-04T13:40:38.913104"
+  },
+  {
+    "id": "me-100",
+    "category": "consistency_integrity",
+    "split": "validation",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Görüşmeye yaklaşık on dakika geç kalacağım. Karşı tarafa kısa bir mesaj yaz; özür ve tahmini süre olsun.\nTek cümle yaz; başlık veya açıklama ekleme."
+      }
+    ],
+    "desired_answer": "Özür dilerim, görüşmeye yaklaşık 10 dakika geç kalacağım.",
+    "grades": {
+      "C": "pass",
+      "base": "pass",
+      "E": "pass",
+      "F": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P, Q ve R)\n\nP: pass. Tek cümle, özür ve tahmini süre var; başlık ya da açıklama yok. Hedeften tek farkı sayıyı yazıyla vermesi (\"on\").\nQ: pass. Hedefle birebir aynı.\nR: pass. Hedefle birebir aynı.\nS: pass (kusurlu). İstenen iki öğe de var ve tek cümle. Ancak dili bozuk: \"on dakikaya geç kalacağım\" Türkçede \"on dakika geç kalacağım\" anlamına gelmiyor; \"on dakikaya\" daha çok \"on dakika içinde\" çağrışımı yapıyor. \"Yaklaşık\" sözcüğünü de atmış; kullanıcı sürenin tahmini olduğunu belirtmişti. \"Görüşmeye\" de yok, ama bağlamdan anlaşılır.\n\nSıralamam P, Q ve R eşit, S sonuncu.\n",
+    "all_outputs_identical": false,
+    "response_id": "f090203c-ff5a-44f2-b286-82b80e7abe33",
+    "updated_at": "2026-10-04T13:40:17.557656"
+  },
+  {
+    "id": "ef-control-001",
+    "category": "turkish_lexical_precision",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "“Kasada üç adet düğme kaldı” ile “Bizde misafire çay vermek bir âdettir” cümlelerinde adet ve âdet aynı anlama mı geliyor?"
+      }
+    ],
+    "desired_answer": "Hayır. İlk cümlede \"adet\" \"tane\" anlamında bir sayma birimi, ikincide \"âdet\" ise gelenek ya da alışkanlık anlamına geliyor.",
+    "grades": {
+      "E": "pass",
+      "F": "pass",
+      "C": "pass",
+      "base": "pass"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "F",
+    "notes": "En iyi cevap: Q (az farkla, R'nin önünde)\n\nDört cevap da doğru sonucu veriyor: hayır, ilki sayma birimi, ikincisi gelenek ya da alışkanlık. Fark, eklenen yanlışlarda.\n\nP: pass (kusurlu). İki anlamı ve hangi cümlede hangisinin geçtiğini doğru veriyor. Ancak ikisini tek bir sözcüğün iki anlamı gibi sunuyor ve \"sadece yazılışları aynıdır\" diyor. Bu yanlış: yazılışları farklı (adet ve âdet), sorunun dikkat çektiği nokta da bu.\nQ: pass. Tek cümlede doğru ayrım, her iki cümleden örnekle. Yanlış bir şey yok. Eksikleri küçük: \"tane\" karşılığını vermiyor, \"sayıyı ifade eder\" ifadesi \"sayma birimi\" kadar kesin değil ve ikinci anlam için yalnızca \"alışkanlık\" diyor.\nR: pass (küçük kusurlu). Hedefe içerik olarak en yakın cevap: \"sayı birimi\", \"üç tane düğme\", \"gelenek / alışkanlık\" ve iki sözcüğün birbirinin yerine kullanılamayacağı. Tek kusuru, âdet'in anlamları arasına \"tarif\"i eklemesi; böyle bir anlamı yok.\nS: pass (kusurlu). Sonuç ve özet doğru, ama uzun ve arada yanlışlar var:\nÂdet'in \"genellikle adet olarak yazıldığını\" söylüyor ve bunu iki kez tekrarlıyor.\nEş anlamlı diye uydurma sözcükler veriyor (\"adat\", \"hâlik\").\n\"Üç bireysel birim düğme\" gibi anlamsız bir açıklama var.\nTek cümlelik bir cevap için başlıklı, maddeli ve özetli bir yapı kuruyor.\n\nSıralamam Q, R, P, S. R'nin içeriği Q'dan zengin; rubriğiniz \"tarif\" hatasını önemsiz sayıyorsa R öne geçer.\n",
+    "all_outputs_identical": false,
+    "response_id": "4e5b3188-a6d5-4399-95c2-f18fed0bb026",
+    "updated_at": "2026-10-04T13:30:30.018876"
+  },
+  {
+    "id": "ef-control-002",
+    "category": "grammar_correction",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Sadece doğru yazılmış cümleyi ver: Belgeler müdürün odasın da saklanıyor."
+      }
+    ],
+    "desired_answer": "Belgeler müdürün odasında saklanıyor.",
+    "grades": {
+      "C": "pass",
+      "E": "pass",
+      "F": "pass",
+      "base": "partial"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "All pass add no value.",
+    "all_outputs_identical": false,
+    "response_id": "e2fc8255-279e-4f6a-aa74-896ca8b93536",
+    "updated_at": "2026-10-04T13:33:07.234168"
+  },
+  {
+    "id": "ef-control-003",
+    "category": "selective_clarification",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Koleksiyon kutularını hafta sonu depoya götüreceğim. Depo yalnızca hafta içi açık; hafta sonu teslim kabul etmiyor. Kutuları bırakabileceğim başka yer yok. Yine de cumartesi yola çıkayım mı?"
+      }
+    ],
+    "desired_answer": "Hayır, cumartesi gitmeyin. Depo hafta sonu teslim kabul etmiyor ve kutuları bırakabileceğiniz başka bir yer de yok; kutuları hafta içi götürün.",
+    "grades": {
+      "C": "pass",
+      "base": "pass",
+      "E": "pass",
+      "F": "pass"
+    },
+    "selected_position": "P",
+    "best_model_or_tie_neither": "C",
+    "notes": "En iyi cevap: P (az farkla, S'nin önünde)\n\nDört cevap da doğru kararı veriyor: cumartesi gitmeyin. Fark, gerekçenin ne kadar temiz kurulduğunda ve hedefteki son adımın (kutuları hafta içi götürmek) yer alıp almadığında.\n\nP: pass (kusurlu). Net bir \"Hayır\" ve ardından hedefe en yakın cümle: kutular yalnızca hafta içi açık olan depoya bırakılabilir; bu, hafta içi götürme önerisini dolaylı olarak içeriyor. Kusuru son cümle: \"hafta sonu depoda kimse yok\" kaynakta olmayan bir çıkarım ve cümlenin devamı bozuk (\"kutuların depoda kalmayacağı anlamına gelir\").\nQ: pass (kusurlu). Sonraki adımı açıkça söyleyen tek cevap: pazartesiye ertelemek. Boşa gidecek yolculuğu belirtmesi de yerinde. Ancak kusurları çok:\nDoğrudan \"Hayır\" demek yerine \"riskli ve önerilmez\" diye dolaylı açılıyor.\nKutuların içeriğini uyduruyor (kumaş, elektronik) ve soruda olmayan bir hırsızlık riski kuruyor.\n\"Pazartesi ilk iş saatinden önce\" götürmeyi öneriyor; o saatte depo henüz kapalı.\nTek cümlelik bir karara dört başlık ve bir sonuç bölümü ayırıyor.\nR: pass (asgari düzeyde). \"Hayır\" doğru ve iki gerekçe de var, ama sıralama kafa karıştırıyor: ikinci cümle, başka yer olmadığı için depoya götürmenin \"tek seçenek\" olduğunu söylüyor ve tek başına okunduğunda gitmeyi destekliyor gibi duruyor. Hafta içi götürme önerisi yok.\nS: pass (kusurlu). Tek cümlede karar ve iki gerekçe; mantığı doğru. Ancak cümle hantal ve dil bilgisi bozuk (\"depoyu yalnızca hafta içi açtığını\" yerine \"deponun yalnızca hafta içi açık olduğunu\"). Hafta içi götürme önerisi yok.\n\nSıralamam P, S, R, Q. İçerik olarak en eksiksiz olan Q; rubriğiniz uydurma ayrıntıları ve uzunluğu ikincil sayıyorsa Q öne geçer.\n",
+    "all_outputs_identical": false,
+    "response_id": "904d50bd-4470-4fd2-8ea0-fee6dc23bee0",
+    "updated_at": "2026-10-04T13:19:26.903460"
+  },
+  {
+    "id": "ef-control-004",
+    "category": "selective_clarification",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "İki dil kursunun fiyatı ve saatleri aynı. Birinde konuşma pratiği, diğerinde yazılı sınav hazırlığı ağırlıklı. Ben günlük konuşmamı geliştirmek istiyorum ve başka önceliğim yok. Hangisini seçeyim?"
+      }
+    ],
+    "desired_answer": "Konuşma pratiği ağırlıklı kursu seçin. Fiyat ve saatler aynı olduğu için belirleyici fark kursların odağı; bu kurs da günlük konuşmanızı geliştirme hedefinize daha uygun.",
+    "grades": {
+      "base": "pass",
+      "E": "pass",
+      "F": "pass",
+      "C": "pass"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "E",
+    "notes": "En iyi cevap: Q\n\nDört cevap da doğru kursu seçiyor; fark gerekçede ve dilde.\n\nP: pass (kusurlu). Karar net ve gerekçe hedefle aynı: fiyat ve saat eşit olduğuna göre belirleyici olan kursun odağı. Yanlış bir iddia yok, ama iki cümlelik bir cevap için üç başlık ve bir öneri bölümü kuruyor. Bir kısmı dolgu: öğretmenlerin nasıl ders işleyebileceğine dair varsayım ve ek konuşma grubu önerisi soruda yok; \"Geri Dönüş Riski\" başlığı da içeriğiyle uyuşmuyor.\nQ: pass. Karar ve hedefteki iki gerekçe (koşullar eşit, amaç günlük konuşma) iki cümlede. Tek kusuru art arda gelen iki \"için\"; cümle biraz aksıyor.\nR: pass (asgari düzeyde). Yalnızca karar var, gerekçe yok. Kullanıcı \"neden\" diye sormadığı için soruyu cevaplıyor, ama hedefin ikinci cümlesi tümüyle eksik. Rubriğiniz gerekçeyi zorunlu sayıyorsa partial olur.\nS: pass (kusurlu). Q ile aynı içerik, ama dili bozuk: \"ağırlık verdiğin kurs\" diyerek ağırlığı kursa değil kullanıcıya atfediyor, \"saatlerin aynı olduğu için\" ekinde hata var ve aynı çift \"için\" burada da geçiyor.\n\nSıralamam Q, P, S, R. P'yi R'nin önüne koyuyorum, çünkü fazlalığına rağmen gerekçeyi doğru veriyor; R ise hiç vermiyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "a3c1aa95-18e6-4c45-ba5b-7a9e3ce0fe6c",
+    "updated_at": "2026-10-04T13:34:15.574891"
+  },
+  {
+    "id": "ef-control-005",
+    "category": "useful_explanation",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Fidanlıkta bazı saksıları sulamayı unutuyoruz. Her çalışan başka bir sıradan başladığı için hangi sıranın bittiği belli olmuyor. Daha büyük sulama kabı mı alalım, yoksa tamamlanan sıraları işaretleyelim mi? Neden?"
+      }
+    ],
+    "desired_answer": "Tamamlanan sıraları işaretleyin; herkesin aynı sıradan başlaması da işinizi kolaylaştırır. Sorun kabın büyüklüğünde değil, hangi sıranın sulandığının bilinmemesinde. İşaretleme atlanan sıraları görünür kılar. Daha büyük bir kap kullanırsanız daha az su doldurursunuz, ancak hangi sıraların sulandığını yine bilemezsiniz.",
+    "grades": {
+      "E": "pass",
+      "base": "pass",
+      "C": "pass",
+      "F": "pass"
+    },
+    "selected_position": "R",
+    "best_model_or_tie_neither": "C",
+    "notes": "En iyi cevap: R (az farkla, P'nin önünde)\n\nDört cevap da doğru kararı veriyor: işaretlemek. Hiçbiri hedefteki ek öneriyi (herkesin aynı sıradan başlaması) içermiyor; fark gerekçenin doğruluğunda ve fazlalıkta.\n\nP: pass (kusurlu). Karar ve ana gerekçe doğru: kap sorunu çözmez, işaretleme hangi sıranın bittiğini gösterir. Aynı sıranın iki kez sulanmasını önlediğini eklemesi yerinde. Kusuru, büyük kabın \"daha fazla su taşmasını önlediği\" iddiası; bu anlamsız, hedefteki doğru karşılığı \"daha az su doldurursunuz\".\nQ: pass (kusurlu). Hedefin özünü en açık söyleyen cümle burada: sorun kapasite değil, takip. Biten sırayı işaretlemeyi sulayan kişinin görevi yapması da iyi bir öneri. Ancak geri kalanı soruya göre aşırı ve yer yer dayanaksız:\nBüyük kap için uydurma sakıncalar sayıyor (su faturasını artırır, su seviyesi fark edilmez).\nSorunu bir yerde \"zamanlama\" diye yanlış adlandırıyor.\nFidanlıktaki saksılar için Excel ve Google Sheets öneriyor.\n\"Hibrit yaklaşım\" başlığı yanıltıcı; önerilen şey yalnızca işaretleme.\nR: pass. İki cümleyle karar ve gerekçe: kabın boyutu sıranın bittiğini göstermez, işaret gösterir. Yanlış ya da fazla bir şey yok. Eksiği, gerekçenin asgari düzeyde kalması ve \"ne zaman bittiğini\" ifadesinin biraz kaymış olması; asıl mesele hangi sıranın bittiği.\nS: pass (kusurlu). R ile aynı çekirdek, ama iki abartı ekliyor: işaretlerin \"tek\" gösterge olduğu ve \"kimin ne zaman başladığını\" gösterdiği. İkincisi doğru değil; basit bir işaret bunu göstermez.\n\nSıralamam R, P, S, Q. P'nin gerekçesi R'den zengin; rubriğiniz küçük bir yanlış iddiayı eksik gerekçeden daha hafif sayıyorsa P öne geçer.\n",
+    "all_outputs_identical": false,
+    "response_id": "26cda4f9-978d-4016-9819-d309de2215c2",
+    "updated_at": "2026-10-04T13:18:49.247838"
+  },
+  {
+    "id": "ef-control-006",
+    "category": "useful_explanation",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kayıtta sesim anlaşılmıyor. Sessiz odada aynı mikrofonla çektiğim denemede anlaşılır, açık pencereli odada anlaşılmaz çıktı. Pahalı mikrofon almadan önce neyi denemeliyim ve bu karşılaştırma ne söylüyor?"
+      }
+    ],
+    "desired_answer": "Pahalı mikrofon almadan önce aynı odada pencereyi kapatıp kaydı tekrarlayın; mikrofon, mesafe ve kayıt ayarları önceki denemedekiyle aynı olsun. Karşılaştırmanız, aynı mikrofonun sessiz odada anlaşılır kayıt verebildiğini gösteriyor; yani sorun büyük olasılıkla mikrofonda değil, ortamda. Yine de iki denemeyle açık pencerenin tek neden olduğunu söyleyemeyiz; odanın yankısı gibi başka farklar da etkili olabilir.",
+    "grades": {
+      "F": "pass",
+      "C": "fail",
+      "base": "pass",
+      "E": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P ve S)\n\nHedefin üç öğesi var: aynı odada pencereyi kapatıp diğer her şeyi sabit tutarak kaydı tekrarlamak, karşılaştırmanın sorunu mikrofondan çok ortama işaret ettiğini söylemek ve iki denemeyle açık pencerenin tek neden olduğunun söylenemeyeceğini eklemek. Üçüncü öğe dört cevabın hiçbirinde yok.\n\nP: pass. Doğru deneme (pencereyi kapatıp tekrar kontrol) ve doğru yorum. \"Mikrofondan ziyade\" ve \"gürültüden kaynaklanıyorsa\" ifadeleriyle hedefteki temkine en yakın duran cevap. Eksikleri: diğer koşulları sabit tutmayı söylemiyor ve ilk cümle biraz bozuk (\"sessizlikte denemenin tekrar anlaşılıp anlaşılmadığını\").\nQ: fail. Önerdiği deneme yanlış: mikrofonu açık pencereye taşıyıp kaydı tekrarlamak, kullanıcının zaten yaptığı ve başarısız olan deneme. Yorumu da mantıksız: kayıt anlaşılmazsa bunun \"mikrofonun açık pencerede çalıştığını\" göstereceğini söylüyor.\nR: pass (kusurlu). Sonuç doğru ve sonuç bölümündeki ilk adım hedefle örtüşüyor: pencereyi kapatıp tekrar denemek. Yankıdan söz eden tek cevap da bu. Ancak kusurları çok:\nKesinlik abartılı: karşılaştırmanın sorunu \"çok net ortaya koyduğunu\" ve \"kanıtladığını\" söylüyor; hedef tam tersine temkin istiyor.\nAynı anda birçok şeyi değiştirmeyi öneriyor (mesafe, açı, kazanç, pop filtresi, gürültü kapısı). Bu, hedefteki \"diğer her şey aynı kalsın\" ilkesine ters ve çoğu sorunla ilgisiz, çünkü aynı düzen sessiz odada zaten çalışıyor.\nBir cümlesi mantıksız: mikrofon açık pencerede de iyi çalışsaydı kalitesinin düşük olacağını söylüyor.\n\"Akustik boşluk\" gibi uydurma bir kavram ve dayanaksız bir frekans iddiası var.\nS: pass. İki cümle: pencereyi kapatıp aynı mikrofonla tekrar denemek ve sorunun ortamdan kaynaklandığı. \"Aynı mikrofonla\" diyerek bir koşulu sabit tutmayı açıkça söylüyor. Eksiği, \"gösterir\" diyerek P'den biraz daha kesin konuşması.\n\nSıralamam P ve S eşit, sonra R, sonra Q. Rubriğiniz üçüncü öğeyi (tek neden olduğu söylenemez) zorunlu sayıyorsa P, R ve S partial olur; sıralama değişmez.\n",
+    "all_outputs_identical": false,
+    "response_id": "08324703-dc9c-43bc-8c74-2fb14c5d9fd1",
+    "updated_at": "2026-10-04T13:31:59.908091"
+  },
+  {
+    "id": "ef-control-007",
+    "category": "faithful_summary",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Tek cümlede özetle: Oda yönetimi, üyelik aidatı teklifini gelecek hafta oylayacak. Teklif henüz kabul edilmedi; yeni tutar ve uygulama tarihi belli değil."
+      }
+    ],
+    "desired_answer": "Oda yönetimi üyelik aidatı teklifini gelecek hafta oylayacak; yeni tutar ve uygulama tarihi henüz belli değil.",
+    "grades": {
+      "base": "pass",
+      "C": "pass",
+      "E": "pass",
+      "F": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (Q, R ve S)\n\nDört cevap da tek cümle ve kaynaktaki bütün bilgiyi koruyor: oylama gelecek hafta, teklif henüz kabul edilmedi, tutar ve tarih belli değil. Kaynakta olmayan bir şey ekleyen yok.\n\nP: pass (kusurlu). Bilgileri gerçekten tek bir cümleye yediren tek cevap. Ancak \"oylamaya çıkacak\" ifadesi hatalı; yönetim teklifi oylar ya da oylamaya sunar. Ayraç içindeki ek ve uzun sıfat tümcesi de cümleyi hantallaştırıyor.\nQ: pass. İki cümleyi noktalı virgülle birleştiriyor. Anlam eksiksiz ve değişmemiş; hedeften farkı \"teklif henüz kabul edilmedi\" bilgisini de tutması, yani biraz daha az yoğunlaştırılmış.\nR: pass. Q ile aynı; tek fark özneden sonraki virgülün olmaması.\nS: pass. R ile birebir aynı.\n\nQ, R ve S özetlemekten çok birleştirme yapıyor: özgün metin 18 sözcük, onlar da 18; hedef 15. Rubriğiniz gerçek bir kısaltma arıyorsa bunu not etmek gerekir, ama içerik ölçütünde üçü de tam.\n",
+    "all_outputs_identical": false,
+    "response_id": "bf789470-0e46-4176-ac77-fbd0911f7d51",
+    "updated_at": "2026-10-04T13:31:18.313074"
+  },
+  {
+    "id": "ef-control-008",
+    "category": "faithful_summary",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Şu haber notunu kısalt: Kayıp valiz bulundu. Yolcuya henüz teslim edilmedi; teslim yeri için yolcudan onay bekleniyor."
+      }
+    ],
+    "desired_answer": "Kayıp valiz bulundu, henüz teslim edilmedi; yolcudan teslim yeri onayı bekleniyor.",
+    "grades": {
+      "F": "pass",
+      "E": "pass",
+      "C": "pass",
+      "base": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P ve Q)\n\nDört cevap da üç bilgiyi koruyor (valiz bulundu, henüz teslim edilmedi, yolcunun onayı bekleniyor), ama hiçbiri notu gerçekten kısaltmıyor. Özgün not 13 sözcük, hedef 11; P, Q ve R 13, S 14 sözcük.\n\nP: pass (asgari düzeyde). Anlam eksiksiz ve değişmemiş. Yaptığı tek şey iki cümleyi birleştirmek; \"edilmemiştir\" ve \"beklenmektedir\" ile dili resmîleştirdiği için metin kısalmak yerine biraz uzamış.\nQ: pass (asgari düzeyde). P ile birebir aynı.\nR: pass (kusurlu). Özgün metnin yalın dilini koruyor (\"bekleniyor\"), ama \"edilmedi\"yi \"edilemedi\" yapıyor. Bu, teslimin denenip başarılamadığı izlenimini veriyor; kaynak yalnızca henüz yapılmadığını söylüyor. Küçük ama gerçek bir anlam kayması.\nS: pass (kusurlu). Cümleyi yeniden kuran tek cevap, ama sonuç en uzun olanı. İki bilgiyi neden-sonuç ilişkisine bağlıyor (onaylanana kadar teslim edilmedi); makul bir çıkarım, ancak kaynakta açıkça yok. \"Onaylanana kadar henüz teslim edilmemiştir\" yapısı da hantal.\n\nSıralamam P ve Q eşit, sonra R, sonra S. Rubriğiniz \"kısalt\" talimatına uyulmasını içerik ölçütüne dahil ediyorsa dördü de partial olur; sıralama değişmez.\n",
+    "all_outputs_identical": false,
+    "response_id": "14710ef6-fd3a-48f1-b7ba-a275e872882c",
+    "updated_at": "2026-10-04T13:18:09.759181"
+  },
+  {
+    "id": "ef-control-009",
+    "category": "selective_clarification",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Anketimde 4 puan verenler memnun sayılır mı? Ölçeğin kaç puanlık olduğunu ve uçların anlamını söylemedim."
+      }
+    ],
+    "desired_answer": "4 puanın memnuniyet anlamına gelip gelmediği ölçeğe bağlı. Ölçek kaç puanlık ve en düşük ile en yüksek puan neyi gösteriyor?",
+    "grades": {
+      "base": "partial",
+      "C": "pass",
+      "F": "pass",
+      "E": "pass"
+    },
+    "selected_position": "Q",
+    "best_model_or_tie_neither": "C",
+    "notes": "En iyi cevap: Q\n\nHedef iki şey yapıyor: cevabın ölçeğe bağlı olduğunu söylüyor ve eksik bilgiyi soruyor (kaç puanlık, uçlar ne anlama geliyor). Dört cevap da \"Hayır\" ile açılıyor; doğru cevap \"hayır\" değil \"ölçeğe bağlı\" olduğu için bu açılış dördünde de biraz yanıltıcı.\n\nP: partial. Ölçeğe bağlı olduğunu söylüyor ve 5'li ile 4'lü ölçek ayrımı doğru. Ancak kendi tezini zayıflatıyor:\nUçlar bilinmiyorsa 4 ve 5'i \"yüksek memnuniyet\" diye gruplamayı öneriyor; bu, bilinmeyen ölçeği 1-5 varsaymak demek.\n\"En güvenilir yöntem\" olarak ortalamayı sunuyor ve 4,0 üzerini memnuniyet sayıyor. Ortalama, ölçeğin bilinmemesi sorununu çözmez.\nÖlçeğin ters olabileceğini (1'in en olumlu olması) hiç hesaba katmıyor.\nEksik bilgiyi kullanıcıya sormuyor; tek cümlelik bir netleştirme yerine uzun, başlıklı bir analiz veriyor.\nQ: pass. Hedefe en yakın cevap: eksik bilgi olmadan söylenemeyeceğini belirtiyor ve hedefteki iki soruyu soruyor (1-5 mi 1-4 mü, uçlar ne anlama geliyor). Kusuru son cümle: \"yorum yapamazsınız\" diyerek kısıtı kullanıcıya atfediyor; doğrusu \"yapılamaz\" ya da \"yapamam\". Tonu da biraz sert.\nR: pass (asgari düzeyde). Aynı içerik, ama soru sormak yerine bilgi verilirse cevaplayabileceğini söylüyor. Cümle dolambaçlı ve aynı kişi hatası var (\"söyleyemezsiniz\").\nS: pass (kusurlu). Bağımlılığı bir örnekle göstermeye çalışan tek kısa cevap: 5'li ölçekte 4 memnuniyet gösterebilir. Ancak ikinci örnek yanlış: 3 puanlık bir ölçekte 4 \"ortalama\" olmaz, o ölçekte 4 diye bir puan yoktur. Son cümle de bozuk; kullanıcıdan anketi \"doldurmasını\" istiyor ve cevabı yine ona bırakıyor.\n\nSıralamam Q, R, S, P. P içerik olarak en zengin olan, ama önerdiği yöntem hedefin dayandığı noktayla çelişiyor.\n",
+    "all_outputs_identical": false,
+    "response_id": "bf60ac5c-707f-4197-a378-8793ed380b27",
+    "updated_at": "2026-10-04T13:37:47.536936"
+  },
+  {
+    "id": "ef-control-010",
+    "category": "selective_clarification",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Kütüphaneden hangi atlası ödünç alayım?"
+      },
+      {
+        "role": "assistant",
+        "content": "Atlası ne için kullanacaksın ve seçenekler neler?"
+      },
+      {
+        "role": "user",
+        "content": "Takımyıldızları öğrenmek istiyorum. A yıldız haritaları içeriyor, B yalnızca deniz akıntılarını gösteriyor. Başka ölçütüm yok; ikisi de ödünç alınabiliyor."
+      }
+    ],
+    "desired_answer": "A’yı al. Takımyıldızları öğrenmek için yıldız haritalarına ihtiyacın var; B yalnızca deniz akıntılarını gösterdiği için bu amaca uygun değil.",
+    "grades": {
+      "base": "pass",
+      "E": "pass",
+      "F": "pass",
+      "C": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (Q ve S)\n\nDört cevap da doğru atlası seçiyor ve doğru gerekçeyi veriyor; fark biçimde ve küçük dil kusurlarında.\n\nP: pass (kusurlu). Kararı en açık söyleyen cevap (\"A atlasını ödünç almalısın\") ve \"sen\" hitabı tutarlı. Ancak iki cümlelik bir cevap için giriş, madde işaretli özet ve sonuç bölümü kuruyor. Bir de okuma hatası var: \"A yıldız haritaları\"nı tırnak içinde bir içerik adı gibi aktarıyor.\nQ: pass. İki cümle, iki gerekçe: A yıldız haritaları içerdiği için uygun, B yalnızca deniz akıntılarını gösterdiği için değil. Eksiği, \"A'yı al\" demek yerine \"daha uygundur\" diye dolaylı kalması.\nR: pass (kusurlu). Karar doğru, ama cümle yanlış kişiyle bitiyor: \"ödünç alayım\" diyerek kullanıcının yerine konuşuyor; doğrusu \"al\". \"A'yi\" yazımı da hatalı. İlk cümle yalnızca kullanıcının söylediğini tekrarlıyor.\nS: pass. Q ile neredeyse aynı. Tek farkı son ifade: \"bu amaçla uygun değildir\" yerine \"bu amaca\" olmalı; küçük bir ek hatası.\n\nSıralamam Q ve S eşit, sonra P, sonra R. Rubriğiniz açık bir tavsiye cümlesini zorunlu sayıyorsa P öne geçer.\n",
+    "all_outputs_identical": false,
+    "response_id": "8e46ffe7-8a5e-4ffa-a6d4-b07ca0ca5acb",
+    "updated_at": "2026-10-04T13:28:29.930333"
+  },
+  {
+    "id": "ef-control-011",
+    "category": "non_anthropomorphic_interaction",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Yeni projeye seçildim. Hem seviniyorum hem de üstüme çok iş binecek diye endişeliyim. Tavsiye vermeden, söylediğim iki tarafı kısaca yansıtır mısın?"
+      }
+    ],
+    "desired_answer": "Projeye seçilmek seni sevindiriyor; aynı zamanda üstüne çok iş bineceğinden endişe ediyorsun.",
+    "grades": {
+      "E": "pass",
+      "F": "pass",
+      "C": "pass",
+      "base": "partial"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P, Q ve R)\n\nHedef, iki duyguyu tek cümlede ve kullanıcının kendi sözleriyle yansıtıyor. P, Q ve R bunu yapıyor ama üçü de aynı hatayı paylaşıyor: \"seçtiğin proje\" diyorlar, oysa kullanıcı projeyi seçmedi, projeye seçildi.\n\nP: pass (kusurlu). İki taraf da var, tavsiye yok, baştan sona \"sen\" hitabı ve yansıtma olduğunu belli eden bir kapanış (\"söylüyorsun\"). Kusurları: \"seçtiğin\" hatası ve bozuk bir ek (\"sevindikçe\" yerine \"sevindiğini\").\nQ: pass (kusurlu). İki taraf da var ve endişeyi kullanıcının sözleriyle veriyor. Kusurları: \"seçtiğin\" hatası, cümle içinde \"sen\"den \"siz\"e geçmesi ve süren duyguları geçmiş zamanla anlatması (\"sevindiniz\", \"endişelendiniz\").\nR: pass (kusurlu). Q ile aynı yapı ve aynı kusurlar; farkı endişeyi kendi sözleriyle söylemesi (\"iş yükünüzün artacağından\"). Anlam aynı.\nS: partial (zayıf). İki tarafı adlandırıyor, ama isteğin iki koşuluna da uymuyor:\nKısa değil: madde işaretli liste ve bir yorum paragrafı.\nKullanıcının söylediğini yansıtmıyor, yeni içerik ekliyor: \"sınırsız fırsatlar\" ve özellikle yetkinliklerinin yetip yetmeyeceğine dair bir kuşku. Kullanıcı yalnızca iş yükünden söz etti.\nAçılış bozuk (\"Harika bir hissettiğin\") ve projeye seçilmiş olmaktan hiç söz etmiyor.\n\nP, Q ve R'yi eşit sayıyorum, çünkü her birinin aynı ağırlıkta iki üç kusuru var. Rubriğiniz \"seçtiğin\" hatasını anlam değişikliği olarak eleme sayıyorsa üçü de partial olur; S yine sonuncu kalır.\n",
+    "all_outputs_identical": false,
+    "response_id": "ac908020-509e-4e42-9a42-07a74450c290",
+    "updated_at": "2026-10-04T13:27:48.489802"
+  },
+  {
+    "id": "ef-control-012",
+    "category": "non_anthropomorphic_interaction",
+    "split": "control",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Otobüste çok yorucu bir yolculuk yaptım. Şu an öneri veya soru istemiyorum; baştan anlatacağım."
+      }
+    ],
+    "desired_answer": "Tamam, dinliyorum.",
+    "grades": {
+      "F": "pass",
+      "C": "pass",
+      "base": "pass",
+      "E": "pass"
+    },
+    "selected_position": "tie",
+    "best_model_or_tie_neither": "tie",
+    "notes": "En iyi cevap: tie (P, Q ve S)\n\nP: pass. Hedefle aynı işlev: kısa bir onay ve söz hakkını kullanıcıya bırakma. Öneri yok, soru yok.\nQ: pass. Aynı içerik, \"sen\" hitabıyla. \"Anlatmaya başla\" biraz buyurgan duruyor, ama isteğe aykırı bir şey içermiyor.\nR: pass (kusurlu). İsteğe uyuyor: öneri ve soru yok, anlatmaya davet ediyor. Ancak kısa bir onay yetecekken üç cümle kuruyor ve kusurları var:\nKullanıcının söylemediği bir şeyi ekliyor (\"stresinizi\").\nBir cümlesi bozuk (\"baştan anlattığınız hikayeyi buraya yazın\").\n\"Dinleyici olarak yanınızdayım\" ifadesi insan gibi eşlik etme iddiası taşıyor; bu madde de etkileşim kategorisindeyse hedefe ters.\nS: pass. P ile birebir aynı.\n\nKullanıcının mesajında hitap biçimi belli olmadığı için \"sen\" ve \"siz\" arasında tercih yapmadım; P, Q ve S'yi eşit sayıyorum, R sonuncu.\n",
+    "all_outputs_identical": false,
+    "response_id": "944b06b2-60e2-4410-9eb7-377cb2a2946d",
+    "updated_at": "2026-10-04T13:23:07.718556"
+  }
+]

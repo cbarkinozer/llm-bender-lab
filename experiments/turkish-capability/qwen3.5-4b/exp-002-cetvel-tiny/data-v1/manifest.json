@@ -1,0 +1,82 @@
+{
+  "status": "prepared",
+  "count": 100,
+  "selection": "task-balanced random20 per task within frozen historical700 prefix pool",
+  "seed": 3407,
+  "sources": {
+    "gecturk": {
+      "pool_count": 200,
+      "dataset": {
+        "name": "mcemilg/GECTurk-generation",
+        "config": null,
+        "split": "test",
+        "resolved_revision": "36f6a61aca96cafc4149fa823510a3fa81b98ee3",
+        "selection": "range(0,200)",
+        "selected_documents_sha256": "5c26773c5a0dd4a5de46c68b951bcb975aaa6e161e30bdbe894b55c7e178c3d4"
+      },
+      "samples_sha256": "6cf0e64c7bd90c1c1dea5f46329cbe2309c0dd1a383d9bb62969b8f9d0907295"
+    },
+    "tquad": {
+      "pool_count": 150,
+      "dataset": {
+        "name": "mcemilg/tquad",
+        "config": null,
+        "split": "validation",
+        "resolved_revision": "7b6e463a8340b2d20fc5f8c8f8bba20ccccd7242",
+        "selection": "range(0,150)",
+        "selected_documents_sha256": "8388e46a5ccb40193c005796ad1184692de7422b368de03882172a41214f75d6"
+      },
+      "samples_sha256": "4abaf055211ce189387a37f36d42278bd84073176325ca090d3d81263023745c"
+    },
+    "xquad_tr": {
+      "pool_count": 150,
+      "dataset": {
+        "name": "google/xquad",
+        "config": "xquad.tr",
+        "split": "validation",
+        "resolved_revision": "51adfef1c1287aab1d2d91b5bead9bcfb9c68583",
+        "selection": "range(0,150)",
+        "selected_documents_sha256": "eafae19058baf958392168ff1a58cdb1d2c17c42da4143d6cb27055c1ff6cd50"
+      },
+      "samples_sha256": "76c3672c22708447b418fa288d8d0eeb89eeaa9fc1e7e5dc887d6a6efdafb5f5"
+    },
+    "wmt_en_tr": {
+      "pool_count": 100,
+      "dataset": {
+        "name": "wmt/wmt16",
+        "config": "tr-en",
+        "split": "validation",
+        "resolved_revision": "41d8a4013aa1489f28fea60ec0932af246086482",
+        "selection": "range(0,100)",
+        "selected_documents_sha256": "aa169b74d4e14008187567bb6cc79548b6fae90e2efe2119071cd5cc6e6c8aa2"
+      },
+      "samples_sha256": "e5d08377a7456dc9209bece0173c05df697e8283ac71a4f84bf88d49ae67b99c"
+    },
+    "mlsum_tr": {
+      "pool_count": 100,
+      "dataset": {
+        "name": "reciTAL/mlsum",
+        "config": "tu",
+        "split": "test",
+        "resolved_revision": "0f8114e036015f81e877e8a1950ce2713d7afe8d",
+        "selection": "range(0,100)",
+        "selected_documents_sha256": "9871bd11e1eb8976c505f5890636bda0c00e16ebb8c7ae1221239d755a6c6607"
+      },
+      "samples_sha256": "5ae84e01b5a75c53797b1f1d40375ee3dd4ffc5b8cf17d664d480d18bd855f52"
+    }
+  },
+  "counts": {
+    "gecturk": 20,
+    "tquad": 20,
+    "xquad_tr": 20,
+    "wmt_en_tr": 20,
+    "mlsum_tr": 20
+  },
+  "questions_sha256": "6bfb23966fb8e8bea277fc8a6f912ac404fc3d1a4d24c2dd669670ef35057310",
+  "human_review_ids_sha256": "5a056cdd14cd09c293d053b445749b0c0a9a8d6c1ca4f94905e5e54c2538f71d",
+  "leakage_sha256": "afd8fad43fb35283dfa1efae4ecccae352cfd087abcc58effa22a807e4703c59",
+  "near_duplicate_candidates": 0,
+  "outputs_used_for_selection": false,
+  "entire_cetvel_representative": false,
+  "official_cetvel_score": false
+}

@@ -1,5 +1,19 @@
 # Turkish Capability — Qwen3.5-4B
 
+2026-10-04: [exp002 CETVEL-tiny100](exp-002-cetvel-tiny/README.md) adds an
+evaluation-only base versus final exp016/F retention pilot.200 outputs recovered,
+human20 completed: F12 preferences versus base2, tie4/neither2; passes13 versus12.
+[exp003 CETVEL500](exp-003-cetvel-500/README.md) prepared with500 NEW questions,
+historical source groups excluded;1000 outputs recovered, blind human30 completed.
+F QA/correction reference scores rise; summary ROUGE-L18.45 to20.93,
+translation essentially unchanged. Human preferences F19/base6/tie2/neither3,
+passes F23/base21; reviewed QA12/12 both pass, summary pass F2/6 vs base4/6.
+No general semantic-superiority claim. Evaluation phase closed2026-10-04;
+F selected as an experimental style adapter, not a universal Turkish upgrade.
+No new training. See exp003 REPORT.md for limits and per-task evidence.
+Original baseline conclusions below are
+historical observations, not assumptions about this adapter or its pinned base.
+
 **Status: closed.** This experiment line's question has been answered:
 Qwen3.5-4B's baseline Turkish is not the bottleneck. See "Outcome" below.
 Do not add new training experiments here — the follow-up work lives in
@@ -70,3 +84,5 @@ here only for reference — do not build from it.
 | --- | --- | --- | ---: | --- |
 | `exp-000-baseline` | done | Untouched starting model, CETVEL + Phase 2 generation diagnostic | n/a | Found no Turkish-fluency gap; found the real weakness is format/instruction-following. Also found and fixed several CETVEL MC-scoring artifacts. |
 | `exp-001-sft-dataset` | superseded | Broad Turkish-capability SFT dataset draft | — | Written before Phase 2 diagnostic; premise no longer supported. See `experiments/response-style-control/`. |
+| `exp-002-cetvel-tiny` | completed | Matched base/F100 pilot +blind20 | task-specific | Historical prefix pools; development evidence, not pristine final test |
+| `exp-003-cetvel-500` | completed; phase closed | New source-group500 +blind30 | task-specific | F preference19/base6; QA style gain, summary limitation; see REPORT.md |

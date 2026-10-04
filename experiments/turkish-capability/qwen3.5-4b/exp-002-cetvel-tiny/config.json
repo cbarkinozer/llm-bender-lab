@@ -1,0 +1,25 @@
+{
+  "experiment_id": "exp-002-cetvel-tiny",
+  "status": "prepared-needs-gpu",
+  "role": "external-task-development-pilot-not-final-test",
+  "model": "unsloth/Qwen3.5-4B",
+  "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+  "adapter_experiment": "exp-016-diverse-coverage-sft",
+  "adapter_hashes": {
+    "adapter_model.safetensors": "7ec9b04a5ecac7a031352fb5d0db281ef018c11951a4b4862c418e2b7a002ca1",
+    "adapter_config.json": "6f7f0480fdcf1cc32aed14a1c66981c1a454840ece4f05932b0ef338846a4335"
+  },
+  "seed": 3407,
+  "precision": "BF16",
+  "batch_size": 1,
+  "thinking": false,
+  "additional_system_prompt": null,
+  "max_context_tokens": 32768,
+  "max_new_tokens": 4096,
+  "repetition_penalty": 1.05,
+  "wall_time_guard_seconds": 180,
+  "backend": "Unsloth/Transformers",
+  "stop_policy": "native EOS; no task-specific newline stops; timeout/exact-loop/length stops reported as incomplete",
+  "wandb": false,
+  "official_cetvel_score": false
+}

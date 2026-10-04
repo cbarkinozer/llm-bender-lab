@@ -3,6 +3,9 @@
 ## Status
 
 Completed SFT/inference2026-10-04; urgent essential recovery hash-verified.
+Human32 review completed: E24pass/3partial/5fail versus F26/3/3 and base17/11/4.
+E is completed, not selected; F is the phase's experimental style candidate.
+Current SFT phase closed; sharing preparations live in docs/publication.
 All33 training and12 control reviews completed and exported read-only.
 Approved data-reviewed-v1, controls-reviewed-v1, config-reviewed-v1.yaml and
 training-preflight-v1 remain frozen. E genuine checks passed before later user
@@ -74,6 +77,15 @@ changes target content/style/length together, not an isolated length or causal
 estimate. Equal40 steps do not imply equal tokens or update magnitude.
 
 ## Evaluation and recovery
+
+Active human review: [simplified32-item comparison](http://127.0.0.1:6900/dataset/ff9f4e4c-796b-4595-aa33-0229137b6258/annotation-mode?page=1&status=pending).
+Best-output selection P/Q/R/S/tie/neither and one pass/partial/fail grade for each
+output; optional notes, with tied positions specified when selecting tie.
+Same blinded positions and original
+answers/reference as the preserved detailed queue. See EVALUATION.md's user-approved
+v3 amendment: one grade per output, not separate semantic/Turkish/style metrics.
+Recreate/verify idempotently with `import_simple_comparison.py --results-root`
+pointing to the external `exp-015-016-paired/review-outputs` artifact folder.
 
 See [EVALUATION.md](EVALUATION.md) for frozen proposal: same-backend base/C/E/F,
 32 items, per-item blinded balanced ordering, separate semantic/Turkish/style

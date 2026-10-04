@@ -1,0 +1,38 @@
+{
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "executable": "/workspace/.venvs/cetvel-vllm/bin/python",
+  "platform": "Linux-6.8.0-100-generic-x86_64-with-glibc2.39",
+  "started_at_unix": 1791136805.1693025,
+  "commands": [
+    [
+      "/workspace/.venvs/cetvel-vllm/bin/python",
+      "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate_vllm.py",
+      "--experiment-dir",
+      "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500",
+      "--adapter",
+      "/workspace/F-adapter",
+      "--output-dir",
+      "/workspace/cetvel-500-runs"
+    ],
+    [
+      "/workspace/.venvs/cetvel-vllm/bin/python",
+      "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/score_pair.py",
+      "--results-root",
+      "/workspace/cetvel-500-runs"
+    ],
+    [
+      "/workspace/.venvs/cetvel-vllm/bin/python",
+      "/workspace/repos/llm-bender-lab/experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/paired_analysis.py",
+      "--results-root",
+      "/workspace/cetvel-500-runs"
+    ]
+  ],
+  "wandb": false,
+  "training": false,
+  "git_commit": "bb4129d40e6ad28d79959790544f2d3c3807138f",
+  "transfer_manifest_sha256": "047e1d533a9be1f69fe5081932cf98aa12b28846ae4b965126e4efbcce2fc109",
+  "extra_smoke_or_overfit": false,
+  "completed_at_unix": 1791138020.9868557,
+  "elapsed_seconds": 1215.8175539970398,
+  "status": "completed-remote-backup"
+}

@@ -1,5 +1,70 @@
 # Environment & Pod Setup Gotchas
 
+## Vast authentication: fresh instance-only key worked (2026-10-04)
+
+The subsequent CETVEL500 pod accepted the established local key immediately on
+both direct and proxy routes with explicit IdentitiesOnly/BatchMode. Therefore
+try the existing matching key first; the fresh-key procedure below is a fallback
+for a rejected offer, not a mandatory key rotation on every new instance.
+Do not record key contents in Markdown.
+
+## Wait for SCP completion before extracting a transferred archive
+
+During CETVEL500 preparation, the source archive finished before the78MB adapter
+archive. Extracting the latter while SCP still ran produced an unexpected EOF.
+No benchmark had started. After SCP returned exit0, the full archive SHA matched;
+re-extraction and both adapter weight/config hashes passed. Wait for transfer
+completion, then verify size/SHA before extraction. Prefer a temporary transfer
+name and rename after verification when useful. A visible remote file is not
+proof that upload has completed. Preserve failed setup observations; do not
+restart or change benchmark outputs to conceal them.
+
+## Vast authentication: fresh instance-only key worked (2026-10-04), details
+
+On the CETVEL-tiny pod, the established local key was rejected with
+`Permission denied (publickey)` on both direct and proxy routes. The public-key
+file matched the private key; verbose SSH showed the server rejecting the offered
+key, not accepting it and then failing signing. Network/KEX/host verification
+worked. A key being visible in the UI did not establish its presence in the
+container's authorized_keys; that state was not directly inspected.
+
+Working resolution: create a NEW per-instance Ed25519 key locally through a PTY,
+enter two genuinely empty passphrases, derive its public key to verify the pair,
+and have the user attach the PUBLIC key specifically to the running instance.
+Keep private material outside the repo; do not put either key content in Markdown.
+After attachment, explicit `ssh -i <instance-private-key> -o IdentitiesOnly=yes
+-o BatchMode=yes` authenticated on BOTH routes to the same container. Use
+StrictHostKeyChecking=accept-new only for a new endpoint, never disable checking.
+Prefer this proven procedure next time if the existing key is rejected; do not
+claim that the old key was malformed or infer the unverified server-side cause.
+
+## Tokenized chat-template return type changed in the new evaluation stack
+
+CETVEL-tiny fast inference used Transformers5.18.0 with vLLM0.30.0. A call to
+`apply_chat_template(..., tokenize=True)` returned a dict-like tokenization object
+by default, rather than the older stack's plain list of token IDs. Passing it as
+`prompt_token_ids` made vLLM iterate string keys and fail with a string-versus-int
+comparison. Use explicit `return_dict=False` when an integer list is required,
+and assert both list type and integer elements before submitting a request.
+Keep non-tokenized rendered text and exact input IDs for parity auditing.
+
+The same pinned Qwen3.5 config also has model EOS=endoftext248044, while its
+tokenizer EOS=im_end248046. Do not assume equality. To match the existing HF
+generation protocol, vLLM disables implicit renderer EOS and explicitly stops at
+model EOS248044; retain actual stop_reason. Early im_end stopping would change
+the evaluation. Preserve diagnostic logs; neither preparation error is a failed
+training run or a benchmark quality result.
+
+## vLLM0.30 low-level engine: returned IDs differ from output IDs
+
+`LLMEngine.add_request(external_id, ...)` returns an INTERNAL randomized request
+ID. `RequestOutput.request_id` uses the caller's EXTERNAL ID. Track streaming
+requests by the external ID; otherwise outputs are discarded and an empty engine
+can spin while the caller thinks requests are still active. Abort by external ID
+with the default API mode. Add a fail-loud check for no engine requests while
+caller-active IDs remain. This was caught in non-benchmark CETVEL-tiny diagnostics;
+only the owned diagnostic parent/core processes were terminated, logs retained.
+
 ## Windows SSH key creation / empty-passphrase quoting (2026-10-03)
 
 An instance-only key generated through cmd with ssh-keygen -N "" unexpectedly

@@ -245,3 +245,12 @@ datasets/adyghe/adiga-ai-ady-ru-en-v0.1/
 
 # Exp-009 GPU drafts, logs and environment snapshots stay local.
 experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/results/
+
+# External CETVEL source text and source-bearing generations stay in verified
+# local recovery; source-specific redistribution rights were not cleared.
+# Builders, pins, metrics, hashes and human grade summaries remain versioned.
+experiments/turkish-capability/qwen3.5-4b/exp-00[23]-cetvel-*/data-v1/questions-*.jsonl
+experiments/turkish-capability/qwen3.5-4b/exp-00[23]-cetvel-*/results-v1/*/answers.jsonl
+experiments/turkish-capability/qwen3.5-4b/exp-00[23]-cetvel-*/results-v1/*/partial-answers.jsonl
+experiments/turkish-capability/qwen3.5-4b/exp-00[23]-cetvel-*/results-v1/*/scored-samples.jsonl
+experiments/turkish-capability/qwen3.5-4b/exp-00[23]-cetvel-*/human-review-v1/review.json

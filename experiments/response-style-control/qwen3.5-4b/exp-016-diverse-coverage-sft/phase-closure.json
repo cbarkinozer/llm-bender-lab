@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-04",
+  "status": "selected",
+  "phase_status": "closed-at-user-request",
+  "selected_optimizer_step": 40,
+  "adapter_model_sha256": "7ec9b04a5ecac7a031352fb5d0db281ef018c11951a4b4862c418e2b7a002ca1",
+  "adapter_config_sha256": "6f7f0480fdcf1cc32aed14a1c66981c1a454840ece4f05932b0ef338846a4335",
+  "intended_use": "concise direct Turkish response style; experimental candidate",
+  "external_human30_preferences": {"F": 19, "base": 6, "tie": 2, "neither": 3},
+  "external_human30_pass": {"F": 23, "base": 21},
+  "known_limitations": [
+    "QA automatic gains substantially reflect output compliance; reviewed QA passed for both",
+    "summary human pass F2/6 versus base4/6 despite ROUGE gain",
+    "small single-reviewer human sample; no global retention or reasoning-mode claim",
+    "historical synthetic/personal-assistant provenance and publication terms need completion"
+  ],
+  "publication_status": "local-drafts-only-not-uploaded",
+  "next_action": "owner chooses Hub IDs and licenses, completes rights/provenance review, publishes adapter/dataset/cards/blog",
+  "further_gpu_work": false,
+  "frozen_training_config_unchanged": true
+}
