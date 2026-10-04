@@ -1,0 +1,20 @@
+{
+  "status": "human-reviewed-CPU-passed-needs-GPU",
+  "original_hashes": {
+    "train-reviewed.jsonl": "d61bdfab544dc0d3ba5531e74005940d47b6b6af38fba864dbd5ceefcf948d7a",
+    "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+  },
+  "train_hashes": {
+    "E": "2dc3724451a1e8a2bd33a585e71a8c0d533d68b92da3355363497c905b43d1ea",
+    "F": "fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950"
+  },
+  "control_sha256": "21f46cef4d1e80dbde9ea5db69ea83b409efc67ae6c17260a411938b35dabd05",
+  "raw_snapshot_hashes": {
+    "train": "628f36eaff55e4ef4b848629778313f151add37d183960c207b8a518cacdf71d",
+    "controls": "f275a3991827c8bc1e865d1ffd2802b40c2d34a4c2e198f21c4ba59c4960ee60"
+  },
+  "actual_target_changes": 9,
+  "authoring_report_sha256": "a6cc20114b71c05595fa92398fd27b21c62a6ba7877410015e2eac06e81d8051",
+  "control_policy": "Frozen before model outputs. Never train/replay/no validation loss.12-item diagnostic, not final test.",
+  "training_started": false
+}

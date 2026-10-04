@@ -3,7 +3,10 @@
 ## Status
 
 SFT6epochs/60steps and20-question inference completed. Same12 reviews and
-two authorized QA corrections as C;20/20 native EOS. Human comparison pending.
+two authorized QA corrections as C;20/20 native EOS. All20 human comparisons completed.
+Current ratings: D10pass/5partial/5fail vs C11/5/4 and A9/6/5.
+Longer training has mixed gains and substantive regressions; not promoted.
+See [review analysis](../exp-013-targeted-coverage-sft/human-validation-review-v1/README.md).
 Active config-reviewed-v1.yaml and training-preflight-v1, using C's one frozen
 data-reviewed-v1. Draft config.yaml remains blocked historical preparation.
 

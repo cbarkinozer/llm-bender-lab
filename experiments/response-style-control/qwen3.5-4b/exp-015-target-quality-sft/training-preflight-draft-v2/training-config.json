@@ -1,0 +1,92 @@
+{
+  "experiment_id": "exp-015-target-quality-sft",
+  "status": "blocked-human-review",
+  "model": {
+    "name": "unsloth/Qwen3.5-4B",
+    "revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "adapter": null,
+    "thinking_mode": false
+  },
+  "dataset": {
+    "train": "../exp-015-target-quality-sft/data-reviewed-v1/train-reviewed.jsonl",
+    "validation": "reviewed-v2/validation-reviewed.jsonl",
+    "hashes": {
+      "train-reviewed.jsonl": "UNAPPROVED-DRAFT-NOT-A-TRAINING-HASH",
+      "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "train_rows": 80,
+    "validation_rows": 20,
+    "loss": "final-assistant-only",
+    "review_required": true,
+    "review_status": "pending-target-repairs-and-new-records"
+  },
+  "training": {
+    "framework": "unsloth",
+    "method": "bf16-lora",
+    "max_seq_length": 1024,
+    "epochs": 4,
+    "learning_rate": 0.0001,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 8,
+    "expected_optimizer_steps": 40,
+    "optimizer": "adamw_8bit",
+    "scheduler": "cosine",
+    "warmup_steps": 2,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "seed": 3407,
+    "packing": false,
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "save_strategy": "steps",
+    "eval_strategy": "steps",
+    "report_to": "wandb",
+    "max_steps": 40,
+    "save_steps": 10,
+    "eval_steps": 10
+  },
+  "inference": {
+    "backend": "unsloth-transformers",
+    "temperature": 0.0,
+    "repetition_penalty": 1.05,
+    "thinking_mode": false,
+    "additional_system_prompt": null,
+    "output_token_budgets": [
+      4096
+    ],
+    "bounded": true,
+    "stop_policy": "native EOS; exact token loops/180-second timeout are failures, not EOS"
+  },
+  "notes": [
+    "Fresh pinned base for each arm; never initialize F from E adapter.",
+    "E retains exact C80 prompts/IDs/order/categories; only necessary reviewed target repairs.",
+    "F contains exact approved E80 plus24 independent reviewed new examples (4/skill).",
+    "Explicit max_steps40 overrides epochs4 in full mode; F about3.08epochs, E4epochs.",
+    "Same40-step cosine horizon and2 warmup; steps/save/eval10, final step40 preselected.",
+    "Equal optimizer steps are not equal supervised-token exposure or equal update size.",
+    "20 original development references unchanged incl disputed me089; sensitivity excludes089.",
+    "12 separate controls never enter train/validation loss/replay; approve/freeze before outputs.",
+    "Base,C,E,F generated under identical HF/Unsloth settings; historical vLLM base not canonical.",
+    "Same-generation non-thinking protocol; cannot infer thinking-mode retention.",
+    "No inherited GPU-gate waiver for new pair; environment/masks/W&B and required gates still needed.",
+    "Paths resolved relative to shared exp009 runner; draft config cannot train."
+  ],
+  "parent": "exp-013-targeted-coverage-sft",
+  "tracking": {
+    "run_name": "exp015-sft-target-quality-80rows-40steps"
+  }
+}

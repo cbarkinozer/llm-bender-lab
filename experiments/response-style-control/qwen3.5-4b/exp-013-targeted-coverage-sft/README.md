@@ -2,7 +2,7 @@
 
 ## Status
 
-SFT and primary inference completed; human comparison pending. All12 reviews
+SFT, primary inference and all20 human comparisons completed. All12 reviews
 exported:7 accept,5 rewrite, plus2 explicitly user-authorized QA corrections.
 Active config-reviewed-v1.yaml, data-reviewed-v1 and training-preflight-v1.
 `config.yaml` remains deliberately blocked draft history, not the active recipe.
@@ -88,7 +88,10 @@ Execution complete: mean training loss1.1909237187,153.696seconds; final adapter
 generated20/20 native EOS. User explicitly waived smoke/tiny-overfit/pre-SFT
 diagnostic reload for this pair; actual masks/W&B passed and post-SFT reload
 verified.129 indexed backup files verified. No quality improvement claim yet.
-[Review desired/A/C/D](http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=pending).
+[Original desired/A/C/D review](http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=submitted).
+User chose to finish the original queue; v2 is not authoritative.
+[Completed review](human-validation-review-v1/README.md): C11pass/5partial/4fail,
+A9/6/5,D10/5/5. Targeted gains and regressions; no universal winner/promotion.
 
 The preparation history below is preserved chronologically, not current run status.
 

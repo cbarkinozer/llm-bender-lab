@@ -63,7 +63,9 @@ def main():
             'setidir, bağımsız final test değil; inceleme kör değildir. Eğitim hedeflerini burada değiştirmeyin.')
         settings=rg.Settings(guidelines=guidelines,
             fields=[rg.TextField(name=f,use_markdown=False) for f in next(iter(fields.values()))],
-            questions=[rg.LabelQuestion(name='preferred',title='Hangi cevap daha iyi?',labels=['A','C','D','tie','neither'],required=True),
+            questions=[rg.LabelQuestion(name='preferred',title='Hangi cevap daha iyi?',
+                description='Select the best answer or the tied best answers; neither means none is acceptable.',
+                labels=['A','C','D','A=C','A=D','C=D','A=C=D','neither'],required=True),
                 *[rg.LabelQuestion(name=f'{arm}_substance',title=f'{arm}: içerik hedefi karşılıyor mu?',
                     labels=['pass','partial','fail'],required=True) for arm in arms],
                 *[rg.MultiLabelQuestion(name=f'{arm}_issues',title=f'{arm}: sorunlar',labels=['incorrect','unsupported_claim',

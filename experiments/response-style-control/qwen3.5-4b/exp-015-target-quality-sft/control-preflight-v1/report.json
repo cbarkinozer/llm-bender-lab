@@ -1,0 +1,47 @@
+{
+  "status": "draft-not-approved",
+  "splits": {
+    "control": 12
+  },
+  "split_stats": {
+    "control": {
+      "sequence": {
+        "min": 50,
+        "median": 98,
+        "p90": 167,
+        "p95": 167,
+        "p99": 187,
+        "max": 187,
+        "total": 1270
+      },
+      "target": {
+        "min": 8,
+        "median": 41,
+        "p90": 92,
+        "p95": 92,
+        "p99": 112,
+        "max": 112,
+        "total": 523
+      }
+    }
+  },
+  "max_seq_length": 1024,
+  "truncated_rows": 0,
+  "zero_target_rows": 0,
+  "all_context_tokens_masked": true,
+  "native_final_end_of_turn_supervised": true,
+  "files": {
+    "control-tokenized.jsonl": "60f887156e93ccd814951afa8331eb14ff2cce6ae62dee1e4300e8f04ede1837",
+    "mask-inspection.json": "1dc6b6bd8ada722c434d3545ad8113e424a16f69e412c3f3b8655d43d50baaaf",
+    "tokenizer-template.json": "4297525131efacc180bbe1ae6319a1298f897aa68379d1ca15cb7143850f9800",
+    "training-config.json": "ef597cd606e1d7fe24fd149f13fcbfb7edcf76caf75ebac19e78baf865daccf7"
+  },
+  "validation_tokenization_matches_parent": false,
+  "training_started": false,
+  "remaining": [
+    "human target/new/control review",
+    "hash-bound approved freeze",
+    "GPU environment/actual masking/W&B",
+    "required GPU gates"
+  ]
+}

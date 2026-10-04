@@ -5,6 +5,101 @@ fixes and decisions so a later blog can tell the complete story.
 This is an evidence journal, not a claim that the project has already succeeded.
 Append dated entries for every future round; preserve previous snapshots.
 
+### 2026-10-04: E/F reviews exported, final split leakage audit
+
+User completed all33 training/12 control records and requested leak confirmation.
+Read-only export preserves raw Argilla submissions, fields, IDs, timestamps and
+user-reviewed answers: train31rewrite/2accept, controls12rewrite. No field/review
+mutation or agent target rewrite. Frozen E80/F104,9 actual target changes versus
+C,71 E rows unchanged, all80 question IDs/messages/order/categories preserved.
+F first80 rows/tokenization exactly E. Original20 validation SHA unchanged.
+
+Final training artifact hashes E
+`2dc3724451a1e8a2bd33a585e71a8c0d533d68b92da3355363497c905b43d1ea`, F
+`fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950`.
+Controls SHA `21f46cef4d1e80dbde9ea5db69ea83b409efc67ae6c17260a411938b35dabd05`.
+Final supervised tokens per dataset E5121/F6216; maximum sequence514, no truncation.
+Both pinned tokenizer preflights passed nativeEOS/context masking and old20 parity.
+No model inference, GPU training or W&B run was started.
+
+Expanded final audit E80×32=2560/F104×32=3328 (5888 overlapping comparisons):
+zero exact prompt/near0.60/5word-containment0.50/long exact answer/embedded eval
+text flags, zero scenario/ID/composite-source overlaps. Earlier inventory scan
+repeated on approved data. Inspected nearest-pair listings for all32 and semantic
+boundaries. Only shared exact target: new021/control012 "Tamam, dinliyorum.";
+conventional2-word listening response retained, not heldout factual leakage.
+Some task families intentionally shared; not a novel-task benchmark. Same-author
+synthetic controls/only12/reused20 limit independence and generalization claims.
+Outcome: no identified item-level leakage, NOT universal semantic/pretraining
+guarantee. Controls physically separate from train/validation loss, runtime
+loaded-ID/mask checks still required. CPU readiness plus12 preparation tests pass.
+Evidence: [final reviewed leakage signoff](exp-015-target-quality-sft/data-reviewed-v1/SEMANTIC-LEAKAGE-REVIEW.md).
+
+### 2026-10-04: approved E/F hypotheses, data preparation only
+
+User accepted exp015/016. E tests necessary target-answer repair on exact C80
+questions; F adds24 independent examples (4×6skills) at fixed40optimizer steps.
+All LR/rank/batch/base/masks held; fresh base independently, not adapter stacking.
+Common40-step cosine horizon/warmup2; E4passes, F roughly3.08passes. Addition
+changes composition/row exposures and tokens, not a pure diversity causal test.
+Audit24 existing records:9 repairs,15 correct targets retained,56 others intact.
+No forced summary rewrite: those targets already preserve source meaning.
+Draft E5133 vs C5653 target tokens (-9.2%); F6179 (+20.4% vs E) per full dataset.
+Per-dataset totals are not runtime40-step token exposure. No forgetting claims.
+
+Separate12 controls (2×6skills), never optimizer/replay/validation loss. Original
+20 remain unchanged incl disputed089. Plan same-backend base/C/E/F generation,
+balanced blinded positions, explicit best-set ties and semantic/Turkish/style
+grades separately. Prior A/C/D Cem Öztürk summary all invented a price-change
+commitment; no general unsupported-inference avoidance claim for C.
+
+Preparation v1 omitted historical CSV train inventories; fixed in v2 and regression
+tested. A manual semantic check found v2 control010 too similar to old B's
+resolved-file-format case. Replaced with independent atlas-purpose case in v3;
+old snapshots/control queue retained, new control queue versioned, no reviews
+modified. Active v3 checks348 historical benchmark entries +3500 historical
+training entries +24 B entries (overlapping inventories, not unique questions),
+current80/20, new24 and controls12. No detected exact/near flags; not proof of
+universal semantic independence. Final12 pair-preparation tests and4 existing
+tokenizer/masking regression tests passed. Both active UI routes returnedHTTP200
+and API readback verified all33/12 fields and IDs. No approved data exists yet.
+
+Shared GPU runner had80rows/epoch-only settings hard-coded. Added explicit
+configured counts/max_steps/step saving/eval while retaining old config defaults;
+draft-human-review block remains. CPU tested, GPU untested. No weights/inference,
+W&B or GPU rental/termination here. Data review queues:33train and12controls.
+User work next: accept/rewrite/reject; no trainable approved artifact yet.
+
+Full plan and evidence: [exp015](exp-015-target-quality-sft/README.md),
+[exp016](exp-016-diverse-coverage-sft/README.md).
+
+### 2026-10-04: completed original A/C/D human review
+
+User rejected switching to the new tie-specific v2 queue and completed all20
+original records. Read-only export: snapshot SHA256
+`c9da2d9b06bad63e6bd6c51c9beefc38a8456595b7065b43cd331a548df812be`.
+UTC export timestamp21:15 on Oct03 corresponds to Oct04 local Istanbul time.
+Structured substance counts A9pass/6partial/5fail,C11/5/4,D10/5/5.
+Each arm sole preferred3; tie9,neither2. Notes resolve020 A=D>C and029 C=D;
+seven ties unspecified.060 C selection vs A=C>D note, and069 A partial label
+vs pass prose preserved without overriding. No need to redo user's review.
+
+Eight predeclared high-signal items: A2/5/1,C3/3/2,D2/4/2. Excluding disputed
+089 leaves all19 A9/5/5,C11/5/3,D10/4/5, with the same general conclusion.
+C/A adds pass029/069/079 but loses059;029 is answer-format gain, not new fact.
+D/C gains059/070 but loses069/079/090;049 improves only to partial,050 becomes
+fail with619tokens/repetition/contradictions. All fail grammar009/010.
+C1030 vs D1569 tokens, medians22/37, all nativeEOS; technical stop success
+does not hide semantic repetition. Lower D train loss did not reliably help.
+
+Agent recommendation: retain A as established comparison, C as candidate;
+do not promote D or declare an overall winner. Prioritize independent coverage
+for mechanisms/trade-offs/grammar/interaction, not blindly more epochs. No
+new experiments or training targets created from validation scenarios here.
+This is single-reviewer/seed, non-blind reused development, not final accuracy.
+Full evidence and per-item notes:
+[C/D human review](exp-013-targeted-coverage-sft/human-validation-review-v1/README.md).
+
 ## What we are trying to improve
 
 A useful Turkish assistant that answers directly, follows requested formats,

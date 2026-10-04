@@ -1,4 +1,4 @@
-"""GPU-only explicit-label LoRA runner. No text generation; use vLLM separately."""
+"""GPU-only explicit-label LoRA runner. Generation runs in a separate process."""
 import argparse
 import hashlib
 import importlib.metadata
@@ -10,6 +10,31 @@ import sys
 from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
+
+def training_plan(config, mode):
+    """Explicit step/row settings; preserve original defaults for old configs."""
+    t=config['training']; d=config['dataset']
+    counts={s:d.get(s+'_rows',80 if s=='train' else 20) for s in ('train','validation')}
+    if any(not isinstance(n,int) or isinstance(n,bool) or n<=0 for n in counts.values()):
+        raise ValueError('Configured split counts must be positive integers')
+    steps=t.get('max_steps',-1)
+    if not isinstance(steps,int) or isinstance(steps,bool) or (steps<=0 and steps!=-1):
+        raise ValueError('max_steps must be -1 (epochs) or a positive integer')
+    if mode=='full' and d.get('review_required',False):
+        raise ValueError('Human-reviewed freeze is required before full training')
+    if steps>0 and t.get('expected_optimizer_steps',steps)!=steps:
+        raise ValueError('Explicit step budget disagrees with expected_optimizer_steps')
+    save_strategy=t.get('save_strategy','epoch')
+    eval_strategy='no' if mode!='full' else t.get('eval_strategy','epoch')
+    kwargs={}
+    for strategy,key in ((save_strategy,'save_steps'),(eval_strategy,'eval_steps')):
+        if strategy=='steps':
+            n=t.get(key)
+            if not isinstance(n,int) or isinstance(n,bool) or n<=0:
+                raise ValueError(key+' required for step strategy')
+            kwargs[key]=n
+    return dict(counts=counts,max_steps=3 if mode=='smoke' else 40 if mode=='tiny-overfit' else steps,
+                save_strategy=save_strategy,eval_strategy=eval_strategy,step_kwargs=kwargs)
 
 def save(path,value):
     path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -33,6 +58,7 @@ def main():
     p.add_argument('--gates',type=Path,help='Manually reviewed GPU gate file; required for full')
     args=p.parse_args()
     config=json.loads((args.preflight_dir/'training-config.json').read_text(encoding='utf-8'))
+    plan=training_plan(config,args.mode)
     experiment_id=config['experiment_id']
     if args.mode=='full':
         os.environ.setdefault('WANDB_PROJECT','llm-bender-lab-response-style-control')
@@ -87,7 +113,7 @@ def main():
             assert r['split']==split and r['evaluation_only']==(split=='validation')
         encoded=[encode_final(tokenizer,r)[0] for r in rows]
         saved=[json.loads(s) for s in (args.preflight_dir/f'{split}-tokenized.jsonl').read_text().splitlines()]
-        assert len(encoded)==len(saved)==(80 if split=='train' else 20)
+        assert len(encoded)==len(saved)==plan['counts'][split]
         assert all(item=={k:s[k] for k in item} for item,s in zip(encoded,saved))
         processed[split]=Dataset.from_list(encoded)
     if args.mode=='tiny-overfit':
@@ -97,17 +123,29 @@ def main():
     diagnostic=args.mode!='full'
     ta=TrainingArguments(output_dir=str(args.output_dir/'checkpoints'),per_device_train_batch_size=1,
         per_device_eval_batch_size=1,gradient_accumulation_steps=t['gradient_accumulation_steps'],
-        num_train_epochs=t['epochs'],max_steps=(3 if args.mode=='smoke' else 40 if args.mode=='tiny-overfit' else -1),
+        num_train_epochs=t['epochs'],max_steps=plan['max_steps'],
         learning_rate=(2e-4 if args.mode=='tiny-overfit' else t['learning_rate']),warmup_steps=t['warmup_steps'],
         lr_scheduler_type=t['scheduler'],optim=t['optimizer'],weight_decay=t['weight_decay'],max_grad_norm=t['max_grad_norm'],
         bf16=True,fp16=False,seed=t['seed'],data_seed=t['seed'],logging_steps=1,
-        save_strategy='epoch',eval_strategy='no' if diagnostic else 'epoch',save_total_limit=2,
+        save_strategy=plan['save_strategy'],eval_strategy=plan['eval_strategy'],save_total_limit=2,
         report_to=[] if diagnostic else ['wandb'],
         run_name=(experiment_id+'-'+args.mode if diagnostic else config.get('tracking',{}).get('run_name',
             'exp'+experiment_id.split('-')[1]+'-sft-lr'+format(t['learning_rate'],'.0e').replace('e-0','e-')+
             '-'+str(len(processed['train']))+'rows-'+format(t['epochs'],'g')+'ep')),
-        remove_unused_columns=False,prediction_loss_only=True)
-    trainer=Trainer(model=model,args=ta,train_dataset=processed['train'],eval_dataset=processed['validation'],data_collator=collator)
+        remove_unused_columns=False,prediction_loss_only=True,**plan['step_kwargs'])
+    class ExposureTrainer(Trainer):
+        """Record only actual training microbatches, not mask checks/evaluation."""
+        def training_step(self, model, inputs, *positional, **keywords):
+            loss=super().training_step(model,inputs,*positional,**keywords)
+            if not diagnostic:
+                record=dict(optimizer_step_before=self.state.global_step,
+                    supervised_tokens=int((inputs['labels']!=-100).sum().item()),
+                    input_tokens=int(inputs['attention_mask'].sum().item()),
+                    input_ids_sha256=hashlib.sha256(json.dumps(inputs['input_ids'].tolist()).encode()).hexdigest())
+                with (args.output_dir/'training-exposure.jsonl').open('a',encoding='utf-8') as stream:
+                    stream.write(json.dumps(record)+'\n')
+            return loss
+    trainer=ExposureTrainer(model=model,args=ta,train_dataset=processed['train'],eval_dataset=processed['validation'],data_collator=collator)
     save(args.output_dir/'effective-training-arguments.json',ta.to_dict())
     save(args.output_dir/'invocation.json',dict(argv=sys.argv,cwd=os.getcwd(),
         precision='bfloat16',float32_matmul_precision=torch.get_float32_matmul_precision(),
@@ -133,6 +171,8 @@ def main():
     before=trainer.evaluate(eval_dataset=processed['train']) if args.mode=='tiny-overfit' else None
     result=trainer.train()
     assert math.isfinite(result.training_loss)
+    if args.mode=='full' and plan['max_steps']>0:
+        assert trainer.state.global_step==plan['max_steps']
     trainer.save_model(str(args.output_dir/'adapter'))
     tokenizer.save_pretrained(args.output_dir/'adapter')
     after=trainer.evaluate(eval_dataset=processed['train']) if args.mode=='tiny-overfit' else None

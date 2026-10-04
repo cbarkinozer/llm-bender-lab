@@ -1,0 +1,256 @@
+{
+  "dataset_id": "e3b691cb-79fc-4bd8-a358-39f9a23770b5",
+  "exported_at": "2026-10-03T21:15:04.924190+00:00",
+  "snapshot_sha256": "c9da2d9b06bad63e6bd6c51c9beefc38a8456595b7065b43cd331a548df812be",
+  "source": "Original queue, explicitly chosen by user; v2 is not authoritative.",
+  "policy": "Structured labels are primary; notes retained without overriding grades or preferences.",
+  "all20": {
+    "count": 20,
+    "preferences": {
+      "neither": 2,
+      "tie": 9,
+      "D": 3,
+      "A": 3,
+      "C": 3
+    },
+    "substance": {
+      "A": {
+        "fail": 5,
+        "pass": 9,
+        "partial": 6
+      },
+      "C": {
+        "fail": 4,
+        "pass": 11,
+        "partial": 5
+      },
+      "D": {
+        "fail": 5,
+        "pass": 10,
+        "partial": 5
+      }
+    },
+    "paired_pass": {
+      "C_vs_A": {
+        "left_only_pass": [
+          "me-029",
+          "me-069",
+          "me-079"
+        ],
+        "right_only_pass": [
+          "me-059"
+        ]
+      },
+      "D_vs_C": {
+        "left_only_pass": [
+          "me-059",
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-069",
+          "me-079",
+          "me-090"
+        ]
+      },
+      "D_vs_A": {
+        "left_only_pass": [
+          "me-029",
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-090"
+        ]
+      }
+    }
+  },
+  "without_disputed089": {
+    "count": 19,
+    "preferences": {
+      "neither": 2,
+      "tie": 9,
+      "D": 2,
+      "A": 3,
+      "C": 3
+    },
+    "substance": {
+      "A": {
+        "fail": 5,
+        "pass": 9,
+        "partial": 5
+      },
+      "C": {
+        "fail": 3,
+        "pass": 11,
+        "partial": 5
+      },
+      "D": {
+        "fail": 5,
+        "pass": 10,
+        "partial": 4
+      }
+    },
+    "paired_pass": {
+      "C_vs_A": {
+        "left_only_pass": [
+          "me-029",
+          "me-069",
+          "me-079"
+        ],
+        "right_only_pass": [
+          "me-059"
+        ]
+      },
+      "D_vs_C": {
+        "left_only_pass": [
+          "me-059",
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-069",
+          "me-079",
+          "me-090"
+        ]
+      },
+      "D_vs_A": {
+        "left_only_pass": [
+          "me-029",
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-090"
+        ]
+      }
+    }
+  },
+  "high_signal8": {
+    "count": 8,
+    "preferences": {
+      "D": 3,
+      "A": 3,
+      "C": 2
+    },
+    "substance": {
+      "A": {
+        "fail": 1,
+        "partial": 5,
+        "pass": 2
+      },
+      "C": {
+        "fail": 2,
+        "partial": 3,
+        "pass": 3
+      },
+      "D": {
+        "partial": 4,
+        "fail": 2,
+        "pass": 2
+      }
+    },
+    "paired_pass": {
+      "C_vs_A": {
+        "left_only_pass": [
+          "me-069",
+          "me-079"
+        ],
+        "right_only_pass": [
+          "me-059"
+        ]
+      },
+      "D_vs_C": {
+        "left_only_pass": [
+          "me-059",
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-069",
+          "me-079",
+          "me-090"
+        ]
+      },
+      "D_vs_A": {
+        "left_only_pass": [
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-090"
+        ]
+      }
+    }
+  },
+  "high_signal_without089": {
+    "count": 7,
+    "preferences": {
+      "D": 2,
+      "A": 3,
+      "C": 2
+    },
+    "substance": {
+      "A": {
+        "fail": 1,
+        "partial": 4,
+        "pass": 2
+      },
+      "C": {
+        "fail": 1,
+        "partial": 3,
+        "pass": 3
+      },
+      "D": {
+        "partial": 3,
+        "fail": 2,
+        "pass": 2
+      }
+    },
+    "paired_pass": {
+      "C_vs_A": {
+        "left_only_pass": [
+          "me-069",
+          "me-079"
+        ],
+        "right_only_pass": [
+          "me-059"
+        ]
+      },
+      "D_vs_C": {
+        "left_only_pass": [
+          "me-059",
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-069",
+          "me-079",
+          "me-090"
+        ]
+      },
+      "D_vs_A": {
+        "left_only_pass": [
+          "me-070"
+        ],
+        "right_only_pass": [
+          "me-090"
+        ]
+      }
+    }
+  },
+  "explicit_tie_notes": {
+    "me-020": "A=D>C",
+    "me-029": "C=D"
+  },
+  "unresolved_ties": [
+    "me-019",
+    "me-030",
+    "me-039",
+    "me-040",
+    "me-080",
+    "me-099",
+    "me-100"
+  ],
+  "preference_note_conflicts": [
+    "me-060"
+  ],
+  "limitations": [
+    "20 reused development items; single reviewer/seed; non-blind.",
+    "User notes may contain assistant-assisted rationale; authorship not assumed.",
+    "No global accuracy, statistical significance or forgetting claim."
+  ]
+}

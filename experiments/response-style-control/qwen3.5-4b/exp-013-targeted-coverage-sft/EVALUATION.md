@@ -23,7 +23,7 @@ vLLM; do not claim exact backend parity if showing it as extra context.
 ## What to judge
 
 Argilla desired/A/C/D: task substance pass/partial/fail per arm, preference
-including tie/neither, optional issue labels and notes. Correct task completion,
+including explicit tied-best subsets/neither, optional issue labels and notes. Correct task completion,
 grounded reasoning, uncertainty preservation, natural Turkish and selective
 clarification precede style. Exact answer-only constraints are substantive;
 unrequested formatting is also tracked separately. Shortness is not accuracy.
@@ -53,3 +53,28 @@ accuracy, global reasoning preservation, no-hallucination or no-forgetting claim
 Separate thinking-mode/training-fit probes may be retained as diagnostics but
 must not be counted as additional independent primary test items.
 Independent final test and retention checks remain needed for a success claim.
+
+## Three-way preference correction (2026-10-04)
+
+The initial generic `tie` was ambiguous with three models. Active review:
+[A/C/D v2](http://127.0.0.1:6900/dataset/fb6d224c-58bc-439f-8e96-989b327272ee/annotation-mode?page=1&status=pending).
+Options: A, C, D, A=C, A=D, C=D, A=C=D, neither. Pair ties identify
+the tied BEST models above the remaining model, not any arbitrary pair.
+Neither means no acceptable answer. A/C/D substance ratings remain separate.
+
+Argilla rejects option-count changes on published questions (422). Created a
+versioned queue rather than deleting/replacing the old question or responses.
+All20 fields and all existing response values/user IDs/statuses copied and
+read-back verified; original queue remains untouched. The existing me-040
+`tie` response is preserved as explicitly legacy/unspecified, NOT reinterpreted
+as a three-way tie. User should reselect its actual tied-best models in v2.
+Exclude unresolved legacy ties from subset/winner statistics and report them.
+New server record/response IDs and timestamps differ in the copied queue.
+Before/after snapshots are outside Git under the paired artifact root,
+`preference-options-v2-copy/`; migration code is `fix_preference_options.py`.
+No training, inference, targets or model results were changed.
+
+User subsequently chose the original queue and completed all20 there. That
+queue is authoritative, v2 is historical only. Read-only export and analysis:
+[human-validation-review-v1](human-validation-review-v1/README.md). Do not merge
+the partial v2 copy into the completed original responses or infer missing ties.

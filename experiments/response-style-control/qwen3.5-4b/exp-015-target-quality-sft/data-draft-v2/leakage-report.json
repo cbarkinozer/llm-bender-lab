@@ -1,0 +1,420 @@
+{
+  "status": "passed-no-detected-overlap",
+  "exact_matches": [],
+  "near_flags": [],
+  "historical_entries_scanned": 3872,
+  "current_train": 80,
+  "current_validation": 20,
+  "new_train": 24,
+  "controls": 12,
+  "source_inventory": {
+    "exp-002-communication-policy-benchmark/development.csv": {
+      "sha256": "4ea4d167655b36a4fa1c75865dd61678b4fef806f6d3b02b0ba2e349f04ca556",
+      "kind": "historical-benchmark"
+    },
+    "exp-002-communication-policy-benchmark/test.csv": {
+      "sha256": "2749dbd304c60cdb38a5538fe8684e2a814c5933a35d95057baf5ab3b759a300",
+      "kind": "historical-benchmark"
+    },
+    "exp-002-communication-policy-benchmark/test-v2.1.csv": {
+      "sha256": "c75587a0921fbe59fcd861392fa21e5771d05d21244f14ce6fb2068dadc2fafd",
+      "kind": "historical-benchmark"
+    },
+    "exp-005-targeted-policy-sft/evaluation/final-holdout-v1.csv": {
+      "sha256": "ad18403ffb6a1281a5a25a5f69a5d76a0da9cf3cdf9afea8e55340f26bf71673",
+      "kind": "historical-benchmark"
+    },
+    "exp-006-quality-repair-sft/evaluation/final-holdout-v2.csv": {
+      "sha256": "1eb26264e79e0818200d06d959625c31786818c26f9ff2bc6105b69921e135fb",
+      "kind": "historical-benchmark"
+    },
+    "exp-007-boundary-benchmark/development-reviewed-v2.csv": {
+      "sha256": "9e48512243e31a65ed8d800bdcc8bb4bf45da8995902bacfda730d996900643e",
+      "kind": "historical-benchmark"
+    },
+    "exp-001-sft-dataset/reviewed-v3/accepted-reviewed.csv": {
+      "sha256": "46d63abbf3b71290e89d34032b9bd3eb15722b4be7e50caa5a39d995c0863163",
+      "kind": "historical-train"
+    },
+    "exp-006-quality-repair-sft/data/sft-clean-v4-quality-repair-958.csv": {
+      "sha256": "bbaab152182318da5aff73a5227b784550933dfac1848037ad86f4cc57a7ebff",
+      "kind": "historical-train"
+    },
+    "exp-008-generalization-sft/data/sft-generalization-final-100.csv": {
+      "sha256": "cbfbf3252ec99d7d5912e569de0d3872ebeef4609a42c7e9244f326f757607b6",
+      "kind": "historical-train"
+    },
+    "exp-012-coverage-ablation/data-reviewed-v1/train-reviewed.jsonl": {
+      "sha256": "8b9807ca86c604439a23df7181c24f6df79e82d32541b0ec0966cd1942aa054c",
+      "kind": "earlier-B"
+    }
+  },
+  "nearest_validation_above_quick_bound": [
+    {
+      "id": "ef-new-001",
+      "other_id": "me-070",
+      "similarity": 0.3478
+    },
+    {
+      "id": "ef-new-001",
+      "other_id": "me-099",
+      "similarity": 0.3093
+    },
+    {
+      "id": "ef-new-002",
+      "other_id": "me-010",
+      "similarity": 0.2564
+    },
+    {
+      "id": "ef-new-002",
+      "other_id": "me-059",
+      "similarity": 0.25
+    },
+    {
+      "id": "ef-new-003",
+      "other_id": "me-090",
+      "similarity": 0.368
+    },
+    {
+      "id": "ef-new-003",
+      "other_id": "me-009",
+      "similarity": 0.2833
+    },
+    {
+      "id": "ef-new-004",
+      "other_id": "me-050",
+      "similarity": 0.3687
+    },
+    {
+      "id": "ef-new-004",
+      "other_id": "me-079",
+      "similarity": 0.304
+    },
+    {
+      "id": "ef-new-005",
+      "other_id": "me-069",
+      "similarity": 0.3256
+    },
+    {
+      "id": "ef-new-005",
+      "other_id": "me-049",
+      "similarity": 0.3056
+    },
+    {
+      "id": "ef-new-006",
+      "other_id": "me-059",
+      "similarity": 0.2976
+    },
+    {
+      "id": "ef-new-006",
+      "other_id": "me-079",
+      "similarity": 0.2901
+    },
+    {
+      "id": "ef-new-007",
+      "other_id": "me-099",
+      "similarity": 0.2966
+    },
+    {
+      "id": "ef-new-007",
+      "other_id": "me-029",
+      "similarity": 0.2889
+    },
+    {
+      "id": "ef-new-008",
+      "other_id": "me-050",
+      "similarity": 0.2998
+    },
+    {
+      "id": "ef-new-008",
+      "other_id": "me-030",
+      "similarity": 0.2917
+    },
+    {
+      "id": "ef-new-009",
+      "other_id": "me-100",
+      "similarity": 0.2918
+    },
+    {
+      "id": "ef-new-009",
+      "other_id": "me-029",
+      "similarity": 0.2857
+    },
+    {
+      "id": "ef-new-010",
+      "other_id": "me-050",
+      "similarity": 0.3309
+    },
+    {
+      "id": "ef-new-010",
+      "other_id": "me-099",
+      "similarity": 0.3072
+    },
+    {
+      "id": "ef-new-011",
+      "other_id": "me-080",
+      "similarity": 0.3301
+    },
+    {
+      "id": "ef-new-011",
+      "other_id": "me-050",
+      "similarity": 0.2935
+    },
+    {
+      "id": "ef-new-012",
+      "other_id": "me-080",
+      "similarity": 0.302
+    },
+    {
+      "id": "ef-new-012",
+      "other_id": "me-050",
+      "similarity": 0.2711
+    },
+    {
+      "id": "ef-new-013",
+      "other_id": "me-079",
+      "similarity": 0.2695
+    },
+    {
+      "id": "ef-new-013",
+      "other_id": "me-040",
+      "similarity": 0.2679
+    },
+    {
+      "id": "ef-new-014",
+      "other_id": "me-029",
+      "similarity": 0.29
+    },
+    {
+      "id": "ef-new-014",
+      "other_id": "me-099",
+      "similarity": 0.2834
+    },
+    {
+      "id": "ef-new-015",
+      "other_id": "me-080",
+      "similarity": 0.2868
+    },
+    {
+      "id": "ef-new-015",
+      "other_id": "me-039",
+      "similarity": 0.2841
+    },
+    {
+      "id": "ef-new-016",
+      "other_id": "me-099",
+      "similarity": 0.3673
+    },
+    {
+      "id": "ef-new-016",
+      "other_id": "me-020",
+      "similarity": 0.298
+    },
+    {
+      "id": "ef-new-017",
+      "other_id": "me-060",
+      "similarity": 0.3714
+    },
+    {
+      "id": "ef-new-017",
+      "other_id": "me-009",
+      "similarity": 0.3596
+    },
+    {
+      "id": "ef-new-018",
+      "other_id": "me-059",
+      "similarity": 0.3686
+    },
+    {
+      "id": "ef-new-018",
+      "other_id": "me-100",
+      "similarity": 0.3162
+    },
+    {
+      "id": "ef-new-019",
+      "other_id": "me-069",
+      "similarity": 0.3424
+    },
+    {
+      "id": "ef-new-019",
+      "other_id": "me-059",
+      "similarity": 0.2906
+    },
+    {
+      "id": "ef-new-020",
+      "other_id": "me-010",
+      "similarity": 0.3967
+    },
+    {
+      "id": "ef-new-020",
+      "other_id": "me-079",
+      "similarity": 0.3139
+    },
+    {
+      "id": "ef-new-021",
+      "other_id": "me-090",
+      "similarity": 0.3974
+    },
+    {
+      "id": "ef-new-021",
+      "other_id": "me-049",
+      "similarity": 0.3158
+    },
+    {
+      "id": "ef-new-022",
+      "other_id": "me-049",
+      "similarity": 0.3431
+    },
+    {
+      "id": "ef-new-022",
+      "other_id": "me-040",
+      "similarity": 0.2778
+    },
+    {
+      "id": "ef-new-023",
+      "other_id": "me-090",
+      "similarity": 0.3876
+    },
+    {
+      "id": "ef-new-023",
+      "other_id": "me-009",
+      "similarity": 0.2903
+    },
+    {
+      "id": "ef-new-024",
+      "other_id": "me-100",
+      "similarity": 0.2908
+    },
+    {
+      "id": "ef-new-024",
+      "other_id": "me-010",
+      "similarity": 0.2871
+    },
+    {
+      "id": "ef-control-001",
+      "other_id": "me-010",
+      "similarity": 0.3368
+    },
+    {
+      "id": "ef-control-001",
+      "other_id": "me-100",
+      "similarity": 0.3333
+    },
+    {
+      "id": "ef-control-002",
+      "other_id": "me-099",
+      "similarity": 0.3222
+    },
+    {
+      "id": "ef-control-002",
+      "other_id": "me-009",
+      "similarity": 0.3206
+    },
+    {
+      "id": "ef-control-003",
+      "other_id": "me-059",
+      "similarity": 0.3529
+    },
+    {
+      "id": "ef-control-003",
+      "other_id": "me-080",
+      "similarity": 0.2667
+    },
+    {
+      "id": "ef-control-004",
+      "other_id": "me-049",
+      "similarity": 0.284
+    },
+    {
+      "id": "ef-control-004",
+      "other_id": "me-019",
+      "similarity": 0.2652
+    },
+    {
+      "id": "ef-control-005",
+      "other_id": "me-059",
+      "similarity": 0.314
+    },
+    {
+      "id": "ef-control-005",
+      "other_id": "me-039",
+      "similarity": 0.2725
+    },
+    {
+      "id": "ef-control-006",
+      "other_id": "me-050",
+      "similarity": 0.2755
+    },
+    {
+      "id": "ef-control-006",
+      "other_id": "me-040",
+      "similarity": 0.2614
+    },
+    {
+      "id": "ef-control-007",
+      "other_id": "me-099",
+      "similarity": 0.3218
+    },
+    {
+      "id": "ef-control-007",
+      "other_id": "me-069",
+      "similarity": 0.2764
+    },
+    {
+      "id": "ef-control-008",
+      "other_id": "me-099",
+      "similarity": 0.3289
+    },
+    {
+      "id": "ef-control-008",
+      "other_id": "me-020",
+      "similarity": 0.2714
+    },
+    {
+      "id": "ef-control-009",
+      "other_id": "me-070",
+      "similarity": 0.3465
+    },
+    {
+      "id": "ef-control-009",
+      "other_id": "me-090",
+      "similarity": 0.3333
+    },
+    {
+      "id": "ef-control-010",
+      "other_id": "me-059",
+      "similarity": 0.3678
+    },
+    {
+      "id": "ef-control-010",
+      "other_id": "me-070",
+      "similarity": 0.36
+    },
+    {
+      "id": "ef-control-011",
+      "other_id": "me-049",
+      "similarity": 0.3039
+    },
+    {
+      "id": "ef-control-011",
+      "other_id": "me-070",
+      "similarity": 0.2449
+    },
+    {
+      "id": "ef-control-012",
+      "other_id": "me-090",
+      "similarity": 0.3544
+    },
+    {
+      "id": "ef-control-012",
+      "other_id": "me-049",
+      "similarity": 0.287
+    }
+  ],
+  "thresholds": {
+    "evaluation": 0.6,
+    "other": 0.78
+  },
+  "semantic_review": "Capability taxonomy only, not item-level prompts/solutions. New scenarios: warehouse, letter, drawer, doctoral education, museum bag, sewing, rental, export, shared queue, bakery, choir, minutes, exhibit review, library poll, ventilation, ceramics, absent text, lesson audience, games, ironing, disagreement, club boundary, puzzle, art participation. Controls independently authored in separate scene groups; no cafe sign, morning departure, desk/light division, exam venting, home belonging, presentation timing or mayor announcement derivatives.",
+  "limitation": "Lexical checks plus agent provenance/scene review are not a proof of semantic independence. Shared generic behavior/task families are intentional. Threshold flags require review, not automatic deletion. Historical versions overlap."
+}

@@ -1,0 +1,1350 @@
+{
+  "status": "automated-checks-passed-needs-semantic-signoff",
+  "training_started": false,
+  "train_counts": {
+    "E": 80,
+    "F": 104
+  },
+  "evaluation_counts": {
+    "development": 20,
+    "new_controls": 12,
+    "total": 32
+  },
+  "F_first80_identical_to_E": true,
+  "E_prompts_ids_order_unchanged": true,
+  "exact_cross_split_id_matches": [],
+  "exact_cross_split_scenario_matches": [],
+  "exact_cross_split_source_identity_matches": [],
+  "results": {
+    "E": {
+      "pairs_checked": 2560,
+      "exact_user_prompt_matches": [],
+      "near_prompt_flags": [],
+      "high_ngram_containment_flags": [],
+      "long_exact_reference_matches": [],
+      "evaluation_text_embedded_in_train": [],
+      "shared_short_generic_answers": [],
+      "nearest_prompt_pairs": [
+        {
+          "eval_id": "me-009",
+          "closest": [
+            {
+              "eval_id": "me-009",
+              "train_id": "me-008",
+              "similarity": 0.4444
+            },
+            {
+              "eval_id": "me-009",
+              "train_id": "me-097",
+              "similarity": 0.4337
+            },
+            {
+              "eval_id": "me-009",
+              "train_id": "me-086",
+              "similarity": 0.3762
+            }
+          ]
+        },
+        {
+          "eval_id": "me-010",
+          "closest": [
+            {
+              "eval_id": "me-010",
+              "train_id": "me-092",
+              "similarity": 0.4348
+            },
+            {
+              "eval_id": "me-010",
+              "train_id": "me-077",
+              "similarity": 0.4252
+            },
+            {
+              "eval_id": "me-010",
+              "train_id": "me-097",
+              "similarity": 0.4205
+            }
+          ]
+        },
+        {
+          "eval_id": "me-019",
+          "closest": [
+            {
+              "eval_id": "me-019",
+              "train_id": "me-018",
+              "similarity": 0.3986
+            },
+            {
+              "eval_id": "me-019",
+              "train_id": "me-012",
+              "similarity": 0.3641
+            },
+            {
+              "eval_id": "me-019",
+              "train_id": "me-023",
+              "similarity": 0.3557
+            }
+          ]
+        },
+        {
+          "eval_id": "me-020",
+          "closest": [
+            {
+              "eval_id": "me-020",
+              "train_id": "me-017",
+              "similarity": 0.4
+            },
+            {
+              "eval_id": "me-020",
+              "train_id": "me-012",
+              "similarity": 0.3782
+            },
+            {
+              "eval_id": "me-020",
+              "train_id": "me-018",
+              "similarity": 0.361
+            }
+          ]
+        },
+        {
+          "eval_id": "me-029",
+          "closest": [
+            {
+              "eval_id": "me-029",
+              "train_id": "me-023",
+              "similarity": 0.3387
+            },
+            {
+              "eval_id": "me-029",
+              "train_id": "me-036",
+              "similarity": 0.3269
+            },
+            {
+              "eval_id": "me-029",
+              "train_id": "me-012",
+              "similarity": 0.3182
+            }
+          ]
+        },
+        {
+          "eval_id": "me-030",
+          "closest": [
+            {
+              "eval_id": "me-030",
+              "train_id": "me-023",
+              "similarity": 0.4209
+            },
+            {
+              "eval_id": "me-030",
+              "train_id": "me-025",
+              "similarity": 0.4138
+            },
+            {
+              "eval_id": "me-030",
+              "train_id": "me-017",
+              "similarity": 0.3753
+            }
+          ]
+        },
+        {
+          "eval_id": "me-039",
+          "closest": [
+            {
+              "eval_id": "me-039",
+              "train_id": "me-032",
+              "similarity": 0.3933
+            },
+            {
+              "eval_id": "me-039",
+              "train_id": "me-038",
+              "similarity": 0.3554
+            },
+            {
+              "eval_id": "me-039",
+              "train_id": "me-031",
+              "similarity": 0.3501
+            }
+          ]
+        },
+        {
+          "eval_id": "me-040",
+          "closest": [
+            {
+              "eval_id": "me-040",
+              "train_id": "tc-003",
+              "similarity": 0.3882
+            },
+            {
+              "eval_id": "me-040",
+              "train_id": "me-036",
+              "similarity": 0.3842
+            },
+            {
+              "eval_id": "me-040",
+              "train_id": "me-037",
+              "similarity": 0.3777
+            }
+          ]
+        },
+        {
+          "eval_id": "me-049",
+          "closest": [
+            {
+              "eval_id": "me-049",
+              "train_id": "me-048",
+              "similarity": 0.3644
+            },
+            {
+              "eval_id": "me-049",
+              "train_id": "me-088",
+              "similarity": 0.3442
+            },
+            {
+              "eval_id": "me-049",
+              "train_id": "me-044",
+              "similarity": 0.3392
+            }
+          ]
+        },
+        {
+          "eval_id": "me-050",
+          "closest": [
+            {
+              "eval_id": "me-050",
+              "train_id": "me-098",
+              "similarity": 0.319
+            },
+            {
+              "eval_id": "me-050",
+              "train_id": "me-045",
+              "similarity": 0.3068
+            },
+            {
+              "eval_id": "me-050",
+              "train_id": "me-044",
+              "similarity": 0.306
+            }
+          ]
+        },
+        {
+          "eval_id": "me-059",
+          "closest": [
+            {
+              "eval_id": "me-059",
+              "train_id": "me-088",
+              "similarity": 0.4035
+            },
+            {
+              "eval_id": "me-059",
+              "train_id": "me-066",
+              "similarity": 0.3636
+            },
+            {
+              "eval_id": "me-059",
+              "train_id": "me-077",
+              "similarity": 0.3441
+            }
+          ]
+        },
+        {
+          "eval_id": "me-060",
+          "closest": [
+            {
+              "eval_id": "me-060",
+              "train_id": "me-082",
+              "similarity": 0.4675
+            },
+            {
+              "eval_id": "me-060",
+              "train_id": "me-056",
+              "similarity": 0.4298
+            },
+            {
+              "eval_id": "me-060",
+              "train_id": "me-086",
+              "similarity": 0.3415
+            }
+          ]
+        },
+        {
+          "eval_id": "me-069",
+          "closest": [
+            {
+              "eval_id": "me-069",
+              "train_id": "me-066",
+              "similarity": 0.4048
+            },
+            {
+              "eval_id": "me-069",
+              "train_id": "me-048",
+              "similarity": 0.3731
+            },
+            {
+              "eval_id": "me-069",
+              "train_id": "me-045",
+              "similarity": 0.3598
+            }
+          ]
+        },
+        {
+          "eval_id": "me-070",
+          "closest": [
+            {
+              "eval_id": "me-070",
+              "train_id": "me-045",
+              "similarity": 0.418
+            },
+            {
+              "eval_id": "me-070",
+              "train_id": "me-091",
+              "similarity": 0.3927
+            },
+            {
+              "eval_id": "me-070",
+              "train_id": "me-042",
+              "similarity": 0.3725
+            }
+          ]
+        },
+        {
+          "eval_id": "me-079",
+          "closest": [
+            {
+              "eval_id": "me-079",
+              "train_id": "me-078",
+              "similarity": 0.4215
+            },
+            {
+              "eval_id": "me-079",
+              "train_id": "me-076",
+              "similarity": 0.3565
+            },
+            {
+              "eval_id": "me-079",
+              "train_id": "me-095",
+              "similarity": 0.3426
+            }
+          ]
+        },
+        {
+          "eval_id": "me-080",
+          "closest": [
+            {
+              "eval_id": "me-080",
+              "train_id": "me-074",
+              "similarity": 0.3897
+            },
+            {
+              "eval_id": "me-080",
+              "train_id": "me-078",
+              "similarity": 0.3813
+            },
+            {
+              "eval_id": "me-080",
+              "train_id": "me-071",
+              "similarity": 0.367
+            }
+          ]
+        },
+        {
+          "eval_id": "me-089",
+          "closest": [
+            {
+              "eval_id": "me-089",
+              "train_id": "me-054",
+              "similarity": 0.3718
+            },
+            {
+              "eval_id": "me-089",
+              "train_id": "me-055",
+              "similarity": 0.3718
+            },
+            {
+              "eval_id": "me-089",
+              "train_id": "me-086",
+              "similarity": 0.3542
+            }
+          ]
+        },
+        {
+          "eval_id": "me-090",
+          "closest": [
+            {
+              "eval_id": "me-090",
+              "train_id": "me-085",
+              "similarity": 0.4113
+            },
+            {
+              "eval_id": "me-090",
+              "train_id": "me-092",
+              "similarity": 0.3609
+            },
+            {
+              "eval_id": "me-090",
+              "train_id": "me-061",
+              "similarity": 0.3459
+            }
+          ]
+        },
+        {
+          "eval_id": "me-099",
+          "closest": [
+            {
+              "eval_id": "me-099",
+              "train_id": "tc-012",
+              "similarity": 0.3302
+            },
+            {
+              "eval_id": "me-099",
+              "train_id": "tc-011",
+              "similarity": 0.3292
+            },
+            {
+              "eval_id": "me-099",
+              "train_id": "me-043",
+              "similarity": 0.3077
+            }
+          ]
+        },
+        {
+          "eval_id": "me-100",
+          "closest": [
+            {
+              "eval_id": "me-100",
+              "train_id": "tc-012",
+              "similarity": 0.3204
+            },
+            {
+              "eval_id": "me-100",
+              "train_id": "me-046",
+              "similarity": 0.3108
+            },
+            {
+              "eval_id": "me-100",
+              "train_id": "me-075",
+              "similarity": 0.3097
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-001",
+          "closest": [
+            {
+              "eval_id": "ef-control-001",
+              "train_id": "me-076",
+              "similarity": 0.3967
+            },
+            {
+              "eval_id": "ef-control-001",
+              "train_id": "me-097",
+              "similarity": 0.3478
+            },
+            {
+              "eval_id": "ef-control-001",
+              "train_id": "me-077",
+              "similarity": 0.3204
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-002",
+          "closest": [
+            {
+              "eval_id": "ef-control-002",
+              "train_id": "me-018",
+              "similarity": 0.3191
+            },
+            {
+              "eval_id": "ef-control-002",
+              "train_id": "me-062",
+              "similarity": 0.2933
+            },
+            {
+              "eval_id": "ef-control-002",
+              "train_id": "me-008",
+              "similarity": 0.2879
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-003",
+          "closest": [
+            {
+              "eval_id": "ef-control-003",
+              "train_id": "me-068",
+              "similarity": 0.3162
+            },
+            {
+              "eval_id": "ef-control-003",
+              "train_id": "me-004",
+              "similarity": 0.3155
+            },
+            {
+              "eval_id": "ef-control-003",
+              "train_id": "me-053",
+              "similarity": 0.3129
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-004",
+          "closest": [
+            {
+              "eval_id": "ef-control-004",
+              "train_id": "me-054",
+              "similarity": 0.3824
+            },
+            {
+              "eval_id": "ef-control-004",
+              "train_id": "me-044",
+              "similarity": 0.314
+            },
+            {
+              "eval_id": "ef-control-004",
+              "train_id": "me-043",
+              "similarity": 0.3036
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-005",
+          "closest": [
+            {
+              "eval_id": "ef-control-005",
+              "train_id": "me-044",
+              "similarity": 0.3213
+            },
+            {
+              "eval_id": "ef-control-005",
+              "train_id": "me-042",
+              "similarity": 0.3196
+            },
+            {
+              "eval_id": "ef-control-005",
+              "train_id": "me-003",
+              "similarity": 0.3092
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-006",
+          "closest": [
+            {
+              "eval_id": "ef-control-006",
+              "train_id": "tc-012",
+              "similarity": 0.3213
+            },
+            {
+              "eval_id": "ef-control-006",
+              "train_id": "tc-003",
+              "similarity": 0.2995
+            },
+            {
+              "eval_id": "ef-control-006",
+              "train_id": "me-045",
+              "similarity": 0.2971
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-007",
+          "closest": [
+            {
+              "eval_id": "ef-control-007",
+              "train_id": "tc-011",
+              "similarity": 0.3252
+            },
+            {
+              "eval_id": "ef-control-007",
+              "train_id": "tc-006",
+              "similarity": 0.3222
+            },
+            {
+              "eval_id": "ef-control-007",
+              "train_id": "tc-012",
+              "similarity": 0.3098
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-008",
+          "closest": [
+            {
+              "eval_id": "ef-control-008",
+              "train_id": "me-073",
+              "similarity": 0.3628
+            },
+            {
+              "eval_id": "ef-control-008",
+              "train_id": "tc-011",
+              "similarity": 0.3604
+            },
+            {
+              "eval_id": "ef-control-008",
+              "train_id": "me-091",
+              "similarity": 0.3417
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-009",
+          "closest": [
+            {
+              "eval_id": "ef-control-009",
+              "train_id": "me-064",
+              "similarity": 0.3851
+            },
+            {
+              "eval_id": "ef-control-009",
+              "train_id": "me-073",
+              "similarity": 0.338
+            },
+            {
+              "eval_id": "ef-control-009",
+              "train_id": "me-084",
+              "similarity": 0.3195
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-010",
+          "closest": [
+            {
+              "eval_id": "ef-control-010",
+              "train_id": "me-052",
+              "similarity": 0.3824
+            },
+            {
+              "eval_id": "ef-control-010",
+              "train_id": "me-053",
+              "similarity": 0.3824
+            },
+            {
+              "eval_id": "ef-control-010",
+              "train_id": "me-075",
+              "similarity": 0.3761
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-011",
+          "closest": [
+            {
+              "eval_id": "ef-control-011",
+              "train_id": "me-047",
+              "similarity": 0.3473
+            },
+            {
+              "eval_id": "ef-control-011",
+              "train_id": "me-067",
+              "similarity": 0.3363
+            },
+            {
+              "eval_id": "ef-control-011",
+              "train_id": "me-097",
+              "similarity": 0.3203
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-012",
+          "closest": [
+            {
+              "eval_id": "ef-control-012",
+              "train_id": "me-086",
+              "similarity": 0.3478
+            },
+            {
+              "eval_id": "ef-control-012",
+              "train_id": "me-043",
+              "similarity": 0.3319
+            },
+            {
+              "eval_id": "ef-control-012",
+              "train_id": "me-056",
+              "similarity": 0.3051
+            }
+          ]
+        }
+      ]
+    },
+    "F": {
+      "pairs_checked": 3328,
+      "exact_user_prompt_matches": [],
+      "near_prompt_flags": [],
+      "high_ngram_containment_flags": [],
+      "long_exact_reference_matches": [],
+      "evaluation_text_embedded_in_train": [],
+      "shared_short_generic_answers": [
+        {
+          "eval_id": "ef-control-012",
+          "train_id": "ef-new-021",
+          "target": "Tamam, dinliyorum.",
+          "word_count": 2
+        }
+      ],
+      "nearest_prompt_pairs": [
+        {
+          "eval_id": "me-009",
+          "closest": [
+            {
+              "eval_id": "me-009",
+              "train_id": "me-008",
+              "similarity": 0.4444
+            },
+            {
+              "eval_id": "me-009",
+              "train_id": "me-097",
+              "similarity": 0.4337
+            },
+            {
+              "eval_id": "me-009",
+              "train_id": "me-086",
+              "similarity": 0.3762
+            }
+          ]
+        },
+        {
+          "eval_id": "me-010",
+          "closest": [
+            {
+              "eval_id": "me-010",
+              "train_id": "me-092",
+              "similarity": 0.4348
+            },
+            {
+              "eval_id": "me-010",
+              "train_id": "me-077",
+              "similarity": 0.4252
+            },
+            {
+              "eval_id": "me-010",
+              "train_id": "me-097",
+              "similarity": 0.4205
+            }
+          ]
+        },
+        {
+          "eval_id": "me-019",
+          "closest": [
+            {
+              "eval_id": "me-019",
+              "train_id": "me-018",
+              "similarity": 0.3986
+            },
+            {
+              "eval_id": "me-019",
+              "train_id": "me-012",
+              "similarity": 0.3641
+            },
+            {
+              "eval_id": "me-019",
+              "train_id": "me-023",
+              "similarity": 0.3557
+            }
+          ]
+        },
+        {
+          "eval_id": "me-020",
+          "closest": [
+            {
+              "eval_id": "me-020",
+              "train_id": "me-017",
+              "similarity": 0.4
+            },
+            {
+              "eval_id": "me-020",
+              "train_id": "me-012",
+              "similarity": 0.3782
+            },
+            {
+              "eval_id": "me-020",
+              "train_id": "me-018",
+              "similarity": 0.361
+            }
+          ]
+        },
+        {
+          "eval_id": "me-029",
+          "closest": [
+            {
+              "eval_id": "me-029",
+              "train_id": "me-023",
+              "similarity": 0.3387
+            },
+            {
+              "eval_id": "me-029",
+              "train_id": "me-036",
+              "similarity": 0.3269
+            },
+            {
+              "eval_id": "me-029",
+              "train_id": "me-012",
+              "similarity": 0.3182
+            }
+          ]
+        },
+        {
+          "eval_id": "me-030",
+          "closest": [
+            {
+              "eval_id": "me-030",
+              "train_id": "me-023",
+              "similarity": 0.4209
+            },
+            {
+              "eval_id": "me-030",
+              "train_id": "me-025",
+              "similarity": 0.4138
+            },
+            {
+              "eval_id": "me-030",
+              "train_id": "me-017",
+              "similarity": 0.3753
+            }
+          ]
+        },
+        {
+          "eval_id": "me-039",
+          "closest": [
+            {
+              "eval_id": "me-039",
+              "train_id": "me-032",
+              "similarity": 0.3933
+            },
+            {
+              "eval_id": "me-039",
+              "train_id": "me-038",
+              "similarity": 0.3554
+            },
+            {
+              "eval_id": "me-039",
+              "train_id": "me-031",
+              "similarity": 0.3501
+            }
+          ]
+        },
+        {
+          "eval_id": "me-040",
+          "closest": [
+            {
+              "eval_id": "me-040",
+              "train_id": "tc-003",
+              "similarity": 0.3882
+            },
+            {
+              "eval_id": "me-040",
+              "train_id": "me-036",
+              "similarity": 0.3842
+            },
+            {
+              "eval_id": "me-040",
+              "train_id": "me-037",
+              "similarity": 0.3777
+            }
+          ]
+        },
+        {
+          "eval_id": "me-049",
+          "closest": [
+            {
+              "eval_id": "me-049",
+              "train_id": "ef-new-022",
+              "similarity": 0.3723
+            },
+            {
+              "eval_id": "me-049",
+              "train_id": "me-048",
+              "similarity": 0.3644
+            },
+            {
+              "eval_id": "me-049",
+              "train_id": "me-088",
+              "similarity": 0.3442
+            }
+          ]
+        },
+        {
+          "eval_id": "me-050",
+          "closest": [
+            {
+              "eval_id": "me-050",
+              "train_id": "ef-new-008",
+              "similarity": 0.3311
+            },
+            {
+              "eval_id": "me-050",
+              "train_id": "ef-new-010",
+              "similarity": 0.3309
+            },
+            {
+              "eval_id": "me-050",
+              "train_id": "me-098",
+              "similarity": 0.319
+            }
+          ]
+        },
+        {
+          "eval_id": "me-059",
+          "closest": [
+            {
+              "eval_id": "me-059",
+              "train_id": "me-088",
+              "similarity": 0.4035
+            },
+            {
+              "eval_id": "me-059",
+              "train_id": "me-066",
+              "similarity": 0.3636
+            },
+            {
+              "eval_id": "me-059",
+              "train_id": "me-077",
+              "similarity": 0.3441
+            }
+          ]
+        },
+        {
+          "eval_id": "me-060",
+          "closest": [
+            {
+              "eval_id": "me-060",
+              "train_id": "me-082",
+              "similarity": 0.4675
+            },
+            {
+              "eval_id": "me-060",
+              "train_id": "me-056",
+              "similarity": 0.4298
+            },
+            {
+              "eval_id": "me-060",
+              "train_id": "ef-new-017",
+              "similarity": 0.3714
+            }
+          ]
+        },
+        {
+          "eval_id": "me-069",
+          "closest": [
+            {
+              "eval_id": "me-069",
+              "train_id": "me-066",
+              "similarity": 0.4048
+            },
+            {
+              "eval_id": "me-069",
+              "train_id": "me-048",
+              "similarity": 0.3731
+            },
+            {
+              "eval_id": "me-069",
+              "train_id": "ef-new-019",
+              "similarity": 0.3658
+            }
+          ]
+        },
+        {
+          "eval_id": "me-070",
+          "closest": [
+            {
+              "eval_id": "me-070",
+              "train_id": "me-045",
+              "similarity": 0.418
+            },
+            {
+              "eval_id": "me-070",
+              "train_id": "me-091",
+              "similarity": 0.3927
+            },
+            {
+              "eval_id": "me-070",
+              "train_id": "me-042",
+              "similarity": 0.3725
+            }
+          ]
+        },
+        {
+          "eval_id": "me-079",
+          "closest": [
+            {
+              "eval_id": "me-079",
+              "train_id": "me-078",
+              "similarity": 0.4215
+            },
+            {
+              "eval_id": "me-079",
+              "train_id": "me-076",
+              "similarity": 0.3565
+            },
+            {
+              "eval_id": "me-079",
+              "train_id": "me-095",
+              "similarity": 0.3426
+            }
+          ]
+        },
+        {
+          "eval_id": "me-080",
+          "closest": [
+            {
+              "eval_id": "me-080",
+              "train_id": "me-074",
+              "similarity": 0.3897
+            },
+            {
+              "eval_id": "me-080",
+              "train_id": "me-078",
+              "similarity": 0.3813
+            },
+            {
+              "eval_id": "me-080",
+              "train_id": "me-071",
+              "similarity": 0.367
+            }
+          ]
+        },
+        {
+          "eval_id": "me-089",
+          "closest": [
+            {
+              "eval_id": "me-089",
+              "train_id": "me-054",
+              "similarity": 0.3718
+            },
+            {
+              "eval_id": "me-089",
+              "train_id": "me-055",
+              "similarity": 0.3718
+            },
+            {
+              "eval_id": "me-089",
+              "train_id": "me-086",
+              "similarity": 0.3542
+            }
+          ]
+        },
+        {
+          "eval_id": "me-090",
+          "closest": [
+            {
+              "eval_id": "me-090",
+              "train_id": "ef-new-023",
+              "similarity": 0.4341
+            },
+            {
+              "eval_id": "me-090",
+              "train_id": "me-085",
+              "similarity": 0.4113
+            },
+            {
+              "eval_id": "me-090",
+              "train_id": "me-092",
+              "similarity": 0.3609
+            }
+          ]
+        },
+        {
+          "eval_id": "me-099",
+          "closest": [
+            {
+              "eval_id": "me-099",
+              "train_id": "ef-new-016",
+              "similarity": 0.4014
+            },
+            {
+              "eval_id": "me-099",
+              "train_id": "tc-012",
+              "similarity": 0.3302
+            },
+            {
+              "eval_id": "me-099",
+              "train_id": "tc-011",
+              "similarity": 0.3292
+            }
+          ]
+        },
+        {
+          "eval_id": "me-100",
+          "closest": [
+            {
+              "eval_id": "me-100",
+              "train_id": "ef-new-005",
+              "similarity": 0.3312
+            },
+            {
+              "eval_id": "me-100",
+              "train_id": "tc-012",
+              "similarity": 0.3204
+            },
+            {
+              "eval_id": "me-100",
+              "train_id": "ef-new-018",
+              "similarity": 0.3162
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-001",
+          "closest": [
+            {
+              "eval_id": "ef-control-001",
+              "train_id": "me-076",
+              "similarity": 0.3967
+            },
+            {
+              "eval_id": "ef-control-001",
+              "train_id": "me-097",
+              "similarity": 0.3478
+            },
+            {
+              "eval_id": "ef-control-001",
+              "train_id": "me-077",
+              "similarity": 0.3204
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-002",
+          "closest": [
+            {
+              "eval_id": "ef-control-002",
+              "train_id": "ef-new-001",
+              "similarity": 0.3875
+            },
+            {
+              "eval_id": "ef-control-002",
+              "train_id": "ef-new-003",
+              "similarity": 0.3704
+            },
+            {
+              "eval_id": "ef-control-002",
+              "train_id": "me-018",
+              "similarity": 0.3191
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-003",
+          "closest": [
+            {
+              "eval_id": "ef-control-003",
+              "train_id": "me-068",
+              "similarity": 0.3162
+            },
+            {
+              "eval_id": "ef-control-003",
+              "train_id": "me-004",
+              "similarity": 0.3155
+            },
+            {
+              "eval_id": "ef-control-003",
+              "train_id": "me-053",
+              "similarity": 0.3129
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-004",
+          "closest": [
+            {
+              "eval_id": "ef-control-004",
+              "train_id": "me-054",
+              "similarity": 0.3824
+            },
+            {
+              "eval_id": "ef-control-004",
+              "train_id": "ef-new-008",
+              "similarity": 0.3153
+            },
+            {
+              "eval_id": "ef-control-004",
+              "train_id": "me-044",
+              "similarity": 0.314
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-005",
+          "closest": [
+            {
+              "eval_id": "ef-control-005",
+              "train_id": "ef-new-009",
+              "similarity": 0.3655
+            },
+            {
+              "eval_id": "ef-control-005",
+              "train_id": "ef-new-010",
+              "similarity": 0.3398
+            },
+            {
+              "eval_id": "ef-control-005",
+              "train_id": "ef-new-011",
+              "similarity": 0.3375
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-006",
+          "closest": [
+            {
+              "eval_id": "ef-control-006",
+              "train_id": "ef-new-011",
+              "similarity": 0.3411
+            },
+            {
+              "eval_id": "ef-control-006",
+              "train_id": "ef-new-010",
+              "similarity": 0.3333
+            },
+            {
+              "eval_id": "ef-control-006",
+              "train_id": "tc-012",
+              "similarity": 0.3213
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-007",
+          "closest": [
+            {
+              "eval_id": "ef-control-007",
+              "train_id": "ef-new-013",
+              "similarity": 0.3804
+            },
+            {
+              "eval_id": "ef-control-007",
+              "train_id": "tc-011",
+              "similarity": 0.3252
+            },
+            {
+              "eval_id": "ef-control-007",
+              "train_id": "tc-006",
+              "similarity": 0.3222
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-008",
+          "closest": [
+            {
+              "eval_id": "ef-control-008",
+              "train_id": "me-073",
+              "similarity": 0.3628
+            },
+            {
+              "eval_id": "ef-control-008",
+              "train_id": "tc-011",
+              "similarity": 0.3604
+            },
+            {
+              "eval_id": "ef-control-008",
+              "train_id": "me-091",
+              "similarity": 0.3417
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-009",
+          "closest": [
+            {
+              "eval_id": "ef-control-009",
+              "train_id": "me-064",
+              "similarity": 0.3851
+            },
+            {
+              "eval_id": "ef-control-009",
+              "train_id": "me-073",
+              "similarity": 0.338
+            },
+            {
+              "eval_id": "ef-control-009",
+              "train_id": "me-084",
+              "similarity": 0.3195
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-010",
+          "closest": [
+            {
+              "eval_id": "ef-control-010",
+              "train_id": "me-052",
+              "similarity": 0.3824
+            },
+            {
+              "eval_id": "ef-control-010",
+              "train_id": "me-053",
+              "similarity": 0.3824
+            },
+            {
+              "eval_id": "ef-control-010",
+              "train_id": "ef-new-019",
+              "similarity": 0.3824
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-011",
+          "closest": [
+            {
+              "eval_id": "ef-control-011",
+              "train_id": "ef-new-024",
+              "similarity": 0.4894
+            },
+            {
+              "eval_id": "ef-control-011",
+              "train_id": "me-047",
+              "similarity": 0.3473
+            },
+            {
+              "eval_id": "ef-control-011",
+              "train_id": "me-067",
+              "similarity": 0.3363
+            }
+          ]
+        },
+        {
+          "eval_id": "ef-control-012",
+          "closest": [
+            {
+              "eval_id": "ef-control-012",
+              "train_id": "ef-new-021",
+              "similarity": 0.3723
+            },
+            {
+              "eval_id": "ef-control-012",
+              "train_id": "ef-new-022",
+              "similarity": 0.3504
+            },
+            {
+              "eval_id": "ef-control-012",
+              "train_id": "me-086",
+              "similarity": 0.3478
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "hash_inventory": {
+    "exp-015-target-quality-sft/data-reviewed-v1/train-reviewed.jsonl": "2dc3724451a1e8a2bd33a585e71a8c0d533d68b92da3355363497c905b43d1ea",
+    "exp-016-diverse-coverage-sft/data-reviewed-v1/train-reviewed.jsonl": "fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950",
+    "exp-015-target-quality-sft/data-reviewed-v1/validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+    "exp-015-target-quality-sft/controls-reviewed-v1/questions-12.jsonl": "21f46cef4d1e80dbde9ea5db69ea83b409efc67ae6c17260a411938b35dabd05",
+    "exp-015-target-quality-sft/data-reviewed-v1/argilla-train-snapshot.json": "628f36eaff55e4ef4b848629778313f151add37d183960c207b8a518cacdf71d",
+    "exp-015-target-quality-sft/data-reviewed-v1/argilla-controls-snapshot.json": "f275a3991827c8bc1e865d1ffd2802b40c2d34a4c2e198f21c4ba59c4960ee60"
+  },
+  "normalized_unicode": "NFC + whitespace only; Turkish characters, case and quantities preserved",
+  "thresholds": {
+    "character_similarity": 0.6,
+    "five_word_shingle_containment": 0.5,
+    "long_reference_min_words": 8
+  },
+  "policy": "Shared task families/short generic acknowledgments are intentional. Inspect nearest pairs for specific scenarios, substituted entities or benchmark-derived solutions. Character/ngram/source checks are not a semantic proof.",
+  "limitations": [
+    "20 old questions repeatedly inform experimental decisions: development, not fresh final test.",
+    "12 controls are small, agent-authored by same author as train: not evaluator/generator-independent.",
+    "No embedding model or base/adapter model inference used; human semantic inspection is separate.",
+    "No all-purpose guarantee about pretraining contamination or universal zero semantic leakage."
+  ]
+}

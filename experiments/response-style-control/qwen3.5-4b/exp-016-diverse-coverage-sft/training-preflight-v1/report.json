@@ -1,0 +1,69 @@
+{
+  "status": "local-preflight-passed",
+  "splits": {
+    "train": 104,
+    "validation": 20
+  },
+  "split_stats": {
+    "train": {
+      "sequence": {
+        "min": 39,
+        "median": 101,
+        "p90": 198,
+        "p95": 255,
+        "p99": 437,
+        "max": 514,
+        "total": 12115
+      },
+      "target": {
+        "min": 2,
+        "median": 39,
+        "p90": 133,
+        "p95": 191,
+        "p99": 379,
+        "max": 461,
+        "total": 6216
+      }
+    },
+    "validation": {
+      "sequence": {
+        "min": 45,
+        "median": 90,
+        "p90": 146,
+        "p95": 340,
+        "p99": 432,
+        "max": 432,
+        "total": 2298
+      },
+      "target": {
+        "min": 4,
+        "median": 25,
+        "p90": 104,
+        "p95": 266,
+        "p99": 383,
+        "max": 383,
+        "total": 1151
+      }
+    }
+  },
+  "max_seq_length": 1024,
+  "truncated_rows": 0,
+  "zero_target_rows": 0,
+  "all_context_tokens_masked": true,
+  "native_final_end_of_turn_supervised": true,
+  "files": {
+    "train-tokenized.jsonl": "513159b31b4d921daded9a091d5b10ebc5ba37970847c126e41d6f0688e2864d",
+    "validation-tokenized.jsonl": "0600244c80a0a1c406591b2b2eaf2fc0f89b8316229b487028faf4fbbb755557",
+    "mask-inspection.json": "ffb991c233d8ff860b3ad20528dd7d745a6b06b5f0dbe977128a5b98f191e069",
+    "tokenizer-template.json": "4297525131efacc180bbe1ae6319a1298f897aa68379d1ca15cb7143850f9800",
+    "training-config.json": "2c8c0c817f749bbb689dfe58152518792c55822dbbce5cbb041b5487a6614b44"
+  },
+  "validation_tokenization_matches_parent": true,
+  "training_started": false,
+  "remaining": [
+    "human target/new/control review",
+    "hash-bound approved freeze",
+    "GPU environment/actual masking/W&B",
+    "required GPU gates"
+  ]
+}

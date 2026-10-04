@@ -1,0 +1,60 @@
+{
+  "status": "draft-CPU-passed-human-review-required",
+  "training_started": false,
+  "audit_rows": 24,
+  "actual_repairs": 9,
+  "retained_audited_rows": 15,
+  "new_train_rows": 24,
+  "controls": 12,
+  "train_rows": {
+    "E": 80,
+    "F": 104
+  },
+  "validation_rows": 20,
+  "optimizer_steps_each": 40,
+  "source_hashes": {
+    "train-reviewed.jsonl": "d61bdfab544dc0d3ba5531e74005940d47b6b6af38fba864dbd5ceefcf948d7a",
+    "validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+  },
+  "parent_prompts_ids_categories_order_preserved": true,
+  "F_first80_identical_to_E": true,
+  "validation_unchanged": true,
+  "target_tokens_per_dataset": {
+    "E": 5133,
+    "F": 6179
+  },
+  "expected_example_presentations": {
+    "E": 320,
+    "F": 320
+  },
+  "target_token_exposure_note": "Actual shuffled40-step token exposure must be measured at runtime; F fewer passes per record. Dataset totals are not runtime totals.",
+  "authoring": {
+    "provider": "OpenAI",
+    "interface": "Codex project agent",
+    "exact_model": "not exposed",
+    "sampling": "not exposed",
+    "external_generation_api": false,
+    "date": "2026-10-04",
+    "brief": "Approved six skill families; repair necessary existing targets only;24 independent new train;12 separate controls; no evaluation question seeds or third-party text.",
+    "permission": "User authorized project-local drafts; no third-party dataset/API used; no publication/license assertion."
+  },
+  "limitation": "No claims of guaranteed zero semantic leakage, forgetting prevention or model superiority.",
+  "files": {
+    "exp-015-target-quality-sft/data-draft-v3/leakage-report.json": "c5b28067f1fbae48348e5a8a867ba65b959eac7b543f0b5957805976c57f4845",
+    "exp-015-target-quality-sft/data-draft-v3/new-train-24.jsonl": "62a2d56ec697156f01c2febd065d677f646aabc0a4cbc817fd3bb5cfc35bfbbb",
+    "exp-015-target-quality-sft/data-draft-v3/review-candidates.csv": "b944ad5b1e6c25987cc8b9b095cbcc9e2e459a7729d6774a52372efed940860e",
+    "exp-015-target-quality-sft/data-draft-v3/review-candidates.jsonl": "c1f1b7da641491fb82e5e672cab788ed5c9233d6b93cf6478d44ed7cf9d36bd1",
+    "exp-015-target-quality-sft/data-draft-v3/target-audit-24.jsonl": "3b599aaffaffd826ece415ed269036bd0082cd279ca1684ac7ebeffcb6c21ab0",
+    "exp-015-target-quality-sft/data-draft-v3/target-repairs.jsonl": "5e956a9968ecf25a1800eda719705337a3bbb49815e170700bb88493257c8dd8",
+    "exp-015-target-quality-sft/data-draft-v3/train-reviewed.jsonl": "2dc55f1733e08bcf0317d81ca306df65082697f664c93daaabb404652bcd19c6",
+    "exp-015-target-quality-sft/data-draft-v3/validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+    "exp-015-target-quality-sft/controls-draft-v3/questions-12.jsonl": "51d2ef26ae28ced212a971a3674260e04ac6081f35fa458db3e9239cfaa637c9",
+    "exp-015-target-quality-sft/config.yaml": "ef597cd606e1d7fe24fd149f13fcbfb7edcf76caf75ebac19e78baf865daccf7",
+    "exp-015-target-quality-sft/specs.py": "a9dedc0dc0c9502fdab4908d6a65352ea2554faa8a0acc7b6b1ca05b94a8d1db",
+    "exp-015-target-quality-sft/control_specs.py": "1f61af69218ec4c5593662878066804aeca48e757c65d706e2dd1e8e685469d7",
+    "exp-015-target-quality-sft/prepare_pair.py": "85ac2e286f41b0ede6f0e26a0f001266df4389b19d6451f35a44421c6456dce9",
+    "exp-016-diverse-coverage-sft/data-draft-v3/train-reviewed.jsonl": "713b6d81440cc7aa8f1b5540095b845f3d9d86b7af3d8f3e055c44db4abdb966",
+    "exp-016-diverse-coverage-sft/data-draft-v3/validation-reviewed.jsonl": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+    "exp-016-diverse-coverage-sft/config.yaml": "544c04805c467a9c77c4199864be8b932ef9fd0a59feca5ec3a01f5539b6a14f"
+  }
+}

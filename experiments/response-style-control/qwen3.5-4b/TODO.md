@@ -53,8 +53,26 @@ Argilla comparison is ready; supporting probes and full backup are completed.
   template/settings parity with saved A. Prepare desired/A/C/D comparison.
 - [x] Recover archive and verify SHA256 plus all129 indexed files, retained
   resume checkpoints, adapters/config/logs/W&B/source. GPU can be terminated.
-- [ ] User: [review desired/A/C/D20](http://127.0.0.1:6900/dataset/e3b691cb-79fc-4bd8-a358-39f9a23770b5/annotation-mode?page=1&status=pending).
-  Preliminary substance problems persist; no winner/promotion based on loss or EOS.
+- [x] User completed original desired/A/C/D20; read-only snapshot exported.
+  A9pass/6partial/5fail,C11/5/4,D10/5/5; preferences3each,9ties,2neither.
+  Seven ties unresolved; explicit note conflicts preserved, not adjudicated.
+  Narrow C gains are mixed; D duration is not a consistent improvement.
+- [x] User approved next pair exp015/016: E repairs necessary targets on exact
+  C80 questions; F adds24 independent scenarios to E under fixed40steps.
+  Audit24:9 proposed repairs,15 retained; CPU drafts80/104 passed. No GPU run.
+- [x] User: review [33 E/F training candidates](http://127.0.0.1:6900/dataset/ecf0fa64-79bd-4b9e-bd7a-2d80b2fdcb3e/annotation-mode?page=1&status=submitted)
+  (9 target repairs +24 new train); approve [12 separate control references](http://127.0.0.1:6900/dataset/bd1ad5d2-2a74-4507-bf91-865ca3e3a15e/annotation-mode?page=1&status=pending).
+  Original20 and all existing80 training prompts unchanged.
+- [x] Export E/F reviews read-only:31rewrite/2accept train,12rewrite controls.
+  Freeze80/104 and12 controls, recheck hashes/leakage/nativeEOS/masks/lengths.
+  Final E5121/F6216 target tokens; max514/no truncation.5888 train-eval pairs
+  plus historical inventories/semantic signoff: no item-level leak identified.
+  Shared short "Tamam, dinliyorum." documented. Approved reviewed-v1 authoritative.
+- [ ] GPU: independent fresh-base E/F,40steps each; verify effective row/step
+  counts, label masking and required gates. Prior waivers do not transfer.
+- [ ] Canonical HF/Unsloth base/C/E/F inference on original20 +new12 controls;
+  blinded balanced per-item labels, semantic/Turkish/style separate, explicit ties.
+  Preserve all artifacts and journal outcomes before declaring pod disposable.
 - [ ] Resolve disputed me-089 reference with versioned provenance; preserve old
   fields/reviews and report sensitivity without089 until any revision is approved.
 - [ ] Append hypothesis, interventions, measured outcomes, user feedback,

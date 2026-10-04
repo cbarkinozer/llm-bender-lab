@@ -1,0 +1,322 @@
+[
+  {
+    "id": "me-009",
+    "category": "grammar_correction",
+    "preferred": "neither",
+    "A": "fail",
+    "C": "fail",
+    "D": "fail",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "100ed4f1-2637-4c35-a3eb-10f4e6b21933",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-010",
+    "category": "grammar_correction",
+    "preferred": "neither",
+    "A": "fail",
+    "C": "fail",
+    "D": "fail",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "06f03e32-f612-463c-8ddb-826e92d61f07",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-019",
+    "category": "answer_extraction",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "094d0962-dc4b-4f9a-a89c-71745554b7e7",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-020",
+    "category": "answer_extraction",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "A=D > C",
+    "explicit_note_ranking": "A=D>C",
+    "response_id": "35322af1-7bb5-4a85-bf22-559455a63a93",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-029",
+    "category": "numeric_entity_precision",
+    "preferred": "tie",
+    "A": "fail",
+    "C": "pass",
+    "D": "pass",
+    "notes": "C=D",
+    "explicit_note_ranking": "C=D",
+    "response_id": "f4360d43-b989-4d90-9145-c42fd77475ad",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-030",
+    "category": "numeric_entity_precision",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "ab4267e0-c66b-4a45-8d80-dd8951b7022a",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-039",
+    "category": "faithful_summary",
+    "preferred": "tie",
+    "A": "partial",
+    "C": "partial",
+    "D": "partial",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "147cd6ef-96df-4d99-9d9c-628eb6f4810c",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-040",
+    "category": "faithful_summary",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "b8208f50-f5ad-45ac-bfbe-390486774ccb",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-049",
+    "category": "useful_explanation",
+    "preferred": "D",
+    "A": "fail",
+    "C": "fail",
+    "D": "partial",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "983a4ea1-1c32-4d0b-b9b2-6f0dfe8a6385",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-050",
+    "category": "useful_explanation",
+    "preferred": "A",
+    "A": "partial",
+    "C": "partial",
+    "D": "fail",
+    "notes": "En iyi cevap: A (az farkla; hiçbiri hedefi karşılamıyor)\n\nHedefin dört öğesi var: sorunun kaynağını sormak (çalışma yüzeyi mi eksik, sınır mı belirsiz), iki seçeneğin somut bedellerini vermek, uygulanabilir örnekler sunmak ve önce yerleşimle bölmeyi önermek. Üç cevapta da bunların hiçbiri tam olarak yok.\n\nA: partial (zayıf). Tutarlı ve hatasız, ama içi boş: masayı geçici, bölmeyi kalıcı çözüm olarak adlandırıp \"ikisini de yapın\" diyor. Kaynak teşhisi, maliyet/geri alınabilirlik karşılaştırması ve somut örnek yok. Sıralaması da hedefin tersine yakın: önce masa, sonra bölme. \"Masayı başka bir yere taşıyabilirsiniz\" cümlesi bağlamdan kopuk.\nC: partial (zayıf). Hedefteki bir fikri yakalıyor: masa sorunu çözmeyebilir, bölme çözebilir. Ancak sonra kendisiyle çelişip kısa vadede masa almayı denemeyi öneriyor. Ortası döngüsel: \"hangisinin çözeceğini belirleyin, işlevsellik, maliyet ve zaman açısından karşılaştırın\" diyerek soruyu kullanıcıya geri veriyor. \"Çalışma alanının dinlenmeye uygun olup olmadığı\" ifadesi de karışık.\nD: fail. Tekrar döngüsüne giriyor: 8, 9 ve 10. maddeler neredeyse aynı cümle. Kendi içinde çelişiyor: 5. madde aynı planın işe yaradığını, 7. madde yaramadığını \"gösteriyor\"; 2. madde hem \"planı sabit tutun\" hem \"fikrinizi değiştirin\" diyor. Anlamsız ifadeler var (\"geriye bağlamazsınız\", \"masayı eski yerine kaldırabilirsiniz\"). Sonuç olarak masayı almayı öneriyor, yani hedefin tersini. Tek değerli kısmı 4. madde (masaya gerçekten ihtiyaç var mı sorusu), ama gürültü içinde kayboluyor.\n\nA'yı C'nin önüne koymamın nedeni çelişkisiz olması; C'nin yakaladığı fikri daha değerli buluyorsanız A ile C arasında \"tie\" de savunulabilir.\n",
+    "explicit_note_ranking": null,
+    "response_id": "8c033ef8-4c07-4b5d-968e-6598a1414446",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-059",
+    "category": "selective_clarification",
+    "preferred": "A",
+    "A": "pass",
+    "C": "partial",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "de632133-847e-49fd-9070-66317f2ad206",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-060",
+    "category": "selective_clarification",
+    "preferred": "C",
+    "A": "fail",
+    "C": "partial",
+    "D": "fail",
+    "notes": "A=C> D",
+    "explicit_note_ranking": "A=C>D",
+    "response_id": "1432fbba-790f-4b3a-9a8b-a39d4b569291",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-069",
+    "category": "grounded_completion",
+    "preferred": "C",
+    "A": "partial",
+    "C": "pass",
+    "D": "partial",
+    "notes": "En iyi cevap: C\n\nA: pass (asgari düzeyde). Net bir \"yeterli değil\" ve alternatif açıklamalar (menü, kampanya, çevredeki etkinlik, ekonomi) var; sorunun özünü karşılıyor. Eksikleri: bir haftanın kısa bir süre olduğu ve nasıl doğrulanacağı. \"Bağlamış olabilirsiniz\" ifadesi de bozuk; kastedilen \"bağlı olabilir\".\nC: pass. A'nın içeriğine ek olarak daha fazla alternatif sayıyor ve tabelaya bağlamadan önce diğer olasılıkların değerlendirilmesi gerektiğini söylüyor; bu, hedefteki \"sonraki adım\" fikrine en yakın genel ifade. Yine de bir haftanın kısalığı ve somut doğrulama yolları (birkaç hafta izlemek, müşterilere sormak) yok. Aynı \"bağlamış olabilirsiniz\" bozukluğu burada da var.\nD: partial. Güçlü yanı, somut bir sınama önermesi: tabelayı kaldırıp farkı görmek. Ancak kusurları daha ağır:\n\"Tek neden olamaz\" diyerek fazla ileri gidiyor; tabela tek neden olabilir, sadece bu veriyle bilinemez.\nÇevrede yeni bir kafe açılması örneği ters yönde çalışır; müşteriyi artırmaz, azaltır.\nDili bozuk (\"tablenin kaldırılıp kaldırılmadığını deneyebilirsiniz\", \"tanıtmışsınız mı\").\n\nRubriğiniz süre ve doğrulama adımlarını zorunlu sayıyorsa A ve C de partial olur; sıralama yine C, A, D kalır.\n",
+    "explicit_note_ranking": null,
+    "response_id": "15031924-599b-4204-ac48-767bd0efb9fc",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-070",
+    "category": "grounded_completion",
+    "preferred": "D",
+    "A": "partial",
+    "C": "partial",
+    "D": "pass",
+    "notes": "D generally has slightly better Turkish and I like it.",
+    "explicit_note_ranking": null,
+    "response_id": "f7a83c92-f389-43e0-aec8-cf28c820d9f2",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-079",
+    "category": "turkish_lexical_precision",
+    "preferred": "C",
+    "A": "partial",
+    "C": "pass",
+    "D": "partial",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "dd8751cb-a6a3-4165-b662-297f039d4c54",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-080",
+    "category": "turkish_lexical_precision",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "9fb6646f-1655-4862-9e76-e1b5e2873a44",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-089",
+    "category": "non_anthropomorphic_interaction",
+    "preferred": "D",
+    "A": "partial",
+    "C": "fail",
+    "D": "partial",
+    "notes": "C is clear fail,  D sounds a lot better than C but still has weird Turkish quality thing like \"misafire davet edebilirsiniz.\" A has a lot variety but still its turkish is bad too. En iyi cevap: D (az farkla; hiçbiri hedefi tam karşılamıyor)\n\nHedef tek cümlelik bir duygu yansıtması: öğüt vermiyor, yalnızca kullanıcının söylediğini anladığını gösteriyor. Üç cevap da bunu yapmak yerine \"siz\" diliyle öğüt vermeye geçiyor.\n\nA: partial. Yansıtma var ama bozuk ifade edilmiş (\"evin henüz sizin için tam anlamıyla 'sahip' olmaması\"). Ardından istenmemiş beş maddelik bir liste geliyor. Maddelerin dördü aynı cümleyi tekrarlıyor, beşincisi anlamsız (\"bir ailenizle bir şeyler paylaşın\"). Zararsız ama hedefin tam tersi bir biçimde: uzun ve çözüm odaklı.\nC: fail. Kullanıcının duygusunu reddediyor: taşınmış olmanın misafir gibi hissetmeye neden olmayacağını söylüyor. Kendi içinde de çelişkili (\"Bu, evin bir parçası olduğunuzu göstermez\" ile \"Bu, evin bir parçası olduğunuzu gösterir\" art arda geliyor) ve bozuk cümleler içeriyor (\"yatağınızda hâlâ uyum sağlamış olabilirsiniz\").\nD: partial. Hedefe en yakın yansıtma burada: evin fiziksel olarak kullanıcının olduğunu ama duygusal olarak henüz \"onun\" olmadığını söylüyor. Ancak devamı kötüleşiyor: son paragraf \"evde yalnız kalmak, evin sizin eviniz olmadığını gösterir\" gibi yanlış ve yalnız yaşayan biri için kırıcı olabilecek bir iddia içeriyor ve kendini tekrarlıyor.\n\nD'yi öne koymamın tek nedeni ilk iki cümlesi; son paragrafı ağır bir kusur sayıyorsanız A ile D arasında \"tie\" de savunulabilir.\n",
+    "explicit_note_ranking": null,
+    "response_id": "cd5e9dbf-54b5-428e-933a-f55d64c7efae",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-090",
+    "category": "non_anthropomorphic_interaction",
+    "preferred": "A",
+    "A": "pass",
+    "C": "pass",
+    "D": "fail",
+    "notes": "En iyi cevap: A\n\nA: pass (asgari düzeyde). Hedefin özünü karşılıyor: \"Tamam\" ile tavsiye istenmediğini kabul ediyor ve anlatması için alan açıyor; \"sen\" dili de kullanıcıya uygun. Eksikleri \"geçmiş olsun\" gibi bir karşılık ve \"tavsiye vermeyeceğim\" güvencesinin açıkça söylenmemesi; bu yüzden biraz kuru kalıyor. Rubriğiniz bu iki öğeyi zorunlu sayıyorsa partial olur.\nC: pass (asgari düzeyde). İçerik A ile aynı; tek fark \"siz\" dili. Kullanıcının samimi tonuna ve hedefteki \"sen\" hitabına göre mesafeli duruyor, bu yüzden A'nın gerisinde.\nD: fail. Anlatması için alan açmıyor; onun yerine teselli ve yeniden çerçeveleme sunuyor (\"Sınavlar geçici bir şey\"), ki bu kullanıcının istemediğini söylediği şeye çok yakın. \"Anlıyorum, yalnız değilsin\" ifadesi de kategoriyle (non_anthropomorphic_interaction) çelişiyor: model, insan gibi anlama ve eşlik etme iddiasında bulunuyor.\n",
+    "explicit_note_ranking": null,
+    "response_id": "b4fb5ad9-b105-4329-8ea7-f73db444388a",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-099",
+    "category": "consistency_integrity",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "cce450e0-66be-42c9-b80e-c155657c02be",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  },
+  {
+    "id": "me-100",
+    "category": "consistency_integrity",
+    "preferred": "tie",
+    "A": "pass",
+    "C": "pass",
+    "D": "pass",
+    "notes": "",
+    "explicit_note_ranking": null,
+    "response_id": "d64dc759-5f3a-470d-8896-2d3a252bda16",
+    "issues": {
+      "A": [],
+      "C": [],
+      "D": []
+    }
+  }
+]
