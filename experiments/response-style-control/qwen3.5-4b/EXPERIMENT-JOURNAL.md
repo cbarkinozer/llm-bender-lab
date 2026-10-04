@@ -1,9 +1,37 @@
 # Experiment journal and blog evidence trail
 
-Updated: 2026-10-03. Owner request: preserve what we tried, results, failures,
+Updated: 2026-10-04. Owner request: preserve what we tried, results, failures,
 fixes and decisions so a later blog can tell the complete story.
 This is an evidence journal, not a claim that the project has already succeeded.
 Append dated entries for every future round; preserve previous snapshots.
+
+### 2026-10-04: E/F GPU pipeline launch (not a quality result)
+
+User supplied direct81.27.69.180:52991/proxyssh7.vast.ai:36350 and existing public
+key. Direct authenticated successfully; recorded new host key on first contact,
+no mismatch verification bypass. RTX4090/24564MiB, driver565.77, CUDA maximum
+reported12.7. Exact prior102-package Python3.11.16/Torch2.7.1+cu128/Unsloth2026.9.6
+freeze reused; official causal-conv wheel SHA verified. Actual CUDA/BF16/import
+and base generation work on this driver; no CUDA13/vLLM/unconstrained installs.
+Standalone setup requirements path satisfied at /exp-010-lr-ablation; CRLF
+normalized before Linux execution. Setup log and script will be recovered.
+
+Frozen source347b563487bf9a9ffcb5361ad964b23d2e68e191 cloned clean from Git bundle;
+no .env/private key transferred. C adapter from verified prior recovery matches
+SHA9578cf7bc6537927bd4ec483b67c5c8f06cf627b86d07c5b278523809db36d36.
+W&B authenticated as c-barkinozer using credential streamed from local.env into
+launcher stdin/process memory. Detached pipelinePID816 began canonical base32
+inference. Old waiver is not inherited; genuine per-arm checks remain required.
+Fresh E/F40steps each and final40 inference are scheduled, not claimed complete.
+
+New execution code honors80/104 rows/40steps, asserts final step and records
+actual training microbatch token exposure. CPU preparation12tests plus3execution
+tests passed. Importer and recovery tools committed separately84cfc34/44d8c41;
+they do not change the running training/evaluation source revision. Blind
+balanced P/Q/R/S mapping stays external and is not exposed through UI fields.
+Outputs will have independent semantic/Turkish/style grading, not automatic
+quality claims from loss/length/Markdown flags. All artifact recovery and human
+evaluation remain outstanding at this entry.
 
 ### 2026-10-04: E/F reviews exported, final split leakage audit
 

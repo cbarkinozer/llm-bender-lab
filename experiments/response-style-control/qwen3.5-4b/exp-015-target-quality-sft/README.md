@@ -2,10 +2,12 @@
 
 ## Status
 
-Planned; all33 training and12 control reviews completed and exported read-only.
+GPU pipeline launched 2026-10-04; canonical baseline generation in progress.
+All33 training and12 control reviews completed and exported read-only.
 Approved data-reviewed-v1, controls-reviewed-v1, config-reviewed-v1.yaml and
 training-preflight-v1 are frozen. CPU readiness passed; GPU gates pending.
-No GPU run, model inference or W&B run started. config.yaml remains blocked
+W&B API authenticated; required training gates and full SFT still pending at
+launch. See GPU-HANDOFF.md and external runtime status. config.yaml remains blocked
 draft history; use the reviewed config, never the draft.
 
 ## Question and hypothesis

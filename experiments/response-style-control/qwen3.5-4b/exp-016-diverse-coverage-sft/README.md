@@ -2,9 +2,10 @@
 
 ## Status
 
-Planned;104 reviewed training rows frozen and CPU-checked; GPU gates pending.
+GPU paired pipeline launched 2026-10-04;104 reviewed training rows frozen and
+CPU-checked; canonical baseline generation/required GPU gates precede F SFT.
 Use config-reviewed-v1.yaml/data-reviewed-v1/training-preflight-v1;
-config.yaml remains blocked draft history. No training or inference started.
+config.yaml remains blocked draft history. F training has not started at launch.
 Shared reviews/export/final leakage signoff live in exp015.
 
 ## Question and parent
