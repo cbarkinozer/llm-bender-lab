@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tarfile
 
 ROOT=Path('/workspace')
@@ -32,11 +33,14 @@ def main():
         manifest=json.loads((RUNS/(arm+'-evaluation-v1')/'manifest.json').read_text())
         assert manifest['status']=='completed' and manifest['count']==32
     (RUNS/'hardware.txt').write_text(subprocess.check_output(['nvidia-smi','-q'],text=True))
+    (RUNS/'runtime-python.txt').write_text(subprocess.check_output([sys.executable,'-VV'],text=True))
     members=[RUNS,ROOT/'.cache/wandb',ROOT/'wheels',ROOT/'comparators/C-adapter',ROOT/'exp015-exp016-setup.log',
         ROOT/'exp010-training-freeze.txt',ROOT/'exp015-exp016-source.bundle',ROOT/'setup-exp015-exp016.sh',ROOT/'requirements-exp009.txt',
         ROOT/'archive_pair.py']
     if (ROOT/'exp015-exp016-source-resume.bundle').exists():
         members.append(ROOT/'exp015-exp016-source-resume.bundle')
+    if (ROOT/'transfer_backup.py').exists():
+        members.append(ROOT/'transfer_backup.py')
     inventory={str(file.relative_to(ROOT)):dict(sha256=sha(file),bytes=file.stat().st_size)
         for member in members for file in (sorted(member.rglob('*')) if member.is_dir() else [member]) if file.is_file()}
     assert not any(Path(name).name=='.env' or Path(name).suffix in ('.pem','.key') for name in inventory)
