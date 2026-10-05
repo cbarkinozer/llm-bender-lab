@@ -7,7 +7,14 @@ Repository-specific agent instructions live in [AGENTS.md](./AGENTS.md). Operati
 Turkish response-style SFT phase closed2026-10-04: exp016/F is the selected
 experimental LoRA candidate. [Release guide/model/data cards](docs/publication/README.md)
 and [Turkish journey blog draft](docs/publication/BLOG-TR.md) document the result
-and limitations. Public Hub upload is pending owner license/provenance decisions.
+and limitations. [Occam release/verification notes](docs/publication/PRIVATE-UPLOAD-20261005.md)
+record the subsequent adapter/dataset uploads; historical provenance review remains
+distinct from public visibility.
+
+Next phase (2026-10-05): [Python unit-test generation](experiments/unit-test-generation/qwen3.5-4b/README.md)
+with a planned local Pi/llama.cpp Q4 baseline on Mac mini M4/24 GB, followed by
+verifiable-reward RL if feasible. Production code stays read-only. Occam improvements
+are deferred; start the next session with [Mac handoff](docs/MAC-MINI-HANDOFF.md).
 
 ![LLM Bender Lab](./llm-bender-lab.png)
 

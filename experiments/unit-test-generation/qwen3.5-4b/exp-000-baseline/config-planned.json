@@ -1,0 +1,16 @@
+{
+  "experiment_id": "exp-000-baseline",
+  "domain": "unit-test-generation",
+  "status": "planned",
+  "executable": false,
+  "training_enabled": false,
+  "hardware": {"host": "Mac mini", "chip": "Apple M4", "unified_memory_gb": 24},
+  "candidate_model": "Qwen/Qwen3.5-4B",
+  "model_revision": null,
+  "gguf": {"repository": null, "filename": null, "revision": null, "sha256": null, "quantization_variant": "Q4 exact variant pending"},
+  "inference": {"backend": "llama.cpp", "revision": null, "agent": "Pi", "agent_revision": null, "thinking_comparison": [false, true], "context_tokens": null, "total_output_budget_tokens": null, "sampling": null, "eos_and_tool_parser": null},
+  "dataset": {"revision": null, "split_unit": "repository/source/problem-family and near-duplicate group", "train": null, "development": null, "test": null},
+  "permissions": {"production_code": "read-only", "generated_test_directory": "write", "private_grader": "inaccessible", "network": "disabled", "secrets": "not mounted"},
+  "evaluation": {"framework": "pytest", "primary_metric_proposed": "valid mutation detection gated on passing correct implementation", "aggregation": null, "timeout_seconds": null, "max_tool_calls": null, "seed": null, "equivalent_mutant_policy": "freeze before generation"},
+  "optional_reference": {"model": "Qwen/Qwen3.5-9B", "thinking": true, "status": "not run; artifact and budgets pending"}
+}

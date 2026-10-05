@@ -2,7 +2,11 @@
 
 Bu SFT aşaması kapandı. Seçilen aday `exp-016-diverse-coverage-sft`, son adım40.
 Yeni eğitim veya GPU işi planlanmıyor. Agentic RL ayrı, ertelenmiş araştırma hattı.
-Bu klasör yayın taslaklarıdır; hiçbir Hugging Face deposu oluşturulmadı/yüklenmedi.
+Bu giriş2026-10-04 kapanış durumunu anlatıyordu.2026-10-05 tarihinde adaptör/veri
+seti yüklendi ve indirilen dosya hashleri doğrulandı; daha sonra iki depo public
+gözlendi. Güncel kanıt: [yayın notları](PRIVATE-UPLOAD-20261005.md). Public olmak,
+tamamlanmış kaynak/sağlayıcı koşulu kontrolü anlamına gelmez. Güncel kartlar
+`OCCAM-MODEL-CARD.md` / `OCCAM-DATASET-CARD.md`; blog hâlâ taslak.
 
 ## Nerede ne paylaşılmalı?
 

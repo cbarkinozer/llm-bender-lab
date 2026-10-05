@@ -28,12 +28,13 @@ recipe, finish the comparison, record the result, and move to the next family.
 
 ## Breadth phase
 
-### 0. Supervised fine-tuning foundation — active
+### 0. Supervised fine-tuning foundation — phase closed
 
-Finish the Qwen3.5-4B response-style SFT line through exp-006. Demonstrate the
-target behavior on the sealed internal holdout and on a version-pinned external
-benchmark not authored for this project. Publish the training artifact and its
-provenance while keeping benchmark test items out of training.
+The Turkish response-style line progressed through exp016; F/Occam was selected
+and the phase closed on 2026-10-04. Paired external500 and blind human30 support
+a narrow style gain with summarization weakness, not universal capability retention.
+Adapter and dataset subsequently uploaded; finish the Turkish blog separately.
+Project20 was repeatedly used development data, not a sealed final holdout.
 
 Completion evidence: reproducible adapter, base-versus-SFT metrics, blind human
 review, external benchmark result, regression analysis, and artifact hashes.
@@ -225,8 +226,20 @@ noisy or invalid task more efficiently does not create a useful result.
 
 ## Current position
 
-The active item is **0. Supervised fine-tuning foundation**, specifically the
-exp-006 GPU preflight, full training, sealed evaluation, and blind review. Do
-not begin item 2 merely because training finishes; item 0 also requires the
-external benchmark and regression evidence, and item 1 establishes the common
-evaluation backbone for all later comparisons.
+Updated 2026-10-05: the owner explicitly chose **Python unit-test generation**
+as the next task and prefers verifiable-reward RL over another SFT project.
+See `experiments/unit-test-generation/qwen3.5-4b/` and `docs/MAC-MINI-HANDOFF.md`.
+This changes the next pilot's order; the preference-optimization pilots remain
+planned, not secretly completed or prerequisites for this selected RL pilot.
+
+First establish untouched4B Q4 Pi/llama.cpp baselines with thinking off/on on
+the Mac mini M4/24 GB; optional9B thinking-on is a reference. Test generation
+only, with immutable production code and protected execution/mutation verifiers.
+Then assess a compatible4B LoRA RL recipe and quantized deployment comparison.
+9B trajectory imitation is distillation, not automatically RL; local MLX training
+is a separate optional exercise. No new corpus, frozen baseline or RL run exists.
+
+The common regression suite is still incomplete, not waived or claimed complete.
+Freeze relevant tool/instruction/coding retention probes with the new baseline.
+Returning to Occam is deferred; inspected CETVEL cohorts cannot become fresh
+final tests if later results guide training.

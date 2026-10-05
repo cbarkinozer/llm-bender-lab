@@ -5,6 +5,28 @@ fixes and decisions so a later blog can tell the complete story.
 This is an evidence journal, not a claim that the project has already succeeded.
 Append dated entries for every future round; preserve previous snapshots.
 
+### 2026-10-05: Occam shared; next phase narrowed to Python test generation
+
+Owner chose `cbarkinozer/Qwen3.5-4B-Turkish-Concise-Lora` and
+`cbarkinozer/Occam-Turkish-Response-SFT`, Apache-2.0. Uploaded only the prepared
+adapter/dataset bundles using `.env` HF credential without disclosing it; every
+downloaded file verified. Model weights revision1a8a07f; dataset947850d.
+Public visibility later observed for both; model card revision2e88c99 includes
+owner edits. Preserve public card snapshots and distinguish incomplete historical
+provenance review from visibility. No model/data messages or training were changed.
+Three card examples are exact base/F development outputs (me070,090,020), explicitly
+cherry-picked rather than invented adapter answers or fresh holdout evidence.
+
+Next owner decision: Python unit-test generation only on Mac mini M4/24GB with
+Pi/llama.cpp Q4; not broad production bug fixing. Baseline4B thinking off/on,
+optional9B thinking-on reference; no initial Occam adapter inheritance. RL preferred
+after trusted test/mutation verifier and grouped train/dev/test baseline. 9B
+trajectory imitation is a separate distillation experiment, not on-policy RL.
+Q4 GGUF deployment and MLX/NVIDIA training paths are separate; compatibility,
+memory, corpus, reward definition and GPU budget remain untested/planned.
+Roadmap's obsolete exp006-active status corrected; common retention suite not
+claimed complete. See docs/MAC-MINI-HANDOFF.md and unit-test-generation TODO.
+
 ### 2026-10-04: human30 complete; selected F and closed this SFT phase
 
 Actual30 Argilla submissions exported read-only. F19 preferences/base6/tie2/

@@ -8,8 +8,10 @@
 - [x] Complete blind20/30 human reviews; disclose summary weakness.
 - [x] Verify local adapter/log/config/runtime/output recovery; no more GPU work.
 - [x] Prepare local HF model/data cards, hash-checked release builder and Turkish blog.
-- [ ] Owner: HF IDs, license decisions, source/provider terms and final privacy review.
-- [ ] Publish private staging, verify downloadable artifact, then public release.
+- [x] Owner chose HF IDs and Apache-2.0 for adapter/dataset; private uploads verified.
+- [x] Both HF repositories observed public2026-10-05; actual cards snapshotted.
+- [ ] Owner: source/provider terms and final privacy review remain separate checks.
+- [ ] Finish/publish Turkish blog; no more Turkish SFT now.
 - [ ] Future only: summary faithfulness/de-da and correct-input preservation;
   use independent new training scenarios and a fresh test if500 informs training.
 
@@ -117,6 +119,11 @@ Argilla comparison is ready; supporting probes and full backup are completed.
   from other models/objectives remain hypotheses, not universal settings.
 
 ## Planned: agentic RL / multi-harness RL
+
+2026-10-05 owner narrowed the next phase to **Python unit-test generation only**,
+with Mac mini M4/24 GB, Pi + llama.cpp Q4 baseline before verifiable RL. Active
+planning moved to `experiments/unit-test-generation/qwen3.5-4b/`; the old generic
+items below remain background, not an instruction to launch multi-harness training.
 
 - [ ] Q-010: agentic RL pilot, explicitly requested by the user; backlog, not started.
   Reference: [FineEnvs multi-harness RL introduction](https://huggingface.co/spaces/FineEnvs/multi-harness-rl#introduction).
