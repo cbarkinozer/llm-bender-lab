@@ -1,0 +1,1013 @@
+{
+  "dataset": "nebius/SWE-rebench-leaderboard",
+  "revision": "34d5a58864acf91613740a09ec5d205228dcfa39",
+  "split": "2026_03",
+  "parquet_sha256": "18e198ac18b3c25b307c0aa5d9b6e20d338886e186bf7c12addb759ad4165a61",
+  "total_rows": 110,
+  "date_months": {
+    "2026-03": 46,
+    "2026-05": 21,
+    "2026-04": 43
+  },
+  "repositories": 79,
+  "license_field_present": false,
+  "rows": [
+    {
+      "instance_id": "pgmpy__pgmpy-3137",
+      "repo": "pgmpy/pgmpy",
+      "base_commit": "da98466c0a79cb416562e450d85699aedc10f422",
+      "created_at": "2026-03-22 09:18:02",
+      "image_name": "swerebench/sweb.eval.x86_64.pgmpy_1776_pgmpy-3137:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pgmpy_1776_pgmpy-3137:latest",
+      "environment_setup_commit": "da98466c0a79cb416562e450d85699aedc10f422"
+    },
+    {
+      "instance_id": "tox-dev__tox-3904",
+      "repo": "tox-dev/tox",
+      "base_commit": "106f036cdc6f7240380773e66d281bff7eaf1149",
+      "created_at": "2026-03-26 04:52:51",
+      "image_name": "swerebench/sweb.eval.x86_64.tox-dev_1776_tox-3904:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.tox-dev_1776_tox-3904:latest",
+      "environment_setup_commit": "106f036cdc6f7240380773e66d281bff7eaf1149"
+    },
+    {
+      "instance_id": "geopython__pygeoapi-2338",
+      "repo": "geopython/pygeoapi",
+      "base_commit": "a1770a775133a8f131f1d0691d3cb7a93140011a",
+      "created_at": "2026-05-11 03:12:03",
+      "image_name": "swerebench/sweb.eval.x86_64.geopython_1776_pygeoapi-2338:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.geopython_1776_pygeoapi-2338:latest",
+      "environment_setup_commit": "a1770a775133a8f131f1d0691d3cb7a93140011a"
+    },
+    {
+      "instance_id": "graphistry__pygraphistry-1107_interface",
+      "repo": "graphistry/pygraphistry",
+      "base_commit": "38d8507564fd38971fbe16d603d8226892d2e8fc",
+      "created_at": "2026-04-08 23:33:51",
+      "image_name": "swerebench/sweb.eval.x86_64.graphistry_1776_pygraphistry-1107_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.graphistry_1776_pygraphistry-1107_interface:latest",
+      "environment_setup_commit": "38d8507564fd38971fbe16d603d8226892d2e8fc"
+    },
+    {
+      "instance_id": "databricks__dbt-databricks-1428",
+      "repo": "databricks/dbt-databricks",
+      "base_commit": "80e486c6dce6d10b13ef1705a8e9255bbc4a521b",
+      "created_at": "2026-04-27 19:20:43",
+      "image_name": "swerebench/sweb.eval.x86_64.databricks_1776_dbt-databricks-1428:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.databricks_1776_dbt-databricks-1428:latest",
+      "environment_setup_commit": "80e486c6dce6d10b13ef1705a8e9255bbc4a521b"
+    },
+    {
+      "instance_id": "copier-org__copier-2646",
+      "repo": "copier-org/copier",
+      "base_commit": "e05ddfec08bc580d3e7b6a2a3e7cb18b6c761ba5",
+      "created_at": "2026-04-30 11:21:38",
+      "image_name": "swerebench/sweb.eval.x86_64.copier-org_1776_copier-2646:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.copier-org_1776_copier-2646:latest",
+      "environment_setup_commit": "e05ddfec08bc580d3e7b6a2a3e7cb18b6c761ba5"
+    },
+    {
+      "instance_id": "oemof__tespy-921",
+      "repo": "oemof/tespy",
+      "base_commit": "28670b60d89b48d1879ada9056c37b982836e51d",
+      "created_at": "2026-03-26 06:19:08",
+      "image_name": "swerebench/sweb.eval.x86_64.oemof_1776_tespy-921:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.oemof_1776_tespy-921:latest",
+      "environment_setup_commit": "28670b60d89b48d1879ada9056c37b982836e51d"
+    },
+    {
+      "instance_id": "nesquena__hermes-webui-1818",
+      "repo": "nesquena/hermes-webui",
+      "base_commit": "a8de4e7c0a29750fc9a2e83e2ad8eed324b0467e",
+      "created_at": "2026-05-07 13:43:28",
+      "image_name": "swerebench/sweb.eval.x86_64.nesquena_1776_hermes-webui-1818:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.nesquena_1776_hermes-webui-1818:latest",
+      "environment_setup_commit": "a8de4e7c0a29750fc9a2e83e2ad8eed324b0467e"
+    },
+    {
+      "instance_id": "hiero-ledger__hiero-sdk-python-2007_interface",
+      "repo": "hiero-ledger/hiero-sdk-python",
+      "base_commit": "f639c82eb509a540c1d9ebaf42ba14a835a15ca5",
+      "created_at": "2026-03-20 10:52:28",
+      "image_name": "swerebench/sweb.eval.x86_64.hiero-ledger_1776_hiero-sdk-python-2007_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.hiero-ledger_1776_hiero-sdk-python-2007_interface:latest",
+      "environment_setup_commit": "f639c82eb509a540c1d9ebaf42ba14a835a15ca5"
+    },
+    {
+      "instance_id": "tobymao__sqlglot-7479",
+      "repo": "tobymao/sqlglot",
+      "base_commit": "38357253ee1f2847bd14e0a7b68baf5a2c0a2228",
+      "created_at": "2026-04-09 12:51:48",
+      "image_name": "swerebench/sweb.eval.x86_64.tobymao_1776_sqlglot-7479:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.tobymao_1776_sqlglot-7479:latest",
+      "environment_setup_commit": "38357253ee1f2847bd14e0a7b68baf5a2c0a2228"
+    },
+    {
+      "instance_id": "agentscope-ai__qwenpaw-3278",
+      "repo": "agentscope-ai/QwenPaw",
+      "base_commit": "4302189c43142b819f18b7ac7938d91ea05001f7",
+      "created_at": "2026-04-12 04:51:22",
+      "image_name": "swerebench/sweb.eval.x86_64.agentscope-ai_1776_qwenpaw-3278:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.agentscope-ai_1776_qwenpaw-3278:latest",
+      "environment_setup_commit": "4302189c43142b819f18b7ac7938d91ea05001f7"
+    },
+    {
+      "instance_id": "python-wheel-build__fromager-1106",
+      "repo": "python-wheel-build/fromager",
+      "base_commit": "f82c1e64a027060c3e25090f6a4a4d7f4e3d985d",
+      "created_at": "2026-05-04 11:13:36",
+      "image_name": "swerebench/sweb.eval.x86_64.python-wheel-build_1776_fromager-1106:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.python-wheel-build_1776_fromager-1106:latest",
+      "environment_setup_commit": "f82c1e64a027060c3e25090f6a4a4d7f4e3d985d"
+    },
+    {
+      "instance_id": "mempalace__mempalace-1004",
+      "repo": "MemPalace/mempalace",
+      "base_commit": "ba30ab6951c0e19f3d23828d371dd2f5af0be783",
+      "created_at": "2026-04-18 17:52:28",
+      "image_name": "swerebench/sweb.eval.x86_64.mempalace_1776_mempalace-1004:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.mempalace_1776_mempalace-1004:latest",
+      "environment_setup_commit": "ba30ab6951c0e19f3d23828d371dd2f5af0be783"
+    },
+    {
+      "instance_id": "idaholab__montepy-933_interface",
+      "repo": "idaholab/MontePy",
+      "base_commit": "fbc03d10eb552cf82acc788ef70d120adec8130c",
+      "created_at": "2026-03-20 15:47:06",
+      "image_name": "swerebench/sweb.eval.x86_64.idaholab_1776_montepy-933_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.idaholab_1776_montepy-933_interface:latest",
+      "environment_setup_commit": "fbc03d10eb552cf82acc788ef70d120adec8130c"
+    },
+    {
+      "instance_id": "agronholm__anyio-1134",
+      "repo": "agronholm/anyio",
+      "base_commit": "01b8d02381ba95ba11241c1ec361e908fe05b8be",
+      "created_at": "2026-05-05 21:20:58",
+      "image_name": "swerebench/sweb.eval.x86_64.agronholm_1776_anyio-1134:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.agronholm_1776_anyio-1134:latest",
+      "environment_setup_commit": "01b8d02381ba95ba11241c1ec361e908fe05b8be"
+    },
+    {
+      "instance_id": "astropy__astropy-19438",
+      "repo": "astropy/astropy",
+      "base_commit": "352a52f2eb11f6d57145a877888a8b9a4d034af5",
+      "created_at": "2026-03-16 13:19:32",
+      "image_name": "swerebench/sweb.eval.x86_64.astropy_1776_astropy-19438:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.astropy_1776_astropy-19438:latest",
+      "environment_setup_commit": "352a52f2eb11f6d57145a877888a8b9a4d034af5"
+    },
+    {
+      "instance_id": "getmoto__moto-9841",
+      "repo": "getmoto/moto",
+      "base_commit": "830a798c567bcdded2447efb7e98ca6d89b6a8c5",
+      "created_at": "2026-03-09 23:11:49",
+      "image_name": "swerebench/sweb.eval.x86_64.getmoto_1776_moto-9841:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.getmoto_1776_moto-9841:latest",
+      "environment_setup_commit": "830a798c567bcdded2447efb7e98ca6d89b6a8c5"
+    },
+    {
+      "instance_id": "hiero-ledger__hiero-sdk-python-1914_interface",
+      "repo": "hiero-ledger/hiero-sdk-python",
+      "base_commit": "93eed7c340fb65356c3a06ac78f74402c3a169af",
+      "created_at": "2026-03-06 14:12:44",
+      "image_name": "swerebench/sweb.eval.x86_64.hiero-ledger_1776_hiero-sdk-python-1914_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.hiero-ledger_1776_hiero-sdk-python-1914_interface:latest",
+      "environment_setup_commit": "93eed7c340fb65356c3a06ac78f74402c3a169af"
+    },
+    {
+      "instance_id": "stanfordnlp__dspy-9478_interface",
+      "repo": "stanfordnlp/dspy",
+      "base_commit": "b7d573b8224b8e2e270523748e13f0836edc0576",
+      "created_at": "2026-03-20 05:25:19",
+      "image_name": "swerebench/sweb.eval.x86_64.stanfordnlp_1776_dspy-9478_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.stanfordnlp_1776_dspy-9478_interface:latest",
+      "environment_setup_commit": "b7d573b8224b8e2e270523748e13f0836edc0576"
+    },
+    {
+      "instance_id": "koxudaxi__datamodel-code-generator-3046",
+      "repo": "koxudaxi/datamodel-code-generator",
+      "base_commit": "f3f391271adacdab12a460e1c88f42c61181c25e",
+      "created_at": "2026-03-10 16:48:04",
+      "image_name": "swerebench/sweb.eval.x86_64.koxudaxi_1776_datamodel-code-generator-3046:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.koxudaxi_1776_datamodel-code-generator-3046:latest",
+      "environment_setup_commit": "f3f391271adacdab12a460e1c88f42c61181c25e"
+    },
+    {
+      "instance_id": "ucfopen__canvasapi-716",
+      "repo": "ucfopen/canvasapi",
+      "base_commit": "77ff5b248603db987e57f11a104767d4b790265a",
+      "created_at": "2026-03-31 19:11:13",
+      "image_name": "swerebench/sweb.eval.x86_64.ucfopen_1776_canvasapi-716:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.ucfopen_1776_canvasapi-716:latest",
+      "environment_setup_commit": "77ff5b248603db987e57f11a104767d4b790265a"
+    },
+    {
+      "instance_id": "apache__iceberg-python-3295",
+      "repo": "apache/iceberg-python",
+      "base_commit": "b67b7241690e05413f3cfea69287f897b0b2410e",
+      "created_at": "2026-04-28 22:03:47",
+      "image_name": "swerebench/sweb.eval.x86_64.apache_1776_iceberg-python-3295:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.apache_1776_iceberg-python-3295:latest",
+      "environment_setup_commit": "b67b7241690e05413f3cfea69287f897b0b2410e"
+    },
+    {
+      "instance_id": "raullenchai__rapid-mlx-289",
+      "repo": "raullenchai/Rapid-MLX",
+      "base_commit": "67c49b5bec9a049e361785090a20a17f6085886d",
+      "created_at": "2026-05-07 19:33:12",
+      "image_name": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-289:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-289:latest",
+      "environment_setup_commit": "67c49b5bec9a049e361785090a20a17f6085886d"
+    },
+    {
+      "instance_id": "pandas-dev__pandas-64796",
+      "repo": "pandas-dev/pandas",
+      "base_commit": "ff8dac94dcc6964255a6b44048a80bfd0d015ce3",
+      "created_at": "2026-03-23 21:00:36",
+      "image_name": "swerebench/sweb.eval.x86_64.pandas-dev_1776_pandas-64796:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pandas-dev_1776_pandas-64796:latest",
+      "environment_setup_commit": "ff8dac94dcc6964255a6b44048a80bfd0d015ce3"
+    },
+    {
+      "instance_id": "cs-si__eodag-2176",
+      "repo": "CS-SI/eodag",
+      "base_commit": "a058e6c2c7fb082c80bc5015e495dade6c87ae1b",
+      "created_at": "2026-05-11 10:01:25",
+      "image_name": "swerebench/sweb.eval.x86_64.cs-si_1776_eodag-2176:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.cs-si_1776_eodag-2176:latest",
+      "environment_setup_commit": "a058e6c2c7fb082c80bc5015e495dade6c87ae1b"
+    },
+    {
+      "instance_id": "vprusso__toqito-1484_interface",
+      "repo": "vprusso/toqito",
+      "base_commit": "06d57a15c2afa2671ac710eee8ebf8a3b06e3be7",
+      "created_at": "2026-03-19 11:41:16",
+      "image_name": "swerebench/sweb.eval.x86_64.vprusso_1776_toqito-1484_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.vprusso_1776_toqito-1484_interface:latest",
+      "environment_setup_commit": "06d57a15c2afa2671ac710eee8ebf8a3b06e3be7"
+    },
+    {
+      "instance_id": "python-scim__scim2-models-139_interface",
+      "repo": "python-scim/scim2-models",
+      "base_commit": "88991b8781aa17362b4a6b549120bd03c3d88a14",
+      "created_at": "2026-04-03 08:06:17",
+      "image_name": "swerebench/sweb.eval.x86_64.python-scim_1776_scim2-models-139_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.python-scim_1776_scim2-models-139_interface:latest",
+      "environment_setup_commit": "88991b8781aa17362b4a6b549120bd03c3d88a14"
+    },
+    {
+      "instance_id": "reframe-hpc__reframe-3660_interface",
+      "repo": "reframe-hpc/reframe",
+      "base_commit": "fcbd6df35be5e236cd2f47c5d7c8883928a098b3",
+      "created_at": "2026-04-27 23:53:48",
+      "image_name": "swerebench/sweb.eval.x86_64.reframe-hpc_1776_reframe-3660_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.reframe-hpc_1776_reframe-3660_interface:latest",
+      "environment_setup_commit": "fcbd6df35be5e236cd2f47c5d7c8883928a098b3"
+    },
+    {
+      "instance_id": "alibaba__opensandbox-816",
+      "repo": "alibaba/OpenSandbox",
+      "base_commit": "fb78091f947f62ae2c71a372af42425a764aacee",
+      "created_at": "2026-04-29 07:35:36",
+      "image_name": "swerebench/sweb.eval.x86_64.alibaba_1776_opensandbox-816:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.alibaba_1776_opensandbox-816:latest",
+      "environment_setup_commit": "fb78091f947f62ae2c71a372af42425a764aacee"
+    },
+    {
+      "instance_id": "pdm-project__pdm-3759",
+      "repo": "pdm-project/pdm",
+      "base_commit": "e96d535bb1bd64ac21575cf3490d64f737c6a668",
+      "created_at": "2026-04-01 14:37:40",
+      "image_name": "swerebench/sweb.eval.x86_64.pdm-project_1776_pdm-3759:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pdm-project_1776_pdm-3759:latest",
+      "environment_setup_commit": "e96d535bb1bd64ac21575cf3490d64f737c6a668"
+    },
+    {
+      "instance_id": "schemathesis__schemathesis-3933",
+      "repo": "schemathesis/schemathesis",
+      "base_commit": "9eaf646a5aa944d2be8440872115b4ed9eb587eb",
+      "created_at": "2026-05-04 09:43:10",
+      "image_name": "swerebench/sweb.eval.x86_64.schemathesis_1776_schemathesis-3933:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.schemathesis_1776_schemathesis-3933:latest",
+      "environment_setup_commit": "9eaf646a5aa944d2be8440872115b4ed9eb587eb"
+    },
+    {
+      "instance_id": "tobymao__sqlglot-7457",
+      "repo": "tobymao/sqlglot",
+      "base_commit": "e8bbc8044ac10a550eaf7da762987270fee8d81d",
+      "created_at": "2026-04-05 13:50:52",
+      "image_name": "swerebench/sweb.eval.x86_64.tobymao_1776_sqlglot-7457:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.tobymao_1776_sqlglot-7457:latest",
+      "environment_setup_commit": "e8bbc8044ac10a550eaf7da762987270fee8d81d"
+    },
+    {
+      "instance_id": "keras-team__keras-22330",
+      "repo": "keras-team/keras",
+      "base_commit": "e0698d2c3351dfabf80bb0e3b867576c1e06c874",
+      "created_at": "2026-03-02 18:17:38",
+      "image_name": "swerebench/sweb.eval.x86_64.keras-team_1776_keras-22330:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.keras-team_1776_keras-22330:latest",
+      "environment_setup_commit": "e0698d2c3351dfabf80bb0e3b867576c1e06c874"
+    },
+    {
+      "instance_id": "sigma67__ytmusicapi-909_interface",
+      "repo": "sigma67/ytmusicapi",
+      "base_commit": "86bcd5d8890423240cecb331e19d347ab6b1c63c",
+      "created_at": "2026-04-23 19:52:13",
+      "image_name": "swerebench/sweb.eval.x86_64.sigma67_1776_ytmusicapi-909_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.sigma67_1776_ytmusicapi-909_interface:latest",
+      "environment_setup_commit": "86bcd5d8890423240cecb331e19d347ab6b1c63c"
+    },
+    {
+      "instance_id": "graphistry__pygraphistry-1277",
+      "repo": "graphistry/pygraphistry",
+      "base_commit": "8687aeaf91235259fa6f5fe0d9b16884ad6cd73b",
+      "created_at": "2026-05-04 02:58:43",
+      "image_name": "swerebench/sweb.eval.x86_64.graphistry_1776_pygraphistry-1277:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.graphistry_1776_pygraphistry-1277:latest",
+      "environment_setup_commit": "8687aeaf91235259fa6f5fe0d9b16884ad6cd73b"
+    },
+    {
+      "instance_id": "dagster-io__dagster-33605",
+      "repo": "dagster-io/dagster",
+      "base_commit": "f8430dc7bf76bfab4f026165e5c5f821104298df",
+      "created_at": "2026-03-15 15:42:33",
+      "image_name": "swerebench/sweb.eval.x86_64.dagster-io_1776_dagster-33605:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.dagster-io_1776_dagster-33605:latest",
+      "environment_setup_commit": "f8430dc7bf76bfab4f026165e5c5f821104298df"
+    },
+    {
+      "instance_id": "schemathesis__schemathesis-3778",
+      "repo": "schemathesis/schemathesis",
+      "base_commit": "c8cf82643ab5bc62b8d215c6b39814186107bb43",
+      "created_at": "2026-04-21 11:18:39",
+      "image_name": "swerebench/sweb.eval.x86_64.schemathesis_1776_schemathesis-3778:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.schemathesis_1776_schemathesis-3778:latest",
+      "environment_setup_commit": "c8cf82643ab5bc62b8d215c6b39814186107bb43"
+    },
+    {
+      "instance_id": "python-wheel-build__fromager-1124",
+      "repo": "python-wheel-build/fromager",
+      "base_commit": "5fd5d20ff117279b938f003a5a0de18292fbbb83",
+      "created_at": "2026-05-07 03:47:42",
+      "image_name": "swerebench/sweb.eval.x86_64.python-wheel-build_1776_fromager-1124:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.python-wheel-build_1776_fromager-1124:latest",
+      "environment_setup_commit": "5fd5d20ff117279b938f003a5a0de18292fbbb83"
+    },
+    {
+      "instance_id": "keras-team__keras-22642",
+      "repo": "keras-team/keras",
+      "base_commit": "2b176bc33233762863fa5f3d60e060de3be934e5",
+      "created_at": "2026-04-06 21:57:28",
+      "image_name": "swerebench/sweb.eval.x86_64.keras-team_1776_keras-22642:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.keras-team_1776_keras-22642:latest",
+      "environment_setup_commit": "2b176bc33233762863fa5f3d60e060de3be934e5"
+    },
+    {
+      "instance_id": "raullenchai__rapid-mlx-228",
+      "repo": "raullenchai/Rapid-MLX",
+      "base_commit": "85f2b2f429556cb59458452119ab657ada8b705c",
+      "created_at": "2026-05-05 17:40:54",
+      "image_name": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-228:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-228:latest",
+      "environment_setup_commit": "85f2b2f429556cb59458452119ab657ada8b705c"
+    },
+    {
+      "instance_id": "tobymao__sqlglot-7187",
+      "repo": "tobymao/sqlglot",
+      "base_commit": "0e8d0824c40ac46c5e7275180cf2eaae6810f805",
+      "created_at": "2026-03-02 15:56:17",
+      "image_name": "swerebench/sweb.eval.x86_64.tobymao_1776_sqlglot-7187:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.tobymao_1776_sqlglot-7187:latest",
+      "environment_setup_commit": "0e8d0824c40ac46c5e7275180cf2eaae6810f805"
+    },
+    {
+      "instance_id": "pypa__twine-1309",
+      "repo": "pypa/twine",
+      "base_commit": "cab618fb122bb2d1e6c042f5bf0c5a8b8e2573bc",
+      "created_at": "2026-04-17 17:23:13",
+      "image_name": "swerebench/sweb.eval.x86_64.pypa_1776_twine-1309:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pypa_1776_twine-1309:latest",
+      "environment_setup_commit": "cab618fb122bb2d1e6c042f5bf0c5a8b8e2573bc"
+    },
+    {
+      "instance_id": "tox-dev__tox-3846",
+      "repo": "tox-dev/tox",
+      "base_commit": "ae05f2a33ccfe52ff22ac578ec6c8eb9f750ce4a",
+      "created_at": "2026-03-03 15:34:23",
+      "image_name": "swerebench/sweb.eval.x86_64.tox-dev_1776_tox-3846:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.tox-dev_1776_tox-3846:latest",
+      "environment_setup_commit": "ae05f2a33ccfe52ff22ac578ec6c8eb9f750ce4a"
+    },
+    {
+      "instance_id": "nesquena__hermes-webui-330_interface",
+      "repo": "nesquena/hermes-webui",
+      "base_commit": "9c44d0cf3e7623937dc9c81f3f0562bafa668c6a",
+      "created_at": "2026-04-12 21:10:36",
+      "image_name": "swerebench/sweb.eval.x86_64.nesquena_1776_hermes-webui-330_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.nesquena_1776_hermes-webui-330_interface:latest",
+      "environment_setup_commit": "9c44d0cf3e7623937dc9c81f3f0562bafa668c6a"
+    },
+    {
+      "instance_id": "astronomy-commons__hats-648",
+      "repo": "astronomy-commons/hats",
+      "base_commit": "3017cc4086087356ef9f5893200b79bdcbeddc3b",
+      "created_at": "2026-03-06 10:12:00",
+      "image_name": "swerebench/sweb.eval.x86_64.astronomy-commons_1776_hats-648:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.astronomy-commons_1776_hats-648:latest",
+      "environment_setup_commit": "3017cc4086087356ef9f5893200b79bdcbeddc3b"
+    },
+    {
+      "instance_id": "marshmallow-code__marshmallow-2925_interface",
+      "repo": "marshmallow-code/marshmallow",
+      "base_commit": "546be2f728faca68a88130a6406c20994355c853",
+      "created_at": "2026-03-25 16:50:58",
+      "image_name": "swerebench/sweb.eval.x86_64.marshmallow-code_1776_marshmallow-2925_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.marshmallow-code_1776_marshmallow-2925_interface:latest",
+      "environment_setup_commit": "546be2f728faca68a88130a6406c20994355c853"
+    },
+    {
+      "instance_id": "agronholm__anyio-1121",
+      "repo": "agronholm/anyio",
+      "base_commit": "cb245dba9883516f2ed4c23899de157183a1cb50",
+      "created_at": "2026-04-21 14:00:36",
+      "image_name": "swerebench/sweb.eval.x86_64.agronholm_1776_anyio-1121:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.agronholm_1776_anyio-1121:latest",
+      "environment_setup_commit": "cb245dba9883516f2ed4c23899de157183a1cb50"
+    },
+    {
+      "instance_id": "pyinfra-dev__pyinfra-1679_interface",
+      "repo": "pyinfra-dev/pyinfra",
+      "base_commit": "185f7dbec96f8e1d5f7cfefe0f325f99ab73927a",
+      "created_at": "2026-04-20 07:41:05",
+      "image_name": "swerebench/sweb.eval.x86_64.pyinfra-dev_1776_pyinfra-1679_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pyinfra-dev_1776_pyinfra-1679_interface:latest",
+      "environment_setup_commit": "185f7dbec96f8e1d5f7cfefe0f325f99ab73927a"
+    },
+    {
+      "instance_id": "ultraplot__ultraplot-696",
+      "repo": "Ultraplot/UltraPlot",
+      "base_commit": "1567aa35dc5669b67babe76a929452e1c6d85fdb",
+      "created_at": "2026-04-16 22:58:14",
+      "image_name": "swerebench/sweb.eval.x86_64.ultraplot_1776_ultraplot-696:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.ultraplot_1776_ultraplot-696:latest",
+      "environment_setup_commit": "1567aa35dc5669b67babe76a929452e1c6d85fdb"
+    },
+    {
+      "instance_id": "zauberzeug__nicegui-5914",
+      "repo": "zauberzeug/nicegui",
+      "base_commit": "b6c2d3dd191acb488427e8eae6ab2c868b547636",
+      "created_at": "2026-03-26 14:10:41",
+      "image_name": "swerebench/sweb.eval.x86_64.zauberzeug_1776_nicegui-5914:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.zauberzeug_1776_nicegui-5914:latest",
+      "environment_setup_commit": "b6c2d3dd191acb488427e8eae6ab2c868b547636"
+    },
+    {
+      "instance_id": "scrapy__scrapy-7351_interface",
+      "repo": "scrapy/scrapy",
+      "base_commit": "2b174e348d88d19dd32135e8e483c4eb784aeca8",
+      "created_at": "2026-03-24 14:13:12",
+      "image_name": "swerebench/sweb.eval.x86_64.scrapy_1776_scrapy-7351_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.scrapy_1776_scrapy-7351_interface:latest",
+      "environment_setup_commit": "2b174e348d88d19dd32135e8e483c4eb784aeca8"
+    },
+    {
+      "instance_id": "holoviz__param-1117",
+      "repo": "holoviz/param",
+      "base_commit": "833c8f05f7a47fa1476620307ef7fd447c45e6fb",
+      "created_at": "2026-03-25 14:50:38",
+      "image_name": "swerebench/sweb.eval.x86_64.holoviz_1776_param-1117:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.holoviz_1776_param-1117:latest",
+      "environment_setup_commit": "833c8f05f7a47fa1476620307ef7fd447c45e6fb"
+    },
+    {
+      "instance_id": "destine-climate-dt__aqua-2768",
+      "repo": "DestinE-Climate-DT/AQUA",
+      "base_commit": "5b4681052abf8179571637466b45c49623858473",
+      "created_at": "2026-03-12 01:12:01",
+      "image_name": "swerebench/sweb.eval.x86_64.destine-climate-dt_1776_aqua-2768:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.destine-climate-dt_1776_aqua-2768:latest",
+      "environment_setup_commit": "5b4681052abf8179571637466b45c49623858473"
+    },
+    {
+      "instance_id": "pypa__build-1027",
+      "repo": "pypa/build",
+      "base_commit": "27b67b2db1807f2547af670e4d14401a6605bf3b",
+      "created_at": "2026-04-10 18:48:38",
+      "image_name": "swerebench/sweb.eval.x86_64.pypa_1776_build-1027:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pypa_1776_build-1027:latest",
+      "environment_setup_commit": "27b67b2db1807f2547af670e4d14401a6605bf3b"
+    },
+    {
+      "instance_id": "harumiweb__exstruct-113",
+      "repo": "harumiWeb/exstruct",
+      "base_commit": "c0c8c52d0a3b507ac13feb4b700e5d858f2a81dc",
+      "created_at": "2026-03-21 08:53:23",
+      "image_name": "swerebench/sweb.eval.x86_64.harumiweb_1776_exstruct-113:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.harumiweb_1776_exstruct-113:latest",
+      "environment_setup_commit": "c0c8c52d0a3b507ac13feb4b700e5d858f2a81dc"
+    },
+    {
+      "instance_id": "pypsa__pypsa-1653",
+      "repo": "PyPSA/PyPSA",
+      "base_commit": "50bcbb8c1ba6319167a8bf0059cf18114b2f2eac",
+      "created_at": "2026-04-13 08:33:16",
+      "image_name": "swerebench/sweb.eval.x86_64.pypsa_1776_pypsa-1653:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pypsa_1776_pypsa-1653:latest",
+      "environment_setup_commit": "50bcbb8c1ba6319167a8bf0059cf18114b2f2eac"
+    },
+    {
+      "instance_id": "koxudaxi__datamodel-code-generator-3070",
+      "repo": "koxudaxi/datamodel-code-generator",
+      "base_commit": "5dcbc09a9086febf62e92f11b88215584d3a5c45",
+      "created_at": "2026-04-04 06:59:19",
+      "image_name": "swerebench/sweb.eval.x86_64.koxudaxi_1776_datamodel-code-generator-3070:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.koxudaxi_1776_datamodel-code-generator-3070:latest",
+      "environment_setup_commit": "5dcbc09a9086febf62e92f11b88215584d3a5c45"
+    },
+    {
+      "instance_id": "meltano__meltano-9950",
+      "repo": "meltano/meltano",
+      "base_commit": "2a7a073b14a54011caaaea2ea40d36e5d97220d6",
+      "created_at": "2026-04-10 20:30:39",
+      "image_name": "swerebench/sweb.eval.x86_64.meltano_1776_meltano-9950:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.meltano_1776_meltano-9950:latest",
+      "environment_setup_commit": "2a7a073b14a54011caaaea2ea40d36e5d97220d6"
+    },
+    {
+      "instance_id": "raullenchai__rapid-mlx-227",
+      "repo": "raullenchai/Rapid-MLX",
+      "base_commit": "1d2474619a707a9bf68a3d6aefb323eb7c359038",
+      "created_at": "2026-05-05 17:39:40",
+      "image_name": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-227:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-227:latest",
+      "environment_setup_commit": "1d2474619a707a9bf68a3d6aefb323eb7c359038"
+    },
+    {
+      "instance_id": "astronomy-commons__lsdb-1349",
+      "repo": "astronomy-commons/lsdb",
+      "base_commit": "ba11985ca7940dabb77d4f7db731d516e6527d47",
+      "created_at": "2026-04-29 20:36:11",
+      "image_name": "swerebench/sweb.eval.x86_64.astronomy-commons_1776_lsdb-1349:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.astronomy-commons_1776_lsdb-1349:latest",
+      "environment_setup_commit": "ba11985ca7940dabb77d4f7db731d516e6527d47"
+    },
+    {
+      "instance_id": "pennylaneai__pennylane-9298",
+      "repo": "PennyLaneAI/pennylane",
+      "base_commit": "4c31d796dcaa6f6ef96cc46b311f9171ea26102e",
+      "created_at": "2026-04-13 19:33:03",
+      "image_name": "swerebench/sweb.eval.x86_64.pennylaneai_1776_pennylane-9298:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pennylaneai_1776_pennylane-9298:latest",
+      "environment_setup_commit": "4c31d796dcaa6f6ef96cc46b311f9171ea26102e"
+    },
+    {
+      "instance_id": "macbre__sql-metadata-625_interface",
+      "repo": "macbre/sql-metadata",
+      "base_commit": "425b46326d4a7b7e937f3ef19b321df0512b9163",
+      "created_at": "2026-05-07 20:17:44",
+      "image_name": "swerebench/sweb.eval.x86_64.macbre_1776_sql-metadata-625_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.macbre_1776_sql-metadata-625_interface:latest",
+      "environment_setup_commit": "425b46326d4a7b7e937f3ef19b321df0512b9163"
+    },
+    {
+      "instance_id": "sunpy__sunpy-8548_interface",
+      "repo": "sunpy/sunpy",
+      "base_commit": "c961a1507a83b9dab24ccce12ab92a53b30359d7",
+      "created_at": "2026-03-21 21:08:48",
+      "image_name": "swerebench/sweb.eval.x86_64.sunpy_1776_sunpy-8548_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.sunpy_1776_sunpy-8548_interface:latest",
+      "environment_setup_commit": "c961a1507a83b9dab24ccce12ab92a53b30359d7"
+    },
+    {
+      "instance_id": "pallets-eco__wtforms-892_interface",
+      "repo": "pallets-eco/wtforms",
+      "base_commit": "22fb0dc9cc57327e5a7ce620f59d7f6da1788343",
+      "created_at": "2026-05-03 13:17:49",
+      "image_name": "swerebench/sweb.eval.x86_64.pallets-eco_1776_wtforms-892_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pallets-eco_1776_wtforms-892_interface:latest",
+      "environment_setup_commit": "22fb0dc9cc57327e5a7ce620f59d7f6da1788343"
+    },
+    {
+      "instance_id": "huggingface__huggingface_hub-4056",
+      "repo": "huggingface/huggingface_hub",
+      "base_commit": "6983a4d3d2bdcbd09c6ea08acae64cdf83ccb2e4",
+      "created_at": "2026-04-06 15:39:13",
+      "image_name": "swerebench/sweb.eval.x86_64.huggingface_1776_huggingface_hub-4056:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.huggingface_1776_huggingface_hub-4056:latest",
+      "environment_setup_commit": "6983a4d3d2bdcbd09c6ea08acae64cdf83ccb2e4"
+    },
+    {
+      "instance_id": "deltares__hydrolib-core-1049_interface",
+      "repo": "Deltares/HYDROLIB-core",
+      "base_commit": "d46486ed3c6bedb6ef63e803da6e2e4851d1d48b",
+      "created_at": "2026-04-13 09:42:06",
+      "image_name": "swerebench/sweb.eval.x86_64.deltares_1776_hydrolib-core-1049_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.deltares_1776_hydrolib-core-1049_interface:latest",
+      "environment_setup_commit": "d46486ed3c6bedb6ef63e803da6e2e4851d1d48b"
+    },
+    {
+      "instance_id": "conan-io__conan-19735_interface",
+      "repo": "conan-io/conan",
+      "base_commit": "4a65d65f53d2ab37f4ce0e52dc3f25cd832b2934",
+      "created_at": "2026-03-10 10:33:02",
+      "image_name": "swerebench/sweb.eval.x86_64.conan-io_1776_conan-19735_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.conan-io_1776_conan-19735_interface:latest",
+      "environment_setup_commit": "4a65d65f53d2ab37f4ce0e52dc3f25cd832b2934"
+    },
+    {
+      "instance_id": "line__line-bot-sdk-python-981_interface",
+      "repo": "line/line-bot-sdk-python",
+      "base_commit": "f0d222be1a25553005bff35c2ace82424a683fd9",
+      "created_at": "2026-04-01 07:44:57",
+      "image_name": "swerebench/sweb.eval.x86_64.line_1776_line-bot-sdk-python-981_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.line_1776_line-bot-sdk-python-981_interface:latest",
+      "environment_setup_commit": "f0d222be1a25553005bff35c2ace82424a683fd9"
+    },
+    {
+      "instance_id": "microsoft__qcodes-8039",
+      "repo": "microsoft/Qcodes",
+      "base_commit": "fb48ab0c58eb2c144ab634d0b4209e70334c89ab",
+      "created_at": "2026-04-13 10:36:33",
+      "image_name": "swerebench/sweb.eval.x86_64.microsoft_1776_qcodes-8039:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.microsoft_1776_qcodes-8039:latest",
+      "environment_setup_commit": "fb48ab0c58eb2c144ab634d0b4209e70334c89ab"
+    },
+    {
+      "instance_id": "olofk__fusesoc-776_interface",
+      "repo": "olofk/fusesoc",
+      "base_commit": "d2e6e720222f57cb66d6c303a326d336c582aade",
+      "created_at": "2026-05-07 12:05:49",
+      "image_name": "swerebench/sweb.eval.x86_64.olofk_1776_fusesoc-776_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.olofk_1776_fusesoc-776_interface:latest",
+      "environment_setup_commit": "d2e6e720222f57cb66d6c303a326d336c582aade"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-33565",
+      "repo": "scikit-learn/scikit-learn",
+      "base_commit": "b674d83af6280151e3d2e0674cc6b1cce6075dc2",
+      "created_at": "2026-03-17 10:54:06",
+      "image_name": "swerebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-33565:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-33565:latest",
+      "environment_setup_commit": "b674d83af6280151e3d2e0674cc6b1cce6075dc2"
+    },
+    {
+      "instance_id": "pallets__click-3239",
+      "repo": "pallets/click",
+      "base_commit": "60cad4ad6583bf885c62d6f4597f3555d1ee1a0f",
+      "created_at": "2026-03-02 07:53:49",
+      "image_name": "swerebench/sweb.eval.x86_64.pallets_1776_click-3239:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pallets_1776_click-3239:latest",
+      "environment_setup_commit": "60cad4ad6583bf885c62d6f4597f3555d1ee1a0f"
+    },
+    {
+      "instance_id": "pandas-dev__pandas-64816",
+      "repo": "pandas-dev/pandas",
+      "base_commit": "9df51a79c83d8f905da9d6af2a391b23d2095410",
+      "created_at": "2026-03-24 01:27:57",
+      "image_name": "swerebench/sweb.eval.x86_64.pandas-dev_1776_pandas-64816:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pandas-dev_1776_pandas-64816:latest",
+      "environment_setup_commit": "9df51a79c83d8f905da9d6af2a391b23d2095410"
+    },
+    {
+      "instance_id": "hkuds__openharness-217",
+      "repo": "HKUDS/OpenHarness",
+      "base_commit": "1bcdc62a50db14c2f0bf5dbee05b2bdc369dffb3",
+      "created_at": "2026-04-30 00:28:27",
+      "image_name": "swerebench/sweb.eval.x86_64.hkuds_1776_openharness-217:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.hkuds_1776_openharness-217:latest",
+      "environment_setup_commit": "1bcdc62a50db14c2f0bf5dbee05b2bdc369dffb3"
+    },
+    {
+      "instance_id": "unit8co__darts-3065",
+      "repo": "unit8co/darts",
+      "base_commit": "6bfda77e4afc9c123740ab6cc52ca39a7ab92d84",
+      "created_at": "2026-04-10 23:06:13",
+      "image_name": "swerebench/sweb.eval.x86_64.unit8co_1776_darts-3065:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.unit8co_1776_darts-3065:latest",
+      "environment_setup_commit": "6bfda77e4afc9c123740ab6cc52ca39a7ab92d84"
+    },
+    {
+      "instance_id": "pyinfra-dev__pyinfra-1665",
+      "repo": "pyinfra-dev/pyinfra",
+      "base_commit": "185f7dbec96f8e1d5f7cfefe0f325f99ab73927a",
+      "created_at": "2026-04-14 07:06:21",
+      "image_name": "swerebench/sweb.eval.x86_64.pyinfra-dev_1776_pyinfra-1665:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pyinfra-dev_1776_pyinfra-1665:latest",
+      "environment_setup_commit": "185f7dbec96f8e1d5f7cfefe0f325f99ab73927a"
+    },
+    {
+      "instance_id": "aallan__vera-662_interface",
+      "repo": "aallan/vera",
+      "base_commit": "01281f9c2a0a42e28209a28b956d8e9b308cc10c",
+      "created_at": "2026-05-12 08:07:53",
+      "image_name": "swerebench/sweb.eval.x86_64.aallan_1776_vera-662_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.aallan_1776_vera-662_interface:latest",
+      "environment_setup_commit": "01281f9c2a0a42e28209a28b956d8e9b308cc10c"
+    },
+    {
+      "instance_id": "getmoto__moto-9903",
+      "repo": "getmoto/moto",
+      "base_commit": "ee7a095c75c83ef407ff2a0bc33769efb72666a5",
+      "created_at": "2026-03-23 19:41:08",
+      "image_name": "swerebench/sweb.eval.x86_64.getmoto_1776_moto-9903:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.getmoto_1776_moto-9903:latest",
+      "environment_setup_commit": "ee7a095c75c83ef407ff2a0bc33769efb72666a5"
+    },
+    {
+      "instance_id": "con__nwb2bids-347_interface",
+      "repo": "con/nwb2bids",
+      "base_commit": "f25c84d5cad92cb44ae4c3822d113e0315022fc2",
+      "created_at": "2026-03-18 18:16:27",
+      "image_name": "swerebench/sweb.eval.x86_64.con_1776_nwb2bids-347_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.con_1776_nwb2bids-347_interface:latest",
+      "environment_setup_commit": "f25c84d5cad92cb44ae4c3822d113e0315022fc2"
+    },
+    {
+      "instance_id": "zarr-developers__virtualizarr-979",
+      "repo": "zarr-developers/VirtualiZarr",
+      "base_commit": "3194b095ede4abaa9d9d0daaa91a6f0424cc4a93",
+      "created_at": "2026-04-24 16:09:18",
+      "image_name": "swerebench/sweb.eval.x86_64.zarr-developers_1776_virtualizarr-979:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.zarr-developers_1776_virtualizarr-979:latest",
+      "environment_setup_commit": "3194b095ede4abaa9d9d0daaa91a6f0424cc4a93"
+    },
+    {
+      "instance_id": "keras-team__keras-22316",
+      "repo": "keras-team/keras",
+      "base_commit": "34e55d4561ba2a61bbc72562e88b3704e0a43081",
+      "created_at": "2026-03-01 00:54:12",
+      "image_name": "swerebench/sweb.eval.x86_64.keras-team_1776_keras-22316:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.keras-team_1776_keras-22316:latest",
+      "environment_setup_commit": "34e55d4561ba2a61bbc72562e88b3704e0a43081"
+    },
+    {
+      "instance_id": "tox-dev__tox-3931",
+      "repo": "tox-dev/tox",
+      "base_commit": "dd305fe8f347c49fcd3bd63d5e56c912e4c428f2",
+      "created_at": "2026-05-01 15:37:40",
+      "image_name": "swerebench/sweb.eval.x86_64.tox-dev_1776_tox-3931:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.tox-dev_1776_tox-3931:latest",
+      "environment_setup_commit": "dd305fe8f347c49fcd3bd63d5e56c912e4c428f2"
+    },
+    {
+      "instance_id": "pyinfra-dev__pyinfra-1630",
+      "repo": "pyinfra-dev/pyinfra",
+      "base_commit": "e3f41dca4bd5150eb913199c6e512fe0f776eb1f",
+      "created_at": "2026-03-24 13:55:45",
+      "image_name": "swerebench/sweb.eval.x86_64.pyinfra-dev_1776_pyinfra-1630:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pyinfra-dev_1776_pyinfra-1630:latest",
+      "environment_setup_commit": "e3f41dca4bd5150eb913199c6e512fe0f776eb1f"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-7622",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "ebcbcaeb8e619d67d676bd5089fde178c7a4d75f",
+      "created_at": "2026-03-16 15:50:33",
+      "image_name": "swerebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-7622:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-7622:latest",
+      "environment_setup_commit": "ebcbcaeb8e619d67d676bd5089fde178c7a4d75f"
+    },
+    {
+      "instance_id": "celestoai__smolvm-172",
+      "repo": "CelestoAI/SmolVM",
+      "base_commit": "34d68c5f960e283aca7ad0c31519bdbcab99800d",
+      "created_at": "2026-04-18 11:06:08",
+      "image_name": "swerebench/sweb.eval.x86_64.celestoai_1776_smolvm-172:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.celestoai_1776_smolvm-172:latest",
+      "environment_setup_commit": "34d68c5f960e283aca7ad0c31519bdbcab99800d"
+    },
+    {
+      "instance_id": "zauberzeug__nicegui-5858",
+      "repo": "zauberzeug/nicegui",
+      "base_commit": "315c1d15eff52464c2391e8418095992f4e7a673",
+      "created_at": "2026-03-09 16:34:24",
+      "image_name": "swerebench/sweb.eval.x86_64.zauberzeug_1776_nicegui-5858:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.zauberzeug_1776_nicegui-5858:latest",
+      "environment_setup_commit": "315c1d15eff52464c2391e8418095992f4e7a673"
+    },
+    {
+      "instance_id": "containers__ramalama-2487",
+      "repo": "containers/ramalama",
+      "base_commit": "e0e961e651c8112b56d9b0d097050a4539075b69",
+      "created_at": "2026-03-05 10:57:45",
+      "image_name": "swerebench/sweb.eval.x86_64.containers_1776_ramalama-2487:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.containers_1776_ramalama-2487:latest",
+      "environment_setup_commit": "e0e961e651c8112b56d9b0d097050a4539075b69"
+    },
+    {
+      "instance_id": "spack__spack-52244",
+      "repo": "spack/spack",
+      "base_commit": "7c0cc38fac11438c402984215349d4ce6caeaf3c",
+      "created_at": "2026-04-13 07:36:02",
+      "image_name": "swerebench/sweb.eval.x86_64.spack_1776_spack-52244:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.spack_1776_spack-52244:latest",
+      "environment_setup_commit": "7c0cc38fac11438c402984215349d4ce6caeaf3c"
+    },
+    {
+      "instance_id": "conan-io__conan-19750",
+      "repo": "conan-io/conan",
+      "base_commit": "6c9356b3e5bd75f7d7061a708785e80aaacb3b43",
+      "created_at": "2026-03-13 10:20:23",
+      "image_name": "swerebench/sweb.eval.x86_64.conan-io_1776_conan-19750:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.conan-io_1776_conan-19750:latest",
+      "environment_setup_commit": "6c9356b3e5bd75f7d7061a708785e80aaacb3b43"
+    },
+    {
+      "instance_id": "koxudaxi__datamodel-code-generator-3071",
+      "repo": "koxudaxi/datamodel-code-generator",
+      "base_commit": "5a8cd0da7a6d17bfd70c5c2623699ffc6aa818fd",
+      "created_at": "2026-04-04 07:33:36",
+      "image_name": "swerebench/sweb.eval.x86_64.koxudaxi_1776_datamodel-code-generator-3071:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.koxudaxi_1776_datamodel-code-generator-3071:latest",
+      "environment_setup_commit": "5a8cd0da7a6d17bfd70c5c2623699ffc6aa818fd"
+    },
+    {
+      "instance_id": "pipecat-ai__pipecat-4283",
+      "repo": "pipecat-ai/pipecat",
+      "base_commit": "a8660aabfe3316b31f36d7c94559012069455f1f",
+      "created_at": "2026-04-13 22:11:49",
+      "image_name": "swerebench/sweb.eval.x86_64.pipecat-ai_1776_pipecat-4283:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pipecat-ai_1776_pipecat-4283:latest",
+      "environment_setup_commit": "a8660aabfe3316b31f36d7c94559012069455f1f"
+    },
+    {
+      "instance_id": "beever-ai__beever-atlas-102",
+      "repo": "Beever-AI/beever-atlas",
+      "base_commit": "f5e3777b2b441909b558a27b9ac24a6940268a5f",
+      "created_at": "2026-04-29 16:56:35",
+      "image_name": "swerebench/sweb.eval.x86_64.beever-ai_1776_beever-atlas-102:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.beever-ai_1776_beever-atlas-102:latest",
+      "environment_setup_commit": "f5e3777b2b441909b558a27b9ac24a6940268a5f"
+    },
+    {
+      "instance_id": "kubeflow__pipelines-13112",
+      "repo": "kubeflow/pipelines",
+      "base_commit": "98f5b7a300ee52d6c530b429558b718ade9fdb7a",
+      "created_at": "2026-03-23 23:40:27",
+      "image_name": "swerebench/sweb.eval.x86_64.kubeflow_1776_pipelines-13112:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.kubeflow_1776_pipelines-13112:latest",
+      "environment_setup_commit": "98f5b7a300ee52d6c530b429558b718ade9fdb7a"
+    },
+    {
+      "instance_id": "cpp-linter__cpp-linter-hooks-206_interface",
+      "repo": "cpp-linter/cpp-linter-hooks",
+      "base_commit": "ed85e29cde3d36ac5399930d2467f6d6b2c91abf",
+      "created_at": "2026-04-05 20:19:31",
+      "image_name": "swerebench/sweb.eval.x86_64.cpp-linter_1776_cpp-linter-hooks-206_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.cpp-linter_1776_cpp-linter-hooks-206_interface:latest",
+      "environment_setup_commit": "ed85e29cde3d36ac5399930d2467f6d6b2c91abf"
+    },
+    {
+      "instance_id": "genericmappingtools__pygmt-4463",
+      "repo": "GenericMappingTools/pygmt",
+      "base_commit": "babdfb5d56099ec124c978154cff29c010ce5517",
+      "created_at": "2026-03-21 08:51:06",
+      "image_name": "swerebench/sweb.eval.x86_64.genericmappingtools_1776_pygmt-4463:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.genericmappingtools_1776_pygmt-4463:latest",
+      "environment_setup_commit": "babdfb5d56099ec124c978154cff29c010ce5517"
+    },
+    {
+      "instance_id": "alibaba__opensandbox-426",
+      "repo": "alibaba/OpenSandbox",
+      "base_commit": "f7bcd355ca9804654b014a2117ffc0d438653a4a",
+      "created_at": "2026-03-11 12:47:51",
+      "image_name": "swerebench/sweb.eval.x86_64.alibaba_1776_opensandbox-426:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.alibaba_1776_opensandbox-426:latest",
+      "environment_setup_commit": "f7bcd355ca9804654b014a2117ffc0d438653a4a"
+    },
+    {
+      "instance_id": "vprusso__toqito-1538",
+      "repo": "vprusso/toqito",
+      "base_commit": "396ba18ba1fa3e2b8d4eed682562a454d85f5c91",
+      "created_at": "2026-04-22 15:23:30",
+      "image_name": "swerebench/sweb.eval.x86_64.vprusso_1776_toqito-1538:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.vprusso_1776_toqito-1538:latest",
+      "environment_setup_commit": "396ba18ba1fa3e2b8d4eed682562a454d85f5c91"
+    },
+    {
+      "instance_id": "delgan__loguru-1451",
+      "repo": "Delgan/loguru",
+      "base_commit": "2abeb0fa6d7be4b0455c6e0b580b1e9dab19005e",
+      "created_at": "2026-03-25 02:34:06",
+      "image_name": "swerebench/sweb.eval.x86_64.delgan_1776_loguru-1451:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.delgan_1776_loguru-1451:latest",
+      "environment_setup_commit": "2abeb0fa6d7be4b0455c6e0b580b1e9dab19005e"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-7617",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "a8fcdc368ae16d2e110d478369e713425faea366",
+      "created_at": "2026-03-16 06:55:25",
+      "image_name": "swerebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-7617:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-7617:latest",
+      "environment_setup_commit": "a8fcdc368ae16d2e110d478369e713425faea366"
+    },
+    {
+      "instance_id": "raullenchai__rapid-mlx-341_interface",
+      "repo": "raullenchai/Rapid-MLX",
+      "base_commit": "5ca439595c96d637764f25d5af0f33afd3641c5a",
+      "created_at": "2026-05-09 17:33:42",
+      "image_name": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-341_interface:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.raullenchai_1776_rapid-mlx-341_interface:latest",
+      "environment_setup_commit": "5ca439595c96d637764f25d5af0f33afd3641c5a"
+    },
+    {
+      "instance_id": "itsdnns__docsight-437",
+      "repo": "itsDNNS/docsight",
+      "base_commit": "f478c6eeded6e97b3b1dafc55108522b6c693c3b",
+      "created_at": "2026-05-06 09:32:16",
+      "image_name": "swerebench/sweb.eval.x86_64.itsdnns_1776_docsight-437:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.itsdnns_1776_docsight-437:latest",
+      "environment_setup_commit": "f478c6eeded6e97b3b1dafc55108522b6c693c3b"
+    },
+    {
+      "instance_id": "pycqa__isort-2491",
+      "repo": "PyCQA/isort",
+      "base_commit": "ae91dadf34951e316d5a81ffe7ac086952f1da65",
+      "created_at": "2026-03-12 21:21:11",
+      "image_name": "swerebench/sweb.eval.x86_64.pycqa_1776_isort-2491:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pycqa_1776_isort-2491:latest",
+      "environment_setup_commit": "ae91dadf34951e316d5a81ffe7ac086952f1da65"
+    },
+    {
+      "instance_id": "sqlfluff__sqlfluff-7615",
+      "repo": "sqlfluff/sqlfluff",
+      "base_commit": "14d78ec8b330821ba3bc06c70f0847a95ba9ceeb",
+      "created_at": "2026-03-15 12:31:18",
+      "image_name": "swerebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-7615:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.sqlfluff_1776_sqlfluff-7615:latest",
+      "environment_setup_commit": "14d78ec8b330821ba3bc06c70f0847a95ba9ceeb"
+    },
+    {
+      "instance_id": "azure-samples__azure-search-openai-demo-3025",
+      "repo": "Azure-Samples/azure-search-openai-demo",
+      "base_commit": "7f704ea62ab717dd88b42fd5aabb05cbd09d92ff",
+      "created_at": "2026-04-06 23:17:47",
+      "image_name": "swerebench/sweb.eval.x86_64.azure-samples_1776_azure-search-openai-demo-3025:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.azure-samples_1776_azure-search-openai-demo-3025:latest",
+      "environment_setup_commit": "7f704ea62ab717dd88b42fd5aabb05cbd09d92ff"
+    },
+    {
+      "instance_id": "nesquena__hermes-webui-2056",
+      "repo": "nesquena/hermes-webui",
+      "base_commit": "b766b7f7596e931f141d3ad26a507807baa69774",
+      "created_at": "2026-05-11 05:49:36",
+      "image_name": "swerebench/sweb.eval.x86_64.nesquena_1776_hermes-webui-2056:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.nesquena_1776_hermes-webui-2056:latest",
+      "environment_setup_commit": "b766b7f7596e931f141d3ad26a507807baa69774"
+    },
+    {
+      "instance_id": "psd-tools__psd-tools-593",
+      "repo": "psd-tools/psd-tools",
+      "base_commit": "b185d66beb9055b567106e0b90d6d786c62e27b4",
+      "created_at": "2026-03-17 11:04:07",
+      "image_name": "swerebench/sweb.eval.x86_64.psd-tools_1776_psd-tools-593:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.psd-tools_1776_psd-tools-593:latest",
+      "environment_setup_commit": "b185d66beb9055b567106e0b90d6d786c62e27b4"
+    },
+    {
+      "instance_id": "schemathesis__schemathesis-4087",
+      "repo": "schemathesis/schemathesis",
+      "base_commit": "e5fcd1c8ab5772dbcc3dd92059fe3b0acd88eb3c",
+      "created_at": "2026-05-12 11:45:06",
+      "image_name": "swerebench/sweb.eval.x86_64.schemathesis_1776_schemathesis-4087:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.schemathesis_1776_schemathesis-4087:latest",
+      "environment_setup_commit": "e5fcd1c8ab5772dbcc3dd92059fe3b0acd88eb3c"
+    },
+    {
+      "instance_id": "youssofal__mtplx-21",
+      "repo": "youssofal/MTPLX",
+      "base_commit": "c06cc13286e86d9ff3d2e3b991eba327549c534b",
+      "created_at": "2026-05-07 19:59:26",
+      "image_name": "swerebench/sweb.eval.x86_64.youssofal_1776_mtplx-21:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.youssofal_1776_mtplx-21:latest",
+      "environment_setup_commit": "c06cc13286e86d9ff3d2e3b991eba327549c534b"
+    },
+    {
+      "instance_id": "meltano__meltano-9929",
+      "repo": "meltano/meltano",
+      "base_commit": "ce63b6beccbfd4880d84ed7a4f8f09f40aed5261",
+      "created_at": "2026-04-04 02:15:27",
+      "image_name": "swerebench/sweb.eval.x86_64.meltano_1776_meltano-9929:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.meltano_1776_meltano-9929:latest",
+      "environment_setup_commit": "ce63b6beccbfd4880d84ed7a4f8f09f40aed5261"
+    },
+    {
+      "instance_id": "pandas-dev__pandas-64797",
+      "repo": "pandas-dev/pandas",
+      "base_commit": "df120b666a19cbd3f6a8d65ae77a056c73c36b17",
+      "created_at": "2026-03-23 21:01:03",
+      "image_name": "swerebench/sweb.eval.x86_64.pandas-dev_1776_pandas-64797:latest",
+      "docker_image": "swerebench/sweb.eval.x86_64.pandas-dev_1776_pandas-64797:latest",
+      "environment_setup_commit": "df120b666a19cbd3f6a8d65ae77a056c73c36b17"
+    }
+  ],
+  "limitations": [
+    "PR creation is not first issue/source creation",
+    "Model training cutoff not independently established",
+    "Repair-to-test conversion is an adapted benchmark",
+    "Images are x86_64, mutable tags must be replaced with digests",
+    "Licenses need per-repository verification"
+  ]
+}

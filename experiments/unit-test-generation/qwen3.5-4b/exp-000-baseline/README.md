@@ -3,7 +3,7 @@
 ## Status
 
 Planned. Configuration is a non-executable planning record; revisions, GGUF
-artifact, tasks and budgets are not frozen. No model has been run on the Mac.
+artifact, tasks and budgets are not frozen. Environment setup is underway; model integration remains to be verified.
 
 ## Goal and hypothesis
 

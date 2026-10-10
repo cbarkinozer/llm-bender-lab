@@ -1,0 +1,41 @@
+{
+  "providers": {
+    "bender-local": {
+      "baseUrl": "http://127.0.0.1:18080/v1",
+      "api": "openai-completions",
+      "apiKey": "local-only-placeholder",
+      "models": [
+        {
+          "id": "qwen3.5-4b-q4-k-m",
+          "reasoning": true,
+          "contextWindow": 8192,
+          "maxTokens": 1024,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "supportsUsageInStreaming": true,
+            "supportsStrictMode": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "qwen-chat-template"
+          },
+          "samplingParams": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "top_k": 20,
+            "seed": 42
+          }
+        }
+      ]
+    }
+  }
+}

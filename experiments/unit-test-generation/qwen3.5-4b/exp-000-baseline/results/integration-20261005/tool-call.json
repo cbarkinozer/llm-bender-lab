@@ -1,0 +1,87 @@
+{
+  "request": {
+    "model": "qwen3.5-4b-q4-k-m",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Use the multiply tool to calculate 17 times 24."
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "multiply",
+          "description": "Multiply two integers",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "a": {
+                "type": "integer"
+              },
+              "b": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "a",
+              "b"
+            ]
+          }
+        }
+      }
+    ],
+    "max_tokens": 256,
+    "temperature": 0.6,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "type": "function",
+              "function": {
+                "name": "multiply",
+                "arguments": "{\"a\":17,\"b\":24}"
+              },
+              "id": "TeZx8GlQKWKwu2YbuzH2qJYFcH7mzuKE"
+            }
+          ]
+        }
+      }
+    ],
+    "created": 1791210612,
+    "model": "qwen3.5-4b-q4-k-m",
+    "system_fingerprint": "b11146-7fe450e19",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 292,
+      "total_tokens": 330,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-WjDRVqFZpOUbs8d1uF428fsOeFpc50pi",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 292,
+      "prompt_ms": 978.298,
+      "prompt_per_token_ms": 3.350335616438356,
+      "prompt_per_second": 298.477560007278,
+      "predicted_n": 38,
+      "predicted_ms": 1228.255,
+      "predicted_per_token_ms": 33.19608108108108,
+      "predicted_per_second": 30.124037760888413
+    }
+  }
+}

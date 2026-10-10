@@ -1,0 +1,55 @@
+{
+  "request": {
+    "model": "qwen3.5-4b-q4-k-m",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is 17 multiplied by 24? Answer with the number."
+      }
+    ],
+    "max_tokens": 256,
+    "temperature": 0.6,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": true
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "reasoning_content": "Thinking Process:\n\n1.  **Analyze the Request:** The user is asking for the product of 17 and 24. They specifically requested the answer to be \"the number\".\n\n2.  **Calculate the Product:**\n    *   Calculation: $17 \\times 24$\n    *   Method 1: Standard multiplication\n        *   $17 \\times 20 = 340$\n        *   $17 \\times 4 = 68$\n        *   $340 + 68 = 408$\n    *   Method 2: Vertical multiplication\n        *   $17 \\times 24$\n        *   $7 \\times 4 = 28$ (write 8, carry 2)\n        *   $1 \\times 4 = 4$\n        *   $4 + 2 = 6$ (68)\n        *   $7 \\times 2 = 14$ (write 4, carry 1)\n        *   $1 \\times 2 = 2$\n        *   $2 + 1 = 3$ ("
+        }
+      }
+    ],
+    "created": 1791210610,
+    "model": "qwen3.5-4b-q4-k-m",
+    "system_fingerprint": "b11146-7fe450e19",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 26,
+      "total_tokens": 282,
+      "prompt_tokens_details": {
+        "cached_tokens": 24
+      }
+    },
+    "id": "chatcmpl-9TAar2TdUUtrbr09qplsAiqfSw0O9a1q",
+    "timings": {
+      "cache_n": 24,
+      "prompt_n": 2,
+      "prompt_ms": 48.528,
+      "prompt_per_token_ms": 24.264,
+      "prompt_per_second": 41.21332014507089,
+      "predicted_n": 256,
+      "predicted_ms": 8411.706,
+      "predicted_per_token_ms": 32.98708235294118,
+      "predicted_per_second": 30.314896882986638
+    }
+  },
+  "seconds": 8.461539792
+}

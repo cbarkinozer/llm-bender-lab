@@ -101,3 +101,32 @@ Pending: owner finishes blog and provenance/provider-terms review; local deploym
 loading verification; new unit-test task corpus/verifier, baseline and RL stack.
 No unit-test-generation training has run. Do not invent benchmark scores or mark
 the new planned experiment ready before artifact/task/protocol checks.
+
+## Mac session update — 2026-10-05
+
+Owner confirmed llama.cpp Q4 GGUF deployment and supplied their assertion-quality
+paper and early thesis. Primary objective is human-reviewed test quality in
+Argilla; passing tests and mutation detection are supporting evidence, not
+sufficient quality objectives. See unit-test-generation TODO/design notes.
+Pi updated to 1.0.3 and Homebrew llama.cpp 0.5.0 installed. Benchmark and
+training recipe remain unfrozen. No RL training or GPU rental has occurred.
+
+Local setup continuation: `exp-000-baseline/run-pi.sh` selects the pinned model
+through the Pi CLI; direct llama.cpp is the chosen runtime. Argilla development
+UI is on localhost:7900 with credentials in the ignored review/.env. Docker
+ARM64 is running; the trusted isolation probe passed. Full grading/Pi sandbox
+and benchmark task-mode choice remain pending. See benchmark-audit/README.md.
+
+## Paper pipeline continuation — 2026-10-10
+
+Inspected local `slm_test_generation` at commit
+`380b7d362f49d43fd55af5b2f7e015d4fa651e97`; its checkout remains unchanged.
+The lab now has a pinned adapter, static provenance/source audit and bounded
+container import probe. Twelve adapter tests and 100 existing oracle tests passed.
+Ten historical smoke fixtures imported successfully; this does not establish
+their semantic correctness or temporal freshness. The 300-row audit flagged
+60 unresolved revisions, 60 unresolved licenses and one extraction with a missing
+closure binding. See `PAPER-PIPELINE-REUSE.md` for findings and contract triage.
+Next: verify contracts, finish protected Pi execution, generate a development
+pilot and import original suites/evidence into Argilla. No new generation or
+training occurred in this continuation.

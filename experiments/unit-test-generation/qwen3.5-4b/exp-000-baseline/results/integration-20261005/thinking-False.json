@@ -1,0 +1,54 @@
+{
+  "request": {
+    "model": "qwen3.5-4b-q4-k-m",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is 17 multiplied by 24? Answer with the number."
+      }
+    ],
+    "max_tokens": 256,
+    "temperature": 0.6,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "408"
+        }
+      }
+    ],
+    "created": 1791210601,
+    "model": "qwen3.5-4b-q4-k-m",
+    "system_fingerprint": "b11146-7fe450e19",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 4,
+      "prompt_tokens": 28,
+      "total_tokens": 32,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-1L2aUp9KqLc4IzlpEPqwpYFOEK2AYig6",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 28,
+      "prompt_ms": 434.799,
+      "prompt_per_token_ms": 15.528535714285713,
+      "prompt_per_second": 64.39757221152763,
+      "predicted_n": 4,
+      "predicted_ms": 116.533,
+      "predicted_per_token_ms": 38.84433333333333,
+      "predicted_per_second": 25.74378073163825
+    }
+  },
+  "seconds": 0.55291375
+}

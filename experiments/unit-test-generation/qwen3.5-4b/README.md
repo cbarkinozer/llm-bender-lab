@@ -2,7 +2,7 @@
 
 ## Status and owner decision (2026-10-05)
 
-**Planned; no benchmark, baseline inference or training has run.** The next phase
+**Planned; environment setup is underway. No benchmark or training has run.** The next phase
 is Python unit-test generation only. Occam/Turkish SFT is closed and deferred;
 do not initialize this agent from the Occam response-style adapter by default.
 The owner will continue on a Mac mini M4 with 24 GB unified memory, using Pi
@@ -56,17 +56,17 @@ at a time initially; start with bounded context and measure memory/throughput.
 
 ## Evaluation and reward design
 
-Proposed primary metric: per-task mutation detection with a correctness gate.
-For a fixed non-empty set of valid, behavior-changing mutants, score a test suite
-only if it passes on the correct implementation; then report killed/evaluable
-mutants. Empty, invalid or failing test suites receive zero. Final denominator,
-timeouts, task weighting and aggregation must be frozen before baseline.
+The owner-selected primary objective is human-reviewed test quality: robustness,
+assertion strength, readability and conciseness, using the supplied paper rubric.
+Personal Argilla review covers every evaluation output. Execution success and
+runtime-reached non-trivial oracles are gates/diagnostics; mutation or real-bug
+detection is supporting behavioral evidence. Passing pytest alone is insufficient.
+See [design notes](DESIGN-NOTES-20261005.md) and [TODO](TODO.md).
 
-Report validity/pass-on-correct separately so an apparent kill gain cannot hide
-false positives. Exclude equivalent/invalid mutants by the frozen verifier rules;
-record every exclusion and never silently remove failures after seeing outputs.
-Coverage is supporting evidence, not the primary objective. Catching import errors
-or hanging a mutant is not automatically a semantic bug detection: classify it.
+Freeze quality aggregation, correctness handling and detection denominators on
+train/development data before final evaluation. Treat static smell detections as
+review suggestions; a strong-looking assertion may still be semantically wrong.
+Preserve invalid and failed suites in all-task reporting.
 
 Reward-hacking controls: no editing source/grader/tests outside the writable
 test directory; no disabling assertions, skip/xfail tricks, monkeypatching the

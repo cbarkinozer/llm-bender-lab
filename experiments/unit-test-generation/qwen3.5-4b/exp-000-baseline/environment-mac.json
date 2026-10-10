@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-05",
+  "hardware": {
+    "chip": "M4",
+    "memory_gb": 24
+  },
+  "macos": {
+    "version": "26.5.1",
+    "build": "25F80"
+  },
+  "node": "v26.3.1",
+  "pi": {
+    "version": "1.0.3",
+    "package": "@earendil-works/pi-coding-agent",
+    "prefix": "/Users/cbarkinozer/.local",
+    "integrity": "sha512-t2lb0dw4y/jr5a2PRo6eTHGTZOPB3/YAMVyhhYFC1W3Hl5xE+462I/gMWjF4gCLuhGipNEfuNqONFmdqLFz4SQ==",
+    "install_scripts": false
+  },
+  "llama_cpp": {
+    "version": "0.5.0",
+    "build": 11146,
+    "commit": "7fe450e19305b828c199d602c23a8337aaa1f03b",
+    "binary_sha256": "eaf7e3e8d86ba64f1945ab3cdc51d9abade892e84fcfc5c50dbdbd9c645b2a9b",
+    "installation": "Homebrew arm64_tahoe bottle",
+    "dependencies": {
+      "ggml": "0.25.3",
+      "libomp": "23.1.2",
+      "openssl": "3.6.5"
+    }
+  },
+  "docker": {
+    "cli_present": true,
+    "daemon_running": true,
+    "server_version": "29.5.3",
+    "architecture": "aarch64"
+  },
+  "model": {
+    "repository": "unsloth/Qwen3.5-4B-GGUF",
+    "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+    "quantization_variant": "Q4_K_M",
+    "verification_status": "downloaded; SHA256 matches Hub LFS hash; source conversion revision not independently established"
+  },
+  "status": "setup underway; no benchmark results",
+  "python": {
+    "version": "Python 3.11.15",
+    "environment": ".venv",
+    "requirements": "requirements-mac.lock.txt"
+  },
+  "paper_sources": [
+    {
+      "path": "/Users/cbarkinozer/Downloads/tests-that-run-but-do-not-test-paper.tex",
+      "sha256": "de8e7df478b1e186b3a3ed7e308014d55927a0f5c82cb4f6c86dfdc27b3f9790"
+    },
+    {
+      "path": "/Users/cbarkinozer/Downloads/Evaluating Small Language Models for AI-Driven Python Unit Test Generation.md",
+      "sha256": "a0397d292fcfd89341fb643f3fbdb01d62b190da5d5ff01f00b54a1b0a6fc99b"
+    }
+  ],
+  "integration": {
+    "context_tokens": 8192,
+    "slots": 1,
+    "rss_snapshot_mib": 3586.4,
+    "rss_note": "single process snapshot, not peak unified/Metal memory",
+    "backend_loaded": true,
+    "direct_tool_call": true,
+    "direct_thinking_off": true,
+    "direct_thinking_on": true,
+    "thinking_on_note": "256-token arithmetic request truncated within reasoning; not a quality score",
+    "pi_read_tool_off": true,
+    "pi_read_tool_on": true,
+    "reasoning_accounting_note": "Pi thinking-on trace contains thinking text but usage.reasoning is zero; separate reasoning-token accounting needs verification before budget freeze."
+  },
+  "argilla": {
+    "server_version": "2.8.0",
+    "client_version": "2.8.0",
+    "url": "http://127.0.0.1:7900",
+    "dataset": "unit-test-quality-development-v01",
+    "dataset_id": "10026814-a1e2-4899-a579-6f2ba47a6991",
+    "status": "created empty; idempotence verified",
+    "health_endpoint_limitation": "status endpoint ObjectApiResponse serialization error; actual dataset endpoints work"
+  },
+  "sandbox": {
+    "image": "llm-bender-pytest:integration-v01",
+    "image_id": "sha256:9e8975db7a63f480425b84d2a89f4395c4550172470f92ea968dec2ae244625a",
+    "base_image": "python:3.11.15-slim@sha256:90744cff8f32887f075c47d747a173ff333e9e98801667af93c357fa9f5e28ff",
+    "status": "trusted isolation probe passed; full verifier and Pi execution controls pending"
+  }
+}

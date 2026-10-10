@@ -1,0 +1,115 @@
+{
+  "pi-read-on": {
+    "tool_calls": [
+      {
+        "type": "toolCall",
+        "id": "Sf4yVJC09tEDmutHi2qEDOYBADpqYfZ0",
+        "name": "read",
+        "arguments": {
+          "path": "contract.txt"
+        }
+      }
+    ],
+    "last_content": [
+      {
+        "type": "thinking",
+        "thinking": "I've read the contract.txt file. The file contains information about a synthetic integration fixture and includes a verification marker at the end. The verification marker is \"BENDER_TOOL_READ_OK\".\n",
+        "thinkingSignature": "reasoning_content"
+      },
+      {
+        "type": "text",
+        "text": "The verification marker in contract.txt is: **BENDER_TOOL_READ_OK**"
+      }
+    ],
+    "usage": [
+      {
+        "input": 2,
+        "output": 121,
+        "cacheRead": 459,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 582,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 43,
+        "output": 56,
+        "cacheRead": 581,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 680,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "stop_reasons": [
+      "toolUse",
+      "stop"
+    ]
+  },
+  "pi-read-off": {
+    "tool_calls": [
+      {
+        "type": "toolCall",
+        "id": "tLnpdfitM2wiLyy39hdJpK9Q6Zl0BZed",
+        "name": "read",
+        "arguments": {
+          "path": "contract.txt"
+        }
+      }
+    ],
+    "last_content": [
+      {
+        "type": "text",
+        "text": "The verification marker in contract.txt is: **BENDER_TOOL_READ_OK**"
+      }
+    ],
+    "usage": [
+      {
+        "input": 4,
+        "output": 25,
+        "cacheRead": 459,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 488,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 45,
+        "output": 16,
+        "cacheRead": 487,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 548,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "stop_reasons": [
+      "toolUse",
+      "stop"
+    ]
+  }
+}
