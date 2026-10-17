@@ -1,6 +1,27 @@
 # Python unit-test generation — Qwen3.5-4B
 
+Current pilot: [Stage A v01](exp-000-baseline/requirements-pilot/STAGE-A-V01.md).
+Generation settings are frozen; one new task is ready for owner quality review.
+TOML reference-based scoring is quarantined following confirmed contract failure.
+
+## Current direction — requirements-first TDD (2026-10-17)
+
+Follow the [requirements-first protocol](REQUIREMENTS-FIRST-PROTOCOL.md): compare
+untouched direct-code and prompted test-first generation, review/freeze tests
+before implementation, then study separate SFT and SFT+GRPO improvements. Test
+quality uses the owner's prior taxonomy; final code correctness uses independent
+hidden evaluation. Stage B permits production edits with frozen tests read-only.
+This supersedes the earlier test-only scope and conditional GRPO-first plan below.
+A pinned DeepSWE download and descriptive EDA are complete. A 20-task development
+shortlist is prepared; contracts/interfaces and runnable task environments remain
+to be validated. Generation smokes are not benchmark scores.
+
 ## Status and owner decision (2026-10-05)
+
+Owner refinement, 2026-10-17: start with **20 fresh, externally sourced development
+tasks**, evaluate with the prior quality/smell taxonomy, then study GRPO and
+independent broader-SWE transfer. The current [research plan](RESEARCH-PLAN-20261017.md)
+takes precedence over earlier open task-mode and pilot-size decisions.
 
 **Planned; environment setup is underway. No benchmark or training has run.** The next phase
 is Python unit-test generation only. Occam/Turkish SFT is closed and deferred;

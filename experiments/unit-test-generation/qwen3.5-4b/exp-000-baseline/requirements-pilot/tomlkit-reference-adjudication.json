@@ -1,0 +1,122 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--pids-limit",
+    "64",
+    "--env",
+    "PYTHONPATH=/reference",
+    "--mount",
+    "type=bind,src=/Users/cbarkinozer/.cache/llm-bender-lab/requirements-reference-preflight/tomlkit-toml-table-converters/repository,dst=/reference,readonly",
+    "llm-bender-pytest:integration-v01",
+    "python",
+    "-c",
+    "import copy,json\nfrom tomlkit import parse,dumps,to_inline_table\ncases = {\n \"original_mixed\": '[parent]\\nvalue=1\\nparent.child={name=\"x\"}\\nparent.dotted=2\\n',\n \"equivalent_explicit\": '[parent]\\nvalue=1\\n[parent.parent]\\nchild={name=\"x\"}\\ndotted=2\\n',\n \"minimal_mixed\": '[p]\\np.a=1\\np.b=2\\n',\n \"minimal_explicit\": '[p.p]\\na=1\\nb=2\\n',\n \"control_nested\": '[parent]\\nvalue=1\\n[parent.child]\\nname=\"x\"\\n',\n}\nresults=[]\nfor name,text in cases.items():\n doc=parse(text);before=copy.deepcopy(doc.unwrap());key='p' if name.startswith('minimal') else 'parent'\n row={'case':name,'input_data':before,'valid_toml':True,'contains_aot':False}\n try:\n  result=to_inline_table(key,doc)\n  row.update(completed=True,same_document=result is doc,roundtrip_data_preserved=parse(dumps(doc)).unwrap()==before)\n except Exception as error:\n  row.update(completed=False,error_type=type(error).__name__,error=str(error))\n results.append(row)\nprint(json.dumps(results))\n"
+  ],
+  "exit_code": 0,
+  "results": [
+    {
+      "case": "original_mixed",
+      "input_data": {
+        "parent": {
+          "value": 1,
+          "parent": {
+            "child": {
+              "name": "x"
+            },
+            "dotted": 2
+          }
+        }
+      },
+      "valid_toml": true,
+      "contains_aot": false,
+      "completed": false,
+      "error_type": "KeyAlreadyPresent",
+      "error": "Key \"parent\" already exists."
+    },
+    {
+      "case": "equivalent_explicit",
+      "input_data": {
+        "parent": {
+          "value": 1,
+          "parent": {
+            "child": {
+              "name": "x"
+            },
+            "dotted": 2
+          }
+        }
+      },
+      "valid_toml": true,
+      "contains_aot": false,
+      "completed": true,
+      "same_document": true,
+      "roundtrip_data_preserved": true
+    },
+    {
+      "case": "minimal_mixed",
+      "input_data": {
+        "p": {
+          "p": {
+            "a": 1,
+            "b": 2
+          }
+        }
+      },
+      "valid_toml": true,
+      "contains_aot": false,
+      "completed": false,
+      "error_type": "KeyAlreadyPresent",
+      "error": "Key \"p\" already exists."
+    },
+    {
+      "case": "minimal_explicit",
+      "input_data": {
+        "p": {
+          "p": {
+            "a": 1,
+            "b": 2
+          }
+        }
+      },
+      "valid_toml": true,
+      "contains_aot": false,
+      "completed": true,
+      "same_document": true,
+      "roundtrip_data_preserved": true
+    },
+    {
+      "case": "control_nested",
+      "input_data": {
+        "parent": {
+          "value": 1,
+          "child": {
+            "name": "x"
+          }
+        }
+      },
+      "valid_toml": true,
+      "contains_aot": false,
+      "completed": true,
+      "same_document": true,
+      "roundtrip_data_preserved": true
+    }
+  ],
+  "classification": "confirmed reference implementation defect relative to written recursive-conversion contract",
+  "reason": "Equivalent valid parsed inputs without AoT diverge solely by source representation; minimized counterexample reproduces failure",
+  "decision": "quarantine TOML reference-pass scoring for Stage A pilot; preserve original benchmark unchanged and all prior model results",
+  "generated_suite_status": "still rejected: independent clear model assertion errors remain",
+  "reported_upstream": false
+}

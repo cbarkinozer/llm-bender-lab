@@ -1,0 +1,38 @@
+{
+  "task_id": "tomlkit-toml-table-converters",
+  "condition": "direct",
+  "run_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/tomlkit-toml-table-converters/implementation-direct-20261017T074255069758Z",
+  "prompt_sha256": "39c0c713cca4aa784980c8e9d52fb2f5542a4c2ae0f3d33bdb21d11803e507ff",
+  "context_sha256": "ee6b4d581a61f5b7b500a560ee8f207b0d4082a5283ebb64efb477f0bf82b178",
+  "frozen_test_sha256": null,
+  "max_output_tokens": 6144,
+  "elapsed_seconds": 88.658,
+  "process_exit_code": 0,
+  "timed_out": false,
+  "usage": [
+    {
+      "input": 1604,
+      "output": 2478,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 0,
+      "totalTokens": 4082,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  ],
+  "stop_reasons": [
+    "length"
+  ],
+  "output_block_count": 0,
+  "applied": false,
+  "code_executed": false,
+  "application_error": "Incomplete model generation",
+  "context_budget_note": "Pi reserves 4096 tokens. Upper estimate reconstructs user messages only and omits system text; exact request payload was not captured. Preserve run as truncated; no code/test acceptance.",
+  "user_message_only_output_cap_upper_estimate": 2536
+}

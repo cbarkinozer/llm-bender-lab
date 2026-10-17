@@ -1,8 +1,62 @@
 # Python unit-test generation TODO
 
-Updated 2026-10-10. This is a staged work plan, not an executable training
+## Active next steps — requirements-first owner refinement
+
+- [ ] Revise the review display to explicitly show Python, pytest, the original
+  generation instructions and tool permissions; preserve current records/responses.
+  The existing model already received Python/pytest in both system and task prompts.
+- [ ] Version a structured review schema separating requirement text, clause IDs,
+  known ambiguities, verified API facts and generation instructions. Keep model
+  identity and execution evidence outside the initial review view.
+- [ ] Add per-test requirement alignment/ambiguity, clause links and oracle-site
+  evidence alongside suite ratings; preserve the owner's existing smell taxonomy.
+  Add concrete rubric calibration examples and a separately saved repaired suite.
+- [ ] Record owner-plus-assistant review as assisted human adjudication. Preserve
+  initial owner judgments where available; do not claim independent inter-rater
+  agreement from collaborative review. This sample has now had external feedback.
+- [x] Download/hash DeepSWE using project `.env` credentials; complete descriptive EDA.
+- [x] Record [requirements-first protocol](REQUIREMENTS-FIRST-PROTOCOL.md) and
+  direct-code / prompted-TDD / SFT-TDD / SFT+GRPO comparison order.
+- [x] Prepare 20 provisional task packets from distinct repositories, excluding
+  the mislabeled TypeScript task and keeping hidden artifacts out of prompts.
+- [x] Restart local runtimes and recheck the trusted Docker isolation probe.
+- [x] Run and inspect one bounded requirements-to-tests Pi generation smoke;
+  original TOML suite failed collection and contains requirement contradictions.
+- [x] Validate public fixture examples on the pinned original source and calibrate
+  reference grading: 60 hidden + 964 regression tests pass.
+- [x] Confirm the TOML reference defect using equivalent inputs and a minimized
+  counterexample; quarantine reference-based scoring without changing the dataset.
+- [x] Freeze [Stage A v01](exp-000-baseline/requirements-pilot/STAGE-A-V01.md)
+  settings and per-task readiness/hash checks; capture actual inference requests.
+- [x] Validate Mashumaro reference (72 feature + 30,008 regression tests), freeze
+  public context, and run the first single-attempt v01 generation.
+- [x] Prepare initial Argilla quality review without model/execution hints;
+  verify repeated import preserves the record.
+- [ ] Obtain owner's initial quality/importance/smell annotations; preserve them
+  before separate evidence-assisted adjudication.
+- [x] Add guarded implementation emission and independent hidden/regression grading;
+  direct model implementation passed 4/60 feature and 964/964 regression tests.
+- [x] Fix Pi/server context mismatch and document Pi's 4,096-token reserve.
+- [ ] Obtain an accepted original generated suite; latest thinking diagnostic is 16/20
+  passing, rejected at Stage A, with owner quality ratings still pending.
+- [ ] Review requirement alignment/importance and prior quality taxonomy; freeze tests.
+- [ ] Implement protected Stage B with immutable tests and independent hidden grading.
+- [ ] Run paired direct-code and prompted-TDD development episodes before SFT.
+- [ ] Prepare separate validated SFT training demonstrations; DeepSWE is evaluation only.
+
+Earlier staged entries below remain background; the current protocol supersedes
+old test-only permissions, 10-task counts and GRPO-before-SFT sequencing.
+
+Updated 2026-10-17. This is a staged work plan, not an executable training
 configuration. Benchmark, reward, budgets and training method remain undecided.
 See [design notes](DESIGN-NOTES-20261005.md) for owner decisions and sources.
+
+Current direction: [20-task baseline → GRPO → independent SWE transfer](RESEARCH-PLAN-20261017.md).
+The first 20 ordinary unit-test tasks are development data. Older 10-task pilot
+entries below now refer to this 20-task pilot. Historical fixtures remain diagnostics.
+Task-level freshness and source selection remain open. Freeze and measure a
+separate broader-SWE baseline before training. Broader SWE is now in scope for
+transfer evaluation; broad coding-agent training remains deferred.
 
 Accepted [improvement priorities](IMPROVEMENT-PLAN-20261010.md): next verify
 smoke-task contracts, finish protected per-task Pi execution, then generate a
@@ -294,7 +348,33 @@ Deliverable: actual Q4 deployment evaluation and defensible answer to the hypoth
 
 ## Deferred
 
+Owner learning sequence (2026-10-17): complete the current unit-test/TDD study
+through an actual GRPO/RL training and evaluation cycle, then gain practical
+experience with MoE and text-diffusion fine-tuning. Only after these stages,
+consider spatial reasoning or further phases of earlier model projects. Spatial
+reasoning is an idea backlog item, not authorized active implementation.
+
+- [ ] After GRPO, MoE and text-diffusion practice, revisit text-based spatial
+  reasoning benchmarks and small-model post-training. Investigate the reported
+  Astra ARC-AGI-3 result and special harness: verify the exact score, evaluation
+  conditions, tool access and inference budget before drawing conclusions about
+  model-only spatial ability. Consider harness experiments as a separate variable.
 - [ ] MLX local training/runtime comparison as a separate learning exercise.
+- [ ] After the current GRPO/RL study, try local 4B parameter-efficient fine-tuning
+  on the Mac mini M4/24 GB. Check current official Unsloth Apple Silicon support
+  separately from MLX/third-party integrations; measure memory, speed and export.
+  Train using a supported training representation, then test MLX and GGUF deployment.
+- [ ] Identify the exact model/release meant by the owner's "reflex models new
+  version" before selecting it for a simpler local fine-tuning exercise.
+- [ ] After GRPO/RL, explore text-diffusion fine-tuning as a separate experiment.
+- [ ] After GRPO/RL, explore mixture-of-experts fine-tuning as a separate experiment;
+  check total parameter memory and architecture support, not just active parameters.
 - [ ] 9B-to-4B verified trajectory distillation as separate SFT research.
 - [ ] Multi-language/multi-harness transfer after one validated Python workflow.
 - [ ] Full coding/bug-fixing agents, production edits and Occam v2.
+
+## Review v0.3 implementation (2026-10-17)
+
+- [x] Publish a separate review format showing Python/pytest, exact generation instructions, clause IDs, ambiguities, per-test templates and rubric examples; preserve older reviews.
+- [x] Select single-generation Pass@1; preserve original outputs and report execution and runtime non-trivial gates separately.
+- [ ] Collect owner-assisted calibration in v0.3 and separately archive any repaired suite and evidence-assisted decisions.

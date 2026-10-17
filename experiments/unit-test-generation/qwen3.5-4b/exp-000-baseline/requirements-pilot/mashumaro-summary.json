@@ -1,0 +1,62 @@
+{
+  "task_id": "mashumaro-flattened-dataclass-fields",
+  "phase": "requirements-to-tests generation smoke",
+  "model": "Qwen3.5-4B-Q4_K_M",
+  "pi_version": "1.0.3",
+  "prompt_sha256": "95784784c3f7a71de6db05a080acbdc99f0f0a949c3b6ee955d5726ecd02fb3e",
+  "system_prompt": "You generate Python pytest tests from requirements. Follow the user's requested output format.",
+  "approved_context_sha256": "5002227a58d3df5da9d50eff9601737f3fd6117f026a97a3229d5ddf5011d374",
+  "protocol_sha256": "f32934de4e2033e848d70c3ff5e75a5cf0e6105d2092e2da95638dc9ad0efe9c",
+  "task_registry_sha256": "3d34fc61df1cf176216d945968379cf1172191bbf07e36e5b62ac5ba11c10c15",
+  "recorded_requests": [
+    {
+      "path": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/mashumaro-flattened-dataclass-fields/smoke-20261017T080052215793Z/http-requests/request-0001.json",
+      "model": "qwen3.5-4b-q4-k-m",
+      "max_tokens": 4096,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "preserve_thinking": true
+      },
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "seed": 42
+    }
+  ],
+  "server_and_pi_context_tokens": 16384,
+  "config_sha256": "2248d0e566bec194c8b568bc5255d96dc5cf8373289a65172253e3203b3debd6",
+  "thinking": "medium",
+  "max_output_tokens": 4096,
+  "timeout_seconds": 240,
+  "elapsed_seconds": 93.463,
+  "process_exit_code": 0,
+  "timed_out": false,
+  "assistant_stop_reasons": [
+    "stop"
+  ],
+  "usage": [
+    {
+      "input": 921,
+      "output": 2696,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 0,
+      "totalTokens": 3617,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  ],
+  "python_block_count": 1,
+  "syntax_valid": true,
+  "test_function_count": 19,
+  "execution": "not run",
+  "semantic_correctness": "unreviewed",
+  "baseline_score": null,
+  "run_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/mashumaro-flattened-dataclass-fields/smoke-20261017T080052215793Z",
+  "request_settings_verified": true
+}

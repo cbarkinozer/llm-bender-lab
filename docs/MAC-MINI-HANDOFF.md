@@ -1,5 +1,27 @@
 # Mac mini handoff — 2026-10-05
 
+Current: [frozen Stage A v01 and initial review](../experiments/unit-test-generation/qwen3.5-4b/exp-000-baseline/requirements-pilot/STAGE-A-V01.md).
+TOML defect confirmed; Mashumaro reference passes 72 feature + 30,008 regression
+tests. First v01 suite generated and imported to separate Argilla initial review.
+No training or accepted test-first implementation episode has run.
+
+Latest development results: [TOML pilot](../experiments/unit-test-generation/qwen3.5-4b/exp-000-baseline/requirements-pilot/README.md).
+Context increased to 16,384 after finding Pi's 4,096-token reserve. Thinking-enabled
+tests pass 16/20 but are rejected; direct code passes 4/60 feature + 964/964 regression
+tests. A suspected reference defect is recorded separately. No training or accepted
+test-first implementation episode has run.
+
+Newest refinement: [requirements-first TDD protocol](../experiments/unit-test-generation/qwen3.5-4b/REQUIREMENTS-FIRST-PROTOCOL.md).
+Compare direct-code and prompted TDD first; validate/freeze tests before writing
+implementation, then study separate SFT and SFT+GRPO training. Preserve independent
+hidden grading. DeepSWE EDA and a 20-repository candidate shortlist are prepared.
+
+Latest owner direction (2026-10-17): [20-task research plan](../experiments/unit-test-generation/qwen3.5-4b/RESEARCH-PLAN-20261017.md).
+Start with ordinary unit-test generation, existing quality/smell taxonomy and
+fresh external task evidence; then GRPO and independent broader-SWE transfer.
+Record broader-SWE untouched-model baselines before training. No new generation
+or training has run; source selection and protected Pi execution remain pending.
+
 ## Resume here
 
 Read [unit-test-generation plan](../experiments/unit-test-generation/qwen3.5-4b/README.md)

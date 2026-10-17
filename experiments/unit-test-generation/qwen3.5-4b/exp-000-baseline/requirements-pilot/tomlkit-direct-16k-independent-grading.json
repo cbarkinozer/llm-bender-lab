@@ -1,0 +1,34 @@
+{
+  "task_id": "tomlkit-toml-table-converters",
+  "condition": "direct",
+  "implementation_run": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/tomlkit-toml-table-converters/implementation-direct-20261017T074827131365Z",
+  "docker_image_id": "sha256:9e8975db7a63f480425b84d2a89f4395c4550172470f92ea968dec2ae244625a",
+  "source_hashes_preserved": true,
+  "frozen_test_hash_preserved": null,
+  "grader": "pinned DeepSWE test patch; original regression ignore list; ephemeral writable fixtures",
+  "feedback_to_model": false,
+  "results": {
+    "hidden": {
+      "pytest_exit_code": 1,
+      "counts": {
+        "tests": 60,
+        "failures": 56,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 4
+      }
+    },
+    "base": {
+      "pytest_exit_code": 0,
+      "counts": {
+        "tests": 964,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 964
+      }
+    }
+  },
+  "raw_output_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/tomlkit-toml-table-converters/implementation-direct-20261017T074827131365Z",
+  "storage_note": "Raw grader output may contain held-back benchmark assertions and remains outside Git; this report preserves aggregate results only."
+}

@@ -1,0 +1,3073 @@
+{
+  "dataset": "datacurve/deep-swe",
+  "revision": "6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
+  "inspected_at": "2026-10-17T07:07:16.483571+00:00",
+  "local_file": "/Users/cbarkinozer/.cache/llm-bender-lab/deep-swe/6d6f134460c137e24c6bb7e1e69954116ea9dbb3/data/test-00000-of-00001.parquet",
+  "sha256": "737e1b101d9556aa1b0fd66b8fefd436158a63b18d7105733739c79126fb495e",
+  "size_bytes": 1577612,
+  "row_count": 113,
+  "schema": "task_id: string\ninstance_id: string\nname: string\ndisplay_title: string\ndisplay_description: string\ncategory: string\nlanguage: string\nrepo: string\nbase_commit: string\ndocker_image: string\nallow_internet: bool\ncpus: int64\nmemory_mb: int64\nstorage_mb: int64\nagent_timeout_sec: double\nverifier_timeout_sec: double\nproblem_statement: string\nenvironment_dockerfile: string\ntest_patch: string\nverifier_script: string\nreference_patch: string\ntask_toml: string",
+  "columns": {
+    "task_id": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 18,
+        "median": 30,
+        "p90": 38,
+        "max": 51
+      },
+      "distinct_count": 113
+    },
+    "instance_id": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 18,
+        "median": 30,
+        "p90": 38,
+        "max": 51
+      },
+      "distinct_count": 113
+    },
+    "name": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 28,
+        "median": 40,
+        "p90": 48,
+        "max": 61
+      },
+      "distinct_count": 113
+    },
+    "display_title": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 29,
+        "median": 50,
+        "p90": 62,
+        "max": 77
+      },
+      "distinct_count": 113
+    },
+    "display_description": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 71,
+        "median": 107,
+        "p90": 127,
+        "max": 153
+      },
+      "distinct_count": 113
+    },
+    "category": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 6,
+        "median": 15,
+        "p90": 15,
+        "max": 15
+      },
+      "distinct_count": 3
+    },
+    "language": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 2,
+        "median": 6,
+        "p90": 10,
+        "max": 10
+      },
+      "distinct_count": 5,
+      "counts": {
+        "go": 34,
+        "python": 34,
+        "typescript": 35,
+        "rust": 5,
+        "javascript": 5
+      }
+    },
+    "repo": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 26,
+        "median": 35,
+        "p90": 42,
+        "max": 52
+      },
+      "distinct_count": 92,
+      "counts": {
+        "https://github.com/abs-lang/abs": 2,
+        "https://github.com/rhysd/actionlint": 1,
+        "https://github.com/reagento/adaptix": 1,
+        "https://github.com/aio-libs/aiomonitor": 1,
+        "https://github.com/mattn/anko": 2,
+        "https://github.com/getarcaneapp/arcane.git": 1,
+        "https://github.com/arktypeio/arktype": 1,
+        "https://github.com/jeffijoe/awilix": 1,
+        "https://github.com/PyCQA/bandit.git": 3,
+        "https://github.com/boa-dev/boa": 1,
+        "https://github.com/python-attrs/cattrs": 1,
+        "https://github.com/bombshell-dev/clack": 1,
+        "https://github.com/baryhuang/claude-code-by-agents": 1,
+        "https://github.com/c4spar/cliffy": 1,
+        "https://github.com/csstree/csstree": 1,
+        "https://github.com/TomWright/dasel": 1,
+        "https://github.com/dateutil/dateutil": 1,
+        "https://github.com/drizzle-team/drizzle-orm": 1,
+        "https://github.com/dynamodb-toolbox/dynamodb-toolbox": 2,
+        "https://github.com/Effect-TS/effect": 1,
+        "https://github.com/eicrud/eicrud": 1,
+        "https://github.com/beevik/etree": 1,
+        "https://github.com/expr-lang/expr": 1,
+        "https://github.com/fastapi/fastapi": 2,
+        "https://github.com/sharkdp/fd": 1,
+        "https://github.com/golang/geo": 1,
+        "https://github.com/go-critic/go-critic": 1,
+        "https://github.com/googleapis/go-genai.git": 1,
+        "https://github.com/go-git/go-git": 1,
+        "https://github.com/goreleaser/goreleaser": 1,
+        "https://github.com/graphql-python/gql": 1,
+        "https://github.com/capricorn86/happy-dom": 2,
+        "https://github.com/helm/helm": 2,
+        "https://github.com/encode/httpx": 3,
+        "https://github.com/nidhaloff/igel": 1,
+        "https://github.com/vadimdemedes/ink": 1,
+        "https://github.com/ipython/ipython": 1,
+        "https://github.com/KaTeX/KaTeX": 1,
+        "https://github.com/xtaci/kcp-go": 1,
+        "https://github.com/keajs/kea.git": 1,
+        "https://github.com/kgateway-dev/kgateway": 1,
+        "https://github.com/celery/kombu": 2,
+        "https://github.com/pmndrs/koota": 5,
+        "https://github.com/kysely-org/kysely": 1,
+        "https://github.com/langchain-ai/langchain": 1,
+        "https://github.com/Fatal1ty/mashumaro": 1,
+        "https://github.com/meriyah/meriyah": 1,
+        "https://github.com/jkwill87/mnamer": 1,
+        "https://github.com/google/mobly": 1,
+        "https://github.com/narwhals-dev/narwhals": 1,
+        "https://github.com/numba/numba": 1,
+        "https://github.com/platers/obsidian-linter": 3,
+        "https://github.com/unjs/ofetch": 1,
+        "https://github.com/liweiyi88/onedump": 1,
+        "https://github.com/open-policy-agent/opa": 2,
+        "https://github.com/dahlia/optique": 1,
+        "https://github.com/noahbald/oxvg": 1,
+        "https://github.com/alecthomas/participle.git": 1,
+        "https://github.com/cockroachdb/pebble": 1,
+        "https://github.com/pest-parser/pest": 1,
+        "https://github.com/prometheus/prometheus.git": 1,
+        "https://github.com/prometheus/prometheus": 1,
+        "https://github.com/psd-tools/psd-tools": 1,
+        "https://github.com/Gallopsled/pwntools": 1,
+        "https://github.com/fgmacedo/python-statemachine": 1,
+        "https://github.com/TanStack/query": 1,
+        "https://github.com/slab/quill": 1,
+        "https://github.com/dry-python/returns": 1,
+        "https://github.com/boyter/scc.git": 1,
+        "https://github.com/open2b/scriggo": 1,
+        "https://github.com/skrub-data/skrub": 1,
+        "https://github.com/sql-formatter-org/sql-formatter": 1,
+        "https://github.com/tconbeer/sqlfmt": 1,
+        "https://github.com/simonw/sqlite-utils": 1,
+        "https://github.com/flightcontrolhq/superjson.git": 1,
+        "https://github.com/go-task/task": 1,
+        "https://github.com/d5/tengo": 2,
+        "https://github.com/muesli/termenv": 1,
+        "https://github.com/testem/testem": 2,
+        "https://github.com/Textualize/textual": 2,
+        "https://github.com/python-poetry/tomlkit": 1,
+        "https://github.com/true-myth/true-myth": 1,
+        "https://github.com/gvergnaud/ts-pattern": 1,
+        "https://github.com/Owloops/updo": 1,
+        "https://github.com/open-circle/valibot": 1,
+        "https://github.com/vitest-dev/vitest.git": 1,
+        "https://github.com/jendrikseipp/vulture": 1,
+        "https://github.com/wasmi-labs/wasmi": 1,
+        "https://github.com/wazero/wazero.git": 1,
+        "https://github.com/traefik/yaegi": 1,
+        "https://github.com/yjs/yjs": 1,
+        "https://github.com/carvel-dev/ytt": 1
+      }
+    },
+    "base_commit": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 7,
+        "median": 40,
+        "p90": 40,
+        "max": 40
+      },
+      "distinct_count": 98
+    },
+    "docker_image": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 73,
+        "median": 73,
+        "p90": 73,
+        "max": 73
+      },
+      "distinct_count": 113
+    },
+    "allow_internet": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "bool": 113
+      }
+    },
+    "cpus": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "int": 113
+      }
+    },
+    "memory_mb": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "int": 113
+      }
+    },
+    "storage_mb": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "int": 113
+      }
+    },
+    "agent_timeout_sec": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "float": 113
+      }
+    },
+    "verifier_timeout_sec": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "float": 113
+      }
+    },
+    "problem_statement": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 471,
+        "median": 1975,
+        "p90": 3450,
+        "max": 5385
+      },
+      "distinct_count": 113
+    },
+    "environment_dockerfile": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 251,
+        "median": 295,
+        "p90": 641,
+        "max": 1691
+      },
+      "distinct_count": 103
+    },
+    "test_patch": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 4162,
+        "median": 25849,
+        "p90": 59520,
+        "max": 101440
+      },
+      "distinct_count": 113
+    },
+    "verifier_script": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 3835,
+        "median": 3868,
+        "p90": 3868,
+        "max": 3868
+      },
+      "distinct_count": 98
+    },
+    "reference_patch": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 12710,
+        "median": 26288,
+        "p90": 43968,
+        "max": 53707
+      },
+      "distinct_count": 113
+    },
+    "task_toml": {
+      "null_count": 0,
+      "empty_string_count": 0,
+      "types": {
+        "str": 113
+      },
+      "character_lengths": {
+        "min": 935,
+        "median": 1022,
+        "p90": 1070,
+        "max": 1135
+      },
+      "distinct_count": 113
+    }
+  },
+  "exact_duplicate_rows": 0,
+  "scope": "Descriptive parquet EDA only; no execution or semantic validation",
+  "distributions": {
+    "language": {
+      "go": 34,
+      "python": 34,
+      "typescript": 35,
+      "rust": 5,
+      "javascript": 5
+    },
+    "category": {
+      "enhancement": 3,
+      "feature_request": 106,
+      "bugfix": 4
+    },
+    "allow_internet": {
+      "False": 113
+    },
+    "cpus": {
+      "2": 113
+    },
+    "memory_mb": {
+      "8192": 113
+    },
+    "storage_mb": {
+      "20480": 113
+    },
+    "agent_timeout_sec": {
+      "5400.0": 113
+    },
+    "verifier_timeout_sec": {
+      "1800.0": 113
+    }
+  },
+  "repository_count": 92,
+  "duplicate_task_ids": {},
+  "duplicate_prompts": 0,
+  "task_inventory": [
+    {
+      "task_id": "abs-module-cache-flags",
+      "language": "go",
+      "repo": "https://github.com/abs-lang/abs",
+      "title": "Harden module loading, cache introspection, and script flags",
+      "base_commit": "cb1b3b671d0ee9fa9da9f7b02f86967953ffd10a",
+      "prompt_characters": 2524,
+      "reference_patch_characters": 23719,
+      "reference_patch_files": [
+        "evaluator/functions.go",
+        "repl/repl.go",
+        "util/util.go",
+        "evaluator/module_loader.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "abs-stepped-slices",
+      "language": "go",
+      "repo": "https://github.com/abs-lang/abs",
+      "title": "Add stepped slices for arrays and strings",
+      "base_commit": "cb1b3b671d0ee9fa9da9f7b02f86967953ffd10a",
+      "prompt_characters": 3384,
+      "reference_patch_characters": 19908,
+      "reference_patch_files": [
+        "ast/ast.go",
+        "evaluator/evaluator.go",
+        "parser/parser.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "actionlint-action-pinning-lint",
+      "language": "go",
+      "repo": "https://github.com/rhysd/actionlint",
+      "title": "Add action pinning linting for actions and reusable workflows",
+      "base_commit": "0bdc95715fa58f64e3fd6e63b0f89be8733cbbab",
+      "prompt_characters": 2060,
+      "reference_patch_characters": 27751,
+      "reference_patch_files": [
+        "command.go",
+        "config.go",
+        "linter.go",
+        "rule_action_pinning.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "adaptix-name-mapping-aliases",
+      "language": "python",
+      "repo": "https://github.com/reagento/adaptix",
+      "title": "Add input key aliases to name mapping",
+      "base_commit": "a691069fcadf9131e5f7a5a130a022dc678f3e1d",
+      "prompt_characters": 982,
+      "reference_patch_characters": 32970,
+      "reference_patch_files": [
+        "src/adaptix/_internal/morphing/facade/provider.py",
+        "src/adaptix/_internal/morphing/facade/retort.py",
+        "src/adaptix/_internal/morphing/model/crown_definitions.py",
+        "src/adaptix/_internal/morphing/model/loader_gen.py",
+        "src/adaptix/_internal/morphing/model/loader_provider.py",
+        "src/adaptix/_internal/morphing/name_layout/base.py",
+        "src/adaptix/_internal/morphing/name_layout/component.py",
+        "src/adaptix/_internal/morphing/name_layout/provider.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 8
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "aiomonitor-task-snapshots-diff",
+      "language": "python",
+      "repo": "https://github.com/aio-libs/aiomonitor",
+      "title": "Add task snapshots, inspection, and diffing to aiomonitor",
+      "base_commit": "b73fea2e0682803bda7531c93cd1dfb360839175",
+      "prompt_characters": 1733,
+      "reference_patch_characters": 25889,
+      "reference_patch_files": [
+        "aiomonitor/monitor.py",
+        "aiomonitor/termui/commands.py",
+        "aiomonitor/types.py",
+        "aiomonitor/webui/app.py",
+        "aiomonitor/webui/templates/snapshots.html"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4,
+        ".html": 1
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "anko-default-function-arguments",
+      "language": "go",
+      "repo": "https://github.com/mattn/anko",
+      "title": "Add default arguments to Anko function parameters",
+      "base_commit": "9d2d84bb1564e9513287998c56ccf16c01c19008",
+      "prompt_characters": 874,
+      "reference_patch_characters": 12710,
+      "reference_patch_files": [
+        "core/core.go",
+        "parser/default_args.go",
+        "parser/lexer.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "anko-typed-variable-bindings",
+      "language": "go",
+      "repo": "https://github.com/mattn/anko",
+      "title": "Add typed variable bindings to Anko",
+      "base_commit": "3f269a72ff69398b1250c584171f32d12c0d8085",
+      "prompt_characters": 1726,
+      "reference_patch_characters": 14776,
+      "reference_patch_files": [
+        "ast/stmt.go",
+        "env/env.go",
+        "env/envConstraints.go",
+        "env/envValues.go",
+        "parser/parser.go.y",
+        "vm/vm.go",
+        "vm/vmLetExpr.go",
+        "vm/vmStmt.go",
+        "vm/vmTypedBindings.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 8,
+        ".y": 1
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "arcane-drift-detection-baselines",
+      "language": "go",
+      "repo": "https://github.com/getarcaneapp/arcane.git",
+      "title": "Add drift detection and compliance baselines",
+      "base_commit": "d34a5e2a6c5eb0f0955039775f5b9538424b58ff",
+      "prompt_characters": 5385,
+      "reference_patch_characters": 44828,
+      "reference_patch_files": [
+        "backend/internal/bootstrap/jobs_bootstrap.go",
+        "backend/internal/bootstrap/router_bootstrap.go",
+        "backend/internal/bootstrap/services_bootstrap.go",
+        "backend/internal/huma/handlers/compliance.go",
+        "backend/internal/huma/huma.go",
+        "backend/internal/models/drift_detection.go",
+        "backend/internal/models/settings.go",
+        "backend/internal/services/drift_detection_service.go",
+        "backend/internal/services/settings_service.go",
+        "backend/pkg/scheduler/drift_detection_job.go",
+        "backend/resources/migrations/postgres/041_add_drift_detection.down.sql",
+        "backend/resources/migrations/postgres/041_add_drift_detection.up.sql",
+        "backend/resources/migrations/sqlite/041_add_drift_detection.down.sql",
+        "backend/resources/migrations/sqlite/041_add_drift_detection.up.sql"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 10,
+        ".sql": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "arktype-json-schema-refs-dependencies",
+      "language": "typescript",
+      "repo": "https://github.com/arktypeio/arktype",
+      "title": "Add JSON Schema refs and dependency keywords",
+      "base_commit": "04355e8b26d1ad5264ef62314a2bc46c4de58ed8",
+      "prompt_characters": 1893,
+      "reference_patch_characters": 32777,
+      "reference_patch_files": [
+        "ark/json-schema/array.ts",
+        "ark/json-schema/common.ts",
+        "ark/json-schema/composition.ts",
+        "ark/json-schema/json.ts",
+        "ark/json-schema/object.ts",
+        "ark/json-schema/scope.ts",
+        "ark/json-schema/utils.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 7
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "awilix-async-container-initialization",
+      "language": "typescript",
+      "repo": "https://github.com/jeffijoe/awilix",
+      "title": "Add dependency-aware async initialization to the container",
+      "base_commit": "82ac179c1de4c216c4e333093044fac643303f0c",
+      "prompt_characters": 2248,
+      "reference_patch_characters": 22586,
+      "reference_patch_files": [
+        "src/awilix.ts",
+        "src/container.ts",
+        "src/errors.ts",
+        "src/resolvers.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 4
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "bandit-incremental-cache-control",
+      "language": "python",
+      "repo": "https://github.com/PyCQA/bandit.git",
+      "title": "Add incremental cache controls to Bandit",
+      "base_commit": "765f00d3f202f83f61d03f882f80a2d5142d81f8",
+      "prompt_characters": 1746,
+      "reference_patch_characters": 33953,
+      "reference_patch_files": [
+        "bandit/cli/main.py",
+        "bandit/core/cache_manager.py",
+        "bandit/core/issue.py",
+        "bandit/core/manager.py",
+        "bandit/core/metrics.py",
+        "bandit/formatters/json.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 6
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "bandit-interprocedural-taint-checks",
+      "language": "python",
+      "repo": "https://github.com/PyCQA/bandit.git",
+      "title": "Add interprocedural taint checks for Bandit injection sinks",
+      "base_commit": "b46fa3a2723635aa29cc012538df4867ac2ac006",
+      "prompt_characters": 1081,
+      "reference_patch_characters": 32476,
+      "reference_patch_files": [
+        "bandit/core/issue.py",
+        "bandit/core/node_visitor.py",
+        "bandit/core/taint.py",
+        "bandit/plugins/taint_path_traversal.py",
+        "bandit/plugins/taint_shell_injection.py",
+        "bandit/plugins/taint_sql_injection.py",
+        "bandit/plugins/taint_ssrf.py",
+        "bandit/plugins/taint_xss.py",
+        "setup.cfg"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 8,
+        ".cfg": 1
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "bandit-structured-nosec-directives",
+      "language": "python",
+      "repo": "https://github.com/PyCQA/bandit.git",
+      "title": "Add structured nosec directives for regions and next line",
+      "base_commit": "b46fa3a2723635aa29cc012538df4867ac2ac006",
+      "prompt_characters": 2721,
+      "reference_patch_characters": 24581,
+      "reference_patch_files": [
+        "bandit/core/manager.py",
+        "bandit/core/nosec.py",
+        "bandit/core/nosec_parse.py",
+        "bandit/core/nosec_selector.py",
+        "bandit/core/test_set.py",
+        "bandit/core/tester.py",
+        "bandit/core/utils.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 7
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "boa-hierarchical-evaluation-cancellation",
+      "language": "rust",
+      "repo": "https://github.com/boa-dev/boa",
+      "title": "Add hierarchical evaluation cancellation to Boa",
+      "base_commit": "70409a5052984325dccfdc5f6520818568a81f39",
+      "prompt_characters": 4154,
+      "reference_patch_characters": 28679,
+      "reference_patch_files": [
+        "core/engine/src/context/evaluation.rs",
+        "core/engine/src/context/mod.rs",
+        "core/engine/src/job.rs",
+        "core/engine/src/lib.rs",
+        "core/engine/src/module/mod.rs",
+        "core/engine/src/script.rs",
+        "core/engine/src/vm/mod.rs"
+      ],
+      "reference_patch_suffixes": {
+        ".rs": 7
+      },
+      "toml_language": "rust",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "cattrs-partial-structuring-recovery",
+      "language": "python",
+      "repo": "https://github.com/python-attrs/cattrs",
+      "title": "Add partial structuring with error recovery to cattrs",
+      "base_commit": "6bc4708fb9b2ac52d9a18997e923da6a58916102",
+      "prompt_characters": 1242,
+      "reference_patch_characters": 24810,
+      "reference_patch_files": [
+        "src/cattrs/__init__.py",
+        "src/cattrs/converters.py",
+        "src/cattrs/partial.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "clack-async-autocomplete-options",
+      "language": "typescript",
+      "repo": "https://github.com/bombshell-dev/clack",
+      "title": "Add async autocomplete options and fetch lifecycle handling",
+      "base_commit": "8a96e2dcd7f821d1250b58cf71c327679f94de25",
+      "prompt_characters": 3029,
+      "reference_patch_characters": 25372,
+      "reference_patch_files": [
+        "packages/core/src/prompts/autocomplete-async.ts",
+        "packages/core/src/prompts/autocomplete.ts",
+        "packages/core/src/prompts/prompt.ts",
+        "packages/prompts/src/autocomplete.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 4
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "claude-code-by-agents-recursive-delegation",
+      "language": "typescript",
+      "repo": "https://github.com/baryhuang/claude-code-by-agents",
+      "title": "Implement recursive agent delegation through delegate_task tool calls",
+      "base_commit": "5e0a2247d446c49a9951a06bb83b6e956dc7eb41",
+      "prompt_characters": 1199,
+      "reference_patch_characters": 34118,
+      "reference_patch_files": [
+        "backend/handlers/multiAgentChat.ts",
+        "backend/providers/anthropic.ts",
+        "backend/providers/registry.ts",
+        "backend/providers/types.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 4
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "cliffy-config-file-parsing",
+      "language": "typescript",
+      "repo": "https://github.com/c4spar/cliffy",
+      "title": "Add config file parsing to Cliffy commands",
+      "base_commit": "132a437c40cffbdfbe474ca808c8debde59e2633",
+      "prompt_characters": 1973,
+      "reference_patch_characters": 26013,
+      "reference_patch_files": [
+        "command/_utils.ts",
+        "command/command.ts",
+        "command/config/loader.ts",
+        "command/config/mod.ts",
+        "command/config/parser.ts",
+        "command/config/types.ts",
+        "command/mod.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 7
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "csstree-shorthand-expansion-compression",
+      "language": "javascript",
+      "repo": "https://github.com/csstree/csstree",
+      "title": "Add shorthand expansion and compression to the lexer",
+      "base_commit": "88e3d965c0b1628642a30a841745b410d6835052",
+      "prompt_characters": 2799,
+      "reference_patch_characters": 20074,
+      "reference_patch_files": [
+        "lib/lexer/Lexer.js",
+        "lib/lexer/shorthand-config.js",
+        "lib/lexer/shorthand.js"
+      ],
+      "reference_patch_suffixes": {
+        ".js": 3
+      },
+      "toml_language": "javascript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "dasel-html-document-format",
+      "language": "go",
+      "repo": "https://github.com/TomWright/dasel",
+      "title": "Add HTML document format handling to Dasel",
+      "base_commit": "0dd6132e0c58edbd9b1a5f7ffd00dfab1e6085ad",
+      "prompt_characters": 1546,
+      "reference_patch_characters": 23538,
+      "reference_patch_files": [
+        "parsing/html/html.go",
+        "parsing/html/parser.go",
+        "parsing/html/reader.go",
+        "parsing/html/writer.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "dateutil-rfc5545-timezone-interop",
+      "language": "python",
+      "repo": "https://github.com/dateutil/dateutil",
+      "title": "Add RFC 5545 timezone interoperability to dateutil recurrence parsing",
+      "base_commit": "c981f9c7aa91b83cc9bd33a09ecee9e751b06e8d",
+      "prompt_characters": 2890,
+      "reference_patch_characters": 33534,
+      "reference_patch_files": [
+        "src/dateutil/rrule.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 1
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "drizzle-orm-window-function-builders",
+      "language": "typescript",
+      "repo": "https://github.com/drizzle-team/drizzle-orm",
+      "title": "Add typed window function builders with OVER clauses",
+      "base_commit": "e8e6edfef5ca69c6188d320388ad440265911057",
+      "prompt_characters": 2340,
+      "reference_patch_characters": 34639,
+      "reference_patch_files": [
+        "drizzle-orm/src/gel-core/dialect.ts",
+        "drizzle-orm/src/gel-core/query-builders/select.ts",
+        "drizzle-orm/src/gel-core/query-builders/select.types.ts",
+        "drizzle-orm/src/mysql-core/dialect.ts",
+        "drizzle-orm/src/mysql-core/query-builders/select.ts",
+        "drizzle-orm/src/mysql-core/query-builders/select.types.ts",
+        "drizzle-orm/src/pg-core/dialect.ts",
+        "drizzle-orm/src/pg-core/query-builders/select.ts",
+        "drizzle-orm/src/pg-core/query-builders/select.types.ts",
+        "drizzle-orm/src/singlestore-core/dialect.ts",
+        "drizzle-orm/src/singlestore-core/query-builders/select.ts",
+        "drizzle-orm/src/singlestore-core/query-builders/select.types.ts",
+        "drizzle-orm/src/sql/functions/index.ts",
+        "drizzle-orm/src/sql/functions/window.ts",
+        "drizzle-orm/src/sqlite-core/dialect.ts",
+        "drizzle-orm/src/sqlite-core/query-builders/select.ts",
+        "drizzle-orm/src/sqlite-core/query-builders/select.types.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 17
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "dynamodb-toolbox-conditional-attribute-requirements",
+      "language": "typescript",
+      "repo": "https://github.com/dynamodb-toolbox/dynamodb-toolbox",
+      "title": "Add conditional required attributes to schemas",
+      "base_commit": "1f2a18664f8aded292707fcafb01ff15ea33d3b8",
+      "prompt_characters": 1243,
+      "reference_patch_characters": 41962,
+      "reference_patch_files": [
+        "src/entity/actions/update/updateItemParams/updateItemParams.ts",
+        "src/schema/actions/dto/getSchemaDTO/any.ts",
+        "src/schema/actions/dto/getSchemaDTO/anyOf.ts",
+        "src/schema/actions/dto/getSchemaDTO/list.ts",
+        "src/schema/actions/dto/getSchemaDTO/map.ts",
+        "src/schema/actions/dto/getSchemaDTO/primitive.ts",
+        "src/schema/actions/dto/getSchemaDTO/record.ts",
+        "src/schema/actions/dto/getSchemaDTO/set.ts",
+        "src/schema/actions/dto/types.ts",
+        "src/schema/actions/fromDTO/fromSchemaDTO/anyOf.ts",
+        "src/schema/actions/jsonSchemer/formattedValue/item.ts",
+        "src/schema/actions/jsonSchemer/formattedValue/map.ts",
+        "src/schema/actions/parse/errors.ts",
+        "src/schema/actions/parse/item.ts",
+        "src/schema/actions/parse/map.ts",
+        "src/schema/actions/zodSchemer/formatter/item.ts",
+        "src/schema/actions/zodSchemer/formatter/map.ts",
+        "src/schema/actions/zodSchemer/parser/item.ts",
+        "src/schema/actions/zodSchemer/parser/map.ts",
+        "src/schema/any/schema_.ts",
+        "src/schema/anyOf/schema_.ts",
+        "src/schema/binary/schema_.ts",
+        "src/schema/boolean/schema_.ts",
+        "src/schema/item/errors.ts",
+        "src/schema/item/schema.ts",
+        "src/schema/list/schema_.ts",
+        "src/schema/map/schema.ts",
+        "src/schema/map/schema_.ts",
+        "src/schema/null/schema_.ts",
+        "src/schema/number/schema_.ts",
+        "src/schema/record/schema_.ts",
+        "src/schema/set/schema_.ts",
+        "src/schema/string/schema_.ts",
+        "src/schema/types/index.ts",
+        "src/schema/types/schemaProps.ts",
+        "vitest.config.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 36
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "dynamodb-toolbox-lazy-recursive-schemas",
+      "language": "typescript",
+      "repo": "https://github.com/dynamodb-toolbox/dynamodb-toolbox",
+      "title": "Add lazy recursive schemas with DTO and JSON Schema export",
+      "base_commit": "1f2a18664f8aded292707fcafb01ff15ea33d3b8",
+      "prompt_characters": 1265,
+      "reference_patch_characters": 31602,
+      "reference_patch_files": [
+        "src/entity/actions/update/updateItemParams/extension/attribute.ts",
+        "src/entity/actions/updateAttributes/updateAttributesParams/extension/attribute.ts",
+        "src/schema/actions/dto/dto.ts",
+        "src/schema/actions/dto/getSchemaDTO/index.ts",
+        "src/schema/actions/dto/getSchemaDTO/schema.ts",
+        "src/schema/actions/finder/finder.ts",
+        "src/schema/actions/format/schema.ts",
+        "src/schema/actions/fromDTO/fromSchemaDTO.ts",
+        "src/schema/actions/fromDTO/fromSchemaDTO/attribute.ts",
+        "src/schema/actions/fromDTO/fromSchemaDTO/index.ts",
+        "src/schema/actions/jsonSchemer/formattedValue/index.ts",
+        "src/schema/actions/jsonSchemer/formattedValue/schema.ts",
+        "src/schema/actions/jsonSchemer/jsonSchemer.ts",
+        "src/schema/actions/parse/schema.ts",
+        "src/schema/actions/zodSchemer/formatter/schema.ts",
+        "src/schema/actions/zodSchemer/parser/schema.ts",
+        "src/schema/anyOf/schema.ts",
+        "src/schema/errors.ts",
+        "src/schema/index.ts",
+        "src/schema/lazy/constants.ts",
+        "src/schema/lazy/errors.ts",
+        "src/schema/lazy/index.ts",
+        "src/schema/lazy/schema.ts",
+        "src/schema/lazy/schema_.ts",
+        "src/schema/lazy/types.ts",
+        "src/schema/map/schema.ts",
+        "src/schema/types/schema.ts",
+        "src/schema/utils/light.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 28
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "effect-sse-httpapi-streaming",
+      "language": "typescript",
+      "repo": "https://github.com/Effect-TS/effect",
+      "title": "Add SSE streaming endpoints to HttpApi",
+      "base_commit": "9245bc59ebfa688e8c92dd691296ee69d0815e59",
+      "prompt_characters": 2177,
+      "reference_patch_characters": 38871,
+      "reference_patch_files": [
+        "packages/platform/src/HttpApiBuilder.ts",
+        "packages/platform/src/HttpApiClient.ts",
+        "packages/platform/src/HttpApiEndpoint.ts",
+        "packages/platform/src/HttpApiSSE.ts",
+        "packages/platform/src/HttpApiSchema.ts",
+        "packages/platform/src/OpenApi.ts",
+        "packages/platform/src/index.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 7
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "eicrud-keyset-pagination-cursor",
+      "language": "typescript",
+      "repo": "https://github.com/eicrud/eicrud",
+      "title": "Add keyset cursor pagination to `$find`",
+      "base_commit": "68dafce",
+      "prompt_characters": 1072,
+      "reference_patch_characters": 17843,
+      "reference_patch_files": [
+        "client/CrudClient.ts",
+        "core/crud/crud.authorization.service.ts",
+        "core/crud/crud.service.ts",
+        "core/crud/cursor.utils.ts",
+        "core/crud/index.ts",
+        "core/crud/model/CrudOptions.ts",
+        "shared/interfaces.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 7
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "etree-xml-diff-patch",
+      "language": "go",
+      "repo": "https://github.com/beevik/etree",
+      "title": "Add XML diff, patch, and merge operations to etree",
+      "base_commit": "4032e04c8f2e2f35e43ce5d772fcef14a5df4d74",
+      "prompt_characters": 4462,
+      "reference_patch_characters": 45419,
+      "reference_patch_files": [
+        "diff.go",
+        "document_diff.go",
+        "element_diff.go",
+        "etree.go",
+        "helpers.go",
+        "merge.go",
+        "patch.go",
+        "reverse.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 8
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "expr-try-catch-errors",
+      "language": "go",
+      "repo": "https://github.com/expr-lang/expr",
+      "title": "Add try/catch error recovery to expr",
+      "base_commit": "851b241a301f7c74646e65e4009c69cf290993a8",
+      "prompt_characters": 1356,
+      "reference_patch_characters": 17947,
+      "reference_patch_files": [
+        "ast/node.go",
+        "ast/print.go",
+        "ast/visitor.go",
+        "builtin/builtin.go",
+        "builtin/lib.go",
+        "checker/checker.go",
+        "compiler/compiler.go",
+        "parser/parser.go",
+        "vm/opcodes.go",
+        "vm/program.go",
+        "vm/vm.go",
+        "vm/vm_test.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 12
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "fastapi-deprecation-response-headers",
+      "language": "python",
+      "repo": "https://github.com/fastapi/fastapi",
+      "title": "Add deprecation, sunset, and successor headers to FastAPI routes",
+      "base_commit": "11614be9021aa4ac078d4d0693a8b5250a1010d8",
+      "prompt_characters": 2972,
+      "reference_patch_characters": 45447,
+      "reference_patch_files": [
+        "fastapi/applications.py",
+        "fastapi/middleware/deprecation.py",
+        "fastapi/openapi/utils.py",
+        "fastapi/routing.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "fastapi-implicit-head-options",
+      "language": "python",
+      "repo": "https://github.com/fastapi/fastapi",
+      "title": "Add implicit HEAD and automatic OPTIONS responses to FastAPI routes",
+      "base_commit": "11614be9021aa4ac078d4d0693a8b5250a1010d8",
+      "prompt_characters": 1602,
+      "reference_patch_characters": 50192,
+      "reference_patch_files": [
+        "fastapi/applications.py",
+        "fastapi/middleware/__init__.py",
+        "fastapi/middleware/methods.py",
+        "fastapi/routing.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "fd-deterministic-multi-key-sorting",
+      "language": "rust",
+      "repo": "https://github.com/sharkdp/fd",
+      "title": "Add deterministic multi-key sorting to fd",
+      "base_commit": "227883606023d62275fb48701aeac90f2b604143",
+      "prompt_characters": 3483,
+      "reference_patch_characters": 26288,
+      "reference_patch_files": [
+        "src/cli.rs",
+        "src/config.rs",
+        "src/main.rs",
+        "src/sort.rs",
+        "src/walk.rs"
+      ],
+      "reference_patch_suffixes": {
+        ".rs": 5
+      },
+      "toml_language": "rust",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "geo-shapeindex-serialization",
+      "language": "go",
+      "repo": "https://github.com/golang/geo",
+      "title": "Add ShapeIndex encoding and decoding",
+      "base_commit": "87f5a40ea07a4ea629ee5623c72660f3d1b217fa",
+      "prompt_characters": 684,
+      "reference_patch_characters": 14177,
+      "reference_patch_files": [
+        "s2/lax_loop.go",
+        "s2/lax_polygon.go",
+        "s2/lax_polyline.go",
+        "s2/loop.go",
+        "s2/point_vector.go",
+        "s2/shape.go",
+        "s2/shapeindex_encode.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 7
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "go-critic-doc-link-checker",
+      "language": "go",
+      "repo": "https://github.com/go-critic/go-critic",
+      "title": "Add a checker for broken doc comment links",
+      "base_commit": "9aea378c4dccd6f4394196ad8f0873b3e84678c8",
+      "prompt_characters": 1873,
+      "reference_patch_characters": 27321,
+      "reference_patch_files": [
+        "checkers/brokenDocLink_checker.go",
+        "checkers/internal/astwalk/doc_link_walker.go",
+        "checkers/internal/astwalk/visitor.go",
+        "checkers/internal/astwalk/walker.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "go-genai-streamed-function-args",
+      "language": "go",
+      "repo": "https://github.com/googleapis/go-genai.git",
+      "title": "Expose accumulated streamed function-call args in SDK surfaces",
+      "base_commit": "87c0e5a4f27d04569d927717769f34483e0ba475",
+      "prompt_characters": 1759,
+      "reference_patch_characters": 17948,
+      "reference_patch_files": [
+        "chats.go",
+        "live.go",
+        "models.go",
+        "streamed_function_calls.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "go-git-worktree-merge-conflicts",
+      "language": "go",
+      "repo": "https://github.com/go-git/go-git",
+      "title": "Add worktree merge conflict handling",
+      "base_commit": "424e9964d3a33c6507a77c126841f2c5897262af",
+      "prompt_characters": 1825,
+      "reference_patch_characters": 30375,
+      "reference_patch_files": [
+        "worktree.go",
+        "worktree_commit.go",
+        "worktree_status.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "goreleaser-retry-publish-auditing",
+      "language": "go",
+      "repo": "https://github.com/goreleaser/goreleaser",
+      "title": "Add retry-aware publishing audit logs",
+      "base_commit": "399ef141161f212f4e81b5d7497b84633fc712d9",
+      "prompt_characters": 1698,
+      "reference_patch_characters": 22072,
+      "reference_patch_files": [
+        "internal/artifact/publish_attempts.go",
+        "internal/http/http.go",
+        "internal/http/retry.go",
+        "internal/pipe/blob/retry.go",
+        "internal/pipe/blob/upload.go",
+        "internal/pipe/metadata/metadata.go",
+        "pkg/config/config.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 7
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "gql-incremental-graphql-delivery",
+      "language": "python",
+      "repo": "https://github.com/graphql-python/gql",
+      "title": "Add GraphQL incremental delivery with @defer and @stream",
+      "base_commit": "f07c89f8f065010a36b4263eded209b2b1d37063",
+      "prompt_characters": 1458,
+      "reference_patch_characters": 24744,
+      "reference_patch_files": [
+        "gql/__init__.py",
+        "gql/client.py",
+        "gql/dsl.py",
+        "gql/incremental.py",
+        "gql/transport/aiohttp.py",
+        "gql/transport/common/base.py",
+        "gql/transport/websockets_protocol.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 7
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "happy-dom-abort-pending-body-reads",
+      "language": "typescript",
+      "repo": "https://github.com/capricorn86/happy-dom",
+      "title": "Abort pending body reads on shutdown",
+      "base_commit": "82a0888cb2c87a6123e05424b528f8e8c9b3e426",
+      "prompt_characters": 665,
+      "reference_patch_characters": 32667,
+      "reference_patch_files": [
+        "packages/happy-dom/src/PropertySymbol.ts",
+        "packages/happy-dom/src/fetch/Request.ts",
+        "packages/happy-dom/src/fetch/Response.ts",
+        "packages/happy-dom/src/fetch/multipart/MultipartFormDataParser.ts",
+        "packages/happy-dom/src/fetch/utilities/FetchBodyUtility.ts",
+        "packages/happy-dom/src/window/BrowserWindow.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 6
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "happy-dom-deterministic-intersectionobserver",
+      "language": "typescript",
+      "repo": "https://github.com/capricorn86/happy-dom",
+      "title": "Implement a deterministic IntersectionObserver in Happy DOM",
+      "base_commit": "82a0888cb2c87a6123e05424b528f8e8c9b3e426",
+      "prompt_characters": 1443,
+      "reference_patch_characters": 25378,
+      "reference_patch_files": [
+        "packages/happy-dom/src/intersection-observer/IIntersectionObserverInit.ts",
+        "packages/happy-dom/src/intersection-observer/IntersectionObserver.ts",
+        "packages/happy-dom/src/intersection-observer/types/IIntersectionObserverMarginValue.ts",
+        "packages/happy-dom/src/intersection-observer/types/IIntersectionObserverRootMargin.ts",
+        "packages/happy-dom/src/intersection-observer/types/IIntersectionObserverTargetState.ts",
+        "packages/happy-dom/src/intersection-observer/utilities/IntersectionObserverGeometryUtility.ts",
+        "packages/happy-dom/src/intersection-observer/utilities/IntersectionObserverRootMarginParser.ts",
+        "packages/happy-dom/src/intersection-observer/utilities/IntersectionObserverThresholdParser.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 8
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "helm-array-merge-strategies",
+      "language": "go",
+      "repo": "https://github.com/helm/helm",
+      "title": "Add configurable array merge strategies to Helm value coalescing",
+      "base_commit": "42f78ba60edf531d5161e00d9819a7c34d976343",
+      "prompt_characters": 2783,
+      "reference_patch_characters": 25633,
+      "reference_patch_files": [
+        "internal/chart/v3/lint/rules/chartfile.go",
+        "pkg/action/install.go",
+        "pkg/action/merge_strategy.go",
+        "pkg/action/upgrade.go",
+        "pkg/chart/common.go",
+        "pkg/chart/common/util/coalesce.go",
+        "pkg/chart/interfaces.go",
+        "pkg/chart/v2/lint/rules/chartfile.go",
+        "pkg/cmd/install.go",
+        "pkg/cmd/upgrade.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 10
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "helm-unified-manifest-stream",
+      "language": "go",
+      "repo": "https://github.com/helm/helm",
+      "title": "Add unified manifest stream output across Helm commands",
+      "base_commit": "42f78ba60edf531d5161e00d9819a7c34d976343",
+      "prompt_characters": 954,
+      "reference_patch_characters": 28139,
+      "reference_patch_files": [
+        "pkg/action/action.go",
+        "pkg/action/install.go",
+        "pkg/action/rollback.go",
+        "pkg/action/status.go",
+        "pkg/action/uninstall.go",
+        "pkg/action/upgrade.go",
+        "pkg/cmd/get_manifest.go",
+        "pkg/cmd/status.go",
+        "pkg/cmd/template.go",
+        "pkg/cmd/upgrade.go",
+        "pkg/release/v1/util/manifest_sorter.go",
+        "pkg/release/v1/util/manifest_stream.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 12
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "httpx-deterministic-cookie-store",
+      "language": "typescript",
+      "repo": "https://github.com/encode/httpx",
+      "title": "Add a deterministic CookieStore with modern Set-Cookie parsing",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "prompt_characters": 3150,
+      "reference_patch_characters": 23099,
+      "reference_patch_files": [
+        "httpx/__init__.py",
+        "httpx/_client.py",
+        "httpx/_cookie_store.py",
+        "httpx/_models.py",
+        "httpx/_types.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 5
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "httpx-multipart-response-parsing",
+      "language": "python",
+      "repo": "https://github.com/encode/httpx",
+      "title": "Add multipart response parsing to HTTPX",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "prompt_characters": 2112,
+      "reference_patch_characters": 23479,
+      "reference_patch_files": [
+        "httpx/__init__.py",
+        "httpx/_content.py",
+        "httpx/_models.py",
+        "httpx/_multipart.py",
+        "httpx/_multipart_response.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 5
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "httpx-streaming-json-iteration",
+      "language": "python",
+      "repo": "https://github.com/encode/httpx",
+      "title": "Add streaming JSON iteration to HTTPX responses",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "prompt_characters": 2532,
+      "reference_patch_characters": 20560,
+      "reference_patch_files": [
+        "httpx/_json_stream.py",
+        "httpx/_models.py",
+        "httpx/_types.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "igel-persist-feature-schema",
+      "language": "python",
+      "repo": "https://github.com/nidhaloff/igel",
+      "title": "Persist the fitted feature schema across evaluate, predict, serve, and export",
+      "base_commit": "bf4544d6c86ab4ace21254cb38a011ce3e845700",
+      "prompt_characters": 1559,
+      "reference_patch_characters": 36586,
+      "reference_patch_files": [
+        "igel/configs.py",
+        "igel/constants.py",
+        "igel/igel.py",
+        "igel/preprocessing.py",
+        "igel/servers/fastapi_server.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 5
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "ink-grid-box-layout",
+      "language": "typescript",
+      "repo": "https://github.com/vadimdemedes/ink",
+      "title": "Add CSS Grid layout to the Box component",
+      "base_commit": "0cea59169ef0f3f83e4aa7fbedbff9d165646472",
+      "prompt_characters": 841,
+      "reference_patch_characters": 15462,
+      "reference_patch_files": [
+        "src/grid-layout.ts",
+        "src/renderer.ts",
+        "src/styles.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 3
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "ipython-session-bundle-replay",
+      "language": "python",
+      "repo": "https://github.com/ipython/ipython",
+      "title": "Add session bundle recording and replay to IPython",
+      "base_commit": "0bb317d10fdcb3aa13beb1031d5f10e5b821203b",
+      "prompt_characters": 3590,
+      "reference_patch_characters": 22076,
+      "reference_patch_files": [
+        "IPython/core/interactiveshell.py",
+        "IPython/core/magics/execution.py",
+        "IPython/core/sessionbundle.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "katex-multicolumn-array-spans",
+      "language": "javascript",
+      "repo": "https://github.com/KaTeX/KaTeX",
+      "title": "Add `\\multicolumn` column spans to array-like environments",
+      "base_commit": "89bede495dc2c85e1c57ba627a18526f71d57396",
+      "prompt_characters": 683,
+      "reference_patch_characters": 24907,
+      "reference_patch_files": [
+        "src/environments/array.ts",
+        "src/functions.ts",
+        "src/functions/multicolumn.ts",
+        "src/parseNode.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 4
+      },
+      "toml_language": "javascript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "kcp-go-multiplexed-kcp-streams",
+      "language": "go",
+      "repo": "https://github.com/xtaci/kcp-go",
+      "title": "Add multiplexed ordered streams over KCP",
+      "base_commit": "56b1fffecd743df1e7490235e69b51c44701f34c",
+      "prompt_characters": 2367,
+      "reference_patch_characters": 25249,
+      "reference_patch_files": [
+        "snmp.go",
+        "mux_defs.go",
+        "mux.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "kea-atomic-signal-selectors",
+      "language": "typescript",
+      "repo": "https://github.com/keajs/kea.git",
+      "title": "Add atomic signal selectors to Kea",
+      "base_commit": "6c7ebba57821989733a11d6f3888816658584d97",
+      "prompt_characters": 3376,
+      "reference_patch_characters": 32664,
+      "reference_patch_files": [
+        "src/core/index.ts",
+        "src/core/reducers.ts",
+        "src/core/selectors.ts",
+        "src/kea/atomic.ts",
+        "src/kea/context.ts",
+        "src/kea/kea.ts",
+        "src/react/hooks.ts",
+        "src/types.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 8
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "kgateway-consistent-hash-policy",
+      "language": "go",
+      "repo": "https://github.com/kgateway-dev/kgateway",
+      "title": "Add consistent hash policy support to TrafficPolicy",
+      "base_commit": "7abc5278782e3280fec8292b39807ec1b537eaf4",
+      "prompt_characters": 2181,
+      "reference_patch_characters": 46073,
+      "reference_patch_files": [
+        "api/v1alpha1/kgateway/traffic_policy_types.go",
+        "api/v1alpha1/kgateway/zz_generated.deepcopy.go",
+        "install/helm/kgateway-crds/templates/gateway.kgateway.dev_trafficpolicies.yaml",
+        "pkg/kgateway/extensions2/plugins/trafficpolicy/consistent_hash.go",
+        "pkg/kgateway/extensions2/plugins/trafficpolicy/consistent_hash_helpers.go",
+        "pkg/kgateway/extensions2/plugins/trafficpolicy/constructor.go",
+        "pkg/kgateway/extensions2/plugins/trafficpolicy/merge.go",
+        "pkg/kgateway/extensions2/plugins/trafficpolicy/merge_consistent_hash.go",
+        "pkg/kgateway/extensions2/plugins/trafficpolicy/traffic_policy_plugin.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 8,
+        ".yaml": 1
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "kombu-single-active-consumer-priority",
+      "language": "python",
+      "repo": "https://github.com/celery/kombu",
+      "title": "Add single-active-consumer priority and cancel tracking to virtual transports",
+      "base_commit": "3c5c1bd86376ee73d52a4cc770bdaeab15bbc2f3",
+      "prompt_characters": 4265,
+      "reference_patch_characters": 27810,
+      "reference_patch_files": [
+        "kombu/entity.py",
+        "kombu/messaging.py",
+        "kombu/transport/filesystem.py",
+        "kombu/transport/memory.py",
+        "kombu/transport/pyro.py",
+        "kombu/transport/virtual/base.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 6
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "kombu-virtual-queue-dead-lettering",
+      "language": "python",
+      "repo": "https://github.com/celery/kombu",
+      "title": "Add dead-lettering, TTL, and overflow handling to virtual queues",
+      "base_commit": "3c5c1bd86376ee73d52a4cc770bdaeab15bbc2f3",
+      "prompt_characters": 4383,
+      "reference_patch_characters": 36840,
+      "reference_patch_files": [
+        "kombu/entity.py",
+        "kombu/transport/base.py",
+        "kombu/transport/filesystem.py",
+        "kombu/transport/memory.py",
+        "kombu/transport/virtual/base.py",
+        "kombu/transport/virtual/exchange.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 6
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "koota-composite-trait-aspects",
+      "language": "typescript",
+      "repo": "https://github.com/pmndrs/koota",
+      "title": "Add composite trait aspects to Koota",
+      "base_commit": "9c434858b2b522002f8c5eb4a554fa8836a7cf3c",
+      "prompt_characters": 1508,
+      "reference_patch_characters": 52489,
+      "reference_patch_files": [
+        "packages/core/src/aspect.ts",
+        "packages/core/src/entity/entity-methods-patch.ts",
+        "packages/core/src/index.ts",
+        "packages/core/src/query/modifiers/added.ts",
+        "packages/core/src/query/modifiers/changed.ts",
+        "packages/core/src/query/modifiers/not.ts",
+        "packages/core/src/query/modifiers/or.ts",
+        "packages/core/src/query/modifiers/removed.ts",
+        "packages/core/src/query/query-result.ts",
+        "packages/core/src/query/query.ts",
+        "packages/core/src/query/types.ts",
+        "packages/core/src/query/utils/check-query-tracking.ts",
+        "packages/core/src/query/utils/check-query.ts",
+        "packages/core/src/query/utils/create-query-hash.ts",
+        "packages/core/src/trait/trait.ts",
+        "packages/core/src/world/world.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 16
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "koota-deferred-mutation-buffer",
+      "language": "typescript",
+      "repo": "https://github.com/pmndrs/koota",
+      "title": "Add a deferred mutation buffer to batch entity changes",
+      "base_commit": "31cbe9a1a26b3822a6c82ad50132508087cd24bc",
+      "prompt_characters": 932,
+      "reference_patch_characters": 53707,
+      "reference_patch_files": [
+        "packages/core/src/deferred/deferred.ts",
+        "packages/core/src/deferred/index.ts",
+        "packages/core/src/deferred/types.ts",
+        "packages/core/src/entity/entity-methods-patch.ts",
+        "packages/core/src/query/query-result.ts",
+        "packages/core/src/trait/trait.ts",
+        "packages/core/src/world/types.ts",
+        "packages/core/src/world/world.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 8
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "koota-entity-snapshot-rollback",
+      "language": "python",
+      "repo": "https://github.com/pmndrs/koota",
+      "title": "Add entity snapshot and rollback APIs to Koota",
+      "base_commit": "72ebef44b8e024d877250f055eea60cdfaa4506",
+      "prompt_characters": 2387,
+      "reference_patch_characters": 21399,
+      "reference_patch_files": [
+        "packages/core/src/entity/entity-methods-patch.ts",
+        "packages/core/src/entity/types.ts",
+        "packages/core/src/index.ts",
+        "packages/core/src/world/types.ts",
+        "packages/core/src/world/world.ts",
+        "packages/core/src/snapshot/snapshot.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 6
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "koota-pair-relation-tracking",
+      "language": "typescript",
+      "repo": "https://github.com/pmndrs/koota",
+      "title": "Add pair-level relation tracking modifiers",
+      "base_commit": "9c434858b2b522002f8c5eb4a554fa8836a7cf3c",
+      "prompt_characters": 981,
+      "reference_patch_characters": 43968,
+      "reference_patch_files": [
+        "packages/core/src/entity/entity-methods-patch.ts",
+        "packages/core/src/entity/entity.ts",
+        "packages/core/src/entity/types.ts",
+        "packages/core/src/query/modifiers/added.ts",
+        "packages/core/src/query/modifiers/changed.ts",
+        "packages/core/src/query/modifiers/removed.ts",
+        "packages/core/src/query/query-result.ts",
+        "packages/core/src/query/query.ts",
+        "packages/core/src/query/types.ts",
+        "packages/core/src/query/utils/check-query-tracking.ts",
+        "packages/core/src/query/utils/create-query-hash.ts",
+        "packages/core/src/relation/relation.ts",
+        "packages/core/src/world/types.ts",
+        "packages/core/src/world/world.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 14
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "koota-query-predicates",
+      "language": "typescript",
+      "repo": "https://github.com/pmndrs/koota",
+      "title": "Add value-based query predicates to Koota",
+      "base_commit": "9c434858b2b522002f8c5eb4a554fa8836a7cf3c",
+      "prompt_characters": 859,
+      "reference_patch_characters": 53566,
+      "reference_patch_files": [
+        "packages/core/src/index.ts",
+        "packages/core/src/query/modifiers/added.ts",
+        "packages/core/src/query/modifiers/changed.ts",
+        "packages/core/src/query/modifiers/not.ts",
+        "packages/core/src/query/modifiers/or.ts",
+        "packages/core/src/query/modifiers/removed.ts",
+        "packages/core/src/query/predicate.ts",
+        "packages/core/src/query/query-result.ts",
+        "packages/core/src/query/query.ts",
+        "packages/core/src/query/types.ts",
+        "packages/core/src/query/utils/check-query-with-relations.ts",
+        "packages/core/src/query/utils/create-query-hash.ts",
+        "packages/core/src/query/utils/evaluate-predicate.ts",
+        "packages/core/src/trait/trait.ts",
+        "packages/core/src/trait/types.ts",
+        "packages/core/src/world/types.ts",
+        "packages/core/src/world/world.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 17
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "kysely-window-grouping-helpers",
+      "language": "typescript",
+      "repo": "https://github.com/kysely-org/kysely",
+      "title": "Add grouping-set and window-frame SQL helpers",
+      "base_commit": "91cf3733b2a419f5b17dff118cedb7052ab5300d",
+      "prompt_characters": 2633,
+      "reference_patch_characters": 37156,
+      "reference_patch_files": [
+        "src/index.ts",
+        "src/operation-node/aggregate-function-node.ts",
+        "src/operation-node/grouping-sets-node.ts",
+        "src/operation-node/operation-node-transformer.ts",
+        "src/operation-node/operation-node-visitor.ts",
+        "src/operation-node/operation-node.ts",
+        "src/operation-node/over-node.ts",
+        "src/operation-node/window-frame-node.ts",
+        "src/plugin/simplify-frames/simplify-frames-plugin.ts",
+        "src/query-builder/aggregate-function-builder.ts",
+        "src/query-builder/function-module.ts",
+        "src/query-builder/over-builder.ts",
+        "src/query-builder/select-query-builder.ts",
+        "src/query-builder/window-frame-builder.ts",
+        "src/query-compiler/default-query-compiler.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 15
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "langchain-request-coalescing",
+      "language": "python",
+      "repo": "https://github.com/langchain-ai/langchain",
+      "title": "Add request coalescing to `Runnable`",
+      "base_commit": "7cef35b",
+      "prompt_characters": 1691,
+      "reference_patch_characters": 28652,
+      "reference_patch_files": [
+        "libs/core/langchain_core/runnables/__init__.py",
+        "libs/core/langchain_core/runnables/base.py",
+        "libs/core/langchain_core/runnables/coalesce.py",
+        "libs/core/tests/unit_tests/runnables/test_imports.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "mashumaro-flattened-dataclass-fields",
+      "language": "python",
+      "repo": "https://github.com/Fatal1ty/mashumaro",
+      "title": "Add flattened dataclass fields to Mashumaro field options",
+      "base_commit": "de139fd51c4d347666d109a8aea9d25451d908f6",
+      "prompt_characters": 471,
+      "reference_patch_characters": 25811,
+      "reference_patch_files": [
+        "mashumaro/core/meta/code/builder.py",
+        "mashumaro/exceptions.py",
+        "mashumaro/flatten.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "meriyah-explicit-resource-declarations",
+      "language": "typescript",
+      "repo": "https://github.com/meriyah/meriyah",
+      "title": "Add explicit resource management declarations to the parser",
+      "base_commit": "d141eb14a40b79c04d1b1db5c20c6afa3844c0d9",
+      "prompt_characters": 1256,
+      "reference_patch_characters": 25420,
+      "reference_patch_files": [
+        "src/common.ts",
+        "src/errors.ts",
+        "src/estree.ts",
+        "src/parser.ts",
+        "src/token.ts",
+        "test/parser/miscellaneous/__snapshots__/commonjs.ts.snap"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 5,
+        ".snap": 1
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "mnamer-daemon-watch-lifecycle",
+      "language": "python",
+      "repo": "https://github.com/jkwill87/mnamer",
+      "title": "Validate daemon watch, status, and log lifecycle",
+      "base_commit": "73f5b537c8cad998e8e6d6bc40ad60e2e23bf268",
+      "prompt_characters": 2839,
+      "reference_patch_characters": 24855,
+      "reference_patch_files": [
+        "mnamer/__main__.py",
+        "mnamer/daemon.py",
+        "mnamer/setting_store.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "mobly-grouped-test-barriers",
+      "language": "python",
+      "repo": "https://github.com/google/mobly",
+      "title": "Add grouped test phases with synchronized barriers",
+      "base_commit": "ec052921917ef201e73cc8e275dc91c5706b345f",
+      "prompt_characters": 2518,
+      "reference_patch_characters": 29187,
+      "reference_patch_files": [
+        "mobly/base_test.py",
+        "mobly/controller_manager.py",
+        "mobly/expects.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "narwhals-rolling-window-suite",
+      "language": "python",
+      "repo": "https://github.com/narwhals-dev/narwhals",
+      "title": "Add rolling min, max, median, and quantile methods",
+      "base_commit": "061c97f8a01bf9e721835978b039303c5051501c",
+      "prompt_characters": 2140,
+      "reference_patch_characters": 38681,
+      "reference_patch_files": [
+        "narwhals/_arrow/series.py",
+        "narwhals/_compliant/column.py",
+        "narwhals/_compliant/expr.py",
+        "narwhals/_dask/expr.py",
+        "narwhals/_pandas_like/expr.py",
+        "narwhals/_pandas_like/series.py",
+        "narwhals/_polars/expr.py",
+        "narwhals/_polars/series.py",
+        "narwhals/_sql/expr.py",
+        "narwhals/expr.py",
+        "narwhals/series.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 11
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "numba-stencil-boundary-modes",
+      "language": "python",
+      "repo": "https://github.com/numba/numba",
+      "title": "Add boundary modes to `@stencil`",
+      "base_commit": "5781334aa654972fdc749003e7c1e93e6d277110",
+      "prompt_characters": 797,
+      "reference_patch_characters": 47524,
+      "reference_patch_files": [
+        "numba/stencils/boundary.py",
+        "numba/stencils/stencil.py",
+        "numba/stencils/stencilparfor.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "obsidian-linter-auto-table-of-contents",
+      "language": "typescript",
+      "repo": "https://github.com/platers/obsidian-linter",
+      "title": "Add automatic table of contents generation for Obsidian linter",
+      "base_commit": "6393b3ab32a2ace1fc24d4b0f5e0f13a179c874f",
+      "prompt_characters": 1459,
+      "reference_patch_characters": 20369,
+      "reference_patch_files": [
+        "src/lang/locale/en.ts",
+        "src/rules-runner.ts",
+        "src/rules/auto-toc.ts",
+        "src/rules/rule-builder.ts",
+        "src/utils/toc.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 5
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "obsidian-linter-link-format-conversion",
+      "language": "typescript",
+      "repo": "https://github.com/platers/obsidian-linter",
+      "title": "Add link format conversion between wiki and markdown syntax",
+      "base_commit": "6393b3ab32a2ace1fc24d4b0f5e0f13a179c874f",
+      "prompt_characters": 2097,
+      "reference_patch_characters": 21727,
+      "reference_patch_files": [
+        "src/lang/locale/en.ts",
+        "src/rules/link-style.ts",
+        "src/utils/links.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 3
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "obsidian-linter-scoped-ignore-markers",
+      "language": "typescript",
+      "repo": "https://github.com/platers/obsidian-linter",
+      "title": "Add scoped per-rule ignore markers to Obsidian Linter",
+      "base_commit": "6393b3ab32a2ace1fc24d4b0f5e0f13a179c874f",
+      "prompt_characters": 2142,
+      "reference_patch_characters": 35747,
+      "reference_patch_files": [
+        "feature.md",
+        "src/rules-runner.ts",
+        "src/rules.ts",
+        "src/utils/ignore-types.ts",
+        "src/utils/regex.ts",
+        "src/utils/scoped-ignore.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".md": 1,
+        ".ts": 5
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "ofetch-per-origin-circuit-breaker",
+      "language": "typescript",
+      "repo": "https://github.com/unjs/ofetch",
+      "title": "Add a per-origin circuit breaker to ofetch",
+      "base_commit": "dfbe3ca4ef8a22fc023fca5a5ef530e525f5e523",
+      "prompt_characters": 3376,
+      "reference_patch_characters": 21330,
+      "reference_patch_files": [
+        "src/fetch.ts",
+        "src/types.ts",
+        "src/circuit.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 3
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "onedump-dump-encryption-pipeline",
+      "language": "go",
+      "repo": "https://github.com/liweiyi88/onedump",
+      "title": "Add transparent encryption to dump uploads",
+      "base_commit": "a48e806195c538a73b6916b281939577b370952d",
+      "prompt_characters": 2449,
+      "reference_patch_characters": 21333,
+      "reference_patch_files": [
+        "config/job.go",
+        "encryption/encryption.go",
+        "fileutil/filenutil.go",
+        "fileutil/fileutil_test.go",
+        "handler/jobhandler.go",
+        "handler/jobhandler_test.go",
+        "storage/dropbox/dropbox_test.go",
+        "storage/gdrive/gdrive_test.go",
+        "storage/local/local_test.go",
+        "storage/s3/s3_test.go",
+        "storage/storage.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 11
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "opa-rego-rule-profiling",
+      "language": "go",
+      "repo": "https://github.com/open-policy-agent/opa",
+      "title": "Add rule evaluation profiling to Rego",
+      "base_commit": "1ac64ef1a57a531c2723c59848890b88e816d777",
+      "prompt_characters": 2849,
+      "reference_patch_characters": 16261,
+      "reference_patch_files": [
+        "v1/rego/profile.go",
+        "v1/rego/rego.go",
+        "v1/rego/resultset.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "opa-template-string-reconstruction",
+      "language": "go",
+      "repo": "https://github.com/open-policy-agent/opa",
+      "title": "Reconstruct template strings in partial evaluation output",
+      "base_commit": "1ac64ef1a57a531c2723c59848890b88e816d777",
+      "prompt_characters": 1042,
+      "reference_patch_characters": 14515,
+      "reference_patch_files": [
+        "v1/rego/partial_template_string.go",
+        "v1/rego/partial_template_string_body.go",
+        "v1/rego/partial_template_string_term.go",
+        "v1/rego/rego.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "optique-conditional-option-dependencies",
+      "language": "typescript",
+      "repo": "https://github.com/dahlia/optique",
+      "title": "Add conditional option dependencies to Optique",
+      "base_commit": "14bbe4efc7ded67932771b9ca18d9d637bb4cf27",
+      "prompt_characters": 2991,
+      "reference_patch_characters": 31946,
+      "reference_patch_files": [
+        "examples/patterns/conditional-options.ts",
+        "packages/core/src/constructs.ts",
+        "packages/core/src/modifiers.ts",
+        "packages/core/src/primitives.ts",
+        "packages/core/src/usage.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 5
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "oxvg-structural-selector-preservation",
+      "language": "rust",
+      "repo": "https://github.com/noahbald/oxvg",
+      "title": "Preserve structure needed by stylesheet selectors",
+      "base_commit": "1fd7fab851ecc975e008be0e3e279568ce4e2b51",
+      "prompt_characters": 757,
+      "reference_patch_characters": 28798,
+      "reference_patch_files": [
+        "crates/oxvg_ast/src/style.rs",
+        "crates/oxvg_optimiser/src/jobs/collapse_groups.rs",
+        "crates/oxvg_optimiser/src/jobs/remove_empty_containers.rs"
+      ],
+      "reference_patch_suffixes": {
+        ".rs": 3
+      },
+      "toml_language": "rust",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "participle-grammar-conflict-analysis",
+      "language": "go",
+      "repo": "https://github.com/alecthomas/participle.git",
+      "title": "Add build-time grammar conflict analysis to participle",
+      "base_commit": "1051d4767b5a469936daf5f1cebb63da6c9fb776",
+      "prompt_characters": 2991,
+      "reference_patch_characters": 20755,
+      "reference_patch_files": [
+        "analyze.go",
+        "analyze_options.go",
+        "analyze_report.go",
+        "analyzer.go",
+        "conflict_location.go",
+        "conflict_rules.go",
+        "conflict_utils.go",
+        "conflict_walk.go",
+        "first_sets.go",
+        "follow_sets.go",
+        "grammar_format.go",
+        "options.go",
+        "parser.go",
+        "token_set.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 14
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "pebble-durability-wait-apis",
+      "language": "go",
+      "repo": "https://github.com/cockroachdb/pebble",
+      "title": "Add durability callbacks and wait APIs for sync writes",
+      "base_commit": "1454d2bc0f378d7f34766afafee68a77e7b85995",
+      "prompt_characters": 2660,
+      "reference_patch_characters": 29666,
+      "reference_patch_files": [
+        "batch.go",
+        "commit.go",
+        "db.go",
+        "durable.go",
+        "event.go",
+        "metrics.go",
+        "open.go",
+        "options.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 8
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "pest-character-class-coalescing",
+      "language": "rust",
+      "repo": "https://github.com/pest-parser/pest",
+      "title": "Coalesce qualifying choices into character classes",
+      "base_commit": "79dd30d11aab6f0fba3cd79bd48f456209b966b3",
+      "prompt_characters": 1146,
+      "reference_patch_characters": 19770,
+      "reference_patch_files": [
+        "generator/src/generator.rs",
+        "grammars/src/lib.rs",
+        "meta/src/optimizer/coalescer.rs",
+        "meta/src/optimizer/mod.rs",
+        "vm/src/lib.rs"
+      ],
+      "reference_patch_suffixes": {
+        ".rs": 5
+      },
+      "toml_language": "rust",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "prometheus-transactional-reload-status",
+      "language": "typescript",
+      "repo": "https://github.com/prometheus/prometheus.git",
+      "title": "Add transactional reload status and rollback tracking to Prometheus",
+      "base_commit": "24a057bbf9089677b4c49eac4ae1f28287ac8bb9",
+      "prompt_characters": 1841,
+      "reference_patch_characters": 36915,
+      "reference_patch_files": [
+        "cmd/prometheus/main.go",
+        "cmd/prometheus/reload_metrics.go",
+        "cmd/prometheus/reload_state_manager.go",
+        "cmd/prometheus/txnreload_adapter.go",
+        "internal/txnreload/errors.go",
+        "internal/txnreload/persistence.go",
+        "internal/txnreload/txnreload.go",
+        "internal/txnreload/types.go",
+        "web/api/v1/api.go",
+        "web/web.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 10
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "prometheus-typed-label-sorting",
+      "language": "go",
+      "repo": "https://github.com/prometheus/prometheus",
+      "title": "Fix PromQL label sorting across typed and untyped values",
+      "base_commit": "8b25b26a7653d9c7444f217a7f2ae9b327bda921",
+      "prompt_characters": 1529,
+      "reference_patch_characters": 20732,
+      "reference_patch_files": [
+        "promql/functions.go",
+        "promql/sort_by_label_multitype_comparator.go",
+        "promql/sort_by_label_multitype_compare.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "psd-tools-blend-range-api",
+      "language": "python",
+      "repo": "https://github.com/psd-tools/psd-tools",
+      "title": "Add typed blend range access and blend-if compositing",
+      "base_commit": "c5e03189188daa3c5589326a9d74506d7dc48bc9",
+      "prompt_characters": 2448,
+      "reference_patch_characters": 18829,
+      "reference_patch_files": [
+        "src/psd_tools/api/blend_range.py",
+        "src/psd_tools/api/layers.py",
+        "src/psd_tools/composite/composite.py",
+        "src/psd_tools/psd/layer_and_mask.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "pwntools-tube-multiplexing",
+      "language": "python",
+      "repo": "https://github.com/Gallopsled/pwntools",
+      "title": "Add tube multiplexing to pwntools",
+      "base_commit": "76894a5404a65d2800b6d0adaf3485ecba275caa",
+      "prompt_characters": 3450,
+      "reference_patch_characters": 23556,
+      "reference_patch_files": [
+        "pwnlib/tubes/__init__.py",
+        "pwnlib/tubes/buffer.py",
+        "pwnlib/tubes/mux.py",
+        "pwnlib/tubes/tube.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "python-statemachine-state-data-scoping",
+      "language": "python",
+      "repo": "https://github.com/fgmacedo/python-statemachine",
+      "title": "Add scoped state data to state machine callbacks and history",
+      "base_commit": "8d17ba9f6ba8420cf05fddb94013bc221ed9a222",
+      "prompt_characters": 1857,
+      "reference_patch_characters": 32721,
+      "reference_patch_files": [
+        "statemachine/__init__.py",
+        "statemachine/callbacks.py",
+        "statemachine/contrib/diagram/extract.py",
+        "statemachine/contrib/diagram/model.py",
+        "statemachine/contrib/diagram/renderers/dot.py",
+        "statemachine/contrib/diagram/renderers/mermaid.py",
+        "statemachine/engines/async_.py",
+        "statemachine/engines/base.py",
+        "statemachine/event_data.py",
+        "statemachine/factory.py",
+        "statemachine/io/__init__.py",
+        "statemachine/io/scxml/parser.py",
+        "statemachine/io/scxml/processor.py",
+        "statemachine/io/scxml/schema.py",
+        "statemachine/state.py",
+        "statemachine/state_data.py",
+        "statemachine/statemachine.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 17
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "query-persist-restored-query-state",
+      "language": "typescript",
+      "repo": "https://github.com/TanStack/query",
+      "title": "Preserve restored query state in persisted snapshots",
+      "base_commit": "1047cdc393fac7c98822c993d70c28f58833c63d",
+      "prompt_characters": 2835,
+      "reference_patch_characters": 25615,
+      "reference_patch_files": [
+        "packages/query-core/src/index.ts",
+        "packages/query-core/src/persister.ts",
+        "packages/query-core/src/query.ts",
+        "packages/query-core/src/types.ts",
+        "packages/query-persist-client-core/src/createPersister.ts",
+        "packages/query-persist-client-core/src/restore.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 6
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "quill-shared-toolbar-focus",
+      "language": "typescript",
+      "repo": "https://github.com/slab/quill",
+      "title": "Reuse one toolbar across multiple Quill editors",
+      "base_commit": "539cbffd0a13b18e9c65eb84dd35e6596e403158",
+      "prompt_characters": 1510,
+      "reference_patch_characters": 35566,
+      "reference_patch_files": [
+        "packages/quill/src/modules/toolbar.ts",
+        "packages/quill/src/themes/base.ts",
+        "packages/quill/src/themes/bubble.ts",
+        "packages/quill/src/themes/snow.ts",
+        "packages/quill/src/ui/picker.ts",
+        "packages/quill/src/modules/toolbarControls.ts",
+        "packages/quill/src/modules/toolbarState.ts",
+        "packages/quill/src/themes/sharedThemeResources.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 8
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "returns-validated-error-accumulation",
+      "language": "python",
+      "repo": "https://github.com/dry-python/returns",
+      "title": "Add an error-accumulating Validated container",
+      "base_commit": "41607fae1289de2787523c452d75212206b9c7c0",
+      "prompt_characters": 3137,
+      "reference_patch_characters": 36040,
+      "reference_patch_files": [
+        "returns/contrib/hypothesis/containers.py",
+        "returns/converters.py",
+        "returns/interfaces/specific/validated.py",
+        "returns/methods/cond.py",
+        "returns/pointfree/__init__.py",
+        "returns/pointfree/bind_validated.py",
+        "returns/validated.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 7
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "scc-bounded-memory-spilling",
+      "language": "go",
+      "repo": "https://github.com/boyter/scc.git",
+      "title": "Add bounded-memory spilling to SCC aggregation",
+      "base_commit": "bc2796e01998ebc2d40818323f93113aed2542ea",
+      "prompt_characters": 1916,
+      "reference_patch_characters": 30058,
+      "reference_patch_files": [
+        "main.go",
+        "processor/formatters.go",
+        "processor/processor.go",
+        "problem-description.md",
+        "processor/bounded_memory_cleanup.go",
+        "processor/bounded_memory_csv_stream_sort.go",
+        "processor/bounded_memory_multi.go",
+        "processor/bounded_memory_paths.go",
+        "processor/bounded_memory_spill.go",
+        "processor/bounded_memory_stats.go",
+        "processor/bounded_memory_types.go",
+        "processor/bounded_memory_validate.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 11,
+        ".md": 1
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "scriggo-method-declarations",
+      "language": "go",
+      "repo": "https://github.com/open2b/scriggo",
+      "title": "Add method declarations and interface dispatch to Scriggo",
+      "base_commit": "11703bb5e02cca28d08fe83ac9a4bdd2e087235e",
+      "prompt_characters": 958,
+      "reference_patch_characters": 45463,
+      "reference_patch_files": [
+        "ast/ast.go",
+        "internal/compiler/checker_expressions.go",
+        "internal/compiler/checker_package.go",
+        "internal/compiler/checker_statements.go",
+        "internal/compiler/compiler.go",
+        "internal/compiler/emitter.go",
+        "internal/compiler/emitter_expressions.go",
+        "internal/compiler/parser_func.go",
+        "internal/compiler/typeinfo.go",
+        "internal/compiler/types/defined.go",
+        "internal/compiler/types/ptr.go",
+        "internal/compiler/types/types.go",
+        "internal/compiler/types/wrapper.go",
+        "internal/runtime/env.go",
+        "internal/runtime/run.go",
+        "internal/runtime/vm.go",
+        "programs.go",
+        "templates.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 18
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "skrub-duration-encoding",
+      "language": "python",
+      "repo": "https://github.com/skrub-data/skrub",
+      "title": "Add duration encoding to TableVectorizer",
+      "base_commit": "24c4466fea94f551fb73d21eba54038dc5b346d3",
+      "prompt_characters": 3348,
+      "reference_patch_characters": 31592,
+      "reference_patch_files": [
+        "skrub/__init__.py",
+        "skrub/_dataframe/_common.py",
+        "skrub/_duration_encoder.py",
+        "skrub/_table_vectorizer.py",
+        "skrub/_to_float.py",
+        "skrub/_to_str.py",
+        "skrub/selectors/_selectors.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 7
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "sql-formatter-bigquery-pipe-formatting",
+      "language": "typescript",
+      "repo": "https://github.com/sql-formatter-org/sql-formatter",
+      "title": "Format BigQuery pipe syntax queries correctly",
+      "base_commit": "954e5a474b9e3d45ca58f02a3a4eac8e1947acc5",
+      "prompt_characters": 1697,
+      "reference_patch_characters": 24567,
+      "reference_patch_files": [
+        "src/formatter/ExpressionFormatter.ts",
+        "src/languages/bigquery/bigquery.formatter.ts",
+        "src/languages/bigquery/bigquery.keywords.ts",
+        "src/lexer/Tokenizer.ts",
+        "src/lexer/TokenizerOptions.ts",
+        "src/lexer/disambiguateTokens.ts",
+        "src/lexer/token.ts",
+        "src/parser/ast.ts",
+        "src/parser/createParser.ts",
+        "src/parser/grammar.ne",
+        "src/formatter/PipeFormatter.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 10,
+        ".ne": 1
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "sqlfmt-create-table-ddl-formatting",
+      "language": "python",
+      "repo": "https://github.com/tconbeer/sqlfmt",
+      "title": "Format CREATE TABLE DDL and add DDL parsing helpers",
+      "base_commit": "da140993a4547170ef85dc5ce7ce1c270f4322b3",
+      "prompt_characters": 2969,
+      "reference_patch_characters": 35737,
+      "reference_patch_files": [
+        "src/sqlfmt/actions.py",
+        "src/sqlfmt/ddl.py",
+        "src/sqlfmt/line.py",
+        "src/sqlfmt/merger.py",
+        "src/sqlfmt/node.py",
+        "src/sqlfmt/node_manager.py",
+        "src/sqlfmt/rules/__init__.py",
+        "src/sqlfmt/rules/ddl.py",
+        "src/sqlfmt/splitter.py",
+        "src/sqlfmt/tokens.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 10
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "sqlite-utils-safe-import-checkpoints",
+      "language": "python",
+      "repo": "https://github.com/simonw/sqlite-utils",
+      "title": "Add safe import checkpoints and invariant validation",
+      "base_commit": "8d74ffc93292c604d5827e2b44fffedca0c28c19",
+      "prompt_characters": 2509,
+      "reference_patch_characters": 36185,
+      "reference_patch_files": [
+        "docs/cli-reference.rst",
+        "docs/cli.rst",
+        "sqlite_utils/__init__.py",
+        "sqlite_utils/cli.py",
+        "sqlite_utils/db.py"
+      ],
+      "reference_patch_suffixes": {
+        ".rst": 2,
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "superjson-error-stack-serialization",
+      "language": "typescript",
+      "repo": "https://github.com/flightcontrolhq/superjson.git",
+      "title": "Add error stack serialization to SuperJSON",
+      "base_commit": "010c4bdb4b8758844fd44eacf38e42b22eba8aea",
+      "prompt_characters": 4061,
+      "reference_patch_characters": 22368,
+      "reference_patch_files": [
+        "src/error-class-registry.ts",
+        "src/error-options.ts",
+        "src/error-sanitizer.ts",
+        "src/error-stack.ts",
+        "src/index.ts",
+        "src/is.ts",
+        "src/transformer.ts",
+        "src/types.ts",
+        "src/util.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 9
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "task-task-graph-export",
+      "language": "go",
+      "repo": "https://github.com/go-task/task",
+      "title": "Add task graph export with JSON, DOT, and text output",
+      "base_commit": "54bdcba369357b47e19066b57badfb216a4c8d95",
+      "prompt_characters": 2510,
+      "reference_patch_characters": 18269,
+      "reference_patch_files": [
+        "cmd/task/task.go",
+        "executor.go",
+        "graph.go",
+        "internal/flags/flags.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "tengo-callable-instance-isolation",
+      "language": "go",
+      "repo": "https://github.com/d5/tengo",
+      "title": "Fix isolated Go-side calls for Tengo callables and closures",
+      "base_commit": "3cad0da7a51b1206c6f01e3f4fbb44b976d5275c",
+      "prompt_characters": 1246,
+      "reference_patch_characters": 19003,
+      "reference_patch_files": [
+        "call.go",
+        "objects.go",
+        "script.go",
+        "vm.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 4
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "tengo-destructuring-bindings",
+      "language": "go",
+      "repo": "https://github.com/d5/tengo",
+      "title": "Add destructuring bindings to Tengo",
+      "base_commit": "3cad0da7a51b1206c6f01e3f4fbb44b976d5275c",
+      "prompt_characters": 952,
+      "reference_patch_characters": 24281,
+      "reference_patch_files": [
+        "compiler.go",
+        "parser/expr.go",
+        "parser/opcodes.go",
+        "parser/parser.go",
+        "parser/stmt.go",
+        "vm.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 6
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "termenv-preserve-ansi-resets",
+      "language": "go",
+      "repo": "https://github.com/muesli/termenv",
+      "title": "Preserve ANSI resets during truncation and styling",
+      "base_commit": "368a3572b8146cc038b3f240da6792003d7e42c5",
+      "prompt_characters": 1557,
+      "reference_patch_characters": 15103,
+      "reference_patch_files": [
+        "ansi/hyperlink.go",
+        "ansi/parser.go",
+        "ansi/util.go",
+        "ansi_truncate.go",
+        "ansi_util.go",
+        "output.go",
+        "style.go",
+        "templatehelper.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 8
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "testem-bail-on-test-failure",
+      "language": "javascript",
+      "repo": "https://github.com/testem/testem",
+      "title": "Add bail-on-test-failure handling to Testem",
+      "base_commit": "06a1adb7a70e85e7322d8cfae3181508785de95d",
+      "prompt_characters": 2376,
+      "reference_patch_characters": 29052,
+      "reference_patch_files": [
+        "lib/app.js",
+        "lib/config.js",
+        "lib/reporters/dot_reporter.js",
+        "lib/reporters/tap_reporter.js",
+        "lib/reporters/teamcity_reporter.js",
+        "lib/reporters/xunit_reporter.js",
+        "lib/runners/browser_test_runner.js",
+        "lib/runners/process_test_runner.js",
+        "lib/runners/tap_process_test_runner.js",
+        "lib/server/index.js",
+        "lib/utils/displayutils.js",
+        "lib/utils/reporter.js",
+        "public/testem/jasmine2_adapter.js",
+        "public/testem/mocha_adapter.js",
+        "public/testem/qunit_adapter.js",
+        "public/testem/testem_client.js",
+        "public/testem/testem_connection.js",
+        "testem.js"
+      ],
+      "reference_patch_suffixes": {
+        ".js": 18
+      },
+      "toml_language": "javascript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "testem-per-launcher-reports",
+      "language": "javascript",
+      "repo": "https://github.com/testem/testem",
+      "title": "Partition report files by launcher and expand report templates",
+      "base_commit": "158f61ea91c9613d2011c41ee9be40ada1d7a307",
+      "prompt_characters": 2092,
+      "reference_patch_characters": 22292,
+      "reference_patch_files": [
+        "lib/config.js",
+        "lib/launcher.js",
+        "lib/reporters/tap_reporter.js",
+        "lib/reporters/xunit_reporter.js",
+        "lib/utils/report-file.js",
+        "lib/utils/reporter.js"
+      ],
+      "reference_patch_suffixes": {
+        ".js": 6
+      },
+      "toml_language": "javascript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "textual-kitty-key-phases",
+      "language": "python",
+      "repo": "https://github.com/Textualize/textual",
+      "title": "Complete Kitty keyboard phases and stable fallback key metadata",
+      "base_commit": "9737a5ab723f79e59f0a83eb036a3d15fad6b054",
+      "prompt_characters": 1665,
+      "reference_patch_characters": 22950,
+      "reference_patch_files": [
+        "examples/kitty_keyboard_protocol.py",
+        "src/textual/_keyboard_protocol.py",
+        "src/textual/_xterm_parser.py",
+        "src/textual/drivers/linux_driver.py",
+        "src/textual/drivers/windows_driver.py",
+        "src/textual/events.py",
+        "tests/test_xterm_parser.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 7
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "textual-richlog-follow-state",
+      "language": "python",
+      "repo": "https://github.com/Textualize/textual",
+      "title": "Restore RichLog follow-state parity and expand reflow behavior",
+      "base_commit": "0f0849fd37fbd0d4d6f81889476c22340129df67",
+      "prompt_characters": 1564,
+      "reference_patch_characters": 31716,
+      "reference_patch_files": [
+        "examples/rich_log_follow_state.py",
+        "src/textual/widgets/_log.py",
+        "src/textual/widgets/_rich_log.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "tomlkit-toml-table-converters",
+      "language": "python",
+      "repo": "https://github.com/python-poetry/tomlkit",
+      "title": "Add bidirectional TOML table converters",
+      "base_commit": "dd05eebc8ed9e30fc6c223088a5a450cb54c1cab",
+      "prompt_characters": 1944,
+      "reference_patch_characters": 21412,
+      "reference_patch_files": [
+        "tomlkit/__init__.py",
+        "tomlkit/api.py",
+        "tomlkit/convert.py",
+        "tomlkit/exceptions.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 4
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "true-myth-iterable-collection-combinators",
+      "language": "typescript",
+      "repo": "https://github.com/true-myth/true-myth",
+      "title": "Add iterable collection combinators to true-myth",
+      "base_commit": "d8fbebc75de4991a32354518beff1abf628d0b07",
+      "prompt_characters": 1975,
+      "reference_patch_characters": 15562,
+      "reference_patch_files": [
+        "src/maybe.ts",
+        "src/result.ts",
+        "src/task.ts",
+        "src/toolbelt.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 4
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "ts-pattern-match-each",
+      "language": "typescript",
+      "repo": "https://github.com/gvergnaud/ts-pattern",
+      "title": "Add `matchEach` to ts-pattern",
+      "base_commit": "f66fc061fde4f764b113ededa09be63dae564159",
+      "prompt_characters": 2970,
+      "reference_patch_characters": 20929,
+      "reference_patch_files": [
+        "src/index.ts",
+        "src/internals/helpers.ts",
+        "src/match.ts",
+        "src/types/Match.ts",
+        "src/match-each.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 5
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "updo-policy-alerting",
+      "language": "go",
+      "repo": "https://github.com/Owloops/updo",
+      "title": "Add policy-based alerting for failures, latency, and SSL expiry",
+      "base_commit": "9ecd74f5bd56fa915501e5b77da044d97c450a74",
+      "prompt_characters": 4471,
+      "reference_patch_characters": 43265,
+      "reference_patch_files": [
+        "alerts/policy.go",
+        "cmd/monitor/monitor.go",
+        "cmd/root/root.go",
+        "config/config.go",
+        "notifications/desktop.go",
+        "notifications/webhook.go",
+        "simple/monitoring.go",
+        "simple/simple.go",
+        "tui/manager.go",
+        "tui/monitoring.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 10
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "valibot-recursive-schema-composition",
+      "language": "typescript",
+      "repo": "https://github.com/open-circle/valibot",
+      "title": "Add recursive schema composition to Valibot",
+      "base_commit": "50016c77c808f9ca80391cf1abc96cc5416cf57d",
+      "prompt_characters": 1552,
+      "reference_patch_characters": 53567,
+      "reference_patch_files": [
+        "library/src/methods/index.ts",
+        "library/src/methods/parse/parse.ts",
+        "library/src/methods/parse/parseAsync.ts",
+        "library/src/methods/recursive/index.ts",
+        "library/src/methods/recursive/recursive.ts",
+        "library/src/methods/recursive/recursiveAsync.ts",
+        "library/src/methods/recursive/resolver.ts",
+        "library/src/methods/recursive/shared.ts",
+        "library/src/methods/safeParse/safeParse.ts",
+        "library/src/methods/safeParse/safeParseAsync.ts",
+        "library/src/schemas/array/array.ts",
+        "library/src/schemas/array/arrayAsync.ts",
+        "library/src/schemas/map/map.ts",
+        "library/src/schemas/map/mapAsync.ts",
+        "library/src/schemas/map/types.ts",
+        "library/src/schemas/record/record.ts",
+        "library/src/schemas/record/recordAsync.ts",
+        "library/src/schemas/record/types.ts",
+        "library/src/schemas/set/set.ts",
+        "library/src/schemas/set/setAsync.ts",
+        "library/src/schemas/set/types.ts",
+        "library/src/types/issue.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 22
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "vitest-duration-sharding",
+      "language": "typescript",
+      "repo": "https://github.com/vitest-dev/vitest.git",
+      "title": "Add duration-aware sharding to Vitest",
+      "base_commit": "647e6ade3b99523e3a0387a65fccfe918c331236",
+      "prompt_characters": 4311,
+      "reference_patch_characters": 32884,
+      "reference_patch_files": [
+        "packages/vitest/src/node/config/resolveConfig.ts",
+        "packages/vitest/src/node/config/serializeConfig.ts",
+        "packages/vitest/src/node/core.ts",
+        "packages/vitest/src/node/sequencers/BaseSequencer.ts",
+        "packages/vitest/src/node/types/config.ts",
+        "packages/vitest/src/runtime/config.ts",
+        "packages/vitest/src/node/duration-history.ts",
+        "packages/vitest/src/node/duration-smoothing.ts",
+        "packages/vitest/src/node/shard-affinity.ts",
+        "packages/vitest/src/node/shard-analytics.ts"
+      ],
+      "reference_patch_suffixes": {
+        ".ts": 10
+      },
+      "toml_language": "typescript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "vulture-persistent-analysis-cache",
+      "language": "python",
+      "repo": "https://github.com/jendrikseipp/vulture",
+      "title": "Add a persistent analysis cache to Vulture",
+      "base_commit": "1eb212f0a0707ad6f4c720bb2010c2b7517cf0f9",
+      "prompt_characters": 2280,
+      "reference_patch_characters": 26323,
+      "reference_patch_files": [
+        "vulture/cache.py",
+        "vulture/config.py",
+        "vulture/core.py"
+      ],
+      "reference_patch_suffixes": {
+        ".py": 3
+      },
+      "toml_language": "python",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "wasmi-trap-coredumps",
+      "language": "rust",
+      "repo": "https://github.com/wasmi-labs/wasmi",
+      "title": "Add trap coredump generation to wasmi",
+      "base_commit": "e1f76e285b9ad68a952b7cf5297bbb7ab91e6028",
+      "prompt_characters": 3058,
+      "reference_patch_characters": 31108,
+      "reference_patch_files": [
+        "crates/wasmi/src/engine/code_map.rs",
+        "crates/wasmi/src/engine/config.rs",
+        "crates/wasmi/src/engine/coredump.rs",
+        "crates/wasmi/src/engine/executor/handler/mod.rs",
+        "crates/wasmi/src/engine/executor/handler/state.rs",
+        "crates/wasmi/src/engine/executor/mod.rs",
+        "crates/wasmi/src/engine/mod.rs",
+        "crates/wasmi/src/engine/translator/func/locals.rs",
+        "crates/wasmi/src/engine/translator/func/mod.rs",
+        "crates/wasmi/src/error.rs",
+        "crates/wasmi/src/instance/mod.rs"
+      ],
+      "reference_patch_suffixes": {
+        ".rs": 11
+      },
+      "toml_language": "rust",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "wazero-multi-module-snapshots",
+      "language": "go",
+      "repo": "https://github.com/wazero/wazero.git",
+      "title": "Add multi-module memory snapshots to wazero",
+      "base_commit": "3ec1e028c8cbda984a71bf72321008723ebdcb51",
+      "prompt_characters": 3584,
+      "reference_patch_characters": 16314,
+      "reference_patch_files": [
+        "experimental/experimental.go",
+        "experimental/snapshot/chain.go",
+        "experimental/snapshot/compress.go",
+        "experimental/snapshot/context.go",
+        "experimental/snapshot/coordinator.go",
+        "experimental/snapshot/diff.go",
+        "experimental/snapshot/errors.go",
+        "experimental/snapshot/module.go",
+        "experimental/snapshot/persist.go",
+        "experimental/snapshot/registry.go",
+        "experimental/snapshot/snapshot.go",
+        "experimental/snapshot/summary.go",
+        "experimental/snapshot/tags.go",
+        "internal/expctxkeys/snapshotcoordinator.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 14
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "yaegi-go-embed-directives",
+      "language": "go",
+      "repo": "https://github.com/traefik/yaegi",
+      "title": "Add go:embed directive support for interpreted packages",
+      "base_commit": "fcb76d1ece0c3edc2548c39aa5b170475d2261bb",
+      "prompt_characters": 1300,
+      "reference_patch_characters": 17888,
+      "reference_patch_files": [
+        "interp/embed.go",
+        "interp/interp.go",
+        "interp/program.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 3
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "yjs-map-conflict-detection",
+      "language": "javascript",
+      "repo": "https://github.com/yjs/yjs",
+      "title": "Add deterministic map conflict detection to Y.Map writes",
+      "base_commit": "7795050a749bd1111cbbdd9d0219b27226a8e710",
+      "prompt_characters": 1659,
+      "reference_patch_characters": 27009,
+      "reference_patch_files": [
+        "src/index.js",
+        "src/internals.js",
+        "src/structs/Item.js",
+        "src/utils/Doc.js",
+        "src/utils/MapConflict.js",
+        "src/utils/Transaction.js",
+        "src/utils/encoding.js",
+        "src/ytype.js"
+      ],
+      "reference_patch_suffixes": {
+        ".js": 8
+      },
+      "toml_language": "javascript",
+      "image_pinned_by_digest": false
+    },
+    {
+      "task_id": "ytt-jsonpath-query-api",
+      "language": "go",
+      "repo": "https://github.com/carvel-dev/ytt",
+      "title": "Add JSONPath query APIs to orderedmap and Starlark modules",
+      "base_commit": "452382821dd9dae7cc36995960656bb94dc47212",
+      "prompt_characters": 2418,
+      "reference_patch_characters": 27914,
+      "reference_patch_files": [
+        "pkg/orderedmap/jsonpath.go",
+        "pkg/orderedmap/jsonpath_parser.go",
+        "pkg/orderedmap/jsonpath_types.go",
+        "pkg/yttlibrary/all.go",
+        "pkg/yttlibrary/jsonpath_module.go"
+      ],
+      "reference_patch_suffixes": {
+        ".go": 5
+      },
+      "toml_language": "go",
+      "image_pinned_by_digest": false
+    }
+  ]
+}

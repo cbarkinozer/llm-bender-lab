@@ -1,0 +1,302 @@
+{
+  "source": "datacurve/deep-swe",
+  "revision": "6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
+  "parquet_sha256": "737e1b101d9556aa1b0fd66b8fefd436158a63b18d7105733739c79126fb495e",
+  "purpose": "requirements-first development pilot; evaluation only, never SFT/GRPO training",
+  "selection": "20 explicit task IDs; one task per repository; public API/behavior diversity; selected before model outputs",
+  "not_a_random_sample": true,
+  "status": "provisional shortlist; not a runnable or validated benchmark",
+  "model_visible_fields": [
+    "problem_statement",
+    "repo",
+    "base_commit"
+  ],
+  "held_back_fields": [
+    "reference_patch",
+    "test_patch",
+    "verifier_script",
+    "task_toml"
+  ],
+  "transfer_holdout_exclusion_repositories": [
+    "https://github.com/Fatal1ty/mashumaro",
+    "https://github.com/PyCQA/bandit.git",
+    "https://github.com/Textualize/textual",
+    "https://github.com/aio-libs/aiomonitor",
+    "https://github.com/celery/kombu",
+    "https://github.com/dateutil/dateutil",
+    "https://github.com/dry-python/returns",
+    "https://github.com/encode/httpx",
+    "https://github.com/fastapi/fastapi",
+    "https://github.com/fgmacedo/python-statemachine",
+    "https://github.com/ipython/ipython",
+    "https://github.com/jendrikseipp/vulture",
+    "https://github.com/narwhals-dev/narwhals",
+    "https://github.com/nidhaloff/igel",
+    "https://github.com/python-attrs/cattrs",
+    "https://github.com/python-poetry/tomlkit",
+    "https://github.com/reagento/adaptix",
+    "https://github.com/simonw/sqlite-utils",
+    "https://github.com/skrub-data/skrub",
+    "https://github.com/tconbeer/sqlfmt"
+  ],
+  "tasks": [
+    {
+      "task_id": "adaptix-name-mapping-aliases",
+      "repo": "https://github.com/reagento/adaptix",
+      "base_commit": "a691069fcadf9131e5f7a5a130a022dc678f3e1d",
+      "requirement_sha256": "63cd7027d106de75367cf8a69bc9d9e12e48856208c05d1556543793addeaa43",
+      "prompt_sha256": "f9a37264e8906e7317db3736312937f205c273d434dc98f8fa0f284567b86cb8",
+      "requirement_characters": 982,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/adaptix-name-mapping-aliases",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "mashumaro-flattened-dataclass-fields",
+      "repo": "https://github.com/Fatal1ty/mashumaro",
+      "base_commit": "de139fd51c4d347666d109a8aea9d25451d908f6",
+      "requirement_sha256": "4b0f4d6548d9484ce63421866c6d30056655d95db5c779808cc7c83f7257dc11",
+      "prompt_sha256": "afefc2388e3b0da2c189de0faa28bb04913957944c7b8a2c709c040830aff718",
+      "requirement_characters": 471,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/mashumaro-flattened-dataclass-fields",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "cattrs-partial-structuring-recovery",
+      "repo": "https://github.com/python-attrs/cattrs",
+      "base_commit": "6bc4708fb9b2ac52d9a18997e923da6a58916102",
+      "requirement_sha256": "e152e2b2c2c6ba4429694437fe5a645427c1777ebc9fc1fcd96fe0cc3fd59fcc",
+      "prompt_sha256": "0e420391b3525a88f63466746fad174a4a9e74a7bb3348defda8fe11452c3f43",
+      "requirement_characters": 1242,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/cattrs-partial-structuring-recovery",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "tomlkit-toml-table-converters",
+      "repo": "https://github.com/python-poetry/tomlkit",
+      "base_commit": "dd05eebc8ed9e30fc6c223088a5a450cb54c1cab",
+      "requirement_sha256": "594cc9073b0250535d8f07e3e801e5db8160e92b8a462a39d3e4b2e76a916a49",
+      "prompt_sha256": "12c9b8d6a269121b834fbc4c77ea0274442dcb1310b97767b08a1388d62001ff",
+      "requirement_characters": 1944,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/tomlkit-toml-table-converters",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "returns-validated-error-accumulation",
+      "repo": "https://github.com/dry-python/returns",
+      "base_commit": "41607fae1289de2787523c452d75212206b9c7c0",
+      "requirement_sha256": "4a1ff83df1e3502f3e15fab4647cc4a607f4affc51db970b5ac1f45359b20f0d",
+      "prompt_sha256": "95357d43879f35ed3f5b26ebc582f9f2c72913c1654388a3a9f45d0e81eae48f",
+      "requirement_characters": 3137,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/returns-validated-error-accumulation",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "sqlfmt-create-table-ddl-formatting",
+      "repo": "https://github.com/tconbeer/sqlfmt",
+      "base_commit": "da140993a4547170ef85dc5ce7ce1c270f4322b3",
+      "requirement_sha256": "8ea055bfd8b524b818bc4e01e53a8511e56b9b0c1b8b9e9b69be74f18bb1d0e5",
+      "prompt_sha256": "2800e2e5d3e00c9ece6bda548b915c3e67743dc2cd6085535814a76d22be9db5",
+      "requirement_characters": 2969,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/sqlfmt-create-table-ddl-formatting",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "sqlite-utils-safe-import-checkpoints",
+      "repo": "https://github.com/simonw/sqlite-utils",
+      "base_commit": "8d74ffc93292c604d5827e2b44fffedca0c28c19",
+      "requirement_sha256": "c8e09ee12643d8326cba222844dc2da418e47800cba6bc3f3e9252c2bbe269f1",
+      "prompt_sha256": "f1e2746daefab8913b3bd49058d76a88432388ef194a0a0733fc74306e7b149e",
+      "requirement_characters": 2509,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/sqlite-utils-safe-import-checkpoints",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "httpx-streaming-json-iteration",
+      "repo": "https://github.com/encode/httpx",
+      "base_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "requirement_sha256": "55d75790bcb55cef77bef12bad4cc686cbfd852d035d9170431b3de3c577db6c",
+      "prompt_sha256": "105fe87595f1dfdba6e5d24421585c8016d1ef9c50a4eae8837264dc89dbdd1a",
+      "requirement_characters": 2532,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/httpx-streaming-json-iteration",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "bandit-structured-nosec-directives",
+      "repo": "https://github.com/PyCQA/bandit.git",
+      "base_commit": "b46fa3a2723635aa29cc012538df4867ac2ac006",
+      "requirement_sha256": "25b8b91ba2f2286244fe4acc79cc440e033300afca907f259b8afc19402eebb4",
+      "prompt_sha256": "e95e33d247e6fa64432143b0ac88166528b5b6f74c6c0e84dcb0b7b2cb751736",
+      "requirement_characters": 2721,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/bandit-structured-nosec-directives",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "vulture-persistent-analysis-cache",
+      "repo": "https://github.com/jendrikseipp/vulture",
+      "base_commit": "1eb212f0a0707ad6f4c720bb2010c2b7517cf0f9",
+      "requirement_sha256": "54c01be025a79de97191e1e86a5ff4a5b39455ef5150a8a5c197cc130cc29e9b",
+      "prompt_sha256": "ab6ca3fc5e06268138ca4b931dce944073b7a8a68ebd002252e9f64c25601062",
+      "requirement_characters": 2280,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/vulture-persistent-analysis-cache",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "narwhals-rolling-window-suite",
+      "repo": "https://github.com/narwhals-dev/narwhals",
+      "base_commit": "061c97f8a01bf9e721835978b039303c5051501c",
+      "requirement_sha256": "025c328c8aed22ec5d8ad0f8a0aa975f41a1d03193f2fe1419d8158a904b9d64",
+      "prompt_sha256": "8b39cf33430646794db4ad05f2e88eb84a263a1b92141269f555f2953749ac3b",
+      "requirement_characters": 2140,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/narwhals-rolling-window-suite",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "skrub-duration-encoding",
+      "repo": "https://github.com/skrub-data/skrub",
+      "base_commit": "24c4466fea94f551fb73d21eba54038dc5b346d3",
+      "requirement_sha256": "2b7a250575465906ecc71f2467a7758514937987fded644b1db66b6dcbf53291",
+      "prompt_sha256": "41cab7800b5125c3c62cccc2ecd128c41372f8ae1a8e5191545b4cde02c6023d",
+      "requirement_characters": 3348,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/skrub-duration-encoding",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "python-statemachine-state-data-scoping",
+      "repo": "https://github.com/fgmacedo/python-statemachine",
+      "base_commit": "8d17ba9f6ba8420cf05fddb94013bc221ed9a222",
+      "requirement_sha256": "2690f38acd2e3ba363caf62e2324a958e175b8b555cc7a39b2fbb7dc578a958c",
+      "prompt_sha256": "b72a3e765e493ef2ba0ae02e27119548777d183c17789cbf7d9d4ce99c7eb7cb",
+      "requirement_characters": 1857,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/python-statemachine-state-data-scoping",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "fastapi-implicit-head-options",
+      "repo": "https://github.com/fastapi/fastapi",
+      "base_commit": "11614be9021aa4ac078d4d0693a8b5250a1010d8",
+      "requirement_sha256": "9c24e76e0fe9bc4fc0bccbbe0ad3532d7ef8ee8d6d72e46b4397a2eb5a5d9c08",
+      "prompt_sha256": "453f787edb0040cb03204436a809c2d7b4efffaf29cf934242b0376df9f5078e",
+      "requirement_characters": 1602,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/fastapi-implicit-head-options",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "textual-kitty-key-phases",
+      "repo": "https://github.com/Textualize/textual",
+      "base_commit": "9737a5ab723f79e59f0a83eb036a3d15fad6b054",
+      "requirement_sha256": "c7a18bf104ff9df83a6c982c8197ba2e69d88e533ad210127889d6bde441cbbf",
+      "prompt_sha256": "9e0a796f58d28219fc117aa704565bef25e726168b74a64b8bb1a0cc09c9ec31",
+      "requirement_characters": 1665,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/textual-kitty-key-phases",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "dateutil-rfc5545-timezone-interop",
+      "repo": "https://github.com/dateutil/dateutil",
+      "base_commit": "c981f9c7aa91b83cc9bd33a09ecee9e751b06e8d",
+      "requirement_sha256": "5e7f04d910160a023f5596ae8cbd3ddb7d5462c2e2d16637420909659fa629e9",
+      "prompt_sha256": "c7b2d80d648e0b3ed078f0db11b532145f7f3f88e9b7bd0348616487d5726e65",
+      "requirement_characters": 2890,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/dateutil-rfc5545-timezone-interop",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "igel-persist-feature-schema",
+      "repo": "https://github.com/nidhaloff/igel",
+      "base_commit": "bf4544d6c86ab4ace21254cb38a011ce3e845700",
+      "requirement_sha256": "087103bef4973cd85025a374f00f7db9cc93326b5ff5740e8b54d8dc2a0905c6",
+      "prompt_sha256": "5f8d70f62cdcaf925c0b606d67231920bffd2faf4c83ceef05d71d105a12ca20",
+      "requirement_characters": 1559,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/igel-persist-feature-schema",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "aiomonitor-task-snapshots-diff",
+      "repo": "https://github.com/aio-libs/aiomonitor",
+      "base_commit": "b73fea2e0682803bda7531c93cd1dfb360839175",
+      "requirement_sha256": "0481e8e3a57ba7b5f681e16169e5971b43a078f463ce4a16ddc71491c97510ca",
+      "prompt_sha256": "01b914a1493c19c4fa23f7ecc6433c51d938b950ad3865f8bd48c8ee5157f30f",
+      "requirement_characters": 1733,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/aiomonitor-task-snapshots-diff",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "ipython-session-bundle-replay",
+      "repo": "https://github.com/ipython/ipython",
+      "base_commit": "0bb317d10fdcb3aa13beb1031d5f10e5b821203b",
+      "requirement_sha256": "a9811e2c1b0580acf26f9c2ee9c62336e4bbd36e4868ffbf2849c8ea9df7c335",
+      "prompt_sha256": "3dc45ae7adcd5e83e2e04045b6243cd50007f5b34367b6269981ece7ca91f289",
+      "requirement_characters": 3590,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/ipython-session-bundle-replay",
+      "status": "candidate: interface/contract preflight pending"
+    },
+    {
+      "task_id": "kombu-virtual-queue-dead-lettering",
+      "repo": "https://github.com/celery/kombu",
+      "base_commit": "3c5c1bd86376ee73d52a4cc770bdaeab15bbc2f3",
+      "requirement_sha256": "2e5fd969b72055854d56a955f1a1995533a9f98095a81294a298dc54501679cd",
+      "prompt_sha256": "5dc7d7868d38b94fa3b2947700d9db35ab12e77bd54e1f7ae60b51273afe5a9f",
+      "requirement_characters": 4383,
+      "packet_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/kombu-virtual-queue-dead-lettering",
+      "status": "candidate: interface/contract preflight pending"
+    }
+  ],
+  "unselected_python": [
+    {
+      "task_id": "bandit-incremental-cache-control",
+      "reason": "additional same-repository task"
+    },
+    {
+      "task_id": "bandit-interprocedural-taint-checks",
+      "reason": "additional same-repository task"
+    },
+    {
+      "task_id": "fastapi-deprecation-response-headers",
+      "reason": "additional same-repository task"
+    },
+    {
+      "task_id": "gql-incremental-graphql-delivery",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "httpx-multipart-response-parsing",
+      "reason": "additional same-repository task"
+    },
+    {
+      "task_id": "kombu-single-active-consumer-priority",
+      "reason": "additional same-repository task"
+    },
+    {
+      "task_id": "koota-entity-snapshot-rollback",
+      "reason": "language label conflicts with TypeScript reference patch"
+    },
+    {
+      "task_id": "langchain-request-coalescing",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "mnamer-daemon-watch-lifecycle",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "mobly-grouped-test-barriers",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "numba-stencil-boundary-modes",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "psd-tools-blend-range-api",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "pwntools-tube-multiplexing",
+      "reason": "deferred to keep the development pilot bounded at 20"
+    },
+    {
+      "task_id": "textual-richlog-follow-state",
+      "reason": "additional same-repository task"
+    }
+  ]
+}

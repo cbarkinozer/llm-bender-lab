@@ -1,0 +1,44 @@
+{
+  "task_id": "tomlkit-toml-table-converters",
+  "phase": "requirements-to-tests generation smoke",
+  "model": "Qwen3.5-4B-Q4_K_M",
+  "pi_version": "1.0.3",
+  "prompt_sha256": "7e64d36c3988b1a69c95795070952fa36519c48d61d8b71b38466e45af18c476",
+  "system_prompt": "You generate Python pytest tests from requirements. Follow the user's requested output format.",
+  "approved_context_sha256": "5011ffe4de4bee522401a05e2aeac6b8d28b35842183c5f503cd55580f3ab81f",
+  "server_and_pi_context_tokens": 16384,
+  "config_sha256": "b988f68a0137405a3b2faf3aae2cb14fd85f2136e4389ee47eb3cfab005b9f08",
+  "thinking": "medium",
+  "max_output_tokens": 6144,
+  "timeout_seconds": 240,
+  "elapsed_seconds": 87.749,
+  "process_exit_code": 0,
+  "timed_out": false,
+  "assistant_stop_reasons": [
+    "stop"
+  ],
+  "usage": [
+    {
+      "input": 1647,
+      "output": 2432,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "reasoning": 0,
+      "totalTokens": 4079,
+      "cost": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "total": 0
+      }
+    }
+  ],
+  "python_block_count": 1,
+  "syntax_valid": true,
+  "test_function_count": 20,
+  "execution": "not run",
+  "semantic_correctness": "unreviewed",
+  "baseline_score": null,
+  "run_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/tomlkit-toml-table-converters/smoke-20261017T074629542496Z"
+}

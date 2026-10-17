@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.3",
+  "task_id": "mashumaro-flattened-dataclass-fields",
+  "review_mode": "owner-assisted calibration",
+  "prior_feedback_exposure": true,
+  "clauses": [
+    {
+      "id": "R1",
+      "text": "Flatten nested dataclass fields into the parent dictionary."
+    },
+    {
+      "id": "R2",
+      "text": "Support an explicit string flatten_prefix."
+    },
+    {
+      "id": "R3",
+      "text": "Support flatten_prefix=True using field name plus underscore."
+    },
+    {
+      "id": "R4",
+      "text": "Support flatten_rename."
+    },
+    {
+      "id": "R5",
+      "text": "flatten_prefix and flatten_rename are mutually exclusive."
+    },
+    {
+      "id": "R6",
+      "text": "Validate key collisions at class creation, including all alias types."
+    },
+    {
+      "id": "R7",
+      "text": "Validate non-dataclass types at class creation."
+    },
+    {
+      "id": "R8",
+      "text": "Validate invalid and duplicate rename keys at class creation."
+    },
+    {
+      "id": "R9",
+      "text": "Flattened children retain their own configuration."
+    },
+    {
+      "id": "R10",
+      "text": "forbid_extra_keys accounts for flattened keys."
+    },
+    {
+      "id": "R11",
+      "text": "Optional flattened fields work."
+    }
+  ],
+  "known_ambiguities": [
+    "Exact validation exception classes and messages are unspecified.",
+    "The wire representation of an Optional flattened child set to None is unspecified.",
+    "The short requirement leaves detailed rename and prefix/alias interaction semantics underspecified; cite evidence before resolving these."
+  ],
+  "api_facts": "Existing public API context from the pinned pre-feature repository, not a feature implementation:\n- `from dataclasses import dataclass, field` and `from typing import Optional` are standard imports.\n- `from mashumaro import DataClassDictMixin, field_options` are supported public imports.\n- Decorate classes inheriting DataClassDictMixin with @dataclass. `.to_dict()` serializes\n  an instance; `Class.from_dict(mapping)` creates an instance from a mapping.\n- Use `field(metadata=field_options(...))` to supply field metadata. Existing\n  field_options accepts alias and arbitrary keyword options and returns a dict.\n- `from mashumaro.config import BaseConfig` is supported. A nested `class Config(BaseConfig)`\n  can set existing `serialize_by_alias`, `aliases` (field name to alias), and\n  `forbid_extra_keys` options. These options already exist independently of flattening.\n\nExisting behavior fixture example (no new flatten option is used):\n```python\nfrom dataclasses import dataclass, field\nfrom mashumaro import DataClassDictMixin, field_options\n\n@dataclass\nclass Point(DataClassDictMixin):\n    x: int\n    label: str\n\n@dataclass\nclass Envelope(DataClassDictMixin):\n    point: Point\n\nobj = Envelope(point=Point(x=3, label=\"a\"))\nassert obj.to_dict() == {\"point\": {\"x\": 3, \"label\": \"a\"}}\nassert Envelope.from_dict({\"point\": {\"x\": 3, \"label\": \"a\"}}) == obj\nassert field_options(alias=\"renamed\")[\"alias\"] == \"renamed\"\n```\n"
+}

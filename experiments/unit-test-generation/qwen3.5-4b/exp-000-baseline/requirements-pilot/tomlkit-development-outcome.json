@@ -1,0 +1,48 @@
+{
+  "task_id": "tomlkit-toml-table-converters",
+  "purpose": "single-task development comparison; not a frozen benchmark score",
+  "test_first": {
+    "accepted_original_suites": 0,
+    "implementation_stage": "not started: Stage A rejected",
+    "latest_condition": "thinking medium; context 16384; configured output ceiling 6144",
+    "latest_original_suite": {
+      "passed": 16,
+      "failed": 4
+    },
+    "one_failure": "suspected reference defect; independent triage preserved",
+    "human_taxonomy_ratings": "pending; assistant technical findings recorded"
+  },
+  "direct_code": {
+    "implementation_generated": true,
+    "thinking": "off",
+    "context_tokens": 16384,
+    "configured_output_ceiling": 6144,
+    "generation_seconds": 75.847,
+    "hidden_feature_tests": {
+      "passed": 4,
+      "failed": 56,
+      "total": 60
+    },
+    "regression_tests": {
+      "passed": 964,
+      "failed": 0,
+      "total": 964
+    },
+    "source_hashes_preserved": true,
+    "workspace": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/tomlkit-toml-table-converters/implementation-direct-20261017T074827131365Z/workspace",
+    "original_output_repaired": false,
+    "failure_examples": [
+      "new module refers to ConversionError, Container and SingleKey without importing them",
+      "conversion functions return table items where the contract requires the original document",
+      "ConversionError subclasses Exception instead of required TOMLKitError"
+    ]
+  },
+  "reference_calibration": {
+    "hidden_passed": 60,
+    "base_passed": 964,
+    "suspected_extra_case_defect": "KeyAlreadyPresent for valid mixed dotted/nested table conversion"
+  },
+  "comparability": "Multiple prompt/context/budget variants and different thinking modes; these are diagnostic results, not a controlled TDD-vs-direct effect estimate",
+  "training_started": false,
+  "next_step": "Adjudicate the reference anomaly and freeze adequate task context/episode protocol before running 20 tasks; preserve Stage A failures rather than retry until success"
+}

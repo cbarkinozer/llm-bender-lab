@@ -1,0 +1,13 @@
+{
+  "pi_version": "1.0.3",
+  "installed_source": "/Users/cbarkinozer/.local/lib/node_modules/@earendil-works/pi-coding-agent/dist/bundle/chunks/chunk-HQHD6PZI.js",
+  "finding": "clampMaxTokensToContext subtracts estimated context and CONTEXT_SAFETY_TOKENS=4096 from configured contextWindow",
+  "old_context_tokens": 8192,
+  "new_server_context_tokens": 16384,
+  "new_pi_context_source": "live /props default_generation_settings.n_ctx",
+  "configured_max_tokens_are_ceilings": true,
+  "exact_previous_request_payload_captured": false,
+  "effect": "Earlier direct and thinking generations were truncated below configured ceiling; do not infer implementation ability from those runs",
+  "nontruncated_test_runs": "Semantic/API errors remain observed; no frozen benchmark comparisons",
+  "generation_runs_before_fix_preserved": true
+}

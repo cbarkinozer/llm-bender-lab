@@ -1,0 +1,40 @@
+{
+  "task_id": "mashumaro-flattened-dataclass-fields",
+  "image_id": "sha256:4c37cbc24ffd78c3df1b834a03789018dbb36eff613b695328294326d356a539",
+  "reference_patch_applicable": true,
+  "results": {
+    "new": {
+      "exit_code": 0,
+      "counts": {
+        "tests": 72,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 72
+      }
+    },
+    "base": {
+      "exit_code": 0,
+      "counts": {
+        "tests": 30008,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 30008
+      },
+      "memory_limit": "2g"
+    }
+  },
+  "raw_reports_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-task-preflight-v01/mashumaro-flattened-dataclass-fields",
+  "grader_adaptation": "same selected test modules; pytest 8.4.2; temporary copy for test fixtures; dependency typing_extensions 4.16.0",
+  "base_original_512m_attempt": {
+    "exit_code": -9,
+    "counts": {
+      "tests": 30008,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 30008
+    }
+  }
+}

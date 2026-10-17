@@ -1,0 +1,4 @@
+FROM llm-bender-pytest:integration-v01
+USER root
+RUN pip install --no-cache-dir typing_extensions==4.16.0
+USER 65534:65534

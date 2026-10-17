@@ -1,0 +1,57 @@
+{
+  "protocol_id": "requirements-stage-a-development-v01",
+  "scope": "20-candidate requirements-to-tests development pilot, not final test or full TDD-vs-direct comparison",
+  "status": "Stage A settings frozen; task readiness gated individually before generation",
+  "dataset_revision": "6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
+  "candidate_manifest_sha256": "7a7a8301c3e1aeeb531f25b7eb91fad461d75a66a1979ca06c6c5ad067f22e50",
+  "task_input_registry": "stage-a-task-inputs-v01.json",
+  "model": "Qwen3.5-4B-Q4_K_M",
+  "gguf_sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+  "pi_version": "1.0.3",
+  "model_context_tokens": 16384,
+  "generation": {
+    "thinking": "medium",
+    "max_output_tokens": 4096,
+    "timeout_seconds": 240,
+    "attempts_per_task": 1,
+    "repair_attempts": 0,
+    "tools": []
+  },
+  "request_sampling": {
+    "model": "qwen3.5-4b-q4-k-m",
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "seed": 42
+  },
+  "actual_request_capture_required": true,
+  "execution": {
+    "cpu_count": 1,
+    "memory_limit": "2g",
+    "generated_suite_timeout_seconds": 60,
+    "network": "none",
+    "source_and_tests_readonly": true,
+    "image": "per-task digest in readiness registry"
+  },
+  "reference_health": "supplied feature/regression tests must exit zero; known contract defects quarantined before new generation",
+  "review": "assistant technical adjudication separate from owner human quality annotations; no silent repairs",
+  "metrics": [
+    "generation completion",
+    "syntax and collection",
+    "correct-reference execution",
+    "old-implementation discrimination",
+    "requirement alignment and important behavior coverage",
+    "TRIVIAL/WEAK/STRONG/UNKNOWN oracles",
+    "contextual smells",
+    "token/time cost"
+  ],
+  "aggregation": "report components and all task statuses; no composite quality score frozen before owner review calibration",
+  "failure_policy": "retain invalid outputs, skipped/quarantined tasks and infrastructure failures; no success-driven replacement or prompt tuning within v01",
+  "stage_b": "requires accepted original frozen tests; separate implementation comparison protocol still pending",
+  "prompt_template_sha256": "939e7a8ab461bdd42dc506a31263ad1181c888484db4cbf6e2977040eeed6db9",
+  "source_code_sha256": {
+    "scripts/evaluation/run_requirement_smoke.py": "7b5106ff4e88ea4e248c11406c97084a5d2320446a456ce442e8ed6f2bdc2d74",
+    "scripts/evaluation/pi_request_recorder.py": "d9fcae3883bcf2254d611f4df3292281f872e9be4ab5678045568a288afdee1d",
+    "scripts/evaluation/preflight_requirement_suite.py": "3392d562479227a909ccb7f1630b1149d78f800646e22dae8c3e9195423d39ec"
+  }
+}

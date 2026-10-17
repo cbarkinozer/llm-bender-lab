@@ -1,0 +1,31 @@
+{
+  "task_id": "mashumaro-flattened-dataclass-fields",
+  "protocol_id": "requirements-stage-a-development-v01",
+  "generation_attempts": 1,
+  "actual_request_settings_verified": true,
+  "test_functions": 19,
+  "reference_execution": {
+    "passed": 6,
+    "failed": 13,
+    "collection_errors": 0,
+    "exit_code": 1
+  },
+  "old_implementation_execution": {
+    "passed": 0,
+    "failed": 19,
+    "collection_errors": 0,
+    "exit_code": 1
+  },
+  "acceptance": "not accepted: original suite fails reference execution; human semantic/quality review pending",
+  "human_ratings": null,
+  "mutation_score": null,
+  "failure_attribution": "requires requirement-aware review; do not automatically label every reference failure a model error",
+  "candidate_reference_issues": "Nested flatten serialization/deserialization composition deserves separate contract adjudication; no defect determination made here",
+  "implementation_stage_started": false,
+  "original_output_repaired": false,
+  "argilla_initial_review": "http://127.0.0.1:7900/dataset/18519c25-5b8f-4a1b-94e8-12ce0a87a340/annotation-mode",
+  "review_design": "Original requirement, existing API context and unchanged tests only; model identity, execution results and automated suggestions withheld in initial UI",
+  "raw_evidence_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/requirements-pilot-v01/mashumaro-flattened-dataclass-fields/smoke-20261017T080052215793Z",
+  "next_action": "owner independent quality/importance/smell review, then separate evidence-assisted adjudication; continue remaining ready tasks under unchanged v01 settings",
+  "review_schema_version": "initial-v02, optional smell/oracle selections verified"
+}

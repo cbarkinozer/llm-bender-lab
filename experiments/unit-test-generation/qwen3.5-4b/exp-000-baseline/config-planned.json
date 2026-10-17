@@ -31,21 +31,29 @@
     "context_tokens": null,
     "total_output_budget_tokens": null,
     "sampling": null,
-    "eos_and_tool_parser": null
+    "eos_and_tool_parser": null,
+    "development_context_tokens": 16384,
+    "context_note": "Scripts read actual /props context into Pi; Pi 1.0.3 reserves 4096 tokens. Formal benchmark protocol is not frozen."
   },
   "dataset": {
-    "revision": null,
+    "revision": "6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
     "split_unit": "repository/source/problem-family and near-duplicate group",
     "train": null,
     "development": null,
-    "test": null
+    "test": null,
+    "source": "datacurve/deep-swe",
+    "development_candidate_manifest": "requirements-pilot/candidate-manifest.json",
+    "development_candidate_count": 20,
+    "status": "provisional candidates; contract/interface/runtime preflight pending",
+    "training_use": false
   },
   "permissions": {
-    "production_code": "read-only",
+    "production_code": "read-only in test generation; writable in implementation stage",
     "generated_test_directory": "write",
     "private_grader": "inaccessible",
     "network": "disabled",
-    "secrets": "not mounted"
+    "secrets": "not mounted",
+    "frozen_generated_tests": "read-only in implementation stage"
   },
   "evaluation": {
     "framework": "pytest",
@@ -61,11 +69,19 @@
       "test smell review",
       "bug/mutation detection",
       "latency and token cost"
-    ]
+    ],
+    "independent_code_correctness": "hidden functional and regression tests; no within-episode hidden feedback",
+    "test_acceptance": "requirement alignment, health and usefulness reviewed before freeze; original failures retained"
   },
   "optional_reference": {
     "model": "Qwen/Qwen3.5-9B",
     "thinking": true,
     "status": "not run; artifact and budgets pending"
-  }
+  },
+  "protocol": "../REQUIREMENTS-FIRST-PROTOCOL.md",
+  "conditions": [
+    "untouched-direct-code",
+    "untouched-prompted-tdd"
+  ],
+  "development_evidence": "requirements-pilot/README.md"
 }

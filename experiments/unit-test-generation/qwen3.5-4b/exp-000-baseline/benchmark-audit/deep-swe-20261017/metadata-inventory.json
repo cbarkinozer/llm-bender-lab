@@ -1,0 +1,4946 @@
+{
+  "dataset": "datacurve/deep-swe",
+  "revision": "6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
+  "inspected_at": "2026-10-17T07:04:43.508461+00:00",
+  "repository_created_at": "2026-06-01T21:58:03+00:00",
+  "repository_last_modified_at": "2026-06-02T19:31:16+00:00",
+  "model_date_owner_supplied": "2026-03-09",
+  "days_model_date_to_dataset_repo_creation": 84,
+  "freshness_decision": "Accepted by owner: dataset postdates model; underlying code exposure acknowledged, not a blocker",
+  "gated": "auto",
+  "card_sha256": "5bcad14248d1ce8304ad5fb6809ea4031d721316d5b5aefdc401e3e69f8f268e",
+  "cache_directory": "/Users/cbarkinozer/.cache/llm-bender-lab/deep-swe/6d6f134460c137e24c6bb7e1e69954116ea9dbb3",
+  "download_status": {
+    "README.md": "downloaded",
+    "data/test-00000-of-00001.parquet": "downloaded; SHA256 verified using project .env HF_API_KEY (token not recorded)"
+  },
+  "task_directories": [
+    "abs-module-cache-flags",
+    "abs-stepped-slices",
+    "actionlint-action-pinning-lint",
+    "adaptix-name-mapping-aliases",
+    "aiomonitor-task-snapshots-diff",
+    "anko-default-function-arguments",
+    "anko-typed-variable-bindings",
+    "arcane-drift-detection-baselines",
+    "arktype-json-schema-refs-dependencies",
+    "awilix-async-container-initialization",
+    "bandit-incremental-cache-control",
+    "bandit-interprocedural-taint-checks",
+    "bandit-structured-nosec-directives",
+    "boa-hierarchical-evaluation-cancellation",
+    "cattrs-partial-structuring-recovery",
+    "clack-async-autocomplete-options",
+    "claude-code-by-agents-recursive-delegation",
+    "cliffy-config-file-parsing",
+    "csstree-shorthand-expansion-compression",
+    "dasel-html-document-format",
+    "dateutil-rfc5545-timezone-interop",
+    "drizzle-orm-window-function-builders",
+    "dynamodb-toolbox-conditional-attribute-requirements",
+    "dynamodb-toolbox-lazy-recursive-schemas",
+    "effect-sse-httpapi-streaming",
+    "eicrud-keyset-pagination-cursor",
+    "etree-xml-diff-patch",
+    "expr-try-catch-errors",
+    "fastapi-deprecation-response-headers",
+    "fastapi-implicit-head-options",
+    "fd-deterministic-multi-key-sorting",
+    "geo-shapeindex-serialization",
+    "go-critic-doc-link-checker",
+    "go-genai-streamed-function-args",
+    "go-git-worktree-merge-conflicts",
+    "goreleaser-retry-publish-auditing",
+    "gql-incremental-graphql-delivery",
+    "happy-dom-abort-pending-body-reads",
+    "happy-dom-deterministic-intersectionobserver",
+    "helm-array-merge-strategies",
+    "helm-unified-manifest-stream",
+    "httpx-deterministic-cookie-store",
+    "httpx-multipart-response-parsing",
+    "httpx-streaming-json-iteration",
+    "igel-persist-feature-schema",
+    "ink-grid-box-layout",
+    "ipython-session-bundle-replay",
+    "katex-multicolumn-array-spans",
+    "kcp-go-multiplexed-kcp-streams",
+    "kea-atomic-signal-selectors",
+    "kgateway-consistent-hash-policy",
+    "kombu-single-active-consumer-priority",
+    "kombu-virtual-queue-dead-lettering",
+    "koota-composite-trait-aspects",
+    "koota-deferred-mutation-buffer",
+    "koota-entity-snapshot-rollback",
+    "koota-pair-relation-tracking",
+    "koota-query-predicates",
+    "kysely-window-grouping-helpers",
+    "langchain-request-coalescing",
+    "mashumaro-flattened-dataclass-fields",
+    "meriyah-explicit-resource-declarations",
+    "mnamer-daemon-watch-lifecycle",
+    "mobly-grouped-test-barriers",
+    "narwhals-rolling-window-suite",
+    "numba-stencil-boundary-modes",
+    "obsidian-linter-auto-table-of-contents",
+    "obsidian-linter-link-format-conversion",
+    "obsidian-linter-scoped-ignore-markers",
+    "ofetch-per-origin-circuit-breaker",
+    "onedump-dump-encryption-pipeline",
+    "opa-rego-rule-profiling",
+    "opa-template-string-reconstruction",
+    "optique-conditional-option-dependencies",
+    "oxvg-structural-selector-preservation",
+    "participle-grammar-conflict-analysis",
+    "pebble-durability-wait-apis",
+    "pest-character-class-coalescing",
+    "prometheus-transactional-reload-status",
+    "prometheus-typed-label-sorting",
+    "psd-tools-blend-range-api",
+    "pwntools-tube-multiplexing",
+    "python-statemachine-state-data-scoping",
+    "query-persist-restored-query-state",
+    "quill-shared-toolbar-focus",
+    "returns-validated-error-accumulation",
+    "scc-bounded-memory-spilling",
+    "scriggo-method-declarations",
+    "skrub-duration-encoding",
+    "sql-formatter-bigquery-pipe-formatting",
+    "sqlfmt-create-table-ddl-formatting",
+    "sqlite-utils-safe-import-checkpoints",
+    "superjson-error-stack-serialization",
+    "task-task-graph-export",
+    "tengo-callable-instance-isolation",
+    "tengo-destructuring-bindings",
+    "termenv-preserve-ansi-resets",
+    "testem-bail-on-test-failure",
+    "testem-per-launcher-reports",
+    "textual-kitty-key-phases",
+    "textual-richlog-follow-state",
+    "tomlkit-toml-table-converters",
+    "true-myth-iterable-collection-combinators",
+    "ts-pattern-match-each",
+    "updo-policy-alerting",
+    "valibot-recursive-schema-composition",
+    "vitest-duration-sharding",
+    "vulture-persistent-analysis-cache",
+    "wasmi-trap-coredumps",
+    "wazero-multi-module-snapshots",
+    "yaegi-go-embed-directives",
+    "yjs-map-conflict-detection",
+    "ytt-jsonpath-query-api"
+  ],
+  "task_directory_count": 113,
+  "file_count": 800,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 2504,
+      "blob_id": "bed0738c7eeb449bca98b5d2f33c89a1ee56349a",
+      "lfs": null
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 5,
+      "blob_id": "995321fe335065c7d218c8a1d25a6b75434ef7b0",
+      "lfs": null
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 3300,
+      "blob_id": "2a035a693599fcc0125d6c1aca363132d96cfdcc",
+      "lfs": null
+    },
+    {
+      "path": "data/test-00000-of-00001.parquet",
+      "size_bytes": 1577612,
+      "blob_id": "c59e656c69366a6f622951b69ab9b300d96b72ed",
+      "lfs": {
+        "size": 1577612,
+        "sha256": "737e1b101d9556aa1b0fd66b8fefd436158a63b18d7105733739c79126fb495e",
+        "pointer_size": 132
+      }
+    },
+    {
+      "path": "eval.yaml",
+      "size_bytes": 243,
+      "blob_id": "467e418792daef3e07f4d2856eee86b1a8e64638",
+      "lfs": null
+    },
+    {
+      "path": "tasks/README.md",
+      "size_bytes": 12,
+      "blob_id": "32d46ee883b58d6a383eed06eb98f33aa6530ded",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/environment/Dockerfile",
+      "size_bytes": 259,
+      "blob_id": "7c654649bf46d238c9f7a5fa6f0d3b3302c2da3e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/instruction.md",
+      "size_bytes": 2524,
+      "blob_id": "a4e1f64b5f6156451c50887373f77707e3b85b1b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/solution/solution.patch",
+      "size_bytes": 23719,
+      "blob_id": "01085aab424e43453a2845f1dc00ea4c66b9c489",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/task.toml",
+      "size_bytes": 1040,
+      "blob_id": "03dfb358d4ede780cdffb80e8ee475089d4e053b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/tests/test.patch",
+      "size_bytes": 30643,
+      "blob_id": "0766562852b96b9c49e10a90fbeff75cc4e5d991",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-module-cache-flags/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "945baf687d3303049d7c8ffe30f9a01f1e10ceee",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/environment/Dockerfile",
+      "size_bytes": 259,
+      "blob_id": "7c654649bf46d238c9f7a5fa6f0d3b3302c2da3e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/instruction.md",
+      "size_bytes": 3384,
+      "blob_id": "e15f6c7f65658fc00560dd16d06e421ac9e7c206",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/solution/solution.patch",
+      "size_bytes": 19908,
+      "blob_id": "f6e9d4f30f209a21b4a10c5fa2ffad125092f35c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/task.toml",
+      "size_bytes": 975,
+      "blob_id": "00ead58db745cbf06874cebd9cd9db041fde6d24",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/tests/test.patch",
+      "size_bytes": 10128,
+      "blob_id": "dd6ed8b808dc64fdf90f9027b2df2e5b06aded30",
+      "lfs": null
+    },
+    {
+      "path": "tasks/abs-stepped-slices/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "945baf687d3303049d7c8ffe30f9a01f1e10ceee",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/environment/Dockerfile",
+      "size_bytes": 259,
+      "blob_id": "6eeb4a1aaa4eefd1d4f2db58c938b4eff41dacbe",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/instruction.md",
+      "size_bytes": 2060,
+      "blob_id": "999b0141de4d004f9ae9db048f653a129fe67ed1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/solution/solution.patch",
+      "size_bytes": 27751,
+      "blob_id": "ebc7558d67007d034add0bf8f7f6ba64939ded68",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/task.toml",
+      "size_bytes": 1024,
+      "blob_id": "2a39ce712e8102f1c35c9e9f4259ca799b52870b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/tests/test.patch",
+      "size_bytes": 49973,
+      "blob_id": "3df573d3feb507dd6318c1707a5607fb0ab0092c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/actionlint-action-pinning-lint/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "a9884c9e1523f9cf1ce98582f096a84edb094306",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/environment/Dockerfile",
+      "size_bytes": 374,
+      "blob_id": "16078dc1b7f1dae16deb260ddda6282917940409",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/instruction.md",
+      "size_bytes": 982,
+      "blob_id": "4c16e0374532813d986e94f194db4ae47d5d496c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/solution/solution.patch",
+      "size_bytes": 32970,
+      "blob_id": "86944efc2ff188adcdf32ea40612c3368b48145d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/task.toml",
+      "size_bytes": 976,
+      "blob_id": "9b6b3ad8a764eab34eb3da8b1043dec0d712d8fb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/tests/test.patch",
+      "size_bytes": 21427,
+      "blob_id": "68e1d222e430c540d86bbeebb6e7b4b2cdabaf67",
+      "lfs": null
+    },
+    {
+      "path": "tasks/adaptix-name-mapping-aliases/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "794491041032c3943b7fc4505e0cf704b9744158",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/environment/Dockerfile",
+      "size_bytes": 1141,
+      "blob_id": "8443e8cb67d858202c5ae7f20d08c9cadd62d1b1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/instruction.md",
+      "size_bytes": 1733,
+      "blob_id": "8852683d8c946dab8ef56658ee5527ec8b06c596",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/solution/solution.patch",
+      "size_bytes": 25889,
+      "blob_id": "81f526d1873b440396430e02382cf5b2c73cb8bf",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/task.toml",
+      "size_bytes": 1049,
+      "blob_id": "0d30717a7105e1b0f1a730e35db03bf5709d8771",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/tests/test.patch",
+      "size_bytes": 28915,
+      "blob_id": "ae565e9642e490f387898d46a20e03e484442a25",
+      "lfs": null
+    },
+    {
+      "path": "tasks/aiomonitor-task-snapshots-diff/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "7477ed086dbc6cc87188b45846cbae50b90f1659",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/environment/Dockerfile",
+      "size_bytes": 252,
+      "blob_id": "6ee0ff8228bafcc746b1cbcf8fc6d2b2fe4700b6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/instruction.md",
+      "size_bytes": 874,
+      "blob_id": "715c3c1ceec6754a3aff6fd2eae4751cf3df81f6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/solution/solution.patch",
+      "size_bytes": 12710,
+      "blob_id": "f6e879f05e5c5332c4b2a91d6ebd1a1d54723b01",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/task.toml",
+      "size_bytes": 981,
+      "blob_id": "8dae401cca9fe1dbb18dcf3ffa6bb3872ff72280",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/tests/test.patch",
+      "size_bytes": 4162,
+      "blob_id": "ba9bf82324780750c2ba4d7862a6e109a6fe6585",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-default-function-arguments/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "ae5a0c57e9c3b42da3295363b933bcbeda8d5259",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/environment/Dockerfile",
+      "size_bytes": 338,
+      "blob_id": "30cd8d07a8a1b9f0f5c94f29d94f275d0d93217c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/instruction.md",
+      "size_bytes": 1726,
+      "blob_id": "66135999a9fe47ee3bec75f4525a65d406ae938c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/solution/solution.patch",
+      "size_bytes": 14776,
+      "blob_id": "5e5f59352d75458d10c1c2b83d9a7ff7e08aa481",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/task.toml",
+      "size_bytes": 980,
+      "blob_id": "301029397b0af96de1f60eaf460293f887a33f79",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/tests/test.patch",
+      "size_bytes": 17187,
+      "blob_id": "0b1d519dc128175a46ed3be494f33aa758158711",
+      "lfs": null
+    },
+    {
+      "path": "tasks/anko-typed-variable-bindings/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1a4801d9f435fa7e334da6f9afab8d477e71e436",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/environment/Dockerfile",
+      "size_bytes": 289,
+      "blob_id": "1183dd33abf293d7b2a2508ccacff4bdc5ca5f8b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/instruction.md",
+      "size_bytes": 5385,
+      "blob_id": "6d456dbdd82c81e873cac3182127ed8c53d27740",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/solution/solution.patch",
+      "size_bytes": 44828,
+      "blob_id": "5f577627c45d3f71ccfbe693f51a451beaba2c22",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/task.toml",
+      "size_bytes": 1016,
+      "blob_id": "ff64916011c376e41b83a89c0ee51738206760b4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/tests/test.patch",
+      "size_bytes": 78007,
+      "blob_id": "be0bb4fdba34782acbc79fc528d900c1870cf71f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arcane-drift-detection-baselines/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3647f85e862305d00be6293484eaec2f15f4ef0c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/environment/Dockerfile",
+      "size_bytes": 289,
+      "blob_id": "c4536e1864fcf8992f9826f20428e02c334bac39",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/instruction.md",
+      "size_bytes": 1893,
+      "blob_id": "0cbae2eae92adeb294b75615fabd7983d4ff1e0f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/solution/solution.patch",
+      "size_bytes": 32779,
+      "blob_id": "1b3157639d66d36118c7702cfef7c75785185f85",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/task.toml",
+      "size_bytes": 1051,
+      "blob_id": "76a818e33eb28a8816c62d32d9f3db85220710c1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/tests/test.patch",
+      "size_bytes": 23709,
+      "blob_id": "18b6fb58ac002d2cef307d485ba26c2603fa59fa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/arktype-json-schema-refs-dependencies/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "69641ce7235c52feaed000aa680b7cf906277988",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/environment/Dockerfile",
+      "size_bytes": 268,
+      "blob_id": "a4deba172b82a2fd9ecf14634f291623c1ed2e4c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/instruction.md",
+      "size_bytes": 2248,
+      "blob_id": "905e9f95f9d88ed85dc3ec4f527c5ce2ffe959a2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/solution/solution.patch",
+      "size_bytes": 22586,
+      "blob_id": "ae8d53a03e94d61eb2ea82e53ac07dbb0ba2380d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/task.toml",
+      "size_bytes": 1076,
+      "blob_id": "5c72d7cb82e1db311b30f7fa74764fe58e9762c5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/tests/test.patch",
+      "size_bytes": 24024,
+      "blob_id": "48d52cddaf0e33f0585c9bcf16afb3e7dd911662",
+      "lfs": null
+    },
+    {
+      "path": "tasks/awilix-async-container-initialization/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "a7d46c4dce20e42c36a6907068c9a5941462ec00",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/environment/Dockerfile",
+      "size_bytes": 433,
+      "blob_id": "1d345dd2a4517969ec291606d05e0ef213db72d9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/instruction.md",
+      "size_bytes": 1746,
+      "blob_id": "fd96824b325fe653df4dde89383385f41c9f2092",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/solution/solution.patch",
+      "size_bytes": 33953,
+      "blob_id": "c49832cf1476405e1041293fca98e8deb2ff73ce",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/task.toml",
+      "size_bytes": 1006,
+      "blob_id": "15d65a3c230aac3c841788d261bb45e03cc05e13",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/tests/test.patch",
+      "size_bytes": 62992,
+      "blob_id": "e381a61067f8deb5ecf758560f2b5f4bd102a897",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-incremental-cache-control/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "5229903910a0cbfe627629ef63fe827163555484",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/environment/Dockerfile",
+      "size_bytes": 458,
+      "blob_id": "a0302727216f51fc2a61d1ab971c6bd8c4e2041a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/instruction.md",
+      "size_bytes": 1081,
+      "blob_id": "2178e29e8a6de0b5cd6ae0a6947c7bf7603e9dae",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/solution/solution.patch",
+      "size_bytes": 32476,
+      "blob_id": "9c8aab724f2d272756763b695619f30604f83f4e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/task.toml",
+      "size_bytes": 1028,
+      "blob_id": "7ab94499ce4480bfba58c5d4d4d6b77356e1ad93",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/tests/test.patch",
+      "size_bytes": 74374,
+      "blob_id": "85dd6161010d02e2e3bdce75bb2e15ca9d8a28a6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-interprocedural-taint-checks/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "11f5e2c3d3e70cae59b75af428143b6bf346533f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/environment/Dockerfile",
+      "size_bytes": 492,
+      "blob_id": "5d74776cafbfa35d8c772acc8ffe4ca2c997f2bf",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/instruction.md",
+      "size_bytes": 2721,
+      "blob_id": "4f1b71fbc6b0522ebe57a82ae2cdb7fdc60f21a5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/solution/solution.patch",
+      "size_bytes": 24581,
+      "blob_id": "50d6cb9407438f87a10c85274e8f27ffa09c0c85",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/task.toml",
+      "size_bytes": 1047,
+      "blob_id": "76c6d62801d2238a290f239ed48ed975db4f370d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/tests/test.patch",
+      "size_bytes": 26135,
+      "blob_id": "d8b2905d7051e6728a1c5d8ec3f46d79f561c3c2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/bandit-structured-nosec-directives/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "11f5e2c3d3e70cae59b75af428143b6bf346533f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/environment/Dockerfile",
+      "size_bytes": 469,
+      "blob_id": "61729e54625c2b33444bf800918ddc573d6fcd7a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/instruction.md",
+      "size_bytes": 4154,
+      "blob_id": "730710b6a30767166ddf61ebeda2999c04a53bf4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/solution/solution.patch",
+      "size_bytes": 28679,
+      "blob_id": "f482ba37c3249ad1d1f48ff1c39bb4d4f621917f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/task.toml",
+      "size_bytes": 1012,
+      "blob_id": "9be4177707a9d8efedc32c9d615d409713908431",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/tests/test.patch",
+      "size_bytes": 25073,
+      "blob_id": "9098e0908b60a58e65600ec7a6c6c0e8720a098f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/boa-hierarchical-evaluation-cancellation/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "ab12cc85d69eec3b3b387dde8aedca95514904bd",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/environment/Dockerfile",
+      "size_bytes": 345,
+      "blob_id": "c3b8762ecc63a4e9383d4412ff187c6e589dd482",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/instruction.md",
+      "size_bytes": 1242,
+      "blob_id": "cc0d08d1c2c483e97e91c81d16ca73d5230538ec",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/solution/solution.patch",
+      "size_bytes": 24810,
+      "blob_id": "5cf14e6afab45293ca70da3e0c9240295a726c6b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/task.toml",
+      "size_bytes": 1040,
+      "blob_id": "a9bbec14d31c23d64f52e9a1a215fe422af958d6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/tests/test.patch",
+      "size_bytes": 24305,
+      "blob_id": "a7c538ceed97885e2e5c941cfdc2edc7f36ef3c6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cattrs-partial-structuring-recovery/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "2e5ad676377c216f0f341f65881e1fb4beae27a4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/environment/Dockerfile",
+      "size_bytes": 388,
+      "blob_id": "192f636d2bbe5302cfd64debf60c9ce192abc51b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/instruction.md",
+      "size_bytes": 3029,
+      "blob_id": "084f11085b210a160c35016cbea2e6374d90b4f4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/solution/solution.patch",
+      "size_bytes": 25380,
+      "blob_id": "e13a73b062de59d4fda191dc1c9970a7416148e0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/task.toml",
+      "size_bytes": 1024,
+      "blob_id": "c13d0decbc4c54eb545adccec03c994040fec217",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/tests/test.patch",
+      "size_bytes": 84480,
+      "blob_id": "930545f47247806b9776a99da61e1ed5a55b2bea",
+      "lfs": null
+    },
+    {
+      "path": "tasks/clack-async-autocomplete-options/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "bc9824541f5830fc7d773a80bb992b5336e883eb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/environment/Dockerfile",
+      "size_bytes": 322,
+      "blob_id": "55c69360ff6fd884fedf08964d97bed81e4ef9d5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/instruction.md",
+      "size_bytes": 1199,
+      "blob_id": "64e8a0bd4da4860f7b0d38a72032385ee97d0a45",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/solution/solution.patch",
+      "size_bytes": 34124,
+      "blob_id": "e5d70b6ae623e6b0f8933a06aee79d79aeeac125",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/task.toml",
+      "size_bytes": 1097,
+      "blob_id": "132a90a832464ab4045edf056c8163a41c21d34d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/tests/test.patch",
+      "size_bytes": 23393,
+      "blob_id": "d063b0d67dbf4f72a25feb225512a5627f3da837",
+      "lfs": null
+    },
+    {
+      "path": "tasks/claude-code-by-agents-recursive-delegation/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "ca1a78c7cb30d638b75f7bff0f8a9abc35d3f033",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/environment/Dockerfile",
+      "size_bytes": 1006,
+      "blob_id": "3bd9b4bdfb024886a89d2b267fe543e48ce38fb5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/instruction.md",
+      "size_bytes": 1973,
+      "blob_id": "afb0484d7984213b0a033a0000da0a49046a1386",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/solution/solution.patch",
+      "size_bytes": 26013,
+      "blob_id": "e75b1e1f690d76a373c81de97db5406779c2cd4f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/task.toml",
+      "size_bytes": 963,
+      "blob_id": "a6fd5fb3b1093743f160c9f61ef1719ed4aac5e9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/tests/test.patch",
+      "size_bytes": 27476,
+      "blob_id": "b92c38763d9a316513bec8f2ec89d9cbebbf8ec5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/cliffy-config-file-parsing/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "5d5b559718e63bc65abb213cbf64d05e1f556c95",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/environment/Dockerfile",
+      "size_bytes": 272,
+      "blob_id": "60130b9c27131715373ce622c278023da222fd30",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/instruction.md",
+      "size_bytes": 2799,
+      "blob_id": "c8293032f5a8f267dc58ef0a4a9699596405e28c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/solution/solution.patch",
+      "size_bytes": 20074,
+      "blob_id": "e7f113d1b5bfa39e65c0aa5a1837a183488bfab3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/task.toml",
+      "size_bytes": 1047,
+      "blob_id": "f6ef25a91a75d0883f31626ccc319c016fc1b9ca",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/tests/test.patch",
+      "size_bytes": 26480,
+      "blob_id": "0d42c86b43142db5223c8daaafed97de0c40f7e5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/csstree-shorthand-expansion-compression/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "48d70eec0e1edcdf53e101b4fcbb6f809112c781",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/environment/Dockerfile",
+      "size_bytes": 258,
+      "blob_id": "d3ea0384c875a995eb855e48ac8d8b28013e84da",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/instruction.md",
+      "size_bytes": 1546,
+      "blob_id": "3246f658b419b9413c0ce2d252c1bb0c34bd8edd",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/solution/solution.patch",
+      "size_bytes": 23538,
+      "blob_id": "243261a25beb93e8c9c54fc97e2140a1aaa08b14",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/task.toml",
+      "size_bytes": 944,
+      "blob_id": "eaa5d744eeebf8112a44eebf2e3b6dac6234ca1c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/tests/test.patch",
+      "size_bytes": 85890,
+      "blob_id": "a8487d5ec7bdc1e37212a308d3445e79fa24ffb0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dasel-html-document-format/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "280c6019225d4080ada8d97cabd26bb344f862aa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dataset.toml",
+      "size_bytes": 16636,
+      "blob_id": "0beb752a99636d0100b9c56b376d33bef65ab010",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/environment/Dockerfile",
+      "size_bytes": 766,
+      "blob_id": "c00ef2b76fa0f2fd17d4ff3ca04b42337e1816b3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/instruction.md",
+      "size_bytes": 2890,
+      "blob_id": "4cc6f859d778761f0fb7b0d0edefd09426277ff0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/solution/solution.patch",
+      "size_bytes": 33534,
+      "blob_id": "30ac68bbe8eca72724b7c1c013097be44c655a28",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/task.toml",
+      "size_bytes": 1022,
+      "blob_id": "5b2139412b852c06b32eb21ee7bc1d1b9f3ef32b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/tests/test.patch",
+      "size_bytes": 36293,
+      "blob_id": "9b16a17e8dd22f5661f53c7455141c7ac6ff0cd1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dateutil-rfc5545-timezone-interop/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1cd6046a82c95a7c8f29ed7d652fa7bc4de0ccd4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/environment/Dockerfile",
+      "size_bytes": 286,
+      "blob_id": "4dd3b5ccd1133fa6413f09fe490909f1a044b53c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/instruction.md",
+      "size_bytes": 2340,
+      "blob_id": "dbc544559fe2bc8ead9e48ca3543d7a752b57d6a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/solution/solution.patch",
+      "size_bytes": 34639,
+      "blob_id": "cd53d9526d1cb6bf3e20bf84eae2ee06adafbe3a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/task.toml",
+      "size_bytes": 1051,
+      "blob_id": "dee02c2f48445a2b97010ffaad92309b46fafadb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/tests/test.patch",
+      "size_bytes": 49282,
+      "blob_id": "6cf7a144c217ef7d69d9c4a8b95e12b5221054c4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/drizzle-orm-window-function-builders/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "229f48607bfa80efb7b60cc0798f34f5cce80218",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/environment/Dockerfile",
+      "size_bytes": 297,
+      "blob_id": "ec0e75c2be6061a59ce097f52e29a554ac795d3f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/instruction.md",
+      "size_bytes": 1243,
+      "blob_id": "330efe5b92cf8c538a10ae5e725cd07e192ad2b6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/solution/solution.patch",
+      "size_bytes": 41962,
+      "blob_id": "1bad9a7507cd59456bce19158bf52f2761492766",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/task.toml",
+      "size_bytes": 1094,
+      "blob_id": "a75f02eedbcb495c9cb75b8170347d86ea617709",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/tests/test.patch",
+      "size_bytes": 20502,
+      "blob_id": "7c239ed11d1e088c70934a6b4583ce95b9bce1c6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-conditional-attribute-requirements/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1a71c9190e5e9377645c8a37d9203558f8a72366",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/environment/Dockerfile",
+      "size_bytes": 297,
+      "blob_id": "ec0e75c2be6061a59ce097f52e29a554ac795d3f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/instruction.md",
+      "size_bytes": 1265,
+      "blob_id": "a547f70ec45bfed40272338f59536d419de13ab1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/solution/solution.patch",
+      "size_bytes": 31602,
+      "blob_id": "6d40438982feef56c864521e3d2c79f0b0633a3d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/task.toml",
+      "size_bytes": 1070,
+      "blob_id": "7af40c1b8a2435b5bd878a609843c07723afb753",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/tests/test.patch",
+      "size_bytes": 22422,
+      "blob_id": "02c4b0520edfe60c8ab2eeca1426b79e6729b6eb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/dynamodb-toolbox-lazy-recursive-schemas/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1a71c9190e5e9377645c8a37d9203558f8a72366",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/environment/Dockerfile",
+      "size_bytes": 278,
+      "blob_id": "5710ce42cb1e0bcee94794263268f4a7faedf9bb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/instruction.md",
+      "size_bytes": 2177,
+      "blob_id": "b1b59153e640c45ff1f30151ee8608c1f50f59b2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/solution/solution.patch",
+      "size_bytes": 38871,
+      "blob_id": "d8f41956651a63cb3affc50d4cb5ee70dd8a4f3a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/task.toml",
+      "size_bytes": 1014,
+      "blob_id": "70872ba693abdd930f9c954401fc7f8784e1c166",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/tests/test.patch",
+      "size_bytes": 32090,
+      "blob_id": "28fb2a0e0b6726f16621db1065cf454139651f91",
+      "lfs": null
+    },
+    {
+      "path": "tasks/effect-sse-httpapi-streaming/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "a5310480295b4fc6c27277710c0cbc0e0323cd0e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/environment/Dockerfile",
+      "size_bytes": 1691,
+      "blob_id": "9f4dfd3bd3c28be02ae70c7384e657c2786d175f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/instruction.md",
+      "size_bytes": 1072,
+      "blob_id": "1934febc5528e60f82601abb0ae2baec5ecebac6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/solution/solution.patch",
+      "size_bytes": 17843,
+      "blob_id": "6d00514aa7cf0e0209c189b82b468e056d9d65d0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/task.toml",
+      "size_bytes": 959,
+      "blob_id": "b73aebcbbfbeefb00aff3ab4643d9f40b6d4f4b6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/tests/test.patch",
+      "size_bytes": 21247,
+      "blob_id": "3c38f9f5d522794c0fb8897c99c007569e7dd527",
+      "lfs": null
+    },
+    {
+      "path": "tasks/eicrud-keyset-pagination-cursor/tests/test.sh",
+      "size_bytes": 3835,
+      "blob_id": "fe480db3f524cadf7124e8102d6ec0986fe7b19a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/environment/Dockerfile",
+      "size_bytes": 255,
+      "blob_id": "59fb8b0ed9aa59fce8507ef5adc544a08aa039a2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/instruction.md",
+      "size_bytes": 4462,
+      "blob_id": "669ead2d68aa0cbd6b8da8bfc862704115cb3d31",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/solution/solution.patch",
+      "size_bytes": 45435,
+      "blob_id": "c92bd084b45bd0449519507fa4280a8197be3db2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/task.toml",
+      "size_bytes": 975,
+      "blob_id": "9f0322f7efd7d264a6f2905ee5473f09128fd9ff",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/tests/test.patch",
+      "size_bytes": 35118,
+      "blob_id": "68901f396acbe7b6da6d9423af3ecd3dc17f2e7e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/etree-xml-diff-patch/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "0121e85a0b49e67a23d071647749e713265272df",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/environment/Dockerfile",
+      "size_bytes": 257,
+      "blob_id": "b121bd5dce34a923146126394377bacd986b9571",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/instruction.md",
+      "size_bytes": 1356,
+      "blob_id": "7e855cede7b13157abaa2533d6602669d98f9359",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/solution/solution.patch",
+      "size_bytes": 17947,
+      "blob_id": "28bb587d2092b38e2d6920bc3c4258ce008d2afa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/task.toml",
+      "size_bytes": 951,
+      "blob_id": "e2caf56bee3b79fb23af695c178bb497b06d7653",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/tests/test.patch",
+      "size_bytes": 25792,
+      "blob_id": "740be1bbd058bee1d0a3f0e5635ac6227e03c77b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/expr-try-catch-errors/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "37e7bd8d66b7c313bb930e8c05370bd16bc8608d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/environment/Dockerfile",
+      "size_bytes": 893,
+      "blob_id": "cf744d64456595e48cc8710d5d84f7968e4ddc07",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/instruction.md",
+      "size_bytes": 2972,
+      "blob_id": "88db4d42216a6e200944141ab57bcf5cced0f9c4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/solution/solution.patch",
+      "size_bytes": 45447,
+      "blob_id": "3cb57d741684e0b0c53b6aed84200d1b4bdf01f3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/task.toml",
+      "size_bytes": 1066,
+      "blob_id": "b78ea8520d3393bdde671932b30f1b57f9255ba7",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/tests/test.patch",
+      "size_bytes": 87897,
+      "blob_id": "b2905aa472c7784e714b7e0c7835bec3bc78c87f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-deprecation-response-headers/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "8566fb1acf385142f1de5c869043e5766f14eb94",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/environment/Dockerfile",
+      "size_bytes": 946,
+      "blob_id": "ae927eb94f061cd775a89daa20b70f5db65eb891",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/instruction.md",
+      "size_bytes": 1602,
+      "blob_id": "6af46ba27114227f37e7b8cfbd47e17e130fbbab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/solution/solution.patch",
+      "size_bytes": 50192,
+      "blob_id": "683f421022dfa110c618a4e85169c57ea0551585",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/task.toml",
+      "size_bytes": 1087,
+      "blob_id": "9680265456082182395d7bf7d87a5f0a9f834f65",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/tests/test.patch",
+      "size_bytes": 25852,
+      "blob_id": "a29477a3c4f0a5ddb2e7717645589c7fd544f3da",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fastapi-implicit-head-options/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "8566fb1acf385142f1de5c869043e5766f14eb94",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/environment/Dockerfile",
+      "size_bytes": 262,
+      "blob_id": "9f09d60e6007c0d5ee195af26dbce6e065004105",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/instruction.md",
+      "size_bytes": 3483,
+      "blob_id": "7dac8d4fe6ee31a804bcd59be17bbf7d2286b22b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/solution/solution.patch",
+      "size_bytes": 26288,
+      "blob_id": "db6d2d33a71bfa55a465a85c89024f0d32c9d30d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/task.toml",
+      "size_bytes": 1015,
+      "blob_id": "b26f2b7ca7335bb1c1e983bc604523b048337cef",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/tests/test.patch",
+      "size_bytes": 22780,
+      "blob_id": "da5ffc59aae9c5126a14044e6dbb8682af5c1b50",
+      "lfs": null
+    },
+    {
+      "path": "tasks/fd-deterministic-multi-key-sorting/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "6efbe9050fa86b937c780ac81dd2f309763c9512",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/environment/Dockerfile",
+      "size_bytes": 257,
+      "blob_id": "c0a9a67a2d0047af2b6c2af99a0cb6d1598a388c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/instruction.md",
+      "size_bytes": 684,
+      "blob_id": "91345a093d4b1258cfcf635a7fe34cfd68345629",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/solution/solution.patch",
+      "size_bytes": 14177,
+      "blob_id": "28d05246153a8ec4a993b63f3eb1534b3ec2cdc7",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/task.toml",
+      "size_bytes": 948,
+      "blob_id": "fea32a87bf6705cadb531f82ebfe6976329faad2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/tests/test.patch",
+      "size_bytes": 14870,
+      "blob_id": "e2860b65f643ff7be41f96085845041666b9820d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/geo-shapeindex-serialization/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "87401f562947065e5e64dd58a815225b3eefaaec",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/environment/Dockerfile",
+      "size_bytes": 262,
+      "blob_id": "21ffa1420e66df9c282ea3c214650501b979214c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/instruction.md",
+      "size_bytes": 1873,
+      "blob_id": "c8088dafa7a4c3be3b9317bf489957d88a725096",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/solution/solution.patch",
+      "size_bytes": 27329,
+      "blob_id": "111bc19225e1ad852e0772bfecf5595ea4266d52",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/task.toml",
+      "size_bytes": 965,
+      "blob_id": "37e69c0309f408515efc37a26800a9e966797626",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/tests/test.patch",
+      "size_bytes": 8832,
+      "blob_id": "68df8cd5e1f18f8c850dcf41f0b5b78762a9b207",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-critic-doc-link-checker/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "ef847340d30a1ccbe6edff9b42b2f3f9e1c8ec9c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/environment/Dockerfile",
+      "size_bytes": 270,
+      "blob_id": "b01c5a7800f9607c9ccb062e8edd77dfd616da23",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/instruction.md",
+      "size_bytes": 1759,
+      "blob_id": "55ff09417cea1424575226da8fb7680d1422904e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/solution/solution.patch",
+      "size_bytes": 17948,
+      "blob_id": "bb0405f82ca003b2b5d70a5899e6b1edea8eede9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/task.toml",
+      "size_bytes": 1082,
+      "blob_id": "f8f3282c79e326f8b62da36116620710be82598d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/tests/test.patch",
+      "size_bytes": 23251,
+      "blob_id": "945ec24cf86a2e25b6da0b67288d53df5ce98201",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-genai-streamed-function-args/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "f69ce158fbe37dff5ca540085a3cf93aebaad739",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/environment/Dockerfile",
+      "size_bytes": 256,
+      "blob_id": "461e6ca5faecbcbeda39aabbab874468dfe62f73",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/instruction.md",
+      "size_bytes": 1825,
+      "blob_id": "fcdbd1a2bf1dd02b393c4d112cd7a28a8d15cc0d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/solution/solution.patch",
+      "size_bytes": 30389,
+      "blob_id": "8c2161797131f18b560dbf13fcc784743aedfd3a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/task.toml",
+      "size_bytes": 980,
+      "blob_id": "932334f9c2895435777123a81a2b56107f42ad7c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/tests/test.patch",
+      "size_bytes": 27998,
+      "blob_id": "4a413f2c8dc41ed7b41ff87c658b2c9cdbf7a253",
+      "lfs": null
+    },
+    {
+      "path": "tasks/go-git-worktree-merge-conflicts/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "bc315e602d08b743f98b8250525ff1a2aea3c584",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/environment/Dockerfile",
+      "size_bytes": 1049,
+      "blob_id": "b8f3565ffc86bd754232f109e7331f5967f6dbc5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/instruction.md",
+      "size_bytes": 1698,
+      "blob_id": "a991e73f163f4b7069ea35e8ca3c863c20301e35",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/solution/solution.patch",
+      "size_bytes": 22072,
+      "blob_id": "d7b48de42db9dc1d8fb9b7a7ad595b148ec5f305",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/task.toml",
+      "size_bytes": 1043,
+      "blob_id": "200221d74f4d7ee425ef9221e6ecb86d4566c4f6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/tests/test.patch",
+      "size_bytes": 41525,
+      "blob_id": "865ae16b97de95d1a2a47b74208d38fb295bc360",
+      "lfs": null
+    },
+    {
+      "path": "tasks/goreleaser-retry-publish-auditing/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "8e150b7070408f0117bc3f7df83e634b6fe3fc05",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/environment/Dockerfile",
+      "size_bytes": 310,
+      "blob_id": "93584d4421172224c981dc0bb9d861ae0abbc77b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/instruction.md",
+      "size_bytes": 1458,
+      "blob_id": "9d235b1ef7336d1c898470308614941c686fe49d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/solution/solution.patch",
+      "size_bytes": 24744,
+      "blob_id": "210052c2eef0074bb867cea7083cc1551459b405",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/task.toml",
+      "size_bytes": 1052,
+      "blob_id": "eec32f5b94138b287946bdb3bde2481f399991b1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/tests/test.patch",
+      "size_bytes": 21358,
+      "blob_id": "d5170b6d6a3238d578fc5137dcddd639b22431fb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/gql-incremental-graphql-delivery/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "85417db0e93940e259023ec2e3059adb5fc7fa0c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/environment/Dockerfile",
+      "size_bytes": 295,
+      "blob_id": "1bde098da4fb84ec4ac4071cabc00dcbbac47298",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/instruction.md",
+      "size_bytes": 665,
+      "blob_id": "f1359ff040c3ca5b4ca8a1813106d9f75e03a63f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/solution/solution.patch",
+      "size_bytes": 32667,
+      "blob_id": "3fd14639ef45fce0fe0d61bc8245b5eabef83ee5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/task.toml",
+      "size_bytes": 1044,
+      "blob_id": "70612d323126136b5241a9d22820dc996ec2a952",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/tests/test.patch",
+      "size_bytes": 9170,
+      "blob_id": "7b885330baa3412a3d8ce97309a340256b2369a3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-abort-pending-body-reads/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "7464f8926b36a892da713c6be3adf6c9be0a3db0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/environment/Dockerfile",
+      "size_bytes": 295,
+      "blob_id": "1bde098da4fb84ec4ac4071cabc00dcbbac47298",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/instruction.md",
+      "size_bytes": 1443,
+      "blob_id": "d469c5747761d1833952a091df0a3196ce3fc0c8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/solution/solution.patch",
+      "size_bytes": 25378,
+      "blob_id": "cdb2db2d8d1b005ded110779690bd4b771142b29",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/task.toml",
+      "size_bytes": 1074,
+      "blob_id": "5bb13e1d06a7ace18c88cd371d1f8c0b6d312ce1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/tests/test.patch",
+      "size_bytes": 9230,
+      "blob_id": "3418defa3b058bf208b55cacfbae6947115a88ab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/happy-dom-deterministic-intersectionobserver/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "7464f8926b36a892da713c6be3adf6c9be0a3db0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/environment/Dockerfile",
+      "size_bytes": 252,
+      "blob_id": "d2c4b923fc0aa6656a34775398eba17da8021599",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/instruction.md",
+      "size_bytes": 2783,
+      "blob_id": "3a4c4c5d2b86d0919a5dead0cc1c0d44e640a441",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/solution/solution.patch",
+      "size_bytes": 25633,
+      "blob_id": "24366fd2abe4211b8b01c46b125e98cf5287fe28",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/task.toml",
+      "size_bytes": 1010,
+      "blob_id": "c6f365cc36e635344389dba2ef9854f73ce894cf",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/tests/test.patch",
+      "size_bytes": 50054,
+      "blob_id": "aa122b7f847202d4af17787b6ad466c628252235",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-array-merge-strategies/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "6b2ca29be948510eadd3625d4fcb08f5fd5ec035",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/environment/Dockerfile",
+      "size_bytes": 256,
+      "blob_id": "84d995defcd60c0d15286ecca15785327536799b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/instruction.md",
+      "size_bytes": 954,
+      "blob_id": "660ddeefef5afb753873903967f987051ae436d7",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/solution/solution.patch",
+      "size_bytes": 28139,
+      "blob_id": "5039d777542d085a5d820c978285e5d7c1a7f90f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/task.toml",
+      "size_bytes": 1012,
+      "blob_id": "1cafccd3da8567a35f9a7ad55d4c6591ee631376",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/tests/test.patch",
+      "size_bytes": 15074,
+      "blob_id": "f78e2073de67799c8e98aa9780817480a96b8c83",
+      "lfs": null
+    },
+    {
+      "path": "tasks/helm-unified-manifest-stream/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "6b2ca29be948510eadd3625d4fcb08f5fd5ec035",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/environment/Dockerfile",
+      "size_bytes": 285,
+      "blob_id": "f39ee44673b53d6a59dbefd29d91238143ab4d31",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/instruction.md",
+      "size_bytes": 3150,
+      "blob_id": "10fc7046b60847b038c4fa8567683f6a3f00eab5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/solution/solution.patch",
+      "size_bytes": 23099,
+      "blob_id": "69d4d6de0209ea675557bd2de1ee335a3901b8c9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/task.toml",
+      "size_bytes": 1048,
+      "blob_id": "c7463c0bcaaa4088159239f03cabba4f646a5aad",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/tests/test.patch",
+      "size_bytes": 23173,
+      "blob_id": "4c5647b164b6eede67a9438184cc4e0552d399aa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-deterministic-cookie-store/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "be8c329a7d15a351c39cf511848bd34bb6bc4741",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/environment/Dockerfile",
+      "size_bytes": 285,
+      "blob_id": "f39ee44673b53d6a59dbefd29d91238143ab4d31",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/instruction.md",
+      "size_bytes": 2112,
+      "blob_id": "3419330b5b4f4539b3e2b955d540d24e88566aa3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/solution/solution.patch",
+      "size_bytes": 23479,
+      "blob_id": "3e10c81b45367c9f99af9abeb91f44e061f497d6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/task.toml",
+      "size_bytes": 958,
+      "blob_id": "56a366b15ab048e10b63f47aa626f52e60b07d19",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/tests/test.patch",
+      "size_bytes": 16253,
+      "blob_id": "b5898fbd9590881f47f7a3958a5232d72bcd7c1f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-multipart-response-parsing/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "be8c329a7d15a351c39cf511848bd34bb6bc4741",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/environment/Dockerfile",
+      "size_bytes": 285,
+      "blob_id": "f39ee44673b53d6a59dbefd29d91238143ab4d31",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/instruction.md",
+      "size_bytes": 2532,
+      "blob_id": "3fe2503f556913f88963b80682cb799f94aaea5c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/solution/solution.patch",
+      "size_bytes": 20560,
+      "blob_id": "2f26f2cb778fdbb9d5c91fc8f018cadc8c30c9b8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/task.toml",
+      "size_bytes": 985,
+      "blob_id": "6613347a4ee009f03e6a484c3116ce0a1b3a7075",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/tests/test.patch",
+      "size_bytes": 19797,
+      "blob_id": "c1c1a8c4cf66c18f166369bdee240fb33caa380a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/httpx-streaming-json-iteration/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "be8c329a7d15a351c39cf511848bd34bb6bc4741",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/environment/Dockerfile",
+      "size_bytes": 641,
+      "blob_id": "af5fd94ac5bd5d9a97faaed3436dd83ad7754cc8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/instruction.md",
+      "size_bytes": 1559,
+      "blob_id": "c023139117f4bb7473b7260949b17c8c8c79527b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/solution/solution.patch",
+      "size_bytes": 36586,
+      "blob_id": "28df5f17ec445aeced1a5f4bc2a6014e606209e9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/task.toml",
+      "size_bytes": 1135,
+      "blob_id": "5d305e1b33a1ee553e5776072968144665b633a1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/tests/test.patch",
+      "size_bytes": 30118,
+      "blob_id": "7931907ce84a6c014777c850bd36283abf8da8e9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/igel-persist-feature-schema/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "231f54b759b5c6761a94817a4d685f3e518ceded",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/environment/Dockerfile",
+      "size_bytes": 498,
+      "blob_id": "0467c60f5620093405d26b4511e867f470516f26",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/instruction.md",
+      "size_bytes": 841,
+      "blob_id": "5a22e7f1bf7c96d8fc58dd6f3c2fc023060c29dd",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/solution/solution.patch",
+      "size_bytes": 15462,
+      "blob_id": "12374f574c5b472f2525fe82d199432969df31fd",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/task.toml",
+      "size_bytes": 1012,
+      "blob_id": "ec54f72461cba898cf1bc60637e68ce52c186938",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/tests/test.patch",
+      "size_bytes": 12689,
+      "blob_id": "800bd6e36aba0a3ee1bee3ae4fa2441318e252cb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ink-grid-box-layout/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1e30de1169779b964c38b6e91588ae011956ff73",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/environment/Dockerfile",
+      "size_bytes": 267,
+      "blob_id": "f12f8423c2bb7f2b5071a700ac09a024e0bb09b9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/instruction.md",
+      "size_bytes": 3590,
+      "blob_id": "eedf8bc24763ac789427596545a3e7f5c2a1ecb7",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/solution/solution.patch",
+      "size_bytes": 22076,
+      "blob_id": "206e8c4ce6be8de1cbee3bc7edb3a9e56bc90293",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/task.toml",
+      "size_bytes": 989,
+      "blob_id": "ea5e4b71a5b9955de56a221f39a21c106b03f680",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/tests/test.patch",
+      "size_bytes": 17067,
+      "blob_id": "8d7db22326e148e5dc95dd6842d08f7281a9d196",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ipython-session-bundle-replay/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "4b28fe02d6a0b0863416fb68ac58a2863ad6c899",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/environment/Dockerfile",
+      "size_bytes": 283,
+      "blob_id": "4215edca9a9772e6a60f8eac8f9be07c0f755856",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/instruction.md",
+      "size_bytes": 683,
+      "blob_id": "0c44eddfedfd328b15e7ba5a9962506bb2731d4e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/solution/solution.patch",
+      "size_bytes": 24907,
+      "blob_id": "ea347375a6d69618c69ee9d8c63e524a8e8d910d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/task.toml",
+      "size_bytes": 1028,
+      "blob_id": "fdadb5096e10a31485ae46ba0d8cc72a83ede0c9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/tests/test.patch",
+      "size_bytes": 33383,
+      "blob_id": "fd88b32a3ca135c24fad43d95de5be35d113f161",
+      "lfs": null
+    },
+    {
+      "path": "tasks/katex-multicolumn-array-spans/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "f214af94c66cba4cd3cab0722ac3f9e46619c688",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/environment/Dockerfile",
+      "size_bytes": 256,
+      "blob_id": "6e51e7fd02b96ffa26a5b6f736d7076097e0e332",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/instruction.md",
+      "size_bytes": 2367,
+      "blob_id": "11c369f9f5597151444844d2edc0051183564127",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/solution/solution.patch",
+      "size_bytes": 25249,
+      "blob_id": "06807a46377c80719ce284341838670466bbb8d6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/task.toml",
+      "size_bytes": 1022,
+      "blob_id": "87cdbc054772d2a4e0482b1f9b7fd91d057e141c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/tests/test.patch",
+      "size_bytes": 47804,
+      "blob_id": "eb02237a0ba4ef15e7af33b16ed932a71d9e04a6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kcp-go-multiplexed-kcp-streams/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "c250d2e43d8c7c6cc6b18e1af796263c5a5af73c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/environment/Dockerfile",
+      "size_bytes": 284,
+      "blob_id": "3341b1afbc63c43bdcfb136b0e1c3f946f5f8f67",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/instruction.md",
+      "size_bytes": 3376,
+      "blob_id": "cd3d4bf6bf993b2faf25405beb1f0792966f7ab8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/solution/solution.patch",
+      "size_bytes": 32664,
+      "blob_id": "1855a6890450384a36409985cf75683a5ce6fe13",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/task.toml",
+      "size_bytes": 1022,
+      "blob_id": "b7fd34faae037f8a6da09c8c28fb52e78e26bd90",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/tests/test.patch",
+      "size_bytes": 17180,
+      "blob_id": "ec9a3b739e4af19d92a63c5a03d5afd6200d3ced",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kea-atomic-signal-selectors/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "296c3820039e2c12f41c68cf8087b7ad1d4e9199",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/environment/Dockerfile",
+      "size_bytes": 268,
+      "blob_id": "13bad51fd5a3430a27581c5ee0c350d10dfdaa49",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/instruction.md",
+      "size_bytes": 2181,
+      "blob_id": "9e1ce5c672556487eea4b9d77f5c5863037f79c6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/solution/solution.patch",
+      "size_bytes": 46083,
+      "blob_id": "b688ed4aecafacc3c4af31846f0dc1c91b4d7c8d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/task.toml",
+      "size_bytes": 1048,
+      "blob_id": "1c764f2dc7be9c280b7bfb9db1688f92718e655b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/tests/test.patch",
+      "size_bytes": 34283,
+      "blob_id": "e40a10353e95d3cdcd824777fe01a9ac5d1e2e1d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kgateway-consistent-hash-policy/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "9dac45af3b6f44e440a63d3fc498848b1edcfe09",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/environment/Dockerfile",
+      "size_bytes": 382,
+      "blob_id": "e8a6de3b8ac0a129b2d9fecfe1d3dbaf14d312a3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/instruction.md",
+      "size_bytes": 4265,
+      "blob_id": "68f634ad178cd4d3fa5935e1a1b7967e0fd0d4d6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/solution/solution.patch",
+      "size_bytes": 27810,
+      "blob_id": "04f64acd4cc0f7fa4c8caa8b6cd2133908ff1332",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/task.toml",
+      "size_bytes": 1105,
+      "blob_id": "244e4666ddc03b6ed2faea02056eefab2ffd3031",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/tests/test.patch",
+      "size_bytes": 52113,
+      "blob_id": "590ea2e0d013207c05b0b18638c22c4f50995f0c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-single-active-consumer-priority/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "8132b1c541af3d9448c11229daa0a4b995f0a10a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/environment/Dockerfile",
+      "size_bytes": 372,
+      "blob_id": "2aed7d17a8056f46283402532bcef904736c95d5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/instruction.md",
+      "size_bytes": 4383,
+      "blob_id": "9d30b15abd6b16e05cc879ba80861d894751f231",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/solution/solution.patch",
+      "size_bytes": 36840,
+      "blob_id": "522d79d74ec17472390f454ebca46a0114db8ad5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/task.toml",
+      "size_bytes": 1037,
+      "blob_id": "1892ad48e590331cd3254d8389ed3d311087d391",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/tests/test.patch",
+      "size_bytes": 36045,
+      "blob_id": "976170eb2050dd8c2ed41c231425636f152f1a23",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kombu-virtual-queue-dead-lettering/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "8132b1c541af3d9448c11229daa0a4b995f0a10a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/environment/Dockerfile",
+      "size_bytes": 300,
+      "blob_id": "ba6704c0608a99f6843aaf5a863f336a996eed51",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/instruction.md",
+      "size_bytes": 1508,
+      "blob_id": "bb7ce163dd2187632eea814c7aa6826a13149391",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/solution/solution.patch",
+      "size_bytes": 52489,
+      "blob_id": "604a611cfebd6950ca817e3b6db02d9b96131009",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/task.toml",
+      "size_bytes": 995,
+      "blob_id": "201099be8aa419bf8393ce41c4369159b40a87b0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/tests/test.patch",
+      "size_bytes": 20584,
+      "blob_id": "f48d7a24f44e182954a595cd41980bd65ae7263b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-composite-trait-aspects/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "29cf361323aefef9ec4ce284501734aa382045c2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/environment/Dockerfile",
+      "size_bytes": 300,
+      "blob_id": "e309f4a8d0da097aeae685af3fca52aa172b6750",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/instruction.md",
+      "size_bytes": 932,
+      "blob_id": "a95a38670c2e70651230596d9d26f7a0af787893",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/solution/solution.patch",
+      "size_bytes": 53707,
+      "blob_id": "db51cdfd9e6c7f2b34482a1d3705c0093f32d1ca",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/task.toml",
+      "size_bytes": 1016,
+      "blob_id": "2aae9ae226f1914bfb73cb501bbc0125a70b010b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/tests/test.patch",
+      "size_bytes": 42750,
+      "blob_id": "93ecaabe32b93cd816785bf11dc2f13298541025",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-deferred-mutation-buffer/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1a9c0250dc076ce7e9a4c948152779be71ef5157",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/environment/Dockerfile",
+      "size_bytes": 299,
+      "blob_id": "20644a546e7160018ca70f87e6f2f224a982bb2b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/instruction.md",
+      "size_bytes": 2387,
+      "blob_id": "ccc9186f94f2cf6a1a4aa69b0eaa6885d4087b74",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/solution/solution.patch",
+      "size_bytes": 21399,
+      "blob_id": "a532ed29f20a40ede9217bcb844d70bfe0a4cdbb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/task.toml",
+      "size_bytes": 1007,
+      "blob_id": "40a8fb9d2d50d7fbc68adcec14707ae52863b2d5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/tests/test.patch",
+      "size_bytes": 51810,
+      "blob_id": "6c017ce4f8492e3c40b76adab2cdbb2629d05b0f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-entity-snapshot-rollback/tests/test.sh",
+      "size_bytes": 3867,
+      "blob_id": "8db7293cce4d25234a65f3187fadf50a077922c4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/environment/Dockerfile",
+      "size_bytes": 300,
+      "blob_id": "ba6704c0608a99f6843aaf5a863f336a996eed51",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/instruction.md",
+      "size_bytes": 981,
+      "blob_id": "7e1cd5f60a7dc151dd6d99453313b827c97d3a2b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/solution/solution.patch",
+      "size_bytes": 43968,
+      "blob_id": "03bc8a52af18d96eca81960ab22fbd59366b5f7a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/task.toml",
+      "size_bytes": 1011,
+      "blob_id": "34ff57a6181b90e84264336ee74774e70d1a89e4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/tests/test.patch",
+      "size_bytes": 18640,
+      "blob_id": "09e929f163d1c9e075ccb69f2f9b3b59b4c8045e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-pair-relation-tracking/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "29cf361323aefef9ec4ce284501734aa382045c2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/environment/Dockerfile",
+      "size_bytes": 300,
+      "blob_id": "ba6704c0608a99f6843aaf5a863f336a996eed51",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/instruction.md",
+      "size_bytes": 859,
+      "blob_id": "58319cb704a6a11d769f61770fdc8ed4b6795345",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/solution/solution.patch",
+      "size_bytes": 53566,
+      "blob_id": "b92d352670a3b7a68cc9b4a2ba1ec19a1c204f7d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/task.toml",
+      "size_bytes": 951,
+      "blob_id": "3f2d2026ace0acec301c98d76b05dcdd6c803677",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/tests/test.patch",
+      "size_bytes": 20238,
+      "blob_id": "610b6b4468504bde7bd3f1cce95ea4ee1c579bc5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/koota-query-predicates/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "29cf361323aefef9ec4ce284501734aa382045c2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/environment/Dockerfile",
+      "size_bytes": 279,
+      "blob_id": "713d3b277a9b79a0e3db4149be96f8dd92cc456b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/instruction.md",
+      "size_bytes": 2633,
+      "blob_id": "0d9e33008782234526f098114cccc4c0c81cd1d9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/solution/solution.patch",
+      "size_bytes": 37158,
+      "blob_id": "0374bbdcf6e62cbb3a1a43b4166834a41ac3797d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/task.toml",
+      "size_bytes": 1070,
+      "blob_id": "fa2b225c72750b84c27f25947798e1c3dcc6b303",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/tests/test.patch",
+      "size_bytes": 41416,
+      "blob_id": "b5c65856d7a6c863e8ea3608046a671619902755",
+      "lfs": null
+    },
+    {
+      "path": "tasks/kysely-window-grouping-helpers/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "c8c9c1165fe4db76a19cad6c85e46791dda0a36c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/environment/Dockerfile",
+      "size_bytes": 732,
+      "blob_id": "fb7acc36d6b435d5f4c783cf81755a21ac3bf3f6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/instruction.md",
+      "size_bytes": 1691,
+      "blob_id": "b4bf3a90d152f91d533d66624cb464f4c3b915d0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/solution/solution.patch",
+      "size_bytes": 28652,
+      "blob_id": "6b190eadce30ea836e22904c5ce62306783ba1ad",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/task.toml",
+      "size_bytes": 992,
+      "blob_id": "fbda3232f67e556b67b2a304db3c598bfbceabb2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/tests/test.patch",
+      "size_bytes": 30635,
+      "blob_id": "e7b28c5fc4b288494e77f3e94fa922d2f8561a2d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/langchain-request-coalescing/tests/test.sh",
+      "size_bytes": 3835,
+      "blob_id": "3cfe4bbab9010be9fb0ca114089607a36da7c226",
+      "lfs": null
+    },
+    {
+      "path": "tasks/manifest.json",
+      "size_bytes": 65091,
+      "blob_id": "44398488f0ce506d7c19877b424504ca6bcf05c2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/manifest.schema.json",
+      "size_bytes": 1944,
+      "blob_id": "ee1f38c82d26d14e0fc6deca5ca17a48775e0d4e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/environment/Dockerfile",
+      "size_bytes": 290,
+      "blob_id": "e5c45b828aa41ac3ea7add05f17e4ad189d4661e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/instruction.md",
+      "size_bytes": 471,
+      "blob_id": "b1d41b0f0bda7c3395b9af624033afb449b1ff20",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/solution/solution.patch",
+      "size_bytes": 25811,
+      "blob_id": "c4eafac974a4cfd710b3d917981f08e4a738cd8b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/task.toml",
+      "size_bytes": 1040,
+      "blob_id": "f367857697423eb2cc6f71662c7d037946b4058f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/tests/test.patch",
+      "size_bytes": 61945,
+      "blob_id": "a2435cc5e3eb0eae7d763224b110108279fb7009",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mashumaro-flattened-dataclass-fields/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1738189e2d4e4b06401e2c981b0781b7e668f9f4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/environment/Dockerfile",
+      "size_bytes": 302,
+      "blob_id": "252c1bb961667d197dc2af901ab1216d480c8d3f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/instruction.md",
+      "size_bytes": 1256,
+      "blob_id": "63192f4cf3d14bb369362c760118723aa9cb1847",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/solution/solution.patch",
+      "size_bytes": 25420,
+      "blob_id": "473cfa4a49a0db64acbbd3e0a1000290637ccebb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/task.toml",
+      "size_bytes": 1045,
+      "blob_id": "85c85db82dcbc97e7ad8004002003cc625ce8a59",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/tests/test.patch",
+      "size_bytes": 21038,
+      "blob_id": "e62d04a739f33e8587034bd5097456c7325c81db",
+      "lfs": null
+    },
+    {
+      "path": "tasks/meriyah-explicit-resource-declarations/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "f276570940704e9f1cad8203dbcdcc0773c01db9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/environment/Dockerfile",
+      "size_bytes": 700,
+      "blob_id": "5ebdd61ee24e71abc0d8a09ec17f671debdbc76f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/instruction.md",
+      "size_bytes": 2839,
+      "blob_id": "df4624ba1883cd17a778c56e4742ebe887b35736",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/solution/solution.patch",
+      "size_bytes": 24855,
+      "blob_id": "709004b72a42f3190c897bc167ef149ecaf01427",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/task.toml",
+      "size_bytes": 1044,
+      "blob_id": "61a5c628edbfe65e97f730ceb4b43caed59b8564",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/tests/test.patch",
+      "size_bytes": 51562,
+      "blob_id": "772a1f7a6a864a49e5b7c8b2f44a06ee37a5618e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mnamer-daemon-watch-lifecycle/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "027f8cc326ede0f06350a1c62b03913f99dc4734",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/environment/Dockerfile",
+      "size_bytes": 345,
+      "blob_id": "36e07b26d542bcd6cfed608fa37ca9d2c721cdb8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/instruction.md",
+      "size_bytes": 2518,
+      "blob_id": "5f084d27abc8935ceed6e89c5b5616a12231008e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/solution/solution.patch",
+      "size_bytes": 29187,
+      "blob_id": "4e265a08c04768209a51fcf7b11a6242d44b7bc3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/task.toml",
+      "size_bytes": 1002,
+      "blob_id": "da9ebcac5bd723d94793e2bd59bafef4b10a6bd1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/tests/test.patch",
+      "size_bytes": 91153,
+      "blob_id": "152f7073681f8197533c4c81ad283247f42a8b81",
+      "lfs": null
+    },
+    {
+      "path": "tasks/mobly-grouped-test-barriers/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "f48c3f01be1d5b7bd837e202319e4a9b3008ca22",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/environment/Dockerfile",
+      "size_bytes": 826,
+      "blob_id": "5d9daba1b89b365b49256869ab776f851f54c2df",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/instruction.md",
+      "size_bytes": 2140,
+      "blob_id": "d4aa0d043b89b89af613f56f50d91be799c01ab1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/solution/solution.patch",
+      "size_bytes": 39069,
+      "blob_id": "45b02d6e94c83b3e570ad646411edfb265f9188b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/task.toml",
+      "size_bytes": 1020,
+      "blob_id": "aaa8e3bbc02c88b3a554ba328c5e7256d1fc744a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/tests/test.patch",
+      "size_bytes": 21215,
+      "blob_id": "d3c18ced4a69b921054b4a79a3ff5737e42e9a7f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/narwhals-rolling-window-suite/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "5a13b18a2cf7e9790349f8074240b967fe5816b8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/environment/Dockerfile",
+      "size_bytes": 500,
+      "blob_id": "467ff7b7323952924cf8f900967d962730b8778b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/instruction.md",
+      "size_bytes": 797,
+      "blob_id": "89c4a5216f4a81038ddaf18b5bfcdbc1908db0e5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/solution/solution.patch",
+      "size_bytes": 47524,
+      "blob_id": "d48f7af4813b63e1dc25a3419e2fe3844692453c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/task.toml",
+      "size_bytes": 944,
+      "blob_id": "a83005451756a6b86601ad03d54d5544d21daa33",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/tests/test.patch",
+      "size_bytes": 17565,
+      "blob_id": "57a296ce508e821dd233b61c7fd764edae1e0f8d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/numba-stencil-boundary-modes/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "6e3cecb3d093cf22977ff887b0e8736b6d276c21",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/environment/Dockerfile",
+      "size_bytes": 289,
+      "blob_id": "31ed673d63f5013b2cda07703d23c163cebdf5ac",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/instruction.md",
+      "size_bytes": 1459,
+      "blob_id": "dc2b05b22315ad60bd5eb1a1663068c247b870bb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/solution/solution.patch",
+      "size_bytes": 20369,
+      "blob_id": "91d03dd783fa518406713b2f3f922b88a32f39dd",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/task.toml",
+      "size_bytes": 1022,
+      "blob_id": "1aac3a1c05c57c8aa0a8d3609f369adc52f9f3d3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/tests/test.patch",
+      "size_bytes": 24763,
+      "blob_id": "916760aff91d83b71d422c2aad42e8cc0af4cdcb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-auto-table-of-contents/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3459e48a16c7ca2732b75f699b1b414d5a18c8f0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/environment/Dockerfile",
+      "size_bytes": 289,
+      "blob_id": "31ed673d63f5013b2cda07703d23c163cebdf5ac",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/instruction.md",
+      "size_bytes": 2097,
+      "blob_id": "6d436ebfeaaa3b93d5212521fdda9277375f0e10",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/solution/solution.patch",
+      "size_bytes": 21727,
+      "blob_id": "0f318403745a2214d30f760a8f1948798c461a3f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/task.toml",
+      "size_bytes": 1064,
+      "blob_id": "50571cc1e2c91aa59ed6eb9d8ffb0ae0dbdbf311",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/tests/test.patch",
+      "size_bytes": 24834,
+      "blob_id": "43b34a1ed445bdaed84424eb2f6eecb6664b275e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-link-format-conversion/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3459e48a16c7ca2732b75f699b1b414d5a18c8f0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/environment/Dockerfile",
+      "size_bytes": 289,
+      "blob_id": "31ed673d63f5013b2cda07703d23c163cebdf5ac",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/instruction.md",
+      "size_bytes": 2142,
+      "blob_id": "20de0def70706ae777f50cdcdb1063ebf179b8ba",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/solution/solution.patch",
+      "size_bytes": 35747,
+      "blob_id": "87f90caeacd95ebfc1e900dfda8a4eb2e9ff11cb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/task.toml",
+      "size_bytes": 1036,
+      "blob_id": "eae79edea0d8ccf8f1b075664dab97b5ad6f0b5c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/tests/test.patch",
+      "size_bytes": 34080,
+      "blob_id": "25df6e32fccdbc1581852b5a27dd26045227c086",
+      "lfs": null
+    },
+    {
+      "path": "tasks/obsidian-linter-scoped-ignore-markers/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3459e48a16c7ca2732b75f699b1b414d5a18c8f0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/environment/Dockerfile",
+      "size_bytes": 301,
+      "blob_id": "de3959e11f232823d402663146f52058b59e19e8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/instruction.md",
+      "size_bytes": 3376,
+      "blob_id": "301ff6bf729fa08fb53188c484e4889a35af06da",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/solution/solution.patch",
+      "size_bytes": 21330,
+      "blob_id": "be04b9186d0ed79c76f66de86439dffd3a4d5d73",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/task.toml",
+      "size_bytes": 1034,
+      "blob_id": "f2c783291345b8b133bef5080a5e1cc08388769f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/tests/test.patch",
+      "size_bytes": 59163,
+      "blob_id": "1605af07a0ab5d02f6c64fd7245d594b9e3db912",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ofetch-per-origin-circuit-breaker/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "11686e0da387a54103910d76f2fe054a479eac54",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/environment/Dockerfile",
+      "size_bytes": 264,
+      "blob_id": "a6220edbde74b1fb28645aedb834208636e38ba9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/instruction.md",
+      "size_bytes": 2449,
+      "blob_id": "14e56b826822062b1b2e31736a27056bee15d5f8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/solution/solution.patch",
+      "size_bytes": 21333,
+      "blob_id": "1858022f4d6fe0761e1a42d03ba833f62c8eae9b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/task.toml",
+      "size_bytes": 1055,
+      "blob_id": "75c9ad3bfe5b85dcddb0b48f6c9943569d19cd1b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/tests/test.patch",
+      "size_bytes": 28618,
+      "blob_id": "03951342ce42f0275fed18041af2e98ceaa1ea18",
+      "lfs": null
+    },
+    {
+      "path": "tasks/onedump-dump-encryption-pipeline/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "33635cadfc6b9c32338ebca6b37b93db3180362b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/environment/Dockerfile",
+      "size_bytes": 319,
+      "blob_id": "8eb4f243f41c334d43b85981067c4f24c2b7dabf",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/instruction.md",
+      "size_bytes": 2849,
+      "blob_id": "9b4eac02ac8476b5b383867cb151eb675e16b94d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/solution/solution.patch",
+      "size_bytes": 16261,
+      "blob_id": "0cb8e02538e4f6e8450d45b7b862b20a8eeb8083",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/task.toml",
+      "size_bytes": 978,
+      "blob_id": "f248c14f1c4671dae4fbd377960b6e73b109a957",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/tests/test.patch",
+      "size_bytes": 33616,
+      "blob_id": "4812786e80dd08ad3eb7494cf78e0c084780efa7",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-rego-rule-profiling/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "e8a83865e51072a62a2b6ea4369b073354ab5337",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/environment/Dockerfile",
+      "size_bytes": 290,
+      "blob_id": "65a906e888ff71f8a250ecd4c6288cb8fd02500b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/instruction.md",
+      "size_bytes": 1042,
+      "blob_id": "1a9e1bf4a798e6dae1519afee691f53da0662037",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/solution/solution.patch",
+      "size_bytes": 14515,
+      "blob_id": "66b9d510494ad090ad80fdcf24af8e250a2b34b4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/task.toml",
+      "size_bytes": 1038,
+      "blob_id": "a422d8efe02f66733fb2a9f2c1f9acbe1ed45668",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/tests/test.patch",
+      "size_bytes": 8081,
+      "blob_id": "7ef36aad6fedaacfb5e343d88a2a48cca65934c8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/opa-template-string-reconstruction/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "e8a83865e51072a62a2b6ea4369b073354ab5337",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/environment/Dockerfile",
+      "size_bytes": 254,
+      "blob_id": "20a6b178b5842febbbb90dfbf765feb47ffadaff",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/instruction.md",
+      "size_bytes": 2991,
+      "blob_id": "73dffc2db5f5999f956f71dec696c9a2db871b27",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/solution/solution.patch",
+      "size_bytes": 31946,
+      "blob_id": "635371137f6dcad96cc22b48f41beb58b37c11ce",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/task.toml",
+      "size_bytes": 1008,
+      "blob_id": "f84beb3876ad8ae352f9eec025de1d55b1dea778",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/tests/test.patch",
+      "size_bytes": 21982,
+      "blob_id": "b7a7972849137468504a7a12a2f25cbed6add6ff",
+      "lfs": null
+    },
+    {
+      "path": "tasks/optique-conditional-option-dependencies/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "d6c9b7540a2fb5657e97935998d54e05cee6d881",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/environment/Dockerfile",
+      "size_bytes": 256,
+      "blob_id": "c8255f13755e55bd8f39bb0aa740077e3d60d347",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/instruction.md",
+      "size_bytes": 757,
+      "blob_id": "fdc098eb5ee87c5c34c30c197979560e3f0921e3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/solution/solution.patch",
+      "size_bytes": 28798,
+      "blob_id": "b5275f8eaea2746bc971f0c3a537d2211993715d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/task.toml",
+      "size_bytes": 1010,
+      "blob_id": "cae92a9fa4db6760f37090f4664ab2c5d1f78638",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/tests/test.patch",
+      "size_bytes": 9556,
+      "blob_id": "135f93cef831cfdb5f86f2f2c335b932dd23dd91",
+      "lfs": null
+    },
+    {
+      "path": "tasks/oxvg-structural-selector-preservation/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "25fd0c78dfa7310c94b6b6ac8d00c1450ddd7446",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/environment/Dockerfile",
+      "size_bytes": 268,
+      "blob_id": "ff3643c855121b48cd21426c62b9ad4d3228e76f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/instruction.md",
+      "size_bytes": 2991,
+      "blob_id": "741fd8787aef813883a6db36dc24af27146056ac",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/solution/solution.patch",
+      "size_bytes": 20755,
+      "blob_id": "294b5ed7106bd15ecd526833356ad32cdb6af260",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/task.toml",
+      "size_bytes": 1010,
+      "blob_id": "6bd22fe4ed29b7cdd94f2face3295999c13ff46e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/tests/test.patch",
+      "size_bytes": 45815,
+      "blob_id": "cd1ba2946236ef30112e4e3c3799ff31bd29168b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/participle-grammar-conflict-analysis/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "bd5e0fba9510d1ee1d4a1bc0a1e84f195aefb513",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/environment/Dockerfile",
+      "size_bytes": 260,
+      "blob_id": "de950512a349938a129a2649700bee0d8f398aeb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/instruction.md",
+      "size_bytes": 2660,
+      "blob_id": "f66da8939ac0dae1316a7ed3ed4cb13a69dacf81",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/solution/solution.patch",
+      "size_bytes": 29666,
+      "blob_id": "4c16c0c943bb85ada88185659caacdc394930462",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/task.toml",
+      "size_bytes": 1043,
+      "blob_id": "5abc301338b5f349a2d814162d83f8040cf0f570",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/tests/test.patch",
+      "size_bytes": 51124,
+      "blob_id": "d131f4e2e2937c6dc15da259969b3f1f7bbe64f5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pebble-durability-wait-apis/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "68028e4b9c5819fa6c7448e83f5a5559f6d8f16a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/environment/Dockerfile",
+      "size_bytes": 295,
+      "blob_id": "89339e990a559f510e1a98f6c79eea9700434613",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/instruction.md",
+      "size_bytes": 1146,
+      "blob_id": "16e067b9f0516c401ce060836985296133966c22",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/solution/solution.patch",
+      "size_bytes": 19777,
+      "blob_id": "483b2c19085bb5c3d5411685378aef789d7f0f1b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/task.toml",
+      "size_bytes": 1005,
+      "blob_id": "3b7ed2e6fd4a5a6f7d1a47590c13425d7cd50a92",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/tests/test.patch",
+      "size_bytes": 33609,
+      "blob_id": "9bbc9b2906f92c3b7cd7dffa8784a35a76949769",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pest-character-class-coalescing/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "b285d063e8648a23e48ec82ed7248b10cc4f1ed9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/environment/Dockerfile",
+      "size_bytes": 334,
+      "blob_id": "68cc21e76b49c6607e64481ac03b5f3b02909854",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/instruction.md",
+      "size_bytes": 1841,
+      "blob_id": "210305ff51a8d2938b76a0fd62b5a26d86b8c962",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/solution/solution.patch",
+      "size_bytes": 36915,
+      "blob_id": "d4e3e5622fc8d0bbf7b6e766f39db4ea9cabd3ef",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/task.toml",
+      "size_bytes": 1085,
+      "blob_id": "86b6787ce8aa87d397dff2df9dfbefb397f47ed9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/tests/test.patch",
+      "size_bytes": 44164,
+      "blob_id": "7d7bf9f5a5d74d8fff8a4a192e654eaf6cc3b603",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-transactional-reload-status/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "ee85495a8a56947ac2ae82ec35ed5c75f45a246c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/environment/Dockerfile",
+      "size_bytes": 267,
+      "blob_id": "78493bf99cf61aec08e6f3274b2ac5b02317f553",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/instruction.md",
+      "size_bytes": 1529,
+      "blob_id": "c3a99cdb42a8bb544305f575f3f0ccdf72042a57",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/solution/solution.patch",
+      "size_bytes": 20732,
+      "blob_id": "092c7329018bbcd4f4903edcc57bb1dbbf137f03",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/task.toml",
+      "size_bytes": 1029,
+      "blob_id": "598c8aa42e3b137c0e84c0455813d83454ea7f3d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/tests/test.patch",
+      "size_bytes": 16360,
+      "blob_id": "12e5c31335bb869c7ed9b40d5ad3cc4d724c32ab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/prometheus-typed-label-sorting/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "1242498f9c8ce397792365b56d3ac0a4ab52cc42",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/environment/Dockerfile",
+      "size_bytes": 352,
+      "blob_id": "383e5711798a9d4fd9bc0672a29c8fc5525a5808",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/instruction.md",
+      "size_bytes": 2448,
+      "blob_id": "4a7187ffed5f4140aaeb7d117388da6f50917427",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/solution/solution.patch",
+      "size_bytes": 18829,
+      "blob_id": "ba51a976e016a63cbe2288fd836bca05cd5d5356",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/task.toml",
+      "size_bytes": 973,
+      "blob_id": "3f0b7e949ec7ed3a1bda51ff03b71bda7b441c1b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/tests/test.patch",
+      "size_bytes": 17758,
+      "blob_id": "0d597e39941f3ec0697605ca0167d44138e5b98a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/psd-tools-blend-range-api/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "834de119273f7b905e38533ec5abf9860feeaf4a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/environment/Dockerfile",
+      "size_bytes": 316,
+      "blob_id": "feda26bd4447403ba17cc0a83c6c09ceeda591c9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/instruction.md",
+      "size_bytes": 3450,
+      "blob_id": "da9d4002c2e27d0f0dd4a7ac0dbfb888a1c95b47",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/solution/solution.patch",
+      "size_bytes": 23556,
+      "blob_id": "7cdcfb2011c6f5fa377d862718d9859e91626d5d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/task.toml",
+      "size_bytes": 1001,
+      "blob_id": "940943d4fbcce926d9d5dac1c35651ebe2be5fb5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/tests/test.patch",
+      "size_bytes": 38707,
+      "blob_id": "d4767919215337ae23e37cab2379c21e64aaee2f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/pwntools-tube-multiplexing/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "6c5f17a46339c97be0df2be5f53f8cca8f456f1c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/environment/Dockerfile",
+      "size_bytes": 439,
+      "blob_id": "a77ef644d52eb3a33dc7287003b78ba15748d875",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/instruction.md",
+      "size_bytes": 1857,
+      "blob_id": "b1b47a7e007001330015f1aebdd6d226ba1b3a59",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/solution/solution.patch",
+      "size_bytes": 32725,
+      "blob_id": "193dec4edee887f8c9b5889e400722d75df25d75",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/task.toml",
+      "size_bytes": 1043,
+      "blob_id": "c69568e491ce48bbd2adc068f8af53ee4de84f8c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/tests/test.patch",
+      "size_bytes": 25849,
+      "blob_id": "ae6b774dd2d03b6f6a9f2e1a7f741cfd13d52ff1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/python-statemachine-state-data-scoping/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "d963733c2c8ae81a474f8a0a0eb36ca8f72bdcd3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/environment/Dockerfile",
+      "size_bytes": 305,
+      "blob_id": "461d0ae88a6f1b08ee8ba48cb8eebc469e764d33",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/instruction.md",
+      "size_bytes": 2835,
+      "blob_id": "b91270582c95556cf0c75036a92cb247ecf97d73",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/solution/solution.patch",
+      "size_bytes": 25615,
+      "blob_id": "50978f631280f0a8cfc590082f27f5965f901fd1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/task.toml",
+      "size_bytes": 1113,
+      "blob_id": "85a5f433f10be8b663ac298c935237f78e4f6826",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/tests/test.patch",
+      "size_bytes": 20349,
+      "blob_id": "8bbc35f4d88ea5fe07a2e85c05e2efecbb288174",
+      "lfs": null
+    },
+    {
+      "path": "tasks/query-persist-restored-query-state/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "34f833daaac519e785e19653936bdca5991fb38b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/environment/Dockerfile",
+      "size_bytes": 387,
+      "blob_id": "e7f4cfd2043d630ffe9a20d03a025c9e1ac85cfb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/instruction.md",
+      "size_bytes": 1510,
+      "blob_id": "6ca84343cc7c6a5df77a786be80ae0755a721182",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/solution/solution.patch",
+      "size_bytes": 35566,
+      "blob_id": "94d2a261547719f2dc688ce0c8630b03a7633fd5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/task.toml",
+      "size_bytes": 1059,
+      "blob_id": "cec342ebdc7a665354cb045325307e2fafbf71f4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/tests/test.patch",
+      "size_bytes": 19205,
+      "blob_id": "421c195b6f961149dfdebfd2d8cf69b8e454ad78",
+      "lfs": null
+    },
+    {
+      "path": "tasks/quill-shared-toolbar-focus/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "8be2db8d3f45d2038aea1bd8cf3539ba82d61820",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/environment/Dockerfile",
+      "size_bytes": 370,
+      "blob_id": "817aefd21585e19f6e12959de9aecabb3c160753",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/instruction.md",
+      "size_bytes": 3137,
+      "blob_id": "694c4d66be7913b61c98b09fca3e6fdb0a1d8d61",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/solution/solution.patch",
+      "size_bytes": 36040,
+      "blob_id": "6798cb4d7b2416e90dd93c3a4303bbd31bbd3eb0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/task.toml",
+      "size_bytes": 1054,
+      "blob_id": "5b9d553add3c09b923265f909b623ce39515dc57",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/tests/test.patch",
+      "size_bytes": 45757,
+      "blob_id": "00af213b8c038e6f9270a71a3d60bd909dee14fe",
+      "lfs": null
+    },
+    {
+      "path": "tasks/returns-validated-error-accumulation/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "391c6c1b7f4ca5ae958b02af0b4972a91158e174",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/environment/Dockerfile",
+      "size_bytes": 268,
+      "blob_id": "2084b5ed841894f7c6bd572c9548b9a864beb9b9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/instruction.md",
+      "size_bytes": 1916,
+      "blob_id": "ee7681fde3a4fec4c9507c87d547bf08ae7eb42c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/solution/solution.patch",
+      "size_bytes": 30058,
+      "blob_id": "fc2d9264b333e659821ea43597a229a51fbf8d70",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/task.toml",
+      "size_bytes": 993,
+      "blob_id": "bcbe439f135e7cf0e6191b36b1033faf6da42765",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/tests/test.patch",
+      "size_bytes": 27333,
+      "blob_id": "dd39bc79a93019fed216c5f3f48267e0a6c93ae0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scc-bounded-memory-spilling/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "db6611ae1c1632321d0e14292051d846f9854c57",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/environment/Dockerfile",
+      "size_bytes": 287,
+      "blob_id": "e4d15c8c11d81957adfaddbbc77fedea2eccca9e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/instruction.md",
+      "size_bytes": 958,
+      "blob_id": "f7887e8b02bd812d9164c8dbca5d150cb9332a01",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/solution/solution.patch",
+      "size_bytes": 45463,
+      "blob_id": "2d101d7e43073362b6af25cba0f53d163b73f67e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/task.toml",
+      "size_bytes": 1046,
+      "blob_id": "ca28707208aed6217aa9475c3103627dbcad2c12",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/tests/test.patch",
+      "size_bytes": 20680,
+      "blob_id": "3b6f85dc5b168c0c7b1bba3ef5b52e74acd396cb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/scriggo-method-declarations/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "353b6b25f48201453f9d1903a42284ee4dbea51d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/environment/Dockerfile",
+      "size_bytes": 353,
+      "blob_id": "480da32071954fc0a73d059ffbf4474e91113a16",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/instruction.md",
+      "size_bytes": 3348,
+      "blob_id": "5061937f75b275afb12669d9cd9009e223ebd640",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/solution/solution.patch",
+      "size_bytes": 31594,
+      "blob_id": "9b665b0bab4db8d840a03353e5e0d61dfe483c00",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/task.toml",
+      "size_bytes": 940,
+      "blob_id": "d6ce38f2e4417151591015cf067ae498031e819e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/tests/test.patch",
+      "size_bytes": 18920,
+      "blob_id": "3dfa6435b832848fd999618ec332635acd07baab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/skrub-duration-encoding/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "228eb046c0668eb491f00c962354f36f91c40ce8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/environment/Dockerfile",
+      "size_bytes": 366,
+      "blob_id": "f0fd416034ce1850d711f1f2aed97ee5dab386b7",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/instruction.md",
+      "size_bytes": 1697,
+      "blob_id": "7e39d99bc635db1bb482b4c223f0c308928da4c3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/solution/solution.patch",
+      "size_bytes": 24567,
+      "blob_id": "7636e2dd9f2d6ef797775f2f123f0af7c90cc5dc",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/task.toml",
+      "size_bytes": 1040,
+      "blob_id": "ddfa56a5a499e97d8832c76973cc68b97df4036c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/tests/test.patch",
+      "size_bytes": 9735,
+      "blob_id": "07f5e2425f3b4ca8ea5e0a7524bc601a1c577a95",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sql-formatter-bigquery-pipe-formatting/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "14bb6cd32dde8b6b1a0fea901ee2b34691ad6be4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/environment/Dockerfile",
+      "size_bytes": 583,
+      "blob_id": "25d3ded2bd95d6b9eeac537fe0d8ece8059452b9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/instruction.md",
+      "size_bytes": 2969,
+      "blob_id": "5fc45fae6ceced1e2633821919c204f1c6c47eac",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/solution/solution.patch",
+      "size_bytes": 35785,
+      "blob_id": "2d2fd37af83f0f9649c80a896676b92f56950fd4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/task.toml",
+      "size_bytes": 1025,
+      "blob_id": "597f1f8cf6023489ebdb603664fc1a628208e4ba",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/tests/test.patch",
+      "size_bytes": 70481,
+      "blob_id": "e6fb30e6eb83db14330455e25519814ae71cf9ab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlfmt-create-table-ddl-formatting/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "2e01146004d65867ee1266dcb53842341d7f8c2e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/environment/Dockerfile",
+      "size_bytes": 370,
+      "blob_id": "44ab882f5359aea1893243f64cdf166140e43046",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/instruction.md",
+      "size_bytes": 2509,
+      "blob_id": "bac786d8f6578226a37c660190ecb197b29b47d2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/solution/solution.patch",
+      "size_bytes": 36185,
+      "blob_id": "dbe9f29262648cdb8734f778e820bfbf3348bb83",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/task.toml",
+      "size_bytes": 1015,
+      "blob_id": "4823b894f641758fd914cf1378497d04146c4184",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/tests/test.patch",
+      "size_bytes": 33671,
+      "blob_id": "6ee17a29887d8e89c10a2d2fd633db2f2ad20223",
+      "lfs": null
+    },
+    {
+      "path": "tasks/sqlite-utils-safe-import-checkpoints/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "2a5a60eaaa1e34e4780f7bfd8e99a6cde5e117b8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/environment/Dockerfile",
+      "size_bytes": 275,
+      "blob_id": "299b067eee22e19092adadb4396f253700a1c2bf",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/instruction.md",
+      "size_bytes": 4061,
+      "blob_id": "a3fde350dc621bfe1167c852ce60fd11d608be12",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/solution/solution.patch",
+      "size_bytes": 22376,
+      "blob_id": "0ecb5b490041f2d59b0d141ce1265f1c24eeda83",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/task.toml",
+      "size_bytes": 1035,
+      "blob_id": "2c66e9005df9fc274c386505ba2a7e06b42a5d90",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/tests/test.patch",
+      "size_bytes": 59560,
+      "blob_id": "ae5438a75023d1fe115e92e612e2a13a713549dd",
+      "lfs": null
+    },
+    {
+      "path": "tasks/superjson-error-stack-serialization/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "bfa5ca4358f697e1e078e96b365971102d26d563",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/environment/Dockerfile",
+      "size_bytes": 255,
+      "blob_id": "83bcfcfbf26635796e0f8931577e454118b27a07",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/instruction.md",
+      "size_bytes": 2510,
+      "blob_id": "5ecbab81aa55ca84c52fa677ea7623ad7d8f2349",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/solution/solution.patch",
+      "size_bytes": 18269,
+      "blob_id": "934dfe179244c6eba425eb622882f4e10ef10666",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/task.toml",
+      "size_bytes": 1037,
+      "blob_id": "27db6d2f79f14285fa2bafd5973d296544bbdaaa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/tests/test.patch",
+      "size_bytes": 22914,
+      "blob_id": "b8fb1cac213d32b1d121113cec53eefe37a0ca6a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/task-task-graph-export/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "7fde761cfd15afa276510a23b99a63c41cbbfd67",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/environment/Dockerfile",
+      "size_bytes": 251,
+      "blob_id": "561ff6091132a18a5739b338ab4bb49a416ce17b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/instruction.md",
+      "size_bytes": 1246,
+      "blob_id": "83e679c2f076ce6667b8590884f8f7863d0c797b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/solution/solution.patch",
+      "size_bytes": 19003,
+      "blob_id": "2e8b0546b0a2bbf8df3cd6b869094d8bc3816c0c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/task.toml",
+      "size_bytes": 1115,
+      "blob_id": "55cadf1135a675d667d69736104e0e5d59b90daa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/tests/test.patch",
+      "size_bytes": 18917,
+      "blob_id": "e16245cd21d718a219bd45355857b038ae4567d4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-callable-instance-isolation/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3ad2779698b6cd31c9cc2c8644de4f672f06b2e9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/environment/Dockerfile",
+      "size_bytes": 251,
+      "blob_id": "561ff6091132a18a5739b338ab4bb49a416ce17b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/instruction.md",
+      "size_bytes": 952,
+      "blob_id": "5668fa5c7a38a420916d266bec028b653beddfec",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/solution/solution.patch",
+      "size_bytes": 24281,
+      "blob_id": "0036b2f30b149fdabe24317394c0bd0cce8a929e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/task.toml",
+      "size_bytes": 935,
+      "blob_id": "6aea8153e20c84d619cc09b5baa262b0f4cf5db6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/tests/test.patch",
+      "size_bytes": 25248,
+      "blob_id": "3a857c50bd4df729890be328ac14de2d07705995",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tengo-destructuring-bindings/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3ad2779698b6cd31c9cc2c8644de4f672f06b2e9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/environment/Dockerfile",
+      "size_bytes": 257,
+      "blob_id": "39946fcd90bff35eb958d9a9884bf9021a9c9ec2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/instruction.md",
+      "size_bytes": 1557,
+      "blob_id": "e92bd65f95e310fd1dd7090f4bd2808dcbfe4861",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/solution/solution.patch",
+      "size_bytes": 15103,
+      "blob_id": "8dda2254a809991bd105a4612133631ba31eabb4",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/task.toml",
+      "size_bytes": 978,
+      "blob_id": "f7a699292e61a9238af50b1f21c72f4cc46ef9c6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/tests/test.patch",
+      "size_bytes": 21073,
+      "blob_id": "242e61c59b0811b4005e008582dbdf7faf53bc63",
+      "lfs": null
+    },
+    {
+      "path": "tasks/termenv-preserve-ansi-resets/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "4fc5c6460fd3e8da14f034d7693f6f2830bc9f9b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/environment/Dockerfile",
+      "size_bytes": 314,
+      "blob_id": "413b2cb20f2c7631128649f76bb15441e042c17c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/instruction.md",
+      "size_bytes": 2376,
+      "blob_id": "67cf782778261d8a0db0bf5a4f345bbd91275d47",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/solution/solution.patch",
+      "size_bytes": 29052,
+      "blob_id": "4088ab171f6195074bf896cb4806c24e2c817d68",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/task.toml",
+      "size_bytes": 976,
+      "blob_id": "feb039f4c7ac56cad7567d387446114329dfa426",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/tests/test.patch",
+      "size_bytes": 57959,
+      "blob_id": "96254d0a07d72b8d040ad9e6630d0b377ce346ef",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-bail-on-test-failure/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "c7524b755f5eabebaa03dddd46716f644930795b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/environment/Dockerfile",
+      "size_bytes": 314,
+      "blob_id": "588eac2ef0f2b40c4186e42337febc6fafe255ef",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/instruction.md",
+      "size_bytes": 2092,
+      "blob_id": "56316bfcacfe7032c69c979d5b6cae6c8cb2fd19",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/solution/solution.patch",
+      "size_bytes": 22292,
+      "blob_id": "bff5f421b158bd33278513efab0447c794406606",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/task.toml",
+      "size_bytes": 1033,
+      "blob_id": "c7f39d56bb7df17f5da0dfd35842963e9ad3459e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/tests/test.patch",
+      "size_bytes": 40128,
+      "blob_id": "ca5e9119ad1c9153c7333e267e834c04e87335bc",
+      "lfs": null
+    },
+    {
+      "path": "tasks/testem-per-launcher-reports/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "46a64d8844491a844a59c8578f44c5c92b884371",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/environment/Dockerfile",
+      "size_bytes": 350,
+      "blob_id": "ab3cdea1fbaac4ecf7a61b4357ca0ff031d26e3c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/instruction.md",
+      "size_bytes": 1665,
+      "blob_id": "ea7f85531f384adb21b3dffb55d6e9dbfd8d1b81",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/solution/solution.patch",
+      "size_bytes": 22950,
+      "blob_id": "5f2998095843a1ef1803536b46c06efd0c2843c6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/task.toml",
+      "size_bytes": 1050,
+      "blob_id": "c3510821743a7395ecb5934bacfa2b7e8df7e6dc",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/tests/test.patch",
+      "size_bytes": 10503,
+      "blob_id": "90f6591c0584300112b42982a1ba1abf6b99e4f8",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-kitty-key-phases/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "6bb931ebaf66562eca7c2787621f175440417dc0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/environment/Dockerfile",
+      "size_bytes": 284,
+      "blob_id": "cc0b233e92ed59010746830fa164600de7004708",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/instruction.md",
+      "size_bytes": 1564,
+      "blob_id": "9f18c87d703e5506c493dd8e0ed33835d4a23907",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/solution/solution.patch",
+      "size_bytes": 31716,
+      "blob_id": "4b85e729dd238401aa1bc93dfadedc60c4f9c81d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/task.toml",
+      "size_bytes": 1064,
+      "blob_id": "e2d2c490b8a559ab5768f321a61b1d8520b6c746",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/tests/test.patch",
+      "size_bytes": 24952,
+      "blob_id": "e2de42bf28dcaf8a2efb759097b28012a349b765",
+      "lfs": null
+    },
+    {
+      "path": "tasks/textual-richlog-follow-state/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "3e45501fae95f9b44221bcc33fcfe73814fa2fdb",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/environment/Dockerfile",
+      "size_bytes": 342,
+      "blob_id": "492720834925b26f106f2a1908de79d5b520f1db",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/instruction.md",
+      "size_bytes": 1944,
+      "blob_id": "a3aa0ef198768457c80c72bb2a345adcd095f40f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/solution/solution.patch",
+      "size_bytes": 21412,
+      "blob_id": "a14a238865db951fd451909dcfde0c6e8643da5e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/task.toml",
+      "size_bytes": 1054,
+      "blob_id": "ce649a086b3a20b5c57f85636bd782d1613d635e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/tests/test.patch",
+      "size_bytes": 19069,
+      "blob_id": "f8d8cf8e7da71839e9b302bd291f806734d9e7e5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/tomlkit-toml-table-converters/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "97e999fd6e3977cbac9a0a3c5666f5431514c27a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/environment/Dockerfile",
+      "size_bytes": 263,
+      "blob_id": "1f5c4fe717feacbc847a8d88e727c0101c750ca3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/instruction.md",
+      "size_bytes": 1975,
+      "blob_id": "12a67ba9517d94dd4407adc278814068819ea4b6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/solution/solution.patch",
+      "size_bytes": 15562,
+      "blob_id": "1466c1b7cf98789510b46f31b1baa4845d3b29a2",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/task.toml",
+      "size_bytes": 1050,
+      "blob_id": "88814b4f2cd380a592d15bd5b2959045ee9dd013",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/tests/test.patch",
+      "size_bytes": 28737,
+      "blob_id": "26a9a58ed31a13a1b443fc49a7a194ce90290c93",
+      "lfs": null
+    },
+    {
+      "path": "tasks/true-myth-iterable-collection-combinators/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "87f4c1204b6ed08776d0e89f958b0afd1fa90fb3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/environment/Dockerfile",
+      "size_bytes": 319,
+      "blob_id": "14ea97e13f730b3f6db8a15ca1531f64df826217",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/instruction.md",
+      "size_bytes": 2970,
+      "blob_id": "2546e92fb47cfdf14d17fd4507e20dd35149737e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/solution/solution.patch",
+      "size_bytes": 20929,
+      "blob_id": "94ac705d3563494e1a394b6ad84d116f910f644c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/task.toml",
+      "size_bytes": 964,
+      "blob_id": "b2ef701fda43eb93c411ba118c57df4e8f2a551a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/tests/test.patch",
+      "size_bytes": 33173,
+      "blob_id": "cc164ada7749e6b6089eef13cecff2f76ebcfdc0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ts-pattern-match-each/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "07ae7b820303ab0a19c939e390b08c7948bfcb7b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/environment/Dockerfile",
+      "size_bytes": 324,
+      "blob_id": "cf6cf3fae629f279838dd984464ae57a310f1b17",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/instruction.md",
+      "size_bytes": 4471,
+      "blob_id": "6235860ca62b07e07b5f5af4cc47035373914c0b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/solution/solution.patch",
+      "size_bytes": 43265,
+      "blob_id": "a8c289698ad50818a9c800f7618cecc2657af5b3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/task.toml",
+      "size_bytes": 1031,
+      "blob_id": "dfb1af3112990826bf1f50e81b271915aaec5fd5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/tests/test.patch",
+      "size_bytes": 27468,
+      "blob_id": "957e42020b23c273f6965399da92cc57bfd74e16",
+      "lfs": null
+    },
+    {
+      "path": "tasks/updo-policy-alerting/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "d56d7d9a5bde085dcb2c2b46fd3aed356561972d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/environment/Dockerfile",
+      "size_bytes": 326,
+      "blob_id": "39c68fdefd66b6f2614c9b334631ca98009e96ec",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/instruction.md",
+      "size_bytes": 1552,
+      "blob_id": "0862072c7b230413fef2b5ff0b8ce289c33a6edc",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/solution/solution.patch",
+      "size_bytes": 53567,
+      "blob_id": "77b5da6d44a54b36b1f96c12dfe98a125b4905fa",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/task.toml",
+      "size_bytes": 1046,
+      "blob_id": "69b0b16595bc61068a20aab78149654c885efa40",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/tests/test.patch",
+      "size_bytes": 20840,
+      "blob_id": "56fcdf8accc4f40708799a808682a22550296bf1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/valibot-recursive-schema-composition/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "85668da8f62deeb700bf4c5b5d3e853e24416df5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/environment/Dockerfile",
+      "size_bytes": 261,
+      "blob_id": "43524706e8d06e5986d6a26e3a685a3054e6af1c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/instruction.md",
+      "size_bytes": 4311,
+      "blob_id": "452436405eab62c807fe2ff8f7b275a9c4531e72",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/solution/solution.patch",
+      "size_bytes": 32884,
+      "blob_id": "96634f951dce44dc0911d084cc758cfc9d4191d5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/task.toml",
+      "size_bytes": 965,
+      "blob_id": "626aaaac4081801c997af9cc33a05ce31e6cd899",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/tests/test.patch",
+      "size_bytes": 101448,
+      "blob_id": "917db4ec642d98ce7f60a8bfea4fb6c5556f2657",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vitest-duration-sharding/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "57ce0c3f09fc6e7c1e33a3556075b3bd325c7596",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/environment/Dockerfile",
+      "size_bytes": 996,
+      "blob_id": "8caa49405becc869f9ff429445bcffa8c9be31ed",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/instruction.md",
+      "size_bytes": 2280,
+      "blob_id": "3c68625383419b55c459f2b47ca814cb0403b544",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/solution/solution.patch",
+      "size_bytes": 26323,
+      "blob_id": "8bedba1ccf141dc3bde8d684798ea215cb5d677e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/task.toml",
+      "size_bytes": 1022,
+      "blob_id": "52a234e46693ff36ed5a1367ff731e28f20c41a3",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/tests/test.patch",
+      "size_bytes": 25207,
+      "blob_id": "afaa8268431ef8e54356c3f2abde587895425728",
+      "lfs": null
+    },
+    {
+      "path": "tasks/vulture-persistent-analysis-cache/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "a03bd3031ebdcf15914846d95d287d3820390f0a",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/environment/Dockerfile",
+      "size_bytes": 259,
+      "blob_id": "2554039810871136b3b02d331ef4e5ad68df7922",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/instruction.md",
+      "size_bytes": 3058,
+      "blob_id": "0ddcdc0c6c07a6dbfc4c1a65c583c097b1b44c84",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/solution/solution.patch",
+      "size_bytes": 31108,
+      "blob_id": "8726e30196fc6299913c340718388802069a777b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/task.toml",
+      "size_bytes": 935,
+      "blob_id": "ed75586fb1a90d061383b5c4e781981dcd18d0c0",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/tests/test.patch",
+      "size_bytes": 32325,
+      "blob_id": "75b8bd7b2570c60d8ebe9c070fa835562f4b8200",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wasmi-trap-coredumps/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "44fc1b6850df4531d8dfcd9828ca33a7c3828169",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/environment/Dockerfile",
+      "size_bytes": 260,
+      "blob_id": "5e3a25580da906a3ac15e058f973fa768c9c661b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/instruction.md",
+      "size_bytes": 3584,
+      "blob_id": "b066f544ba5463eb429a2b9a661243ae4dc2b3da",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/solution/solution.patch",
+      "size_bytes": 16314,
+      "blob_id": "b3abaef6143b345f50f60a12f84ac2e63c06f9a5",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/task.toml",
+      "size_bytes": 986,
+      "blob_id": "0b294f70dc81de5ee47861ab5d643b7bd04bb46f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/tests/test.patch",
+      "size_bytes": 62627,
+      "blob_id": "f516ac01cf6c9904ff063f62e7bb2cb2453ce54b",
+      "lfs": null
+    },
+    {
+      "path": "tasks/wazero-multi-module-snapshots/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "c89543601eb5283c636f8306292308ab696cb18f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/environment/Dockerfile",
+      "size_bytes": 259,
+      "blob_id": "843d6fac4ab361cc1586db0d1b02a35c4a385ac6",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/instruction.md",
+      "size_bytes": 1300,
+      "blob_id": "14780940cc9259f6763cd85fd1a86d903d1facc1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/solution/solution.patch",
+      "size_bytes": 17888,
+      "blob_id": "51d0d763b19491ed7c30c1f0d9e10d4f19f84c22",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/task.toml",
+      "size_bytes": 1001,
+      "blob_id": "348cbc37e6ad09ce7f5d2aa4869a98575a5e8e99",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/tests/test.patch",
+      "size_bytes": 25334,
+      "blob_id": "8b37954c3ac704ef877922500f041256331eaa37",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yaegi-go-embed-directives/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "23d54af9ea96a1734511179ddd287290c661e169",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/environment/Dockerfile",
+      "size_bytes": 258,
+      "blob_id": "88b5ee3cff02f6a3b2d78d514968db4048463853",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/instruction.md",
+      "size_bytes": 1659,
+      "blob_id": "705697981a0e832ff8e0cf997e976a5526c1179f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/solution/solution.patch",
+      "size_bytes": 27009,
+      "blob_id": "f6a112324c3fc4bcd2706c0339467b7b4567d033",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/task.toml",
+      "size_bytes": 1016,
+      "blob_id": "ae87369ab12322b59c19cf8d902f44ed6c8c9b8d",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/tests/test.patch",
+      "size_bytes": 8335,
+      "blob_id": "c6565d32ba7caf171075aa2090bb9e118479a92f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/yjs-map-conflict-detection/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "74aed70d523438d5ad654ad10dc4e1f2e442f5c9",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/environment/Dockerfile",
+      "size_bytes": 261,
+      "blob_id": "e88023a9a1026b3ec9a50724954b655e7a45b15c",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/instruction.md",
+      "size_bytes": 2418,
+      "blob_id": "acd74f568d4437e8cc3ab989897d939cf693844e",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/solution/solution.patch",
+      "size_bytes": 27914,
+      "blob_id": "7462c59ad3bffcfba59060e10c3c05947a4e28a1",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/solution/solve.sh",
+      "size_bytes": 104,
+      "blob_id": "1d13612ec1e14ff3848aabeb0a84c7df1a015eab",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/task.toml",
+      "size_bytes": 965,
+      "blob_id": "6b8a96fe6b7498467daabd16a6693711c379b16f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/tests/test.patch",
+      "size_bytes": 36199,
+      "blob_id": "bde8c01219ce70934eeecaa6ac5f52fe26b9c43f",
+      "lfs": null
+    },
+    {
+      "path": "tasks/ytt-jsonpath-query-api/tests/test.sh",
+      "size_bytes": 3868,
+      "blob_id": "21a0ae3855cf95a15d6c7ffa2ca29c943f032b6f",
+      "lfs": null
+    }
+  ],
+  "license": {
+    "card_license_field": null,
+    "note": "No license field in downloaded card; file/source permissions not established by gating checkbox"
+  },
+  "eda_status": "Completed descriptive parquet EDA; see parquet-eda.json. No runtime validation.",
+  "verified_parquet_sha256": "737e1b101d9556aa1b0fd66b8fefd436158a63b18d7105733739c79126fb495e"
+}

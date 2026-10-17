@@ -12,8 +12,10 @@ record the subsequent adapter/dataset uploads; historical provenance review rema
 distinct from public visibility.
 
 Next phase (2026-10-05): [Python unit-test generation](experiments/unit-test-generation/qwen3.5-4b/README.md)
-with a planned local Pi/llama.cpp Q4 baseline on Mac mini M4/24 GB, followed by
-verifiable-reward RL if feasible. Production code stays read-only. Occam improvements
+with a local Pi/llama.cpp Q4 baseline on Mac mini M4/24 GB. The current
+[requirements-first protocol](experiments/unit-test-generation/qwen3.5-4b/REQUIREMENTS-FIRST-PROTOCOL.md)
+compares direct-code and test-first generation before separate SFT/GRPO studies.
+Tests are validated and frozen before implementation. Occam improvements
 are deferred; start the next session with [Mac handoff](docs/MAC-MINI-HANDOFF.md).
 
 ![LLM Bender Lab](./llm-bender-lab.png)

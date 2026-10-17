@@ -1,33 +1,51 @@
 # exp-000-baseline
 
+Current: [Stage A v01](requirements-pilot/STAGE-A-V01.md) generation settings are
+frozen. TOML reference defect confirmed/quarantined; Mashumaro reference validated,
+one new original suite generated and prepared for independent owner review.
+The complete 20-task benchmark and implementation comparison remain unfrozen.
+
 ## Status
 
-Planned. Configuration is a non-executable planning record; revisions, GGUF
-artifact, tasks and budgets are not frozen. Environment setup is underway; model integration remains to be verified.
+Development pilot underway; no frozen benchmark scores or training results.
+DeepSWE download/hash and descriptive EDA are complete. Twenty tasks from distinct
+repositories are provisionally shortlisted. A first requirement-only Pi generation
+smoke has run; later thinking-enabled tests pass 16/20 against the reference but
+remain rejected. Direct generated code passes 4/60 hidden feature tests and
+964/964 regressions. These are single-task diagnostics with differing conditions,
+not a controlled effect estimate. A suspected reference defect needs adjudication.
+See the pilot report.
 
-## Goal and hypothesis
+## Question and comparisons
 
-Establish whether untouched Qwen3.5-4B can generate executable, mutation-sensitive
-pytest tests through Pi/llama.cpp on a Mac mini M4/24 GB. Compare thinking off/on
-under matched total allowances before selecting an RL training mode.
+Can untouched Qwen3.5-4B Q4_K_M generate requirement-faithful tests through Pi,
+and does a test-first workflow improve independently measured implementation
+correctness over direct code generation? Follow the
+[requirements-first protocol](../REQUIREMENTS-FIRST-PROTOCOL.md).
 
-## Parent and scope
+Compare direct-code and prompted-TDD conditions under matched total budgets.
+Test generation cannot see reference implementations or private grading data.
+Stage A reviews and freezes tests; Stage B implements with those tests read-only.
+Human assistance and failures are recorded separately from autonomous performance.
 
-New unit-test-generation domain; no training or Occam adapter inheritance.
-Production code read-only; only generated unit tests may change.
+## Artifacts and evaluation
 
-## Model, data and evaluation
+`config-planned.json` remains a non-executable planning record. Existing pinned
+model/runtime references and the Q4_K_M artifact hash are preserved. Formal
+context/token/time/repair budgets and task environments are not frozen yet.
 
-Qwen3.5-4B Q4 GGUF, artifact/revisions pending. Grouped task split pending.
-Primary proposed measure: mutation detection gated on passing against correct
-code; report collection/assertion validity, correctness, tool success and cost.
-Optional 9B reference is a separate model-size comparison, not an RL improvement.
+- `benchmark-audit/deep-swe-20261017/`: source inventory, hash and descriptive EDA.
+- `requirements-pilot/candidate-manifest.json`: 20 provisional tasks, exclusions,
+  prompt hashes and external packet paths. DeepSWE is evaluation data, never training.
+- `requirements-pilot/`: smoke evidence and static requirement-alignment review.
 
-## Results / regressions / conclusion
-
-None. Mac feasibility, baseline quality and training compatibility are unmeasured.
+Report test semantics/importance, the owner's oracle/smell taxonomy, execution
+health and independent hidden implementation correctness separately. Generated
+suite passing alone is insufficient. Do not silently repair scored originals.
 
 ## Next step
 
-Follow [Mac handoff](../../../../docs/MAC-MINI-HANDOFF.md), complete the verifier
-and artifact/protocol freeze, then run the baseline. Do not train this draft.
+Validate one task's contract/interface and reference environment, inspect original
+smoke suites, then finish protected frozen-test implementation and hidden grading
+before expanding to 20 paired episodes. SFT and SFT+GRPO are later experiments
+using separate validated training demonstrations/tasks.
