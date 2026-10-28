@@ -111,3 +111,5 @@ akıl yürütme yeteneğinin her görevde arttığını iddia etmiyoruz.”
 - [Sabit başlangıç model kartı/lisans](https://huggingface.co/unsloth/Qwen3.5-4B/blob/3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636/README.md)
 
 Kaynaklar2026-10-04 tarihinde kontrol edildi. Platform koşulları değişebilir.
+
+- [Occam Q4_K_M GGUF export](OCCAM-GGUF.md): source revisions, conversion compatibility, release verification and synthetic benchmark limitations.
