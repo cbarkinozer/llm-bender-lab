@@ -1,0 +1,176 @@
+.......FFFF...F...F..................                                    [100%]
+=================================== FAILURES ===================================
+____ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer] ____
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-335/test_r5_failed_refresh_preserv0')
+api_factory = <function api_factory.<locals>.make at 0x107247b00>
+endpoint = '/users/cbarkinozer'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py:97: AssertionError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-335/test_r5_failed_refresh_preserv1')
+api_factory = <function api_factory.<locals>.make at 0x1072c2660>
+endpoint = '/users/cbarkinozer/repos'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py:97: AssertionError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-335/test_r5_failed_refresh_preserv2')
+api_factory = <function api_factory.<locals>.make at 0x107247100>
+endpoint = '/repos/cbarkinozer/alpha/languages'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py:97: AssertionError
+_________ test_r5_failed_refresh_preserves_complete_snapshot[/graphql] _________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-335/test_r5_failed_refresh_preserv3')
+api_factory = <function api_factory.<locals>.make at 0x1072c37e0>
+endpoint = '/graphql'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py:97: AssertionError
+____________ test_r5_cache_write_failure_preserves_memory_and_disk _____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-335/test_r5_cache_write_failure_pr0')
+api_factory = <function api_factory.<locals>.make at 0x1072c27a0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10781c690>
+
+    async def test_r5_cache_write_failure_preserves_memory_and_disk(tmp_path, api_factory, monkeypatch):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = service.cache_path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        def fail(data):
+            raise OSError("disk full")
+        monkeypatch.setattr(service, "_save", fail)
+        result = await service.refresh()
+        assert result["error"]
+>       assert result["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py:136: AssertionError
+___________ test_graphql_http_200_errors_preserve_previous_snapshot ____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-335/test_graphql_http_200_errors_p0')
+api_factory = <function api_factory.<locals>.make at 0x107e80b80>
+
+    async def test_graphql_http_200_errors_preserve_previous_snapshot(tmp_path, api_factory):
+        api, requests = api_factory(token="secret-token")
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        service.clock = lambda: NOW + timedelta(hours=1)
+        handler = api.transport.handler
+        def broken(request):
+            if request.url.path == "/graphql":
+                return httpx.Response(200, json={"errors": [{"message": "secret-token internal"}]})
+            return handler(request)
+        service.api = GitHubClient(token="secret-token", transport=httpx.MockTransport(broken))
+        result = await service.refresh()
+>       assert result["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_snapshot_contract.py:33: AssertionError
+=============================== warnings summary ===============================
+tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service
+  /Users/cbarkinozer/Documents/GitHub/GitHub-insignia/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/github-insignia/tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot
+6 failed, 31 passed, 1 warning in 0.42s

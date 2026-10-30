@@ -107,15 +107,35 @@ for repo,extra in EXTRA.items():
         TARGETS[repo][name]=[requirement]
 
 
+PRESERVATION_FAULTS = {
+'GitHub-insignia':{
+ 'timestamp-changes-on-failed-refresh':('R5',"from insignia.service import DashboardService\nfrom datetime import datetime,timedelta\noriginal=DashboardService.refresh\nasync def broken(self):\n    result=await original(self)\n    if result['error'] and self.snapshot is not None:\n        self.snapshot['fetched_at']=(datetime.fromisoformat(self.snapshot['fetched_at'])+timedelta(seconds=1)).isoformat()\n    return self.read()\nDashboardService.refresh=broken"),
+ 'memory-replaced-before-cache-save':('R5',"from insignia.service import DashboardService\nfrom insignia.github import GitHubError\nasync def broken(self):\n    async with self.lock:\n        try:\n            candidate=await self.api.fetch('cbarkinozer',self.clock())\n            self.snapshot=candidate\n            self._save(candidate)\n        except GitHubError as exc:self.error=str(exc)\n        except OSError:self.error='Could not save snapshot'\n        else:self.error=None\n        return self.read()\nDashboardService.refresh=broken"),
+ 'disk-overwritten-on-failed-refresh':('R5',"from insignia.service import DashboardService\nimport json\noriginal=DashboardService.refresh\nasync def broken(self):\n    result=await original(self)\n    if result['error'] and self.snapshot is not None:self.cache_path.write_text(json.dumps({'fetched_at':'corrupted'}))\n    return result\nDashboardService.refresh=broken"),
+ 'keep-old-snapshot-after-successful-refresh':('R5',"from insignia.service import DashboardService\noriginal=DashboardService.refresh\nasync def broken(self):\n    if self.snapshot is not None:return self.read()\n    return await original(self)\nDashboardService.refresh=broken")},
+'slm_test_generation':{
+ 'raw-generation-overwritten-by-instrumentation':('R1',"import benchmark_workflow as m\nfrom pathlib import Path\noriginal=m.run_task\ndef broken(task,**kwargs):\n    result=original(task,**kwargs)\n    root=Path(kwargs['root'])/task['id']\n    (root/'generation.txt').write_text((root/'test_generated.py').read_text())\n    return result\nm.run_task=broken"),
+ 'missing-observations-erased':('R4',"import benchmark_workflow as m\noriginal=m.summarize\ndef broken(**kwargs):\n    result=original(**kwargs);result['missing']=0;return result\nm.summarize=broken")},
+'llm-bender-lab':{
+ 'new-run-corrupts-older-adapter':('R3',"import experiment_workflow as m\nfrom pathlib import Path\noriginal=m.run_experiment\ndef broken(root,name,*args,**kwargs):\n    result=original(root,name,*args,**kwargs)\n    for folder in Path(root).iterdir():\n        if folder.name!=name and (folder/'adapter.bin').is_file():(folder/'adapter.bin').write_bytes(b'corrupted')\n    return result\nm.run_experiment=broken")},
+'cryptocurrency-analyser':{
+ 'returns-mutate-input-prices':('R2',"import coin_comparator as m\noriginal=m.calculate_cumulative_returns\ndef broken(prices):\n    result=original(prices);prices.iloc[0,0]+=1;return result\nm.calculate_cumulative_returns=broken")}}
+for repo,probes in PRESERVATION_FAULTS.items():
+    for label,(rid,code) in probes.items():
+        FAULTS[repo][label]=code;TARGETS[repo][label]=[rid]
+
+
 def main():
     global BUNDLE
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo')
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     output=ART/('thinking-tdd/'+args.revision+'-faults')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     output.mkdir(parents=True)
+    config=json.loads((BUNDLE/'model-config.json').read_text()) if (BUNDLE/'model-config.json').exists() else {}
+    preservation_labels={key:{label for check in checks for label in check['faults']} for key,checks in config.get('preservation_checks',{}).items()}
     results=[]
     if args.repo and args.repo not in FAULTS: raise ValueError(args.repo)
     for repo, faults in FAULTS.items():
@@ -136,7 +156,7 @@ def main():
             (target/'pytest.log').write_text(result.stdout+result.stderr)
             failures=json.loads((target/'failures.json').read_text()) if (target/'failures.json').exists() else []
             killed=result.returncode==1 and any(f['when']=='call' and ('AssertionError' in f['detail'] or 'Failed:' in f['detail']) for f in failures)
-            results.append(dict(repo=repo,fault=label,target_requirements=TARGETS[repo][label],killed=killed,returncode=result.returncode,
+            results.append(dict(repo=repo,fault=label,target_requirements=TARGETS[repo][label],preservation_probe=label in preservation_labels.get(repo.lower(),set()) or label in PRESERVATION_FAULTS.get(repo,{}),killed=killed,returncode=result.returncode,
                                 failing_tests=[f['nodeid'] for f in failures],log=str(target/'pytest.log'),
                                 mutation_sha256=sha256(plugin.read_bytes()).hexdigest(),
                                 test_snapshot={str(p.relative_to(folder)):sha256(p.read_bytes()).hexdigest() for p in sorted((folder/'tests').rglob('*.py'))}))

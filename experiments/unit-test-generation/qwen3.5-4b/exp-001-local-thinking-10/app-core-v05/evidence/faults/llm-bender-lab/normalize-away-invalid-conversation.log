@@ -1,0 +1,81 @@
+FFF..F.                                                                  [100%]
+=================================== FAILURES ===================================
+__________ test_malformed_data_fails_before_backend[missing-content] ___________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-276/test_malformed_data_fails_befo0')
+defect = 'missing-content'
+
+    @pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])
+    def test_malformed_data_fails_before_backend(tmp_path, defect):
+        from experiment_workflow import run_experiment
+        data=rows()
+        if defect == 'missing-content':
+            data[0]['messages'][1]['content']=' '
+        elif defect == 'wrong-role':
+            data[0]['messages'][1]['role']='user'
+        else:
+            data[0]['split']='unrecognized'
+        trainer=Mock()
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_core.py:18: Failed
+_____________ test_malformed_data_fails_before_backend[wrong-role] _____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-276/test_malformed_data_fails_befo1')
+defect = 'wrong-role'
+
+    @pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])
+    def test_malformed_data_fails_before_backend(tmp_path, defect):
+        from experiment_workflow import run_experiment
+        data=rows()
+        if defect == 'missing-content':
+            data[0]['messages'][1]['content']=' '
+        elif defect == 'wrong-role':
+            data[0]['messages'][1]['role']='user'
+        else:
+            data[0]['split']='unrecognized'
+        trainer=Mock()
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_core.py:18: Failed
+___________ test_malformed_data_fails_before_backend[unknown-split] ____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-276/test_malformed_data_fails_befo2')
+defect = 'unknown-split'
+
+    @pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])
+    def test_malformed_data_fails_before_backend(tmp_path, defect):
+        from experiment_workflow import run_experiment
+        data=rows()
+        if defect == 'missing-content':
+            data[0]['messages'][1]['content']=' '
+        elif defect == 'wrong-role':
+            data[0]['messages'][1]['role']='user'
+        else:
+            data[0]['split']='unrecognized'
+        trainer=Mock()
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_core.py:18: Failed
+_________________ test_invalid_preflight_never_invokes_trainer _________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-276/test_invalid_preflight_never_i0')
+
+    def test_invalid_preflight_never_invokes_trainer(tmp_path):
+        from experiment_workflow import run_experiment
+        data = rows()
+        data[-1]['messages'][0]['content'] = data[0]['messages'][0]['content']
+        train = Mock()
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_workflow.py:59: Failed
+=========================== short test summary info ============================
+FAILED experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]
+FAILED experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]
+FAILED experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]
+FAILED experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer
+4 failed, 3 passed in 0.03s

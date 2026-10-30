@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "repo": "GitHub-insignia",
+      "returncode": 0,
+      "seconds": 0.75,
+      "test_source_tokens": 4942,
+      "output_payload_tokens": 4990,
+      "files": [
+        {
+          "path": "tests/conftest.py",
+          "chars": 2640,
+          "tokens": 732,
+          "sha256": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c"
+        },
+        {
+          "path": "tests/test_requirements.py",
+          "chars": 8674,
+          "tokens": 2349,
+          "sha256": "827611c15a06b39aec42b8008c89f305e8058c7d38a970e6a686947710cc1b7f"
+        },
+        {
+          "path": "tests/test_snapshot_contract.py",
+          "chars": 7410,
+          "tokens": 1842,
+          "sha256": "9f1bc439de9364b3d283fd57e43d083523390042a4742adcf326cddfbb41bdcb"
+        },
+        {
+          "path": "pytest.ini",
+          "chars": 75,
+          "tokens": 19,
+          "sha256": "da9808d584f4d7bf9f89efb0e294727a7abd06903d9ae8fbc45f5dd93c59b684"
+        }
+      ],
+      "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05/20261030T222444252807Z/GitHub-insignia.log",
+      "source_commit": "b44bd4ae59aa2d88d2334b1ae1a3c75089f3d07d",
+      "reference_files": [],
+      "source_dirty": false
+    }
+  ],
+  "tokenizer": "/Users/cbarkinozer/Documents/llm-bender-artifacts/occam-gguf-20261026/base",
+  "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+  "total_test_output_tokens": 4990,
+  "note": "Candidate compact tests and required fixtures, not all-requirements certification. Payload excludes request, clarification/interface, teacher reasoning and native chat framing."
+}

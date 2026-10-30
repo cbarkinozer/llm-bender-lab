@@ -1,0 +1,32 @@
+...F...                                                                  [100%]
+=================================== FAILURES ===================================
+_______ test_smoke_run_preserves_config_adapter_and_matched_evaluations ________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-274/test_smoke_run_preserves_confi0')
+
+    def test_smoke_run_preserves_config_adapter_and_matched_evaluations(tmp_path):
+        from experiment_workflow import run_experiment
+        seen = []
+        def evaluate(model, heldout, settings):
+            seen.append((model, heldout, settings.copy()))
+            return {'accuracy':.5 if model == 'base-v1' else .75, 'other':None}
+        result = run_experiment(tmp_path, 'one', config(), rows(), trainer=trainer, evaluator=evaluate)
+        run = tmp_path/'one'
+        assert result['status'] == 'completed'
+        assert (run/'adapter.bin').read_bytes() == b'fixture-adapter'
+        assert json.loads((run/'resolved.json').read_text()) == config()
+        assert seen[0][1:] == seen[1][1:]
+        assert seen[0][2] == config()['generation']
+>       assert result['comparison'] == {'accuracy':{'before':.5,'after':.75,'delta':.25},
+                                         'other':{'before':None,'after':None,'delta':None}}
+E       AssertionError: assert {'accuracy': ..., 'delta': 0}} == {'accuracy': ...delta': None}}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'other': {'before': None, 'after': None, 'delta': 0}} != {'other': {'before': None, 'after': None, 'delta': None}}
+E         Use -v to get more diff
+
+experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_workflow.py:37: AssertionError
+=========================== short test summary info ============================
+FAILED experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations
+1 failed, 6 passed in 0.03s

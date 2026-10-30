@@ -1,0 +1,36 @@
+F.F............                                                          [100%]
+=================================== FAILURES ===================================
+______________ test_rmsnorm_uses_last_dimension_and_learned_scale ______________
+
+    def test_rmsnorm_uses_last_dimension_and_learned_scale():
+        layer = RMSNorm(2, epsilon=0.)
+        with torch.no_grad():
+            layer.weight.copy_(torch.tensor([2., 3.]))
+        x = torch.tensor([[[3., 4.], [0., 5.]]])
+        expected = torch.tensor([[[6. / (12.5 ** .5), 12. / (12.5 ** .5)], [0., 15. / (12.5 ** .5)]]])
+>       torch.testing.assert_close(layer(x), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 3 / 4 (75.0%)
+E       Greatest absolute difference: 2.8284268379211426 at index (0, 1, 1) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.6666666269302368 at index (0, 0, 1) (up to 1.3e-06 allowed)
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py:17: AssertionError
+_____________ test_rmsnorm_backpropagates_expected_scale_gradient ______________
+
+    def test_rmsnorm_backpropagates_expected_scale_gradient():
+        layer = RMSNorm(2, epsilon=0.)
+        x = torch.tensor([[3., 4.]])
+        layer(x).sum().backward()
+>       torch.testing.assert_close(layer.weight.grad, torch.tensor([3., 4.]) / (12.5 ** .5))
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 2 / 2 (100.0%)
+E       Greatest absolute difference: 1.1313709020614624 at index (1,) (up to 1e-05 allowed)
+E       Greatest relative difference: 1.0 at index (0,) (up to 1.3e-06 allowed)
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py:29: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient
+2 failed, 13 passed in 0.43s

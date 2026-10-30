@@ -1,0 +1,20 @@
+.F...................                                                    [100%]
+=================================== FAILURES ===================================
+_ test_oracle_strength_is_explicit[result = sut()\nassert result is not None-WEAK] _
+
+source = 'result = sut()\nassert result is not None'
+kind = <OracleClass.WEAK: 'WEAK'>
+
+    @pytest.mark.parametrize('source,kind', [('assert True', OracleClass.TRIVIAL), ('result = sut()\nassert result is not None', OracleClass.WEAK), ('result = sut()\nassert result == 42', OracleClass.STRONG), ('result = sut()\nassert helper(result)', OracleClass.UNKNOWN)])
+    def test_oracle_strength_is_explicit(source, kind):
+        sites = classify_oracles(source, sut_names={'sut'})
+>       assert [s.oracle_class for s in sites] == [kind]
+E       AssertionError: assert [<OracleClass...NG: 'STRONG'>] == [<OracleClass.WEAK: 'WEAK'>]
+E         
+E         At index 0 diff: <OracleClass.STRONG: 'STRONG'> != <OracleClass.WEAK: 'WEAK'>
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_core.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\nassert result is not None-WEAK]
+1 failed, 20 passed in 2.28s

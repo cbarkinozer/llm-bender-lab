@@ -1,0 +1,33 @@
+.......F.....                                                            [100%]
+=================================== FAILURES ===================================
+_______ test_saved_csv_matches_provider_calculation_and_declares_source ________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-297/test_saved_csv_matches_provide0')
+
+    def test_saved_csv_matches_provider_calculation_and_declares_source(tmp_path):
+        from price_workflow import analyze
+        path = tmp_path/'prices.csv'
+        prices().to_csv(path)
+        provider = Mock(return_value=prices())
+        live = analyze(['btc','eth'], '2026-01-01','2026-01-04', provider=provider)
+        offline = analyze(['btc','eth'], '2026-01-01','2026-01-04', csv_path=path)
+        provider.assert_called_once_with(['BTC-USD','ETH-USD'], '2026-01-01','2026-01-04')
+        assert_frame_equal(live['returns'], offline['returns'], check_freq=False)
+        assert offline['returns']['BTC-USD'].tolist() == [0.,.5,-.25]
+>       assert offline['source'] == 'csv'
+E       AssertionError: assert 'provider' == 'csv'
+E         
+E         - csv
+E         + provider
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_workflow.py:23: AssertionError
+=============================== warnings summary ===============================
+llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers
+  /Users/cbarkinozer/Documents/GitHub/cryptocurrency-analyser/coin_comparator.py:19: Pandas4Warning: The inplace keyword in DataFrame.dropna is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    data.dropna(axis=1, how='all', inplace=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source
+1 failed, 12 passed, 1 warning in 0.20s

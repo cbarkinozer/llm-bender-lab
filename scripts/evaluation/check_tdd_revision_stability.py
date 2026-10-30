@@ -19,7 +19,7 @@ def main():
     global BUNDLE
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo')
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     output=ART/('thinking-tdd/'+args.revision+'-stability')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')

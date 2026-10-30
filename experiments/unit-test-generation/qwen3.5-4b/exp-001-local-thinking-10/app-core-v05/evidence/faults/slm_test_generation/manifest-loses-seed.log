@@ -1,0 +1,25 @@
+...................F.                                                    [100%]
+=================================== FAILURES ===================================
+___________________________ test_manifest_roundtrip ____________________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-270/test_manifest_roundtrip0')
+
+    def test_manifest_roundtrip(tmp_path):
+        from benchmark_workflow import save_manifest, load_manifest
+        manifest = {'task_ids':['fresh'], 'model_revision':'m1', 'data_revision':'d1',
+                    'code_revision':'c1', 'seed':7, 'timeout_seconds':1,
+                    'network_disabled':True, 'context':'B', 'dependency':'L1'}
+        path = tmp_path/'manifest.json'
+        save_manifest(path, manifest)
+>       assert load_manifest(path) == manifest
+E       AssertionError: assert {'task_ids': ...n': 'c1', ...} == {'task_ids': ...n': 'c1', ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Right contains 1 more item:
+E         {'seed': 7}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:63: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_manifest_roundtrip
+1 failed, 20 passed in 2.28s

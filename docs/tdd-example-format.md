@@ -48,3 +48,18 @@ executable ASTs and application reference implementations match v03. The
 record-specific Docker/executor draft is archived separately and is not included
 in the active examples. Existing annotations remain in their earlier datasets;
 no approval is copied or fabricated for changed records.
+
+## Presentation and pre-checks
+
+The active review is app-core-v05. HTML escaping is a presentation transform only;
+never feed escaped display fields back into training. The renderer must round-trip
+angle brackets, comparisons, ampersands and HTML-looking literals to the original
+code without creating tags. Existing annotations survive in-place display repair.
+
+Process-word checks include revision/reference/paper/review, repo/lab names and
+local source paths. A flagged keyword requires an assessment; application fields
+such as model_revision and declared public API identifiers are legitimate.
+Numbered test_rN_ names must agree with at least the corresponding R-id in the map.
+Preservation claims need targeted state-loss/stale-state probes. Compare deep
+copies and durable bytes across failed operations, and test legitimate replacement
+on success so that an implementation which always keeps stale state also fails.

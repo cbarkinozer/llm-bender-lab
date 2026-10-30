@@ -1,3 +1,8 @@
+> Current, 2026-10-31: review revision 05 at http://127.0.0.1:7900/dataset/ae9c43c9-54ea-4602-9d4d-56741869b59a/annotation-mode.
+> HTML display, meta category, process/name/numbering checks and preservation
+> probes are complete. Human approval and the unchanged next-step baseline/SFT
+> workflow remain pending. Older status blocks below are historical.
+
 > Current, 2026-10-31: shared-format cleanup complete in app-core-v04.
 > Review http://127.0.0.1:7900/dataset/7500c36b-0971-41bd-91c5-765d6e7add5e/annotation-mode; prior annotations are preserved.
 > Record-specific data annotation is separate. Freeze approved data, then run the

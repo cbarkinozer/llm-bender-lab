@@ -1,0 +1,37 @@
+.........FF                                                              [100%]
+=================================== FAILURES ===================================
+_______________________ test_missing_file_returns_error ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b90e550>
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-285/test_missing_file_returns_erro0')
+capsys = <_pytest.capture.CaptureFixture object at 0x10b90f2d0>
+
+    def test_missing_file_returns_error(monkeypatch, tmp_path, capsys):
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])
+>       with pytest.raises(SystemExit) as error:
+E       Failed: DID NOT RAISE SystemExit
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/codelang-detect/tests/test_core.py:49: Failed
+----------------------------- Captured stderr call -----------------------------
+usage: codelang-detect [-h] [file]
+codelang-detect: error: argument file: can't open '/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-285/test_missing_file_returns_erro0/missing.py': [Errno 2] No such file or directory: '/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-285/test_missing_file_returns_erro0/missing.py'
+__________________ test_closed_stdin_returns_processing_error __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b92a450>
+capsys = <_pytest.capture.CaptureFixture object at 0x10b92a7d0>
+
+    def test_closed_stdin_returns_processing_error(monkeypatch, capsys):
+        stream = io.StringIO('')
+        stream.close()
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+        monkeypatch.setattr(sys, 'stdin', stream)
+>       with pytest.raises(SystemExit) as error:
+E       Failed: DID NOT RAISE SystemExit
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/codelang-detect/tests/test_core.py:63: Failed
+----------------------------- Captured stderr call -----------------------------
+Error: Could not process the input. I/O operation on closed file
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/codelang-detect/tests/test_core.py::test_missing_file_returns_error
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/codelang-detect/tests/test_core.py::test_closed_stdin_returns_processing_error
+2 failed, 9 passed in 0.02s

@@ -1,0 +1,588 @@
+{
+  "record_id": "miniature-llms-v05",
+  "schema_version": "1.0",
+  "record_version": 5,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "miniature-llms",
+    "revision": "d369337b151cedd9c39fbc654dfed8236344a7cd",
+    "dirty": true,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [
+      {
+        "path": "reference/tiny_model.py",
+        "sha256": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      }
+    ],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "train",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "miniature-llms",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Build me a small educational Python repository of working language-model components that I can run on CPU with tiny tensors and understand from the code. For the first complete version, include token embeddings, rotary position encoding, RMS normalization, a causal attention block, a feed-forward block and a tiny next-token model that composes them. Use PyTorch, keep tensors consistently batch-by-sequence-by-hidden dimension at public boundaries, make weights and dimensions configurable, and explain the role of each component without claiming this tiny model reproduces a frontier model's capability. I want numerical examples that check more than output shape, a demonstration that later tokens cannot influence earlier causal outputs, proper gradients, and saving/reloading weights without changing predictions. Include a short deterministic training demo on a tiny fixed local corpus and a generation command, with no model downloads or GPU requirement. Reject incompatible dimensions clearly and keep the implementation modular enough that I can later add other architectures; JAX, custom kernels and every advanced architecture can wait."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "For [3,4], RMS is sqrt(12.5), so learned scales [2,3] produce [6,12]/sqrt(12.5). Position-zero RoPE is identity for every head and position-one rotation is determined by sequence, not head index. Shape checks alone cannot establish causal behavior, so future tokens are changed while earlier logits must remain fixed. Numeric gradients, checkpoint equality and repeatable CPU training test independent contracts. A controlled logit fixture uniquely predicts successor IDs, so prompt [1] must continue as [1,2,3,4]; length alone would allow a constant generator. Loss improvement is only a bounded smoke check, not proof of general model quality.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Use configurable tiny PyTorch components and a composed CPU model.\n- Use tolerance-based numerical tensor checks and exact same-runtime checkpoint comparisons.\n- Check causal behavior and actual predicted generation tokens independently of tensor shape or loss reduction.\n\nUnresolved/nonessential choices:\n- Tokenizer for a larger text corpus and real-language generation quality are out of this fixed token-fixture contract.\n\n## Proposed interface agreement\n\nProposed components plus new public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\nPublic imports:\n- `_4_RoPE.pytorch.RoPE`\n- `_4_RoPE.pytorch.rotate_half`\n- `_7_RMSNorm.pytorch.RMSNorm`\n- `tiny_model.TinyModel`\n- `tiny_model.generate`\n- `tiny_model.train_demo`\n\n## Requirement-to-test map\n\nR1: Components obey public tensor/dimension contracts.\n- `tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension`\n- `tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension`\n- `tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions`\n\nR2: RMSNorm implements the numeric scaling contract.\n- `tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale`\n- `tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite`\n- `tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient`\n\nR3: RoPE applies positions on the sequence axis.\n- `tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half`\n- `tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head`\n- `tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis`\n- `tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension`\n- `tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension`\n\nR4: Causal attention does not leak future tokens.\n- `tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens`\n\nR5: Gradient and checkpoint paths work end to end.\n- `tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient`\n- `tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions`\n- `tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits`\n\nR6: Tiny training/generation workflow is usable and bounded.\n- `tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation`\n- `tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima`\n- `tests/test_workflow.py::test_negative_generation_budget_is_rejected`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/test_normalization_and_rope.py\n```python\n'Acceptance checks for observable application behavior.'\nimport sys\nfrom pathlib import Path\nimport pytest\nimport torch\n\nfrom _7_RMSNorm.pytorch import RMSNorm\nfrom _4_RoPE.pytorch import RoPE, rotate_half\n\n\ndef test_rmsnorm_uses_last_dimension_and_learned_scale():\n    layer = RMSNorm(2, epsilon=0.)\n    with torch.no_grad():\n        layer.weight.copy_(torch.tensor([2., 3.]))\n    x = torch.tensor([[[3., 4.], [0., 5.]]])\n    expected = torch.tensor([[[6. / (12.5 ** .5), 12. / (12.5 ** .5)], [0., 15. / (12.5 ** .5)]]])\n    torch.testing.assert_close(layer(x), expected)\n\n\ndef test_rmsnorm_epsilon_keeps_zero_input_finite():\n    layer = RMSNorm(3)\n    torch.testing.assert_close(layer(torch.zeros(2, 3)), torch.zeros(2, 3))\n\n\ndef test_rmsnorm_backpropagates_expected_scale_gradient():\n    layer = RMSNorm(2, epsilon=0.)\n    x = torch.tensor([[3., 4.]])\n    layer(x).sum().backward()\n    torch.testing.assert_close(layer.weight.grad, torch.tensor([3., 4.]) / (12.5 ** .5))\n\n\ndef test_rotate_half_moves_and_negates_second_half():\n    x = torch.tensor([[[[1., 2., 3., 4.]]]])\n    torch.testing.assert_close(rotate_half(x), torch.tensor([[[[-3., -4., 1., 2.]]]]))\n\n\ndef test_rope_position_zero_is_identity_for_every_head():\n    x = torch.tensor([[[[1., 2., 3., 4.], [5., 6., 7., 8.]]]])\n    torch.testing.assert_close(RoPE(4, 8)(x), x)\n\n\ndef test_rope_rotates_sequence_axis_not_head_axis():\n    layer = RoPE(2, 4)\n    x = torch.tensor([[[[1., 0.], [1., 0.]], [[1., 0.], [1., 0.]]]])\n    expected = torch.tensor([[[[1., 0.], [1., 0.]], [[torch.cos(torch.tensor(1.)).item(), torch.sin(torch.tensor(1.)).item()], [torch.cos(torch.tensor(1.)).item(), torch.sin(torch.tensor(1.)).item()]]]])\n    torch.testing.assert_close(layer(x), expected)\n\n\ndef test_rope_rejects_odd_head_dimension():\n    with pytest.raises(ValueError, match='head_dimension must be even'):\n        RoPE(3, 8)\n\n\ndef test_rope_rejects_mismatched_input_dimension():\n    with pytest.raises(ValueError, match='Expected head dimension 4, got 2'):\n        RoPE(4, 8)(torch.ones(1, 2, 1, 2))\n```\n\nFile: tests/test_workflow.py\n```python\n'Acceptance checks for observable application behavior.'\nimport torch\nimport pytest\n\n\ndef model():\n    from tiny_model import TinyModel\n    torch.manual_seed(7)\n    return TinyModel(vocab_size=8, hidden_dim=8, num_heads=2, max_length=16)\n\n\ndef test_composed_model_shapes_gradients_and_invalid_dimensions():\n    from tiny_model import TinyModel\n    net = model()\n    out = net(torch.tensor([[1,2,3]]))\n    assert out.shape == (1,3,8)\n    out.square().sum().backward()\n    grads = [p.grad for p in net.parameters() if p.requires_grad]\n    assert all(g is not None and torch.isfinite(g).all() for g in grads)\n    assert sum(g.abs().sum().item() for g in grads) > 0\n    with pytest.raises(ValueError):\n        TinyModel(vocab_size=8, hidden_dim=7, num_heads=2, max_length=16)\n\n\ndef test_causal_outputs_cannot_observe_future_tokens():\n    net = model().eval()\n    with torch.no_grad():\n        original = net(torch.tensor([[1,2,3,4]]))\n        changed = net(torch.tensor([[1,2,6,7]]))\n    torch.testing.assert_close(original[:,:2], changed[:,:2], rtol=1e-5,atol=1e-6)\n    assert not torch.allclose(original[:,2:],changed[:,2:])\n\n\ndef test_checkpoint_roundtrip_preserves_all_logits(tmp_path):\n    from tiny_model import TinyModel\n    net = model().eval()\n    tokens = torch.tensor([[1,2,3]])\n    expected = net(tokens).detach()\n    path = tmp_path/'weights.pt'\n    net.save(path)\n    restored = TinyModel.load(path).eval()\n    torch.testing.assert_close(restored(tokens), expected, rtol=0,atol=0)\n\n\ndef test_deterministic_cpu_training_and_bounded_generation():\n    from tiny_model import train_demo, generate\n    tokens = torch.tensor([[1,2,1,2,1]])\n    first = train_demo(tokens, seed=7, steps=30, learning_rate=.03)\n    second = train_demo(tokens, seed=7, steps=30, learning_rate=.03)\n    assert first['losses'] == second['losses']\n    assert all(torch.isfinite(torch.tensor(first['losses'])))\n    assert first['losses'][-1] < first['losses'][0]\n    output = generate(first['model'], [1], max_new_tokens=3)\n    assert output[:1] == [1]\n    assert len(output) == 4\n    assert all(0 <= token < 8 for token in output)\n\n\n@pytest.mark.parametrize('budget,expected', [(0,[1]),(3,[1,2,3,4])])\ndef test_greedy_generation_follows_unique_logit_maxima(budget, expected):\n    from tiny_model import generate\n    class SuccessorModel(torch.nn.Module):\n        def forward(self, tokens):\n            # Every position predicts (its current token + 1) mod 8 uniquely.\n            logits = torch.full((*tokens.shape, 8), -10.0)\n            return logits.scatter(-1, ((tokens+1)%8).unsqueeze(-1), 10.0)\n    assert generate(SuccessorModel(), [1], max_new_tokens=budget) == expected\n\n\ndef test_negative_generation_budget_is_rejected():\n    from tiny_model import generate\n    with pytest.raises(ValueError):\n        generate(model(), [1], max_new_tokens=-1)\n```\n\n## Manual checks\n\nM1: Check educational explanations and run the documented CPU training/generation commands.\nM2: Verify commands invoke the composed model and require no weight downloads or GPU.\n"
+    }
+  ],
+  "teacher_reasoning": "For [3,4], RMS is sqrt(12.5), so learned scales [2,3] produce [6,12]/sqrt(12.5). Position-zero RoPE is identity for every head and position-one rotation is determined by sequence, not head index. Shape checks alone cannot establish causal behavior, so future tokens are changed while earlier logits must remain fixed. Numeric gradients, checkpoint equality and repeatable CPU training test independent contracts. A controlled logit fixture uniquely predicts successor IDs, so prompt [1] must continue as [1,2,3,4]; length alone would allow a constant generator. Loss improvement is only a bounded smoke check, not proof of general model quality.",
+  "decisions": "Proposed decisions:\n\n- Use configurable tiny PyTorch components and a composed CPU model.\n- Use tolerance-based numerical tensor checks and exact same-runtime checkpoint comparisons.\n- Check causal behavior and actual predicted generation tokens independently of tensor shape or loss reduction.\n\nUnresolved/nonessential choices:\n- Tokenizer for a larger text corpus and real-language generation quality are out of this fixed token-fixture contract.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed components plus new public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\nPublic imports:\n- `_4_RoPE.pytorch.RoPE`\n- `_4_RoPE.pytorch.rotate_half`\n- `_7_RMSNorm.pytorch.RMSNorm`\n- `tiny_model.TinyModel`\n- `tiny_model.generate`\n- `tiny_model.train_demo`\n",
+    "imports": [
+      {
+        "module": "_4_RoPE.pytorch",
+        "name": "RoPE"
+      },
+      {
+        "module": "_4_RoPE.pytorch",
+        "name": "rotate_half"
+      },
+      {
+        "module": "_7_RMSNorm.pytorch",
+        "name": "RMSNorm"
+      },
+      {
+        "module": "tiny_model",
+        "name": "TinyModel"
+      },
+      {
+        "module": "tiny_model",
+        "name": "generate"
+      },
+      {
+        "module": "tiny_model",
+        "name": "train_demo"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Components obey public tensor/dimension contracts.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+        "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "RMSNorm implements the numeric scaling contract.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "RoPE applies positions on the sequence axis.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+        "tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+        "tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Causal attention does not leak future tokens.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Gradient and checkpoint paths work end to end.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+        "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+        "tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Tiny training/generation workflow is usable and bounded.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima",
+        "tests/test_workflow.py::test_negative_generation_budget_is_rejected"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+      "requirements": [
+        "R2",
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+      "requirements": [
+        "R1",
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+      "requirements": [
+        "R1",
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+      "requirements": [
+        "R1",
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+      "requirements": [
+        "R6"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Check educational explanations and run the documented CPU training/generation commands."
+    },
+    {
+      "id": "M2",
+      "text": "Verify commands invoke the composed model and require no weight downloads or GPU."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05/20261030T222217238477Z/miniature-llms.log",
+    "test_files": [
+      {
+        "path": "tests/test_normalization_and_rope.py",
+        "chars": 2049,
+        "tokens": 673,
+        "sha256": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0"
+      },
+      {
+        "path": "tests/test_workflow.py",
+        "chars": 2834,
+        "tokens": 803,
+        "sha256": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "miniature-llms",
+        "fault": "remove-causal-mask",
+        "target_requirements": [
+          "R4"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/remove-causal-mask/pytest.log",
+        "mutation_sha256": "d29c09ad358377c8b5cb753fe82f05f423dc6c5d4efb32a481eabe1c8fde67cc",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "fault": "rotate-head-axis",
+        "target_requirements": [
+          "R3"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/rotate-head-axis/pytest.log",
+        "mutation_sha256": "5f4ab5e7a569b7c82035daf5c1e84440c33f233d298dc429ea42aa3579aebb1d",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "fault": "wrong-logit-vocabulary-dimension",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/wrong-logit-vocabulary-dimension/pytest.log",
+        "mutation_sha256": "95cafcc720260331df335987da585fdd59fff2bdfc07159bb687b2bc0b6c7878",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "fault": "rmsnorm-ignores-learned-scale",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/rmsnorm-ignores-learned-scale/pytest.log",
+        "mutation_sha256": "263b3fa1c9891deb9bd33dbdfc96921f7e0f7f35c897272d7ad99091050b5719",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "fault": "checkpoint-loses-weights",
+        "target_requirements": [
+          "R5"
+        ],
+        "preservation_probe": true,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/checkpoint-loses-weights/pytest.log",
+        "mutation_sha256": "0ad20b22b7d299f97e091432d931e869181c0e0d25d4e7dcb8efc625607a9b47",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "fault": "generation-exceeds-token-budget",
+        "target_requirements": [
+          "R6"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_negative_generation_budget_is_rejected"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/generation-exceeds-token-budget/pytest.log",
+        "mutation_sha256": "64fc9486db7f99b8a71cbd680e080fb06880d8b7f836ce87dac73ac528b86848",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "fault": "constant-generated-tokens",
+        "target_requirements": [
+          "R6"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_negative_generation_budget_is_rejected"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/miniature-llms/constant-generated-tokens/pytest.log",
+        "mutation_sha256": "ea042963989f1d4dd2b4b83a28d75d50af9456a31240e0314bac22a9608aa632",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "test_numbering_consistent": true,
+    "preservation_checks": [
+      {
+        "requirement_id": "R5",
+        "contract": "Checkpoint reload preserves predictions.",
+        "faults": [
+          "checkpoint-loses-weights"
+        ],
+        "detected": true
+      }
+    ],
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "wrong-logit-vocabulary-dimension"
+      ],
+      "R2": [
+        "rmsnorm-ignores-learned-scale"
+      ],
+      "R3": [
+        "rotate-head-axis"
+      ],
+      "R4": [
+        "remove-causal-mask"
+      ],
+      "R5": [
+        "checkpoint-loses-weights"
+      ],
+      "R6": [
+        "generation-exceeds-token-budget",
+        "constant-generated-tokens"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "miniature-llms",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 15,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-stability/20261030T222311575825Z/miniature-llms/17/pytest.log",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        },
+        "reference_snapshot": {
+          "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 15,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-stability/20261030T222311575825Z/miniature-llms/43/pytest.log",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        },
+        "reference_snapshot": {
+          "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+        }
+      },
+      {
+        "repo": "miniature-llms",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 15,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/miniature-llms/tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-stability/20261030T222311575825Z/miniature-llms/91/pytest.log",
+        "test_snapshot": {
+          "tests/test_normalization_and_rope.py": "e41de1e9f39462749351f7e031e29ab2415e2f5c9015b3f3020b9438bed5a5b0",
+          "tests/test_workflow.py": "0dae925a458e5fc1c086f765f256700efd15dcf1e277f9169dd5d4f7b7a2ed0d"
+        },
+        "reference_snapshot": {
+          "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+        }
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 3155,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 198,
+      "reasoning": 144,
+      "interface": 508,
+      "tests": 1504,
+      "target": 2643
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T22:26:17.086979+00:00",
+    "prompt_version": "tdd-framing-b-v05",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "miniature-llms",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

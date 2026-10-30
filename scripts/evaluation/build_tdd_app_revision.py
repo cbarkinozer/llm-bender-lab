@@ -74,7 +74,7 @@ UNRESOLVED={
 def main():
     global BUNDLE,SYSTEM,PREPARATION,RATIONALES,UNRESOLVED
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     version=args.revision.rsplit('-',1)[-1]
@@ -108,24 +108,29 @@ def main():
                         if alias.name.startswith(APP_PREFIXES[identifier]):imports.add((alias.name,'*'))
             for node in tree.body:
                 if not isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) or not node.name.startswith('test_'):continue
-                matches=[rs for prefix,rs in MAPS[identifier] if node.name[5:].startswith(prefix)]
+                tid=str(file.relative_to(folder))+'::'+node.name
+                override=config.get('test_requirement_overrides',{}).get(identifier,{}).get(tid)
+                matches=[override] if override is not None else [rs for prefix,rs in MAPS[identifier] if node.name[5:].startswith(prefix)]
                 if not matches:raise ValueError(f'Unmapped test: {identifier}:{node.name}')
                 ids=sorted(set(sum(matches,[])))
                 tid=str(file.relative_to(folder))+'::'+node.name
                 tests.append(dict(id=tid,requirements=ids))
                 for rid in ids:req[rid]['test_ids'].append(tid)
         assert all(r['test_ids'] for r in requirements),identifier
+        if version=='v05':
+            from tdd_review_prechecks import check_test_numbering
+            assert not check_test_numbering(tests), check_test_numbering(tests)
         # An exhaustive app import inventory supplements (not replaces) the prose contract.
         inventory='\n'.join('- `'+module+('` (module)' if name=='*' else '.'+name+'`') for module,name in sorted(imports))
-        agreement=interface+('\nPublic imports:\n' if version=='v04' else '\nDeclared application import inventory (checked against test AST):\n')+inventory+'\n'
+        agreement=interface+('\nPublic imports:\n' if version in ('v04','v05') else '\nDeclared application import inventory (checked against test AST):\n')+inventory+'\n'
         manual=[dict(id=f'M{i+1}',text=text) for i,text in enumerate(config['manual_overrides'][identifier] if config else task['manual_checks']+EXTRA_MANUAL[identifier])]
         # Manual checks are adjuncts, never substitutions for missing backend coverage.
-        decisions=('Proposed decisions:\n\n' if version=='v04' else 'These are assistant-proposed design choices for this demo, not recorded human answers.\n\n')+ '\n'.join('- '+d for d in task['assistant_decisions'] if 'unresolved behavior gaps' not in d and 'not yet represented' not in d)+'\n\nUnresolved/nonessential choices:\n'+'\n'.join('- '+d for d in UNRESOLVED[identifier])
+        decisions=('Proposed decisions:\n\n' if version in ('v04','v05') else 'These are assistant-proposed design choices for this demo, not recorded human answers.\n\n')+ '\n'.join('- '+d for d in task['assistant_decisions'] if 'unresolved behavior gaps' not in d and 'not yet represented' not in d)+'\n\nUnresolved/nonessential choices:\n'+'\n'.join('- '+d for d in UNRESOLVED[identifier])
         requirements.append(dict(id='R7' if len(requirements)==6 else 'R6',text='Usable delivery, documented commands and the declared live/manual integration checks.',check_mode='manual-or-live-integration',test_ids=[],manual_ids=[m['id'] for m in manual],coverage_status='explicitly pending; not certified by backend tests'))
         mapping='\n\n'.join(r['id']+': '+r['text']+'\n'+'\n'.join('- `'+t+'`' for t in r['test_ids'])+('\nManual/live: '+', '.join(r['manual_ids']) if r['manual_ids'] else '') for r in requirements)
         manual_text='\n'.join(m['id']+': '+m['text'] for m in manual)
         target='## Decisions and unresolved questions\n\n'+decisions+'\n\n## Proposed interface agreement\n\n'+agreement+'\n## Requirement-to-test map\n\n'+mapping+'\n\n## Complete test files\n\n'+(folder/'test-output.md').read_text()+'\n## Manual checks\n\n'+manual_text+'\n'
-        messages=[{'role':'system','content':SYSTEM+('\n\n'+PREPARATION if version=='v04' else '')},{'role':'user','content':task['user_request']+('' if version=='v04' else '\n\n'+PREPARATION)},
+        messages=[{'role':'system','content':SYSTEM+('\n\n'+PREPARATION if version in ('v04','v05') else '')},{'role':'user','content':task['user_request']+('' if version in ('v04','v05') else '\n\n'+PREPARATION)},
                   {'role':'assistant','reasoning_content':RATIONALES[identifier],'content':target}]
         sections=['Decisions and unresolved questions','Proposed interface agreement','Requirement-to-test map','Complete test files','Manual checks']
         positions=[target.index('## '+section+'\n') for section in sections]
@@ -145,6 +150,13 @@ def main():
         collected={node.split('[')[0] for node in stable[0]['order']}
         assert all(any(node.endswith(t['id']) for node in collected) for t in tests), 'Mapped test was not collected'
         assert all(any(node.endswith(t['id']) for t in tests) for node in collected), 'Collected test is unmapped'
+        preservation=[]
+        for check in config.get('preservation_checks',{}).get(identifier,[]):
+            for label in check['faults']:
+                match=[f for f in faults['results'] if f['repo']==task['repo'] and f['fault']==label]
+                assert len(match)==1 and match[0]['killed'], (identifier,check)
+                assert any(node.split('[')[0].endswith(t['id']) and check['requirement_id'] in t['requirements'] for node in match[0]['failing_tests'] for t in tests), (identifier,check)
+            preservation.append(dict(check,detected=True))
         record=dict(record_id=identifier+'-'+version,schema_version='1.0',record_version=int(version[1:]),
             framing='request-to-proposed-interface-and-tests',status='awaiting-human-review',
             source=dict(repo=task['repo'],revision=run['source_commit'],dirty=run['source_dirty'],
@@ -158,6 +170,7 @@ def main():
             validation=dict(reference_pass=run['returncode']==0,execution_log=run['log'],
                             test_files=run['files'],faults=[f for f in faults['results'] if f['repo']==task['repo']],
                             structural_map_consistency=True,semantic_map_approval=False,
+                            test_numbering_consistent=(version=='v05'),preservation_checks=preservation,
                             fault_coverage_by_core_requirement=per_req_faults,all_core_requirements_have_killed_variant=True,
                             stability=stable,three_order_runs_pass=True,
                             interface_import_consistency=True,interface_attribute_and_schema_review='manual; import presence alone is insufficient',
@@ -172,7 +185,7 @@ def main():
                             source_informed=True,not_historical_zero_shot_prompt=True),
             tags=dict(domain=task['repo'],difficulty='unrated',component_type='whole-app acceptance core',external_services_faked=True),
             training_eligible=False)
-        if version=='v04':
+        if version in ('v04','v05'):
             from scan_tdd_model_text import scan_record
             findings=scan_record(record)
             assert all(f['status']=='allowed' for f in findings), (identifier,findings)
@@ -188,6 +201,9 @@ def main():
     (BUNDLE/'records.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in records))
     report=dict(records=len(records),all_reference_pass=all(r['validation']['reference_pass'] for r in records),
                 reference_cases=sum(len(r['validation']['stability'][0]['order']) for r in records),
+                preservation_contracts=sum(len(r['validation'].get('preservation_checks',[])) for r in records),
+                test_numbering_consistent=all(r['validation']['test_numbering_consistent'] for r in records),
+                construction_text_unresolved=sum(r['validation'].get('model_text_scan',{}).get('unresolved',0) for r in records),
                 targeted_faults=sum(len(r['validation']['faults']) for r in records),
                 core_requirements=sum(len(r['validation']['fault_coverage_by_core_requirement']) for r in records),
                 all_within_8192=all(r['tokens']['within_limit'] for r in records),

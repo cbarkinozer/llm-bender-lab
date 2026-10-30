@@ -1,0 +1,9 @@
+.............                                                            [100%]
+=============================== warnings summary ===============================
+llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers
+  /Users/cbarkinozer/Documents/GitHub/cryptocurrency-analyser/coin_comparator.py:19: Pandas4Warning: The inplace keyword in DataFrame.dropna is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    data.dropna(axis=1, how='all', inplace=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 0.42s

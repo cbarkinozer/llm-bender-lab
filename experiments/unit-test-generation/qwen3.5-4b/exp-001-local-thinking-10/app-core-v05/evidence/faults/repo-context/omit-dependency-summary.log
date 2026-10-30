@@ -1,0 +1,63 @@
+..FF...F....                                                             [100%]
+=================================== FAILURES ===================================
+_____________ test_requirements_are_included_in_dependency_context _____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-290/test_requirements_are_included0')
+
+    def test_requirements_are_included_in_dependency_context(tmp_path):
+        (tmp_path / 'requirements.txt').write_text('fastapi==0.115.0\npytest==8.4.2\n')
+        stack, details = analyze_dependencies(tmp_path)
+        assert stack == 'Python'
+>       assert details == '**Dependencies (`requirements.txt`):**\n```\nfastapi==0.115.0\npytest==8.4.2\n\n```'
+E       AssertionError: assert '' == '**Dependenci...=8.4.2\n\n```'
+E         
+E         - **Dependencies (`requirements.txt`):**
+E         - ```
+E         - fastapi==0.115.0
+E         - pytest==8.4.2
+E         - 
+E         - ```
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/repo-context/tests/test_core.py:28: AssertionError
+____________________ test_pyproject_dependencies_are_listed ____________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-290/test_pyproject_dependencies_ar0')
+
+    def test_pyproject_dependencies_are_listed(tmp_path):
+        (tmp_path / 'pyproject.toml').write_text('[project]\ndependencies = ["httpx>=0.28", "pytest>=8"]\n')
+>       assert analyze_dependencies(tmp_path) == ('Python', '**Dependencies (`pyproject.toml`):**\n- httpx>=0.28\n- pytest>=8')
+E       AssertionError: assert ('Python', '') == ('Python', '*...n- pytest>=8')
+E         
+E         At index 1 diff: '' != '**Dependencies (`pyproject.toml`):**\n- httpx>=0.28\n- pytest>=8'
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/repo-context/tests/test_core.py:33: AssertionError
+______ test_context_workflow_reads_selected_files_and_reports_truncation _______
+
+prepared_checkout = (PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-290/test_context_workflow_reads_se0/checkout'), <Mock id='4487993424'>)
+
+    def test_context_workflow_reads_selected_files_and_reports_truncation(prepared_checkout):
+        from repo_context import core
+        clone_dir, clone = prepared_checkout
+        result = core.generate_context_from_repo('https://github.com/owner/project', ['.py'], file_line_limit=1)
+        clone.assert_called_once_with('https://github.com/owner/project.git', str(clone_dir), depth=1)
+        assert '**Last Commit Hash:** abc123' in result
+        assert 'first_line' in result
+        assert 'second_line' not in result
+        assert 'private_marker' not in result
+>       assert 'pytest>=8' in result
+E       AssertionError: assert 'pytest>=8' in '# LLM CONTEXT SNAPSHOT\n- **Repository Source:** https://github.com/owner/project\n- **Branch:** main\n- **Snapshot T...ines.] ...\n```\n\n---\n# 4. Truncated Files\n\nThe following files were truncated:\n- `main.py` (original: 3 lines)\n'
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/repo-context/tests/test_core.py:61: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Info: Cloning full repository from default branch...
+Info: Repository cloned successfully.
+Info: Analyzing dependencies and project structure...
+Info: Generating file structure...
+Info: Reading and analyzing file contents...
+Success: Context generated! Analyzed 1 files. Truncated 1 files.
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/repo-context/tests/test_core.py::test_requirements_are_included_in_dependency_context
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/repo-context/tests/test_core.py::test_pyproject_dependencies_are_listed
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation
+3 failed, 9 passed in 0.04s

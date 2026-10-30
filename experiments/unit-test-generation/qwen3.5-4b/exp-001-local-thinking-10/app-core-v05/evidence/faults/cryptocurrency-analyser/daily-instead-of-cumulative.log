@@ -1,0 +1,80 @@
+F.F....F.....                                                            [100%]
+=================================== FAILURES ===================================
+__________ test_returns_are_relative_to_first_price_not_daily_changes __________
+
+    def test_returns_are_relative_to_first_price_not_daily_changes():
+        prices = pd.DataFrame({'BTC': [100., 150., 75.], 'ETH': [20., 10., 30.]})
+        expected = pd.DataFrame({'BTC': [0., .5, -.25], 'ETH': [0., -.5, .5]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pandas/_libs/testing.pyx:64: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (33.33333 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.5, -0.5]
+E   [right]: [0.0, 0.5, -0.25]
+E   At positional index 2, first diff: -0.5 != -0.25
+
+pandas/_libs/testing.pyx:227: AssertionError
+______________________ test_missing_price_remains_missing ______________________
+
+    def test_missing_price_remains_missing():
+        prices = pd.DataFrame({'BTC': [100., float('nan'), 200.]})
+        expected = pd.DataFrame({'BTC': [0., float('nan'), 1.]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pandas/_libs/testing.pyx:64: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (66.66667 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.0, 0.0]
+E   [right]: [0.0, nan, 1.0]
+E   At positional index 1, first diff: 0.0 != nan
+
+pandas/_libs/testing.pyx:227: AssertionError
+_______ test_saved_csv_matches_provider_calculation_and_declares_source ________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-293/test_saved_csv_matches_provide0')
+
+    def test_saved_csv_matches_provider_calculation_and_declares_source(tmp_path):
+        from price_workflow import analyze
+        path = tmp_path/'prices.csv'
+        prices().to_csv(path)
+        provider = Mock(return_value=prices())
+        live = analyze(['btc','eth'], '2026-01-01','2026-01-04', provider=provider)
+        offline = analyze(['btc','eth'], '2026-01-01','2026-01-04', csv_path=path)
+        provider.assert_called_once_with(['BTC-USD','ETH-USD'], '2026-01-01','2026-01-04')
+        assert_frame_equal(live['returns'], offline['returns'], check_freq=False)
+>       assert offline['returns']['BTC-USD'].tolist() == [0.,.5,-.25]
+E       assert [0.0, 0.5, -0.5] == [0.0, 0.5, -0.25]
+E         
+E         At index 2 diff: -0.5 != -0.25
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_workflow.py:22: AssertionError
+=============================== warnings summary ===============================
+llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers
+  /Users/cbarkinozer/Documents/GitHub/cryptocurrency-analyser/coin_comparator.py:19: Pandas4Warning: The inplace keyword in DataFrame.dropna is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    data.dropna(axis=1, how='all', inplace=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_missing_price_remains_missing
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source
+3 failed, 10 passed, 1 warning in 0.21s

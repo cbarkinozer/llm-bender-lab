@@ -1,3 +1,9 @@
+> Latest review, 2026-10-31: [revision 05](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/README.md).
+> http://127.0.0.1:7900/dataset/ae9c43c9-54ea-4602-9d4d-56741869b59a/annotation-mode
+> HTML display is repaired; pre-checks include process words, numbered test/map
+> agreement and preservation faults. Original app code is unchanged. Earlier
+> review links below remain historical; no human approvals or SFT were fabricated.
+
 > Resume here — 2026-10-31: the active thinking-SFT demo uses nine whole-app
 > requirements-to-tests candidates, [format revision 04](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/README.md).
 > Argilla: http://127.0.0.1:7900/dataset/7500c36b-0971-41bd-91c5-765d6e7add5e/annotation-mode

@@ -21,7 +21,7 @@ NAMES=['GitHub-insignia','ghost-box','slm_test_generation','llm-bender-lab','Ref
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo', choices=NAMES)
-    parser.add_argument('--revision', choices=['app-core-v02','app-core-v03','app-core-v04'], default='app-core-v02')
+    parser.add_argument('--revision', choices=['app-core-v02','app-core-v03','app-core-v04','app-core-v05'], default='app-core-v02')
     args=parser.parse_args()
     bundle=BUNDLE.parent/args.revision
     from tokenizers import Tokenizer

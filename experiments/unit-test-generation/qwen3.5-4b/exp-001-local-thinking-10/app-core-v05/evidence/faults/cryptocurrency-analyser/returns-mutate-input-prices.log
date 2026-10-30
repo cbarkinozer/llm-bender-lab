@@ -1,0 +1,37 @@
+.F...........                                                            [100%]
+=================================== FAILURES ===================================
+_________________ test_returns_preserve_dates_and_input_prices _________________
+
+    def test_returns_preserve_dates_and_input_prices():
+        dates = pd.date_range('2026-01-01', periods=2)
+        prices = pd.DataFrame({'BTC': [10., 15.]}, index=dates)
+        original = prices.copy(deep=True)
+        result = calculate_cumulative_returns(prices)
+>       assert_frame_equal(prices, original)
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pandas/_libs/testing.pyx:64: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (50.0 %)
+E   [index]: [2026-01-01T00:00:00.000000, 2026-01-02T00:00:00.000000]
+E   [left]:  [11.0, 15.0]
+E   [right]: [10.0, 15.0]
+E   At positional index 0, first diff: 11.0 != 10.0
+
+pandas/_libs/testing.pyx:227: AssertionError
+=============================== warnings summary ===============================
+llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers
+  /Users/cbarkinozer/Documents/GitHub/cryptocurrency-analyser/coin_comparator.py:19: Pandas4Warning: The inplace keyword in DataFrame.dropna is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    data.dropna(axis=1, how='all', inplace=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices
+1 failed, 12 passed, 1 warning in 0.22s

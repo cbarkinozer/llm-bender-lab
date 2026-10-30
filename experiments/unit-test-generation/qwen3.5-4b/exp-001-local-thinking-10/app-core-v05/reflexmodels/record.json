@@ -1,0 +1,669 @@
+{
+  "record_id": "reflexmodels-v05",
+  "schema_version": "1.0",
+  "record_version": 5,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "ReflexModels",
+    "revision": "efbc154cf9b9caf41a6e68a314356eed96dbb017",
+    "dirty": false,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "train",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "ReflexModels",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Build me a small Python decision-model toolkit for applications that need quick structured decisions rather than generated paragraphs. A caller should provide shared state, a natural-language question and options defined at runtime, including Turkish labels; support binary, choice and ordered-level decisions. Return stable typed results with the original option identifiers, probabilities, selected answer and uncertainty information, and let several questions share one state without mixing their options. Keep the scorer replaceable so I can use deterministic scores in tests and later connect a local model. Validate malformed requests, duplicate options and invalid probabilities rather than silently repairing them. Provide a configurable fallback decision when confidence, margin or answerability is insufficient, and evaluation/calibration helpers that report honest metrics, including undefined cases. Preserve Unicode and stable serialization so another process can consume results, don't train or download anything merely to test the toolkit, and document a complete local example from request through scoring to response and fallback."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "Two logits differing by 2 give softmax probabilities about .880797 and .119203, attached to the original Unicode option IDs. Invalid probabilities must fail before routing. Fallback depends separately on margin and answerability. Predictions that never select one class still need that class in macro-F1; accuracy .5 is compatible with macro-F1 1/3. Correct .75-confidence predictions have NLL -log(.75), Brier .125 and calibration error .25. Empty metric inputs raise an explicit error.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Resolve equal candidate scores by declaration order. Use 1e-6 normalization tolerance.\n- Preserve immutable Unicode option identifiers and isolate shared-state questions.\n- Reject empty metric inputs with ValueError instead of reporting perfect scores.\n\nUnresolved/nonessential choices:\n- Production scoring model and acceptable calibration threshold require empirical selection.\n\n## Proposed interface agreement\n\nProposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities plus uncertainty fields. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\nPublic imports:\n- `reflexmodels.Binary`\n- `reflexmodels.Choice`\n- `reflexmodels.Ordinal`\n- `reflexmodels.SharedStateDecisions`\n- `reflexmodels.choice_response`\n- `reflexmodels.fallback_gate`\n- `reflexmodels.score_decision`\n- `reflexmodels.score_shared_state`\n- `reflexmodels.metrics.classification_metrics`\n- `reflexmodels.protocol.request_to_json`\n- `reflexmodels.protocol.response_to_json`\n\n## Requirement-to-test map\n\nR1: Accept runtime-defined Unicode option identifiers and validate request types.\n- `tests/test_core.py::test_runtime_unicode_options_roundtrip`\n- `tests/test_core.py::test_invalid_decision_requests_are_rejected`\n\nR2: Produce correct option probabilities and selected IDs.\n- `tests/test_core.py::test_logits_map_to_original_option_ids`\n\nR3: Validate probability domain and normalization.\n- `tests/test_core.py::test_invalid_probabilities_are_rejected`\n\nR4: Keep shared-state questions isolated.\n- `tests/test_core.py::test_shared_state_keeps_question_results_separate`\n\nR5: Route ambiguous or unanswerable outcomes to fallback.\n- `tests/test_core.py::test_low_margin_requires_fallback`\n- `tests/test_core.py::test_low_answerability_overrides_confident_choice`\n\nR6: Report reproducible metrics and undefined cases.\n- `tests/test_core.py::test_metrics_include_unpredicted_class`\n- `tests/test_core.py::test_calibration_metrics_have_concrete_expected_values`\n- `tests/test_core.py::test_undefined_metrics_reject_invalid_inputs`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/test_core.py\n```python\n'Acceptance checks for observable application behavior.'\nimport json\nimport math\nimport pytest\nfrom reflexmodels import Choice, Binary, Ordinal, SharedStateDecisions, score_decision, score_shared_state, choice_response, fallback_gate\nfrom reflexmodels.protocol import request_to_json, response_to_json\nfrom reflexmodels.metrics import classification_metrics\n\n\n@pytest.fixture\ndef choice():\n    return Choice('Kullanıcı dosya arıyor.', 'Hangi araç?', {'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'})\n\n\ndef test_runtime_unicode_options_roundtrip(choice):\n    encoded = json.loads(request_to_json(choice, request_id='r1'))\n    assert encoded['options'] == {'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}\n    assert encoded['state'] == 'Kullanıcı dosya arıyor.'\n\n\n@pytest.mark.parametrize('factory', [lambda: Choice('state', 'question', {'one': 'Only'}), lambda: Ordinal('state', 'question', ('low', 'low')), lambda: Binary('state', '')])\ndef test_invalid_decision_requests_are_rejected(factory):\n    with pytest.raises(ValueError):\n        factory()\n\n\ndef test_logits_map_to_original_option_ids(choice):\n    response = score_decision(choice, request_id='r1', scorer=lambda branch: 2. if 'Dosyaları ara' in branch else 0.)\n    assert response['selected_option'] == 'files'\n    assert response['option_probabilities'] == pytest.approx({'files': 0.88079707798, 'web': 0.11920292202})\n    assert json.loads(response_to_json(response)) == response\n\n\n@pytest.mark.parametrize('probabilities', [{'files': -0.1, 'web': 1.1}, {'files': math.nan, 'web': 0.5}, {'files': 0.7, 'web': 0.7}, {'missing': 1.}])\ndef test_invalid_probabilities_are_rejected(choice, probabilities):\n    with pytest.raises(ValueError):\n        choice_response(choice, request_id='r1', probabilities=probabilities)\n\n\ndef test_shared_state_keeps_question_results_separate(choice):\n    batch = SharedStateDecisions(choice.state, {'tool': choice, 'continue': Binary(choice.state, 'Devam mı?')})\n    results = score_shared_state(batch, request_id='r2', scorer=lambda branch: 0., workers=1)\n    assert results['tool']['option_probabilities'] == {'files': 0.5, 'web': 0.5}\n    assert results['continue']['option_probabilities'] == {'yes': 0.5, 'no': 0.5}\n\n\ndef test_low_margin_requires_fallback(choice):\n    response = choice_response(choice, request_id='r', probabilities={'files': 0.51, 'web': 0.49})\n    gate = fallback_gate(response, min_confidence=.5, min_margin=.2)\n    assert gate['fallback_required'] is True\n    assert 'low_margin' in gate['reason_codes']\n\n\ndef test_low_answerability_overrides_confident_choice(choice):\n    response = choice_response(choice, request_id='r', probabilities={'files': .9, 'web': .1})\n    gate = fallback_gate(response, min_confidence=.8, answerability_probability=.2, min_answerability=.7)\n    assert gate['fallback_required'] is True\n    assert 'insufficient_evidence' in gate['reason_codes']\n\n\ndef test_metrics_include_unpredicted_class():\n    result = classification_metrics([0, 1], [[.9, .1], [.8, .2]])\n    assert result['accuracy'] == .5\n    assert result['macro_f1'] == pytest.approx(1 / 3)\n\n\ndef test_calibration_metrics_have_concrete_expected_values():\n    result = classification_metrics([0,1], [[.75,.25],[.25,.75]], ece_bins=2)\n    assert result == pytest.approx({'accuracy':1., 'macro_f1':1.,\n        'nll':-math.log(.75), 'brier':.125, 'ece':.25})\n\n\n@pytest.mark.parametrize('labels,probabilities,bins', [([],[],2),([0],[[1.,0.]],0)])\ndef test_undefined_metrics_reject_invalid_inputs(labels, probabilities, bins):\n    with pytest.raises(ValueError):\n        classification_metrics(labels, probabilities, ece_bins=bins)\n```\n\n## Manual checks\n\nM1: Run the documented local request/scoring/response/fallback example and check the uncertainty schema.\nM2: Evaluate calibration and fallback thresholds with representative application traffic.\n"
+    }
+  ],
+  "teacher_reasoning": "Two logits differing by 2 give softmax probabilities about .880797 and .119203, attached to the original Unicode option IDs. Invalid probabilities must fail before routing. Fallback depends separately on margin and answerability. Predictions that never select one class still need that class in macro-F1; accuracy .5 is compatible with macro-F1 1/3. Correct .75-confidence predictions have NLL -log(.75), Brier .125 and calibration error .25. Empty metric inputs raise an explicit error.",
+  "decisions": "Proposed decisions:\n\n- Resolve equal candidate scores by declaration order. Use 1e-6 normalization tolerance.\n- Preserve immutable Unicode option identifiers and isolate shared-state questions.\n- Reject empty metric inputs with ValueError instead of reporting perfect scores.\n\nUnresolved/nonessential choices:\n- Production scoring model and acceptable calibration threshold require empirical selection.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities plus uncertainty fields. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\nPublic imports:\n- `reflexmodels.Binary`\n- `reflexmodels.Choice`\n- `reflexmodels.Ordinal`\n- `reflexmodels.SharedStateDecisions`\n- `reflexmodels.choice_response`\n- `reflexmodels.fallback_gate`\n- `reflexmodels.score_decision`\n- `reflexmodels.score_shared_state`\n- `reflexmodels.metrics.classification_metrics`\n- `reflexmodels.protocol.request_to_json`\n- `reflexmodels.protocol.response_to_json`\n",
+    "imports": [
+      {
+        "module": "reflexmodels",
+        "name": "Binary"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "Choice"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "Ordinal"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "SharedStateDecisions"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "choice_response"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "fallback_gate"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "score_decision"
+      },
+      {
+        "module": "reflexmodels",
+        "name": "score_shared_state"
+      },
+      {
+        "module": "reflexmodels.metrics",
+        "name": "classification_metrics"
+      },
+      {
+        "module": "reflexmodels.protocol",
+        "name": "request_to_json"
+      },
+      {
+        "module": "reflexmodels.protocol",
+        "name": "response_to_json"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Accept runtime-defined Unicode option identifiers and validate request types.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_runtime_unicode_options_roundtrip",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Produce correct option probabilities and selected IDs.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_logits_map_to_original_option_ids"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Validate probability domain and normalization.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_invalid_probabilities_are_rejected"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Keep shared-state questions isolated.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_shared_state_keeps_question_results_separate"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Route ambiguous or unanswerable outcomes to fallback.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_low_margin_requires_fallback",
+        "tests/test_core.py::test_low_answerability_overrides_confident_choice"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Report reproducible metrics and undefined cases.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_metrics_include_unpredicted_class",
+        "tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_core.py::test_runtime_unicode_options_roundtrip",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_invalid_decision_requests_are_rejected",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_logits_map_to_original_option_ids",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_invalid_probabilities_are_rejected",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_shared_state_keeps_question_results_separate",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_low_margin_requires_fallback",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_low_answerability_overrides_confident_choice",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_metrics_include_unpredicted_class",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs",
+      "requirements": [
+        "R6"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Run the documented local request/scoring/response/fallback example and check the uncertainty schema."
+    },
+    {
+      "id": "M2",
+      "text": "Evaluate calibration and fallback thresholds with representative application traffic."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05/20261030T222217238477Z/ReflexModels.log",
+    "test_files": [
+      {
+        "path": "tests/test_core.py",
+        "chars": 3640,
+        "tokens": 986,
+        "sha256": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "ReflexModels",
+        "fault": "f1-equals-accuracy",
+        "target_requirements": [
+          "R6"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_metrics_include_unpredicted_class"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/ReflexModels/f1-equals-accuracy/pytest.log",
+        "mutation_sha256": "44a41808a8de64ec6ea0600fba125c350233a65d39c5c6846ced911bb3f3b91b",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        }
+      },
+      {
+        "repo": "ReflexModels",
+        "fault": "ignore-margin",
+        "target_requirements": [
+          "R5"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_margin_requires_fallback"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/ReflexModels/ignore-margin/pytest.log",
+        "mutation_sha256": "581471d9bb7e978fd0f63e6984c4eae39ba60a1d9fc3cca36111394b02d9ee8f",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        }
+      },
+      {
+        "repo": "ReflexModels",
+        "fault": "request-loses-original-option-ids",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": true,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_runtime_unicode_options_roundtrip"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/ReflexModels/request-loses-original-option-ids/pytest.log",
+        "mutation_sha256": "ba3bd6203c7d30081942ad70928a57a4b31aa1bbed04a7252fcad58bc76f3708",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        }
+      },
+      {
+        "repo": "ReflexModels",
+        "fault": "select-wrong-option",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_logits_map_to_original_option_ids"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/ReflexModels/select-wrong-option/pytest.log",
+        "mutation_sha256": "fe2b2b03ab8eddbb84ba4bec73586c164353a47fa669d37269cfb2ad8b8280ec",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        }
+      },
+      {
+        "repo": "ReflexModels",
+        "fault": "accept-invalid-probabilities",
+        "target_requirements": [
+          "R3"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/ReflexModels/accept-invalid-probabilities/pytest.log",
+        "mutation_sha256": "9c027e69435f6f36187ab161a83fdf13b806483a2ee9527d47755a9315d919bf",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        }
+      },
+      {
+        "repo": "ReflexModels",
+        "fault": "mix-shared-question-options",
+        "target_requirements": [
+          "R4"
+        ],
+        "preservation_probe": true,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_shared_state_keeps_question_results_separate"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-faults/20261030T222223608240Z/ReflexModels/mix-shared-question-options/pytest.log",
+        "mutation_sha256": "539e65b2d6357017458ade00991ae2efba54f2229c1a2044d43907c832b64ca1",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "test_numbering_consistent": true,
+    "preservation_checks": [
+      {
+        "requirement_id": "R1",
+        "contract": "Original Unicode option identifiers are preserved.",
+        "faults": [
+          "request-loses-original-option-ids"
+        ],
+        "detected": true
+      },
+      {
+        "requirement_id": "R4",
+        "contract": "Shared-state questions retain independent option results.",
+        "faults": [
+          "mix-shared-question-options"
+        ],
+        "detected": true
+      }
+    ],
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "request-loses-original-option-ids"
+      ],
+      "R2": [
+        "select-wrong-option"
+      ],
+      "R3": [
+        "accept-invalid-probabilities"
+      ],
+      "R4": [
+        "mix-shared-question-options"
+      ],
+      "R5": [
+        "ignore-margin"
+      ],
+      "R6": [
+        "f1-equals-accuracy"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "ReflexModels",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 16,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_margin_requires_fallback",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels0-probabilities0-2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_shared_state_keeps_question_results_separate",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_runtime_unicode_options_roundtrip",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_answerability_overrides_confident_choice",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels1-probabilities1-0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_logits_map_to_original_option_ids",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_metrics_include_unpredicted_class",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_calibration_metrics_have_concrete_expected_values"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-stability/20261030T222311575825Z/ReflexModels/17/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        },
+        "reference_snapshot": {}
+      },
+      {
+        "repo": "ReflexModels",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 16,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_shared_state_keeps_question_results_separate",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_runtime_unicode_options_roundtrip",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels0-probabilities0-2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_margin_requires_fallback",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels1-probabilities1-0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_metrics_include_unpredicted_class",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_answerability_overrides_confident_choice",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_logits_map_to_original_option_ids",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>0]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-stability/20261030T222311575825Z/ReflexModels/43/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        },
+        "reference_snapshot": {}
+      },
+      {
+        "repo": "ReflexModels",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 16,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_logits_map_to_original_option_ids",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_runtime_unicode_options_roundtrip",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_answerability_overrides_confident_choice",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels0-probabilities0-2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_metrics_include_unpredicted_class",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_low_margin_requires_fallback",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels1-probabilities1-0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_shared_state_keeps_question_results_separate",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/reflexmodels/tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>1]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v05-stability/20261030T222311575825Z/ReflexModels/91/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "ba4bbba0348621e98284b2193bac8ca0b699eae0a4626280a0a22e0deff3c572"
+        },
+        "reference_snapshot": {}
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 14,
+          "term": "reflexmodels",
+          "text": "Proposed API in `reflexmodels`:",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 23,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.Binary`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 24,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.Choice`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 25,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.Ordinal`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 26,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.SharedStateDecisions`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 27,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.choice_response`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 28,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.fallback_gate`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 29,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.score_decision`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 30,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.score_shared_state`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 31,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.metrics.classification_metrics`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 32,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.protocol.request_to_json`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 33,
+          "term": "reflexmodels",
+          "text": "- `reflexmodels.protocol.response_to_json`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 71,
+          "term": "reflexmodels",
+          "text": "from reflexmodels import Choice, Binary, Ordinal, SharedStateDecisions, score_decision, score_shared_state, choice_response, fallback_gate",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 72,
+          "term": "reflexmodels",
+          "text": "from reflexmodels.protocol import request_to_json, response_to_json",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 73,
+          "term": "reflexmodels",
+          "text": "from reflexmodels.metrics import classification_metrics",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        }
+      ],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 2439,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 183,
+      "reasoning": 117,
+      "interface": 575,
+      "tests": 998,
+      "target": 1969
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T22:26:17.008481+00:00",
+    "prompt_version": "tdd-framing-b-v05",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "ReflexModels",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

@@ -1,0 +1,128 @@
+............FF.F....F                                                    [100%]
+=================================== FAILURES ===================================
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\n    assert sut() == 42-passed] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-272/test_runner_retains_raw_text_a0')
+source = 'def test_ok():\n    assert sut() == 42', outcome = 'passed'
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=0.5)
+        assert result['outcome'] == outcome
+        assert result['task_id'] == 'fresh'
+        assert result['context'] == 'B'
+        assert result['dependency'] == 'L1'
+>       assert (tmp_path/'fresh'/'generation.txt').read_text() == source
+E       AssertionError: assert 'import built...t sut() == 42' == 'def test_ok(...t sut() == 42'
+E         
+E         - def test_ok():
+E         -     assert sut() == 42
+E         + import builtins as __oracle_builtins__
+E         + __ORACLE_REAL_OPEN__ = __oracle_builtins__.open
+E         + __ORACLE_REAL_STR__ = __oracle_builtins__.str
+E         + ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:23: AssertionError
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\n    assert sut() == 43-runtime_failure] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-272/test_runner_retains_raw_text_a1')
+source = 'def test_wrong():\n    assert sut() == 43'
+outcome = 'runtime_failure'
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=0.5)
+        assert result['outcome'] == outcome
+        assert result['task_id'] == 'fresh'
+        assert result['context'] == 'B'
+        assert result['dependency'] == 'L1'
+>       assert (tmp_path/'fresh'/'generation.txt').read_text() == source
+E       AssertionError: assert 'import built...t sut() == 43' == 'def test_wro...t sut() == 43'
+E         
+E         - def test_wrong():
+E         -     assert sut() == 43
+E         + import builtins as __oracle_builtins__
+E         + __ORACLE_REAL_OPEN__ = __oracle_builtins__.open
+E         + __ORACLE_REAL_STR__ = __oracle_builtins__.str
+E         + ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:23: AssertionError
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\n    while True: pass-timeout] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-272/test_runner_retains_raw_text_a3')
+source = 'def test_wait():\n    while True: pass', outcome = 'timeout'
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=0.5)
+        assert result['outcome'] == outcome
+        assert result['task_id'] == 'fresh'
+        assert result['context'] == 'B'
+        assert result['dependency'] == 'L1'
+>       assert (tmp_path/'fresh'/'generation.txt').read_text() == source
+E       AssertionError: assert 'import built...n        pass' == 'def test_wai...le True: pass'
+E         
+E         - def test_wait():
+E         -     while True: pass
+E         + import builtins as __oracle_builtins__
+E         + __ORACLE_REAL_OPEN__ = __oracle_builtins__.open
+E         + __ORACLE_REAL_STR__ = __oracle_builtins__.str
+E         + ...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:23: AssertionError
+________ test_valid_docstring_and_future_import_survive_instrumentation ________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-272/test_valid_docstring_and_futur0')
+
+    def test_valid_docstring_and_future_import_survive_instrumentation(tmp_path):
+        from benchmark_workflow import run_task
+        source = ('"""Generated checks."""\nfrom __future__ import annotations\n'
+                  'def test_value():\n    assert __doc__ == "Generated checks."\n    assert sut() == 42\n')
+        compile(source, '<valid-original-module>', 'exec')
+        result = run_task(task('header',source), root=tmp_path,
+                          sut_source='def sut(): return 42', timeout_seconds=1)
+        assert result['outcome'] == 'passed'
+        assert result['useful_success'] is True
+>       assert (tmp_path/'header'/'generation.txt').read_text() == source
+E       assert '"""Generated...t sut() == 42' == '"""Generated...sut() == 42\n'
+E         
+E         Skipping 49 identical leading characters in diff, use -v to show
+E           notations
+E         - def test_value():
+E         -     assert __doc__ == "Generated checks."
+E         -     assert sut() == 42
+E         + import builtins as __oracle_builtins__...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:76: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\n    assert sut() == 42-passed]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\n    assert sut() == 43-runtime_failure]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\n    while True: pass-timeout]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation
+4 failed, 17 passed in 2.31s

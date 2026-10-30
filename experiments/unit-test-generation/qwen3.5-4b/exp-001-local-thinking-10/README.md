@@ -1,3 +1,9 @@
+> Current review, 2026-10-31: [revision 05](app-core-v05/README.md).
+> Code display is HTML-escaped, the new meta-text defect category is available,
+> and numbering/process-text/preservation pre-checks pass. Review:
+> http://127.0.0.1:7900/dataset/ae9c43c9-54ea-4602-9d4d-56741869b59a/annotation-mode
+> Previous datasets and annotations remain preserved; no SFT has started.
+
 > Current format revision, 2026-10-31: [app-core-v04](app-core-v04/README.md).
 > Natural requests and shared system instructions are separated from construction/review metadata.
 > Tests and application behavior match v03; record-specific executor work is archived separately.

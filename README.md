@@ -11,7 +11,7 @@ and limitations. [Occam release/verification notes](docs/publication/PRIVATE-UPL
 record the subsequent adapter/dataset uploads; historical provenance review remains
 distinct from public visibility.
 
-Current phase (2026-10-31): [thinking SFT on Qwen3.5-4B through requirements-to-tests](experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/README.md).
+Current phase (2026-10-31): [thinking SFT on Qwen3.5-4B through requirements-to-tests](experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/README.md).
 Nine whole-app candidates use a [shared input/output format](docs/tdd-example-format.md).
 Human review and an untouched-model baseline precede training; no whole-app SFT
 or before/after improvement is claimed. Occam2/Turkish work is preserved for later.

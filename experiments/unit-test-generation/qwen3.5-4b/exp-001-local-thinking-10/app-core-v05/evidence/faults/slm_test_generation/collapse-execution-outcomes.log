@@ -1,0 +1,71 @@
+.............FFF.....                                                    [100%]
+=================================== FAILURES ===================================
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\n    assert sut() == 43-runtime_failure] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-267/test_runner_retains_raw_text_a1')
+source = 'def test_wrong():\n    assert sut() == 43'
+outcome = 'runtime_failure'
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=0.5)
+>       assert result['outcome'] == outcome
+E       AssertionError: assert 'passed' == 'runtime_failure'
+E         
+E         - runtime_failure
+E         + passed
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:19: AssertionError
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-267/test_runner_retains_raw_text_a2')
+source = 'def test_(:', outcome = 'collection_error'
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=0.5)
+>       assert result['outcome'] == outcome
+E       AssertionError: assert 'passed' == 'collection_error'
+E         
+E         - collection_error
+E         + passed
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:19: AssertionError
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\n    while True: pass-timeout] _
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-267/test_runner_retains_raw_text_a3')
+source = 'def test_wait():\n    while True: pass', outcome = 'timeout'
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=0.5)
+>       assert result['outcome'] == outcome
+E       AssertionError: assert 'passed' == 'timeout'
+E         
+E         - timeout
+E         + passed
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py:19: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\n    assert sut() == 43-runtime_failure]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/slm_test_generation/tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\n    while True: pass-timeout]
+3 failed, 18 passed in 2.33s
