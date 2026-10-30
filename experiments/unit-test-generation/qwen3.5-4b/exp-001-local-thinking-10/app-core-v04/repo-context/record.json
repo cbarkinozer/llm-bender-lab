@@ -1,0 +1,573 @@
+{
+  "record_id": "repo-context-v04",
+  "schema_version": "1.0",
+  "record_version": 4,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "repo-context",
+    "revision": "efc00f0c4c77fb404a65ba7447e974c754b27452",
+    "dirty": true,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [
+      {
+        "path": "reference/context_workflow.py",
+        "sha256": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      }
+    ],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "train",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "repo-context",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Build me a Python tool that turns a GitHub repository into a readable Markdown context snapshot I can give an LLM. Let me supply a repository URL, optionally a branch and subfolder, choose file extensions and a per-file line limit, and get repository metadata, dependency summaries, a directory tree and selected text-file contents in deterministic order. Respect .gitignore and common generated/dependency directories, don't include secret environment files by default, skip non-text files, and clearly identify truncated files instead of making the snapshot look complete. Support private repositories with a token kept out of the output, show a useful error when cloning or reading fails, and clean up temporary checkouts even after failure. Give me a CLI and a simple local Streamlit page for generating and downloading the same snapshot; no hosted service is necessary. Keep the core independent of the UI so it can be checked with a small local fixture repository instead of real network requests."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "The fixture checkout includes selected content, ignored content, a secret and an escaping symlink, so inclusion and exclusion are observable together. A one-line limit must include the first line, omit the second and disclose truncation. Exact metadata/dependency examples test truthful content, while cleanup is checked on success and clone failure. CLI/UI controller wrappers share one operation; actual UI wiring and private authentication still need a live check. Slash-containing branch ambiguity remains open rather than guessed.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Support simple branch names in tree URLs; do not guess slash-containing branch names.\n- A positive line limit truncates; zero means unlimited. Exclude environment files and symlinks.\n- CLI and UI controllers delegate to the same snapshot operation.\n\nUnresolved/nonessential choices:\n- Slash-containing branch names need a separate branch argument or an unambiguous future URL syntax.\n\n## Proposed interface agreement\n\nProposed public helpers `repo_context.core` plus a new shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; declared text layout follows supplied expected strings. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `core.generate_context_from_repo(url,extensions,file_line_limit=...)` -> Markdown or \"Error:\" string. Uses git.Repo.clone_from(url,checkout,depth=1), tempfile.mkdtemp() and returns commit hash, dependency summary, selected content, visible truncation. Clone failure includes useful reason; cleanup always. git/tempfile are explicitly declared injectable adapter seams for offline tests.\n- New `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n\nPublic imports:\n- `context_workflow.cli_snapshot`\n- `context_workflow.snapshot`\n- `context_workflow.ui_snapshot`\n- `repo_context.core`\n- `repo_context.core.analyze_dependencies`\n- `repo_context.core.build_file_tree`\n- `repo_context.core.is_text_file`\n- `repo_context.core.parse_github_url`\n\n## Requirement-to-test map\n\nR1: Interpret repository URL and requested branch/subfolder.\n- `tests/test_core.py::test_branch_and_subdirectory_are_separated`\n- `tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope`\n- `tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone`\n\nR2: Respect extension and ignore policies.\n- `tests/test_core.py::test_tree_filters_extensions_and_ignored_directories`\n- `tests/test_core.py::test_explicit_ignore_removes_matching_file`\n- `tests/test_core.py::test_utf8_file_is_recognized`\n- `tests/test_core.py::test_invalid_utf8_is_rejected`\n- `tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope`\n\nR3: Produce truthful metadata and dependencies in deterministic order.\n- `tests/test_core.py::test_requirements_are_included_in_dependency_context`\n- `tests/test_core.py::test_pyproject_dependencies_are_listed`\n- `tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation`\n\nR4: Apply and disclose line limits.\n- `tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation`\n- `tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope`\n\nR5: Preserve errors/cleanup and exclude credentials.\n- `tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation`\n- `tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory`\n- `tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope`\n- `tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone`\n\nR6: CLI and UI use the same generation operation.\n- `tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/conftest.py\n```python\n'Offline fixtures for application acceptance contracts.'\nimport sys\nfrom pathlib import Path\nfrom types import SimpleNamespace\nfrom unittest.mock import Mock\nimport pytest\n\n\n\n@pytest.fixture\ndef prepared_checkout(tmp_path, monkeypatch):\n    from repo_context import core\n    checkout = tmp_path / 'checkout'\n    checkout.mkdir()\n    (checkout / 'main.py').write_text('first_line\\nsecond_line\\nthird_line\\n')\n    (checkout / 'private.py').write_text('private_marker')\n    (checkout / '.gitignore').write_text('private.py\\n')\n    (checkout / 'requirements.txt').write_text('pytest>=8\\n')\n    repository = SimpleNamespace(head=SimpleNamespace(commit=SimpleNamespace(hexsha='abc123', message='Fixture commit\\n')), active_branch=SimpleNamespace(name='main'), close=Mock())\n    clone = Mock(return_value=repository)\n    monkeypatch.setattr(core.tempfile, 'mkdtemp', lambda: str(checkout))\n    monkeypatch.setattr(core.git.Repo, 'clone_from', clone)\n    return checkout, clone\n```\n\nFile: tests/test_core.py\n```python\n'Acceptance checks for observable application behavior.'\nimport sys\nfrom pathlib import Path\n\nfrom repo_context.core import analyze_dependencies, build_file_tree, is_text_file, parse_github_url\n\n\ndef test_tree_filters_extensions_and_ignored_directories(tmp_path):\n    (tmp_path / 'main.py').write_text('print(\"hello\")\\n')\n    (tmp_path / 'image.png').write_bytes(b'\\x89PNG')\n    hidden = tmp_path / 'node_modules'\n    hidden.mkdir()\n    (hidden / 'ignored.py').write_text('not project code')\n    result = build_file_tree(tmp_path, 'demo', lambda path: False, ['.py'])\n    assert result == '📂 demo\\n└── 📄 main.py'\n\n\ndef test_explicit_ignore_removes_matching_file(tmp_path):\n    secret = tmp_path / 'private.py'\n    secret.write_text('secret = \"fixture only\"')\n    assert build_file_tree(tmp_path, 'demo', lambda path: path == secret, ['.py']) == '📂 demo\\n'\n\n\ndef test_requirements_are_included_in_dependency_context(tmp_path):\n    (tmp_path / 'requirements.txt').write_text('fastapi==0.115.0\\npytest==8.4.2\\n')\n    stack, details = analyze_dependencies(tmp_path)\n    assert stack == 'Python'\n    assert details == '**Dependencies (`requirements.txt`):**\\n```\\nfastapi==0.115.0\\npytest==8.4.2\\n\\n```'\n\n\ndef test_pyproject_dependencies_are_listed(tmp_path):\n    (tmp_path / 'pyproject.toml').write_text('[project]\\ndependencies = [\"httpx>=0.28\", \"pytest>=8\"]\\n')\n    assert analyze_dependencies(tmp_path) == ('Python', '**Dependencies (`pyproject.toml`):**\\n- httpx>=0.28\\n- pytest>=8')\n\n\ndef test_branch_and_subdirectory_are_separated():\n    assert parse_github_url('https://github.com/owner/project/tree/main/src/pkg/') == ('https://github.com/owner/project.git', 'main', 'src/pkg')\n\n\ndef test_utf8_file_is_recognized(tmp_path):\n    path = tmp_path / 'notes.txt'\n    path.write_text('Türkçe: ı İ ş')\n    assert is_text_file(path) is True\n\n\ndef test_invalid_utf8_is_rejected(tmp_path):\n    path = tmp_path / 'binary.bin'\n    path.write_bytes(b'\\xff\\xfe\\x00')\n    assert is_text_file(path) is False\n\n\ndef test_context_workflow_reads_selected_files_and_reports_truncation(prepared_checkout):\n    from repo_context import core\n    clone_dir, clone = prepared_checkout\n    result = core.generate_context_from_repo('https://github.com/owner/project', ['.py'], file_line_limit=1)\n    clone.assert_called_once_with('https://github.com/owner/project.git', str(clone_dir), depth=1)\n    assert '**Last Commit Hash:** abc123' in result\n    assert 'first_line' in result\n    assert 'second_line' not in result\n    assert 'private_marker' not in result\n    assert 'pytest>=8' in result\n    assert 'truncat' in result.lower()\n    assert clone_dir.exists() is False\n\n\ndef test_clone_failure_returns_error_and_cleans_temporary_directory(tmp_path, monkeypatch):\n    from unittest.mock import Mock\n    from repo_context import core\n    checkout = tmp_path / 'checkout'\n    checkout.mkdir()\n    clone = Mock(side_effect=core.git.GitCommandError('clone', 128, stderr='fixture unavailable'))\n    monkeypatch.setattr(core.tempfile, 'mkdtemp', lambda: str(checkout))\n    monkeypatch.setattr(core.git.Repo, 'clone_from', clone)\n    result = core.generate_context_from_repo('https://github.com/owner/project', ['.py'])\n    assert result.startswith('Error:')\n    assert 'fixture unavailable' in result\n    assert checkout.exists() is False\n```\n\nFile: tests/test_workflow.py\n```python\n'Acceptance checks for observable application behavior.'\nfrom unittest.mock import Mock\nimport pytest\n\n\ndef test_shared_operation_keeps_branch_subfolder_and_safe_file_scope(tmp_path):\n    from context_workflow import snapshot\n    checkout = tmp_path/'repo'\n    (checkout/'src').mkdir(parents=True)\n    (checkout/'src'/'main.py').write_text('first\\nsecond\\n')\n    (checkout/'src'/'.env').write_text('API_KEY=fixture-secret')\n    (checkout/'src'/'ignored.py').write_text('ignored-marker')\n    (checkout/'.gitignore').write_text('src/ignored.py\\n')\n    (checkout/'elsewhere.py').write_text('outside-subfolder')\n    (checkout/'src'/'escape.py').symlink_to(checkout/'elsewhere.py')\n    clone = Mock(return_value=checkout)\n    text = snapshot('https://github.com/a/b/tree/dev/src', extensions=['.py'],\n                    line_limit=1, token='fixture-token', clone=clone)\n    clone.assert_called_once_with('https://github.com/a/b.git', branch='dev', token='fixture-token')\n    assert 'first' in text and 'second' not in text\n    assert 'truncat' in text.lower()\n    assert all(secret not in text for secret in ['fixture-secret','fixture-token','ignored-marker','outside-subfolder'])\n    assert not checkout.exists()\n\n\ndef test_cli_and_ui_call_the_shared_operation():\n    from context_workflow import cli_snapshot, ui_snapshot\n    operation = Mock(return_value='fixture markdown')\n    assert cli_snapshot('https://github.com/a/b', operation=operation) == 'fixture markdown'\n    assert ui_snapshot('https://github.com/a/b', operation=operation) == 'fixture markdown'\n    assert operation.call_args_list[0] == operation.call_args_list[1]\n    assert operation.call_count == 2\n\n\ndef test_invalid_url_is_not_sent_to_clone():\n    from context_workflow import snapshot\n    clone = Mock()\n    with pytest.raises(ValueError):\n        snapshot('file:///private', extensions=['.py'], line_limit=1, clone=clone)\n    clone.assert_not_called()\n```\n\n## Manual checks\n\nM1: Exercise actual CLI and Streamlit generate/download controls, ensuring equivalent snapshots and visible failures.\nM2: Check private-repository authentication with credentials absent from the snapshot.\n"
+    }
+  ],
+  "teacher_reasoning": "The fixture checkout includes selected content, ignored content, a secret and an escaping symlink, so inclusion and exclusion are observable together. A one-line limit must include the first line, omit the second and disclose truncation. Exact metadata/dependency examples test truthful content, while cleanup is checked on success and clone failure. CLI/UI controller wrappers share one operation; actual UI wiring and private authentication still need a live check. Slash-containing branch ambiguity remains open rather than guessed.",
+  "decisions": "Proposed decisions:\n\n- Support simple branch names in tree URLs; do not guess slash-containing branch names.\n- A positive line limit truncates; zero means unlimited. Exclude environment files and symlinks.\n- CLI and UI controllers delegate to the same snapshot operation.\n\nUnresolved/nonessential choices:\n- Slash-containing branch names need a separate branch argument or an unambiguous future URL syntax.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed public helpers `repo_context.core` plus a new shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; declared text layout follows supplied expected strings. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `core.generate_context_from_repo(url,extensions,file_line_limit=...)` -> Markdown or \"Error:\" string. Uses git.Repo.clone_from(url,checkout,depth=1), tempfile.mkdtemp() and returns commit hash, dependency summary, selected content, visible truncation. Clone failure includes useful reason; cleanup always. git/tempfile are explicitly declared injectable adapter seams for offline tests.\n- New `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n\nPublic imports:\n- `context_workflow.cli_snapshot`\n- `context_workflow.snapshot`\n- `context_workflow.ui_snapshot`\n- `repo_context.core`\n- `repo_context.core.analyze_dependencies`\n- `repo_context.core.build_file_tree`\n- `repo_context.core.is_text_file`\n- `repo_context.core.parse_github_url`\n",
+    "imports": [
+      {
+        "module": "context_workflow",
+        "name": "cli_snapshot"
+      },
+      {
+        "module": "context_workflow",
+        "name": "snapshot"
+      },
+      {
+        "module": "context_workflow",
+        "name": "ui_snapshot"
+      },
+      {
+        "module": "repo_context",
+        "name": "core"
+      },
+      {
+        "module": "repo_context.core",
+        "name": "analyze_dependencies"
+      },
+      {
+        "module": "repo_context.core",
+        "name": "build_file_tree"
+      },
+      {
+        "module": "repo_context.core",
+        "name": "is_text_file"
+      },
+      {
+        "module": "repo_context.core",
+        "name": "parse_github_url"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Interpret repository URL and requested branch/subfolder.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_branch_and_subdirectory_are_separated",
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Respect extension and ignore policies.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_tree_filters_extensions_and_ignored_directories",
+        "tests/test_core.py::test_explicit_ignore_removes_matching_file",
+        "tests/test_core.py::test_utf8_file_is_recognized",
+        "tests/test_core.py::test_invalid_utf8_is_rejected",
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Produce truthful metadata and dependencies in deterministic order.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_requirements_are_included_in_dependency_context",
+        "tests/test_core.py::test_pyproject_dependencies_are_listed",
+        "tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Apply and disclose line limits.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Preserve errors/cleanup and exclude credentials.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+        "tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory",
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "CLI and UI use the same generation operation.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_core.py::test_tree_filters_extensions_and_ignored_directories",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_explicit_ignore_removes_matching_file",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_requirements_are_included_in_dependency_context",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_pyproject_dependencies_are_listed",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_branch_and_subdirectory_are_separated",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_utf8_file_is_recognized",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_invalid_utf8_is_rejected",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+      "requirements": [
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+      "requirements": [
+        "R1",
+        "R2",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+      "requirements": [
+        "R1",
+        "R5"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Exercise actual CLI and Streamlit generate/download controls, ensuring equivalent snapshots and visible failures."
+    },
+    {
+      "id": "M2",
+      "text": "Check private-repository authentication with credentials absent from the snapshot."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04/20261030T215834813236Z/repo-context.log",
+    "test_files": [
+      {
+        "path": "tests/conftest.py",
+        "chars": 970,
+        "tokens": 232,
+        "sha256": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa"
+      },
+      {
+        "path": "tests/test_core.py",
+        "chars": 3312,
+        "tokens": 887,
+        "sha256": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9"
+      },
+      {
+        "path": "tests/test_workflow.py",
+        "chars": 1923,
+        "tokens": 468,
+        "sha256": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "repo-context",
+        "fault": "leak-token",
+        "target_requirements": [
+          "R5"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/leak-token/pytest.log",
+        "mutation_sha256": "33157d663b61db5fae3fc3053ae3bcc7db31d9c3ccd50128dd944b28943de980",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "fault": "never-clean-checkout",
+        "target_requirements": [
+          "R5"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/never-clean-checkout/pytest.log",
+        "mutation_sha256": "aa068604b9d8e679be8622c2063cd2f56cde57ea98853c7992832b61a249ea40",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "fault": "ignore-requested-branch",
+        "target_requirements": [
+          "R1"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/ignore-requested-branch/pytest.log",
+        "mutation_sha256": "c1e8a28a6cb09bf517e8eba49930338e688780d2c425ce6b5b5fd2a4d21a793c",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "fault": "ignore-gitignore-policy",
+        "target_requirements": [
+          "R2"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/ignore-gitignore-policy/pytest.log",
+        "mutation_sha256": "66c294f6440c1e5ae9a5ae1bcd81173f9c3008e75437afba8922ef7f4fa3390b",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "fault": "omit-dependency-summary",
+        "target_requirements": [
+          "R3"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_requirements_are_included_in_dependency_context",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_pyproject_dependencies_are_listed",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/omit-dependency-summary/pytest.log",
+        "mutation_sha256": "04b33538293022047c29c7e9a465d9550ed8b69b029470da8456445fe3b3c6ea",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "fault": "ignore-line-limit",
+        "target_requirements": [
+          "R4"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/ignore-line-limit/pytest.log",
+        "mutation_sha256": "936bd5af94a837e8c632908373a616b651c5d4aecf4b08a91153ff255960515f",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "fault": "ui-does-not-use-shared-operation",
+        "target_requirements": [
+          "R6"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/repo-context/ui-does-not-use-shared-operation/pytest.log",
+        "mutation_sha256": "20281adfc1c7fa95510d1f6ef29da30ad090136bcf2b4d158b6489eedc981835",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "ignore-requested-branch"
+      ],
+      "R2": [
+        "ignore-gitignore-policy"
+      ],
+      "R3": [
+        "omit-dependency-summary"
+      ],
+      "R4": [
+        "ignore-line-limit"
+      ],
+      "R5": [
+        "leak-token",
+        "never-clean-checkout"
+      ],
+      "R6": [
+        "ui-does-not-use-shared-operation"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "repo-context",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 12,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_pyproject_dependencies_are_listed",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_tree_filters_extensions_and_ignored_directories",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_requirements_are_included_in_dependency_context",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_explicit_ignore_removes_matching_file",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_utf8_file_is_recognized",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_branch_and_subdirectory_are_separated",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_invalid_utf8_is_rejected",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/repo-context/17/pytest.log",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        },
+        "reference_snapshot": {
+          "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 12,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_explicit_ignore_removes_matching_file",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_pyproject_dependencies_are_listed",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_invalid_utf8_is_rejected",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_utf8_file_is_recognized",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_requirements_are_included_in_dependency_context",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_branch_and_subdirectory_are_separated",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_tree_filters_extensions_and_ignored_directories"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/repo-context/43/pytest.log",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        },
+        "reference_snapshot": {
+          "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+        }
+      },
+      {
+        "repo": "repo-context",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 12,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_tree_filters_extensions_and_ignored_directories",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_clone_failure_returns_error_and_cleans_temporary_directory",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_branch_and_subdirectory_are_separated",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_context_workflow_reads_selected_files_and_reports_truncation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_utf8_file_is_recognized",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_pyproject_dependencies_are_listed",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_invalid_utf8_is_rejected",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_requirements_are_included_in_dependency_context",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_core.py::test_explicit_ignore_removes_matching_file"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/repo-context/91/pytest.log",
+        "test_snapshot": {
+          "tests/conftest.py": "2a50fb6f46d0dfc6c84ce68cab22e903cc630c25ff4d6f765ceb7c2de466cbfa",
+          "tests/test_core.py": "c8161c072f249b2bd4fa7c8435309b66f65393b274b757a7072fc7ca1afb83a9",
+          "tests/test_workflow.py": "fcb9a38968b70ab106cbac00d5fe806b963699011fd69d8f35911dc0caba07d7"
+        },
+        "reference_snapshot": {
+          "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+        }
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 3191,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 186,
+      "reasoning": 92,
+      "interface": 541,
+      "tests": 1624,
+      "target": 2743
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T21:59:39.190684+00:00",
+    "prompt_version": "tdd-framing-b-v04",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "repo-context",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

@@ -1,0 +1,85 @@
+{
+  "system": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.",
+  "preparation": "Use Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests.",
+  "manual_overrides": {
+    "github-insignia": [
+      "Check desktop/mobile appearance, keyboard usability and screenshots.",
+      "Run startup instructions from a clean installation and perform one authenticated live contribution fetch."
+    ],
+    "ghost-box": [
+      "Check native-window responsiveness, sign-in, progress, cancellation, selection and clear/account-switch controls.",
+      "Check factual summaries and selected-message citations on representative messages.",
+      "Observe storage to verify that mail content and derived results are not persisted.",
+      "Exercise model selection, reuse and unloading with both MLX and GGUF."
+    ],
+    "slm_test_generation": [
+      "Reproduce a report from saved raw records and check comparison-table labels and denominators.",
+      "Probe the pinned Docker image for network denial and process/memory limits; record image identity and runtime versions.",
+      "Run the documented fixture command; verify it launches no inference and writes only its run directory, preserving the frozen benchmark."
+    ],
+    "llm-bender-lab": [
+      "Run documented prepare/run/compare commands and connect one real training backend separately.",
+      "Check credential/weight exclusion in Git and published artifacts."
+    ],
+    "reflexmodels": [
+      "Run the documented local request/scoring/response/fallback example and check the uncertainty schema.",
+      "Evaluate calibration and fallback thresholds with representative application traffic."
+    ],
+    "codelang-detect": [
+      "Run installation instructions and documented examples.",
+      "Measure accuracy separately on additional supported languages and ambiguous snippets."
+    ],
+    "repo-context": [
+      "Exercise actual CLI and Streamlit generate/download controls, ensuring equivalent snapshots and visible failures.",
+      "Check private-repository authentication with credentials absent from the snapshot."
+    ],
+    "cryptocurrency-analyser": [
+      "Check browser readability, chart data, source/time labels, offline sample selection and visible provider/baseline errors.",
+      "Perform one live provider fetch using the documented setup."
+    ],
+    "miniature-llms": [
+      "Check educational explanations and run the documented CPU training/generation commands.",
+      "Verify commands invoke the composed model and require no weight downloads or GPU."
+    ]
+  },
+  "rationales": {
+    "github-insignia": "Public owned nonfork repositories with 5 and 9 stars total 14; 500 Rust bytes out of 800 yield 62.5%. Fixed UTC dates make calendar boundaries reproducible. Offline REST and GraphQL fixtures distinguish missing contributions from genuine zero, exercise pagination and preserve a previous snapshot after refresh failure. HTTP and MCP must expose the same stored data. Cache schema and credential checks protect observable state, while browser appearance and live authentication remain separate checks.",
+    "ghost-box": "Downloaded mail is a limited local corpus, so an empty search retains its coverage rather than asserting global absence. Account switching and clearing must invalidate both stored results and delayed callbacks. Combined filters and selected-only inference protect source provenance. A fake monotonic clock distinguishes 299.99 seconds from the 300-second idle boundary without sleeping; a fake model checks reuse and unload without loading weights. Real sign-in, native-window responsiveness and summary factuality remain unresolved/live checks.",
+    "slm_test_generation": "A pytest pass is useful only when a meaningful oracle actually executes; skipped, uncalled and untaken checks do not qualify. A wrong equality can be strong yet fail execution. One success among four eligible tasks is 25%, even with missing observations; one killed mutation among four eligible and two valid cases yields 25% unconditional and 50% conditional. Empty denominators are unavailable. Instrumentation must preserve valid module headers, including docstrings and future imports, so it cannot turn a correct suite into a collection error. A two-second subprocess budget provides startup margin for tiny trusted fixtures; timeout handling is checked with an injected executor, while isolated execution is probed separately.",
+    "llm-bender-lab": "Preflight must run before a trainer is called, so malformed conversations and overlapping prompts use a spy backend. A tiny trainer writes a real fixture adapter, and an evaluator records held-out rows/settings to establish matched comparison. A change from .5 to .75 is +.25; an unavailable metric remains unavailable. Exclusive run directories preserve earlier artifacts. A deliberate backend failure checks persistent failed status and sanitized logs without producing a success summary.",
+    "reflexmodels": "Two logits differing by 2 give softmax probabilities about .880797 and .119203, attached to the original Unicode option IDs. Invalid probabilities must fail before routing. Fallback depends separately on margin and answerability. Predictions that never select one class still need that class in macro-F1; accuracy .5 is compatible with macro-F1 1/3. Correct .75-confidence predictions have NLL -log(.75), Brier .125 and calibration error .25. Empty metric inputs raise an explicit error.",
+    "codelang-detect": "The unknown cases contain no supported code markers. Controlled regex configuration separates weighted scoring from match counting: weight 3 must beat two matches of weight 1. Equal scores need a declared deterministic tie rule. File and stdin routes must print exactly one label; input failures need useful stderr and a nonzero exit without a traceback. These fresh examples certify the stated starter contracts, not every language or ambiguous snippet.",
+    "repo-context": "The fixture checkout includes selected content, ignored content, a secret and an escaping symlink, so inclusion and exclusion are observable together. A one-line limit must include the first line, omit the second and disclose truncation. Exact metadata/dependency examples test truthful content, while cleanup is checked on success and clone failure. CLI/UI controller wrappers share one operation; actual UI wiring and private authentication still need a live check. Slash-containing branch ambiguity remains open rather than guessed.",
+    "cryptocurrency-analyser": "Prices 100,150,75 give cumulative returns 0,.5,-.25; they are not daily percentage changes. Interior missing values remain missing and only entirely missing series are omitted. Oppositely moving price series have correlation -1. CSV and provider inputs must yield the same values and dates, without requiring pandas inferred frequency metadata. Invalid selections fail before fetch; zero/missing baseline rejection is an explicit proposed policy. Provider failure never becomes a zero-return chart.",
+    "miniature-llms": "For [3,4], RMS is sqrt(12.5), so learned scales [2,3] produce [6,12]/sqrt(12.5). Position-zero RoPE is identity for every head and position-one rotation is determined by sequence, not head index. Shape checks alone cannot establish causal behavior, so future tokens are changed while earlier logits must remain fixed. Numeric gradients, checkpoint equality and repeatable CPU training test independent contracts. A controlled logit fixture uniquely predicts successor IDs, so prompt [1] must continue as [1,2,3,4]; length alone would allow a constant generator. Loss improvement is only a bounded smoke check, not proof of general model quality."
+  },
+  "unresolved": {
+    "github-insignia": [
+      "Visual theme and screenshot composition remain open."
+    ],
+    "ghost-box": [
+      "Qt view layout and OAuth UX are not fixed by this contract; verify actual backend/progress integration separately."
+    ],
+    "slm_test_generation": [
+      "Semantic-correctness adjudication policy and final table layout remain open; UNKNOWN does not qualify as strong."
+    ],
+    "llm-bender-lab": [
+      "Real training backend selection remains open; the demo only fixes its callable boundary."
+    ],
+    "reflexmodels": [
+      "Production scoring model and acceptable calibration threshold require empirical selection."
+    ],
+    "codelang-detect": [
+      "Accuracy expectations for ambiguous mixed-language snippets remain open."
+    ],
+    "repo-context": [
+      "Slash-containing branch names need a separate branch argument or an unambiguous future URL syntax."
+    ],
+    "cryptocurrency-analyser": [
+      "Live-provider UI retry/backoff behavior remains open."
+    ],
+    "miniature-llms": [
+      "Tokenizer for a larger text corpus and real-language generation quality are out of this fixed token-fixture contract."
+    ]
+  }
+}

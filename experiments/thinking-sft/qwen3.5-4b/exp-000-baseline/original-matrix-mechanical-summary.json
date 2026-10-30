@@ -1,0 +1,73 @@
+{
+  "run_complete": true,
+  "expected": 128,
+  "saved": 128,
+  "conditions": {
+    "base-thinking-false": {
+      "original20": {
+        "items": 20,
+        "natural_eos": 20,
+        "empty_final": 0,
+        "total_output_tokens": 7777,
+        "seconds": 268.1567020429993
+      },
+      "controls12": {
+        "items": 12,
+        "natural_eos": 12,
+        "empty_final": 0,
+        "total_output_tokens": 4957,
+        "seconds": 169.17591362700205
+      }
+    },
+    "base-thinking-true": {
+      "original20": {
+        "items": 20,
+        "natural_eos": 14,
+        "empty_final": 5,
+        "total_output_tokens": 45794,
+        "seconds": 1593.3354926650018
+      },
+      "controls12": {
+        "items": 12,
+        "natural_eos": 11,
+        "empty_final": 1,
+        "total_output_tokens": 22524,
+        "seconds": 778.2824814610003
+      }
+    },
+    "occam1-thinking-false": {
+      "original20": {
+        "items": 20,
+        "natural_eos": 20,
+        "empty_final": 0,
+        "total_output_tokens": 764,
+        "seconds": 30.9537850839979
+      },
+      "controls12": {
+        "items": 12,
+        "natural_eos": 12,
+        "empty_final": 0,
+        "total_output_tokens": 489,
+        "seconds": 19.791277164998974
+      }
+    },
+    "occam1-thinking-true": {
+      "original20": {
+        "items": 20,
+        "natural_eos": 13,
+        "empty_final": 7,
+        "total_output_tokens": 48720,
+        "seconds": 1675.776407000999
+      },
+      "controls12": {
+        "items": 12,
+        "natural_eos": 9,
+        "empty_final": 3,
+        "total_output_tokens": 27650,
+        "seconds": 963.7288936220011
+      }
+    }
+  },
+  "accuracy": "Not scored; semantic human review required. Runtime completion is not correctness.",
+  "scoring_status": "Blinded32-record review prepared in review-v1; no semantic grades submitted."
+}

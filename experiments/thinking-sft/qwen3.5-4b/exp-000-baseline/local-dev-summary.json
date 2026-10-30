@@ -1,0 +1,43 @@
+{
+  "scope": "Four local Q4 GGUF development probes; not held-out or matched BF16 baseline.",
+  "complete": true,
+  "gguf_sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+  "config_sha256": "a99e0d282066b2036b0ed3c9ccbb376e3082490c4962f2eb2c10e352d19c7ae8",
+  "outputs_sha256": "94819030d9a8e8fed463ef2d33975a34716cd342a5cc9560d71d207a7d5426d6",
+  "cases": [
+    {
+      "id": "dev-restoration",
+      "finish_reason": "length",
+      "generated_tokens": 4096,
+      "elapsed_s": 137.92713979100154,
+      "final_answer": "",
+      "reasoning_characters": 16338
+    },
+    {
+      "id": "dev-lease-window",
+      "finish_reason": "stop",
+      "generated_tokens": 2263,
+      "elapsed_s": 75.10168041700308,
+      "final_answer": "Hayır, sığmaz. Toplam 3 saat (2 saat kurulum + 1 saat test) gerekir, ancak 09.00–11.30 aralığı 2 saat 30 dakikadır.",
+      "reasoning_characters": 6888
+    },
+    {
+      "id": "dev-policy-composition",
+      "finish_reason": "length",
+      "generated_tokens": 4096,
+      "elapsed_s": 137.82303150000007,
+      "final_answer": "",
+      "reasoning_characters": 15916
+    },
+    {
+      "id": "dev-proof-vs-hint",
+      "finish_reason": "length",
+      "generated_tokens": 4096,
+      "elapsed_s": 138.4866420420003,
+      "final_answer": "",
+      "reasoning_characters": 16210
+    }
+  ],
+  "limitations": "Single quantized local artifact, single seeded attempt per probe, development-only; no accuracy or SFT effect estimate. Reasoning-language review is manual.",
+  "manual_observation": "First probe emitted predominantly English reasoning despite Turkish instructions. Token-limit attempts have no final answer."
+}

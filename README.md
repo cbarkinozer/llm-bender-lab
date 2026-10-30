@@ -11,7 +11,13 @@ and limitations. [Occam release/verification notes](docs/publication/PRIVATE-UPL
 record the subsequent adapter/dataset uploads; historical provenance review remains
 distinct from public visibility.
 
-Next phase (2026-10-05): [Python unit-test generation](experiments/unit-test-generation/qwen3.5-4b/README.md)
+Current phase (2026-10-31): [thinking SFT on Qwen3.5-4B through requirements-to-tests](experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/README.md).
+Nine whole-app candidates use a [shared input/output format](docs/tdd-example-format.md).
+Human review and an untouched-model baseline precede training; no whole-app SFT
+or before/after improvement is claimed. Occam2/Turkish work is preserved for later.
+The [learning roadmap](docs/post-training-learning-roadmap.md) records the next demos.
+
+Earlier phase (2026-10-05): [Python unit-test generation](experiments/unit-test-generation/qwen3.5-4b/README.md)
 with a local Pi/llama.cpp Q4 baseline on Mac mini M4/24 GB. The current
 [requirements-first protocol](experiments/unit-test-generation/qwen3.5-4b/REQUIREMENTS-FIRST-PROTOCOL.md)
 compares direct-code and test-first generation before separate SFT/GRPO studies.

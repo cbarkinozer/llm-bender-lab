@@ -1,0 +1,23 @@
+....................F                                                    [100%]
+=================================== FAILURES ===================================
+________ test_valid_docstring_and_future_import_survive_instrumentation ________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-193/test_valid_docstring_and_futur0')
+
+    def test_valid_docstring_and_future_import_survive_instrumentation(tmp_path):
+        from benchmark_workflow import run_task
+        source = ('"""Generated checks."""\nfrom __future__ import annotations\n'
+                  'def test_value():\n    assert __doc__ == "Generated checks."\n    assert sut() == 42\n')
+        compile(source, '<valid-original-module>', 'exec')
+        result = run_task(task('header',source), root=tmp_path,
+                          sut_source='def sut(): return 42', timeout_seconds=1)
+>       assert result['outcome'] == 'passed'
+E       AssertionError: assert 'collection_error' == 'passed'
+E         
+E         - passed
+E         + collection_error
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/tests/test_workflow.py:74: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation
+1 failed, 20 passed in 2.30s

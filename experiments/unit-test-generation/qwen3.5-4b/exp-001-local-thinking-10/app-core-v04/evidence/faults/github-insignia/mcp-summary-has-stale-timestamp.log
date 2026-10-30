@@ -1,0 +1,534 @@
+........................FFFFFFFFFFF.                                     [100%]
+=================================== FAILURES ===================================
+___________________ test_http_mcp_transport_and_refresh_tool ___________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_http_mcp_transport_and_re0')
+api_factory = <function api_factory.<locals>.make at 0x10c25f2e0>
+
+    async def test_http_mcp_transport_and_refresh_tool(tmp_path, api_factory):
+        from insignia.app import create_app
+        from fastmcp import Client
+        from fastapi.testclient import TestClient
+        api, requests = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        app = create_app(service)
+        async with Client(app.state.mcp) as client:
+            result = await client.call_tool("refresh_data", {})
+            assert result.data["snapshot"]["metrics"]["stars"] == 14
+            result = await client.call_tool("activity_summary", {})
+>           assert result.data["fetched_at"] == NOW.isoformat()
+E           AssertionError: assert '2000-01-01T00:00:00+00:00' == '2026-10-30T12:00:00+00:00'
+E             
+E             - 2026-10-30T12:00:00+00:00
+E             + 2000-01-01T00:00:00+00:00
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:104: AssertionError
+_________ test_structurally_invalid_cache_is_rejected[missing-reason] __________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach0')
+api_factory = <function api_factory.<locals>.make at 0x10c2916c0>
+defect = 'missing-reason'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+_____________ test_structurally_invalid_cache_is_rejected[profile] _____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach1')
+api_factory = <function api_factory.<locals>.make at 0x10c2e8ea0>
+defect = 'profile'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+_____________ test_structurally_invalid_cache_is_rejected[metrics] _____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach2')
+api_factory = <function api_factory.<locals>.make at 0x10c390d60>
+defect = 'metrics'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+__________ test_structurally_invalid_cache_is_rejected[repositories] ___________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach3')
+api_factory = <function api_factory.<locals>.make at 0x10a6728e0>
+defect = 'repositories'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+______________ test_structurally_invalid_cache_is_rejected[scope] ______________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach4')
+api_factory = <function api_factory.<locals>.make at 0x10a0682c0>
+defect = 'scope'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+_____________ test_structurally_invalid_cache_is_rejected[window] ______________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach5')
+api_factory = <function api_factory.<locals>.make at 0x10a068680>
+defect = 'window'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+___________ test_structurally_invalid_cache_is_rejected[fetched-at] ____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach6')
+api_factory = <function api_factory.<locals>.make at 0x10acd9f80>
+defect = 'fetched-at'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+________ test_structurally_invalid_cache_is_rejected[language-percent] _________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach7')
+api_factory = <function api_factory.<locals>.make at 0x10a672a20>
+defect = 'language-percent'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+__________ test_structurally_invalid_cache_is_rejected[activity-days] __________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach8')
+api_factory = <function api_factory.<locals>.make at 0x1095c7ba0>
+defect = 'activity-days'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+_________ test_structurally_invalid_cache_is_rejected[activity-count] __________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-185/test_structurally_invalid_cach9')
+api_factory = <function api_factory.<locals>.make at 0x10acda2a0>
+defect = 'activity-count'
+
+    @pytest.mark.parametrize('defect', [
+        'missing-reason', 'profile', 'metrics', 'repositories', 'scope',
+        'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',
+    ])
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        if defect == 'missing-reason':
+            del saved['activity_unavailable_reason']
+        elif defect == 'profile':
+            saved['profile'] = {}
+        elif defect == 'metrics':
+            saved['metrics']['stars'] = 'many'
+        elif defect == 'repositories':
+            saved['repositories'][0]['stargazers_count'] = None
+        elif defect == 'scope':
+            saved['scope'] = []
+        elif defect == 'window':
+            saved['window']['start'] = 'not a date'
+        elif defect == 'fetched-at':
+            saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.
+        elif defect == 'language-percent':
+            saved['metrics']['languages'][0]['percent'] = float('nan')
+        elif defect == 'activity-days':
+            saved['activity']['days'][0]['date'] = '2026-02-30'
+        else:
+            saved['activity']['commits'] = -1
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:147: AssertionError
+=============================== warnings summary ===============================
+tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service
+  /Users/cbarkinozer/Documents/GitHub/GitHub-insignia/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[missing-reason]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[profile]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[metrics]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[repositories]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[scope]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[window]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[fetched-at]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[language-percent]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-days]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-count]
+11 failed, 25 passed, 1 warning in 0.44s

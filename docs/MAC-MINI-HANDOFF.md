@@ -1,4 +1,29 @@
+> Resume here — 2026-10-31: the active thinking-SFT demo uses nine whole-app
+> requirements-to-tests candidates, [format revision 04](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/README.md).
+> Argilla: http://127.0.0.1:7900/dataset/7500c36b-0971-41bd-91c5-765d6e7add5e/annotation-mode
+> Common instructions, natural request, proposed interface/tests and review metadata
+> are separated. Human approval and a new matched baseline precede SFT.
+> Occam2/Turkish and the older ten-function pilots are deferred history below.
+
 # Mac mini handoff — 2026-10-05
+
+## Priority override — 2026-10-28
+
+2026-10-29 update: preserve the original Occam20 +12 controls and evaluate base
+and released Occam with thinking off/on before selecting reasoning-SFT targets.
+The generic80/20 draft is not selected for training. See the live-run/recovery
+instructions in [original benchmark matrix](../experiments/thinking-sft/qwen3.5-4b/ORIGINAL-BENCHMARK-MATRIX.md).
+
+The owner has moved to [thinking SFT](../experiments/thinking-sft/qwen3.5-4b/README.md)
+as the active pilot: 80 train / 20 held-out cases on untouched Qwen3.5-4B.
+They report Occam and Reflex decision-model SFT completed and GRPO/RL started.
+Follow the revised [learning order](post-training-learning-roadmap.md).
+The unit-test/TDD handoff below is historical context for later continuation,
+not a prerequisite for this pilot. Occam2 now has an80/20 Turkish reasoning
+draft, audited native labels, inference/training/review scripts and a Colab
+notebook. See its RUN.md. Next is a BF16-capable GPU environment, the untouched
+thinking-on baseline, training diagnostics and one fresh SFT run. No actual4B
+thinking-SFT run or improvement has yet been measured.
 
 Current: [frozen Stage A v01 and initial review](../experiments/unit-test-generation/qwen3.5-4b/exp-000-baseline/requirements-pilot/STAGE-A-V01.md).
 TOML defect confirmed; Mashumaro reference passes 72 feature + 30,008 regression

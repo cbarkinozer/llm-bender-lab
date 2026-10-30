@@ -1,0 +1,522 @@
+{
+  "record_id": "cryptocurrency-analyser-v04",
+  "schema_version": "1.0",
+  "record_version": 4,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "cryptocurrency-analyser",
+    "revision": "cdefa3681b17a3f24980158e2edc66e8cbc353f2",
+    "dirty": true,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [
+      {
+        "path": "reference/price_workflow.py",
+        "sha256": "461ac7835a7839729ba6fa98ef5c593d1f2d37994b626ce7b6dc2e9d80a9442e"
+      }
+    ],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "train",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "cryptocurrency-analyser",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Build me a small local Python cryptocurrency research app where I can choose coin tickers and a date range, fetch historical prices, compare their cumulative returns and correlations, and view charts and a concise data summary in a browser. Start with a working price-comparison workflow rather than every possible trading indicator or a trading bot. Calculate returns relative to the first observed price for each series, preserve missing observations instead of inventing prices, omit a coin only when its whole series is missing, and label the data source, timestamps and unavailable results clearly. Let me also run it with a saved sample dataset when offline. A provider failure should show a useful error rather than fabricated zero returns, and malformed selections or unusable baselines should be explained. Keep fetching, calculations and visualization separate enough to test with deterministic fixtures, never place trades or publish posts, and make the web workflow and setup straightforward on my Mac without paid services."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "Prices 100,150,75 give cumulative returns 0,.5,-.25; they are not daily percentage changes. Interior missing values remain missing and only entirely missing series are omitted. Oppositely moving price series have correlation -1. CSV and provider inputs must yield the same values and dates, without requiring pandas inferred frequency metadata. Invalid selections fail before fetch; zero/missing baseline rejection is an explicit proposed policy. Provider failure never becomes a zero-return chart.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Use cumulative return=current/first-row price-1. Preserve interior missing values and omit all-missing series.\n- Reject zero or missing first-row baselines instead of inventing prices.\n- Keep calculations separate from fetching and rendering; provide an offline CSV route.\n\nUnresolved/nonessential choices:\n- Live-provider UI retry/backoff behavior remains open.\n\n## Proposed interface agreement\n\nProposed numeric module `coin_comparator` and new public `price_workflow.analyze`:\n- `calculate_cumulative_returns(prices:DataFrame)` -> same-index/column DataFrame current/first-row - 1. Never mutate input, preserve interior NaNs. `_calculate_correlation(prices)` -> full Pearson price-correlation DataFrame, exact column/index order. `_fetch_data(tickers,start_date,end_date)` accepts timestamp strings YYYY-MM-DD HH:MM:SS, delegates yf.download(tickers,start=datetime,end=datetime), selects Adj Close and drops only entirely missing columns. These functions are callable calculation and I/O boundaries.\n- `_plot_combined(correlation,prices,tickers)` -> Plotly figure with heatmap then named cumulative-return scatter per ticker. `coin_comparator(tickers,start,end)` normalizes to uppercase -USD, adds midnight time strings, calls fetch and pio.to_html(full_html=True), returns HTML. yf.download/_fetch_data/pio.to_html are explicitly declared I/O seams for offline tests.\n- `price_workflow.analyze(tickers,start,end,provider=None,csv_path=None)` -> `{returns:DataFrame,correlation:DataFrame,source:\"csv\"|\"provider\",observed_start:YYYY-MM-DD,observed_end:YYYY-MM-DD}`. Tickers normalize uppercase -USD. Date range [start,end); provider(normalized_tickers,start,end) returns price DataFrame. CSV uses Date index and named ticker columns; no fetch in CSV mode. Saved/provider routes produce identical dates and numeric values; pandas inferred freq metadata is not part of the contract.\n- Empty tickers or reversed dates raise ValueError before fetch. Drop all-missing series; zero/NaN first-row baseline raises ValueError mentioning baseline. This explicitly selects rejection rather than inventing/forward-filling a baseline. Provider RuntimeError propagates for UI to display, never fabricate zeros. Actual browser chart/metadata/error display needs a manual check.\nDependencies: Python, pytest, pandas, Plotly, yfinance for compatibility code; tests never call live services.\n\nPublic imports:\n- `coin_comparator` (module)\n- `coin_comparator._calculate_correlation`\n- `coin_comparator._fetch_data`\n- `coin_comparator._plot_combined`\n- `coin_comparator.calculate_cumulative_returns`\n- `price_workflow.analyze`\n\n## Requirement-to-test map\n\nR1: Use the selected tickers/date range and distinguish provider failure.\n- `tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers`\n- `tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch`\n- `tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source`\n- `tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns`\n\nR2: Compute cumulative rather than daily returns.\n- `tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes`\n- `tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices`\n- `tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source`\n\nR3: Preserve partial missingness and omit all-missing series.\n- `tests/test_coin_comparator.py::test_missing_price_remains_missing`\n- `tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers`\n\nR4: Compute and visualize correct correlations and returns.\n- `tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements`\n- `tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series`\n- `tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch`\n\nR5: Support deterministic offline data with honest metadata.\n- `tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source`\n\nR6: Reject or explicitly report unusable input.\n- `tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns`\n- `tests/test_workflow.py::test_bad_selection_fails_before_fetch`\n- `tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/test_coin_comparator.py\n```python\n'Acceptance checks for observable application behavior.'\nimport sys\nfrom pathlib import Path\nimport pandas as pd\nfrom pandas.testing import assert_frame_equal\n\nfrom coin_comparator import _calculate_correlation, _fetch_data, calculate_cumulative_returns\n\n\ndef test_returns_are_relative_to_first_price_not_daily_changes():\n    prices = pd.DataFrame({'BTC': [100., 150., 75.], 'ETH': [20., 10., 30.]})\n    expected = pd.DataFrame({'BTC': [0., .5, -.25], 'ETH': [0., -.5, .5]})\n    assert_frame_equal(calculate_cumulative_returns(prices), expected)\n\n\ndef test_returns_preserve_dates_and_input_prices():\n    dates = pd.date_range('2026-01-01', periods=2)\n    prices = pd.DataFrame({'BTC': [10., 15.]}, index=dates)\n    original = prices.copy(deep=True)\n    result = calculate_cumulative_returns(prices)\n    assert_frame_equal(prices, original)\n    assert_frame_equal(result, pd.DataFrame({'BTC': [0., .5]}, index=dates))\n\n\ndef test_missing_price_remains_missing():\n    prices = pd.DataFrame({'BTC': [100., float('nan'), 200.]})\n    expected = pd.DataFrame({'BTC': [0., float('nan'), 1.]})\n    assert_frame_equal(calculate_cumulative_returns(prices), expected)\n\n\ndef test_correlation_detects_opposite_price_movements():\n    prices = pd.DataFrame({'up': [1., 2., 3.], 'down': [6., 4., 2.]})\n    expected = pd.DataFrame([[1., -1.], [-1., 1.]], index=['up', 'down'], columns=['up', 'down'])\n    assert_frame_equal(_calculate_correlation(prices), expected)\n\n\ndef test_fetch_drops_only_entirely_missing_tickers(monkeypatch):\n    from unittest.mock import Mock\n    prices = pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.], 'MISSING-USD': [float('nan'), float('nan')]})\n    download = Mock(return_value={'Adj Close': prices})\n    monkeypatch.setattr('coin_comparator.yf.download', download)\n    result = _fetch_data(['BTC-USD', 'ETH-USD', 'MISSING-USD'], '2026-01-01 00:00:00', '2026-01-03 00:00:00')\n    assert_frame_equal(result, pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.]}))\n    from datetime import datetime\n    download.assert_called_once_with(['BTC-USD', 'ETH-USD', 'MISSING-USD'], start=datetime(2026, 1, 1), end=datetime(2026, 1, 3))\n\n\ndef test_combined_plot_contains_correlation_and_each_return_series():\n    from coin_comparator import _plot_combined\n    prices = pd.DataFrame({'BTC': [10., 15.], 'ETH': [20., 10.]}, index=pd.date_range('2026-01-01', periods=2))\n    correlation = pd.DataFrame([[1., -1.], [-1., 1.]], index=['BTC', 'ETH'], columns=['BTC', 'ETH'])\n    figure = _plot_combined(correlation, prices, ['BTC', 'ETH'])\n    assert [trace.type for trace in figure.data] == ['heatmap', 'scatter', 'scatter']\n    assert list(figure.data[1].y) == [0., .5]\n    assert list(figure.data[2].y) == [0., -.5]\n    assert [trace.name for trace in figure.data[1:]] == ['BTC', 'ETH']\n\n\ndef test_comparator_normalizes_tickers_and_passes_dates_to_fetch(monkeypatch):\n    from unittest.mock import Mock\n    import coin_comparator as module\n    prices = pd.DataFrame({'BTC-USD': [10., 15.]})\n    fetch = Mock(return_value=prices)\n    render = Mock(return_value='<html>fixture chart</html>')\n    monkeypatch.setattr(module, '_fetch_data', fetch)\n    monkeypatch.setattr(module.pio, 'to_html', render)\n    assert module.coin_comparator(['btc'], '2026-01-01', '2026-01-02') == '<html>fixture chart</html>'\n    fetch.assert_called_once_with(['BTC-USD'], start_date='2026-01-01 00:00:00', end_date='2026-01-02 00:00:00')\n    assert render.call_args.kwargs == {'full_html': True}\n```\n\nFile: tests/test_workflow.py\n```python\n'Acceptance checks for observable application behavior.'\nfrom unittest.mock import Mock\nimport pandas as pd\nfrom pandas.testing import assert_frame_equal\nimport pytest\n\n\ndef prices():\n    return pd.DataFrame({'BTC-USD':[100.,150.,75.], 'ETH-USD':[20.,10.,30.]},\n                        index=pd.date_range('2026-01-01', periods=3, name='Date'))\n\n\ndef test_saved_csv_matches_provider_calculation_and_declares_source(tmp_path):\n    from price_workflow import analyze\n    path = tmp_path/'prices.csv'\n    prices().to_csv(path)\n    provider = Mock(return_value=prices())\n    live = analyze(['btc','eth'], '2026-01-01','2026-01-04', provider=provider)\n    offline = analyze(['btc','eth'], '2026-01-01','2026-01-04', csv_path=path)\n    provider.assert_called_once_with(['BTC-USD','ETH-USD'], '2026-01-01','2026-01-04')\n    assert_frame_equal(live['returns'], offline['returns'], check_freq=False)\n    assert offline['returns']['BTC-USD'].tolist() == [0.,.5,-.25]\n    assert offline['source'] == 'csv'\n    assert offline['observed_start'] == '2026-01-01'\n    assert offline['observed_end'] == '2026-01-03'\n\n\ndef test_provider_failure_does_not_produce_zero_returns():\n    from price_workflow import analyze\n    with pytest.raises(RuntimeError, match='provider unavailable'):\n        analyze(['btc'], '2026-01-01','2026-01-04', provider=Mock(side_effect=RuntimeError('provider unavailable')))\n\n\n@pytest.mark.parametrize('tickers,start,end', [([], '2026-01-01','2026-01-04'),\n    (['btc'], '2026-01-04','2026-01-01')])\ndef test_bad_selection_fails_before_fetch(tickers,start,end):\n    from price_workflow import analyze\n    provider = Mock()\n    with pytest.raises(ValueError):\n        analyze(tickers,start,end,provider=provider)\n    provider.assert_not_called()\n\n\n@pytest.mark.parametrize('baseline', [0.,float('nan')])\ndef test_unusable_first_row_is_reported_not_filled(baseline):\n    from price_workflow import analyze\n    frame = prices()\n    frame.loc[frame.index[0], 'BTC-USD'] = baseline\n    with pytest.raises(ValueError, match='baseline'):\n        analyze(['btc','eth'], '2026-01-01','2026-01-04',provider=Mock(return_value=frame))\n```\n\n## Manual checks\n\nM1: Check browser readability, chart data, source/time labels, offline sample selection and visible provider/baseline errors.\nM2: Perform one live provider fetch using the documented setup.\n"
+    }
+  ],
+  "teacher_reasoning": "Prices 100,150,75 give cumulative returns 0,.5,-.25; they are not daily percentage changes. Interior missing values remain missing and only entirely missing series are omitted. Oppositely moving price series have correlation -1. CSV and provider inputs must yield the same values and dates, without requiring pandas inferred frequency metadata. Invalid selections fail before fetch; zero/missing baseline rejection is an explicit proposed policy. Provider failure never becomes a zero-return chart.",
+  "decisions": "Proposed decisions:\n\n- Use cumulative return=current/first-row price-1. Preserve interior missing values and omit all-missing series.\n- Reject zero or missing first-row baselines instead of inventing prices.\n- Keep calculations separate from fetching and rendering; provide an offline CSV route.\n\nUnresolved/nonessential choices:\n- Live-provider UI retry/backoff behavior remains open.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed numeric module `coin_comparator` and new public `price_workflow.analyze`:\n- `calculate_cumulative_returns(prices:DataFrame)` -> same-index/column DataFrame current/first-row - 1. Never mutate input, preserve interior NaNs. `_calculate_correlation(prices)` -> full Pearson price-correlation DataFrame, exact column/index order. `_fetch_data(tickers,start_date,end_date)` accepts timestamp strings YYYY-MM-DD HH:MM:SS, delegates yf.download(tickers,start=datetime,end=datetime), selects Adj Close and drops only entirely missing columns. These functions are callable calculation and I/O boundaries.\n- `_plot_combined(correlation,prices,tickers)` -> Plotly figure with heatmap then named cumulative-return scatter per ticker. `coin_comparator(tickers,start,end)` normalizes to uppercase -USD, adds midnight time strings, calls fetch and pio.to_html(full_html=True), returns HTML. yf.download/_fetch_data/pio.to_html are explicitly declared I/O seams for offline tests.\n- `price_workflow.analyze(tickers,start,end,provider=None,csv_path=None)` -> `{returns:DataFrame,correlation:DataFrame,source:\"csv\"|\"provider\",observed_start:YYYY-MM-DD,observed_end:YYYY-MM-DD}`. Tickers normalize uppercase -USD. Date range [start,end); provider(normalized_tickers,start,end) returns price DataFrame. CSV uses Date index and named ticker columns; no fetch in CSV mode. Saved/provider routes produce identical dates and numeric values; pandas inferred freq metadata is not part of the contract.\n- Empty tickers or reversed dates raise ValueError before fetch. Drop all-missing series; zero/NaN first-row baseline raises ValueError mentioning baseline. This explicitly selects rejection rather than inventing/forward-filling a baseline. Provider RuntimeError propagates for UI to display, never fabricate zeros. Actual browser chart/metadata/error display needs a manual check.\nDependencies: Python, pytest, pandas, Plotly, yfinance for compatibility code; tests never call live services.\n\nPublic imports:\n- `coin_comparator` (module)\n- `coin_comparator._calculate_correlation`\n- `coin_comparator._fetch_data`\n- `coin_comparator._plot_combined`\n- `coin_comparator.calculate_cumulative_returns`\n- `price_workflow.analyze`\n",
+    "imports": [
+      {
+        "module": "coin_comparator",
+        "name": "*"
+      },
+      {
+        "module": "coin_comparator",
+        "name": "_calculate_correlation"
+      },
+      {
+        "module": "coin_comparator",
+        "name": "_fetch_data"
+      },
+      {
+        "module": "coin_comparator",
+        "name": "_plot_combined"
+      },
+      {
+        "module": "coin_comparator",
+        "name": "calculate_cumulative_returns"
+      },
+      {
+        "module": "price_workflow",
+        "name": "analyze"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Use the selected tickers/date range and distinguish provider failure.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+        "tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+        "tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Compute cumulative rather than daily returns.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+        "tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Preserve partial missingness and omit all-missing series.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+        "tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Compute and visualize correct correlations and returns.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+        "tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+        "tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Support deterministic offline data with honest metadata.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Reject or explicitly report unusable input.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+      "requirements": [
+        "R1",
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch",
+      "requirements": [
+        "R1",
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+      "requirements": [
+        "R1",
+        "R2",
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+      "requirements": [
+        "R1",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_bad_selection_fails_before_fetch",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled",
+      "requirements": [
+        "R6"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Check browser readability, chart data, source/time labels, offline sample selection and visible provider/baseline errors."
+    },
+    {
+      "id": "M2",
+      "text": "Perform one live provider fetch using the documented setup."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04/20261030T215834813236Z/cryptocurrency-analyser.log",
+    "test_files": [
+      {
+        "path": "tests/test_coin_comparator.py",
+        "chars": 3506,
+        "tokens": 1114,
+        "sha256": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5"
+      },
+      {
+        "path": "tests/test_workflow.py",
+        "chars": 2132,
+        "tokens": 660,
+        "sha256": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "cryptocurrency-analyser",
+        "fault": "daily-instead-of-cumulative",
+        "target_requirements": [
+          "R2"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_missing_price_remains_missing",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/cryptocurrency-analyser/daily-instead-of-cumulative/pytest.log",
+        "mutation_sha256": "f7c2bfd2e7bcb6aba7a923077935756b930949b309ff4f6c63f212fefeeb6239",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "fault": "zero-fill-missing-prices",
+        "target_requirements": [
+          "R3"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_missing_price_remains_missing"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/cryptocurrency-analyser/zero-fill-missing-prices/pytest.log",
+        "mutation_sha256": "9bd4b34ff04f3ac135c5699be382c6023164172d7a17b306ded1c7826291f6b1",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "fault": "provider-receives-lowercase-symbols",
+        "target_requirements": [
+          "R1"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/cryptocurrency-analyser/provider-receives-lowercase-symbols/pytest.log",
+        "mutation_sha256": "e5141b77854cced54ace75d355fa5f4928584778a1a3f309c50f885d2ff2430e",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "fault": "correlation-always-zero",
+        "target_requirements": [
+          "R4"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/cryptocurrency-analyser/correlation-always-zero/pytest.log",
+        "mutation_sha256": "ef8c99726e64543f6a1c5c4dc1f590af20c5532c4af4fc38a5c87aa21060fd64",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "fault": "csv-source-mislabeled",
+        "target_requirements": [
+          "R5"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/cryptocurrency-analyser/csv-source-mislabeled/pytest.log",
+        "mutation_sha256": "f728c0d062e95471396bc5916b3988ca6e49abc9c822bfd8338e30b0a21a9355",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "fault": "silently-repair-invalid-baseline",
+        "target_requirements": [
+          "R6"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[nan]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/cryptocurrency-analyser/silently-repair-invalid-baseline/pytest.log",
+        "mutation_sha256": "625c5a7b5b0a7eeb2d9e93348350bc413ff0bb3678e8641ae2c932d70b809827",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "provider-receives-lowercase-symbols"
+      ],
+      "R2": [
+        "daily-instead-of-cumulative"
+      ],
+      "R3": [
+        "zero-fill-missing-prices"
+      ],
+      "R4": [
+        "correlation-always-zero"
+      ],
+      "R5": [
+        "csv-source-mislabeled"
+      ],
+      "R6": [
+        "silently-repair-invalid-baseline"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "cryptocurrency-analyser",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 13,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[nan]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers0-2026-01-01-2026-01-04]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_missing_price_remains_missing",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers1-2026-01-04-2026-01-01]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/cryptocurrency-analyser/17/pytest.log",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        },
+        "reference_snapshot": {
+          "reference/price_workflow.py": "461ac7835a7839729ba6fa98ef5c593d1f2d37994b626ce7b6dc2e9d80a9442e"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 13,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers0-2026-01-01-2026-01-04]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers1-2026-01-04-2026-01-01]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[nan]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_missing_price_remains_missing",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/cryptocurrency-analyser/43/pytest.log",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        },
+        "reference_snapshot": {
+          "reference/price_workflow.py": "461ac7835a7839729ba6fa98ef5c593d1f2d37994b626ce7b6dc2e9d80a9442e"
+        }
+      },
+      {
+        "repo": "cryptocurrency-analyser",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 13,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[nan]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_comparator_normalizes_tickers_and_passes_dates_to_fetch",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers1-2026-01-04-2026-01-01]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_missing_price_remains_missing",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers0-2026-01-01-2026-01-04]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/cryptocurrency-analyser/91/pytest.log",
+        "test_snapshot": {
+          "tests/test_coin_comparator.py": "fc072709d79f002db5d8511c2dc6317deb4ef85f9e3b6449918afe8b66a4bbe5",
+          "tests/test_workflow.py": "9d064170a82850d01ab4feb60a9830fea4433d37118c0bfcdd4f65bda363e7a6"
+        },
+        "reference_snapshot": {
+          "reference/price_workflow.py": "461ac7835a7839729ba6fa98ef5c593d1f2d37994b626ce7b6dc2e9d80a9442e"
+        }
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 3305,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 182,
+      "reasoning": 100,
+      "interface": 480,
+      "tests": 1800,
+      "target": 2853
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T21:59:39.211057+00:00",
+    "prompt_version": "tdd-framing-b-v04",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "cryptocurrency-analyser",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

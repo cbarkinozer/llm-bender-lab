@@ -1,0 +1,30 @@
+{
+  "records": 9,
+  "all_reference_pass": true,
+  "reference_cases": 142,
+  "targeted_faults": 57,
+  "core_requirements": 53,
+  "all_within_8192": true,
+  "maximum_tokens": 6769,
+  "total_tokens": 30397,
+  "train_candidates": [
+    "ghost-box-v04",
+    "llm-bender-lab-v04",
+    "reflexmodels-v04",
+    "codelang-detect-v04",
+    "repo-context-v04",
+    "cryptocurrency-analyser-v04",
+    "miniature-llms-v04"
+  ],
+  "heldout_repos": [
+    "GitHub-insignia",
+    "slm_test_generation"
+  ],
+  "no_training_exports": true,
+  "all_requirements_mapped": true,
+  "all_core_requirements_have_killed_variant": true,
+  "all_three_order_runs_pass": true,
+  "manual_approval_pending": true,
+  "scope_limit": "Backend contracts plus explicitly pending delivery/live checks; not nine certified original apps.",
+  "records_sha256": "df811a04d77e07886a15ddba74fc5760eb384ac3e407f7792d82883e899ad238"
+}

@@ -1,0 +1,1 @@
+Portable copies of the active revision's 9 execution, 57 targeted-fault and 27 shuffled-order logs. index.json maps the original external artifact paths to committed copies and SHA256 hashes. Published records and original receipts remain unchanged. These logs concern trusted synthetic fixtures, not a new model baseline or SFT.

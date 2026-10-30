@@ -1,0 +1,28 @@
+{
+  "version": "occam2-data-v1",
+  "train": 80,
+  "test": 20,
+  "counts": {
+    "test/evidence": 5,
+    "test/quantities": 5,
+    "test/rules": 5,
+    "test/updates": 5,
+    "train/evidence": 20,
+    "train/quantities": 20,
+    "train/rules": 20,
+    "train/updates": 20
+  },
+  "source": "Assistant-authored synthetic Turkish worked examples, 2026-10-28; no external teacher API.",
+  "review_status": "Draft: structural and arithmetic checks do not replace semantic/human review.",
+  "split_rule": "Distinct authored source scenarios; related reasoning skills intentionally shared.",
+  "near_duplicate_flags": [],
+  "near_duplicate_threshold": 0.65,
+  "limitations": "Synthetic small specialization set; group names alone do not prove semantic independence.",
+  "files_sha256": {
+    "authored-cases.tsv": "7c08fb41b5e81bb81064ff5d720404bc33ac0d0c528c0b83449abccc2d582fef",
+    "train.jsonl": "c1e65e07150e28e44a7be14e58c7020b840c43aaadfe252463892de0834e56c6",
+    "test-prompts.jsonl": "0264353e8231bb4a1ef854ad3d12c65bb87fa1f88850851794f52b8dcff83654",
+    "test-keys.jsonl": "0a18b4480eb1ddaabfb72c966f27d2ff72e2030d5c9e1227e014657929e1d96f"
+  },
+  "builder_sha256": "42e538ea4b1f7d1dd50cb10ca795dc15cbe9f72dfa9b1615c8281c12cecca22c"
+}

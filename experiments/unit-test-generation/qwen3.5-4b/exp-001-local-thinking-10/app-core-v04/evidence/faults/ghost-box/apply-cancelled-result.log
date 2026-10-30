@@ -1,0 +1,19 @@
+.........F.                                                              [100%]
+=================================== FAILURES ===================================
+_________ test_cancelled_or_previous_account_result_cannot_be_applied __________
+
+    def test_cancelled_or_previous_account_result_cannot_be_applied():
+        app, _, _, _ = make_app()
+        app.switch_account('a')
+        old = app.begin_operation()
+        app.cancel(old)
+        current = app.begin_operation()
+>       assert app.finish(old, 'stale') is False
+E       AssertionError: assert True is False
+E        +  where True = broken((1, <object object at 0x1031abd60>), 'stale')
+E        +    where broken = <mail_workflow.MailApp object at 0x1089dcc50>.finish
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/ghost-box/tests/test_workflow.py:57: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/ghost-box/tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied
+1 failed, 10 passed in 0.02s

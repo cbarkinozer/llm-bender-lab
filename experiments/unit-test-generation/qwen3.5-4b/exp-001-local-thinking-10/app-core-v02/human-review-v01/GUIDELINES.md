@@ -1,0 +1,12 @@
+Manually review all nine app candidates. No answers are prefilled. This is evidence-assisted human review: assistant findings and execution results are visible, not an independent blinded paper annotation.
+
+For each app:
+1. Compare the natural request with the documented source app and declared MVP scope.
+2. Read the exact model input. Anything available only in source code, test helpers or the reviewer map is NOT automatically information the model receives.
+3. Check whether imports, callable names, schemas, outputs, errors, defaults and tolerances needed by the tests are specified in the request or a visible interface agreement. Current public boundaries are proposals, not owner-approved agreements. Mark missing context when needed.
+4. Check coverage against every important testable requirement, including boundaries, failures and state preservation. Record manual/browser/model-quality checks separately; passing a narrow subset does not cover the whole app.
+5. Check each expectation for correctness and useful fault discrimination, not merely equality syntax. Oracle strength and correctness are independent. TRIVIAL: SUT-independent/static truth. WEAK: coarse truthiness/nullity/type. STRONG: a specific value, content, range, exception, state or interaction contract. UNKNOWN: insufficient evidence. A wrong equality can be STRONG and incorrect. Tensor/DataFrame comparison helpers can be strong numeric oracles. Appropriate null checks need not be removed merely to make every assertion syntactically strong.
+6. Review smells contextually. Multiple coherent assertions are not automatically Assertion Roulette; isolated temporary files are not automatically Mystery Guest; necessary boundary values are not automatically Magic Number Test. Cite locations and concrete harm.
+7. Submit approve only if the current declared scope is relevant, the input is sufficient to derive the tests, important requirements are covered, expectations are correct, assertions are useful and there are no actionable smells. Otherwise choose revise/reject/uncertain and explain. Known uncovered requirements remain visible. Do not silently shrink the scope to obtain approval.
+
+Approval here concerns the current request/interface/test candidate. It does not certify an 8K final SFT record: reasoning and full native-template length are not yet available. These source-informed examples are not a held-out evaluation if used for training. No training starts or split is assigned by submitting a response.

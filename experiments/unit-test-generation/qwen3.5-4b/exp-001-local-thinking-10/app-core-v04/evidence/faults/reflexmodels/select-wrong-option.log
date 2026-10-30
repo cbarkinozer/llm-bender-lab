@@ -1,0 +1,18 @@
+....F...........                                                         [100%]
+=================================== FAILURES ===================================
+____________________ test_logits_map_to_original_option_ids ____________________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_logits_map_to_original_option_ids(choice):
+        response = score_decision(choice, request_id='r1', scorer=lambda branch: 2. if 'Dosyaları ara' in branch else 0.)
+>       assert response['selected_option'] == 'files'
+E       AssertionError: assert 'web' == 'files'
+E         
+E         - files
+E         + web
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/reflexmodels/tests/test_core.py:29: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/reflexmodels/tests/test_core.py::test_logits_map_to_original_option_ids
+1 failed, 15 passed in 0.02s

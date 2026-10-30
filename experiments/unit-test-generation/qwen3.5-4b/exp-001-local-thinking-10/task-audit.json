@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "purpose": "quick demo contract preflight",
+  "provenance": "assistant-authored synthetic contracts in requirements.jsonl; owner review pending",
+  "split": "demo evaluation only; never SFT training",
+  "selection": "ten existing contracts, clarified before new inference",
+  "distribution_limit": "No third-party or project-local dependencies; not representative of the earlier paper distribution.",
+  "hash_definition": "SHA256 of UTF-8 json.dumps(task, sort_keys=True, ensure_ascii=False) including draft metadata",
+  "tasks": [
+    {
+      "task_id": "booking-overlap",
+      "contract_sha256": "832eccdcb9eeea9796b3e8020e47922a245cf4cb99755d80dbdb3c727fa1bdfc",
+      "domain": "scheduling",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "half-open boundary",
+        "validate all before early return",
+        "input preservation"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "money-allocation",
+      "contract_sha256": "3bda299f35e848f4e70f55001f213f39360bcd17b9eff79b3be6dfbae5807b20",
+      "domain": "financial allocation",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "exact proportional allocation",
+        "stable tie break",
+        "validation"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "retry-schedule",
+      "contract_sha256": "94b51b24071f6b73b2aeb769b739390efa308c3172701a67223d5d53478652e8",
+      "domain": "retry policy",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "cap and budget boundaries",
+        "zero delays",
+        "validation"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "cursor-pagination",
+      "contract_sha256": "6d1c4d99fd9aee151dda77f56183fd4cd3e7cd127461311e89d86e8996e9a9c9",
+      "domain": "data access",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "exclusive cursor",
+        "sort before limit",
+        "shallow copy",
+        "duplicate rejection"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "config-patch",
+      "contract_sha256": "44a6b8110fcec1a79dc90cb327ff9cb3a0b59e4f18a8e1eb23a0b3ab80a039d6",
+      "domain": "configuration",
+      "dependency_level": "L1",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "nested deletion",
+        "replacement",
+        "deep copy"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "business-date",
+      "contract_sha256": "983cc6a875e21f12fdac07704347165fc18ddce5799ddb66ddf90ad89ee57376",
+      "domain": "calendar",
+      "dependency_level": "L1",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "weekend and holiday skipping",
+        "zero days",
+        "calendar transitions"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "interval-normalization",
+      "contract_sha256": "f398db0de13f02f2f5dc85fcfe8e7fcd5545b142165462e562ce6629aa9952bd",
+      "domain": "interval algebra",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "touching union",
+        "unsorted nesting",
+        "input preservation"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "inventory-events",
+      "contract_sha256": "88464088120282dc78b2076879f4fc28a2f0ddef7af94e889a36ca6352b6c815",
+      "domain": "event processing",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "idempotency",
+        "ordered validation",
+        "exception atomicity"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "csv-import",
+      "contract_sha256": "ff3e974b093bf167790879c0fc207a8f1d2f199c8dbb7cac7d9de74fa387ed01",
+      "domain": "data import",
+      "dependency_level": "L1",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "quoted fields",
+        "header validation",
+        "ASCII digits",
+        "unique identifiers"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    },
+    {
+      "task_id": "price-policy",
+      "contract_sha256": "62dfeae830c01d073eb69bf37bb80cc5a083d105447f436cc29cdc04fc14ad15",
+      "domain": "pricing",
+      "dependency_level": "L0",
+      "context": "explicit requirement and public signature; no implementation",
+      "target_behaviors": [
+        "exact rounding",
+        "pre-discount threshold",
+        "validate before empty return"
+      ],
+      "contract_questions": [],
+      "status": "initial-reference-and-one-fault-witness-passed",
+      "reference_validated": true,
+      "fault_witnesses_validated": true,
+      "validation_limit": "assistant-authored reference checks and one fault witness; not independent exhaustive validation"
+    }
+  ]
+}

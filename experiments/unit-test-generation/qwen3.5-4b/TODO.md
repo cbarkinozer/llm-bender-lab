@@ -1,3 +1,32 @@
+> Current, 2026-10-31: shared-format cleanup complete in app-core-v04.
+> Review http://127.0.0.1:7900/dataset/7500c36b-0971-41bd-91c5-765d6e7add5e/annotation-mode; prior annotations are preserved.
+> Record-specific data annotation is separate. Freeze approved data, then run the
+> untouched thinking-on baseline before short SFT. No training has started.
+
+> Active scope update, 2026-10-29: paper continuation paused. Complete the
+> [quick ten-example thinking-SFT demo](exp-001-local-thinking-10/README.md),
+> then reuse the task setup for GRPO. Historical research plans below are deferred.
+
+# Active whole-app thinking-SFT demo — 2026-10-30
+
+- [x] Preserve old ten-task function pilots and all previous reviews/results.
+- [x] Create framing-B v03 targets with fixed decisions/interface/map/tests/manual sections and separate concise rationale.
+- [x] Add missing backend acceptance contracts with separately disclosed reference facades; keep original apps unchanged.
+- [x] Validate 142 cases and 57 targeted faults covering all 53 core requirements.
+- [x] Run three distinct seeded test orders per suite and verify full sequences <=8K (max 6,934).
+- [x] Reserve GitHub-insignia and the entire paper repo from training; propose seven disjoint training repos.
+- [x] Separate AI reviewer audits two records; preserve revise findings and resolved re-review. This is not human agreement.
+- [x] Publish anchored Q1–Q8 form, split Q4, fixed defects, confidence, blocking issues and decision rules.
+- [ ] Owner reviews nine in [current Argilla](http://127.0.0.1:7900/dataset/f7c79cb7-8943-4281-98d1-4e9128a2b529/annotation-mode); resolve actual blockers before exporting training rows.
+- [ ] Complete/disclose pending app delivery/live checks in each record; backend passes do not certify original UI/CLI wiring.
+- [ ] Obtain a second human rating on two records if independent human agreement is wanted; currently no paired human labels.
+- [ ] Freeze approved pilot/split and check provenance/near-duplicates; paper benchmark instances stay outside training.
+- [ ] Run untouched thinking-on baseline with grading aligned to each emitted interface; freeze same policy/budgets before and after SFT.
+- [ ] Verify native labels and loss masking, run short SFT, repeat held-out app and fixed paper transfer evaluation.
+- [ ] Save adapter/results/lessons and move to GRPO. Do not scale data before the approved pilot and baseline.
+
+Historical checklist follows; checked historical items do not imply pilot readiness.
+
 # Python unit-test generation TODO
 
 ## Active next steps — requirements-first owner refinement

@@ -1,0 +1,39 @@
+...........FF                                                            [100%]
+=================================== FAILURES ===================================
+_____________ test_unusable_first_row_is_reported_not_filled[0.0] ______________
+
+baseline = 0.0
+
+    @pytest.mark.parametrize('baseline', [0.,float('nan')])
+    def test_unusable_first_row_is_reported_not_filled(baseline):
+        from price_workflow import analyze
+        frame = prices()
+        frame.loc[frame.index[0], 'BTC-USD'] = baseline
+>       with pytest.raises(ValueError, match='baseline'):
+E       Failed: DID NOT RAISE ValueError
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py:49: Failed
+_____________ test_unusable_first_row_is_reported_not_filled[nan] ______________
+
+baseline = nan
+
+    @pytest.mark.parametrize('baseline', [0.,float('nan')])
+    def test_unusable_first_row_is_reported_not_filled(baseline):
+        from price_workflow import analyze
+        frame = prices()
+        frame.loc[frame.index[0], 'BTC-USD'] = baseline
+>       with pytest.raises(ValueError, match='baseline'):
+E       Failed: DID NOT RAISE ValueError
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py:49: Failed
+=============================== warnings summary ===============================
+llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers
+  /Users/cbarkinozer/Documents/GitHub/cryptocurrency-analyser/coin_comparator.py:19: Pandas4Warning: The inplace keyword in DataFrame.dropna is deprecated and will be removed in a future version (PDEP-8).
+  See https://pandas.pydata.org/docs/dev/whatsnew/v3.1.0.html#deprecation-inplace for more details.
+    data.dropna(axis=1, how='all', inplace=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[nan]
+2 failed, 11 passed, 1 warning in 0.21s

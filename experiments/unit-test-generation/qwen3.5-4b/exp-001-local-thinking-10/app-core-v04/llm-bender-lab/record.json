@@ -1,0 +1,438 @@
+{
+  "record_id": "llm-bender-lab-v04",
+  "schema_version": "1.0",
+  "record_version": 4,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "llm-bender-lab",
+    "revision": "fa79eb8eed190a67c28cdda4ca18c0419d842ca8",
+    "dirty": true,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [
+      {
+        "path": "reference/experiment_workflow.py",
+        "sha256": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      }
+    ],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "train",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "llm-bender-lab",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Make me a practical Python lab for running small language-model fine-tuning experiments reproducibly. I want to define an experiment, validate conversational training data and its train/evaluation separation, save the resolved configuration, run a short training smoke through a replaceable trainer, save its adapter and metadata, evaluate the starting model and candidate under matched settings, and get a readable before/after summary. A malformed dataset or overlapping held-out examples should stop preflight rather than quietly train. Keep experiment runs in separate directories, preserve older outputs, and record model/data revisions, seed, code identity and effective settings so I can tell what actually ran. If a run fails, retain its logs and status without claiming success. Do not require a GPU, download weights or start real training when I run the lab's own tests: use a tiny fake trainer/evaluator there, but make the workflow ready to connect to a real backend. Keep credentials and large weights out of manifests and Git, distinguish unavailable metrics from zeros, and give me simple commands for preparing, running and comparing one experiment."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "Preflight must run before a trainer is called, so malformed conversations and overlapping prompts use a spy backend. A tiny trainer writes a real fixture adapter, and an evaluator records held-out rows/settings to establish matched comparison. A change from .5 to .75 is +.25; an unavailable metric remains unavailable. Exclusive run directories preserve earlier artifacts. A deliberate backend failure checks persistent failed status and sanitized logs without producing a success summary.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Use replaceable trainer/evaluator callables; unit tests use fakes and local adapter bytes.\n- Create run directories exclusively and record effective revisions, seed and settings.\n- Use identical held-out rows and generation settings before/after; unavailable metrics stay unavailable.\n\nUnresolved/nonessential choices:\n- Real training backend selection remains open; the demo only fixes its callable boundary.\n\n## Proposed interface agreement\n\nProposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\nPublic imports:\n- `experiment_workflow.run_experiment`\n\n## Requirement-to-test map\n\nR1: Reject malformed conversations and held-out overlap before training.\n- `tests/test_core.py::test_malformed_data_fails_before_backend`\n- `tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer`\n\nR2: Resolve and preserve effective config and identities.\n- `tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations`\n\nR3: Keep runs isolated and preserve previous artifacts.\n- `tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten`\n\nR4: Coordinate a smoke run and adapter artifact.\n- `tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations`\n\nR5: Keep evidence when a run fails.\n- `tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak`\n\nR6: Compare matched baseline/candidate and omit credentials.\n- `tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations`\n- `tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/test_core.py\n```python\n'Acceptance checks for observable application behavior.'\nfrom unittest.mock import Mock\nimport pytest\nfrom test_workflow import config, rows\n\n\n@pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])\ndef test_malformed_data_fails_before_backend(tmp_path, defect):\n    from experiment_workflow import run_experiment\n    data=rows()\n    if defect == 'missing-content':\n        data[0]['messages'][1]['content']=' '\n    elif defect == 'wrong-role':\n        data[0]['messages'][1]['role']='user'\n    else:\n        data[0]['split']='unrecognized'\n    trainer=Mock()\n    with pytest.raises(ValueError):\n        run_experiment(tmp_path,'bad',config(),data,trainer=trainer,evaluator=Mock())\n    trainer.assert_not_called()\n```\n\nFile: tests/test_workflow.py\n```python\n'Acceptance checks for observable application behavior.'\nimport json\nfrom unittest.mock import Mock\nimport pytest\n\n\ndef config():\n    return {'model_revision':'base-v1', 'data_revision':'data-v1', 'code_revision':'code-v1',\n            'seed':7, 'generation':{'temperature':0, 'max_new_tokens':128}}\n\n\ndef rows():\n    return [{'split':split, 'id':split, 'messages':[{'role':'user','content':prompt},\n              {'role':'assistant','reasoning_content':'Add the quantities.', 'content':'5'}]}\n            for split,prompt in [('train','Add 2 and 3'),('test','Add 1 and 4')]]\n\n\ndef trainer(run_dir, resolved, train_rows):\n    adapter = run_dir/'adapter.bin'\n    adapter.write_bytes(b'fixture-adapter')\n    return adapter\n\n\ndef test_smoke_run_preserves_config_adapter_and_matched_evaluations(tmp_path):\n    from experiment_workflow import run_experiment\n    seen = []\n    def evaluate(model, heldout, settings):\n        seen.append((model, heldout, settings.copy()))\n        return {'accuracy':.5 if model == 'base-v1' else .75, 'other':None}\n    result = run_experiment(tmp_path, 'one', config(), rows(), trainer=trainer, evaluator=evaluate)\n    run = tmp_path/'one'\n    assert result['status'] == 'completed'\n    assert (run/'adapter.bin').read_bytes() == b'fixture-adapter'\n    assert json.loads((run/'resolved.json').read_text()) == config()\n    assert seen[0][1:] == seen[1][1:]\n    assert seen[0][2] == config()['generation']\n    assert result['comparison'] == {'accuracy':{'before':.5,'after':.75,'delta':.25},\n                                     'other':{'before':None,'after':None,'delta':None}}\n    assert 'accuracy' in (run/'summary.md').read_text()\n\n\ndef test_run_directories_are_distinct_and_never_overwritten(tmp_path):\n    from experiment_workflow import run_experiment\n    evaluate = lambda *args: {'accuracy':0.0}\n    run_experiment(tmp_path, 'one', config(), rows(), trainer=trainer, evaluator=evaluate)\n    before = {p.name:p.read_bytes() for p in (tmp_path/'one').iterdir() if p.is_file()}\n    with pytest.raises(FileExistsError):\n        run_experiment(tmp_path, 'one', config(), rows(), trainer=trainer, evaluator=evaluate)\n    run_experiment(tmp_path, 'two', config(), rows(), trainer=trainer, evaluator=evaluate)\n    assert {p.name:p.read_bytes() for p in (tmp_path/'one').iterdir() if p.is_file()} == before\n    assert (tmp_path/'two'/'adapter.bin').is_file()\n\n\ndef test_invalid_preflight_never_invokes_trainer(tmp_path):\n    from experiment_workflow import run_experiment\n    data = rows()\n    data[-1]['messages'][0]['content'] = data[0]['messages'][0]['content']\n    train = Mock()\n    with pytest.raises(ValueError):\n        run_experiment(tmp_path, 'bad', config(), data, trainer=train, evaluator=Mock())\n    train.assert_not_called()\n\n\ndef test_failure_is_recorded_without_success_or_credential_leak(tmp_path):\n    from experiment_workflow import run_experiment\n    cfg = config() | {'api_key':'fixture-secret'}\n    train = Mock(side_effect=RuntimeError('backend failed fixture-secret'))\n    result = run_experiment(tmp_path, 'failure', cfg, rows(), trainer=train, evaluator=Mock())\n    assert result['status'] == 'failed'\n    assert json.loads((tmp_path/'failure'/'status.json').read_text())['status'] == 'failed'\n    assert 'backend failed' in (tmp_path/'failure'/'run.log').read_text()\n    assert 'fixture-secret' not in ''.join(p.read_text() for p in (tmp_path/'failure').iterdir() if p.is_file())\n    assert not (tmp_path/'failure'/'summary.md').exists()\n```\n\n## Manual checks\n\nM1: Run documented prepare/run/compare commands and connect one real training backend separately.\nM2: Check credential/weight exclusion in Git and published artifacts.\n"
+    }
+  ],
+  "teacher_reasoning": "Preflight must run before a trainer is called, so malformed conversations and overlapping prompts use a spy backend. A tiny trainer writes a real fixture adapter, and an evaluator records held-out rows/settings to establish matched comparison. A change from .5 to .75 is +.25; an unavailable metric remains unavailable. Exclusive run directories preserve earlier artifacts. A deliberate backend failure checks persistent failed status and sanitized logs without producing a success summary.",
+  "decisions": "Proposed decisions:\n\n- Use replaceable trainer/evaluator callables; unit tests use fakes and local adapter bytes.\n- Create run directories exclusively and record effective revisions, seed and settings.\n- Use identical held-out rows and generation settings before/after; unavailable metrics stay unavailable.\n\nUnresolved/nonessential choices:\n- Real training backend selection remains open; the demo only fixes its callable boundary.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\nPublic imports:\n- `experiment_workflow.run_experiment`\n",
+    "imports": [
+      {
+        "module": "experiment_workflow",
+        "name": "run_experiment"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Reject malformed conversations and held-out overlap before training.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_malformed_data_fails_before_backend",
+        "tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Resolve and preserve effective config and identities.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Keep runs isolated and preserve previous artifacts.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Coordinate a smoke run and adapter artifact.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Keep evidence when a run fails.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Compare matched baseline/candidate and omit credentials.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+        "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_core.py::test_malformed_data_fails_before_backend",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+      "requirements": [
+        "R2",
+        "R4",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+      "requirements": [
+        "R5",
+        "R6"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Run documented prepare/run/compare commands and connect one real training backend separately."
+    },
+    {
+      "id": "M2",
+      "text": "Check credential/weight exclusion in Git and published artifacts."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04/20261030T215834813236Z/llm-bender-lab.log",
+    "test_files": [
+      {
+        "path": "tests/test_core.py",
+        "chars": 743,
+        "tokens": 177,
+        "sha256": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156"
+      },
+      {
+        "path": "tests/test_workflow.py",
+        "chars": 3491,
+        "tokens": 904,
+        "sha256": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "llm-bender-lab",
+        "fault": "missing-metrics-become-zero",
+        "target_requirements": [
+          "R6"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/llm-bender-lab/missing-metrics-become-zero/pytest.log",
+        "mutation_sha256": "50fc554e74b3c9560d6da2ba2888454c6910a6629cc69bb56e0f96a6d81e2ad8",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "fault": "allow-overwrite",
+        "target_requirements": [
+          "R3"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/llm-bender-lab/allow-overwrite/pytest.log",
+        "mutation_sha256": "f67b6ef855a969279403ff27105c3fc7afa3c30e441fdb50eb7d583702c0c3a8",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "fault": "normalize-away-invalid-conversation",
+        "target_requirements": [
+          "R1"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/llm-bender-lab/normalize-away-invalid-conversation/pytest.log",
+        "mutation_sha256": "60a7e57436c42bb8cf99a8926415650675b51ea9bfab308d7e21d344853df7ea",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "fault": "resolved-config-loses-seed",
+        "target_requirements": [
+          "R2"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/llm-bender-lab/resolved-config-loses-seed/pytest.log",
+        "mutation_sha256": "e9b0e5a6ab21451386dda1eb8e1be4ee49591b153d8ae56415fe80b65fef65c6",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "fault": "empty-adapter-artifact",
+        "target_requirements": [
+          "R4"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/llm-bender-lab/empty-adapter-artifact/pytest.log",
+        "mutation_sha256": "a5370ab6290e853f132d5a7a0299d888abe89cf5bc8edf7abbaa9939097fdea7",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "fault": "backend-failure-claims-success",
+        "target_requirements": [
+          "R5"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/llm-bender-lab/backend-failure-claims-success/pytest.log",
+        "mutation_sha256": "ccdffd35fecf44771c7d0cd1486f67d6c67d3b93d9cb4385d87767bc9609d72f",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "normalize-away-invalid-conversation"
+      ],
+      "R2": [
+        "resolved-config-loses-seed"
+      ],
+      "R3": [
+        "allow-overwrite"
+      ],
+      "R4": [
+        "empty-adapter-artifact"
+      ],
+      "R5": [
+        "backend-failure-claims-success"
+      ],
+      "R6": [
+        "missing-metrics-become-zero"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "llm-bender-lab",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 7,
+        "order": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/llm-bender-lab/17/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        },
+        "reference_snapshot": {
+          "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 7,
+        "order": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/llm-bender-lab/43/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        },
+        "reference_snapshot": {
+          "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+        }
+      },
+      {
+        "repo": "llm-bender-lab",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 7,
+        "order": [
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten",
+          "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/llm-bender-lab/91/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "2b3c4f1c89865b5db1b1c5cf70d8ee5d632eed7287bfb3f5caaab74cdd19e156",
+          "tests/test_workflow.py": "e1ccb1038e1f3872c2db6782bc38bafe3853ef316b5444d011908d26475fcb53"
+        },
+        "reference_snapshot": {
+          "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+        }
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 2370,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 215,
+      "reasoning": 88,
+      "interface": 382,
+      "tests": 1105,
+      "target": 1897
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T21:59:39.136968+00:00",
+    "prompt_version": "tdd-framing-b-v04",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "llm-bender-lab",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

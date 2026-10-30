@@ -1,4 +1,30 @@
+> Current format revision, 2026-10-31: [app-core-v04](exp-001-local-thinking-10/app-core-v04/README.md).
+> Natural requests and shared system instructions are separated from construction/review metadata.
+> Tests and application behavior match v03; record-specific executor work is archived separately.
+> Review: http://127.0.0.1:7900/dataset/7500c36b-0971-41bd-91c5-765d6e7add5e/annotation-mode
+> Earlier status blocks below are history. No whole-app SFT has run.
+
+> Current scope, 2026-10-30: **nine whole-app framing-B candidates**, not the
+> historical ten function-contract pilot. See [revision 03](exp-001-local-thinking-10/app-core-v03/README.md).
+> 142 reference cases pass, 57 targeted faults cover 53 core requirements,
+> three test orders pass and every full sequence fits 8K. Owner review is pending:
+> http://127.0.0.1:7900/dataset/f7c79cb7-8943-4281-98d1-4e9128a2b529/annotation-mode
+> No whole-app baseline or SFT has run. Earlier plans below are historical.
+
+> Active scope update, 2026-10-29: paper continuation paused. Complete the
+> [quick ten-example thinking-SFT demo](exp-001-local-thinking-10/README.md),
+> then reuse the task setup for GRPO. Historical research plans below are deferred.
+
 # Python unit-test generation — Qwen3.5-4B
+
+Current owner priority, 2026-10-29: [paper continuation initialization](CONTINUATION-20261029.md)
+and the [10-task local requirements-to-tests pilot](exp-001-local-thinking-10/README.md).
+Requirements/API in, pytest tests out; untouched Qwen3.5-4B with thinking enabled
+on the Mac. Establish test quality first, then study thinking SFT, then separately
+measure downstream code generation against frozen tests. Occam2 is deferred.
+The ten contracts remain drafts awaiting reference/fault preflight; no new
+10-task inference or training result exists. This decision supersedes historical
+thinking off/on and RL-first priority statements below.
 
 Current pilot: [Stage A v01](exp-000-baseline/requirements-pilot/STAGE-A-V01.md).
 Generation settings are frozen; one new task is ready for owner quality review.

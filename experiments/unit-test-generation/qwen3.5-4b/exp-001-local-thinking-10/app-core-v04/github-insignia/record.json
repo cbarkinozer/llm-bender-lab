@@ -1,0 +1,705 @@
+{
+  "record_id": "github-insignia-v04",
+  "schema_version": "1.0",
+  "record_version": 4,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "GitHub-insignia",
+    "revision": "b44bd4ae59aa2d88d2334b1ae1a3c75089f3d07d",
+    "dirty": false,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "eval",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "GitHub-insignia",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Build me a local GitHub dashboard in Python with FastAPI and FastMCP for cbarkinozer. I want to start it on my Mac, open it in a browser, refresh when I choose, take screenshots and close it without hosting or paying for a service. Show my profile, received stars, repository count, languages, best repositories sorted by stars or recent code pushes, and contributions, commits, opened PRs and opened issues over the last twelve calendar months in UTC, including a daily calendar. Repository and language statistics should use my public owned repositories, excluding forks but including archived ones; calculate languages from GitHub language bytes. Explain the scope of each number, and don't turn unavailable information into zero. Use official GitHub APIs and an optional server-side token; without a token, show public data and mark contribution data unavailable. Cache the last successful complete snapshot across restarts, never fetch just because I opened the page, and preserve the old snapshot and timestamp if refresh fails. Expose refresh, activity summary and top repositories through MCP using the same data as the dashboard. Keep credentials out of outputs and saved snapshots. Make the interface clean and usable on desktop and phone widths, and include simple startup instructions; no letter grade is needed."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "Public owned nonfork repositories with 5 and 9 stars total 14; 500 Rust bytes out of 800 yield 62.5%. Fixed UTC dates make calendar boundaries reproducible. Offline REST and GraphQL fixtures distinguish missing contributions from genuine zero, exercise pagination and preserve a previous snapshot after refresh failure. HTTP and MCP must expose the same stored data. Cache schema and credential checks protect observable state, while browser appearance and live authentication remain separate checks.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Repository statistics cover public owned nonfork repositories, including archives.\n- The activity window uses twelve calendar months in UTC. Missing data stays unavailable.\n- HTTP and MCP share one snapshot; refresh is explicit.\n\nUnresolved/nonessential choices:\n- Visual theme and screenshot composition remain open.\n\n## Proposed interface agreement\n\nProposed package `insignia`. \n- `metrics.repository_metrics(repos, languages, username)` returns `{stars:int, repository_count:int, languages:[{name,bytes,percent}]}`. GitHub repository dictionaries use id/name/full_name/owner.login/private/fork/stargazers_count/forks_count/language/pushed_at/html_url/description/archived. Include public owned nonfork repositories, including archives. Languages is keyed by repository name; sum byte counts, sort descending bytes then name. No language evidence produces [].\n- `metrics.top_repositories(repos, sort=\"stars\", limit=6)` returns repository dictionaries sorted descending stars or pushed_at, ties by name; missing push dates last; invalid sort raises ValueError.\n- `metrics.date_window(now)` returns aware UTC (start,end): start is UTC midnight of the same calendar date twelve months earlier, clamp leap day, end is now. `query_windows(start,end)` splits at calendar-year boundaries, adjacent years separated at 23:59:59/00:00:00.\n- `github.GitHubClient(token=None, transport=None)` accepts httpx transport; mutable `.transport`. Async `.fetch(username, now)` gets official REST profile/repos/languages and optional GraphQL contributions, paginates only api.github.com, filters repos before language calls. Returns snapshot `{profile,metrics,repositories,scope,window,fetched_at,activity,activity_unavailable_reason}`. Profile includes login/name/bio/avatar_url/html_url/followers/following/location/company; repositories expose the fields above excluding owner/id/private/fork. Scope has repository/language/activity explanations. Activity is None with a reason without token; otherwise `{commits,pull_requests,issues,total,restricted,days:[{date,count}]}`. Missing optional profile fields become None. `window` has ISO start/end; fetched_at is aware ISO timestamp. Invalid nested cache data, dates, nonfinite percentages or negative counts are rejected. HTTP/GraphQL/timeout/unsafe pagination raises sanitized `github.GitHubError` (messages identify GraphQL, rejected credentials or \"Could not reach GitHub\").\n- `service.DashboardService(api, cache_path, clock=...)` exposes mutable `.api`, `.read()` -> `{snapshot,error}`, async `.refresh()` same shape, `.summary()` -> current snapshot fields or read envelope if unavailable, `.top(sort=\"stars\",limit=6)` -> list or None. Cold/cache reads never fetch. Refresh saves a complete snapshot atomically before replacing memory, preserving old memory/disk on any error. `_save(snapshot)` is an explicitly exposed test seam for simulating disk failure.\n- `app.create_app(service)` returns FastAPI app; app.state.mcp is the shared FastMCP server. GET / renders page, GET /api/dashboard returns read envelope, POST /api/refresh refreshes. MCP tools refresh_data(), activity_summary(), top_repositories(sort,limit) share service; HTTP MCP route /mcp/. Reject external Origin refresh with 403 and external Host with 400; loopback TestClient host allowed.\nDependencies: Python 3.11+, pytest, pytest-asyncio, httpx, FastAPI, FastMCP and their installed dependencies. pytest asyncio_mode=auto is supplied.\n\nPublic imports:\n- `insignia.app.create_app`\n- `insignia.github.GitHubClient`\n- `insignia.github.GitHubError`\n- `insignia.metrics.date_window`\n- `insignia.metrics.query_windows`\n- `insignia.metrics.repository_metrics`\n- `insignia.metrics.top_repositories`\n- `insignia.service.DashboardService`\n\n## Requirement-to-test map\n\nR1: Use the declared repository scope and byte-based language shares.\n- `tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares`\n- `tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage`\n\nR2: Offer deterministic repository sorting.\n- `tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort`\n\nR3: Use rolling twelve-calendar-month UTC activity and disclose unavailable data.\n- `tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting`\n- `tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence`\n- `tests/test_revisions.py::test_real_zero_activity_stays_zero`\n- `tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero`\n- `tests/test_revisions.py::test_authenticated_snapshot_survives_restart`\n\nR4: Fetch complete paginated data through official APIs.\n- `tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests`\n- `tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence`\n- `tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot`\n- `tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures`\n- `tests/test_revisions.py::test_actual_transport_timeout_is_sanitized`\n- `tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot`\n- `tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host`\n- `tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero`\n\nR5: Only explicit refresh replaces durable state.\n- `tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh`\n- `tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot`\n- `tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures`\n- `tests/test_requirements.py::test_r8_cache_write_failure_preserves_memory_and_disk`\n- `tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot`\n- `tests/test_revisions.py::test_corrupt_cache_is_unavailable`\n- `tests/test_revisions.py::test_structurally_invalid_cache_is_rejected`\n- `tests/test_revisions.py::test_authenticated_snapshot_survives_restart`\n\nR6: Web and MCP expose one consistent snapshot without credentials.\n- `tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence`\n- `tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot`\n- `tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures`\n- `tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service`\n- `tests/test_revisions.py::test_actual_transport_timeout_is_sanitized`\n- `tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot`\n- `tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host`\n- `tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/conftest.py\n```python\nfrom datetime import datetime, timezone\nimport httpx\nimport pytest\n\nNOW = datetime(2026, 10, 30, 12, tzinfo=timezone.utc)\n\n\ndef repo(name=\"alpha\", stars=5, **extra):\n    return {\"id\": name, \"name\": name, \"full_name\": f\"cbarkinozer/{name}\",\n            \"owner\": {\"login\": \"cbarkinozer\"}, \"private\": False, \"fork\": False,\n            \"stargazers_count\": stars, \"forks_count\": 1, \"language\": \"Python\",\n            \"pushed_at\": \"2026-10-01T00:00:00Z\", \"html_url\": f\"https://github.com/cbarkinozer/{name}\",\n            \"description\": \"A useful project\", \"archived\": False, **extra}\n\n\n@pytest.fixture\ndef api_factory():\n    def make(failure=None, token=None):\n        requests = []\n        def handler(request):\n            requests.append(request)\n            path = request.url.path\n            if failure and failure(request):\n                return httpx.Response(503, json={\"message\": \"upstream unavailable\"})\n            if path == \"/users/cbarkinozer\":\n                return httpx.Response(200, json={\"login\": \"cbarkinozer\", \"name\": \"Barkin\", \"bio\": \"AI Engineer\", \"avatar_url\": \"https://avatars.githubusercontent.com/u/1\", \"html_url\": \"https://github.com/cbarkinozer\", \"followers\": 9, \"following\": 3})\n            if path.endswith(\"/repos\"):\n                if request.url.params.get(\"page\") == \"2\":\n                    return httpx.Response(200, json=[repo(\"beta\", 9, pushed_at=\"2026-09-01T00:00:00Z\")])\n                return httpx.Response(200, json=[repo(), repo(\"fork\", 99, fork=True), repo(\"private\", 88, private=True), repo(\"other\", 77, owner={\"login\": \"other\"})], headers={\"Link\": '<https://api.github.com/users/cbarkinozer/repos?per_page=100&page=2>; rel=\"next\"'})\n            if path.endswith(\"/languages\"):\n                return httpx.Response(200, json={\"Python\": 300, \"Rust\": 100})\n            if path == \"/graphql\":\n                import json\n                variables = json.loads(request.content)[\"variables\"]\n                day = variables[\"start\"][:10]\n                return httpx.Response(200, json={\"data\": {\"user\": {\"contributionsCollection\": {\n                    \"totalCommitContributions\": 3, \"totalPullRequestContributions\": 2,\n                    \"totalIssueContributions\": 1, \"restrictedContributionsCount\": 4,\n                    \"contributionCalendar\": {\"totalContributions\": 10, \"weeks\": [{\"contributionDays\": [{\"date\": day, \"contributionCount\": 10}]}]}\n                }}}})\n            raise AssertionError(f\"Unexpected request: {request.url}\")\n        from insignia.github import GitHubClient\n        return GitHubClient(token=token, transport=httpx.MockTransport(handler)), requests\n    return make\n```\n\nFile: tests/test_requirements.py\n```python\n'Acceptance checks for observable application behavior.'\nimport json\nfrom datetime import datetime, timezone\nimport httpx\nimport pytest\nfrom conftest import NOW, repo\nfrom insignia.metrics import repository_metrics, top_repositories, date_window, query_windows\nfrom insignia.service import DashboardService\nfrom insignia.github import GitHubClient, GitHubError\n\n\ndef test_r1_filter_calculation_and_byte_shares():\n    items = [repo(), repo(\"beta\", 9, archived=True), repo(\"fork\", 100, fork=True), repo(\"secret\", 200, private=True), repo(\"other\", 300, owner={\"login\": \"other\"})]\n    result = repository_metrics(items, {\"alpha\": {\"Python\": 300, \"Rust\": 100}, \"beta\": {\"Rust\": 400}}, \"cbarkinozer\")\n    assert result[\"stars\"] == 14\n    assert result[\"repository_count\"] == 2\n    assert result[\"languages\"] == [{\"name\": \"Rust\", \"bytes\": 500, \"percent\": 62.5}, {\"name\": \"Python\", \"bytes\": 300, \"percent\": 37.5}]\n\n\ndef test_r1_empty_language_data_is_not_a_fabricated_percentage():\n    assert repository_metrics([], {}, \"cbarkinozer\")[\"languages\"] == []\n\n\ndef test_r2_sort_stars_activity_ties_and_invalid_sort():\n    items = [repo(\"zeta\", 9, pushed_at=\"2026-01-01T00:00:00Z\"), repo(\"alpha\", 9), repo(\"beta\", 2, pushed_at=None)]\n    assert [r[\"name\"] for r in top_repositories(items, \"stars\", 2)] == [\"alpha\", \"zeta\"]\n    assert [r[\"name\"] for r in top_repositories(items, \"activity\", 3)] == [\"alpha\", \"zeta\", \"beta\"]\n    with pytest.raises(ValueError):\n        top_repositories(items, \"invalid\", 6)\n\n\ndef test_r3_utc_leap_date_and_year_splitting():\n    start, end = date_window(datetime.fromisoformat(\"2024-02-29T01:00:00+03:00\"))\n    assert start.isoformat() == \"2023-02-28T00:00:00+00:00\"\n    assert end.isoformat() == \"2024-02-28T22:00:00+00:00\"\n    leap_start, _ = date_window(datetime(2024, 2, 29, 12, tzinfo=timezone.utc))\n    assert leap_start.day == 28\n    windows = query_windows(*date_window(NOW))\n    assert len(windows) == 2\n    assert windows[0][1].isoformat() == \"2025-12-31T23:59:59+00:00\"\n    assert windows[1][0].isoformat() == \"2026-01-01T00:00:00+00:00\"\n\n\nasync def test_r4_pagination_and_filter_before_language_requests(api_factory):\n    api, requests = api_factory()\n    data = await api.fetch(\"cbarkinozer\", NOW)\n    assert data[\"metrics\"][\"stars\"] == 14\n    assert data[\"metrics\"][\"repository_count\"] == 2\n    assert len([r for r in requests if r.url.path.endswith(\"/repos\")]) == 2\n    assert len([r for r in requests if r.url.path.endswith(\"/languages\")]) == 2\n    assert data[\"activity\"] is None\n    assert not any(r.url.path == \"/graphql\" for r in requests)\n\n\nasync def test_r5_graphql_window_combination_and_secret_absence(api_factory):\n    api, requests = api_factory(token=\"secret-fixture-token\")\n    data = await api.fetch(\"cbarkinozer\", NOW)\n    assert data[\"activity\"][\"commits\"] == 6\n    assert data[\"activity\"][\"pull_requests\"] == 4\n    assert data[\"activity\"][\"issues\"] == 2\n    assert data[\"activity\"][\"total\"] == 20\n    assert data[\"activity\"][\"restricted\"] == 8\n    assert len(data[\"activity\"][\"days\"]) == 2\n    assert \"secret-fixture-token\" not in json.dumps(data)\n    assert all(r.headers[\"Authorization\"] == \"Bearer secret-fixture-token\" for r in requests)\n\n\nasync def test_r6_cache_read_restart_and_manual_refresh(tmp_path, api_factory):\n    api, requests = api_factory()\n    path = tmp_path / \"snapshot.json\"\n    service = DashboardService(api, path, clock=lambda: NOW)\n    assert service.read()[\"snapshot\"] is None\n    assert requests == []\n    result = await service.refresh()\n    assert result[\"error\"] is None\n    before = len(requests)\n    assert service.read()[\"snapshot\"][\"fetched_at\"] == NOW.isoformat()\n    restarted = DashboardService(api, path, clock=lambda: NOW)\n    assert restarted.read() == service.read()\n    assert len(requests) == before\n    assert \"Authorization\" not in path.read_text()\n\n\n@pytest.mark.parametrize(\"endpoint\", [\"/users/cbarkinozer\", \"/users/cbarkinozer/repos\", \"/repos/cbarkinozer/alpha/languages\", \"/graphql\"])\nasync def test_r7_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):\n    api, _ = api_factory(token=\"secret\")\n    path = tmp_path / \"snapshot.json\"\n    service = DashboardService(api, path, clock=lambda: NOW)\n    old = (await service.refresh())[\"snapshot\"]\n    original_bytes = path.read_bytes()\n    broken, _ = api_factory(token=\"secret\", failure=lambda r: r.url.path == endpoint)\n    service.api = broken\n    failed = await service.refresh()\n    assert failed[\"error\"]\n    assert failed[\"snapshot\"] == old\n    assert path.read_bytes() == original_bytes\n    assert \"secret\" not in failed[\"error\"]\n\n\n@pytest.mark.parametrize(\"failure\", [\"graphql-error\", \"timeout\", \"unauthorized\"])\nasync def test_r7_graphql_errors_and_timeout_are_failures(api_factory, failure):\n    api, requests = api_factory(token=\"secret\")\n    handler = api.transport.handler\n\n    def fail_at_graphql(request):\n        if request.url.path != \"/graphql\":\n            return handler(request)\n        requests.append(request)\n        if failure == \"timeout\":\n            raise httpx.ReadTimeout(\"secret upstream text\", request=request)\n        if failure == \"unauthorized\":\n            return httpx.Response(401, json={})\n        return httpx.Response(200, json={\"errors\": [{\"message\": \"secret upstream text\"}]})\n\n    api.transport = httpx.MockTransport(fail_at_graphql)\n    expected = {\"graphql-error\": \"GraphQL\", \"timeout\": \"Could not reach GitHub\", \"unauthorized\": \"rejected\"}\n    with pytest.raises(GitHubError, match=expected[failure]) as error:\n        await api.fetch(\"cbarkinozer\", NOW)\n    assert requests[-1].url.path == \"/graphql\"\n    assert \"secret\" not in str(error.value)\n\n\nasync def test_r8_cache_write_failure_preserves_memory_and_disk(tmp_path, api_factory, monkeypatch):\n    api, _ = api_factory()\n    service = DashboardService(api, tmp_path / \"snapshot.json\", clock=lambda: NOW)\n    old = (await service.refresh())[\"snapshot\"]\n    def fail(data):\n        raise OSError(\"disk full\")\n    monkeypatch.setattr(service, \"_save\", fail)\n    result = await service.refresh()\n    assert result[\"error\"]\n    assert result[\"snapshot\"] == old\n\n\nasync def test_r9_fastapi_and_mcp_share_service(tmp_path, api_factory):\n    from fastapi.testclient import TestClient\n    from fastmcp import Client\n    from insignia.app import create_app\n    api, requests = api_factory()\n    service = DashboardService(api, tmp_path / \"snapshot.json\", clock=lambda: NOW)\n    app = create_app(service)\n    with TestClient(app) as web:\n        assert web.get(\"/\").status_code == 200\n        assert web.get(\"/api/dashboard\").json()[\"snapshot\"] is None\n        assert requests == []\n        assert web.post(\"/api/refresh\").json()[\"snapshot\"][\"metrics\"][\"stars\"] == 14\n        assert web.get(\"/api/dashboard\").json()[\"snapshot\"] == service.read()[\"snapshot\"]\n    async with Client(app.state.mcp) as client:\n        tools = await client.list_tools()\n        assert {t.name for t in tools} == {\"refresh_data\", \"activity_summary\", \"top_repositories\"}\n        result = await client.call_tool(\"top_repositories\", {\"sort\": \"stars\", \"limit\": 1})\n        assert result.data[0][\"name\"] == \"beta\"\n        summary = await client.call_tool(\"activity_summary\", {})\n        assert summary.data[\"activity\"] is None\n```\n\nFile: tests/test_revisions.py\n```python\n'Acceptance checks for observable application behavior.'\nimport json\nimport httpx\nimport pytest\nfrom conftest import NOW\nfrom insignia.github import GitHubClient, GitHubError\nfrom insignia.service import DashboardService\n\n\nasync def test_actual_transport_timeout_is_sanitized():\n    def timeout(request):\n        raise httpx.ReadTimeout(\"secret-token could occur in exception text\", request=request)\n    api = GitHubClient(token=\"secret-token\", transport=httpx.MockTransport(timeout))\n    with pytest.raises(GitHubError, match=\"Could not reach GitHub\") as error:\n        await api.fetch(\"cbarkinozer\", NOW)\n    assert \"secret-token\" not in str(error.value)\n\n\nasync def test_graphql_http_200_errors_preserve_previous_snapshot(tmp_path, api_factory):\n    api, requests = api_factory(token=\"secret-token\")\n    service = DashboardService(api, tmp_path / \"snapshot.json\", clock=lambda: NOW)\n    old = (await service.refresh())[\"snapshot\"]\n    handler = api.transport.handler\n    def broken(request):\n        if request.url.path == \"/graphql\":\n            return httpx.Response(200, json={\"errors\": [{\"message\": \"secret-token internal\"}]})\n        return handler(request)\n    service.api = GitHubClient(token=\"secret-token\", transport=httpx.MockTransport(broken))\n    result = await service.refresh()\n    assert result[\"snapshot\"] == old\n    assert \"GraphQL\" in result[\"error\"]\n    assert \"secret-token\" not in json.dumps(result)\n\n\nasync def test_real_zero_activity_stays_zero(api_factory):\n    api, _ = api_factory(token=\"test\")\n    handler = api.transport.handler\n    def zero(request):\n        response = handler(request)\n        if request.url.path == \"/graphql\":\n            body = response.json()\n            c = body[\"data\"][\"user\"][\"contributionsCollection\"]\n            for key in [\"totalCommitContributions\", \"totalPullRequestContributions\", \"totalIssueContributions\", \"restrictedContributionsCount\"]:\n                c[key] = 0\n            c[\"contributionCalendar\"] = {\"totalContributions\": 0, \"weeks\": []}\n            return httpx.Response(200, json=body)\n        return response\n    api.transport = httpx.MockTransport(zero)\n    result = await api.fetch(\"cbarkinozer\", NOW)\n    assert result[\"activity\"][\"total\"] == 0\n    assert result[\"activity\"][\"commits\"] == 0\n    assert result[\"activity_unavailable_reason\"] is None\n\n\nasync def test_pagination_cannot_forward_credentials_to_another_host(api_factory):\n    api, _ = api_factory(token=\"test\")\n    handler = api.transport.handler\n    seen = []\n    def malicious(request):\n        seen.append(request.url.host)\n        if request.url.path.endswith(\"/repos\"):\n            return httpx.Response(200, json=[], headers={\"Link\": '<https://evil.example/repos>; rel=\"next\"'})\n        return handler(request)\n    api.transport = httpx.MockTransport(malicious)\n    with pytest.raises(GitHubError, match=\"unsafe pagination\"):\n        await api.fetch(\"cbarkinozer\", NOW)\n    assert set(seen) == {\"api.github.com\"}\n\n\n@pytest.mark.parametrize(\"payload\", [\"not json\", \"{}\", '[]'])\ndef test_corrupt_cache_is_unavailable(tmp_path, api_factory, payload):\n    path = tmp_path / \"snapshot.json\"\n    path.write_text(payload)\n    api, requests = api_factory()\n    result = DashboardService(api, path).read()\n    assert result[\"snapshot\"] is None\n    assert result[\"error\"]\n    assert not requests\n\n\nasync def test_missing_graphql_totals_does_not_turn_into_zero(api_factory):\n    api, _ = api_factory(token=\"test\")\n    handler = api.transport.handler\n    def incomplete(request):\n        if request.url.path == \"/graphql\":\n            return httpx.Response(200, json={\"data\": {\"user\": {\"contributionsCollection\": {}}}})\n        return handler(request)\n    api.transport = httpx.MockTransport(incomplete)\n    with pytest.raises(GitHubError, match=\"incomplete\"):\n        await api.fetch(\"cbarkinozer\", NOW)\n\n\nasync def test_http_mcp_transport_and_refresh_tool(tmp_path, api_factory):\n    from insignia.app import create_app\n    from fastmcp import Client\n    from fastapi.testclient import TestClient\n    api, requests = api_factory()\n    service = DashboardService(api, tmp_path / \"snapshot.json\", clock=lambda: NOW)\n    app = create_app(service)\n    async with Client(app.state.mcp) as client:\n        result = await client.call_tool(\"refresh_data\", {})\n        assert result.data[\"snapshot\"][\"metrics\"][\"stars\"] == 14\n        result = await client.call_tool(\"activity_summary\", {})\n        assert result.data[\"fetched_at\"] == NOW.isoformat()\n    with TestClient(app) as web:\n        assert web.post(\"/api/refresh\", headers={\"Origin\": \"https://external.example\"}).status_code == 403\n        assert web.get(\"/api/dashboard\", headers={\"Host\": \"external.example\"}).status_code == 400\n        response = web.post(\"/mcp/\", headers={\"Accept\": \"application/json, text/event-stream\"}, json={\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-03-26\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"test\", \"version\": \"1\"}}})\n        assert response.status_code == 200\n        assert '\"serverInfo\"' in response.text\n\n\n@pytest.mark.parametrize('defect', [\n    'missing-reason', 'profile', 'metrics', 'repositories', 'scope',\n    'window', 'fetched-at', 'language-percent', 'activity-days', 'activity-count',\n])\nasync def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect):\n    api, _ = api_factory(token='fixture-token')\n    saved = await api.fetch('cbarkinozer', NOW)\n    if defect == 'missing-reason':\n        del saved['activity_unavailable_reason']\n    elif defect == 'profile':\n        saved['profile'] = {}\n    elif defect == 'metrics':\n        saved['metrics']['stars'] = 'many'\n    elif defect == 'repositories':\n        saved['repositories'][0]['stargazers_count'] = None\n    elif defect == 'scope':\n        saved['scope'] = []\n    elif defect == 'window':\n        saved['window']['start'] = 'not a date'\n    elif defect == 'fetched-at':\n        saved['fetched_at'] = '2026-10-30T12:00:00'  # Missing timezone.\n    elif defect == 'language-percent':\n        saved['metrics']['languages'][0]['percent'] = float('nan')\n    elif defect == 'activity-days':\n        saved['activity']['days'][0]['date'] = '2026-02-30'\n    else:\n        saved['activity']['commits'] = -1\n    path = tmp_path / 'snapshot.json'\n    original = json.dumps(saved)\n    path.write_text(original)\n    api, requests = api_factory()\n    service = DashboardService(api, path)\n    assert service.read()['snapshot'] is None\n    assert service.read()['error']\n    assert service.summary() == service.read()\n    assert service.top() is None\n    assert path.read_text() == original\n    assert requests == []\n    assert (await service.refresh())['error'] is None\n    assert service.summary()['activity'] is None\n\n\nasync def test_authenticated_snapshot_survives_restart(tmp_path, api_factory):\n    api, requests = api_factory(token='fixture-token')\n    path = tmp_path / 'snapshot.json'\n    service = DashboardService(api, path, clock=lambda: NOW)\n    expected = await service.refresh()\n    requests.clear()\n    restored = DashboardService(api, path)\n    assert restored.read() == expected\n    assert restored.summary()['activity'] == expected['snapshot']['activity']\n    assert restored.top('stars', 1)[0]['name'] == 'beta'\n    assert requests == []\n```\n\nFile: pytest.ini\n```ini\n[pytest]\nasyncio_mode = auto\nasyncio_default_fixture_loop_scope = function\n```\n\n## Manual checks\n\nM1: Check desktop/mobile appearance, keyboard usability and screenshots.\nM2: Run startup instructions from a clean installation and perform one authenticated live contribution fetch.\n"
+    }
+  ],
+  "teacher_reasoning": "Public owned nonfork repositories with 5 and 9 stars total 14; 500 Rust bytes out of 800 yield 62.5%. Fixed UTC dates make calendar boundaries reproducible. Offline REST and GraphQL fixtures distinguish missing contributions from genuine zero, exercise pagination and preserve a previous snapshot after refresh failure. HTTP and MCP must expose the same stored data. Cache schema and credential checks protect observable state, while browser appearance and live authentication remain separate checks.",
+  "decisions": "Proposed decisions:\n\n- Repository statistics cover public owned nonfork repositories, including archives.\n- The activity window uses twelve calendar months in UTC. Missing data stays unavailable.\n- HTTP and MCP share one snapshot; refresh is explicit.\n\nUnresolved/nonessential choices:\n- Visual theme and screenshot composition remain open.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed package `insignia`. \n- `metrics.repository_metrics(repos, languages, username)` returns `{stars:int, repository_count:int, languages:[{name,bytes,percent}]}`. GitHub repository dictionaries use id/name/full_name/owner.login/private/fork/stargazers_count/forks_count/language/pushed_at/html_url/description/archived. Include public owned nonfork repositories, including archives. Languages is keyed by repository name; sum byte counts, sort descending bytes then name. No language evidence produces [].\n- `metrics.top_repositories(repos, sort=\"stars\", limit=6)` returns repository dictionaries sorted descending stars or pushed_at, ties by name; missing push dates last; invalid sort raises ValueError.\n- `metrics.date_window(now)` returns aware UTC (start,end): start is UTC midnight of the same calendar date twelve months earlier, clamp leap day, end is now. `query_windows(start,end)` splits at calendar-year boundaries, adjacent years separated at 23:59:59/00:00:00.\n- `github.GitHubClient(token=None, transport=None)` accepts httpx transport; mutable `.transport`. Async `.fetch(username, now)` gets official REST profile/repos/languages and optional GraphQL contributions, paginates only api.github.com, filters repos before language calls. Returns snapshot `{profile,metrics,repositories,scope,window,fetched_at,activity,activity_unavailable_reason}`. Profile includes login/name/bio/avatar_url/html_url/followers/following/location/company; repositories expose the fields above excluding owner/id/private/fork. Scope has repository/language/activity explanations. Activity is None with a reason without token; otherwise `{commits,pull_requests,issues,total,restricted,days:[{date,count}]}`. Missing optional profile fields become None. `window` has ISO start/end; fetched_at is aware ISO timestamp. Invalid nested cache data, dates, nonfinite percentages or negative counts are rejected. HTTP/GraphQL/timeout/unsafe pagination raises sanitized `github.GitHubError` (messages identify GraphQL, rejected credentials or \"Could not reach GitHub\").\n- `service.DashboardService(api, cache_path, clock=...)` exposes mutable `.api`, `.read()` -> `{snapshot,error}`, async `.refresh()` same shape, `.summary()` -> current snapshot fields or read envelope if unavailable, `.top(sort=\"stars\",limit=6)` -> list or None. Cold/cache reads never fetch. Refresh saves a complete snapshot atomically before replacing memory, preserving old memory/disk on any error. `_save(snapshot)` is an explicitly exposed test seam for simulating disk failure.\n- `app.create_app(service)` returns FastAPI app; app.state.mcp is the shared FastMCP server. GET / renders page, GET /api/dashboard returns read envelope, POST /api/refresh refreshes. MCP tools refresh_data(), activity_summary(), top_repositories(sort,limit) share service; HTTP MCP route /mcp/. Reject external Origin refresh with 403 and external Host with 400; loopback TestClient host allowed.\nDependencies: Python 3.11+, pytest, pytest-asyncio, httpx, FastAPI, FastMCP and their installed dependencies. pytest asyncio_mode=auto is supplied.\n\nPublic imports:\n- `insignia.app.create_app`\n- `insignia.github.GitHubClient`\n- `insignia.github.GitHubError`\n- `insignia.metrics.date_window`\n- `insignia.metrics.query_windows`\n- `insignia.metrics.repository_metrics`\n- `insignia.metrics.top_repositories`\n- `insignia.service.DashboardService`\n",
+    "imports": [
+      {
+        "module": "insignia.app",
+        "name": "create_app"
+      },
+      {
+        "module": "insignia.github",
+        "name": "GitHubClient"
+      },
+      {
+        "module": "insignia.github",
+        "name": "GitHubError"
+      },
+      {
+        "module": "insignia.metrics",
+        "name": "date_window"
+      },
+      {
+        "module": "insignia.metrics",
+        "name": "query_windows"
+      },
+      {
+        "module": "insignia.metrics",
+        "name": "repository_metrics"
+      },
+      {
+        "module": "insignia.metrics",
+        "name": "top_repositories"
+      },
+      {
+        "module": "insignia.service",
+        "name": "DashboardService"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Use the declared repository scope and byte-based language shares.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+        "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Offer deterministic repository sorting.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Use rolling twelve-calendar-month UTC activity and disclose unavailable data.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+        "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence",
+        "tests/test_revisions.py::test_real_zero_activity_stays_zero",
+        "tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero",
+        "tests/test_revisions.py::test_authenticated_snapshot_survives_restart"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Fetch complete paginated data through official APIs.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+        "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence",
+        "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot",
+        "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures",
+        "tests/test_revisions.py::test_actual_transport_timeout_is_sanitized",
+        "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+        "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+        "tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Only explicit refresh replaces durable state.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh",
+        "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot",
+        "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures",
+        "tests/test_requirements.py::test_r8_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+        "tests/test_revisions.py::test_corrupt_cache_is_unavailable",
+        "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected",
+        "tests/test_revisions.py::test_authenticated_snapshot_survives_restart"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Web and MCP expose one consistent snapshot without credentials.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence",
+        "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot",
+        "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures",
+        "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+        "tests/test_revisions.py::test_actual_transport_timeout_is_sanitized",
+        "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+        "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+        "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence",
+      "requirements": [
+        "R3",
+        "R4",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot",
+      "requirements": [
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures",
+      "requirements": [
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r8_cache_write_failure_preserves_memory_and_disk",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_actual_transport_timeout_is_sanitized",
+      "requirements": [
+        "R4",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+      "requirements": [
+        "R4",
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_real_zero_activity_stays_zero",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+      "requirements": [
+        "R4",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_corrupt_cache_is_unavailable",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero",
+      "requirements": [
+        "R3",
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_revisions.py::test_authenticated_snapshot_survives_restart",
+      "requirements": [
+        "R3",
+        "R5"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Check desktop/mobile appearance, keyboard usability and screenshots."
+    },
+    {
+      "id": "M2",
+      "text": "Run startup instructions from a clean installation and perform one authenticated live contribution fetch."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04/20261030T215834813236Z/GitHub-insignia.log",
+    "test_files": [
+      {
+        "path": "tests/conftest.py",
+        "chars": 2640,
+        "tokens": 732,
+        "sha256": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c"
+      },
+      {
+        "path": "tests/test_requirements.py",
+        "chars": 7260,
+        "tokens": 2018,
+        "sha256": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750"
+      },
+      {
+        "path": "tests/test_revisions.py",
+        "chars": 7299,
+        "tokens": 1818,
+        "sha256": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+      },
+      {
+        "path": "pytest.ini",
+        "chars": 75,
+        "tokens": 19,
+        "sha256": "da9808d584f4d7bf9f89efb0e294727a7abd06903d9ae8fbc45f5dd93c59b684"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "GitHub-insignia",
+        "fault": "wrong-star-total",
+        "target_requirements": [
+          "R1"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+          "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+          "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+          "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/GitHub-insignia/wrong-star-total/pytest.log",
+        "mutation_sha256": "a58172fb2f36d008d7f78d4741af553725086bdfa7371f31e76b7b23d3b69271",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        }
+      },
+      {
+        "repo": "GitHub-insignia",
+        "fault": "wrong-sort-order",
+        "target_requirements": [
+          "R2"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/GitHub-insignia/wrong-sort-order/pytest.log",
+        "mutation_sha256": "b6bbeb4bfccb6ebcca9a57ab00f8b360a6802bf6960bf625cafe58b3a64aea51",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        }
+      },
+      {
+        "repo": "GitHub-insignia",
+        "fault": "shift-calendar-window",
+        "target_requirements": [
+          "R3"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/GitHub-insignia/shift-calendar-window/pytest.log",
+        "mutation_sha256": "d8232af9591bc192078e53e373ef0a1621258c78da90e0d7576d892cc2f93b6e",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        }
+      },
+      {
+        "repo": "GitHub-insignia",
+        "fault": "drop-pagination-link",
+        "target_requirements": [
+          "R4"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+          "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+          "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+          "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool",
+          "tests/test_revisions.py::test_authenticated_snapshot_survives_restart"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/GitHub-insignia/drop-pagination-link/pytest.log",
+        "mutation_sha256": "e888927167ae7f45945ad2cfa9e33f624e920629b3cc512546189ed5c86ee089",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        }
+      },
+      {
+        "repo": "GitHub-insignia",
+        "fault": "skip-cache-write",
+        "target_requirements": [
+          "R5"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/graphql]",
+          "tests/test_revisions.py::test_authenticated_snapshot_survives_restart"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/GitHub-insignia/skip-cache-write/pytest.log",
+        "mutation_sha256": "567cbb56a2d624367a0e143c41c27f3616c95df886e4e50244b30ae99fd13202",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        }
+      },
+      {
+        "repo": "GitHub-insignia",
+        "fault": "mcp-summary-has-stale-timestamp",
+        "target_requirements": [
+          "R6"
+        ],
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[missing-reason]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[profile]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[metrics]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[repositories]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[scope]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[window]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[fetched-at]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[language-percent]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-days]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-count]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-faults/20261030T215841541400Z/GitHub-insignia/mcp-summary-has-stale-timestamp/pytest.log",
+        "mutation_sha256": "10c5804da2d91c968f16154636940f3be854cfb63e5cd2eafd7907e9ecec0af2",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "wrong-star-total"
+      ],
+      "R2": [
+        "wrong-sort-order"
+      ],
+      "R3": [
+        "shift-calendar-window"
+      ],
+      "R4": [
+        "drop-pagination-link"
+      ],
+      "R5": [
+        "skip-cache-write"
+      ],
+      "R6": [
+        "mcp-summary-has-stale-timestamp"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "GitHub-insignia",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 36,
+        "order": [
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[missing-reason]",
+          "tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh",
+          "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[window]",
+          "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+          "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-count]",
+          "tests/test_revisions.py::test_authenticated_snapshot_survives_restart",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[graphql-error]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[language-percent]",
+          "tests/test_requirements.py::test_r8_cache_write_failure_preserves_memory_and_disk",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[metrics]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[fetched-at]",
+          "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[not json]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/graphql]",
+          "tests/test_revisions.py::test_actual_transport_timeout_is_sanitized",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[scope]",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[unauthorized]",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[timeout]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+          "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+          "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[{}]",
+          "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[repositories]",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[[]]",
+          "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool",
+          "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence",
+          "tests/test_revisions.py::test_real_zero_activity_stays_zero",
+          "tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero",
+          "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[profile]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-days]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/GitHub-insignia/17/pytest.log",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        },
+        "reference_snapshot": {}
+      },
+      {
+        "repo": "GitHub-insignia",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 36,
+        "order": [
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[window]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/graphql]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+          "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[metrics]",
+          "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-days]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[fetched-at]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[profile]",
+          "tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh",
+          "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool",
+          "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[language-percent]",
+          "tests/test_revisions.py::test_authenticated_snapshot_survives_restart",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[timeout]",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[not json]",
+          "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[graphql-error]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-count]",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[unauthorized]",
+          "tests/test_revisions.py::test_actual_transport_timeout_is_sanitized",
+          "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[repositories]",
+          "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+          "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+          "tests/test_requirements.py::test_r8_cache_write_failure_preserves_memory_and_disk",
+          "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[missing-reason]",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[[]]",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[{}]",
+          "tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[scope]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+          "tests/test_revisions.py::test_real_zero_activity_stays_zero",
+          "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/GitHub-insignia/43/pytest.log",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        },
+        "reference_snapshot": {}
+      },
+      {
+        "repo": "GitHub-insignia",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 36,
+        "order": [
+          "tests/test_revisions.py::test_authenticated_snapshot_survives_restart",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[fetched-at]",
+          "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[not json]",
+          "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[{}]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+          "tests/test_revisions.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+          "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+          "tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[repositories]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-days]",
+          "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[unauthorized]",
+          "tests/test_revisions.py::test_actual_transport_timeout_is_sanitized",
+          "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[timeout]",
+          "tests/test_revisions.py::test_real_zero_activity_stays_zero",
+          "tests/test_revisions.py::test_corrupt_cache_is_unavailable[[]]",
+          "tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[activity-count]",
+          "tests/test_revisions.py::test_pagination_cannot_forward_credentials_to_another_host",
+          "tests/test_requirements.py::test_r6_cache_read_restart_and_manual_refresh",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[profile]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[window]",
+          "tests/test_requirements.py::test_r8_cache_write_failure_preserves_memory_and_disk",
+          "tests/test_revisions.py::test_missing_graphql_totals_does_not_turn_into_zero",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[language-percent]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[metrics]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[scope]",
+          "tests/test_revisions.py::test_structurally_invalid_cache_is_rejected[missing-reason]",
+          "tests/test_requirements.py::test_r7_failed_refresh_preserves_complete_snapshot[/graphql]",
+          "tests/test_requirements.py::test_r7_graphql_errors_and_timeout_are_failures[graphql-error]",
+          "tests/test_requirements.py::test_r5_graphql_window_combination_and_secret_absence"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v04-stability/20261030T215920696598Z/GitHub-insignia/91/pytest.log",
+        "test_snapshot": {
+          "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "tests/test_requirements.py": "8a3ed3dbb285968a408dfbb4b1764eafefad7e75d8148ab0ab4ef13a9c321750",
+          "tests/test_revisions.py": "f0f5b6080d85b75cce09f2edcaa575f6740c82f4cdf168e806ed06b3e57faf32"
+        },
+        "reference_snapshot": {}
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 6769,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 248,
+      "reasoning": 97,
+      "interface": 767,
+      "tests": 4635,
+      "target": 6254
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T21:59:39.071782+00:00",
+    "prompt_version": "tdd-framing-b-v04",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "GitHub-insignia",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

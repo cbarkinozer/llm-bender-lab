@@ -1,0 +1,21 @@
+F...............                                                         [100%]
+=================================== FAILURES ===================================
+____________________ test_runtime_unicode_options_roundtrip ____________________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_runtime_unicode_options_roundtrip(choice):
+        encoded = json.loads(request_to_json(choice, request_id='r1'))
+>       assert encoded['options'] == {'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}
+E       AssertionError: assert {'wrong': 'option'} == {'files': 'Do...üzerinde ara'}
+E         
+E         Left contains 1 more item:
+E         {'wrong': 'option'}
+E         Right contains 2 more items:
+E         {'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/reflexmodels/tests/test_core.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/reflexmodels/tests/test_core.py::test_runtime_unicode_options_roundtrip
+1 failed, 15 passed in 0.02s

@@ -1,0 +1,71 @@
+...........FFFF                                                          [100%]
+=================================== FAILURES ===================================
+____________ test_deterministic_cpu_training_and_bounded_generation ____________
+
+    def test_deterministic_cpu_training_and_bounded_generation():
+        from tiny_model import train_demo, generate
+        tokens = torch.tensor([[1,2,1,2,1]])
+        first = train_demo(tokens, seed=7, steps=30, learning_rate=.03)
+        second = train_demo(tokens, seed=7, steps=30, learning_rate=.03)
+        assert first['losses'] == second['losses']
+        assert all(torch.isfinite(torch.tensor(first['losses'])))
+        assert first['losses'][-1] < first['losses'][0]
+        output = generate(first['model'], [1], max_new_tokens=3)
+        assert output[:1] == [1]
+>       assert len(output) == 4
+E       assert 5 == 4
+E        +  where 5 = len([1, 2, 1, 2, 1])
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py:55: AssertionError
+_______ test_greedy_generation_follows_unique_logit_maxima[0-expected0] ________
+
+budget = 0, expected = [1]
+
+    @pytest.mark.parametrize('budget,expected', [(0,[1]),(3,[1,2,3,4])])
+    def test_greedy_generation_follows_unique_logit_maxima(budget, expected):
+        from tiny_model import generate
+        class SuccessorModel(torch.nn.Module):
+            def forward(self, tokens):
+                # Every position predicts (its current token + 1) mod 8 uniquely.
+                logits = torch.full((*tokens.shape, 8), -10.0)
+                return logits.scatter(-1, ((tokens+1)%8).unsqueeze(-1), 10.0)
+>       assert generate(SuccessorModel(), [1], max_new_tokens=budget) == expected
+E       assert [1, 2] == [1]
+E         
+E         Left contains one more item: 2
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py:67: AssertionError
+_______ test_greedy_generation_follows_unique_logit_maxima[3-expected1] ________
+
+budget = 3, expected = [1, 2, 3, 4]
+
+    @pytest.mark.parametrize('budget,expected', [(0,[1]),(3,[1,2,3,4])])
+    def test_greedy_generation_follows_unique_logit_maxima(budget, expected):
+        from tiny_model import generate
+        class SuccessorModel(torch.nn.Module):
+            def forward(self, tokens):
+                # Every position predicts (its current token + 1) mod 8 uniquely.
+                logits = torch.full((*tokens.shape, 8), -10.0)
+                return logits.scatter(-1, ((tokens+1)%8).unsqueeze(-1), 10.0)
+>       assert generate(SuccessorModel(), [1], max_new_tokens=budget) == expected
+E       assert [1, 2, 3, 4, 5] == [1, 2, 3, 4]
+E         
+E         Left contains one more item: 5
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py:67: AssertionError
+_________________ test_negative_generation_budget_is_rejected __________________
+
+    def test_negative_generation_budget_is_rejected():
+        from tiny_model import generate
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py:72: Failed
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/tests/test_workflow.py::test_negative_generation_budget_is_rejected
+4 failed, 11 passed in 0.41s

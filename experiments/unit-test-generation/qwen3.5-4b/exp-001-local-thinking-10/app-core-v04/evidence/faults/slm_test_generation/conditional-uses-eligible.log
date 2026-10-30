@@ -1,0 +1,19 @@
+..................F..                                                    [100%]
+=================================== FAILURES ===================================
+__________ test_mutation_denominators_are_named_and_not_interchanged ___________
+
+    def test_mutation_denominators_are_named_and_not_interchanged():
+        from benchmark_workflow import mutation_summary
+>       assert mutation_summary(eligible=4, valid=2, killed=1) == {
+            'unconditional':0.25, 'conditional':0.5, 'eligible':4, 'valid':2, 'killed':1}
+E       AssertionError: assert {'uncondition...alid': 2, ...} == {'uncondition...alid': 2, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'conditional': 0.25} != {'conditional': 0.5}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/tests/test_workflow.py:48: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged
+1 failed, 20 passed in 2.22s

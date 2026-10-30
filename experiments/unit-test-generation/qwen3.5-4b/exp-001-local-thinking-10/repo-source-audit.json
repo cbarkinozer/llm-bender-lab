@@ -1,0 +1,1083 @@
+{
+  "tokenizer": "/Users/cbarkinozer/Documents/llm-bender-artifacts/occam-gguf-20261026/base/tokenizer.json",
+  "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+  "notes": [
+    "Repository-owned sources discovered by rg; generated benchmark predictions and external tests are not dataset candidates.",
+    "Token totals exclude future requirement, reasoning, chat formatting and other fixture dependencies. Never equate these totals with full SFT sequence length.",
+    "Static test functions are not collected parameterized case counts. Assertion presence is not semantic correctness or measured coverage.",
+    "slm_test_generation frozen benchmark items and llm-bender evaluation contracts must remain excluded from training."
+  ],
+  "repositories": [
+    {
+      "repo": "GitHub-insignia",
+      "commit": "b44bd4ae59aa2d88d2334b1ae1a3c75089f3d07d",
+      "test_files": 2,
+      "test_functions": 20,
+      "test_chars": 14584,
+      "test_tokens": 3850,
+      "fixture_tokens": 732,
+      "max_file_tokens": 2025,
+      "files": [
+        {
+          "path": "tests/test_revisions.py",
+          "chars": 7306,
+          "tokens": 1825,
+          "sha256": "fb2e94fe5c8c8df878968ade203715110b8cbe3d50e9a65b92f9a0648192b528",
+          "test_functions": 9,
+          "assert_statements": 29,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_requirements.py",
+          "chars": 7278,
+          "tokens": 2025,
+          "sha256": "6d6314a2ef6090611f90a2885a5090d01872415490a2b3a775eaa3f4cfc04fd9",
+          "test_functions": 11,
+          "assert_statements": 49,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/conftest.py",
+          "chars": 2640,
+          "tokens": 732,
+          "sha256": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+          "test_functions": 0,
+          "assert_statements": 0,
+          "unittest_assert_calls": 0
+        }
+      ]
+    },
+    {
+      "repo": "ghost-box",
+      "commit": "fc0fd7dbb824b9d33cd695ac68d0d79320eb7faa",
+      "test_files": 28,
+      "test_functions": 94,
+      "test_chars": 147237,
+      "test_tokens": 32541,
+      "fixture_tokens": 0,
+      "max_file_tokens": 3330,
+      "files": [
+        {
+          "path": "tests/test_mail_controls.py",
+          "chars": 7753,
+          "tokens": 1624,
+          "sha256": "1aeea8aeba572139ba4903ee8837d89bcf07368712aa6a4ebcb99556191a8e96",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 32
+        },
+        {
+          "path": "tests/test_sending.py",
+          "chars": 2204,
+          "tokens": 448,
+          "sha256": "83af57390eb1f14d497547dfe1800ad9285a283d37bab9310bef5da739098161",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 13
+        },
+        {
+          "path": "tests/test_followup.py",
+          "chars": 5932,
+          "tokens": 1431,
+          "sha256": "0efb3d122be8e592bf10fceec47d6caf24e31ef79eb7727d4749ef90893c6fa3",
+          "test_functions": 7,
+          "assert_statements": 0,
+          "unittest_assert_calls": 28
+        },
+        {
+          "path": "tests/test_history.py",
+          "chars": 6482,
+          "tokens": 1234,
+          "sha256": "675860c5a89a0a6d980957431f1d36a813dca8bbe6657e46f009e1f5d5227e33",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 30
+        },
+        {
+          "path": "tests/test_layout.py",
+          "chars": 4002,
+          "tokens": 788,
+          "sha256": "67f8310916835683b5df9c84308d28aca0489d1385dbb8300cc77d8606d3c32e",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 12
+        },
+        {
+          "path": "tests/test_model_session.py",
+          "chars": 3050,
+          "tokens": 709,
+          "sha256": "1fa3d1c59f1ff9bbe39bc66cfc004b23699077406a57c4249dc1b080314373d0",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 8
+        },
+        {
+          "path": "tests/test_model_test_ui.py",
+          "chars": 1852,
+          "tokens": 369,
+          "sha256": "95d05b4f346f326bc1aa4a39cec4eeb2f44f7ed584f2f40f6cf45062f44278d8",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 10
+        },
+        {
+          "path": "tests/test_microsoft_auth.py",
+          "chars": 6285,
+          "tokens": 1382,
+          "sha256": "c527f38e06e0907c08733cc2dbacf1f18d078f4ded0c7c3c79c7244adcfda26e",
+          "test_functions": 5,
+          "assert_statements": 0,
+          "unittest_assert_calls": 28
+        },
+        {
+          "path": "tests/test_outlook.py",
+          "chars": 7149,
+          "tokens": 1687,
+          "sha256": "937e73eb0970daa5c4fd508c100e8be5d7162b20a3dae025bd18ead9f986a50e",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 30
+        },
+        {
+          "path": "tests/test_summary.py",
+          "chars": 14014,
+          "tokens": 3330,
+          "sha256": "67ef5187ea34636308a1da9f7776c800707f7834e6e1fa4baac6fabd34bf3747",
+          "test_functions": 11,
+          "assert_statements": 0,
+          "unittest_assert_calls": 51
+        },
+        {
+          "path": "tests/test_drafting.py",
+          "chars": 5098,
+          "tokens": 1148,
+          "sha256": "fd0024e1fd97b62eb3c4d3a6a0723479ec1fc86a3d76875471e84f69667bd116",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 29
+        },
+        {
+          "path": "tests/test_benchmark.py",
+          "chars": 3482,
+          "tokens": 874,
+          "sha256": "b61f293e29287af6c7af0907b0156b211696d53df5a31751fd9700393e43fdc7",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 25
+        },
+        {
+          "path": "tests/test_worker.py",
+          "chars": 5143,
+          "tokens": 1151,
+          "sha256": "4179471b977ce01237d875825caee7cc4bc08b5f0e77febff0023fc9cd19ccff",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 18
+        },
+        {
+          "path": "tests/test_gguf_preset.py",
+          "chars": 8039,
+          "tokens": 1690,
+          "sha256": "f199a09e4dd550d698388df6ac1564fbad5ae2fa91e38d84dfc736370755da10",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 25
+        },
+        {
+          "path": "tests/test_fetch.py",
+          "chars": 7680,
+          "tokens": 1862,
+          "sha256": "308bc3d542faa700ea73cc5bdc523cff719be23317370d786f98a32243073801",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 37
+        },
+        {
+          "path": "tests/test_selection.py",
+          "chars": 8680,
+          "tokens": 1653,
+          "sha256": "a805429214f63b4eeffb1bc733a1b23a0bd3c0628bafb6ec698f038fb6662a56",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 43
+        },
+        {
+          "path": "tests/test_mail_tasks.py",
+          "chars": 3398,
+          "tokens": 942,
+          "sha256": "922e82bf050d61464ca9d0e119567c3f3045a7321cf49df915906658ce29b169",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 15
+        },
+        {
+          "path": "tests/test_provider_ui.py",
+          "chars": 3727,
+          "tokens": 750,
+          "sha256": "932a9670f66f01bdb6eb002e223444031f2ca82aaeb5d62d6e5bcdbeb5dcffa5",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 19
+        },
+        {
+          "path": "tests/test_search.py",
+          "chars": 950,
+          "tokens": 234,
+          "sha256": "d72364125eb940bc9b8f8b41fcd2685d07a9ac58a28e2b6200a475878893f3f5",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 5
+        },
+        {
+          "path": "tests/test_startup.py",
+          "chars": 1217,
+          "tokens": 262,
+          "sha256": "90c3d7f73e3711963b4f4a6060cf46380612930cc713ca27cfeb26e41bd93609",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 2
+        },
+        {
+          "path": "tests/test_work_steps.py",
+          "chars": 8487,
+          "tokens": 1950,
+          "sha256": "26724051c768fa2c24909164b87ab96528208b013ace9b3e7a236498dabfdd28",
+          "test_functions": 7,
+          "assert_statements": 0,
+          "unittest_assert_calls": 31
+        },
+        {
+          "path": "tests/test_answer_view.py",
+          "chars": 3602,
+          "tokens": 871,
+          "sha256": "d27f8eeae9b99d0e6c81889d6449ebe35ac29b9fb1e6b0ec8369d99440a9ce21",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 16
+        },
+        {
+          "path": "tests/test_model_download.py",
+          "chars": 4793,
+          "tokens": 1023,
+          "sha256": "025887c50d16daaaf72a2b4afd85727a58d3b1a424a35c2c562d85846573374f",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 21
+        },
+        {
+          "path": "tests/test_inference_settings.py",
+          "chars": 2927,
+          "tokens": 662,
+          "sha256": "39b87cff3732a4655ab6da39a15b89418ce95335c23ea4bf7728563ab923476f",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 13
+        },
+        {
+          "path": "tests/test_compose.py",
+          "chars": 6177,
+          "tokens": 1216,
+          "sha256": "08d7c60a786f747b7728c5ec91e3ee6755932823205b0c9c8aecee313dfe0e2f",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 22
+        },
+        {
+          "path": "tests/test_gmail.py",
+          "chars": 6598,
+          "tokens": 1286,
+          "sha256": "692e887cd2b9a34870ff8a2d0e2a22b2b20126a0c85dce290634ce9c5018d13a",
+          "test_functions": 5,
+          "assert_statements": 0,
+          "unittest_assert_calls": 28
+        },
+        {
+          "path": "tests/test_projection.py",
+          "chars": 1026,
+          "tokens": 239,
+          "sha256": "b46b831807502163c45980bfd6398715942e4bfd50e88d3baa567b27c60bc56b",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 5
+        },
+        {
+          "path": "tests/test_diagnostics.py",
+          "chars": 7490,
+          "tokens": 1726,
+          "sha256": "fb53d230f64705714b40a4143d356412f1d97eaa6002c83497942933bea6cc91",
+          "test_functions": 6,
+          "assert_statements": 0,
+          "unittest_assert_calls": 26
+        }
+      ]
+    },
+    {
+      "repo": "slm_test_generation",
+      "commit": "380b7d362f49d43fd55af5b2f7e015d4fa651e97",
+      "test_files": 15,
+      "test_functions": 142,
+      "test_chars": 112981,
+      "test_tokens": 29628,
+      "fixture_tokens": 0,
+      "max_file_tokens": 6036,
+      "files": [
+        {
+          "path": "tests/test_step2_data_preperation/test_data_preperation.py",
+          "chars": 9977,
+          "tokens": 2293,
+          "sha256": "69f1835584972b13dafa9b1a65a5da0e2ba6da620c6a13dbc392ef0d2a84ec70",
+          "test_functions": 12,
+          "assert_statements": 26,
+          "unittest_assert_calls": 7
+        },
+        {
+          "path": "tests/test_manual_validation_packages.py",
+          "chars": 4725,
+          "tokens": 1193,
+          "sha256": "3a6f885e170bcffae92babe2019bf91b0ec1077e5c81dfbf24792b1c47270f10",
+          "test_functions": 5,
+          "assert_statements": 15,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_evaluate_results.py",
+          "chars": 13568,
+          "tokens": 3513,
+          "sha256": "e6b248a4ce638ae09729ab14456c51a2da5e53a2176d2d2e3c436b224a73f7c4",
+          "test_functions": 11,
+          "assert_statements": 34,
+          "unittest_assert_calls": 1
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_create_mutation_subset.py",
+          "chars": 6167,
+          "tokens": 1688,
+          "sha256": "9b9b657855b4206bef3ae06289d92c10c0e77f5a7ae841171a9369bb3348b596",
+          "test_functions": 5,
+          "assert_statements": 10,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_oracle_analysis.py",
+          "chars": 22980,
+          "tokens": 6036,
+          "sha256": "de03a1f302da0e9178ea9ff70175d48e2cf5c98d26068ead6eb3218ebcf8d25c",
+          "test_functions": 49,
+          "assert_statements": 75,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_sample_oracles_for_validation.py",
+          "chars": 693,
+          "tokens": 205,
+          "sha256": "09f618ed89cdade37dd97f5b1c7fb6b4acfde1c13c8c57ff23aedb95b2899077",
+          "test_functions": 1,
+          "assert_statements": 2,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_create_summary_report.py",
+          "chars": 5953,
+          "tokens": 1749,
+          "sha256": "d954c2c2bb3bec7ab459f4fa254febba52e473ffccf39d775b398f1d859fb440",
+          "test_functions": 6,
+          "assert_statements": 28,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_create_temp_summary_report.py",
+          "chars": 6945,
+          "tokens": 2061,
+          "sha256": "73a3aa36038361f4172b0f6c3bf5abfe6f72e8bcef5e94ea87c2527135337301",
+          "test_functions": 7,
+          "assert_statements": 32,
+          "unittest_assert_calls": 5
+        },
+        {
+          "path": "tests/test_step4_evaluation/test_create_realworld_summary_report.py",
+          "chars": 5865,
+          "tokens": 1663,
+          "sha256": "34ffdc712651d2c6a3a2860d5811b7c4f4876734acf95bfd9d584411e1c7aba9",
+          "test_functions": 5,
+          "assert_statements": 20,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_step3_modelling/test_run_real_world_experiments_inference.py",
+          "chars": 6902,
+          "tokens": 1742,
+          "sha256": "5c797166c21f30d80f69658ddf99389cc8c4a3247e42981fdb51e11a7fa266ed",
+          "test_functions": 7,
+          "assert_statements": 13,
+          "unittest_assert_calls": 1
+        },
+        {
+          "path": "tests/test_step3_modelling/test_run_detailed_temp_experiments.py",
+          "chars": 7365,
+          "tokens": 1999,
+          "sha256": "aebfbb69ef3c2e47338f7691196eb5692014c7b86a207f0a3035bff44ce588ee",
+          "test_functions": 6,
+          "assert_statements": 15,
+          "unittest_assert_calls": 5
+        },
+        {
+          "path": "tests/test_step3_modelling/test_run_experiments.py",
+          "chars": 5530,
+          "tokens": 1421,
+          "sha256": "9f9be97a8da19cc365d6bfae44e6aeb603d119a1128034bb20950feec57ec367",
+          "test_functions": 6,
+          "assert_statements": 15,
+          "unittest_assert_calls": 1
+        },
+        {
+          "path": "tests/test_step3_modelling/test_run_real_world_experiments_pynguin.py",
+          "chars": 4252,
+          "tokens": 1089,
+          "sha256": "3f94346189cb658d91d2997a8d75b82fa181c84c54dd2f40d4d792c3745c9cc9",
+          "test_functions": 4,
+          "assert_statements": 6,
+          "unittest_assert_calls": 1
+        },
+        {
+          "path": "tests/test_step1_data_understanding/test_download_benchmark.py",
+          "chars": 4557,
+          "tokens": 1132,
+          "sha256": "3c1517652ca94ffd789f13223e38cd2e8ebb35a602d45239b9af3077ab711fde",
+          "test_functions": 4,
+          "assert_statements": 11,
+          "unittest_assert_calls": 3
+        },
+        {
+          "path": "tests/test_step1_data_understanding/test_data_understanding.py",
+          "chars": 7502,
+          "tokens": 1844,
+          "sha256": "e3e824f8541ce44a7a68c5fe7b1473c4d0d8732875c912c83c1e179e68da6900",
+          "test_functions": 14,
+          "assert_statements": 24,
+          "unittest_assert_calls": 5
+        }
+      ]
+    },
+    {
+      "repo": "llm-bender-lab",
+      "commit": "fa79eb8eed190a67c28cdda4ca18c0419d842ca8",
+      "test_files": 19,
+      "test_functions": 120,
+      "test_chars": 63815,
+      "test_tokens": 16316,
+      "fixture_tokens": 0,
+      "max_file_tokens": 2309,
+      "files": [
+        {
+          "path": "scripts/evaluation/test_pi_request_recorder.py",
+          "chars": 2795,
+          "tokens": 594,
+          "sha256": "63516483909b36e736e26ddf14ed98008a8498121f86bd595d6ec9a1d916ad10",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 7
+        },
+        {
+          "path": "scripts/evaluation/test_paper_pipeline_adapter.py",
+          "chars": 2458,
+          "tokens": 650,
+          "sha256": "48ea54122c85cab53dd4eb9d956925be46b61db806bbcf62eede199b8f523a01",
+          "test_functions": 5,
+          "assert_statements": 7,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/test_pipeline.py",
+          "chars": 8130,
+          "tokens": 2309,
+          "sha256": "fa8f85755ff96973f3ae0eb5a3b5f619937652c0475f8a7da6b5febbee88ba45",
+          "test_functions": 9,
+          "assert_statements": 0,
+          "unittest_assert_calls": 28
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/test_fixed_thinking.py",
+          "chars": 1045,
+          "tokens": 268,
+          "sha256": "80b944f374e283ad9e7a1eb6367dbebab21980ad076e8e95e26e3be9b5ac8cbe",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/test_occam_matrix.py",
+          "chars": 2219,
+          "tokens": 543,
+          "sha256": "f34e2ed2a6a56780e7af2501001d89aa494fd74e6a1a4b7f7d7f13d73b76a5e0",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 11
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/test_recovery.py",
+          "chars": 2082,
+          "tokens": 539,
+          "sha256": "ceb92edb327bc49ebe3cbc19c9645991f8d3be573bec8e29791ff228334d6a90",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 10
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/test_preparation.py",
+          "chars": 2844,
+          "tokens": 701,
+          "sha256": "08154908d4967a0dfdb60983f82fab8286df93c1e597f4eaadc9aa1751765a43",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 19
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/test_preparation.py",
+          "chars": 4756,
+          "tokens": 1233,
+          "sha256": "ae98fe8d315f0f880016824880d33b211afbd863e9a147450f4556cd6ebdb43c",
+          "test_functions": 6,
+          "assert_statements": 0,
+          "unittest_assert_calls": 27
+        },
+        {
+          "path": "docs/publication/test_gguf_export.py",
+          "chars": 2484,
+          "tokens": 557,
+          "sha256": "9159aea247cf49b70d9fc3f4259aaf8ee13384665720b0b1f69e80d847674f97",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 7
+        },
+        {
+          "path": "docs/publication/test_release.py",
+          "chars": 2589,
+          "tokens": 597,
+          "sha256": "48f258dd357fb1de98ecda88b7c62ceb4cfc20824bdbb05ae1d4d82c32324c0c",
+          "test_functions": 5,
+          "assert_statements": 0,
+          "unittest_assert_calls": 10
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/verifier/test_references.py",
+          "chars": 2656,
+          "tokens": 1019,
+          "sha256": "c6f706f21da61a28afb1682f06e91354ac8b076bc02abb5c39794eb44b676f19",
+          "test_functions": 10,
+          "assert_statements": 21,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/test_v2.py",
+          "chars": 4560,
+          "tokens": 1208,
+          "sha256": "598ac93c16dcd885af7383ad2de53087be4988dcd4b99f3c6e49ab7a61de7bc9",
+          "test_functions": 9,
+          "assert_statements": 0,
+          "unittest_assert_calls": 25
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/test_training_preparation.py",
+          "chars": 2216,
+          "tokens": 560,
+          "sha256": "2e23bf6bf8819f87116e54fa7afd52d4aea71eb8224bab9e41a665122d8feef6",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 10
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/test_selection.py",
+          "chars": 1833,
+          "tokens": 482,
+          "sha256": "8fee52b97ac0ece24bb371e897472e4b215cf451c58705779988f4ef1c771270",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 8
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/test_inference_guard.py",
+          "chars": 688,
+          "tokens": 174,
+          "sha256": "a04c37ba48fefcdb9f86ec86af26ec3cafc84903e4eb1de24646a54ffc2b1076",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 3
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/test_preparation.py",
+          "chars": 5884,
+          "tokens": 1404,
+          "sha256": "e86e17fd17e42f4170055bb11fcbe1a87955c02a589283e2585027e8b7eab7ac",
+          "test_functions": 12,
+          "assert_statements": 0,
+          "unittest_assert_calls": 33
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/test_preparation.py",
+          "chars": 7362,
+          "tokens": 1733,
+          "sha256": "4bbd1cdaca87ad5c51d9fbf7513159788a6b3ffb632e1a17ae7a6afd0ef51472",
+          "test_functions": 18,
+          "assert_statements": 0,
+          "unittest_assert_calls": 37
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/test_execution.py",
+          "chars": 1347,
+          "tokens": 322,
+          "sha256": "1c385da7693e36fb5e0e7a4e9a41a8251e1a8e506565c8ca7b66510b5266e5c7",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 12
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/test_preparation.py",
+          "chars": 5867,
+          "tokens": 1423,
+          "sha256": "d63f46f151c1a28508f3bce3eaf31f657d58e80c477b6645204cf30400f455ff",
+          "test_functions": 12,
+          "assert_statements": 0,
+          "unittest_assert_calls": 38
+        }
+      ]
+    },
+    {
+      "repo": "ReflexModels",
+      "commit": "efbc154cf9b9caf41a6e68a314356eed96dbb017",
+      "test_files": 36,
+      "test_functions": 198,
+      "test_chars": 121712,
+      "test_tokens": 30505,
+      "fixture_tokens": 0,
+      "max_file_tokens": 3294,
+      "files": [
+        {
+          "path": "tools/test_benchmark_fresh180.py",
+          "chars": 3083,
+          "tokens": 713,
+          "sha256": "faf5240504f5682e13179527c7fb93c2f4aeafa900ce3c41b428600d07e6a6a6",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 11
+        },
+        {
+          "path": "tools/test_report_a32.py",
+          "chars": 2913,
+          "tokens": 699,
+          "sha256": "a8828a1d6f3a3a43c4f48d9cccbbab0ca4f65de33444773bb842a2d8deceed49",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 12
+        },
+        {
+          "path": "tools/test_a32_queue.py",
+          "chars": 4900,
+          "tokens": 1197,
+          "sha256": "0a37dc46e5d7fdcaec5e669ef9702f6561165a1531258c76fc07da774c2ea4e7",
+          "test_functions": 10,
+          "assert_statements": 0,
+          "unittest_assert_calls": 20
+        },
+        {
+          "path": "tools/test_dataset_release.py",
+          "chars": 2121,
+          "tokens": 494,
+          "sha256": "2c5b1ec8cd3a3f6f5bb8b0ea5f75d5a29c9d4d774f6d0128b305ebad601d612d",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 8
+        },
+        {
+          "path": "tests/test_scoring.py",
+          "chars": 1383,
+          "tokens": 361,
+          "sha256": "63e023c493e75b0a25ec7466c5f4460a21101424b6c14389d145ccb384019bb3",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "tests/test_lint_annotation_template.py",
+          "chars": 11870,
+          "tokens": 3043,
+          "sha256": "ef74a340557cea9352c2042aaf9dca9acc85974256e5b5dafb9479141cfcbc02",
+          "test_functions": 28,
+          "assert_statements": 1,
+          "unittest_assert_calls": 29
+        },
+        {
+          "path": "tests/test_answerability.py",
+          "chars": 1470,
+          "tokens": 382,
+          "sha256": "7b6c9f1ce99307547310087aa62eee2ba2115a13ec122b0b343ab6a67e87ccc6",
+          "test_functions": 5,
+          "assert_statements": 0,
+          "unittest_assert_calls": 8
+        },
+        {
+          "path": "tests/test_run_fixed_label_baseline.py",
+          "chars": 2697,
+          "tokens": 693,
+          "sha256": "490593d5abca14414540d1acc37ff94c5887ff3a7d40d3ef457d28096b192332",
+          "test_functions": 7,
+          "assert_statements": 1,
+          "unittest_assert_calls": 12
+        },
+        {
+          "path": "tests/test_train_v1_decision_model.py",
+          "chars": 12684,
+          "tokens": 3135,
+          "sha256": "88a127118b809cd198cb2f441192819dc5f7f9fa690c5c068b54db58ad52f228",
+          "test_functions": 21,
+          "assert_statements": 2,
+          "unittest_assert_calls": 37
+        },
+        {
+          "path": "tests/test_split_policy.py",
+          "chars": 1124,
+          "tokens": 309,
+          "sha256": "cd5202a1671f379c7e2101601571cfb190b8bab3de74f1b0cdc701b5ddb87f96",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "tests/test_validate_v1_frozen_evaluation.py",
+          "chars": 4258,
+          "tokens": 1048,
+          "sha256": "317351b433227625371d8a6b5f36a96b75334604c270c787acafdecc5049cb55",
+          "test_functions": 4,
+          "assert_statements": 2,
+          "unittest_assert_calls": 5
+        },
+        {
+          "path": "tests/test_metrics.py",
+          "chars": 986,
+          "tokens": 281,
+          "sha256": "1aa2e6bd6951344832acda287384a8ab461db77bd3e37e75267103a68e68cb03",
+          "test_functions": 3,
+          "assert_statements": 0,
+          "unittest_assert_calls": 4
+        },
+        {
+          "path": "tests/test_run_v1_decision.py",
+          "chars": 1050,
+          "tokens": 267,
+          "sha256": "bf9f8183c237b09bcc1b9f765a5b692a1766b7fa45fdaf53daf6e47a546c4401",
+          "test_functions": 1,
+          "assert_statements": 1,
+          "unittest_assert_calls": 4
+        },
+        {
+          "path": "tests/test_run_v0_causal_choice.py",
+          "chars": 1901,
+          "tokens": 472,
+          "sha256": "9bcec68c70db5bc5ec03c14860c8f21e301f398b5535b8a0df95fdab96a006ff",
+          "test_functions": 3,
+          "assert_statements": 1,
+          "unittest_assert_calls": 4
+        },
+        {
+          "path": "tests/test_protocol.py",
+          "chars": 1876,
+          "tokens": 463,
+          "sha256": "84ba5cf753da80f35ae64cf1632209f107a6973553764b77466feb692acf34c2",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 8
+        },
+        {
+          "path": "tests/test_prepare_massive.py",
+          "chars": 1654,
+          "tokens": 448,
+          "sha256": "46a02275d7efb02ea7bf23f48c483028552b231ba9f9786a48379c3d9ba3904d",
+          "test_functions": 2,
+          "assert_statements": 1,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "tests/test_causal_scoring.py",
+          "chars": 2976,
+          "tokens": 710,
+          "sha256": "59d6e548b00b0b20799a51d08b0815a349af83b572f1ffa158bdf73a7742bc51",
+          "test_functions": 4,
+          "assert_statements": 1,
+          "unittest_assert_calls": 8
+        },
+        {
+          "path": "tests/test_evaluate_predictions.py",
+          "chars": 1603,
+          "tokens": 417,
+          "sha256": "cf70b58433580ec557bb25b63d280b94b32914e476d9493c3a5092ea1127b875",
+          "test_functions": 2,
+          "assert_statements": 1,
+          "unittest_assert_calls": 3
+        },
+        {
+          "path": "tests/test_cpu_benchmark.py",
+          "chars": 690,
+          "tokens": 157,
+          "sha256": "6d72f9bdeed7a1bdd341e6dd04689dac21faa727c181917febb9a7d66c90d16b",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 4
+        },
+        {
+          "path": "tests/test_routing.py",
+          "chars": 2091,
+          "tokens": 528,
+          "sha256": "56acfc76240869e1cdbc2395ac7027c91dfcc4d26da95bd5c37de8dc78e219b2",
+          "test_functions": 5,
+          "assert_statements": 0,
+          "unittest_assert_calls": 9
+        },
+        {
+          "path": "tests/test_v2_packed_execution_contract.py",
+          "chars": 7521,
+          "tokens": 1707,
+          "sha256": "b091460df7f3621e9107349fdde66ea70dd87261df43845b9d597b667bf4aba3",
+          "test_functions": 12,
+          "assert_statements": 0,
+          "unittest_assert_calls": 14
+        },
+        {
+          "path": "tests/test_validate_results_registry.py",
+          "chars": 4662,
+          "tokens": 1108,
+          "sha256": "9d2c8bda4434afb1bad66be55cbba0c54b4fbe540e561de7a84a25aad447a7cb",
+          "test_functions": 12,
+          "assert_statements": 1,
+          "unittest_assert_calls": 11
+        },
+        {
+          "path": "tests/test_shared_state.py",
+          "chars": 1220,
+          "tokens": 302,
+          "sha256": "a46b64b7cce8319e4bcdcbda80a427089826e0ce6e3f1852e8c51313ba5422ff",
+          "test_functions": 2,
+          "assert_statements": 0,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "tests/test_evaluate_v0_negation.py",
+          "chars": 1186,
+          "tokens": 323,
+          "sha256": "143ddf3e041ca64ec5abd469e2b247670345f19688555f101e44398728791e4b",
+          "test_functions": 1,
+          "assert_statements": 1,
+          "unittest_assert_calls": 3
+        },
+        {
+          "path": "tests/test_train_v1_decision_model_smoke.py",
+          "chars": 13051,
+          "tokens": 3294,
+          "sha256": "c58a1ef11d9fd57a8f73c34b0fcdb2c597f5cd4b34006d95f19aebacac78a466",
+          "test_functions": 8,
+          "assert_statements": 1,
+          "unittest_assert_calls": 37
+        },
+        {
+          "path": "tests/test_adjudicate_annotation_template.py",
+          "chars": 9063,
+          "tokens": 2342,
+          "sha256": "4867072842a5d9e4590bf3eefa79d080de3d70510102460c240547ea8714f6a8",
+          "test_functions": 15,
+          "assert_statements": 1,
+          "unittest_assert_calls": 30
+        },
+        {
+          "path": "tests/test_calibration.py",
+          "chars": 1030,
+          "tokens": 310,
+          "sha256": "04c6ecd26134db3cc4856c49d73026913d7ffd8c93ea4cfea6524f259d49ae9e",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "tests/test_evaluate_v1_decision_model.py",
+          "chars": 6211,
+          "tokens": 1652,
+          "sha256": "3c414084554183dffcfae38983099bf9cf8d55ea925904d70b7f345d302382b9",
+          "test_functions": 8,
+          "assert_statements": 1,
+          "unittest_assert_calls": 22
+        },
+        {
+          "path": "tests/test_benchmark_tokenizers.py",
+          "chars": 1411,
+          "tokens": 333,
+          "sha256": "2f95bb1060390d17e5d3ced3186b7b0eaf5cc18868ce48959ba878fdace54a50",
+          "test_functions": 3,
+          "assert_statements": 1,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "tests/test_serialization.py",
+          "chars": 813,
+          "tokens": 191,
+          "sha256": "481a6a23cfb48d9df75f1c6492de78e979d3a5822008df6ba4e9912fa4cbc6c1",
+          "test_functions": 1,
+          "assert_statements": 0,
+          "unittest_assert_calls": 3
+        },
+        {
+          "path": "tests/test_validate_v1_decision_data.py",
+          "chars": 1810,
+          "tokens": 441,
+          "sha256": "6a510071a5a883ba344e7f69455fb3692c65bd60ef7533d5b9fd6d6aa0f884df",
+          "test_functions": 5,
+          "assert_statements": 1,
+          "unittest_assert_calls": 4
+        },
+        {
+          "path": "tests/test_validate_reflexbench_tr.py",
+          "chars": 1201,
+          "tokens": 304,
+          "sha256": "59cac863db8e2bff0cc442c9ec62456a8532a71fcb3c75c05d977d9962ab9b42",
+          "test_functions": 3,
+          "assert_statements": 1,
+          "unittest_assert_calls": 2
+        },
+        {
+          "path": "tests/test_validate_prepared_dataset.py",
+          "chars": 1657,
+          "tokens": 420,
+          "sha256": "79f5bc03dda1aecbe4c932447fd52f5d169113cb63b162131e82851aab881088",
+          "test_functions": 4,
+          "assert_statements": 1,
+          "unittest_assert_calls": 3
+        },
+        {
+          "path": "tests/test_types.py",
+          "chars": 1462,
+          "tokens": 355,
+          "sha256": "843fd3973737732a7f85d970ca4ad12224934e12aa603601339c09c770717554",
+          "test_functions": 4,
+          "assert_statements": 0,
+          "unittest_assert_calls": 7
+        },
+        {
+          "path": "tests/test_prepare_v1_massive_pilot.py",
+          "chars": 1920,
+          "tokens": 482,
+          "sha256": "da1e71301f96f37a5b19572b12f9b6acb9e16b90f63c0d2e9cf40e344faf4bf4",
+          "test_functions": 2,
+          "assert_statements": 1,
+          "unittest_assert_calls": 6
+        },
+        {
+          "path": "experiments/decision-followups/fresh-phone-test-180/freeze_test.py",
+          "chars": 4164,
+          "tokens": 1124,
+          "sha256": "ed9b0bef1b003a5495d32d75022c7905b326498854c74fe0cf0229e32e44f1fa",
+          "test_functions": 0,
+          "assert_statements": 0,
+          "unittest_assert_calls": 0
+        }
+      ]
+    },
+    {
+      "repo": "codelang-detect",
+      "commit": "14fc6b772808b9e8158d62b649a043b14c8df6fb",
+      "test_files": 2,
+      "test_functions": 8,
+      "test_chars": 4132,
+      "test_tokens": 1029,
+      "fixture_tokens": 0,
+      "max_file_tokens": 567,
+      "files": [
+        {
+          "path": "tests/test_cli.py",
+          "chars": 2149,
+          "tokens": 567,
+          "sha256": "f13982ba57d6c5759b6a51354fa2af85ee3c97ec8c3643235c1b52288e5b7558",
+          "test_functions": 3,
+          "assert_statements": 6,
+          "unittest_assert_calls": 0
+        },
+        {
+          "path": "tests/test_detector.py",
+          "chars": 1983,
+          "tokens": 462,
+          "sha256": "cef6587b6490260e830f13dd8d3561d37aacc65f21cd70e75109965580d6eca0",
+          "test_functions": 5,
+          "assert_statements": 5,
+          "unittest_assert_calls": 0
+        }
+      ]
+    },
+    {
+      "repo": "repo-context",
+      "commit": "efc00f0c4c77fb404a65ba7447e974c754b27452",
+      "test_files": 1,
+      "test_functions": 9,
+      "test_chars": 3407,
+      "test_tokens": 913,
+      "fixture_tokens": 260,
+      "max_file_tokens": 913,
+      "files": [
+        {
+          "path": "tests/test_core.py",
+          "chars": 3407,
+          "tokens": 913,
+          "sha256": "3d40cbada7d58aa3ae4aab51a376dac43e487647b82f13f7e85fd6a6d005ae4b",
+          "test_functions": 9,
+          "assert_statements": 18,
+          "unittest_assert_calls": 1
+        },
+        {
+          "path": "tests/conftest.py",
+          "chars": 1064,
+          "tokens": 260,
+          "sha256": "b55710650fd5f4e86290637467643e4d7138d806a32a4eff998752604ad8bd42",
+          "test_functions": 0,
+          "assert_statements": 0,
+          "unittest_assert_calls": 0
+        }
+      ]
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "commit": "cdefa3681b17a3f24980158e2edc66e8cbc353f2",
+      "test_files": 1,
+      "test_functions": 7,
+      "test_chars": 3596,
+      "test_tokens": 1140,
+      "fixture_tokens": 0,
+      "max_file_tokens": 1140,
+      "files": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "chars": 3596,
+          "tokens": 1140,
+          "sha256": "37d6e2424f73a2964026350e466ae6707515668e03942211b4d47837faea69f4",
+          "test_functions": 7,
+          "assert_statements": 6,
+          "unittest_assert_calls": 2
+        }
+      ]
+    },
+    {
+      "repo": "miniature-llms",
+      "commit": "d369337b151cedd9c39fbc654dfed8236344a7cd",
+      "test_files": 1,
+      "test_functions": 8,
+      "test_chars": 2136,
+      "test_tokens": 694,
+      "fixture_tokens": 0,
+      "max_file_tokens": 694,
+      "files": [
+        {
+          "path": "tests/test_normalization_and_rope.py",
+          "chars": 2136,
+          "tokens": 694,
+          "sha256": "e6260124ad957814c491e2eb0ae1a77f24e005eddecb9d85ccd770d432961076",
+          "test_functions": 8,
+          "assert_statements": 0,
+          "unittest_assert_calls": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+.........F..                                                             [100%]
+=================================== FAILURES ===================================
+_______ test_shared_operation_keeps_branch_subfolder_and_safe_file_scope _______
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-210/test_shared_operation_keeps_br0')
+
+    def test_shared_operation_keeps_branch_subfolder_and_safe_file_scope(tmp_path):
+        from context_workflow import snapshot
+        checkout = tmp_path/'repo'
+        (checkout/'src').mkdir(parents=True)
+        (checkout/'src'/'main.py').write_text('first\nsecond\n')
+        (checkout/'src'/'.env').write_text('API_KEY=fixture-secret')
+        (checkout/'src'/'ignored.py').write_text('ignored-marker')
+        (checkout/'.gitignore').write_text('src/ignored.py\n')
+        (checkout/'elsewhere.py').write_text('outside-subfolder')
+        (checkout/'src'/'escape.py').symlink_to(checkout/'elsewhere.py')
+        clone = Mock(return_value=checkout)
+        text = snapshot('https://github.com/a/b/tree/dev/src', extensions=['.py'],
+                        line_limit=1, token='fixture-token', clone=clone)
+        clone.assert_called_once_with('https://github.com/a/b.git', branch='dev', token='fixture-token')
+>       assert 'first' in text and 'second' not in text
+E       AssertionError: assert ('first' in '# Repository https://github.com/a/b.git\nBranch: dev\n\nsrc/main.py\nfirst\nsecond\n' and 'second' not in '# Repositor...st\nsecond\n'
+E         
+E         'second' is contained here:
+E           .py
+E           first
+E           second)
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py:20: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope
+1 failed, 11 passed in 0.04s

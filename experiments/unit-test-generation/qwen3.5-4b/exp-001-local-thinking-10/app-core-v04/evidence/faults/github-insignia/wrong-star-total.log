@@ -1,0 +1,72 @@
+F...F..........F........F...........                                     [100%]
+=================================== FAILURES ===================================
+__________________ test_r1_filter_calculation_and_byte_shares __________________
+
+    def test_r1_filter_calculation_and_byte_shares():
+        items = [repo(), repo("beta", 9, archived=True), repo("fork", 100, fork=True), repo("secret", 200, private=True), repo("other", 300, owner={"login": "other"})]
+        result = repository_metrics(items, {"alpha": {"Python": 300, "Rust": 100}, "beta": {"Rust": 400}}, "cbarkinozer")
+>       assert result["stars"] == 14
+E       assert 0 == 14
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_requirements.py:15: AssertionError
+____________ test_r4_pagination_and_filter_before_language_requests ____________
+
+api_factory = <function api_factory.<locals>.make at 0x109aed300>
+
+    async def test_r4_pagination_and_filter_before_language_requests(api_factory):
+        api, requests = api_factory()
+        data = await api.fetch("cbarkinozer", NOW)
+>       assert data["metrics"]["stars"] == 14
+E       assert 0 == 14
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_requirements.py:47: AssertionError
+____________________ test_r9_fastapi_and_mcp_share_service _____________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-180/test_r9_fastapi_and_mcp_share_0')
+api_factory = <function api_factory.<locals>.make at 0x109aef1a0>
+
+    async def test_r9_fastapi_and_mcp_share_service(tmp_path, api_factory):
+        from fastapi.testclient import TestClient
+        from fastmcp import Client
+        from insignia.app import create_app
+        api, requests = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        app = create_app(service)
+        with TestClient(app) as web:
+            assert web.get("/").status_code == 200
+            assert web.get("/api/dashboard").json()["snapshot"] is None
+            assert requests == []
+>           assert web.post("/api/refresh").json()["snapshot"]["metrics"]["stars"] == 14
+E           assert 0 == 14
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_requirements.py:146: AssertionError
+___________________ test_http_mcp_transport_and_refresh_tool ___________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-180/test_http_mcp_transport_and_re0')
+api_factory = <function api_factory.<locals>.make at 0x10bc3fd80>
+
+    async def test_http_mcp_transport_and_refresh_tool(tmp_path, api_factory):
+        from insignia.app import create_app
+        from fastmcp import Client
+        from fastapi.testclient import TestClient
+        api, requests = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        app = create_app(service)
+        async with Client(app.state.mcp) as client:
+            result = await client.call_tool("refresh_data", {})
+>           assert result.data["snapshot"]["metrics"]["stars"] == 14
+E           assert 0 == 14
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py:102: AssertionError
+=============================== warnings summary ===============================
+tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service
+  /Users/cbarkinozer/Documents/GitHub/GitHub-insignia/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_requirements.py::test_r9_fastapi_and_mcp_share_service
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/github-insignia/tests/test_revisions.py::test_http_mcp_transport_and_refresh_tool
+4 failed, 32 passed, 1 warning in 0.51s

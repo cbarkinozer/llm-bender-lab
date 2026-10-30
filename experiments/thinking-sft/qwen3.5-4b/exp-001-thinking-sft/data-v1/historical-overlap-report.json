@@ -1,0 +1,142 @@
+{
+  "method": "Normalized exact match plus top10 trigram candidates, sequence similarity >=0.65",
+  "historical_rows": 1668,
+  "historical_files": 33,
+  "flags": [],
+  "skipped": [],
+  "sources": {
+    "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/data/train-prompts-80.jsonl": {
+      "rows": 80,
+      "sha256": "e16b48f7d09f244b8a7bf3c1e5b1cd048ddc3bd7a42e3cd0d2c9f529bba92cee"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/data/validation-prompts-20.jsonl": {
+      "rows": 20,
+      "sha256": "d6e334ee825c6b33df42ea3acfb070bcc06ad621384ff1297e14713122b2f0af"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/data-v2/train-prompts-80.jsonl": {
+      "rows": 80,
+      "sha256": "8fdd30e1db38f26a67191b82574869e01bbd1c3b6e76c0010e7c777c8db4d5ce"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/data-v2/validation-prompts-20.jsonl": {
+      "rows": 20,
+      "sha256": "8829ca5e34f4ac08de898c4a1c308286cfaf10df0cd698b630d73fec6a73390d"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/data-draft-v1/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "c778bc708f7b8a70aea28f15a54d48ec6b92f748f98c0926ea3475deb25e5649"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/data-draft-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/data-reviewed-v1/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "8b9807ca86c604439a23df7181c24f6df79e82d32541b0ec0966cd1942aa054c"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/data-reviewed-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/data-draft-v1/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "f7eb207d4d59c23592381fd93bd60063212c45e724599ad665e0c7a41227b75a"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/data-draft-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/data-draft-v2/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "01e969f822f542226a67be61dd2deefd02124aac804ddd709d746e0b7b71c6bc"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/data-draft-v2/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/data-reviewed-v1/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "d61bdfab544dc0d3ba5531e74005940d47b6b6af38fba864dbd5ceefcf948d7a"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/data-reviewed-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v1/new-train-24.jsonl": {
+      "rows": 24,
+      "sha256": "3b0938c5b432ac22ae2829847f10d723b66889d84c9f692f53749393d5f1d298"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v1/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "895fee925f4f320714ac1f6858ebbe627f2d42193cc1c52b96ab8a9f12a8eabd"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v2/new-train-24.jsonl": {
+      "rows": 24,
+      "sha256": "be61429f78a87e3ed660e253725bcff6af1f65a8f25b83b70ecec8dbf6260a34"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v2/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "65b9ce17cd1502643f1cb02aa377450780ddebf920d360548e64e7adb6545df5"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v2/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v3/new-train-24.jsonl": {
+      "rows": 24,
+      "sha256": "62a2d56ec697156f01c2febd065d677f646aabc0a4cbc817fd3bb5cfc35bfbbb"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v3/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "2dc55f1733e08bcf0317d81ca306df65082697f664c93daaabb404652bcd19c6"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-draft-v3/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-reviewed-v1/train-reviewed.jsonl": {
+      "rows": 80,
+      "sha256": "2dc3724451a1e8a2bd33a585e71a8c0d533d68b92da3355363497c905b43d1ea"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/data-reviewed-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-draft-v1/train-reviewed.jsonl": {
+      "rows": 104,
+      "sha256": "e1bd6641ba346cb4b84cd24cf32816be1d7b53efc006b23210d18e72fa3e4173"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-draft-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-draft-v2/train-reviewed.jsonl": {
+      "rows": 104,
+      "sha256": "3776dfd6d529452198733e0d1d333a08cf179bc98858e52dd077e517700eae3d"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-draft-v2/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-draft-v3/train-reviewed.jsonl": {
+      "rows": 104,
+      "sha256": "713b6d81440cc7aa8f1b5540095b845f3d9d86b7af3d8f3e055c44db4abdb966"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-draft-v3/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-reviewed-v1/train-reviewed.jsonl": {
+      "rows": 104,
+      "sha256": "fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950"
+    },
+    "experiments/response-style-control/qwen3.5-4b/exp-016-diverse-coverage-sft/data-reviewed-v1/validation-reviewed.jsonl": {
+      "rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429"
+    }
+  },
+  "limitation": "Only local available JSONL and supported prompt fields inspected; no semantic or contamination-free claim."
+}

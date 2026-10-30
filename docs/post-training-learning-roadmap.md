@@ -1,4 +1,31 @@
+> Current owner sequence, 2026-10-31: finish the small Qwen3.5-4B thinking-SFT
+> demo using whole-app requirements-to-tests; try GRPO on the same model; then
+> MoE SFT, text-diffusion SFT and a tiny CPT/mid-training LoRA demo. After these,
+> return to the planned books/course and reconsider deeper research phases.
+> Earlier dated sequences below are preserved history, not current priority.
+
 # Post-Training Learning Roadmap
+
+## Current owner sequence — 2026-10-28
+
+This sequence supersedes the older ordering below. The owner reports Occam
+completed, Reflex decision-model SFT completed, and GRPO/RL started; Reflex and
+RL artifacts have not yet been located or audited in this checkout.
+
+1. Thinking SFT — active: Qwen3.5-4B, 80 training examples and 20 held-out tests.
+2. MoE small-language-model SFT.
+3. Text-diffusion SFT.
+4. GRPO/RL.
+5. Continued pretraining / mid-training using PEFT/LoRA where supported.
+6. Read four books and one blog/course, taking summaries; titles are not yet recorded.
+7. Reconsider earlier work and choose new projects or second phases addressing mistakes.
+
+The goal is useful practical experience with measured before/after behavior,
+not exhaustive optimization. Keep pilots bounded; improvement is an outcome to
+test, never a result to assume. The earlier unit-test/TDD work is preserved and
+deferred rather than a prerequisite for the active thinking-SFT pilot.
+
+Active experiment: [thinking SFT](../experiments/thinking-sft/qwen3.5-4b/README.md).
 
 ## Goal
 

@@ -1,0 +1,30 @@
+{
+  "model": "Qwen/Qwen3.5-4B",
+  "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "rows": 80,
+  "max_length": 1024,
+  "truncated": 0,
+  "length_percentiles": {
+    "0": 163,
+    "50": 193,
+    "90": 209,
+    "95": 218,
+    "99": 225,
+    "100": 240
+  },
+  "totals": {
+    "total_tokens": 15517,
+    "supervised_tokens": 4462,
+    "reasoning_tokens": 2809,
+    "answer_tokens": 1093
+  },
+  "versions": {
+    "transformers": "5.20.2",
+    "tokenizers": "0.23.3",
+    "jinja2": "3.1.6"
+  },
+  "template_sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+  "manifest_sha256": "15f2657b5cc12ef43f78d05d62c37776ded716e3d90dc6289b8eea8dfc684341",
+  "pipeline_sha256": "42e538ea4b1f7d1dd50cb10ca795dc15cbe9f72dfa9b1615c8281c12cecca22c",
+  "tokenized_sha256": "0a07970f70411983ad4acd2f96664e2bd37582acbba5df3a492b31320495fb3f"
+}

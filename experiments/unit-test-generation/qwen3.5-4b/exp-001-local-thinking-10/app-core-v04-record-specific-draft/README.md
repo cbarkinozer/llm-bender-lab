@@ -1,0 +1,1 @@
+Record-specific executor/test changes archived after owner clarified that this turn concerns the shared input/output format only. Not published or used in the active format revision. Earlier external logs retain their original v04 paths; compare the saved test/reference hashes to these archived files.

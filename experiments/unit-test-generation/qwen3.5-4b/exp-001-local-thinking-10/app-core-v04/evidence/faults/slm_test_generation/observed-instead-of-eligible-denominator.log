@@ -1,0 +1,21 @@
+.................F...                                                    [100%]
+=================================== FAILURES ===================================
+_________ test_aggregation_keeps_eligible_denominator_and_missingness __________
+
+    def test_aggregation_keeps_eligible_denominator_and_missingness():
+        from benchmark_workflow import summarize
+        result = summarize(eligible_ids=['a','b','c','d'], observations=[
+            {'task_id':'a','useful_success':True}, {'task_id':'b','useful_success':False}])
+>       assert result == {'eligible':4, 'observed':2, 'missing':2, 'successful':1,
+                          'success_rate':0.25}
+E       AssertionError: assert {'eligible': ...sful': 1, ...} == {'eligible': ...sful': 1, ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'success_rate': 0.5} != {'success_rate': 0.25}
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/tests/test_workflow.py:39: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness
+1 failed, 20 passed in 2.23s
