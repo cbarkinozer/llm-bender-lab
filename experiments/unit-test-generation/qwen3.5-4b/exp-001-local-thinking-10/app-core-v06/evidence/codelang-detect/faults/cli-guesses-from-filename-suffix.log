@@ -1,0 +1,41 @@
+.......F...F...                                                          [100%]
+=================================== FAILURES ===================================
+________________________ test_cli_file_prints_one_label ________________________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-349/test_cli_file_prints_one_label0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b3e4090>
+capsys = <_pytest.capture.CaptureFixture object at 0x10b3cce50>
+
+    def test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):
+        path = tmp_path / 'snippet.txt'
+        path.write_text('def greet():\n    print("Merhaba dünya")\n', encoding='utf-8')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])
+        main()
+        output = capsys.readouterr()
+>       assert (output.out, output.err) == ('py\n', '')
+E       AssertionError: assert ('txt\n', '') == ('py\n', '')
+E         
+E         At index 0 diff: 'txt\n' != 'py\n'
+E         Use -v to get more diff
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py:36: AssertionError
+_____________ test_invalid_utf8_file_exits_1_with_processing_error _____________
+
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-349/test_invalid_utf8_file_exits_10')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10b372610>
+capsys = <_pytest.capture.CaptureFixture object at 0x10b3725d0>
+
+    def test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):
+        path = tmp_path/'invalid.txt'
+        path.write_bytes(b'\xff\xfe')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])
+>       with pytest.raises(SystemExit) as error:
+E       Failed: DID NOT RAISE SystemExit
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py:76: Failed
+----------------------------- Captured stdout call -----------------------------
+txt
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+2 failed, 13 passed in 0.02s

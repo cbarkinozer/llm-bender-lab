@@ -125,11 +125,23 @@ for repo,probes in PRESERVATION_FAULTS.items():
         FAULTS[repo][label]=code;TARGETS[repo][label]=[rid]
 
 
+CODELANG_REVIEW_FAULTS={
+'alphabetical-instead-of-declaration-tie':('R2',"import codelang_detect.detector as m\ndef broken(text):\n    if not text or not text.strip():return 'unknown'\n    scores={label:sum(w for pattern,w in rules if pattern.search(text)) for label,rules in m.PATTERNS.items()}\n    best=max(scores.values(),default=0)\n    return sorted(label for label,score in scores.items() if score==best)[0] if best>0 else 'unknown'\nm.detect=broken\nimport codelang_detect as package\npackage.detect=broken\nimport codelang_detect.cli as cli\ncli.detect=broken"),
+'cli-guesses-from-filename-suffix':('R4',"import codelang_detect.cli as m\nimport sys\nfrom pathlib import Path\noriginal=m.main\ndef broken():\n    if len(sys.argv)==2 and Path(sys.argv[1]).is_file():\n        print(Path(sys.argv[1]).suffix.lstrip('.').lower());return\n    return original()\nm.main=broken"),
+'ignore-invalid-utf8':('R5',"import codelang_detect.cli as m\nOriginalFileType=m.argparse.FileType\nclass LenientFileType(OriginalFileType):\n    def __call__(self,name):\n        stream=super().__call__(name)\n        if hasattr(stream,'reconfigure'):stream.reconfigure(errors='ignore')\n        return stream\nm.argparse.FileType=LenientFileType"),
+'cache-rules-at-import-time':('R2',"import codelang_detect.detector as m\noriginal=m.detect\ncached=m.PATTERNS\ndef broken(text):\n    current=m.PATTERNS\n    try:\n        m.PATTERNS=cached;return original(text)\n    finally:m.PATTERNS=current\nm.detect=broken\nimport codelang_detect as package\npackage.detect=broken\nimport codelang_detect.cli as cli\ncli.detect=broken"),
+'positive-score-needs-extra-threshold':('R1',"import codelang_detect.detector as m\noriginal=m.detect\ndef broken(text):\n    best=max((sum(w for pattern,w in rules if pattern.search(text)) for rules in m.PATTERNS.values()),default=0)\n    return original(text) if best>=2 else 'unknown'\nm.detect=broken\nimport codelang_detect as package\npackage.detect=broken\nimport codelang_detect.cli as cli\ncli.detect=broken"),
+'print-traceback-on-input-error':('R5',"import codelang_detect.cli as m\nimport sys\noriginal=m.main\ndef broken():\n    try:return original()\n    except SystemExit as exc:\n        if exc.code:print('Traceback (most recent call last):',file=sys.stderr)\n        raise\nm.main=broken")}
+for label,(rid,code) in CODELANG_REVIEW_FAULTS.items():
+    FAULTS['codelang-detect'][label]=code
+    TARGETS['codelang-detect'][label]=[rid]
+
+
 def main():
     global BUNDLE
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo')
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     output=ART/('thinking-tdd/'+args.revision+'-faults')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')

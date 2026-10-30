@@ -1,0 +1,29 @@
+.........F.....                                                          [100%]
+=================================== FAILURES ===================================
+__________________ test_missing_file_exits_2_with_diagnostic ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x108c7c0d0>
+tmp_path = PosixPath('/private/var/folders/5y/9kgh_8ln28v73mdl3plyr44h0000gn/T/pytest-of-cbarkinozer/pytest-353/test_missing_file_exits_2_with0')
+capsys = <_pytest.capture.CaptureFixture object at 0x108c7ed50>
+
+    def test_missing_file_exits_2_with_diagnostic(monkeypatch, tmp_path, capsys):
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])
+        with pytest.raises(SystemExit) as error:
+            main()
+        assert error.value.code == 2
+        output = capsys.readouterr()
+        assert output.out == ''
+        assert "can't open" in output.err
+        # SystemExit guards uncaught exceptions; this also rejects explicitly printed tracebacks.
+>       assert 'Traceback' not in output.err
+E       AssertionError: assert 'Traceback' not in 'usage: code...all last):\n'
+E         
+E         'Traceback' is contained here:
+E           ssing.py'
+E           Traceback (most recent call last):
+E         ? +++++++++
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py:56: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic
+1 failed, 14 passed in 0.02s

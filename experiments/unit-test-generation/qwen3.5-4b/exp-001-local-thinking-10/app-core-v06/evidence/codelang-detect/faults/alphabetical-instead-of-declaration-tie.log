@@ -1,0 +1,18 @@
+......F........                                                          [100%]
+=================================== FAILURES ===================================
+__________________ test_equal_scores_use_first_declared_label __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1078d43d0>
+
+    def test_equal_scores_use_first_declared_label(monkeypatch):
+        monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'zeta': [(re.compile('left'), 2)], 'alpha': [(re.compile('right'), 2)]})
+>       assert detect('left right') == 'zeta'
+E       AssertionError: assert 'alpha' == 'zeta'
+E         
+E         - zeta
+E         + alpha
+
+../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py:27: AssertionError
+=========================== short test summary info ============================
+FAILED ../llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label
+1 failed, 14 passed in 0.02s

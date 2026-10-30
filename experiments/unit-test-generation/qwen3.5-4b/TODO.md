@@ -1,3 +1,8 @@
+> Latest: codelang-detect review fixes are complete in app-core-v06;
+> review at http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode. Unchanged siblings retain their validation evidence.
+> Approve/fix the examples, then freeze a baseline before SFT. Earlier status
+> blocks below are historical.
+
 > Current, 2026-10-31: review revision 05 at http://127.0.0.1:7900/dataset/ae9c43c9-54ea-4602-9d4d-56741869b59a/annotation-mode.
 > HTML display, meta category, process/name/numbering checks and preservation
 > probes are complete. Human approval and the unchanged next-step baseline/SFT

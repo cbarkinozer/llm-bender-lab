@@ -35,7 +35,7 @@ MAPS={
 'reflexmodels':[
  ('runtime_unicode',['R1']),('invalid_decision',['R1']),('logits_map',['R2']),('invalid_probabilities',['R3']),('shared_state',['R4']),('low_margin',['R5']),('low_answerability',['R5']),('metrics_include',['R6']),('calibration_metrics',['R6']),('undefined_metrics',['R6'])],
 'codelang-detect':[
- ('unknown_without',['R1']),('clear_language',['R3']),('weighted_evidence',['R2']),('equal_scores',['R2']),('cli_file',['R4']),('cli_stdin',['R4']),('missing_file',['R5']),('closed_stdin',['R5'])],
+ ('unknown_without',['R1']),('clear_language',['R3']),('weighted_evidence',['R2']),('equal_scores',['R2']),('cli_file',['R4']),('cli_stdin',['R4']),('missing_file',['R5']),('closed_stdin',['R5']),('invalid_utf8_file',['R5']),('rule_configuration',['R2']),('any_positive_rule',['R1','R2'])],
 'repo-context':[
  ('tree_filters',['R2']),('explicit_ignore',['R2']),('requirements_are',['R3']),('pyproject_dependencies',['R3']),('branch_and',['R1']),('utf8',['R2']),('invalid_utf8',['R2']),('context_workflow',['R3','R4','R5']),('clone_failure',['R5']),('shared_operation',['R1','R2','R4','R5']),('cli_and_ui',['R6']),('invalid_url',['R1','R5'])],
 'cryptocurrency-analyser':[
@@ -74,7 +74,7 @@ UNRESOLVED={
 def main():
     global BUNDLE,SYSTEM,PREPARATION,RATIONALES,UNRESOLVED
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     version=args.revision.rsplit('-',1)[-1]
@@ -117,20 +117,22 @@ def main():
                 tests.append(dict(id=tid,requirements=ids))
                 for rid in ids:req[rid]['test_ids'].append(tid)
         assert all(r['test_ids'] for r in requirements),identifier
-        if version=='v05':
+        if version in ('v05','v06'):
             from tdd_review_prechecks import check_test_numbering
             assert not check_test_numbering(tests), check_test_numbering(tests)
+        for seam in config.get('public_attribute_seams',{}).get(identifier,[]):
+            imports.add((seam['module'],seam['name']))
         # An exhaustive app import inventory supplements (not replaces) the prose contract.
         inventory='\n'.join('- `'+module+('` (module)' if name=='*' else '.'+name+'`') for module,name in sorted(imports))
-        agreement=interface+('\nPublic imports:\n' if version in ('v04','v05') else '\nDeclared application import inventory (checked against test AST):\n')+inventory+'\n'
+        agreement=interface+('\nPublic imports and configuration:\n' if config.get('public_attribute_seams',{}).get(identifier) else '\nPublic imports:\n' if version in ('v04','v05','v06') else '\nDeclared application import inventory (checked against test AST):\n')+inventory+'\n'
         manual=[dict(id=f'M{i+1}',text=text) for i,text in enumerate(config['manual_overrides'][identifier] if config else task['manual_checks']+EXTRA_MANUAL[identifier])]
         # Manual checks are adjuncts, never substitutions for missing backend coverage.
-        decisions=('Proposed decisions:\n\n' if version in ('v04','v05') else 'These are assistant-proposed design choices for this demo, not recorded human answers.\n\n')+ '\n'.join('- '+d for d in task['assistant_decisions'] if 'unresolved behavior gaps' not in d and 'not yet represented' not in d)+'\n\nUnresolved/nonessential choices:\n'+'\n'.join('- '+d for d in UNRESOLVED[identifier])
+        decisions=('Proposed decisions:\n\n' if version in ('v04','v05','v06') else 'These are assistant-proposed design choices for this demo, not recorded human answers.\n\n')+ '\n'.join('- '+d for d in task['assistant_decisions'] if 'unresolved behavior gaps' not in d and 'not yet represented' not in d)+'\n\nUnresolved/nonessential choices:\n'+'\n'.join('- '+d for d in UNRESOLVED[identifier])
         requirements.append(dict(id='R7' if len(requirements)==6 else 'R6',text='Usable delivery, documented commands and the declared live/manual integration checks.',check_mode='manual-or-live-integration',test_ids=[],manual_ids=[m['id'] for m in manual],coverage_status='explicitly pending; not certified by backend tests'))
         mapping='\n\n'.join(r['id']+': '+r['text']+'\n'+'\n'.join('- `'+t+'`' for t in r['test_ids'])+('\nManual/live: '+', '.join(r['manual_ids']) if r['manual_ids'] else '') for r in requirements)
         manual_text='\n'.join(m['id']+': '+m['text'] for m in manual)
         target='## Decisions and unresolved questions\n\n'+decisions+'\n\n## Proposed interface agreement\n\n'+agreement+'\n## Requirement-to-test map\n\n'+mapping+'\n\n## Complete test files\n\n'+(folder/'test-output.md').read_text()+'\n## Manual checks\n\n'+manual_text+'\n'
-        messages=[{'role':'system','content':SYSTEM+('\n\n'+PREPARATION if version in ('v04','v05') else '')},{'role':'user','content':task['user_request']+('' if version in ('v04','v05') else '\n\n'+PREPARATION)},
+        messages=[{'role':'system','content':SYSTEM+('\n\n'+PREPARATION if version in ('v04','v05','v06') else '')},{'role':'user','content':task['user_request']+('' if version in ('v04','v05','v06') else '\n\n'+PREPARATION)},
                   {'role':'assistant','reasoning_content':RATIONALES[identifier],'content':target}]
         sections=['Decisions and unresolved questions','Proposed interface agreement','Requirement-to-test map','Complete test files','Manual checks']
         positions=[target.index('## '+section+'\n') for section in sections]
@@ -170,7 +172,7 @@ def main():
             validation=dict(reference_pass=run['returncode']==0,execution_log=run['log'],
                             test_files=run['files'],faults=[f for f in faults['results'] if f['repo']==task['repo']],
                             structural_map_consistency=True,semantic_map_approval=False,
-                            test_numbering_consistent=(version=='v05'),preservation_checks=preservation,
+                            test_numbering_consistent=(version in ('v05','v06')),preservation_checks=preservation,
                             fault_coverage_by_core_requirement=per_req_faults,all_core_requirements_have_killed_variant=True,
                             stability=stable,three_order_runs_pass=True,
                             interface_import_consistency=True,interface_attribute_and_schema_review='manual; import presence alone is insufficient',
@@ -185,7 +187,7 @@ def main():
                             source_informed=True,not_historical_zero_shot_prompt=True),
             tags=dict(domain=task['repo'],difficulty='unrated',component_type='whole-app acceptance core',external_services_faked=True),
             training_eligible=False)
-        if version in ('v04','v05'):
+        if version in ('v04','v05','v06'):
             from scan_tdd_model_text import scan_record
             findings=scan_record(record)
             assert all(f['status']=='allowed' for f in findings), (identifier,findings)

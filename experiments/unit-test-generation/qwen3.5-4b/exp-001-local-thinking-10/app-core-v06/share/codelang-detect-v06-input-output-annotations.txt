@@ -1,0 +1,336 @@
+codelang-detect-v06
+
+MODEL INPUT
+
+SYSTEM:
+Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.
+
+Use Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests.
+
+USER:
+Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.
+
+OUTPUT TO REVIEW
+
+CONCISE RATIONALE:
+Controlled rules distinguish weighted evidence from match counting: weight 3 beats two weight-1 matches. With equal weights, zeta is declared before alpha, so expecting zeta detects an accidental alphabetical tie rule. A Python snippet stored as snippet.txt must still yield py, which distinguishes content detection from filename guessing. The positive-score policy uses a single weight-1 marker; replacing the public mapping between calls must immediately change its returned label. Invalid UTF-8 must produce processing exit 1 with empty stdout; a missing file instead produces usage exit 2. These checks cover the initial Python/JavaScript targets; additional languages remain an explicit open decision.
+
+FINAL RESPONSE:
+## Decisions and unresolved questions
+
+Proposed decisions:
+
+- Use Python (py) and JavaScript (js) as the initial supported language targets; additional languages remain open under M2.
+- Treat any positive configured rule score as sufficient evidence. No additional confidence threshold is applied.
+- Equal weighted scores choose the first declared output label, not alphabetical order. Read the public PATTERNS mapping on every call.
+- Read file contents rather than the filename suffix. File-open usage failures exit 2; read/processing failures, including invalid UTF-8, exit 1 without a traceback.
+
+Unresolved/nonessential choices:
+- Additional supported languages beyond Python/JavaScript and accuracy expectations for ambiguous snippets remain open under M2.
+
+## Proposed interface agreement
+
+Proposed public API:
+- `codelang_detect.detect(text)` returns the lowercase output label of the highest-scoring rule group, or "unknown" for empty/whitespace input or no positive evidence. The initial supported language targets are Python (`py`) and JavaScript (`js`); additional languages remain open under M2. This does not prohibit additional configured labels.
+- `codelang_detect.detector.PATTERNS` is the public developer-configuration mapping, read from that module on every `detect` call. Replacing it takes effect immediately; the function does not retain an import-time or first-call copy. It is insertion-ordered: output_label -> list[(compiled regex, positive weight)]. Keys are the labels returned by `detect`, including custom labels in controlled rule configurations.
+- Each matching regex contributes its weight once. Any strictly positive total score qualifies; there is no higher minimum-score threshold. The greatest total wins. Equal positive totals choose the first declared key, even when alphabetical order differs. All-zero scores return "unknown". This rule-based score is not a statistical confidence estimate.
+- `codelang_detect.cli.main()` reads sys.argv, an optional UTF-8 file or sys.stdin. Detect from contents, irrespective of filename suffix. Print exactly one label plus newline to stdout.
+- File-open/usage failure raises SystemExit(2), with useful stderr mentioning "can't open" and no stdout. Read/processing failure, including invalid UTF-8 bytes or closed stdin, raises SystemExit(1), with stderr starting "Error: Could not process the input." and no stdout. Do not print tracebacks or propagate unexpected exceptions in normal input-error cases.
+Dependencies: standard library only at application runtime; pytest for tests. Packaging, examples and additional language accuracy are separate manual checks.
+
+Public imports and configuration:
+- `codelang_detect.detect`
+- `codelang_detect.cli.main`
+- `codelang_detect.detector` (module)
+- `codelang_detect.detector.PATTERNS`
+
+## Requirement-to-test map
+
+R1: Return unknown for input without supported evidence.
+- `tests/test_core.py::test_unknown_without_code_evidence`
+- `tests/test_core.py::test_any_positive_rule_score_qualifies`
+
+R2: Use weighted evidence and deterministic ties.
+- `tests/test_core.py::test_weighted_evidence_not_match_count`
+- `tests/test_core.py::test_equal_scores_use_first_declared_label`
+- `tests/test_core.py::test_rule_configuration_is_read_on_every_call`
+- `tests/test_core.py::test_any_positive_rule_score_qualifies`
+
+R3: Recognize approved unambiguous starter-language examples.
+- `tests/test_core.py::test_clear_language_markers`
+
+R4: File and stdin CLI routes match the library.
+- `tests/test_core.py::test_cli_file_prints_one_label`
+- `tests/test_core.py::test_cli_stdin_prints_one_label`
+
+R5: Input failures use nonzero exit and useful diagnostics.
+- `tests/test_core.py::test_missing_file_exits_2_with_diagnostic`
+- `tests/test_core.py::test_closed_stdin_exits_1_with_processing_error`
+- `tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error`
+
+R6: Usable delivery, documented commands and the declared live/manual integration checks.
+
+Manual/live: M1, M2
+
+## Complete test files
+
+File: tests/test_core.py
+```python
+'Acceptance checks for observable application behavior.'
+import io
+import re
+import sys
+import pytest
+from codelang_detect import detect
+from codelang_detect.cli import main
+
+
+@pytest.mark.parametrize('text', ['', ' \n\t ', 'Please bring the notebook to our meeting.'])
+def test_unknown_without_code_evidence(text):
+    assert detect(text) == 'unknown'
+
+
+@pytest.mark.parametrize('text,expected', [('def compute_total(prices):\n    return sum(prices)\n', 'py'), ('const total = prices.reduce((a, b) => a + b, 0);\nconsole.log(total);', 'js')])
+def test_clear_language_markers(text, expected):
+    assert detect(text) == expected
+
+
+def test_weighted_evidence_not_match_count(monkeypatch):
+    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'first': [(re.compile('alpha'), 1), (re.compile('beta'), 1)], 'second': [(re.compile('gamma'), 3)]})
+    assert detect('alpha beta gamma') == 'second'
+
+
+def test_equal_scores_use_first_declared_label(monkeypatch):
+    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'zeta': [(re.compile('left'), 2)], 'alpha': [(re.compile('right'), 2)]})
+    assert detect('left right') == 'zeta'
+
+
+def test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):
+    path = tmp_path / 'snippet.txt'
+    path.write_text('def greet():\n    print("Merhaba dünya")\n', encoding='utf-8')
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])
+    main()
+    output = capsys.readouterr()
+    assert (output.out, output.err) == ('py\n', '')
+
+
+def test_cli_stdin_prints_one_label(monkeypatch, capsys):
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+    monkeypatch.setattr(sys, 'stdin', io.StringIO('def square(x):\n    return x * x\n'))
+    main()
+    output = capsys.readouterr()
+    assert (output.out, output.err) == ('py\n', '')
+
+
+def test_missing_file_exits_2_with_diagnostic(monkeypatch, tmp_path, capsys):
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 2
+    output = capsys.readouterr()
+    assert output.out == ''
+    assert "can't open" in output.err
+    # SystemExit guards uncaught exceptions; this also rejects explicitly printed tracebacks.
+    assert 'Traceback' not in output.err
+
+
+def test_closed_stdin_exits_1_with_processing_error(monkeypatch, capsys):
+    stream = io.StringIO('')
+    stream.close()
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+    monkeypatch.setattr(sys, 'stdin', stream)
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    output = capsys.readouterr()
+    assert output.out == ''
+    assert 'Error: Could not process the input.' in output.err
+
+
+def test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):
+    path = tmp_path/'invalid.txt'
+    path.write_bytes(b'\xff\xfe')
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    output = capsys.readouterr()
+    assert output.out == ''
+    assert output.err.startswith('Error: Could not process the input.')
+
+
+def test_rule_configuration_is_read_on_every_call(monkeypatch):
+    import codelang_detect.detector as detector
+    monkeypatch.setattr(detector, 'PATTERNS', {'zeta':[(re.compile('runtime_marker'),1)]})
+    assert detect('runtime_marker') == 'zeta'
+    monkeypatch.setattr(detector, 'PATTERNS', {'alpha':[(re.compile('runtime_marker'),1)]})
+    assert detect('runtime_marker') == 'alpha'
+
+
+@pytest.mark.parametrize('text,expected', [('a_single_marker','one'),('no evidence','unknown')])
+def test_any_positive_rule_score_qualifies(monkeypatch, text, expected):
+    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'one':[(re.compile('a_single_marker'),1)]})
+    assert detect(text) == expected
+```
+
+## Manual checks
+
+M1: Run installation instructions and documented examples.
+M2: Choose additional language targets beyond Python and JavaScript, document their labels, and add acceptance cases before declaring them supported. Evaluate ambiguous snippets separately.
+
+
+REVIEW-ONLY EVIDENCE — NOT MODEL INPUT OR OUTPUT
+
+Source app: codelang-detect; revision: 14fc6b772808b9e8158d62b649a043b14c8df6fb
+Split: train; leakage group: codelang-detect
+Reference suite: PASS
+Full native sequence: 2466 / 8192 tokens.
+Passing shuffled-order seeds: 17, 43, 91
+
+TARGETED KILLS BY CORE REQUIREMENT
+R1:
+  empty-input-is-python — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[]
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[ \n\t ]
+  positive-score-needs-extra-threshold — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]
+R2:
+  ignore-rule-weights — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count
+  alphabetical-instead-of-declaration-tie — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label
+  cache-rules-at-import-time — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]
+R3:
+  swap-starter-language-label — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[def compute_total(prices):\n    return sum(prices)\n-py]
+R4:
+  extra-cli-output — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_stdin_prints_one_label
+  cli-guesses-from-filename-suffix — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+R5:
+  swallow-input-errors — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_closed_stdin_exits_1_with_processing_error
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+  ignore-invalid-utf8 — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+  print-traceback-on-input-error — DETECTED
+    failing test: llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic
+
+Fault probes are targeted evidence, not exhaustive coverage. A strong assertion can still be wrong.
+Original source and grading evidence are not part of the model messages.
+
+ANNOTATION FORM — BLANK
+No answers are prefilled.
+
+Q1. Request/source relevance and scope
+Options: yes | too-broad | too-narrow | mismatch | uncertain
+Required.
+Answer: ______________________________
+
+Q2. Derivable from input and target agreement (framing B)?
+Options: yes | minor-gaps | no | uncertain
+Required.
+Answer: ______________________________
+
+Q3. Important requirements covered adequately?
+Options: yes | partial-but-disclosed | no | uncertain
+Required.
+Answer: ______________________________
+
+Q4a. Are expected outcomes correct?
+Options: all-correct | some-wrong | cannot-verify
+Required.
+Answer: ______________________________
+
+Q4b. Are values and choices justified explicitly?
+Options: yes | unexplained | uncertain
+Required.
+Answer: ______________________________
+
+Q5. Meaningful fault discrimination? See per-requirement evidence.
+Options: strong | mixed | weak | uncertain
+Required.
+Answer: ______________________________
+
+Q6. Actionable test smells?
+Options: none | cosmetic | actionable | uncertain
+Required.
+Answer: ______________________________
+
+Q7. Overall decision — apply guideline rule
+Options: approve | revise | reject | uncertain
+Required.
+Answer: ______________________________
+
+Q8. Concise rationale grounded in request and declared choices?
+Options: yes | too-long | reference-leak | unjustified-values | uncertain
+Required.
+Answer: ______________________________
+
+Reviewer confidence
+Options: high | low
+Required.
+Answer: ______________________________
+
+Fixed defect categories (optional; explain concrete harm)
+Options: Undeclared interface | Tautological assertion | Weak or missing oracle | White-box coupling | Duplicate or redundant case | Poor failure diagnosis | Hidden test logic | Non-determinism | Unexplained expected value | Misleading test name | Unjustified skip, xfail or catch | Review/meta text leaked into input or target
+Select all that apply.
+Answer: ______________________________
+
+Missing interface: name/decision -> where used -> declaration
+Answer: ______________________________
+
+Missing coverage: R-id -> case -> test/manual/scope fix
+Answer: ______________________________
+
+file::test -> category -> reason -> fix
+Answer: ______________________________
+
+Approval blockers only; enter none if empty. For uncertain, name missing evidence.
+Required.
+Answer: ______________________________
+
+ANNOTATION GUIDELINES
+Review framing B: natural request + visible preparation constraints -> decisions, proposed interface, requirement map, complete pytest files, manual checks, always in that order. Concise rationale is separately reviewable. API names may be proposed in the TARGET; they need not appear in the INPUT. Assistant choices are never historical owner clarifications. Nonessential undecided choices must remain visible.
+
+This is evidence-assisted demo annotation, not blinded scientific review. New backend reference modules do not certify original app UI/CLI wiring. Manual/live integration is pending and explicitly listed. The paper repo and GitHub-insignia are held out from training; review approval cannot change their split.
+
+Option anchors:
+Q1 Source relevance: yes = behavior matches source/reference and declared target scope; too-broad = request asks beyond suite/reference; too-narrow = tests require extra behavior absent from request and declared proposals; mismatch = different application behavior; uncertain = source evidence unavailable.
+Q2 Interface sufficiency: yes = imports, signatures, schemas and decisions are declared in input OR target agreement; minor-gaps = one or two missing details require guessing; no = undeclared APIs/behavior required; uncertain = cannot inspect evidence. An import inventory alone does not prove method/schema sufficiency.
+Q3 Coverage: yes = every important requirement has its core tests or appropriate manual checks; partial-but-disclosed = limitations are explicit and acceptable for this demo; no = a testable requirement is silently missing; uncertain = evidence missing. Do not hide absent backend tests by relabeling them subjective. Live/controller wiring may be checked manually but remains unverified.
+Q4a Correctness: all-correct = expected outcomes are correct; some-wrong = at least one wrong expectation; cannot-verify = needed evidence missing.
+Q4b Justification: yes = expectations follow from request and explicitly proposed choices; unexplained = values or decisions rely on unstated facts; uncertain = evidence missing. Framing B permits justified design proposals, not pretending names came from the user.
+Q5 Assertions: strong = meaningful behavior checks and a killed TARGETED variant for every core requirement; mixed = some coarse oracles or surviving probes; weak = mostly trivial or no useful kills; uncertain = evidence missing. Consult requirement-targeted fault evidence, not equality syntax alone. Kill coverage is not exhaustive bug coverage. A null check is appropriate for a null contract; a documented raises contract can be a strong exception oracle.
+Q6 Smells: none = no actionable issue; cosmetic = naming/style only, no fix needed; actionable = harmful coupling, misleading tests, hidden bugs or another concrete teaching defect; uncertain = evidence missing. Related assertions are not automatically poor diagnosis; loops/fixtures/tmp_path do not automatically create smells. Explain concrete harm.
+Q8 Rationale: yes = concise, follows the request/declared choices and justifies values; too-long = unnecessary narration; reference-leak = relies on undeclared reference internals; unjustified-values = missing/wrong explanation; uncertain = evidence missing.
+
+Q7 decision rule:
+APPROVE only when Q1=yes, Q2=yes, Q3=yes or partial-but-disclosed, Q4a=all-correct, Q4b=yes, Q5=strong or mixed WITH targeted kills for every automated core requirement, Q6=none or cosmetic, Q8=yes, no blocking issues, reference tests pass, three different seeded order runs pass and full sequence <=8192 tokens.
+REVISE for fixable violations of that rule. REJECT for mismatch or an unusable/contradictory request requiring rewrite. UNCERTAIN only for missing evidence: name exactly what would resolve it in Blocking issues. An explicit API is necessary but does not excuse an unnecessary private helper dependency.
+
+“Review/meta text leaked into input or target” means dataset construction, revision-history or grading commentary appears in model messages. Legitimate application provenance fields and explicitly chosen public API names are not automatic violations. Preservation requirements need failure-state probes as well as success checks.
+
+Fixed defect categories supplement the lab's contextual smell taxonomy; they do not redefine the paper taxonomy. None of the categories is an automatic verdict without a concrete reason.
+
+Free-text formats (one item per line; enter none in Blocking issues when empty):
+Missing interface: name or decision -> where used -> proposed declaration.
+Missing coverage: R-id -> missing case -> add test | add manual check | explicitly revise scope.
+Assertion/smell evidence: file::test -> fixed category -> reason -> requested fix.
+Blocking issues: only approval blockers, or the exact missing evidence for uncertain.
+Reviewer confidence: high = inspected enough evidence to apply anchors; low = unresolved uncertainty remains.
+
+Calibration examples (illustrations, not actual submitted ratings):
+APPROVE: request requires an integer sum, target declares totals.add(a,b), tests check add(2,3)==5 and add(-2,3)==1, targeted off-by-one variant is killed, stable/ref/token checks pass, rationale explains 5 and 1, no manual gap. All applicable answers yes/all-correct/strong/none; Blocking issues=none.
+REVISE: request asks for complete processing but tests only a classifier and import an undeclared internal module; a skipped-assertion case is claimed yet absent. Q1=too-broad,Q2=no,Q3=no,Q4a=cannot-verify,Q4b=unexplained,Q5=mixed,Q6=actionable,Q7=revise. Blocking issues name undeclared API, missing processing tests and false coverage claim. This illustrates the old defect, not a rating of the corrected record.
+
+No ratings are prefilled or submitted automatically. Two records will receive a separate AI reviewer audit; it is not independent human agreement. Once two human reviews exist, report their Q7 agreement with numerator/denominator rather than inventing a rate now. Approval is training-target review, not a training command or proof of broad generalization.

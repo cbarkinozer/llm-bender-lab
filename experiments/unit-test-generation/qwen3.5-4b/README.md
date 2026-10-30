@@ -1,3 +1,9 @@
+> Current, 2026-10-31: [revision 06](exp-001-local-thinking-10/app-core-v06/README.md) corrects the codelang-detect
+> fixtures and API decisions; the other eight model conversations match v05.
+> Review: http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode
+> A one-example TXT now includes full per-requirement fault evidence and blank annotations.
+> Previous views remain intact. No model baseline or SFT has run.
+
 > Current review, 2026-10-31: [revision 05](exp-001-local-thinking-10/app-core-v05/README.md).
 > Code display is HTML-escaped, the new meta-text defect category is available,
 > and numbering/process-text/preservation pre-checks pass. Review:

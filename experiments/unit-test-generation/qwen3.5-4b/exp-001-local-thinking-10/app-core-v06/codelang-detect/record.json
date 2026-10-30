@@ -1,0 +1,747 @@
+{
+  "record_id": "codelang-detect-v06",
+  "schema_version": "1.0",
+  "record_version": 6,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-human-review",
+  "source": {
+    "repo": "codelang-detect",
+    "revision": "14fc6b772808b9e8158d62b649a043b14c8df6fb",
+    "dirty": false,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "train",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "codelang-detect",
+  "paper_benchmark_overlap": "no benchmark instances used; near-duplicate audit still pending",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "Controlled rules distinguish weighted evidence from match counting: weight 3 beats two weight-1 matches. With equal weights, zeta is declared before alpha, so expecting zeta detects an accidental alphabetical tie rule. A Python snippet stored as snippet.txt must still yield py, which distinguishes content detection from filename guessing. The positive-score policy uses a single weight-1 marker; replacing the public mapping between calls must immediately change its returned label. Invalid UTF-8 must produce processing exit 1 with empty stdout; a missing file instead produces usage exit 2. These checks cover the initial Python/JavaScript targets; additional languages remain an explicit open decision.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- Use Python (py) and JavaScript (js) as the initial supported language targets; additional languages remain open under M2.\n- Treat any positive configured rule score as sufficient evidence. No additional confidence threshold is applied.\n- Equal weighted scores choose the first declared output label, not alphabetical order. Read the public PATTERNS mapping on every call.\n- Read file contents rather than the filename suffix. File-open usage failures exit 2; read/processing failures, including invalid UTF-8, exit 1 without a traceback.\n\nUnresolved/nonessential choices:\n- Additional supported languages beyond Python/JavaScript and accuracy expectations for ambiguous snippets remain open under M2.\n\n## Proposed interface agreement\n\nProposed public API:\n- `codelang_detect.detect(text)` returns the lowercase output label of the highest-scoring rule group, or \"unknown\" for empty/whitespace input or no positive evidence. The initial supported language targets are Python (`py`) and JavaScript (`js`); additional languages remain open under M2. This does not prohibit additional configured labels.\n- `codelang_detect.detector.PATTERNS` is the public developer-configuration mapping, read from that module on every `detect` call. Replacing it takes effect immediately; the function does not retain an import-time or first-call copy. It is insertion-ordered: output_label -> list[(compiled regex, positive weight)]. Keys are the labels returned by `detect`, including custom labels in controlled rule configurations.\n- Each matching regex contributes its weight once. Any strictly positive total score qualifies; there is no higher minimum-score threshold. The greatest total wins. Equal positive totals choose the first declared key, even when alphabetical order differs. All-zero scores return \"unknown\". This rule-based score is not a statistical confidence estimate.\n- `codelang_detect.cli.main()` reads sys.argv, an optional UTF-8 file or sys.stdin. Detect from contents, irrespective of filename suffix. Print exactly one label plus newline to stdout.\n- File-open/usage failure raises SystemExit(2), with useful stderr mentioning \"can't open\" and no stdout. Read/processing failure, including invalid UTF-8 bytes or closed stdin, raises SystemExit(1), with stderr starting \"Error: Could not process the input.\" and no stdout. Do not print tracebacks or propagate unexpected exceptions in normal input-error cases.\nDependencies: standard library only at application runtime; pytest for tests. Packaging, examples and additional language accuracy are separate manual checks.\n\nPublic imports and configuration:\n- `codelang_detect.detect`\n- `codelang_detect.cli.main`\n- `codelang_detect.detector` (module)\n- `codelang_detect.detector.PATTERNS`\n\n## Requirement-to-test map\n\nR1: Return unknown for input without supported evidence.\n- `tests/test_core.py::test_unknown_without_code_evidence`\n- `tests/test_core.py::test_any_positive_rule_score_qualifies`\n\nR2: Use weighted evidence and deterministic ties.\n- `tests/test_core.py::test_weighted_evidence_not_match_count`\n- `tests/test_core.py::test_equal_scores_use_first_declared_label`\n- `tests/test_core.py::test_rule_configuration_is_read_on_every_call`\n- `tests/test_core.py::test_any_positive_rule_score_qualifies`\n\nR3: Recognize approved unambiguous starter-language examples.\n- `tests/test_core.py::test_clear_language_markers`\n\nR4: File and stdin CLI routes match the library.\n- `tests/test_core.py::test_cli_file_prints_one_label`\n- `tests/test_core.py::test_cli_stdin_prints_one_label`\n\nR5: Input failures use nonzero exit and useful diagnostics.\n- `tests/test_core.py::test_missing_file_exits_2_with_diagnostic`\n- `tests/test_core.py::test_closed_stdin_exits_1_with_processing_error`\n- `tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error`\n\nR6: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2\n\n## Complete test files\n\nFile: tests/test_core.py\n```python\n'Acceptance checks for observable application behavior.'\nimport io\nimport re\nimport sys\nimport pytest\nfrom codelang_detect import detect\nfrom codelang_detect.cli import main\n\n\n@pytest.mark.parametrize('text', ['', ' \\n\\t ', 'Please bring the notebook to our meeting.'])\ndef test_unknown_without_code_evidence(text):\n    assert detect(text) == 'unknown'\n\n\n@pytest.mark.parametrize('text,expected', [('def compute_total(prices):\\n    return sum(prices)\\n', 'py'), ('const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);', 'js')])\ndef test_clear_language_markers(text, expected):\n    assert detect(text) == expected\n\n\ndef test_weighted_evidence_not_match_count(monkeypatch):\n    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'first': [(re.compile('alpha'), 1), (re.compile('beta'), 1)], 'second': [(re.compile('gamma'), 3)]})\n    assert detect('alpha beta gamma') == 'second'\n\n\ndef test_equal_scores_use_first_declared_label(monkeypatch):\n    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'zeta': [(re.compile('left'), 2)], 'alpha': [(re.compile('right'), 2)]})\n    assert detect('left right') == 'zeta'\n\n\ndef test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):\n    path = tmp_path / 'snippet.txt'\n    path.write_text('def greet():\\n    print(\"Merhaba dünya\")\\n', encoding='utf-8')\n    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])\n    main()\n    output = capsys.readouterr()\n    assert (output.out, output.err) == ('py\\n', '')\n\n\ndef test_cli_stdin_prints_one_label(monkeypatch, capsys):\n    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])\n    monkeypatch.setattr(sys, 'stdin', io.StringIO('def square(x):\\n    return x * x\\n'))\n    main()\n    output = capsys.readouterr()\n    assert (output.out, output.err) == ('py\\n', '')\n\n\ndef test_missing_file_exits_2_with_diagnostic(monkeypatch, tmp_path, capsys):\n    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])\n    with pytest.raises(SystemExit) as error:\n        main()\n    assert error.value.code == 2\n    output = capsys.readouterr()\n    assert output.out == ''\n    assert \"can't open\" in output.err\n    # SystemExit guards uncaught exceptions; this also rejects explicitly printed tracebacks.\n    assert 'Traceback' not in output.err\n\n\ndef test_closed_stdin_exits_1_with_processing_error(monkeypatch, capsys):\n    stream = io.StringIO('')\n    stream.close()\n    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])\n    monkeypatch.setattr(sys, 'stdin', stream)\n    with pytest.raises(SystemExit) as error:\n        main()\n    assert error.value.code == 1\n    output = capsys.readouterr()\n    assert output.out == ''\n    assert 'Error: Could not process the input.' in output.err\n\n\ndef test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):\n    path = tmp_path/'invalid.txt'\n    path.write_bytes(b'\\xff\\xfe')\n    monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])\n    with pytest.raises(SystemExit) as error:\n        main()\n    assert error.value.code == 1\n    output = capsys.readouterr()\n    assert output.out == ''\n    assert output.err.startswith('Error: Could not process the input.')\n\n\ndef test_rule_configuration_is_read_on_every_call(monkeypatch):\n    import codelang_detect.detector as detector\n    monkeypatch.setattr(detector, 'PATTERNS', {'zeta':[(re.compile('runtime_marker'),1)]})\n    assert detect('runtime_marker') == 'zeta'\n    monkeypatch.setattr(detector, 'PATTERNS', {'alpha':[(re.compile('runtime_marker'),1)]})\n    assert detect('runtime_marker') == 'alpha'\n\n\n@pytest.mark.parametrize('text,expected', [('a_single_marker','one'),('no evidence','unknown')])\ndef test_any_positive_rule_score_qualifies(monkeypatch, text, expected):\n    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'one':[(re.compile('a_single_marker'),1)]})\n    assert detect(text) == expected\n```\n\n## Manual checks\n\nM1: Run installation instructions and documented examples.\nM2: Choose additional language targets beyond Python and JavaScript, document their labels, and add acceptance cases before declaring them supported. Evaluate ambiguous snippets separately.\n"
+    }
+  ],
+  "teacher_reasoning": "Controlled rules distinguish weighted evidence from match counting: weight 3 beats two weight-1 matches. With equal weights, zeta is declared before alpha, so expecting zeta detects an accidental alphabetical tie rule. A Python snippet stored as snippet.txt must still yield py, which distinguishes content detection from filename guessing. The positive-score policy uses a single weight-1 marker; replacing the public mapping between calls must immediately change its returned label. Invalid UTF-8 must produce processing exit 1 with empty stdout; a missing file instead produces usage exit 2. These checks cover the initial Python/JavaScript targets; additional languages remain an explicit open decision.",
+  "decisions": "Proposed decisions:\n\n- Use Python (py) and JavaScript (js) as the initial supported language targets; additional languages remain open under M2.\n- Treat any positive configured rule score as sufficient evidence. No additional confidence threshold is applied.\n- Equal weighted scores choose the first declared output label, not alphabetical order. Read the public PATTERNS mapping on every call.\n- Read file contents rather than the filename suffix. File-open usage failures exit 2; read/processing failures, including invalid UTF-8, exit 1 without a traceback.\n\nUnresolved/nonessential choices:\n- Additional supported languages beyond Python/JavaScript and accuracy expectations for ambiguous snippets remain open under M2.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed public API:\n- `codelang_detect.detect(text)` returns the lowercase output label of the highest-scoring rule group, or \"unknown\" for empty/whitespace input or no positive evidence. The initial supported language targets are Python (`py`) and JavaScript (`js`); additional languages remain open under M2. This does not prohibit additional configured labels.\n- `codelang_detect.detector.PATTERNS` is the public developer-configuration mapping, read from that module on every `detect` call. Replacing it takes effect immediately; the function does not retain an import-time or first-call copy. It is insertion-ordered: output_label -> list[(compiled regex, positive weight)]. Keys are the labels returned by `detect`, including custom labels in controlled rule configurations.\n- Each matching regex contributes its weight once. Any strictly positive total score qualifies; there is no higher minimum-score threshold. The greatest total wins. Equal positive totals choose the first declared key, even when alphabetical order differs. All-zero scores return \"unknown\". This rule-based score is not a statistical confidence estimate.\n- `codelang_detect.cli.main()` reads sys.argv, an optional UTF-8 file or sys.stdin. Detect from contents, irrespective of filename suffix. Print exactly one label plus newline to stdout.\n- File-open/usage failure raises SystemExit(2), with useful stderr mentioning \"can't open\" and no stdout. Read/processing failure, including invalid UTF-8 bytes or closed stdin, raises SystemExit(1), with stderr starting \"Error: Could not process the input.\" and no stdout. Do not print tracebacks or propagate unexpected exceptions in normal input-error cases.\nDependencies: standard library only at application runtime; pytest for tests. Packaging, examples and additional language accuracy are separate manual checks.\n\nPublic imports and configuration:\n- `codelang_detect.detect`\n- `codelang_detect.cli.main`\n- `codelang_detect.detector` (module)\n- `codelang_detect.detector.PATTERNS`\n",
+    "imports": [
+      {
+        "module": "codelang_detect",
+        "name": "detect"
+      },
+      {
+        "module": "codelang_detect.cli",
+        "name": "main"
+      },
+      {
+        "module": "codelang_detect.detector",
+        "name": "*"
+      },
+      {
+        "module": "codelang_detect.detector",
+        "name": "PATTERNS"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Return unknown for input without supported evidence.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_unknown_without_code_evidence",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Use weighted evidence and deterministic ties.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_weighted_evidence_not_match_count",
+        "tests/test_core.py::test_equal_scores_use_first_declared_label",
+        "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Recognize approved unambiguous starter-language examples.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_clear_language_markers"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "File and stdin CLI routes match the library.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_cli_file_prints_one_label",
+        "tests/test_core.py::test_cli_stdin_prints_one_label"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Input failures use nonzero exit and useful diagnostics.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+        "tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_core.py::test_unknown_without_code_evidence",
+      "requirements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_clear_language_markers",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_weighted_evidence_not_match_count",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_equal_scores_use_first_declared_label",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_cli_file_prints_one_label",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_cli_stdin_prints_one_label",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_any_positive_rule_score_qualifies",
+      "requirements": [
+        "R1",
+        "R2"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Run installation instructions and documented examples."
+    },
+    {
+      "id": "M2",
+      "text": "Choose additional language targets beyond Python and JavaScript, document their labels, and add acceptance cases before declaring them supported. Evaluate ambiguous snippets separately."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06/20261030T230449161259Z/codelang-detect.log",
+    "test_files": [
+      {
+        "path": "tests/test_core.py",
+        "chars": 3895,
+        "tokens": 1060,
+        "sha256": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "codelang-detect",
+        "fault": "ignore-rule-weights",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/ignore-rule-weights/pytest.log",
+        "mutation_sha256": "ce9b5539d4add896b92436985cd1d03ffb80dbd3f9c7a5fd07c7414f6a34ad89",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "extra-cli-output",
+        "target_requirements": [
+          "R4"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_stdin_prints_one_label"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/extra-cli-output/pytest.log",
+        "mutation_sha256": "fce46cea9ca31a075dd99795350b35e1a78e38ed346ba6f7fbfd8b6c9c46cfed",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "empty-input-is-python",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/empty-input-is-python/pytest.log",
+        "mutation_sha256": "cd46b4ed78f9cb8b67d55bc7ac9f697adf49efcb0e7a849400fff1b67f9c0819",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "swap-starter-language-label",
+        "target_requirements": [
+          "R3"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/swap-starter-language-label/pytest.log",
+        "mutation_sha256": "54d240d4cccd40fd9a922b43d690252022764b1d8022262770818b7697730764",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "swallow-input-errors",
+        "target_requirements": [
+          "R5"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/swallow-input-errors/pytest.log",
+        "mutation_sha256": "8d2e4c6cd91364a7f110099b9c4c1d625d6b79af983667c3a0f647e28ab5f1d4",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "alphabetical-instead-of-declaration-tie",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/alphabetical-instead-of-declaration-tie/pytest.log",
+        "mutation_sha256": "9459d3827506464f3bbcc388b973824dfe50c19434a1b7601834b26fab9af2fa",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "cli-guesses-from-filename-suffix",
+        "target_requirements": [
+          "R4"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/cli-guesses-from-filename-suffix/pytest.log",
+        "mutation_sha256": "d1859e7660cb6e987bcf0e31ea315d48a3744ffa329b325f49d88182a2d22237",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "ignore-invalid-utf8",
+        "target_requirements": [
+          "R5"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/ignore-invalid-utf8/pytest.log",
+        "mutation_sha256": "964f8cc104f2be0f6b5ef293293304373390d6d585a2d2f6f3a6b7235a4b6cbb",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "cache-rules-at-import-time",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/cache-rules-at-import-time/pytest.log",
+        "mutation_sha256": "87043fcbb5fe5d779308d3cf97c1626601f85cb69d2c84b25522eb51c3b94abe",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "positive-score-needs-extra-threshold",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/positive-score-needs-extra-threshold/pytest.log",
+        "mutation_sha256": "180163d92f5a4212636379e9ebfcc23952e8aaca230279a0e293da5945e8c710",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      },
+      {
+        "repo": "codelang-detect",
+        "fault": "print-traceback-on-input-error",
+        "target_requirements": [
+          "R5"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-faults/20261030T230610885376Z/codelang-detect/print-traceback-on-input-error/pytest.log",
+        "mutation_sha256": "03e476f1b4e0296d83d15485bd553f3c41eacc6930b33098d531abe8c13fa90c",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "test_numbering_consistent": true,
+    "preservation_checks": [],
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "empty-input-is-python",
+        "positive-score-needs-extra-threshold"
+      ],
+      "R2": [
+        "ignore-rule-weights",
+        "alphabetical-instead-of-declaration-tie",
+        "cache-rules-at-import-time"
+      ],
+      "R3": [
+        "swap-starter-language-label"
+      ],
+      "R4": [
+        "extra-cli-output",
+        "cli-guesses-from-filename-suffix"
+      ],
+      "R5": [
+        "swallow-input-errors",
+        "ignore-invalid-utf8",
+        "print-traceback-on-input-error"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "codelang-detect",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 15,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[no evidence-unknown]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[Please bring the notebook to our meeting.]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);-js]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_stdin_prints_one_label"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-stability/20261030T230612304584Z/codelang-detect/17/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        },
+        "reference_snapshot": {}
+      },
+      {
+        "repo": "codelang-detect",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 15,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_stdin_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[no evidence-unknown]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[Please bring the notebook to our meeting.]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);-js]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-stability/20261030T230612304584Z/codelang-detect/43/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        },
+        "reference_snapshot": {}
+      },
+      {
+        "repo": "codelang-detect",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 15,
+        "order": [
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_any_positive_rule_score_qualifies[no evidence-unknown]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);-js]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_weighted_evidence_not_match_count",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_stdin_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_cli_file_prints_one_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_equal_scores_use_first_declared_label",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[Please bring the notebook to our meeting.]",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+          "llm-bender-lab/experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/codelang-detect/tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]"
+        ],
+        "log": "/Users/cbarkinozer/Documents/llm-bender-artifacts/thinking-tdd/app-core-v06-stability/20261030T230612304584Z/codelang-detect/91/pytest.log",
+        "test_snapshot": {
+          "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        },
+        "reference_snapshot": {}
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 16,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.detect(text)` returns the lowercase output label of the highest-scoring rule group, or \"unknown\" for empty/whitespace input or no positive evidence. The initial supported language targets are Python (`py`) and JavaScript (`js`); additional languages remain open under M2. This does not prohibit additional configured labels.",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 17,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.detector.PATTERNS` is the public developer-configuration mapping, read from that module on every `detect` call. Replacing it takes effect immediately; the function does not retain an import-time or first-call copy. It is insertion-ordered: output_label -> list[(compiled regex, positive weight)]. Keys are the labels returned by `detect`, including custom labels in controlled rule configurations.",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 19,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.cli.main()` reads sys.argv, an optional UTF-8 file or sys.stdin. Detect from contents, irrespective of filename suffix. Print exactly one label plus newline to stdout.",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 24,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.detect`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 25,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.cli.main`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 26,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.detector` (module)",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 27,
+          "term": "codelang_detect",
+          "text": "- `codelang_detect.detector.PATTERNS`",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 66,
+          "term": "codelang_detect",
+          "text": "from codelang_detect import detect",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 67,
+          "term": "codelang_detect",
+          "text": "from codelang_detect.cli import main",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 81,
+          "term": "codelang_detect",
+          "text": "    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'first': [(re.compile('alpha'), 1), (re.compile('beta'), 1)], 'second': [(re.compile('gamma'), 3)]})",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 86,
+          "term": "codelang_detect",
+          "text": "    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'zeta': [(re.compile('left'), 2)], 'alpha': [(re.compile('right'), 2)]})",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 93,
+          "term": "codelang-detect",
+          "text": "    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 100,
+          "term": "codelang-detect",
+          "text": "    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 108,
+          "term": "codelang-detect",
+          "text": "    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 122,
+          "term": "codelang-detect",
+          "text": "    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 135,
+          "term": "codelang-detect",
+          "text": "    monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 145,
+          "term": "codelang_detect",
+          "text": "    import codelang_detect.detector as detector",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 154,
+          "term": "codelang_detect",
+          "text": "    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'one':[(re.compile('a_single_marker'),1)]})",
+          "status": "allowed",
+          "reason": "Declared public API identifier, not an undeclared source-repo hint"
+        }
+      ],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 2466,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 167,
+      "reasoning": 130,
+      "interface": 422,
+      "tests": 1072,
+      "target": 1999
+    },
+    "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "chat_template_sha256": "8452ca85cb1e0ff04304c02f417a53305d5ba17f6eb9d5693343ad8355f985a8",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-30T23:08:01.857048+00:00",
+    "prompt_version": "tdd-framing-b-v06",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "codelang-detect",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

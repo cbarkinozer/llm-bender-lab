@@ -51,12 +51,12 @@ SMELLS=['Undeclared interface','Tautological assertion','Weak or missing oracle'
 def main():
     global BUNDLE,NAME
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06'],default='app-core-v03')
     parser.add_argument('--repair-display',action='store_true',help='Repair HTML escaping in place, preserving fields and annotations; save a before snapshot.')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     version=args.revision.rsplit('-',1)[-1]
-    review_version={'v03':'v02','v04':'v03','v05':'v04'}[version]
+    review_version={'v03':'v02','v04':'v03','v05':'v04','v06':'v05'}[version]
     NAME='tdd-nine-apps-human-review-'+review_version
     rows=[json.loads(l) for l in (BUNDLE/'records.jsonl').read_text().splitlines()]
     report=json.loads((BUNDLE/'validation-report.json').read_text())
@@ -75,8 +75,8 @@ def main():
             assert stable['test_snapshot']==current, 'Stability evidence belongs to a different suite'
             for path,digest in stable['reference_snapshot'].items():assert sha256((folder/path).read_bytes()).hexdigest()==digest
         coverage='\n\n'.join(r['id']+': '+r['text']+'\n'+ '\n'.join('- `'+t+'`' for t in r['test_ids'])+('\nManual/live: '+', '.join(r['manual_ids']) if r['manual_ids'] else '') for r in row['requirements'])
-        if version in ('v04','v05'):assert row['validation']['model_text_scan']['unresolved']==0
-        if version=='v05':
+        if version in ('v04','v05','v06'):assert row['validation']['model_text_scan']['unresolved']==0
+        if version in ('v05','v06'):
             assert row['validation']['test_numbering_consistent']
             assert all(check['detected'] for check in row['validation']['preservation_checks'])
         source=row['source']
@@ -87,7 +87,7 @@ def main():
         evidence+='\n\n**Stability:** three different seeded collection orders passed: '+', '.join(str(r['seed']) for r in row['validation']['stability'])+'.\n\nThese are targeted probes, not a comprehensive mutation score.\n\n**Actual pytest log:**\n\n```text\n'+Path(row['validation']['execution_log']).read_text()[-1600:]+'\n```'
         provenance=f"**Source app:** `{source['repo']}` at `{source['revision']}`; dirty checkout at execution: {source['dirty']}.\n\n{source['origin']}\n\n**Proposed split:** {row['split']}; leakage group `{row['leakage_group']}`. Paper overlap: {row['paper_benchmark_overlap']}.\n\n{source['reference_note']}\n\n**New reference files (verification only):**\n\n"+'\n'.join('- `'+str(folder/f['path'])+'` — SHA256 '+f['sha256'] for f in source['new_reference_files'])
         if version=='v04':provenance+='\n\nFormat-only revision: test executable AST and application implementation are unchanged from v03; only model-facing prose and test module descriptions were cleaned. Record-specific executor work is archived separately.'
-        if version=='v05':provenance+='\n\nCode is HTML-escaped for this display only. Raw training messages remain unchanged by presentation escaping. Numbered tests match the requirement map; preservation probes include failed-refresh and stale-state cases.'
+        if version in ('v05','v06'):provenance+='\n\nCode is HTML-escaped for this display only. Raw training messages remain unchanged by presentation escaping. Numbered tests match the requirement map; preservation probes include failed-refresh and stale-state cases.'
         provenance+='\n\nOriginal app source remains at `'+str(ROOT.parent/source['repo'])+'`. No original app files were changed for this revision. No human approval or SFT result exists. Exact record and provenance: `'+str(folder/'record.json')+'`.'
         fields=dict(model_input='**System:**\n\n'+row['messages'][0]['content']+'\n\n**User:**\n\n'+row['messages'][1]['content'],
             reasoning=row['teacher_reasoning'],interface=row['decisions']+'\n\n'+row['interface']['text'],
@@ -161,6 +161,8 @@ def main():
     if pending:dataset.records.log(pending)
     assert sum(1 for _ in dataset.records(with_responses=False,with_suggestions=False))==9
     packet_path.write_text(text);(out/'GUIDELINES.md').write_text(GUIDELINES+'\n')
+    form=[dict(name=q.name,title=q.title,required=q.required,kind='multi-select' if isinstance(q,rg.MultiLabelQuestion) else 'single-choice' if hasattr(q,'labels') else 'text',options=list(q.labels) if hasattr(q,'labels') else None) for q in dataset.settings.questions]
+    (out/'annotation-options.json').write_text(json.dumps(form,ensure_ascii=False,indent=2)+'\n')
     receipt=dict(dataset=NAME,dataset_id=str(dataset.id),records=9,
                  url=f'http://127.0.0.1:7900/dataset/{dataset.id}/annotation-mode',
                  human_ratings_submitted=False,display_only=args.repair_display,code_fields_html_escaped=True,meta_defect_category_available=category_available,annotations_preserved=True,repaired_records=repaired,packet_sha256=sha256(packet_path.read_bytes()).hexdigest())

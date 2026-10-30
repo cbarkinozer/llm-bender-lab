@@ -1,3 +1,9 @@
+> Latest example correction, 2026-10-31: [revision 06](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/README.md).
+> http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode
+> codelang-detect: stronger tie/content/read-error cases, explicit API decisions,
+> 15 passing cases / 11 detected faults. Shareable TXT includes R1–R5 kill evidence.
+> The other eight model conversations match v05. No baseline or SFT has run.
+
 > Latest review, 2026-10-31: [revision 05](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v05/README.md).
 > http://127.0.0.1:7900/dataset/ae9c43c9-54ea-4602-9d4d-56741869b59a/annotation-mode
 > HTML display is repaired; pre-checks include process words, numbered test/map
