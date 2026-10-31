@@ -1,5 +1,11 @@
 # Next GPU session: baseline first, then two controlled arms
 
+Current implementation update: Arm B arrays, exact mask audit, shared-baseline/
+arm-specific gates and explicit token-normalized loss are now implemented.
+Start with PAIRED-GPU-RUN.md and paired-preflight-v01. The older pending-work
+checklist below is retained as history. Actual GPU/Unsloth and Docker checks
+remain pending; no baseline or training run has occurred.
+
 ## Follow-up review: repetition and ablation accounting
 
 - Keep reserved `slm_test_generation` apps/tests/requirements out of all current

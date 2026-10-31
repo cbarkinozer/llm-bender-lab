@@ -1,0 +1,21 @@
+{
+  "status": "paired arrays audited locally; actual GPU loss/runtime gates pending",
+  "files": {
+    "baseline-review-template.json": "ae9bb381853e6c268058387e8a78244be22db6941ed9bd072077a1448dc839c0",
+    "development-encoded.jsonl": "811fd6cf63014aa4cbf01ce78b5acb87cf1732c25267c986565af517442186c5",
+    "development-requests.jsonl": "11652015238513e799876368c51257c7f94414f61e55153f359a5b6378593a9c",
+    "development-targets.jsonl": "af0038888f39c40dab727095ffdc43dc65c7ce03aeb4c4f2b7fa7c0c1995cc2b",
+    "executor-reference-controls.jsonl": "17c5a40ab6904eb8462e2e99d430ed7fb6e32eca47716e21308c7437600efe70",
+    "prompt-budget.json": "4d703d8395820c151c8552e1531a736a0f7bd981fc3203d7d98f6adddf65b523",
+    "recipe.json": "ce34b1ecc5ffc7d59d775e485dedd80da97ce1f033140eb6c64ba20c552067f7",
+    "train-encoded.jsonl": "cbc41580ac492295d3eea5ed69ef1c22f1257be4f5e7a1899d4c4b4ad4991554"
+  },
+  "source_inputs": {
+    "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/quality-audit-v01/current-test-candidates.jsonl": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+    "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/baseline-reliability-v03/requests.jsonl": "347c106f89c5f2f3c1c70026b8544bfc0175162d4859b733eaa64872579013a8",
+    "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/candidate-index-v03.json": "5f7e56ddea29a6897378f82291861894b216369a47f9b647d73459ba9943f417"
+  },
+  "native_label_parity": "All 50 sequences exactly match saved audit arrays",
+  "original_training_preview_sha256": "35938b6460122509507f601fed96a7aedd817b3cbfd38d4a44ca85a55db97ada",
+  "supersedes": "demo-preflight-v02 generation budget only; training data and labels unchanged"
+}

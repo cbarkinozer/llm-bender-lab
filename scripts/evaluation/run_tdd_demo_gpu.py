@@ -3,11 +3,13 @@ import argparse
 import importlib.metadata
 import json
 import math
+import os
 from pathlib import Path
 import subprocess
 import time
 from active_tdd_data import EXP, ROOT, read_json, rows
 from prepare_tdd_demo import digest, save, lines
+from prepare_tdd_pair import arm_fields,inference_identity
 
 
 def collate(features, pad_id):
@@ -40,6 +42,26 @@ def runtime_signature():
     return {name:importlib.metadata.version(name) for name in ('vllm','torch','transformers','tokenizers')}
 
 
+def gate_identity_matches(result,stage,preflight,config):
+    if stage=='baseline':return result.get('inference_identity')==inference_identity(preflight,config)
+    return result.get('recipe_sha256')==digest(preflight/'recipe.json')
+
+
+def causal_token_loss(outputs,labels,num_items_in_batch=None):
+    import torch.nn.functional as F
+    logits=outputs['logits']
+    if logits is None:raise ValueError('Explicit normalized loss requires returned logits')
+    target=labels[...,1:].contiguous()
+    count=int((target!=-100).sum())
+    denominator=num_items_in_batch if num_items_in_batch is not None else count
+    if int(denominator)<count or count==0:raise ValueError('Invalid token-loss denominator')
+    # Chunk CE to avoid allocating a full sequence*vocabulary float32 copy.
+    prediction=logits[...,:-1,:].reshape(-1,logits.shape[-1]);target=target.reshape(-1)
+    loss=sum(F.cross_entropy(prediction[i:i+128].float(),target[i:i+128],ignore_index=-100,reduction='sum')
+             for i in range(0,len(target),128))
+    return loss/denominator
+
+
 def generate(args, config):
     from vllm import LLM, SamplingParams
     from transformers import AutoTokenizer
@@ -63,6 +85,9 @@ def generate(args, config):
     llm=LLM(**options)
     adapter=None
     if args.adapter:
+        evidence=read_json(args.adapter.parent/'result.json')
+        if evidence['recipe_sha256']!=digest(args.preflight/'recipe.json'):
+            raise ValueError('Adapter was trained under a different arm/recipe')
         from vllm.lora.request import LoRARequest
         adapter=LoRARequest('tdd-demo',1,str(args.adapter.resolve()))
     params=SamplingParams(temperature=0,max_tokens=g['max_tokens'],seed=g['seed'],
@@ -82,6 +107,7 @@ def generate(args, config):
          recipe_sha256=digest(args.preflight/'recipe.json'),requests=len(records),seconds=time.monotonic()-started,
          truncated=sum(r['finish_reason']=='length' for r in records),adapter=str(args.adapter) if args.adapter else None,
          runtime_lock_sha256=digest(args.runtime_lock),outputs_sha256=digest(args.output/'outputs.jsonl'),
+         inference_identity=inference_identity(args.preflight,config),arm=config.get('arm','A'),
          adapter_reload_verified=bool(args.adapter),runtime_execution=False))
 
 
@@ -92,6 +118,8 @@ def train(args, config):
         review=read_json(args.baseline_review)
         if review['baseline_outputs_sha256']!=digest(args.baseline/'outputs.jsonl') or not review['outputs_inspected'] or not review['proceed_with_diagnostic'] or not review.get('reason'):
             raise ValueError('Baseline review missing, mismatched or recommends stopping')
+        if read_json(args.baseline/'result.json').get('truncated',0) and not review.get('truncation_analysis'):
+            raise ValueError('Classify truncated baseline outputs: repetitive versus progressive reasoning')
         if args.execution_preflight is None:raise ValueError('Protected reference-control execution is required')
         execution=read_json(args.execution_preflight/'summary.json')
         if execution['outputs_sha256']!=digest(args.preflight/'executor-reference-controls.jsonl') or execution['reference_passes']!=5 or execution['kills']!=execution['faults'] or execution['faults']==0:
@@ -103,7 +131,8 @@ def train(args, config):
         for location,stage in ((args.baseline,'baseline'),(args.smoke,'smoke'),(args.tiny,'tiny')):
             if location is None:raise ValueError('Full requires baseline, smoke and tiny evidence')
             result=read_json(location/'result.json')
-            if result['status']!='completed' or result['stage']!=stage or result['recipe_sha256']!=digest(args.preflight/'recipe.json'):
+            identity_ok=gate_identity_matches(result,stage,args.preflight,config)
+            if result['status']!='completed' or result['stage']!=stage or not identity_ok:
                 raise ValueError('Invalid GPU gate '+stage)
             if stage=='tiny' and not result['loss_decreased']:raise ValueError('Tiny overfit did not improve')
         if args.reload is None or not read_json(args.reload/'result.json').get('adapter_reload_verified'):
@@ -111,12 +140,15 @@ def train(args, config):
         reload_result=read_json(args.reload/'result.json')
         if reload_result['recipe_sha256']!=digest(args.preflight/'recipe.json') or Path(reload_result['adapter']).resolve()!=(args.smoke/'adapter').resolve():
             raise ValueError('Reload evidence must refer to this recipe and smoke adapter')
+    os.environ['UNSLOTH_RETURN_LOGITS']='1'
     from unsloth import FastLanguageModel
     import torch
     from datasets import Dataset
     from transformers import AutoTokenizer, Trainer, TrainingArguments, set_seed
     from native_tdd_labels import encode_conversation, model_fields
     if not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():raise ValueError('BF16 GPU required')
+    if int(os.environ.get('WORLD_SIZE','1'))!=1 or torch.cuda.device_count()!=1:
+        raise ValueError('This token-normalized pilot is single-GPU; expose one device')
     t=config['training'];m=config['model'];l=t['lora'];set_seed(t['seed'])
     model,_=FastLanguageModel.from_pretrained(model_name=m['name'],revision=m['revision'],max_seq_length=t['max_seq_length'],
                                             load_in_4bit=False,load_in_16bit=True,full_finetuning=False)
@@ -135,7 +167,8 @@ def train(args, config):
     from export_intent_only_preview import project_record
     source=[r for r in rows(active_paths()['tests']) if r['candidate_split']=='train']
     for row,saved in zip(source,encoded):
-        fresh=model_fields(encode_conversation(tokenizer,project_record(row)['messages'],max_length=t['max_seq_length']))
+        full=encode_conversation(tokenizer,project_record(row)['messages'],max_length=t['max_seq_length'])
+        fresh=arm_fields(full,config.get('arm','A'))
         if fresh!={k:saved[k] for k in fresh}:raise ValueError('GPU tokenizer/label parity failure')
     if len(source)!=len(encoded):raise ValueError('Row mismatch')
     if args.mode=='tiny':encoded=encoded[:4]
@@ -161,7 +194,14 @@ def train(args, config):
         lr_scheduler_type=t['scheduler'],warmup_steps=t['warmup_steps'],weight_decay=t['weight_decay'],max_grad_norm=t['max_grad_norm'],
         bf16=True,fp16=False,seed=t['seed'],data_seed=t['seed'],logging_steps=1,save_strategy='no',
         report_to=[],remove_unused_columns=False,prediction_loss_only=True)
-    trainer=CheckedTrainer(model=model,args=ta,train_dataset=data,data_collator=collator)
+    def checked_loss(outputs,labels,num_items_in_batch=None):
+        if model.training and num_items_in_batch is None:raise ValueError('Trainer omitted accumulation-group token count')
+        if model.training:
+            with (args.output/'loss-normalization.jsonl').open('a',encoding='utf-8') as stream:
+                stream.write(json.dumps(dict(microbatch_tokens=int((labels[...,1:]!=-100).sum()),
+                                             accumulation_group_tokens=int(num_items_in_batch)))+'\n')
+        return causal_token_loss(outputs,labels,num_items_in_batch)
+    trainer=CheckedTrainer(model=model,args=ta,train_dataset=data,data_collator=collator,compute_loss_func=checked_loss)
     batch=next(iter(trainer.get_train_dataloader()))
     assert (batch['labels']!=-100).any()
     save(args.output/'actual-first-batch.json',{k:v.tolist() for k,v in batch.items()})
@@ -178,7 +218,7 @@ def train(args, config):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=['baseline','candidate','smoke','tiny','full'],required=True)
-    p.add_argument('--preflight',type=Path,default=EXP/'demo-preflight-v03');p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--preflight',type=Path,default=EXP/'paired-preflight-v01/A');p.add_argument('--output',type=Path,required=True)
     for key in ('adapter','baseline','smoke','tiny','reload','runtime-lock','baseline-review','execution-preflight'):p.add_argument('--'+key,type=Path)
     args=p.parse_args();config=verify_preflight(args.preflight)
     if args.mode=='candidate' and args.adapter is None:raise ValueError('Candidate requires adapter')

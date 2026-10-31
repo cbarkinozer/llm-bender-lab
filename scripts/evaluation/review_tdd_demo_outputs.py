@@ -45,7 +45,7 @@ def shingles(code):
     return {sha256(' '.join(words[i:i+8]).encode()).hexdigest() for i in range(max(0,len(words)-7))}
 
 
-def pair_review(base, candidate, output, requests, seed=7341):
+def pair_review(base, candidate, output, requests, seed=7341,left_label='baseline',right_label='candidate'):
     if output.exists():raise ValueError('Preserve prior review')
     left={r['record_id']:r for r in rows(base)};right={r['record_id']:r for r in rows(candidate)}
     expected={r['record_id'] for r in rows(requests)}
@@ -54,7 +54,7 @@ def pair_review(base, candidate, output, requests, seed=7341):
     rng=random.Random(seed);packet=[];key=[];status=[]
     for request in rows(requests):
         if request['capability']!='task-to-tests':continue
-        rid=request['record_id'];pair=[('baseline',left[rid]),('candidate',right[rid])];rng.shuffle(pair)
+        rid=request['record_id'];pair=[(left_label,left[rid]),(right_label,right[rid])];rng.shuffle(pair)
         presented={};mapping={}
         for side,(role,row) in zip(('A','B'),pair):
             extracted=extract_test(row)
@@ -105,8 +105,9 @@ def overlap(outputs, upstream, destination):
 
 def verify_generation_pair(base, candidate):
     left=read_json(base.parent/'result.json');right=read_json(candidate.parent/'result.json')
-    if left['stage']!='baseline' or right['stage']!='candidate':raise ValueError('Expected base versus adapter')
-    for key in ('recipe_sha256','runtime_lock_sha256'):
+    if left['stage'] not in ('baseline','candidate') or right['stage']!='candidate':raise ValueError('Expected base/adapter versus adapter')
+    identity_key='inference_identity' if 'inference_identity' in left and 'inference_identity' in right else 'recipe_sha256'
+    for key in (identity_key,'runtime_lock_sha256'):
         if left[key]!=right[key]:raise ValueError('Generation protocol/runtime mismatch')
     if left['outputs_sha256']!=digest(base) or right['outputs_sha256']!=digest(candidate):raise ValueError('Generation outputs changed')
 
@@ -115,12 +116,14 @@ def main():
     p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
     pair=sub.add_parser('pair');pair.add_argument('--baseline',type=Path,required=True);pair.add_argument('--candidate',type=Path,required=True)
     pair.add_argument('--requests',type=Path,default=EXP/'demo-preflight-v03/development-requests.jsonl');pair.add_argument('--output',type=Path,required=True)
+    pair.add_argument('--left-label',default='baseline');pair.add_argument('--right-label',default='candidate')
     screen=sub.add_parser('overlap');screen.add_argument('--outputs',type=Path,required=True);screen.add_argument('--upstream',type=Path);screen.add_argument('--output',type=Path,required=True)
     lock=sub.add_parser('lock-runtime');lock.add_argument('--output',type=Path,required=True)
     a=p.parse_args()
     if a.command=='pair':
         verify_generation_pair(a.baseline,a.candidate)
-        pair_review(a.baseline,a.candidate,a.output,a.requests)
+        if a.left_label==a.right_label:raise ValueError('Distinct arm labels are required')
+        pair_review(a.baseline,a.candidate,a.output,a.requests,left_label=a.left_label,right_label=a.right_label)
     elif a.command=='overlap':overlap(a.outputs,a.upstream,a.output)
     else:
         from run_tdd_demo_gpu import runtime_signature

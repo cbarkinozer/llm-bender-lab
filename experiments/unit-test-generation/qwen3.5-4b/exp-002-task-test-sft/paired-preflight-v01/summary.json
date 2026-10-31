@@ -1,0 +1,16 @@
+{
+  "arms": [
+    "A",
+    "B"
+  ],
+  "rows": 50,
+  "input_tokens_per_epoch": 91858,
+  "supervised_tokens_per_epoch": {
+    "A": 17266,
+    "B": 15847
+  },
+  "masked_rationale_tokens": 1419,
+  "mixed_rationale_markup_tokens": 0,
+  "shared_inference_identity": "88cf72325a24673fd0ec88d7dfdd7437b71cc0f05e25cff7cf13ecb9a87d3225",
+  "limitation": "B still conditions on rationale input; this is not rationale-free training. GPU normalization/masking tests remain required."
+}
