@@ -1,5 +1,37 @@
 # Next GPU session: baseline first, then two controlled arms
 
+## Follow-up review: repetition and ablation accounting
+
+- Keep reserved `slm_test_generation` apps/tests/requirements out of all current
+  train/development/holdout/reference fixtures. Read-only scalar protocol
+  inspection does not authorize using its examples as data.
+- Confirmed study repetition mitigation: v2 launcher temperature0.0,
+  repetition_penalty1.15; inference helpers default1.05 but launcher overrides.
+  Helpers also have native/role-stop strings and wall-clock abort controls.
+  These are configured mitigations, not proof loops were eliminated. Do not
+  copy generic stop strings such as code fences into our file-output protocol.
+- Recommended baseline pilot: greedy temperature0 plus repetition_penalty1.15
+  as the historical starting point, checking valid repeated identifiers/assertions.
+  This is a recommendation, **not yet a recipe revision**: saved v03 still uses1.0.
+  Before measured baseline, freeze the chosen penalty in a new shared revision
+  for base/A/B. If diagnostics require changing it, regenerate the common baseline
+  and keep prior diagnostics; do not tune each adapter's decoding separately.
+- Tag headroom failures as suspected repetitive/degenerate reasoning versus
+  progressive reasoning that simply exceeded the cap. Finish_reason=length alone
+  cannot distinguish them. Preserve raw outputs/token IDs and reviewer evidence;
+  repetition heuristics are flags, not automatic correctness judgments.
+- Temperature0.1 remains sampling; it can still repeat. Positive temperature
+  does not inherently make experiments irreproducible: seeds, same runtime and
+  deterministic scheduling matter. Greedy also lacks cross-runtime bitwise
+  guarantees. Check the installed vLLM's documented reproducibility controls
+  before changing scheduling; no unverified switch is applied locally.
+- A/B manifests must report actual supervised tokens per epoch/step and rationale
+  tokens removed. Verify actual token-loss normalization including accumulation
+  under Unsloth/Trainer; do not merely assume default settings implement the
+  desired normalization. Token-mean loss does not eliminate the different
+  supervision objectives/exposure. Interpret results as direct rationale
+  supervision holding input exposure equal, not an isolated proof about reasoning.
+
 Saved2026-11-01 for the owner's next session. Repository checkpoint and artifacts
 are sufficient to recover the plan; do not rely on chat memory.
 
