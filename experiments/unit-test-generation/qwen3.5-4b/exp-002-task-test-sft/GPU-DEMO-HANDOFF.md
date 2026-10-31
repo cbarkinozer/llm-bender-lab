@@ -1,5 +1,8 @@
 # RTX 4090 demo preparation
 
+Superseded evaluation protocol: see GPU-DEMO-REVIEW-REVISION.md and
+demo-preflight-v02. The v01 preparation below is preserved as historical context.
+
 Prepared locally, not GPU-tested. This is a 50-row task-to-tests experiment;
 planning/decision records are supporting development probes, not mixed training.
 Recipe and hashes: `demo-preflight-v01/recipe.json` and `manifest.json`.

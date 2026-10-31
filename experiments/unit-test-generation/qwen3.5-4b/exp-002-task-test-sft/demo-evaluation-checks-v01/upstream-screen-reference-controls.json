@@ -1,0 +1,34 @@
+{
+  "repository": "darrenburns/posting",
+  "revision": "32c45669032342cf9b95d5758af47a0d93de0ad7",
+  "upstream_test_files": 30,
+  "outputs_sha256": "17c5a40ab6904eb8462e2e99d430ed7fb6e32eca47716e21308c7437600efe70",
+  "reports": [
+    {
+      "record_id": "posting-path-parameters-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-query-pair-merge-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-request-filenames-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-session-undo-redo-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-session-history-limit-external-v02",
+      "status": "screened",
+      "matches": []
+    }
+  ],
+  "limitation": "Overlap flags require inspection: shared imports/contracts can overlap. No match does not establish absent pretraining exposure. No attribution to memorization from this screen alone. No source text sent to model."
+}
