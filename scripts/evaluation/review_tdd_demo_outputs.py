@@ -114,7 +114,7 @@ def verify_generation_pair(base, candidate):
 def main():
     p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
     pair=sub.add_parser('pair');pair.add_argument('--baseline',type=Path,required=True);pair.add_argument('--candidate',type=Path,required=True)
-    pair.add_argument('--requests',type=Path,default=EXP/'demo-preflight-v02/development-requests.jsonl');pair.add_argument('--output',type=Path,required=True)
+    pair.add_argument('--requests',type=Path,default=EXP/'demo-preflight-v03/development-requests.jsonl');pair.add_argument('--output',type=Path,required=True)
     screen=sub.add_parser('overlap');screen.add_argument('--outputs',type=Path,required=True);screen.add_argument('--upstream',type=Path);screen.add_argument('--output',type=Path,required=True)
     lock=sub.add_parser('lock-runtime');lock.add_argument('--output',type=Path,required=True)
     a=p.parse_args()

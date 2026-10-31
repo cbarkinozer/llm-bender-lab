@@ -178,7 +178,7 @@ def train(args, config):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=['baseline','candidate','smoke','tiny','full'],required=True)
-    p.add_argument('--preflight',type=Path,default=EXP/'demo-preflight-v02');p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--preflight',type=Path,default=EXP/'demo-preflight-v03');p.add_argument('--output',type=Path,required=True)
     for key in ('adapter','baseline','smoke','tiny','reload','runtime-lock','baseline-review','execution-preflight'):p.add_argument('--'+key,type=Path)
     args=p.parse_args();config=verify_preflight(args.preflight)
     if args.mode=='candidate' and args.adapter is None:raise ValueError('Candidate requires adapter')

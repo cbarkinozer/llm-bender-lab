@@ -96,3 +96,14 @@ def test_revision_builder_reproduces_saved_recipe_and_arrays(tmp_path,monkeypatc
     revision.main()
     for name in ('recipe.json','train-encoded.jsonl','development-requests.jsonl','executor-reference-controls.jsonl'):
         assert (tmp_path/'demo-preflight-v02'/name).read_bytes()==(EXP/'demo-preflight-v02'/name).read_bytes()
+
+
+def test_larger_output_budget_fits_measured_prompts_without_changing_training():
+    before=verify_preflight(EXP/'demo-preflight-v02');after=verify_preflight(EXP/'demo-preflight-v03')
+    assert before['training']==after['training']
+    assert after['inference']['max_tokens']==8192
+    assert after['inference']['max_model_len']==9216
+    budget=json.loads((EXP/'demo-preflight-v03/prompt-budget.json').read_text())
+    assert all(r['prompt_tokens']+8192<=9216 for r in budget['prompts'])
+    for name in ('train-encoded.jsonl','development-requests.jsonl','executor-reference-controls.jsonl'):
+        assert (EXP/'demo-preflight-v02'/name).read_bytes()==(EXP/'demo-preflight-v03'/name).read_bytes()

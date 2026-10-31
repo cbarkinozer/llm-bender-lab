@@ -1,5 +1,8 @@
 # Continue on another machine
 
+For the next GPU session, start with NEXT-SESSION.md. It records the baseline-first
+two-arm plan, the8192-output/9216-context revision, and pending Arm B masking work.
+
 Pull the repository. Active selections are in `config-planned.json`; do not pick
 the largest version number independently from each directory.
 

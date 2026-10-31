@@ -1,5 +1,10 @@
 # Evaluation revision after external critique
 
+Budget/next-session update: demo-preflight-v03 now uses8192 output tokens and9216
+total inference context. See NEXT-SESSION.md for measured prompt lengths, study
+evidence and the proposed two-arm rationale-loss ablation (Arm B still pending).
+The v02 protocol below is preserved; its4096/8192 budget values are superseded.
+
 Current protocol: **demo-preflight-v02**. Earlier v01 files and the original
 GPU-DEMO-HANDOFF.md are historical; v02 supersedes their evaluation settings.
 No training example, target, split, training hyperparameter or label array changed.
