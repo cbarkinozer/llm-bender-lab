@@ -8,6 +8,8 @@
 
 # Portable sharing packages are generated outside Git; retain builders/manifests.
 /dataset-share/
+# GPU demo outputs include adapters/checkpoints; transfer their results separately.
+/experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/gpu-runs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
