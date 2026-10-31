@@ -1,0 +1,54 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________ test_fetch_drops_only_entirely_missing_tickers ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000013444E64640>
+
+    def test_fetch_drops_only_entirely_missing_tickers(monkeypatch):
+        from unittest.mock import Mock
+        prices = pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.], 'MISSING-USD': [float('nan'), float('nan')]})
+        download = Mock(return_value={'Adj Close': prices})
+        result = fetch_data(['BTC-USD', 'ETH-USD', 'MISSING-USD'], '2026-01-01 00:00:00', '2026-01-03 00:00:00', download=download)
+        assert_frame_equal(result, pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.]}))
+        from datetime import datetime
+>       download.assert_called_once_with(['BTC-USD', 'ETH-USD', 'MISSING-USD'], start=datetime(2026, 1, 1), end=datetime(2026, 1, 3), auto_adjust=False)
+
+tests\test_price_fetch.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\unittest\mock.py:991: in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Mock id='1324006627648'>
+args = (['BTC-USD', 'ETH-USD', 'MISSING-USD'],)
+kwargs = {'start': datetime.datetime(2026, 1, 1, 0, 0), 'end': datetime.datetime(2026, 1, 3, 0, 0), 'auto_adjust': False}
+
+    def assert_called_with(self, /, *args, **kwargs):
+        """assert that the last call was made with the specified arguments.
+    
+        Raises an AssertionError if the args and keyword args passed in are
+        different to the last call to the mock."""
+        if self.call_args is None:
+            expected = self._format_mock_call_signature(args, kwargs)
+            actual = 'not called.'
+            error_message = ('expected call not found.\nExpected: %s\n  Actual: %s'
+                    % (expected, actual))
+            raise AssertionError(error_message)
+    
+        def _error_message():
+            msg = self._format_mock_failure_message(args, kwargs)
+            return msg
+        expected = self._call_matcher(_Call((args, kwargs), two=True))
+        actual = self._call_matcher(self.call_args)
+        if actual != expected:
+            cause = expected if isinstance(expected, Exception) else None
+>           raise AssertionError(_error_message()) from cause
+E           AssertionError: expected call not found.
+E           Expected: mock(['BTC-USD', 'ETH-USD', 'MISSING-USD'], start=datetime.datetime(2026, 1, 1, 0, 0), end=datetime.datetime(2026, 1, 3, 0, 0), auto_adjust=False)
+E             Actual: mock(['BTC-USD', 'ETH-USD', 'MISSING-USD'], start=datetime.datetime(2026, 1, 1, 0, 0), end=datetime.datetime(2026, 1, 3, 0, 0), auto_adjust=True)
+
+C:\Python313\Lib\unittest\mock.py:979: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_price_fetch.py::test_fetch_drops_only_entirely_missing_tickers
+1 failed in 0.27s

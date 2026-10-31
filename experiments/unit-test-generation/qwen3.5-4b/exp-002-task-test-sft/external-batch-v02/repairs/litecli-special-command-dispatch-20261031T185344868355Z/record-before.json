@@ -1,0 +1,121 @@
+{
+  "record_id": "litecli-special-command-dispatch-external-v02",
+  "task_id": "litecli-special-command-dispatch",
+  "record_type": "task-test",
+  "source_group": "dbcli/litecli",
+  "candidate_split": "train",
+  "training_eligible": false,
+  "target_file": "tests/test_special_command_dispatch.py",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write one complete Python pytest file for the agreed development task before implementation. Use only the supplied interfaces and requirements. Include deterministic offline fixtures, successful controls and meaningful boundary/failure assertions. Give concise rationale separately, then exactly File: <target path> followed by one fenced python file. Do not implement the application."
+    },
+    {
+      "role": "user",
+      "content": "APPLICATION\nBuild a SQLite terminal client with query execution, SQL-aware completion and special commands.\n\nAGREED TASK PLAN\n[\n  {\n    \"id\": \"sql-table-identifiers\",\n    \"module\": \"litecli.packages.parseutils\",\n    \"target_file\": \"tests/test_sql_table_identifiers.py\"\n  },\n  {\n    \"id\": \"sql-destructive-detection\",\n    \"module\": \"litecli.packages.parseutils\",\n    \"target_file\": \"tests/test_sql_destructive_detection.py\"\n  },\n  {\n    \"id\": \"completion-last-word\",\n    \"module\": \"litecli.packages.parseutils\",\n    \"target_file\": \"tests/test_completion_last_word.py\"\n  },\n  {\n    \"id\": \"path-completion\",\n    \"module\": \"litecli.packages.filepaths\",\n    \"target_file\": \"tests/test_path_completion.py\"\n  },\n  {\n    \"id\": \"sqlite-query-execution\",\n    \"module\": \"litecli.sqlexecute\",\n    \"target_file\": \"tests/test_sqlite_query_execution.py\"\n  },\n  {\n    \"id\": \"special-command-dispatch\",\n    \"module\": \"litecli.packages.special.main\",\n    \"target_file\": \"tests/test_special_command_dispatch.py\"\n  }\n]\n\nCURRENT TASK\nspecial-command-dispatch\nTarget file: tests/test_special_command_dispatch.py\nImplementation module: litecli.packages.special.main\n\nINTERFACE AND ACCEPTANCE CONTRACT\nparse_special_command(sql) returns command stripped of + or -, Verbosity and stripped argument. A + suffix means VERBOSE, no suffix NORMAL, - SUCCINCT. execute(cursor,sql) routes a registered PARSED_QUERY handler using cur, arg, verbose keyword arguments, supports case-insensitive commands, and raises CommandNotFound for unknown commands. COMMANDS is the registry; isolate it with monkeypatch.\n\nCONTEXT\nPython 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "A real registered handler checks argument routing. Isolating the registry prevents leakage into later tests; the unknown-command case rejects universal fallback.",
+      "content": "File: tests/test_special_command_dispatch.py\n```python\nimport pytest\nfrom litecli.packages.special import main as special\n\n\ndef test_parse_verbosity_and_argument():\n    assert special.parse_special_command('demo+  two words ') == ('demo', special.Verbosity.VERBOSE, 'two words')\n    assert special.parse_special_command('demo-') == ('demo', special.Verbosity.SUCCINCT, '')\n    assert special.parse_special_command('demo') == ('demo', special.Verbosity.NORMAL, '')\n\n\ndef test_dispatch_and_unknown(monkeypatch):\n    monkeypatch.setattr(special, 'COMMANDS', {})\n    calls = []\n    def handler(**kwargs):\n        calls.append(kwargs)\n        return [('done',)]\n    special.register_special_command(handler, 'demo', '', 'Demo')\n    cursor = object()\n    assert special.execute(cursor, 'DEMO+ value') == [('done',)]\n    assert calls == [{'cur': cursor, 'arg': 'value', 'verbose': True}]\n    with pytest.raises(special.CommandNotFound):\n        special.execute(cursor, 'missing-command')\n```\n"
+    }
+  ],
+  "artifact": {
+    "path": "tests/test_special_command_dispatch.py",
+    "content": "import pytest\nfrom litecli.packages.special import main as special\n\n\ndef test_parse_verbosity_and_argument():\n    assert special.parse_special_command('demo+  two words ') == ('demo', special.Verbosity.VERBOSE, 'two words')\n    assert special.parse_special_command('demo-') == ('demo', special.Verbosity.SUCCINCT, '')\n    assert special.parse_special_command('demo') == ('demo', special.Verbosity.NORMAL, '')\n\n\ndef test_dispatch_and_unknown(monkeypatch):\n    monkeypatch.setattr(special, 'COMMANDS', {})\n    calls = []\n    def handler(**kwargs):\n        calls.append(kwargs)\n        return [('done',)]\n    special.register_special_command(handler, 'demo', '', 'Demo')\n    cursor = object()\n    assert special.execute(cursor, 'DEMO+ value') == [('done',)]\n    assert calls == [{'cur': cursor, 'arg': 'value', 'verbose': True}]\n    with pytest.raises(special.CommandNotFound):\n        special.execute(cursor, 'missing-command')\n"
+  },
+  "test_functions": [
+    "test_parse_verbosity_and_argument",
+    "test_dispatch_and_unknown"
+  ],
+  "source": {
+    "repository": "dbcli/litecli",
+    "revision": "aa53bb0c1530cd1dfb30534babb0bf47df33c60a",
+    "source_file": "litecli/packages/special/main.py",
+    "source_sha256": "bd98de33750526d6705c58da97c75527c0680a6d2d3348e069795dee7aabcbcb",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      {
+        "path": "LICENSE",
+        "sha256": "89336bf17c3e77924f1001b2cbf9a615be0db8bf103bdd953c8ba9792538f423"
+      }
+    ],
+    "provenance": "New assistant-authored requirements, rationale and tests from source behavior; no upstream test bodies copied."
+  },
+  "validation": {
+    "status": "failed",
+    "semantic_review": "pending; execution is not semantic approval",
+    "runs": [
+      {
+        "condition": "reference",
+        "seed": null,
+        "returncode": 0,
+        "cases": 2,
+        "passed_cases": 2,
+        "assertion_failures": 0,
+        "killed": null,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185305127832Z/litecli-special-command-dispatch/reference"
+      },
+      {
+        "condition": "order-17",
+        "seed": 17,
+        "returncode": 0,
+        "cases": 2,
+        "passed_cases": 2,
+        "assertion_failures": 0,
+        "killed": null,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185305127832Z/litecli-special-command-dispatch/order-17"
+      },
+      {
+        "condition": "order-43",
+        "seed": 43,
+        "returncode": 0,
+        "cases": 2,
+        "passed_cases": 2,
+        "assertion_failures": 0,
+        "killed": null,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185305127832Z/litecli-special-command-dispatch/order-43"
+      },
+      {
+        "condition": "order-91",
+        "seed": 91,
+        "returncode": 0,
+        "cases": 2,
+        "passed_cases": 2,
+        "assertion_failures": 0,
+        "killed": null,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185305127832Z/litecli-special-command-dispatch/order-91"
+      },
+      {
+        "condition": "never-dispatch",
+        "seed": null,
+        "returncode": 1,
+        "cases": 2,
+        "passed_cases": 1,
+        "assertion_failures": 0,
+        "killed": false,
+        "ok": false,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185305127832Z/litecli-special-command-dispatch/never-dispatch"
+      },
+      {
+        "condition": "lose-verbosity",
+        "seed": null,
+        "returncode": 1,
+        "cases": 2,
+        "passed_cases": 0,
+        "assertion_failures": 2,
+        "killed": true,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185305127832Z/litecli-special-command-dispatch/lose-verbosity"
+      }
+    ],
+    "reference_cases": 2,
+    "artifact_sha256": "2cd09e45aab83c07d0d88602ff88cda804c1c7fcc6104a9ec227d882ed3a76da"
+  },
+  "tokens": null
+}

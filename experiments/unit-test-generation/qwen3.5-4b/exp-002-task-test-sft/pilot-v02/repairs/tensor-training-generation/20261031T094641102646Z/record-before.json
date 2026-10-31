@@ -1,0 +1,178 @@
+{
+  "record_id": "tensor-training-generation-v02",
+  "record_type": "task-to-tests",
+  "application": "miniature-llms",
+  "task_id": "tensor-training-generation",
+  "target_file": "tests/test_tensor_training_generation.py",
+  "implementation_files": [
+    "tiny_model.py"
+  ],
+  "source_group": "miniature-llms",
+  "candidate_split": "train",
+  "split_status": "Existing train-family pilot used to develop format; never eligible as a new independent holdout.",
+  "training_eligible": false,
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository."
+    },
+    {
+      "role": "user",
+      "content": "APPLICATION REQUEST\nBuild me a small educational Python repository of working language-model components that I can run on CPU with tiny tensors and understand from the code. For the first complete version, include token embeddings, rotary position encoding, RMS normalization, a causal attention block, a feed-forward block and a tiny next-token model that composes them. Use PyTorch, keep tensors consistently batch-by-sequence-by-hidden dimension at public boundaries, make weights and dimensions configurable, and explain the role of each component without claiming this tiny model reproduces a frontier model's capability. I want numerical examples that check more than output shape, a demonstration that later tokens cannot influence earlier causal outputs, proper gradients, and saving/reloading weights without changing predictions. Include a short deterministic training demo on a tiny fixed local corpus and a generation command, with no model downloads or GPU requirement. Reject incompatible dimensions clearly and keep the implementation modular enough that I can later add other architectures; JAX, custom kernels and every advanced architecture can wait.\n\nAGREED PLAN\n[\n  {\n    \"id\": \"tensor-rms-normalization\",\n    \"title\": \"Specify RMS normalization scale, epsilon and numeric gradients.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"_7_RMSNorm/pytorch.py\"\n    ],\n    \"target_file\": \"tests/test_tensor_rms_normalization.py\",\n    \"acceptance\": [\n      \"Normalize the last dimension by sqrt(mean(x squared)+epsilon), then learned scale.\",\n      \"Positive epsilon maps zero inputs to finite zeros.\",\n      \"Scale gradients agree with the explicit [3,4]/sqrt(12.5) fixture.\"\n    ]\n  },\n  {\n    \"id\": \"tensor-rotary-positions\",\n    \"title\": \"Specify rotary half-rotation, sequence positions and dimension errors.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"_4_RoPE/pytorch.py\"\n    ],\n    \"target_file\": \"tests/test_tensor_rotary_positions.py\",\n    \"acceptance\": [\n      \"rotate_half negates the second half and concatenates the first.\",\n      \"Position zero is identity on every head.\",\n      \"Position one rotates along sequence rather than head axes.\",\n      \"Reject odd or mismatched head dimensions with the declared diagnostics.\"\n    ]\n  },\n  {\n    \"id\": \"tensor-model-composition\",\n    \"title\": \"Specify composed logits, trainable gradients and incompatible dimensions.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"tiny_model.py\"\n    ],\n    \"target_file\": \"tests/test_tensor_model_composition.py\",\n    \"acceptance\": [\n      \"Return [batch,sequence,vocab] logits.\",\n      \"All trainable parameters have finite gradients and some gradient is nonzero.\",\n      \"Reject indivisible hidden sizes and odd per-head dimensions.\"\n    ]\n  },\n  {\n    \"id\": \"tensor-causal-independence\",\n    \"title\": \"Specify causal invariance and sensitivity for the composed model.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"tiny_model.py\"\n    ],\n    \"target_file\": \"tests/test_tensor_causal_independence.py\",\n    \"acceptance\": [\n      \"Changing future tokens cannot alter earlier logits.\",\n      \"Later logits must still respond to changed input.\"\n    ]\n  },\n  {\n    \"id\": \"tensor-checkpoint-roundtrip\",\n    \"title\": \"Specify configuration/weight checkpoint preservation.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"tiny_model.py\"\n    ],\n    \"target_file\": \"tests/test_tensor_checkpoint_roundtrip.py\",\n    \"acceptance\": [\n      \"Saving and loading reconstructs the same CPU model configuration and weights.\",\n      \"Eval logits match exactly at the same runtime.\"\n    ]\n  },\n  {\n    \"id\": \"tensor-training-generation\",\n    \"title\": \"Specify deterministic tiny CPU training and actual greedy next-token decoding.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"tiny_model.py\"\n    ],\n    \"target_file\": \"tests/test_tensor_training_generation.py\",\n    \"acceptance\": [\n      \"Repeat the same seed and fixture to get identical finite loss histories.\",\n      \"The bounded smoke loss improves; no claim of general language capability.\",\n      \"Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets.\"\n    ]\n  },\n  {\n    \"id\": \"miniature-llms-delivery\",\n    \"title\": \"Verify documented delivery and live UI/backend integration separately.\",\n    \"depends_on\": [],\n    \"implementation_files\": [\n      \"README.md\"\n    ],\n    \"target_file\": \"tests/test_delivery.py\",\n    \"acceptance\": [\n      \"Standalone architecture documentation and actual CLI integration remain separate checks; do not treat PyTorch/JAX variants as independent behaviors.\"\n    ],\n    \"demonstration_available\": false\n  }\n]\n\nCURRENT TASK\nSpecify deterministic tiny CPU training and actual greedy next-token decoding.\nTarget test file: tests/test_tensor_training_generation.py\nExpected implementation files: tiny_model.py\n\nINTERFACE CONTRACT\nProposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n\n\nACCEPTANCE CRITERIA\n- Repeat the same seed and fixture to get identical finite loss histories.\n- The bounded smoke loss improves; no claim of general language capability.\n- Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets.\n\nAVAILABLE CONTEXT\nPython and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run.\nNo application implementation or existing solution tests are supplied. Write the selected test file only."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "A controlled successor-logit model checks actual predicted tokens independently of training loss. Length-only checks would allow constant tokens; exact greedy values do not.",
+      "content": "File: tests/test_tensor_training_generation.py\n```python\nimport torch\nimport pytest\n\n\ndef test_deterministic_cpu_training_and_bounded_generation():\n    from tiny_model import train_demo, generate\n    tokens = torch.tensor([[1,2,1,2,1]])\n    first = train_demo(tokens, seed=7, steps=30, learning_rate=.03)\n    second = train_demo(tokens, seed=7, steps=30, learning_rate=.03)\n    assert all(isinstance(value,float) for value in first['losses'])\n    assert first['losses'] == second['losses']\n    assert all(torch.isfinite(torch.tensor(first['losses'])))\n    assert first['losses'][-1] < first['losses'][0]\n    output = generate(first['model'], [1], max_new_tokens=3)\n    assert output[:1] == [1]\n    assert len(output) == 4\n    assert all(0 <= token < 8 for token in output)\n\n\n@pytest.mark.parametrize('budget,expected', [(0,[1]),(3,[1,2,3,4])])\ndef test_greedy_generation_follows_unique_logit_maxima(budget, expected):\n    from tiny_model import generate\n    class SuccessorModel(torch.nn.Module):\n        def forward(self, tokens):\n            # Every position predicts (its current token + 1) mod 8 uniquely.\n            logits = torch.full((*tokens.shape, 8), -10.0)\n            return logits.scatter(-1, ((tokens+1)%8).unsqueeze(-1), 10.0)\n    assert generate(SuccessorModel(), [1], max_new_tokens=budget) == expected\n\n\ndef test_negative_generation_budget_is_rejected():\n    from tiny_model import generate\n    with pytest.raises(ValueError):\n        generate(model(), [1], max_new_tokens=-1)\n```\n"
+    }
+  ],
+  "artifact": {
+    "path": "tests/test_tensor_training_generation.py",
+    "content": "import torch\nimport pytest\n\n\ndef test_deterministic_cpu_training_and_bounded_generation():\n    from tiny_model import train_demo, generate\n    tokens = torch.tensor([[1,2,1,2,1]])\n    first = train_demo(tokens, seed=7, steps=30, learning_rate=.03)\n    second = train_demo(tokens, seed=7, steps=30, learning_rate=.03)\n    assert all(isinstance(value,float) for value in first['losses'])\n    assert first['losses'] == second['losses']\n    assert all(torch.isfinite(torch.tensor(first['losses'])))\n    assert first['losses'][-1] < first['losses'][0]\n    output = generate(first['model'], [1], max_new_tokens=3)\n    assert output[:1] == [1]\n    assert len(output) == 4\n    assert all(0 <= token < 8 for token in output)\n\n\n@pytest.mark.parametrize('budget,expected', [(0,[1]),(3,[1,2,3,4])])\ndef test_greedy_generation_follows_unique_logit_maxima(budget, expected):\n    from tiny_model import generate\n    class SuccessorModel(torch.nn.Module):\n        def forward(self, tokens):\n            # Every position predicts (its current token + 1) mod 8 uniquely.\n            logits = torch.full((*tokens.shape, 8), -10.0)\n            return logits.scatter(-1, ((tokens+1)%8).unsqueeze(-1), 10.0)\n    assert generate(SuccessorModel(), [1], max_new_tokens=budget) == expected\n\n\ndef test_negative_generation_budget_is_rejected():\n    from tiny_model import generate\n    with pytest.raises(ValueError):\n        generate(model(), [1], max_new_tokens=-1)\n"
+  },
+  "test_functions": [
+    "test_deterministic_cpu_training_and_bounded_generation",
+    "test_greedy_generation_follows_unique_logit_maxima",
+    "test_negative_generation_budget_is_rejected"
+  ],
+  "diversity": {
+    "surface": "service",
+    "behavior": "bounded-training-and-decoding",
+    "state": "stateless",
+    "dependencies": "pytorch",
+    "boundaries": [
+      "Repeat the same seed and fixture to get identical finite loss histories.",
+      "The bounded smoke loss improves; no claim of general language capability.",
+      "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+    ],
+    "test_level": "integration"
+  },
+  "acceptance_criteria": [
+    "Repeat the same seed and fixture to get identical finite loss histories.",
+    "The bounded smoke loss improves; no claim of general language capability.",
+    "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+  ],
+  "source": {
+    "parent_record_id": "miniature-llms-v07",
+    "parent_record_sha256": "dd835ad3d1442a841c07bc12b79983b11fa52cec2ac456bf6dae1e57d5572ced",
+    "parent_split": "train",
+    "repository": "miniature-llms",
+    "revision": "d369337b151cedd9c39fbc654dfed8236344a7cd",
+    "selected_test_sources": [
+      {
+        "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/miniature-llms/tests/test_workflow.py",
+        "sha256": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3",
+        "functions": [
+          "test_deterministic_cpu_training_and_bounded_generation",
+          "test_greedy_generation_follows_unique_logit_maxima",
+          "test_negative_generation_budget_is_rejected"
+        ]
+      }
+    ],
+    "authored_additions": false,
+    "provenance": "Reframed authored v07 demonstrations; not original issue reports, fresh model generations or independent source tasks."
+  },
+  "tokens": {
+    "full_sequence": 2359,
+    "supervised_reasoning": 29,
+    "final_answer": 415,
+    "limit": 8192,
+    "within_limit": true,
+    "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "chat_template_sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+  },
+  "validation": {
+    "status": "failed",
+    "reference_cases": 4,
+    "runs": [
+      {
+        "condition": "reference",
+        "seed": null,
+        "returncode": 1,
+        "cases": 4,
+        "order": [
+          "tests/test_tensor_training_generation.py::test_deterministic_cpu_training_and_bounded_generation",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "tests/test_tensor_training_generation.py::test_negative_generation_budget_is_rejected"
+        ],
+        "called_cases": 4,
+        "killed": null,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/pilot-v02/evidence/20261031T094254939039Z/tensor-training-generation/reference/pytest.log",
+        "mutation_source": null
+      },
+      {
+        "condition": "order-17",
+        "seed": 17,
+        "returncode": 1,
+        "cases": 4,
+        "order": [
+          "tests/test_tensor_training_generation.py::test_deterministic_cpu_training_and_bounded_generation",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "tests/test_tensor_training_generation.py::test_negative_generation_budget_is_rejected"
+        ],
+        "called_cases": 4,
+        "killed": null,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/pilot-v02/evidence/20261031T094254939039Z/tensor-training-generation/order-17/pytest.log",
+        "mutation_source": null
+      },
+      {
+        "condition": "order-43",
+        "seed": 43,
+        "returncode": 1,
+        "cases": 4,
+        "order": [
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "tests/test_tensor_training_generation.py::test_negative_generation_budget_is_rejected",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "tests/test_tensor_training_generation.py::test_deterministic_cpu_training_and_bounded_generation"
+        ],
+        "called_cases": 4,
+        "killed": null,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/pilot-v02/evidence/20261031T094254939039Z/tensor-training-generation/order-43/pytest.log",
+        "mutation_source": null
+      },
+      {
+        "condition": "order-91",
+        "seed": 91,
+        "returncode": 1,
+        "cases": 4,
+        "order": [
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "tests/test_tensor_training_generation.py::test_negative_generation_budget_is_rejected",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "tests/test_tensor_training_generation.py::test_deterministic_cpu_training_and_bounded_generation"
+        ],
+        "called_cases": 4,
+        "killed": null,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/pilot-v02/evidence/20261031T094254939039Z/tensor-training-generation/order-91/pytest.log",
+        "mutation_source": null
+      },
+      {
+        "condition": "constant-generated-tokens",
+        "seed": null,
+        "returncode": 1,
+        "cases": 4,
+        "order": [
+          "tests/test_tensor_training_generation.py::test_deterministic_cpu_training_and_bounded_generation",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+          "tests/test_tensor_training_generation.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+          "tests/test_tensor_training_generation.py::test_negative_generation_budget_is_rejected"
+        ],
+        "called_cases": 4,
+        "killed": true,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/pilot-v02/evidence/20261031T094254939039Z/tensor-training-generation/constant-generated-tokens/pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/pilot-v02/evidence/20261031T094254939039Z/tensor-training-generation/constant-generated-tokens/pilot_probe.py"
+      }
+    ],
+    "artifact_sha256": "35bc5c5cc6c7002933e716d8eec7d944822b57500abae45fdeadc9c8d8f72bfe",
+    "spec_sha256": "efbdeaca444fbd1de8f1dc4dfbb3bb1dbde2b5c5c48e8e6cd641c13a78454716",
+    "source_snapshot_sha256": "99d84b32f119136dd15688cd8bf35e3fdb6bfe3753c0b05ac12be8ec673081cc",
+    "reference_snapshot": {
+      "tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+    },
+    "semantic_review": "pending; executable checks are not semantic approval",
+    "execution_scope": "Trusted authored pytest fixtures on host with stripped credentials and bounded subprocess time. External I/O mocked; no claim of OS network isolation."
+  }
+}

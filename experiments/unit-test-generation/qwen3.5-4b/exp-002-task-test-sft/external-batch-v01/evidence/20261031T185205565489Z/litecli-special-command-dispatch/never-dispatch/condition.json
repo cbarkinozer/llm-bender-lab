@@ -1,0 +1,5 @@
+{
+  "module": "litecli.packages.special.main",
+  "mutation": "def broken(*args): raise m.CommandNotFound\nm.execute=broken",
+  "seed": null
+}

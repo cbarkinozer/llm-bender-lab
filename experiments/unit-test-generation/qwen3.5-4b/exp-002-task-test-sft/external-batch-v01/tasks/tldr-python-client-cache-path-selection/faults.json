@@ -1,0 +1,10 @@
+[
+  [
+    "ignore-xdg",
+    "m.get_cache_dir=lambda: m.Path(m.os.environ['HOME'])/'.cache'/'tldr'"
+  ],
+  [
+    "ignore-language",
+    "original=m.get_cache_file_path\nm.get_cache_file_path=lambda command,platform,language,system_cache=False: original(command,platform,'en',system_cache)"
+  ]
+]

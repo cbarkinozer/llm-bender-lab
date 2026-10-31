@@ -1,0 +1,124 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+__________ test_malformed_data_fails_before_backend[missing-content] __________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-284/test_malformed_data_fails_befo0')
+defect = 'missing-content'
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    @pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])
+    def test_malformed_data_fails_before_backend(tmp_path, defect, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        data=experiment_rows
+        if defect == 'missing-content':
+            data[0]['messages'][1]['content']=' '
+        elif defect == 'wrong-role':
+            data[0]['messages'][1]['role']='user'
+        else:
+            data[0]['split']='unrecognized'
+        trainer=Mock()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_experiment_preflight.py:38: Failed
+____________ test_malformed_data_fails_before_backend[wrong-role] _____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-284/test_malformed_data_fails_befo1')
+defect = 'wrong-role'
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'user', 'reasonin...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    @pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])
+    def test_malformed_data_fails_before_backend(tmp_path, defect, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        data=experiment_rows
+        if defect == 'missing-content':
+            data[0]['messages'][1]['content']=' '
+        elif defect == 'wrong-role':
+            data[0]['messages'][1]['role']='user'
+        else:
+            data[0]['split']='unrecognized'
+        trainer=Mock()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_experiment_preflight.py:38: Failed
+___________ test_malformed_data_fails_before_backend[unknown-split] ___________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-284/test_malformed_data_fails_befo2')
+defect = 'unknown-split'
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'unrecognized', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    @pytest.mark.parametrize('defect', ['missing-content','wrong-role','unknown-split'])
+    def test_malformed_data_fails_before_backend(tmp_path, defect, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        data=experiment_rows
+        if defect == 'missing-content':
+            data[0]['messages'][1]['content']=' '
+        elif defect == 'wrong-role':
+            data[0]['messages'][1]['role']='user'
+        else:
+            data[0]['split']='unrecognized'
+        trainer=Mock()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_experiment_preflight.py:38: Failed
+________________ test_invalid_preflight_never_invokes_trainer _________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-284/test_invalid_preflight_never_i0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_invalid_preflight_never_invokes_trainer(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        data = experiment_rows
+        data[-1]['messages'][0]['content'] = data[0]['messages'][0]['content']
+        train = Mock()
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_experiment_preflight.py:52: Failed
+____________________ test_valid_preflight_reaches_backend _____________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-284/test_valid_preflight_reaches_b0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_valid_preflight_reaches_backend(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        from unittest.mock import Mock
+        import pytest
+        def train(run_dir, resolved, train_rows):
+            artifact = run_dir / 'fixture-adapter.bin'
+            artifact.write_bytes(b'fixture')
+            return artifact
+        trainer = Mock(side_effect=train)
+        evaluator = Mock(return_value={'accuracy': 0.5})
+        try:
+            result = run_experiment(tmp_path, 'valid', experiment_config, experiment_rows,
+                                    trainer=trainer, evaluator=evaluator)
+        except ValueError as error:
+            pytest.fail('Valid disjoint data was rejected: ' + str(error))
+        assert result['status'] == 'completed'
+        trainer.assert_called_once()
+>       assert trainer.call_args.args[2] == [experiment_rows[0]]
+E       AssertionError: assert [{'split': 't...tent': '5'}]}] == [{'split': 't...tent': '5'}]}]
+E         
+E         At index 0 diff: {'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': '0'}, {'role': 'assistant', 'content': '5'}]} != {'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}
+E         Use -v to get more diff
+
+tests\test_experiment_preflight.py:76: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[missing-content]
+FAILED tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[wrong-role]
+FAILED tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[unknown-split]
+FAILED tests/test_experiment_preflight.py::test_invalid_preflight_never_invokes_trainer
+FAILED tests/test_experiment_preflight.py::test_valid_preflight_reaches_backend
+5 failed in 0.18s

@@ -1,0 +1,5 @@
+{
+  "module": "tldr",
+  "mutation": "original=m.have_recent_cache\ndef broken(*args):\n old=m.MAX_CACHE_AGE\n m.MAX_CACHE_AGE=old-0.001\n try: return original(*args)\n finally: m.MAX_CACHE_AGE=old\nm.have_recent_cache=broken",
+  "seed": null
+}

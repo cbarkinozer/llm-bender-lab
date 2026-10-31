@@ -1,0 +1,18 @@
+........F..                                                              [100%]
+================================== FAILURES ===================================
+__________________ test_cli_and_ui_call_the_shared_operation __________________
+
+    def test_cli_and_ui_call_the_shared_operation():
+        from context_workflow import cli_snapshot, ui_snapshot
+        operation = Mock(return_value='fixture markdown')
+        assert cli_snapshot('https://github.com/a/b', operation=operation) == 'fixture markdown'
+>       assert ui_snapshot('https://github.com/a/b', operation=operation) == 'fixture markdown'
+E       AssertionError: assert 'stale preview' == 'fixture markdown'
+E         
+E         - fixture markdown
+E         + stale preview
+
+tests\test_workflow.py:30: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation - As...
+1 failed, 10 passed in 0.15s

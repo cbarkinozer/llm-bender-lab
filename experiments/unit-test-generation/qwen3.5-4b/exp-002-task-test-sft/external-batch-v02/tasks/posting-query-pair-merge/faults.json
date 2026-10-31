@@ -1,0 +1,10 @@
+[
+  [
+    "collapse-duplicates",
+    "original=m.extract_query_pairs\nm.extract_query_pairs=lambda url,**kwargs: list(dict(original(url,**kwargs)).items())"
+  ],
+  [
+    "enable-all-rows",
+    "original=m.merge_url_query_into_params\ndef broken(*args,**kwargs):\n url,rows=original(*args,**kwargs)\n return url,[(k,v,True) for k,v,e in rows]\nm.merge_url_query_into_params=broken"
+  ]
+]

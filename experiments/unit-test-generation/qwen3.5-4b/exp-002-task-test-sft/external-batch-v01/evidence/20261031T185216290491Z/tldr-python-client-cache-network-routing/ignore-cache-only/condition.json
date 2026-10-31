@@ -1,0 +1,5 @@
+{
+  "module": "tldr",
+  "mutation": "original=m.get_page_for_platform\ndef broken(command,platform,remote,language,only_use_cache=False,system_cache=False):\n return original(command,platform,remote,language,False,system_cache)\nm.get_page_for_platform=broken",
+  "seed": null
+}

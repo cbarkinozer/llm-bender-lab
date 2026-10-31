@@ -1,0 +1,32 @@
+.FF...                                                                   [100%]
+================================== FAILURES ===================================
+_________________________ test_default_tokens[abc -] __________________________
+
+text = 'abc ', expected = ''
+
+    @pytest.mark.parametrize('text,expected', [('', ''), ('abc ', ''), ('abc\t', ''),
+                                               ('select user_id', 'user_id'), ('select $name', 'name')])
+    def test_default_tokens(text, expected):
+>       assert last_word(text) == expected
+E       AssertionError: assert 'abc' == ''
+E         
+E         + abc
+
+tests\test_completion_last_word.py:8: AssertionError
+_________________________ test_default_tokens[abc\t-] _________________________
+
+text = 'abc\t', expected = ''
+
+    @pytest.mark.parametrize('text,expected', [('', ''), ('abc ', ''), ('abc\t', ''),
+                                               ('select user_id', 'user_id'), ('select $name', 'name')])
+    def test_default_tokens(text, expected):
+>       assert last_word(text) == expected
+E       AssertionError: assert 'abc' == ''
+E         
+E         + abc
+
+tests\test_completion_last_word.py:8: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_completion_last_word.py::test_default_tokens[abc -] - Asser...
+FAILED tests/test_completion_last_word.py::test_default_tokens[abc\t-] - Asse...
+2 failed, 4 passed in 0.07s

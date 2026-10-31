@@ -1,0 +1,28 @@
+F..                                                                      [100%]
+================================== FAILURES ===================================
+______________ test_correlation_detects_opposite_price_movements ______________
+
+    def test_correlation_detects_opposite_price_movements():
+        prices = pd.DataFrame({'up': [1., 2., 3.], 'down': [6., 4., 2.]})
+        expected = pd.DataFrame([[1., -1.], [-1., 1.]], index=['up', 'down'], columns=['up', 'down'])
+>       assert_frame_equal(calculate_correlation(prices), expected)
+
+tests\test_price_charts.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="up") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="up") values are different (100.0 %)
+E   [index]: [up, down]
+E   [left]:  [0.0, -0.0]
+E   [right]: [1.0, -1.0]
+E   At positional index 0, first diff: 0.0 != 1.0
+
+pandas/_libs/testing.pyx:171: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_price_charts.py::test_correlation_detects_opposite_price_movements
+1 failed, 2 passed in 0.33s

@@ -1,0 +1,20 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+_________________________ test_active_platform_first __________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000027D7324D040>
+
+    def test_active_platform_first(monkeypatch):
+        monkeypatch.setattr(tldr, 'get_platform', lambda: 'windows')
+        platforms = tldr.get_platform_list()
+        assert platforms[0] == 'windows'
+>       assert len(platforms) == len(set(platforms))
+E       AssertionError: assert 10 == 9
+E        +  where 10 = len(['windows', 'common', 'openbsd', 'freebsd', 'osx', 'netbsd', ...])
+E        +  and   9 = len({'android', 'common', 'freebsd', 'linux', 'netbsd', 'openbsd', ...})
+E        +    where {'android', 'common', 'freebsd', 'linux', 'netbsd', 'openbsd', ...} = set(['windows', 'common', 'openbsd', 'freebsd', 'osx', 'netbsd', ...])
+
+tests\test_platform_priority.py:16: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_platform_priority.py::test_active_platform_first - Assertio...
+1 failed, 4 passed in 0.07s

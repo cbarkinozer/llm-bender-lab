@@ -1,0 +1,19 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_______________________ test_new_edit_invalidates_redo ________________________
+
+    def test_new_edit_invalidates_redo():
+        state = SessionVariables()
+        state.set('a', 'one')
+        assert state.undo() == 'a'
+        assert state.values == {}
+        state.set('b', 'two')
+>       assert state.redo() is None
+E       AssertionError: assert 'a' is None
+E        +  where 'a' = redo()
+E        +    where redo = <posting.session_variables.SessionVariables object at 0x000001771DC92AD0>.redo
+
+tests\test_session_undo_redo.py:28: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_session_undo_redo.py::test_new_edit_invalidates_redo - Asse...
+1 failed, 1 passed in 0.07s

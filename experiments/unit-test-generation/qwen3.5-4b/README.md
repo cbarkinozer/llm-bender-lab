@@ -1,3 +1,21 @@
+Current dataset profile: [token distributions, complexity, domains and semantic-overlap review](exp-002-task-test-sft/DATASET-PROFILE.md). Three cross-split taught-principle overlaps require an explicit evaluation interpretation; counts/splits are unchanged.
+
+Current label audit: [78-candidate native masking checks passed](exp-002-task-test-sft/NATIVE-LABEL-AUDIT.md). Actual trainer batch parity remains unverified. Semantic near-duplicate review and baseline runtime/protocol are next; training remains disabled.
+
+Current independent-review fixes: [REVIEW-FIXES.md](exp-002-task-test-sft/REVIEW-FIXES.md). All 15 v04 plans serialize shared-file edits; active-data checks pass. Label audit and baseline remain pending.
+
+Current intent-only policy and reviewed planning/decision revisions: [CONTENT-REVIEW.md](exp-002-task-test-sft/CONTENT-REVIEW.md). Repository implementation source is audit-only and excluded from model input/targets. Counts remain 95 total / 78 train-family candidates; no training has started.
+
+Current reliability work: [audit, corrected preflight row, 22 separate decision drafts and prepared baseline packet](exp-002-task-test-sft/RELIABILITY-PREPARATION.md). Test count remains 58; inference and training remain pending.
+
+Current data additions: [58 task-test candidates and 15 separate planner drafts](exp-002-task-test-sft/CURRENT-CANDIDATES.md). The test candidates split 50/5/3; planning is not enabled for training.
+
+> Existing-source expansion, 2026-10-31: [exp-002 pilot-v02](exp-002-task-test-sft/EXPANSION-RESULTS.md) builds 38 task candidates across all seven training families. A 62-proposal backlog is grounded in pinned source files; it is not yet training data. The two evaluation families remain excluded. Earlier eight-row pilot counts below are historical.
+
+> Active direction, 2026-10-31: [task-to-tests SFT](exp-002-task-test-sft/README.md) supersedes the whole-app training plan. The initial pilot contains eight task candidates and two separate planning contexts from existing training families. Planning/code generation stay outside the first SFT objective; expansion toward 100 tasks comes before a fresh baseline. Whole-app v07 remains preserved.
+
+> Current, 2026-10-31: [revision 07](exp-001-local-thinking-10/app-core-v07/README.md) addresses the imported static AI review. Fresh checks: 153 passing cases, 81 detected faults, three passing order seeds; maximum full sequence 7,548 tokens. The owner selected AI review for this demo; revised packets await that review. No whole-app baseline or Qwen SFT has run. Earlier status blocks below are history.
+
 > Current, 2026-10-31: [revision 06](exp-001-local-thinking-10/app-core-v06/README.md) corrects the codelang-detect
 > fixtures and API decisions; the other eight model conversations match v05.
 > Review: http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode

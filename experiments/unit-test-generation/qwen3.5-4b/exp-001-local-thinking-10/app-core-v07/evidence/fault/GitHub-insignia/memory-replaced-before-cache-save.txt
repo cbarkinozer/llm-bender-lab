@@ -1,0 +1,22 @@
+import json
+from pathlib import Path
+FAILURES=[]
+def pytest_configure(config):
+    from insignia.service import DashboardService
+    from insignia.github import GitHubError
+    async def broken(self):
+        async with self.lock:
+            try:
+                candidate=await self.api.fetch('cbarkinozer',self.clock())
+                self.snapshot=candidate
+                self._save(candidate)
+            except GitHubError as exc:self.error=str(exc)
+            except OSError:self.error='Could not save snapshot'
+            else:self.error=None
+            return self.read()
+    DashboardService.refresh=broken
+
+def pytest_runtest_logreport(report):
+    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))
+def pytest_sessionfinish(session,exitstatus):
+    Path('C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\memory-replaced-before-cache-save\\failures.json').write_text(json.dumps(FAILURES,indent=2))

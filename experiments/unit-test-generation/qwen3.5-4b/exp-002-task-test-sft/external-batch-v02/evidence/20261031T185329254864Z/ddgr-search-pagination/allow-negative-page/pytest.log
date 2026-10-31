@@ -1,0 +1,33 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_pagination_transitions_and_reset ____________________
+
+    def test_pagination_transitions_and_reset():
+        url = DdgUrl(duration='', keywords=['python'])
+        assert (url.query()['page'], url.query()['curindex']) == (0, 1)
+        url.update_num(10)
+        url.next_page()
+        assert (url.query()['page'], url.query()['curindex']) == (1, 11)
+        url.next_page()
+        assert (url.query()['page'], url.query()['curindex']) == (2, 21)
+        url.prev_page()
+>       assert (url.query()['page'], url.query()['curindex']) == (1, -21)
+E       assert (1, 21) == (1, -21)
+E         
+E         At index 1 diff: 21 != -21
+E         Use -v to get more diff
+
+tests\test_search_pagination.py:14: AssertionError
+_________________________ test_first_page_boundaries __________________________
+
+    def test_first_page_boundaries():
+        url = DdgUrl(duration='')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_search_pagination.py:22: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_search_pagination.py::test_pagination_transitions_and_reset
+FAILED tests/test_search_pagination.py::test_first_page_boundaries - Failed: ...
+2 failed in 0.06s

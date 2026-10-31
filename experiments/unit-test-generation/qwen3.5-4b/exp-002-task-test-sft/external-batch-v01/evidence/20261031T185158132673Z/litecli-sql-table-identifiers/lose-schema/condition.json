@@ -1,0 +1,5 @@
+{
+  "module": "litecli.packages.parseutils",
+  "mutation": "original=m.extract_tables\nm.extract_tables=lambda sql: [(None,t,a) for s,t,a in original(sql)]",
+  "seed": null
+}

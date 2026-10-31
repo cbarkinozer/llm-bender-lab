@@ -1,0 +1,28 @@
+.F.                                                                      [100%]
+================================== FAILURES ===================================
+________________ test_download_then_cache_and_failure_fallback ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000275A6FDD940>
+
+    def test_download_then_cache_and_failure_fallback(monkeypatch):
+        monkeypatch.setattr(tldr, 'USE_CACHE', True)
+        monkeypatch.setattr(tldr, 'have_recent_cache', lambda *args: False)
+        writes, requests = [], []
+        def download(request, **kwargs):
+            requests.append((request.full_url, kwargs['timeout']))
+            return BytesIO(b'fresh\npage')
+        monkeypatch.setattr(tldr, 'urlopen', download)
+        monkeypatch.setattr(tldr, 'store_page_to_cache', lambda *args: writes.append(args))
+        monkeypatch.setattr(tldr, 'load_page_from_cache', lambda *args: b'stale')
+        assert tldr.get_page_for_platform('git', 'linux', 'https://pages.example', 'en') == [b'fresh', b'page']
+        assert requests == [('https://pages.example/linux/git.md', 10)]
+>       assert writes == [(b'fresh\npage', 'git', 'linux', 'en')]
+E       AssertionError: assert [] == [(b'fresh\npa...linux', 'en')]
+E         
+E         Right contains one more item: (b'fresh\npage', 'git', 'linux', 'en')
+E         Use -v to get more diff
+
+tests\test_cache_network_routing.py:28: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_cache_network_routing.py::test_download_then_cache_and_failure_fallback
+1 failed, 2 passed in 0.07s

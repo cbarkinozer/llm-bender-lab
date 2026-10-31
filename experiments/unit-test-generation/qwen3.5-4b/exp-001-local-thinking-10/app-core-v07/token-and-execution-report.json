@@ -1,0 +1,298 @@
+{
+  "reports": [
+    {
+      "repo": "GitHub-insignia",
+      "returncode": 0,
+      "seconds": 4.33,
+      "test_source_tokens": 5018,
+      "output_payload_tokens": 5066,
+      "files": [
+        {
+          "path": "tests/conftest.py",
+          "chars": 2640,
+          "tokens": 732,
+          "sha256": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c"
+        },
+        {
+          "path": "tests/test_requirements.py",
+          "chars": 8858,
+          "tokens": 2396,
+          "sha256": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea"
+        },
+        {
+          "path": "tests/test_snapshot_contract.py",
+          "chars": 7596,
+          "tokens": 1871,
+          "sha256": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+        },
+        {
+          "path": "pytest.ini",
+          "chars": 75,
+          "tokens": 19,
+          "sha256": "da9808d584f4d7bf9f89efb0e294727a7abd06903d9ae8fbc45f5dd93c59b684"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/GitHub-insignia.log",
+      "source_commit": "b44bd4ae59aa2d88d2334b1ae1a3c75089f3d07d",
+      "reference_files": [],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\GitHub-insignia.log"
+    },
+    {
+      "repo": "ghost-box",
+      "returncode": 0,
+      "seconds": 1.07,
+      "test_source_tokens": 2077,
+      "output_payload_tokens": 2101,
+      "files": [
+        {
+          "path": "tests/test_core.py",
+          "chars": 3068,
+          "tokens": 859,
+          "sha256": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9"
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "chars": 4300,
+          "tokens": 1218,
+          "sha256": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/ghost-box.log",
+      "source_commit": "fc0fd7dbb824b9d33cd695ac68d0d79320eb7faa",
+      "reference_files": [
+        {
+          "path": "reference/mail_workflow.py",
+          "sha256": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+        }
+      ],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\ghost-box.log"
+    },
+    {
+      "repo": "slm_test_generation",
+      "returncode": 0,
+      "seconds": 8.48,
+      "test_source_tokens": 2416,
+      "output_payload_tokens": 2453,
+      "files": [
+        {
+          "path": "tests/conftest.py",
+          "chars": 684,
+          "tokens": 155,
+          "sha256": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad"
+        },
+        {
+          "path": "tests/test_core.py",
+          "chars": 3964,
+          "tokens": 1045,
+          "sha256": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483"
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "chars": 4719,
+          "tokens": 1216,
+          "sha256": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/slm_test_generation.log",
+      "source_commit": "380b7d362f49d43fd55af5b2f7e015d4fa651e97",
+      "reference_files": [
+        {
+          "path": "reference/benchmark_workflow.py",
+          "sha256": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f"
+        },
+        {
+          "path": "reference/oracle_analysis.py",
+          "sha256": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        }
+      ],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\slm_test_generation.log"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "returncode": 0,
+      "seconds": 1.2,
+      "test_source_tokens": 1307,
+      "output_payload_tokens": 1344,
+      "files": [
+        {
+          "path": "tests/conftest.py",
+          "chars": 588,
+          "tokens": 156,
+          "sha256": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625"
+        },
+        {
+          "path": "tests/test_core.py",
+          "chars": 758,
+          "tokens": 175,
+          "sha256": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703"
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "chars": 3887,
+          "tokens": 976,
+          "sha256": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/llm-bender-lab.log",
+      "source_commit": "43549ddb802c97ab9467d093a9936eef6a822910",
+      "reference_files": [
+        {
+          "path": "reference/experiment_workflow.py",
+          "sha256": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+        }
+      ],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\llm-bender-lab.log"
+    },
+    {
+      "repo": "ReflexModels",
+      "returncode": 0,
+      "seconds": 1.09,
+      "test_source_tokens": 1380,
+      "output_payload_tokens": 1392,
+      "files": [
+        {
+          "path": "tests/test_core.py",
+          "chars": 5135,
+          "tokens": 1380,
+          "sha256": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/ReflexModels.log",
+      "source_commit": "efbc154cf9b9caf41a6e68a314356eed96dbb017",
+      "reference_files": [],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\ReflexModels.log"
+    },
+    {
+      "repo": "codelang-detect",
+      "returncode": 0,
+      "seconds": 0.94,
+      "test_source_tokens": 1060,
+      "output_payload_tokens": 1072,
+      "files": [
+        {
+          "path": "tests/test_core.py",
+          "chars": 3895,
+          "tokens": 1060,
+          "sha256": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/codelang-detect.log",
+      "source_commit": "14fc6b772808b9e8158d62b649a043b14c8df6fb",
+      "reference_files": [],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\codelang-detect.log"
+    },
+    {
+      "repo": "repo-context",
+      "returncode": 0,
+      "seconds": 1.24,
+      "test_source_tokens": 1271,
+      "output_payload_tokens": 1308,
+      "files": [
+        {
+          "path": "tests/conftest.py",
+          "chars": 54,
+          "tokens": 11,
+          "sha256": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c"
+        },
+        {
+          "path": "tests/test_core.py",
+          "chars": 2192,
+          "tokens": 613,
+          "sha256": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b"
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "chars": 2614,
+          "tokens": 647,
+          "sha256": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/repo-context.log",
+      "source_commit": "efc00f0c4c77fb404a65ba7447e974c754b27452",
+      "reference_files": [
+        {
+          "path": "reference/context_workflow.py",
+          "sha256": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+        }
+      ],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\repo-context.log"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "returncode": 0,
+      "seconds": 2.48,
+      "test_source_tokens": 1739,
+      "output_payload_tokens": 1765,
+      "files": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "chars": 2753,
+          "tokens": 869,
+          "sha256": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec"
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "chars": 2820,
+          "tokens": 870,
+          "sha256": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/cryptocurrency-analyser.log",
+      "source_commit": "cdefa3681b17a3f24980158e2edc66e8cbc353f2",
+      "reference_files": [
+        {
+          "path": "reference/coin_comparator.py",
+          "sha256": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c"
+        },
+        {
+          "path": "reference/price_workflow.py",
+          "sha256": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+        }
+      ],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\cryptocurrency-analyser.log"
+    },
+    {
+      "repo": "miniature-llms",
+      "returncode": 0,
+      "seconds": 5.78,
+      "test_source_tokens": 1494,
+      "output_payload_tokens": 1522,
+      "files": [
+        {
+          "path": "tests/test_normalization_and_rope.py",
+          "chars": 2013,
+          "tokens": 665,
+          "sha256": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5"
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "chars": 2941,
+          "tokens": 829,
+          "sha256": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+        }
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/miniature-llms.log",
+      "source_commit": "d369337b151cedd9c39fbc654dfed8236344a7cd",
+      "reference_files": [
+        {
+          "path": "reference/tiny_model.py",
+          "sha256": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+        }
+      ],
+      "source_dirty": false,
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07\\20261031T075507672245Z\\miniature-llms.log"
+    }
+  ],
+  "tokenizer": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\tokenizer",
+  "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+  "total_test_output_tokens": 18023,
+  "note": "Candidate compact tests and required fixtures, not all-requirements certification. Payload excludes request, clarification/interface, teacher reasoning and native chat framing."
+}

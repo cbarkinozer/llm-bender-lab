@@ -11,10 +11,12 @@ and limitations. [Occam release/verification notes](docs/publication/PRIVATE-UPL
 record the subsequent adapter/dataset uploads; historical provenance review remains
 distinct from public visibility.
 
-Current phase (2026-10-31): [thinking SFT on Qwen3.5-4B through requirements-to-tests](experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/README.md).
-Nine whole-app candidates use a [shared input/output format](docs/tdd-example-format.md).
-Human review and an untouched-model baseline precede training; no whole-app SFT
-or before/after improvement is claimed. Occam2/Turkish work is preserved for later.
+Current phase (2026-10-31): [task-to-tests thinking SFT on Qwen3.5-4B](experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/README.md).
+An eight-task format pilot separates explicit application plans from the trained
+task-to-pytest capability. Data expansion toward 100 training tasks and a new
+untouched-model baseline precede training. The owner chose AI-assisted review for
+this utility demo. Prior whole-app candidates and Occam2/Turkish work are preserved;
+no task-level SFT or before/after improvement is claimed.
 The [learning roadmap](docs/post-training-learning-roadmap.md) records the next demos.
 
 Earlier phase (2026-10-05): [Python unit-test generation](experiments/unit-test-generation/qwen3.5-4b/README.md)

@@ -1,0 +1,45 @@
+{
+  "order": [
+    "tests/test_session_undo_redo.py::test_revert_undo_redo_and_empty_history",
+    "tests/test_session_undo_redo.py::test_new_edit_invalidates_redo"
+  ],
+  "reports": [
+    {
+      "nodeid": "tests/test_session_undo_redo.py::test_revert_undo_redo_and_empty_history",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_session_undo_redo.py::test_revert_undo_redo_and_empty_history",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_session_undo_redo.py::test_revert_undo_redo_and_empty_history",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_session_undo_redo.py::test_new_edit_invalidates_redo",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_session_undo_redo.py::test_new_edit_invalidates_redo",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_session_undo_redo.py::test_new_edit_invalidates_redo",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1
+}

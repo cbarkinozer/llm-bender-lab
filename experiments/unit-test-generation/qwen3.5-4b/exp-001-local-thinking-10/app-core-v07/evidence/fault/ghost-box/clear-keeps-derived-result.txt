@@ -1,0 +1,16 @@
+import json
+from pathlib import Path
+FAILURES=[]
+def pytest_configure(config):
+    from mail_workflow import MailApp
+    original=MailApp.clear
+    def broken(self):
+        previous=self.result
+        original(self)
+        self.result=previous
+    MailApp.clear=broken
+
+def pytest_runtest_logreport(report):
+    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))
+def pytest_sessionfinish(session,exitstatus):
+    Path('C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\clear-keeps-derived-result\\failures.json').write_text(json.dumps(FAILURES,indent=2))

@@ -1,0 +1,27 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+__________ test_long_mail_splitting_preserves_exact_unicode_content ___________
+
+    def test_long_mail_splitting_preserves_exact_unicode_content():
+        body = 'Türkçe🙂 selected mail. ' * 30
+        batches = split_emails([mail('one', body)], lambda items: sum(len(m['body']) + 20 for m in items), 150, 64)
+        pieces = [m for batch in batches for m in batch]
+        assert ''.join(m['body'] for m in pieces) == body
+        assert {m['id'] for m in pieces} == {'one'}
+>       assert [m['part'] for m in pieces] == list(range(1, len(pieces) + 1))
+                ^^^^^^^^^
+E       KeyError: 'part'
+
+tests\test_mail_splitting.py:15: KeyError
+__________ test_task_cap_does_not_silently_discard_selected_content ___________
+
+    def test_task_cap_does_not_silently_discard_selected_content():
+>       with pytest.raises(TaskError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TaskError
+
+tests\test_mail_splitting.py:19: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_mail_splitting.py::test_long_mail_splitting_preserves_exact_unicode_content
+FAILED tests/test_mail_splitting.py::test_task_cap_does_not_silently_discard_selected_content
+2 failed in 0.06s

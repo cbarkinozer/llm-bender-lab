@@ -1,0 +1,22 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________ test_fetch_drops_only_entirely_missing_tickers ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001E73E474640>
+
+    def test_fetch_drops_only_entirely_missing_tickers(monkeypatch):
+        from unittest.mock import Mock
+        prices = pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.], 'MISSING-USD': [float('nan'), float('nan')]})
+        download = Mock(return_value={'Adj Close': prices})
+        result = fetch_data(['BTC-USD', 'ETH-USD', 'MISSING-USD'], '2026-01-01 00:00:00', '2026-01-03 00:00:00', download=download)
+>       assert_frame_equal(result, pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.]}))
+E       AssertionError: DataFrame are different
+E       
+E       DataFrame shape mismatch
+E       [left]:  (2, 1)
+E       [right]: (2, 2)
+
+tests\test_price_fetch.py:11: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_price_fetch.py::test_fetch_drops_only_entirely_missing_tickers
+1 failed in 0.17s

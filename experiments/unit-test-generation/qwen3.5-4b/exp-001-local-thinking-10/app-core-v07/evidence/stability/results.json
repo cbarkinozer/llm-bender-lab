@@ -1,0 +1,918 @@
+{
+  "results": [
+    {
+      "repo": "GitHub-insignia",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 38,
+      "order": [
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_requirements.py::test_r5_cache_read_restart_and_manual_refresh",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[{}]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[fetched-at-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[profile-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[metrics-<lambda>]",
+        "tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service",
+        "tests/test_requirements.py::test_r3_graphql_window_combination_and_secret_absence",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[not json]",
+        "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool",
+        "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[scope-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-count-<lambda>]",
+        "tests/test_snapshot_contract.py::test_missing_graphql_totals_does_not_turn_into_zero",
+        "tests/test_snapshot_contract.py::test_http_local_origin_and_host_guards",
+        "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[window-<lambda>]",
+        "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+        "tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart",
+        "tests/test_snapshot_contract.py::test_pagination_cannot_forward_credentials_to_another_host",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[unauthorized]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-days-<lambda>]",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[timeout]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[repositories-<lambda>]",
+        "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+        "tests/test_snapshot_contract.py::test_actual_transport_timeout_is_sanitized",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[graphql-error]",
+        "tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[[]]",
+        "tests/test_snapshot_contract.py::test_real_zero_activity_stays_zero",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[missing-reason-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[language-percent-<lambda>]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/GitHub-insignia/17.log",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\GitHub-insignia\\17\\pytest.log"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 38,
+      "order": [
+        "tests/test_snapshot_contract.py::test_missing_graphql_totals_does_not_turn_into_zero",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[profile-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[window-<lambda>]",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[{}]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-count-<lambda>]",
+        "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[language-percent-<lambda>]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_snapshot_contract.py::test_pagination_cannot_forward_credentials_to_another_host",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[not json]",
+        "tests/test_snapshot_contract.py::test_http_local_origin_and_host_guards",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[fetched-at-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[missing-reason-<lambda>]",
+        "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+        "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+        "tests/test_requirements.py::test_r3_graphql_window_combination_and_secret_absence",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[timeout]",
+        "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool",
+        "tests/test_snapshot_contract.py::test_actual_transport_timeout_is_sanitized",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[metrics-<lambda>]",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[graphql-error]",
+        "tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[unauthorized]",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[scope-<lambda>]",
+        "tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service",
+        "tests/test_snapshot_contract.py::test_real_zero_activity_stays_zero",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-days-<lambda>]",
+        "tests/test_requirements.py::test_r5_cache_read_restart_and_manual_refresh",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[[]]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[repositories-<lambda>]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+        "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/GitHub-insignia/43.log",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\GitHub-insignia\\43\\pytest.log"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 38,
+      "order": [
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[unauthorized]",
+        "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+        "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting",
+        "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[profile-<lambda>]",
+        "tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot",
+        "tests/test_snapshot_contract.py::test_missing_graphql_totals_does_not_turn_into_zero",
+        "tests/test_snapshot_contract.py::test_actual_transport_timeout_is_sanitized",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-count-<lambda>]",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[not json]",
+        "tests/test_snapshot_contract.py::test_http_local_origin_and_host_guards",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[[]]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[fetched-at-<lambda>]",
+        "tests/test_snapshot_contract.py::test_pagination_cannot_forward_credentials_to_another_host",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[scope-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-days-<lambda>]",
+        "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[timeout]",
+        "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable[{}]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[window-<lambda>]",
+        "tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service",
+        "tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart",
+        "tests/test_snapshot_contract.py::test_real_zero_activity_stays_zero",
+        "tests/test_requirements.py::test_r5_cache_read_restart_and_manual_refresh",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[missing-reason-<lambda>]",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[language-percent-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[metrics-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[repositories-<lambda>]",
+        "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures[graphql-error]",
+        "tests/test_requirements.py::test_r3_graphql_window_combination_and_secret_absence"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/GitHub-insignia/91.log",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\GitHub-insignia\\91\\pytest.log"
+    },
+    {
+      "repo": "ghost-box",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 12,
+      "order": [
+        "tests/test_workflow.py::test_clear_removes_derived_results_and_model_idle_boundary",
+        "tests/test_core.py::test_literal_sender_filter_is_unicode_aware",
+        "tests/test_core.py::test_session_mail_is_not_restored_and_accounts_do_not_mix",
+        "tests/test_core.py::test_search_respects_the_explicit_downloaded_scope",
+        "tests/test_workflow.py::test_explicit_fetch_preserves_range_and_reports_coverage",
+        "tests/test_workflow.py::test_idle_timer_resets_and_active_operations_prevent_unload",
+        "tests/test_core.py::test_clear_removes_mail_and_coverage",
+        "tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied",
+        "tests/test_core.py::test_task_cap_does_not_silently_discard_selected_content",
+        "tests/test_core.py::test_long_mail_splitting_preserves_exact_unicode_content",
+        "tests/test_core.py::test_summary_quote_cannot_be_borrowed_from_another_email",
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/ghost-box/17.log",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\ghost-box\\17\\pytest.log"
+    },
+    {
+      "repo": "ghost-box",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 12,
+      "order": [
+        "tests/test_workflow.py::test_clear_removes_derived_results_and_model_idle_boundary",
+        "tests/test_core.py::test_clear_removes_mail_and_coverage",
+        "tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied",
+        "tests/test_core.py::test_literal_sender_filter_is_unicode_aware",
+        "tests/test_workflow.py::test_idle_timer_resets_and_active_operations_prevent_unload",
+        "tests/test_core.py::test_summary_quote_cannot_be_borrowed_from_another_email",
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference",
+        "tests/test_core.py::test_task_cap_does_not_silently_discard_selected_content",
+        "tests/test_workflow.py::test_explicit_fetch_preserves_range_and_reports_coverage",
+        "tests/test_core.py::test_search_respects_the_explicit_downloaded_scope",
+        "tests/test_core.py::test_long_mail_splitting_preserves_exact_unicode_content",
+        "tests/test_core.py::test_session_mail_is_not_restored_and_accounts_do_not_mix"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/ghost-box/43.log",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\ghost-box\\43\\pytest.log"
+    },
+    {
+      "repo": "ghost-box",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 12,
+      "order": [
+        "tests/test_core.py::test_session_mail_is_not_restored_and_accounts_do_not_mix",
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference",
+        "tests/test_workflow.py::test_idle_timer_resets_and_active_operations_prevent_unload",
+        "tests/test_core.py::test_long_mail_splitting_preserves_exact_unicode_content",
+        "tests/test_workflow.py::test_explicit_fetch_preserves_range_and_reports_coverage",
+        "tests/test_core.py::test_task_cap_does_not_silently_discard_selected_content",
+        "tests/test_core.py::test_literal_sender_filter_is_unicode_aware",
+        "tests/test_core.py::test_summary_quote_cannot_be_borrowed_from_another_email",
+        "tests/test_workflow.py::test_clear_removes_derived_results_and_model_idle_boundary",
+        "tests/test_core.py::test_search_respects_the_explicit_downloaded_scope",
+        "tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied",
+        "tests/test_core.py::test_clear_removes_mail_and_coverage"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/ghost-box/91.log",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\ghost-box\\91\\pytest.log"
+    },
+    {
+      "repo": "slm_test_generation",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 24,
+      "order": [
+        "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+        "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result == 42-STRONG]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+        "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+        "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+        "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+        "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+        "tests/test_workflow.py::test_manifest_roundtrip",
+        "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[assert True-TRIVIAL]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert helper(result)-UNKNOWN]",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]",
+        "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 42-expected3]",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/slm_test_generation/17.log",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\slm_test_generation\\17\\pytest.log"
+    },
+    {
+      "repo": "slm_test_generation",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 24,
+      "order": [
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result == 42-STRONG]",
+        "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+        "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+        "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]",
+        "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+        "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+        "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+        "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[assert True-TRIVIAL]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+        "tests/test_workflow.py::test_manifest_roundtrip",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert helper(result)-UNKNOWN]",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 42-expected3]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+        "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/slm_test_generation/43.log",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\slm_test_generation\\43\\pytest.log"
+    },
+    {
+      "repo": "slm_test_generation",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 24,
+      "order": [
+        "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[assert True-TRIVIAL]",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]",
+        "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 42-expected3]",
+        "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+        "tests/test_workflow.py::test_manifest_roundtrip",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+        "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert helper(result)-UNKNOWN]",
+        "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]",
+        "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+        "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+        "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result == 42-STRONG]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/slm_test_generation/91.log",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\slm_test_generation\\91\\pytest.log"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 7,
+      "order": [
+        "tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+        "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/llm-bender-lab/17.log",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\llm-bender-lab\\17\\pytest.log"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 7,
+      "order": [
+        "tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+        "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten",
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/llm-bender-lab/43.log",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\llm-bender-lab\\43\\pytest.log"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 7,
+      "order": [
+        "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+        "tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/llm-bender-lab/91.log",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\llm-bender-lab\\91\\pytest.log"
+    },
+    {
+      "repo": "ReflexModels",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 18,
+      "order": [
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels1-probabilities1-0]",
+        "tests/test_core.py::test_metrics_include_unpredicted_class",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels0-probabilities0-2]",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>2]",
+        "tests/test_core.py::test_low_margin_requires_fallback",
+        "tests/test_core.py::test_runtime_unicode_options_roundtrip",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>0]",
+        "tests/test_core.py::test_ordinal_scoring_and_declaration_order_ties",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]",
+        "tests/test_core.py::test_low_answerability_overrides_confident_choice",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>1]",
+        "tests/test_core.py::test_logits_map_to_original_option_ids",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+        "tests/test_core.py::test_shared_state_keeps_question_results_separate",
+        "tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+        "tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/ReflexModels/17.log",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\ReflexModels\\17\\pytest.log"
+    },
+    {
+      "repo": "ReflexModels",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 18,
+      "order": [
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]",
+        "tests/test_core.py::test_metrics_include_unpredicted_class",
+        "tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>1]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>2]",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels1-probabilities1-0]",
+        "tests/test_core.py::test_runtime_unicode_options_roundtrip",
+        "tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels0-probabilities0-2]",
+        "tests/test_core.py::test_ordinal_scoring_and_declaration_order_ties",
+        "tests/test_core.py::test_low_answerability_overrides_confident_choice",
+        "tests/test_core.py::test_low_margin_requires_fallback",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+        "tests/test_core.py::test_logits_map_to_original_option_ids",
+        "tests/test_core.py::test_shared_state_keeps_question_results_separate",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>0]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/ReflexModels/43.log",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\ReflexModels\\43\\pytest.log"
+    },
+    {
+      "repo": "ReflexModels",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 18,
+      "order": [
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>2]",
+        "tests/test_core.py::test_runtime_unicode_options_roundtrip",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels1-probabilities1-0]",
+        "tests/test_core.py::test_ordinal_scoring_and_declaration_order_ties",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]",
+        "tests/test_core.py::test_undefined_metrics_reject_invalid_inputs[labels0-probabilities0-2]",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>0]",
+        "tests/test_core.py::test_logits_map_to_original_option_ids",
+        "tests/test_core.py::test_shared_state_keeps_question_results_separate",
+        "tests/test_core.py::test_low_margin_requires_fallback",
+        "tests/test_core.py::test_calibration_metrics_have_concrete_expected_values",
+        "tests/test_core.py::test_low_answerability_overrides_confident_choice",
+        "tests/test_core.py::test_metrics_include_unpredicted_class",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+        "tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+        "tests/test_core.py::test_invalid_decision_requests_are_rejected[<lambda>1]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/ReflexModels/91.log",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\ReflexModels\\91\\pytest.log"
+    },
+    {
+      "repo": "codelang-detect",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 15,
+      "order": [
+        "tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+        "tests/test_core.py::test_cli_file_prints_one_label",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[no evidence-unknown]",
+        "tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]",
+        "tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]",
+        "tests/test_core.py::test_unknown_without_code_evidence[]",
+        "tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+        "tests/test_core.py::test_unknown_without_code_evidence[Please bring the notebook to our meeting.]",
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+        "tests/test_core.py::test_weighted_evidence_not_match_count",
+        "tests/test_core.py::test_clear_language_markers[const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);-js]",
+        "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+        "tests/test_core.py::test_equal_scores_use_first_declared_label",
+        "tests/test_core.py::test_cli_stdin_prints_one_label"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/codelang-detect/17.log",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\codelang-detect\\17\\pytest.log"
+    },
+    {
+      "repo": "codelang-detect",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 15,
+      "order": [
+        "tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+        "tests/test_core.py::test_cli_stdin_prints_one_label",
+        "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[no evidence-unknown]",
+        "tests/test_core.py::test_equal_scores_use_first_declared_label",
+        "tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]",
+        "tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+        "tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]",
+        "tests/test_core.py::test_weighted_evidence_not_match_count",
+        "tests/test_core.py::test_cli_file_prints_one_label",
+        "tests/test_core.py::test_unknown_without_code_evidence[Please bring the notebook to our meeting.]",
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+        "tests/test_core.py::test_clear_language_markers[const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);-js]",
+        "tests/test_core.py::test_unknown_without_code_evidence[]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/codelang-detect/43.log",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\codelang-detect\\43\\pytest.log"
+    },
+    {
+      "repo": "codelang-detect",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 15,
+      "order": [
+        "tests/test_core.py::test_unknown_without_code_evidence[]",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[no evidence-unknown]",
+        "tests/test_core.py::test_clear_language_markers[const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);-js]",
+        "tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]",
+        "tests/test_core.py::test_weighted_evidence_not_match_count",
+        "tests/test_core.py::test_cli_stdin_prints_one_label",
+        "tests/test_core.py::test_cli_file_prints_one_label",
+        "tests/test_core.py::test_equal_scores_use_first_declared_label",
+        "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error",
+        "tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+        "tests/test_core.py::test_unknown_without_code_evidence[Please bring the notebook to our meeting.]",
+        "tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+        "tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/codelang-detect/91.log",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\codelang-detect\\91\\pytest.log"
+    },
+    {
+      "repo": "repo-context",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 11,
+      "order": [
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "tests/test_core.py::test_pyproject_dependencies_are_listed",
+        "tests/test_core.py::test_tree_filters_extensions_and_ignored_directories",
+        "tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+        "tests/test_workflow.py::test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories",
+        "tests/test_core.py::test_explicit_ignore_removes_matching_file",
+        "tests/test_core.py::test_requirements_are_included_in_dependency_context",
+        "tests/test_core.py::test_utf8_file_is_recognized",
+        "tests/test_core.py::test_branch_and_subdirectory_are_separated",
+        "tests/test_core.py::test_invalid_utf8_is_rejected",
+        "tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/repo-context/17.log",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\repo-context\\17\\pytest.log"
+    },
+    {
+      "repo": "repo-context",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 11,
+      "order": [
+        "tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+        "tests/test_core.py::test_explicit_ignore_removes_matching_file",
+        "tests/test_core.py::test_invalid_utf8_is_rejected",
+        "tests/test_core.py::test_pyproject_dependencies_are_listed",
+        "tests/test_workflow.py::test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories",
+        "tests/test_core.py::test_utf8_file_is_recognized",
+        "tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation",
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "tests/test_core.py::test_requirements_are_included_in_dependency_context",
+        "tests/test_core.py::test_branch_and_subdirectory_are_separated",
+        "tests/test_core.py::test_tree_filters_extensions_and_ignored_directories"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/repo-context/43.log",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\repo-context\\43\\pytest.log"
+    },
+    {
+      "repo": "repo-context",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 11,
+      "order": [
+        "tests/test_core.py::test_tree_filters_extensions_and_ignored_directories",
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "tests/test_workflow.py::test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories",
+        "tests/test_core.py::test_branch_and_subdirectory_are_separated",
+        "tests/test_core.py::test_utf8_file_is_recognized",
+        "tests/test_core.py::test_invalid_utf8_is_rejected",
+        "tests/test_core.py::test_pyproject_dependencies_are_listed",
+        "tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation",
+        "tests/test_core.py::test_requirements_are_included_in_dependency_context",
+        "tests/test_workflow.py::test_invalid_url_is_not_sent_to_clone",
+        "tests/test_core.py::test_explicit_ignore_removes_matching_file"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/repo-context/91.log",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\repo-context\\91\\pytest.log"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 13,
+      "order": [
+        "tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+        "tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+        "tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+        "tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported",
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers1-2026-01-04-2026-01-01]",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[-1.0]",
+        "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+        "tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+        "tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers0-2026-01-01-2026-01-04]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/cryptocurrency-analyser/17.log",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\cryptocurrency-analyser\\17\\pytest.log"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 13,
+      "order": [
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers0-2026-01-01-2026-01-04]",
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers1-2026-01-04-2026-01-01]",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[-1.0]",
+        "tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+        "tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+        "tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+        "tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+        "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+        "tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+        "tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/cryptocurrency-analyser/43.log",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\cryptocurrency-analyser\\43\\pytest.log"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 13,
+      "order": [
+        "tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[-1.0]",
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported",
+        "tests/test_coin_comparator.py::test_fetch_drops_only_entirely_missing_tickers",
+        "tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+        "tests/test_coin_comparator.py::test_combined_plot_contains_correlation_and_each_return_series",
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers0-2026-01-01-2026-01-04]",
+        "tests/test_workflow.py::test_provider_failure_does_not_produce_zero_returns",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+        "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+        "tests/test_workflow.py::test_bad_selection_fails_before_fetch[tickers1-2026-01-04-2026-01-01]",
+        "tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/cryptocurrency-analyser/91.log",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\cryptocurrency-analyser\\91\\pytest.log"
+    },
+    {
+      "repo": "miniature-llms",
+      "seed": 17,
+      "returncode": 0,
+      "collected": 15,
+      "order": [
+        "tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+        "tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+        "tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+        "tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+        "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+        "tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+        "tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+        "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/miniature-llms/17.log",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\miniature-llms\\17\\pytest.log"
+    },
+    {
+      "repo": "miniature-llms",
+      "seed": 43,
+      "returncode": 0,
+      "collected": 15,
+      "order": [
+        "tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+        "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+        "tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+        "tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+        "tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite",
+        "tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+        "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+        "tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/miniature-llms/43.log",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\miniature-llms\\43\\pytest.log"
+    },
+    {
+      "repo": "miniature-llms",
+      "seed": 91,
+      "returncode": 0,
+      "collected": 15,
+      "order": [
+        "tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+        "tests/test_workflow.py::test_negative_generation_budget_is_rejected",
+        "tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+        "tests/test_normalization_and_rope.py::test_rotate_half_moves_and_negates_second_half",
+        "tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis",
+        "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_mismatched_input_dimension",
+        "tests/test_normalization_and_rope.py::test_rope_rejects_odd_head_dimension",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+        "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+        "tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient",
+        "tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_epsilon_keeps_zero_input_finite"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/miniature-llms/91.log",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\miniature-llms\\91\\pytest.log"
+    }
+  ],
+  "all_passed": true,
+  "note": "Seeded stdlib shuffle plugin changes collection order; no claim of hermetic fresh dependency environments. External calls are mocked; generated fixture suites use network-disabled Docker."
+}

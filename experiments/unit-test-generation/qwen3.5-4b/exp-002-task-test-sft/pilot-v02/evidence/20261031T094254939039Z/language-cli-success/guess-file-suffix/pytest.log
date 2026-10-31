@@ -1,0 +1,24 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_______________________ test_cli_file_prints_one_label ________________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-174/test_cli_file_prints_one_label0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000244F8032190>
+capsys = <_pytest.capture.CaptureFixture object at 0x00000244F6780C20>
+
+    def test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):
+        path = tmp_path / 'snippet.txt'
+        path.write_text('def greet():\n    print("Merhaba dünya")\n', encoding='utf-8')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])
+        main()
+        output = capsys.readouterr()
+>       assert (output.out, output.err) == ('py\n', '')
+E       AssertionError: assert ('txt\n', '') == ('py\n', '')
+E         
+E         At index 0 diff: 'txt\n' != 'py\n'
+E         Use -v to get more diff
+
+tests\test_cli_success.py:12: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_cli_success.py::test_cli_file_prints_one_label - AssertionE...
+1 failed, 1 passed in 0.06s

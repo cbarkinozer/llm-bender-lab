@@ -1,0 +1,5 @@
+{
+  "module": "ddgr",
+  "mutation": "original=m.Result.jsonizable_object\ndef broken(self):\n result=original(self)\n result.pop(\"metadata\",None)\n return result\nm.Result.jsonizable_object=broken",
+  "seed": null
+}

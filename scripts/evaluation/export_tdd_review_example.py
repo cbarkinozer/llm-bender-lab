@@ -45,12 +45,12 @@ def main():
     parser.add_argument('--record',default='codelang-detect')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
-    row=json.loads((args.bundle/args.record/'record.json').read_text())
+    row=json.loads((args.bundle/args.record/'record.json').read_text(encoding='utf-8'))
     forms=list(args.bundle.glob('human-review-*/presentation-v02/annotation-options.json'))
     assert len(forms)==1,'Publish the bundle once to freeze its actual annotation options.'
-    form=json.loads(forms[0].read_text())
-    text=build_text(row,form,(forms[0].parent/'GUIDELINES.md').read_text())
-    args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(text)
+    form=json.loads(forms[0].read_text(encoding='utf-8'))
+    text=build_text(row,form,(forms[0].parent/'GUIDELINES.md').read_text(encoding='utf-8'))
+    args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(text, encoding='utf-8', newline='\n')
     print(json.dumps(dict(file=str(args.output),record=row['record_id'],questions=len(form),faults=len(row['validation']['faults']),characters=len(text)),indent=2))
 
 if __name__=='__main__':main()

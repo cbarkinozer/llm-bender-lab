@@ -1,0 +1,101 @@
+F.FFFF                                                                   [100%]
+================================== FAILURES ===================================
+_________ test_returns_are_relative_to_first_price_not_daily_changes __________
+
+    def test_returns_are_relative_to_first_price_not_daily_changes():
+        prices = pd.DataFrame({'BTC': [100., 150., 75.], 'ETH': [20., 10., 30.]})
+        expected = pd.DataFrame({'BTC': [0., .5, -.25], 'ETH': [0., -.5, .5]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+tests\test_cumulative_returns.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (33.33333 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.5, -0.5]
+E   [right]: [0.0, 0.5, -0.25]
+E   At positional index 2, first diff: -0.5 != -0.25
+
+pandas/_libs/testing.pyx:171: AssertionError
+_____________________ test_missing_price_remains_missing ______________________
+
+    def test_missing_price_remains_missing():
+        prices = pd.DataFrame({'BTC': [100., float('nan'), 200.]})
+        expected = pd.DataFrame({'BTC': [0., float('nan'), 1.]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+tests\test_cumulative_returns.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (66.66667 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.0, 0.0]
+E   [right]: [0.0, nan, 1.0]
+E   At positional index 1, first diff: 0.0 != nan
+
+pandas/_libs/testing.pyx:171: AssertionError
+_______ test_first_observed_price_is_selected_independently_per_series ________
+
+    def test_first_observed_price_is_selected_independently_per_series():
+        missing=float('nan')
+        prices=pd.DataFrame({'late':[missing,10.,20.], 'early':[2.,4.,missing], 'missing':[missing,missing,missing]})
+        expected=pd.DataFrame({'late':[missing,0.,1.], 'early':[0.,1.,missing], 'missing':[missing,missing,missing]})
+>       assert_frame_equal(calculate_cumulative_returns(prices),expected)
+
+tests\test_cumulative_returns.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="late") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="late") values are different (33.33333 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.0, 1.0]
+E   [right]: [nan, 0.0, 1.0]
+E   At positional index 0, first diff: 0.0 != nan
+
+pandas/_libs/testing.pyx:171: AssertionError
+____________ test_nonpositive_observed_baselines_are_rejected[0.0] ____________
+
+baseline = 0.0
+
+    @pytest.mark.parametrize('baseline',[0.,-1.])
+    def test_nonpositive_observed_baselines_are_rejected(baseline):
+>       with pytest.raises(ValueError,match='baseline'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_cumulative_returns.py:39: Failed
+___________ test_nonpositive_observed_baselines_are_rejected[-1.0] ____________
+
+baseline = -1.0
+
+    @pytest.mark.parametrize('baseline',[0.,-1.])
+    def test_nonpositive_observed_baselines_are_rejected(baseline):
+>       with pytest.raises(ValueError,match='baseline'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_cumulative_returns.py:39: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_cumulative_returns.py::test_returns_are_relative_to_first_price_not_daily_changes
+FAILED tests/test_cumulative_returns.py::test_missing_price_remains_missing
+FAILED tests/test_cumulative_returns.py::test_first_observed_price_is_selected_independently_per_series
+FAILED tests/test_cumulative_returns.py::test_nonpositive_observed_baselines_are_rejected[0.0]
+FAILED tests/test_cumulative_returns.py::test_nonpositive_observed_baselines_are_rejected[-1.0]
+5 failed, 1 passed in 0.21s

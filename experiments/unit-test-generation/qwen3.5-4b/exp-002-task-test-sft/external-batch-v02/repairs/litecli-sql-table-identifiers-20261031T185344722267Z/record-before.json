@@ -1,0 +1,122 @@
+{
+  "record_id": "litecli-sql-table-identifiers-external-v02",
+  "task_id": "litecli-sql-table-identifiers",
+  "record_type": "task-test",
+  "source_group": "dbcli/litecli",
+  "candidate_split": "train",
+  "training_eligible": false,
+  "target_file": "tests/test_sql_table_identifiers.py",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write one complete Python pytest file for the agreed development task before implementation. Use only the supplied interfaces and requirements. Include deterministic offline fixtures, successful controls and meaningful boundary/failure assertions. Give concise rationale separately, then exactly File: <target path> followed by one fenced python file. Do not implement the application."
+    },
+    {
+      "role": "user",
+      "content": "APPLICATION\nBuild a SQLite terminal client with query execution, SQL-aware completion and special commands.\n\nAGREED TASK PLAN\n[\n  {\n    \"id\": \"sql-table-identifiers\",\n    \"module\": \"litecli.packages.parseutils\",\n    \"target_file\": \"tests/test_sql_table_identifiers.py\"\n  },\n  {\n    \"id\": \"sql-destructive-detection\",\n    \"module\": \"litecli.packages.parseutils\",\n    \"target_file\": \"tests/test_sql_destructive_detection.py\"\n  },\n  {\n    \"id\": \"completion-last-word\",\n    \"module\": \"litecli.packages.parseutils\",\n    \"target_file\": \"tests/test_completion_last_word.py\"\n  },\n  {\n    \"id\": \"path-completion\",\n    \"module\": \"litecli.packages.filepaths\",\n    \"target_file\": \"tests/test_path_completion.py\"\n  },\n  {\n    \"id\": \"sqlite-query-execution\",\n    \"module\": \"litecli.sqlexecute\",\n    \"target_file\": \"tests/test_sqlite_query_execution.py\"\n  },\n  {\n    \"id\": \"special-command-dispatch\",\n    \"module\": \"litecli.packages.special.main\",\n    \"target_file\": \"tests/test_special_command_dispatch.py\"\n  }\n]\n\nCURRENT TASK\nsql-table-identifiers\nTarget file: tests/test_sql_table_identifiers.py\nImplementation module: litecli.packages.parseutils\n\nINTERFACE AND ACCEPTANCE CONTRACT\nextract_tables(sql: str) returns (schema or None, table, alias or None) tuples in query order. Cover an empty query, schema-qualified JOINs and a nested SELECT; do not treat selected columns as tables.\n\nCONTEXT\nPython 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "Empty and column-only inputs prevent invented tables. Joins and nesting exercise structure rather than simple keyword matching.",
+      "content": "File: tests/test_sql_table_identifiers.py\n```python\nfrom litecli.packages.parseutils import extract_tables\n\n\ndef test_empty_and_columns_only():\n    assert extract_tables('') == []\n    assert extract_tables('SELECT 1 AS answer') == []\n\n\ndef test_qualified_join_and_aliases():\n    assert extract_tables('SELECT u.id FROM main.users u JOIN orders o ON u.id=o.user_id') == [\n        ('main', 'users', 'u'), (None, 'orders', 'o')]\n\n\ndef test_nested_select():\n    assert extract_tables('SELECT * FROM (SELECT id FROM users) nested') == [(None, 'users', None)]\n```\n"
+    }
+  ],
+  "artifact": {
+    "path": "tests/test_sql_table_identifiers.py",
+    "content": "from litecli.packages.parseutils import extract_tables\n\n\ndef test_empty_and_columns_only():\n    assert extract_tables('') == []\n    assert extract_tables('SELECT 1 AS answer') == []\n\n\ndef test_qualified_join_and_aliases():\n    assert extract_tables('SELECT u.id FROM main.users u JOIN orders o ON u.id=o.user_id') == [\n        ('main', 'users', 'u'), (None, 'orders', 'o')]\n\n\ndef test_nested_select():\n    assert extract_tables('SELECT * FROM (SELECT id FROM users) nested') == [(None, 'users', None)]\n"
+  },
+  "test_functions": [
+    "test_empty_and_columns_only",
+    "test_qualified_join_and_aliases",
+    "test_nested_select"
+  ],
+  "source": {
+    "repository": "dbcli/litecli",
+    "revision": "aa53bb0c1530cd1dfb30534babb0bf47df33c60a",
+    "source_file": "litecli/packages/parseutils.py",
+    "source_sha256": "0aafa835bd4e03b7803329a4e6920376b700aaa29cd5422aa8d779605ce0189d",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      {
+        "path": "LICENSE",
+        "sha256": "89336bf17c3e77924f1001b2cbf9a615be0db8bf103bdd953c8ba9792538f423"
+      }
+    ],
+    "provenance": "New assistant-authored requirements, rationale and tests from source behavior; no upstream test bodies copied."
+  },
+  "validation": {
+    "status": "failed",
+    "semantic_review": "pending; execution is not semantic approval",
+    "runs": [
+      {
+        "condition": "reference",
+        "seed": null,
+        "returncode": 1,
+        "cases": 3,
+        "passed_cases": 2,
+        "assertion_failures": 1,
+        "killed": null,
+        "ok": false,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185257830848Z/litecli-sql-table-identifiers/reference"
+      },
+      {
+        "condition": "order-17",
+        "seed": 17,
+        "returncode": 1,
+        "cases": 3,
+        "passed_cases": 2,
+        "assertion_failures": 1,
+        "killed": null,
+        "ok": false,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185257830848Z/litecli-sql-table-identifiers/order-17"
+      },
+      {
+        "condition": "order-43",
+        "seed": 43,
+        "returncode": 1,
+        "cases": 3,
+        "passed_cases": 2,
+        "assertion_failures": 1,
+        "killed": null,
+        "ok": false,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185257830848Z/litecli-sql-table-identifiers/order-43"
+      },
+      {
+        "condition": "order-91",
+        "seed": 91,
+        "returncode": 1,
+        "cases": 3,
+        "passed_cases": 2,
+        "assertion_failures": 1,
+        "killed": null,
+        "ok": false,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185257830848Z/litecli-sql-table-identifiers/order-91"
+      },
+      {
+        "condition": "always-empty",
+        "seed": null,
+        "returncode": 1,
+        "cases": 3,
+        "passed_cases": 1,
+        "assertion_failures": 2,
+        "killed": true,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185257830848Z/litecli-sql-table-identifiers/always-empty"
+      },
+      {
+        "condition": "lose-schema",
+        "seed": null,
+        "returncode": 1,
+        "cases": 3,
+        "passed_cases": 1,
+        "assertion_failures": 2,
+        "killed": true,
+        "ok": true,
+        "evidence": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/external-batch-v02/evidence/20261031T185257830848Z/litecli-sql-table-identifiers/lose-schema"
+      }
+    ],
+    "reference_cases": 3,
+    "artifact_sha256": "98ee88523b3fcb5fd8f32c61bf296cbdce371ca3d70ef0b12c3ea1fd290a558c"
+  },
+  "tokens": null
+}

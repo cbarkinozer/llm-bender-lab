@@ -1,0 +1,24 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_pagination_transitions_and_reset ____________________
+
+    def test_pagination_transitions_and_reset():
+        url = DdgUrl(duration='', keywords=['python'])
+>       assert (url.query['page'], url.query['curindex']) == (0, 1)
+                ^^^^^^^^^^^^^^^^^
+E       TypeError: 'method' object is not subscriptable
+
+tests\test_search_pagination.py:7: TypeError
+_________________________ test_first_page_boundaries __________________________
+
+    def test_first_page_boundaries():
+        url = DdgUrl(duration='')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_search_pagination.py:22: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_search_pagination.py::test_pagination_transitions_and_reset
+FAILED tests/test_search_pagination.py::test_first_page_boundaries - Failed: ...
+2 failed in 0.06s

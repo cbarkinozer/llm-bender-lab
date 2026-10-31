@@ -1,0 +1,23 @@
+......F                                                                  [100%]
+================================== FAILURES ===================================
+_________ test_failure_is_recorded_without_success_or_credential_leak _________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-96/test_failure_is_recorded_witho0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_failure_is_recorded_without_success_or_credential_leak(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        cfg = experiment_config | {'api_key':'fixture-secret'}
+        train = Mock(side_effect=RuntimeError('backend failed fixture-secret'))
+        result = run_experiment(tmp_path, 'failure', cfg, experiment_rows, trainer=train, evaluator=Mock())
+>       assert result['status'] == 'failed'
+E       AssertionError: assert 'completed' == 'failed'
+E         
+E         - failed
+E         + completed
+
+tests\test_workflow.py:66: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak
+1 failed, 6 passed in 0.12s

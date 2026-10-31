@@ -1,0 +1,22 @@
+...........F...                                                          [100%]
+================================== FAILURES ===================================
+____________ test_invalid_utf8_file_exits_1_with_processing_error _____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-108/test_invalid_utf8_file_exits_10')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001B384FD8850>
+capsys = <_pytest.capture.CaptureFixture object at 0x000001B385045BA0>
+
+    def test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):
+        path = tmp_path/'invalid.txt'
+        path.write_bytes(b'\xff\xfe')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])
+>       with pytest.raises(SystemExit) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE SystemExit
+
+tests\test_core.py:76: Failed
+---------------------------- Captured stdout call -----------------------------
+unknown
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+1 failed, 14 passed in 0.12s

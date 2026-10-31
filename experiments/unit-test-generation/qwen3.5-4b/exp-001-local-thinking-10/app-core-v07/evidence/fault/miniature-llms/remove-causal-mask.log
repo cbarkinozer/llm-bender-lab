@@ -1,0 +1,20 @@
+.........F.....                                                          [100%]
+================================== FAILURES ===================================
+______________ test_causal_outputs_cannot_observe_future_tokens _______________
+
+    def test_causal_outputs_cannot_observe_future_tokens():
+        net = model().eval()
+        with torch.no_grad():
+            original = net(torch.tensor([[1,2,3,4]]))
+            changed = net(torch.tensor([[1,2,6,7]]))
+>       torch.testing.assert_close(original[:,:2], changed[:,:2], rtol=1e-5,atol=1e-6)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 16 / 16 (100.0%)
+E       Greatest absolute difference: 0.2312229871749878 at index (0, 1, 6) (up to 1e-06 allowed)
+E       Greatest relative difference: 0.7722252607345581 at index (0, 1, 4) (up to 1e-05 allowed)
+
+tests\test_workflow.py:31: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens
+1 failed, 14 passed in 2.28s

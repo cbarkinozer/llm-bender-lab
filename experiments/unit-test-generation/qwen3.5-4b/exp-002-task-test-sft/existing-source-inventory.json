@@ -1,0 +1,2529 @@
+{
+  "scope": "Pinned local source snapshots; static inventory, not validated task counts. Generated/data/benchmark directories excluded by path; functions include helpers/methods and may overlap in behavior.",
+  "repositories": [
+    {
+      "repository": "codelang-detect",
+      "role": "training-family",
+      "python_modules": 7,
+      "function_definitions": 11,
+      "test_files": 2,
+      "test_functions": 8,
+      "production_files": [
+        {
+          "path": "benchmark/benchmark.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "benchmark/benchmark_external.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "benchmark/fetch_codesearchnet.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "codelang_detect/cli.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "codelang_detect/detector.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "codelang_detect/_patterns.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "codelang_detect/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "cryptocurrency-analyser",
+      "role": "training-family",
+      "python_modules": 10,
+      "function_definitions": 86,
+      "test_files": 0,
+      "test_functions": 0,
+      "production_files": [
+        {
+          "path": "app.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "chain_analyser.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "coin_analyser.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "coin_comparator.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "crypto_influencer_analyser.py",
+          "functions": 25,
+          "test_functions": 0
+        },
+        {
+          "path": "fundamental_analyser.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "macroeconomic_analyser.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "technical_analyser.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "utils.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "x_client.py",
+          "functions": 4,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "ghost-box",
+      "role": "training-family",
+      "python_modules": 36,
+      "function_definitions": 253,
+      "test_files": 29,
+      "test_functions": 94,
+      "production_files": [
+        {
+          "path": "main.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/context.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/credentials.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/dates.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/diagnostics.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/drafting.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/errors.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/followup.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/gmail.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/metadata.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/microsoft_auth.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/outlook.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/search.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/steps.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/store.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/summary.py",
+          "functions": 13,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/tasks.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/text.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/mail/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/backend.py",
+          "functions": 12,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/download.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/projection.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/session.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/settings.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/worker.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/models/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/answer_view.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/caspy.py",
+          "functions": 20,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/compose.py",
+          "functions": 17,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/diagnostics.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/history.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/tasks.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/window.py",
+          "functions": 55,
+          "test_functions": 1
+        },
+        {
+          "path": "ghost_box/ui/work_steps.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "ghost_box/ui/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "GitHub-insignia",
+      "role": "evaluation-only",
+      "python_modules": 8,
+      "function_definitions": 28,
+      "test_files": 3,
+      "test_functions": 20,
+      "production_files": [
+        {
+          "path": "insignia/app.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "insignia/github.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "insignia/metrics.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "insignia/service.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "insignia/snapshot.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "insignia/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "insignia/__main__.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/browser_check.py",
+          "functions": 0,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "llm-bender-lab",
+      "role": "training-family",
+      "python_modules": 215,
+      "function_definitions": 678,
+      "test_files": 86,
+      "test_functions": 514,
+      "production_files": [
+        {
+          "path": "scripts/evaluation/analyze_mc_bias.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/apply_open_ended_rewrites.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/audit_tdd_source_repos.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/build_adigebench_v01.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/build_blind_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/build_clean_sft_v2.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/build_tdd_app_revision.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/check_tdd_revision_faults.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/check_tdd_revision_stability.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/create_clean_sft_argilla.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/evaluate_belebele_generation.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/evaluate_belebele_generation_vllm.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/evaluate_cetvel_generation_transformers.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/evaluate_cetvel_generation_vllm.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/grade_requirement_code.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/grade_thinking_tdd_demo.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/import_argilla_blind_review.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/inspect_deep_swe.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/inventory_cetvel.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/paired_analysis_belebele.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/paper_pipeline_adapter.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/pi_request_recorder.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/preflight_cetvel.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/preflight_paper_smoke.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/preflight_requirement_suite.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/prepare_argilla_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/prepare_requirement_pilot.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/prepare_requirement_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/prepare_thinking_tdd_questions.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/probe_tdd_executor.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/publish_tdd_app_briefs.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/publish_tdd_app_revision.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/publish_tdd_core_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/publish_tdd_human_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/review_thinking_tdd_demo.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/run_requirement_code.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/run_requirement_smoke.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/run_tdd_core_suites.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/run_thinking_tdd_demo.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/run_vllm_qwen35_parity_check.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/scan_tdd_model_text.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/score_cetvel_generation.py",
+          "functions": 13,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/tdd_review_rules.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluation/validate_vllm_concurrency.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/review/create_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/sandbox/check_isolation.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/verifier/faults.py",
+          "functions": 1,
+          "test_functions": 1
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/verifier/references.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/slm_test_generation/reference/benchmark_workflow.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/slm_test_generation/reference/oracle_analysis.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/repo-context/reference/context_workflow.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/miniature-llms/reference/tiny_model.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/llm-bender-lab/reference/experiment_workflow.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/ghost-box/reference/mail_workflow.py",
+          "functions": 13,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04-record-specific-draft/cryptocurrency-analyser/reference/price_workflow.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/reference/benchmark_workflow.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/slm_test_generation/reference/oracle_analysis.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/repo-context/reference/context_workflow.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/miniature-llms/reference/tiny_model.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/llm-bender-lab/reference/experiment_workflow.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/ghost-box/reference/mail_workflow.py",
+          "functions": 13,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v04/cryptocurrency-analyser/reference/price_workflow.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/slm_test_generation/reference/benchmark_workflow.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/slm_test_generation/reference/oracle_analysis.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/repo-context/reference/context_workflow.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/miniature-llms/reference/tiny_model.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/llm-bender-lab/reference/experiment_workflow.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/ghost-box/reference/mail_workflow.py",
+          "functions": 13,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03/cryptocurrency-analyser/reference/price_workflow.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate_vllm.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/export_human_review.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/import_human_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/package_run.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/prepare.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/profile_tokens.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/run_gpu.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/score_pair.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/verify_recovery.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/launch_remote.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/package_run.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/paired_analysis.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/prepare.py",
+          "functions": 12,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500/run_gpu.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/audit_overlap.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/create_argilla_calibration.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/download_native_reference.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/evaluate.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/fixed_thinking_matrix.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/make_colab_bundle.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/native_reference.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/occam_matrix.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/pipeline.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/precision_diagnostic.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/recover_thinking_limits.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/review_occam_matrix.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/sampling_diagnostic.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/thinking-sft/qwen3.5-4b/train.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/evaluate.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-003-unsloth-sft/train.py",
+          "functions": 18,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/build_blind_review.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/evaluate.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/import_argilla_benchmark.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/import_targeted_argilla.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-004-unsloth-sft/train.py",
+          "functions": 18,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/export_and_build.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/export_partial_final_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/finalize_experiment.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/import_argilla_final_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/import_precision_v2_argilla.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/validate_final_holdout.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/build_candidates.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/export_and_finalize.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/export_partial_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/import_argilla_candidates.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/validate_artifacts.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-006-quality-repair-sft/validate_reviewed.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-007-boundary-benchmark/import_argilla_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-007-boundary-benchmark/scan_leakage.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/export_reviews.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/finalize_preparation.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/import_argilla_candidates.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/import_blind_results.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/import_qa_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/validate_candidates.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/validate_final.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-008-generalization-sft/validate_reviews.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/audit_selection.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/audit_v2.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/build_selection.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/build_v2.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/download_training_base.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/evaluate_adapter.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/export_completed_reviews.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/generate_base.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/generate_vllm.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/import_adapter_comparison.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/import_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/launch_full.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/prepare_qa_proposals.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/prepare_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/prepare_training.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/reload_smoke_adapter.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/train_reviewed.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/vllm_reload_smoke.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/wandb_connection.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/evaluate_checkpoints.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/import_comparison.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/launch_full.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/prepare.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/record_reused_gates.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-010-lr-ablation/run_diagnostics.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/archive_pair.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/candidate_specs.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/export_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/import_comparison.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/import_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/prepare_pair.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/run_diagnostics.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/run_pair.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/supporting_diagnostics.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/verify_backup.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-012-coverage-ablation/verify_ready.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/archive_pair.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/candidate_specs.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/candidate_specs_draft_v1.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/export_review.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/export_validation_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/finalize_metadata.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/fix_preference_options.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/import_comparison.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/import_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/prepare_next_pair.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/recover_backup.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/run_pair.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/verify_backup.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-013-targeted-coverage-sft/verify_ready.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/archive_essentials.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/archive_pair.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/audit_reviewed_splits.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/control_specs.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/evaluate_models.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/export_comparison_review.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/export_review.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/export_run_evidence.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/extract_review_outputs.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/import_comparison.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/import_review.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/import_simple_comparison.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/prepare_pair.py",
+          "functions": 15,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/recover_backup.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/recover_essentials.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/run_pair.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/specs.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/summarize_outputs.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/transfer_backup.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/verify_archive.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/verify_ready.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/verify_results.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/apply_known_repairs_v1.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/build_reviewed_v1.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/build_reviewed_v2.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/build_reviewed_v3.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/export_reviews.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/import_candidates.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla/snapshot_v1_decisions.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/build_release.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/export_occam_gguf.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/export_review_labels.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/prepare_private_model.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/upload_occam_gguf.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/upload_private_dataset.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/upload_private_model.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "docs/publication/validate_occam_gguf.py",
+          "functions": 1,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "miniature-llms",
+      "role": "training-family",
+      "python_modules": 34,
+      "function_definitions": 78,
+      "test_files": 0,
+      "test_functions": 0,
+      "production_files": [
+        {
+          "path": "_10_CausalMultiheadAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_11_KVCache/pytorch.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "_12_QK-Norm/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_13_GroupedQueryAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_14_MultiHeadLatentAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_15_SlidingWindowAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_16_SparseTokenSelectionAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_17_CrossAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_18_FlashAttention/triton.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "_19_MambaStateSpace/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_1_BytePairEncodingTokenization/jax.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "_1_BytePairEncodingTokenization/pytorch.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "_20_GatedDeltaNet/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_21_ResidualBlock/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_22_ManifoldConstrainedHyperConnections/pytorch.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "_23_MixtureOfExperts/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_24_SharedExperts/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_25_MultiTokenPrediction/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_2_TokenEmbedding/jax.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "_2_TokenEmbedding/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_3_SinusoidalEmbeddings/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_4_RoPE/jax.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "_4_RoPE/pytorch.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "_5_YaRN/pytorch.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "_6_AliBi/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_7_RMSNorm/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_8_SWiGLU/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "_9_MultiHeadAttention/pytorch.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "OpenModels/deepseek-v4/pytorch.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "OpenModels/glm-5/pytorch.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "OpenModels/kimi-k3/pytorch.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "OpenModels/llama/pytorch.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "OpenModels/minimax-m3/pytorch.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "OpenModels/qwen-3.5-4B/pytorch.py",
+          "functions": 4,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "ReflexModels",
+      "role": "training-family",
+      "python_modules": 58,
+      "function_definitions": 217,
+      "test_files": 36,
+      "test_functions": 198,
+      "production_files": [
+        {
+          "path": "scripts/adjudicate_annotation_template.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/benchmark_tokenizers.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluate_predictions.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluate_v0_negation.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/evaluate_v1_decision_model.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/lint_annotation_template.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/prepare_baseline_splits.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/prepare_massive.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/prepare_v1_massive_pilot.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/run_fixed_label_baseline.py",
+          "functions": 13,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/run_v0_causal_choice.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/run_v1_decision.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/train_v1_decision_model.py",
+          "functions": 23,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/validate_fixed_label_result.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/validate_prepared_dataset.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/validate_reflexbench_tr.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/validate_results_registry.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/validate_v1_decision_data.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "scripts/validate_v1_frozen_evaluation.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/a32_queue.py",
+          "functions": 17,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/a32_status.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/add_mobile9_development_splits.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/add_mobile9_test_release.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/benchmark_fresh180.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/evaluate_laya_matched.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/plot_a32_efficiency.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/prepare_phone_dataset_release.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/report_a32.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "tools/report_laya_matched.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/answerability.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/calibration.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/causal_scoring.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/cpu_benchmark.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/metrics.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/packed_execution_contract.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/protocol.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/routing.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/scoring.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/serialization.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/split_policy.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/types.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "src/reflexmodels/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/decision-followups/argilla_phone_review.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/decision-followups/fresh_phone_test_review.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/decision-followups/portable_argilla_review.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/backup_artifacts.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/backup_complete.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/evaluate_benchmarks.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/export_reflex1.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/run_notebook.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/serve_decisions.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/verify_final.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/verify_merged.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/verify_reflex1_gguf.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/unsloth-qwen35-08b-decision/verify_reload.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/decision-followups/fresh-phone-test-180/closeout_evaluation.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/decision-followups/fresh-phone-test-180/evaluate_frozen.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "experiments/decision-followups/review-ui/suggest_pending_categories.py",
+          "functions": 3,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "repo-context",
+      "role": "training-family",
+      "python_modules": 8,
+      "function_definitions": 28,
+      "test_files": 0,
+      "test_functions": 0,
+      "production_files": [
+        {
+          "path": "app.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "pages/deep_wiki_generator.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "pages/repo_comparison.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "pages/repo_context_generator.py",
+          "functions": 0,
+          "test_functions": 0
+        },
+        {
+          "path": "src/repo_context/cli.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "src/repo_context/core.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "src/repo_context/gpqs_calculator.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "src/repo_context/__init__.py",
+          "functions": 0,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    },
+    {
+      "repository": "slm_test_generation",
+      "role": "evaluation-only",
+      "python_modules": 109,
+      "function_definitions": 1009,
+      "test_files": 18,
+      "test_functions": 142,
+      "production_files": [
+        {
+          "path": "manual_validation/build_review_packages.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "manual_validation/calculate_agreement.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "step1_data_understanding/data_understanding.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "step1_data_understanding/download_benchmark.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/build_context_cards.py",
+          "functions": 19,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/build_repair_rescoring_subset.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/build_v2_pipeline.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/classify_dependency_level.py",
+          "functions": 9,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/collect_sources_v2.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/create_realworld_dataset.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/create_v2_dataset.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/data_preperation.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/mine_failtopass.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/package_v2_dataset.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/prepare_v2_tier_datasets.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/repair_extraction_defects_2026.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step2_data_preperation/repair_python_solution_full.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/llm_as_judge.py",
+          "functions": 29,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/pynguin_assertion_mode_check.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/pynguin_budget_audit.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/run_detailed_temp_experiments.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/run_experiments.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/run_pynguin_v2.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/run_realworld_experiments_v2.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/run_real_world_experiments_inference.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step3_modelling/run_real_world_experiments_pynguin.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/analyze_assertion_quality.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/analyze_judge_results.py",
+          "functions": 25,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/analyze_manual_error_results.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/analyze_test_smells.py",
+          "functions": 35,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/assertion_gate.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/audit_evaluation_results.py",
+          "functions": 18,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/build_augmented_humaneval_csv.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/build_second_exp_humaneval_csv.py",
+          "functions": 12,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/chi_square_failure_analysis.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/clean_set_reanalysis.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/context_utilization_analysis.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/create_failure_heatmaps.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/create_manual_error_analysis_report.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/create_mutation_subset.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/create_paper_rq_charts.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/create_summary_report.py",
+          "functions": 33,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/enrich_oracle_validation_sample.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/evaluate_results.py",
+          "functions": 25,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/evaluation_utils.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/export_failures_for_review.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/full_corpus_oracle_reanalysis.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/full_corpus_oracle_reanalysis_pynguin.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/gated_reanalysis.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/gated_reanalysis_classifier_gate.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/l0_runtime_error_rate.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/mutation_bootstrap_ci.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/oracle_analysis.py",
+          "functions": 27,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/plot_error_distribution_grouped.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/predict_failures_from_complexity.py",
+          "functions": 22,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/preflight_dataset_health.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/pynguin_mutation_compute.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/pynguin_recency_negative_control.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/recency_robustness_analysis.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/refresh_prediction_dataset_fields.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/review_response_stats.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/rho_robustness_check.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/rq3_dependency_level.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/rq_reanalysis.py",
+          "functions": 21,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/runtime_instrumentation_pilot.py",
+          "functions": 10,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/sample_oracles_for_validation.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/sentinel_resolution.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/taxonomy_optimism.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/validate_difficulty_metric.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "step4_evaluation/validate_llm_judge.py",
+          "functions": 29,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data_utils.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/eval_base.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/eval_branchcov.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/eval_linecov.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/eval_overall.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/eval_pathcov.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/eval_pathcov_base.py",
+          "functions": 8,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/format.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/generate_cov_gemini.py",
+          "functions": 2,
+          "test_functions": 1
+        },
+        {
+          "path": "TestEval/generate_cov_hf.py",
+          "functions": 2,
+          "test_functions": 1
+        },
+        {
+          "path": "TestEval/generate_cov_openai.py",
+          "functions": 3,
+          "test_functions": 1
+        },
+        {
+          "path": "TestEval/generate_pathcov_gemini.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/generate_pathcov_hf.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/generate_pathcov_openai.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/generate_targetcov_gemini.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/generate_targetcov_hf.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/generate_targetcov_openai.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/gen_linecov_cot_hf.py",
+          "functions": 2,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/gen_linecov_cot_openai.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/prompt_utils.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/timeout_utils.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "utils/error_analysis_to_docx.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "utils/repatch_pynguin_comparisons.py",
+          "functions": 3,
+          "test_functions": 0
+        },
+        {
+          "path": "utils/text_to_docx_table.py",
+          "functions": 6,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/apscheduler_expressions.py",
+          "functions": 18,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/dramatiq_message.py",
+          "functions": 16,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/encode__utils.py",
+          "functions": 15,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/humanize_time.py",
+          "functions": 14,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/our_evaluate_results.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/our_run_experiments.py",
+          "functions": 4,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/pandas_common.py",
+          "functions": 45,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/pandas_numeric.py",
+          "functions": 1,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/pytorch_utils.py",
+          "functions": 5,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/requests_utils.py",
+          "functions": 43,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/scikit_validation.py",
+          "functions": 53,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/scrapy_url.py",
+          "functions": 11,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/transformers_activations.py",
+          "functions": 26,
+          "test_functions": 0
+        },
+        {
+          "path": "TestEval/data/real_world/vllm_hashing.py",
+          "functions": 7,
+          "test_functions": 0
+        },
+        {
+          "path": "deprecated_folder/v1/analysis/expert_sanitizer/app.py",
+          "functions": 20,
+          "test_functions": 0
+        }
+      ],
+      "parse_exclusions": []
+    }
+  ]
+}

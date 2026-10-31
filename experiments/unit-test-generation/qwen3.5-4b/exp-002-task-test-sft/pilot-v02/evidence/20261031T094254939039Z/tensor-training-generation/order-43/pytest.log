@@ -1,0 +1,15 @@
+.F..                                                                     [100%]
+================================== FAILURES ===================================
+_________________ test_negative_generation_budget_is_rejected _________________
+
+    def test_negative_generation_budget_is_rejected():
+        from tiny_model import generate
+        with pytest.raises(ValueError):
+>           generate(model(), [1], max_new_tokens=-1)
+                     ^^^^^
+E           NameError: name 'model' is not defined
+
+tests\test_tensor_training_generation.py:34: NameError
+=========================== short test summary info ===========================
+FAILED tests/test_tensor_training_generation.py::test_negative_generation_budget_is_rejected
+1 failed, 3 passed in 3.80s

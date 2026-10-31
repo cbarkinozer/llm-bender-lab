@@ -1,0 +1,10 @@
+[
+  [
+    "accept-mismatches",
+    "m.complete_path=lambda candidate,prefix: candidate"
+  ],
+  [
+    "omit-parent-fallback",
+    "original=m.suggest_path\nm.suggest_path=lambda path: original(path) if m.os.path.exists(path) else []"
+  ]
+]

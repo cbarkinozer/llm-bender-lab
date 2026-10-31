@@ -1,0 +1,27 @@
+.FF                                                                      [100%]
+================================== FAILURES ===================================
+_______________________ test_qualified_join_and_aliases _______________________
+
+    def test_qualified_join_and_aliases():
+>       assert extract_tables('SELECT u.id FROM main.users u JOIN orders o ON u.id=o.user_id') == [
+            ('main', 'users', 'u'), (None, 'orders', 'o')]
+E       AssertionError: assert [] == [('main', 'us...orders', 'o')]
+E         
+E         Right contains 2 more items, first extra item: ('main', 'users', 'u')
+E         Use -v to get more diff
+
+tests\test_sql_table_identifiers.py:10: AssertionError
+_____________________ test_insert_target_excludes_columns _____________________
+
+    def test_insert_target_excludes_columns():
+>       assert extract_tables('INSERT INTO users (id, name) VALUES (1, 2)') == [(None, 'users', None)]
+E       AssertionError: assert [] == [(None, 'users', None)]
+E         
+E         Right contains one more item: (None, 'users', None)
+E         Use -v to get more diff
+
+tests\test_sql_table_identifiers.py:15: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_sql_table_identifiers.py::test_qualified_join_and_aliases
+FAILED tests/test_sql_table_identifiers.py::test_insert_target_excludes_columns
+2 failed, 1 passed in 0.07s

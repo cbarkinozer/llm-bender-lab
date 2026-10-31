@@ -1,0 +1,35 @@
+...F...                                                                  [100%]
+================================== FAILURES ===================================
+_______ test_smoke_run_preserves_config_adapter_and_matched_evaluations _______
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-99/test_smoke_run_preserves_confi0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_smoke_run_preserves_config_adapter_and_matched_evaluations(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        seen = []
+        def evaluate(model, heldout, settings):
+            seen.append((model, heldout, settings.copy()))
+            return {'accuracy':.5 if model == 'base-v1' else .75, 'other':None}
+        trained = []
+        def train(run_dir, resolved, train_rows):
+            trained.extend(train_rows)
+            return trainer(run_dir, resolved, train_rows)
+        result = run_experiment(tmp_path, 'one', experiment_config, experiment_rows, trainer=train, evaluator=evaluate)
+        run = tmp_path/'one'
+        assert result['status'] == 'completed'
+        assert (run/'adapter.bin').read_bytes() == b'fixture-adapter'
+        assert json.loads((run/'resolved.json').read_text()) == experiment_config
+        assert trained == [experiment_rows[0]]
+>       assert seen[0][1] == seen[1][1] == [experiment_rows[1]]
+E       AssertionError: assert [{'split': 't...tent': '5'}]}] == [{'split': 't...tent': '5'}]}]
+E         
+E         At index 0 diff: {'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]} != {'split': 'test', 'id': 'test', 'messages': [{'role': 'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}
+E         Left contains one more item: {'split': 'test', 'id': 'test', 'messages': [{'role': 'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}
+E         Use -v to get more diff
+
+tests\test_workflow.py:27: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations
+1 failed, 6 passed in 0.11s

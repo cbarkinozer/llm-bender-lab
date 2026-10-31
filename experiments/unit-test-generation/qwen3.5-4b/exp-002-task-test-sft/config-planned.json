@@ -1,0 +1,106 @@
+{
+  "experiment_id": "exp-002-task-test-sft",
+  "status": "existing-repository-expansion",
+  "executable": false,
+  "training_enabled": false,
+  "model": "Qwen/Qwen3.5-4B",
+  "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "primary_hypothesis": "Task-sized, verified reasoning-plus-pytest SFT improves requirement-faithful test usefulness on separate source families.",
+  "trained_capability": "task-to-tests",
+  "planning_training_enabled": false,
+  "implementation_training_enabled": false,
+  "tool_call_training_enabled": false,
+  "pilot": "pilot-v02",
+  "dataset_targets": {
+    "train_tasks": 100,
+    "development_tasks": 15,
+    "final_evaluation_tasks": 25
+  },
+  "split_unit": "repository/upstream/problem-family and near-duplicate group",
+  "reserved_evaluation_families": [
+    "GitHub-insignia",
+    "slm_test_generation"
+  ],
+  "pilot_training_families": [
+    "codelang-detect",
+    "cryptocurrency-analyser"
+  ],
+  "data_selection_ready": false,
+  "group_split_frozen": false,
+  "native_label_audit_complete": true,
+  "deployment_protocol_frozen": false,
+  "baseline_complete": false,
+  "training_recipe": null,
+  "checkpoints": null,
+  "source_strategy": "Inventory and expand existing seven training families first; external projects only for coverage gaps. No minimum repository count or fixed per-repository task cap.",
+  "expansion_catalog": "expansion-catalog.json",
+  "training_source_families": [
+    "ReflexModels",
+    "codelang-detect",
+    "cryptocurrency-analyser",
+    "dbcli/litecli",
+    "ghost-box",
+    "llm-bender-lab",
+    "miniature-llms",
+    "repo-context",
+    "tldr-pages/tldr-python-client"
+  ],
+  "external_test_batch": "external-batch-v02",
+  "candidate_summary": "CANDIDATE-SUMMARY.json",
+  "planning_drafts": "planning-pilot-v04",
+  "candidate_test_rows": {
+    "train": 50,
+    "development": 5,
+    "holdout": 3
+  },
+  "active_candidate_index": "candidate-index-v03.json",
+  "reliability_drafts": "reliability-pilot-v03",
+  "reliability_training_enabled": false,
+  "baseline_packet": "baseline-reliability-v03",
+  "quality_revision": "quality-preflight-v01",
+  "intent_only_preview": "intent-only-preview-v02",
+  "implementation_source_in_model_text_allowed": false,
+  "source_columns_audit_only": true,
+  "content_review": "Independent review found planning graph conflicts; v04 fixes verified. Native-label audit and runtime baseline remain pending.",
+  "active_test_quality_audit": "quality-audit-v02/static-test-triage.json",
+  "source_families_by_split": {
+    "train": [
+      "ReflexModels",
+      "codelang-detect",
+      "cryptocurrency-analyser",
+      "dbcli/litecli",
+      "ghost-box",
+      "llm-bender-lab",
+      "miniature-llms",
+      "repo-context",
+      "tldr-pages/tldr-python-client"
+    ],
+    "development": [
+      "darrenburns/posting"
+    ],
+    "holdout": [
+      "jarun/ddgr"
+    ]
+  },
+  "source_families": [
+    "ReflexModels",
+    "codelang-detect",
+    "cryptocurrency-analyser",
+    "darrenburns/posting",
+    "dbcli/litecli",
+    "ghost-box",
+    "jarun/ddgr",
+    "llm-bender-lab",
+    "miniature-llms",
+    "repo-context",
+    "tldr-pages/tldr-python-client"
+  ],
+  "native_label_audit": "native-label-audit-v01/report.json",
+  "native_label_audit_scope": "Verified native_tdd_labels.py preprocessing on the exact active 78 training-preview inputs; future trainer parity not yet verified.",
+  "trainer_label_parity_verified": false,
+  "native_label_preprocessor": "scripts/evaluation/native_tdd_labels.py",
+  "dataset_profile": "dataset-profile-v02/summary.json",
+  "semantic_near_duplicate_review": "dataset-profile-v02/semantic-review.json",
+  "semantic_review_status": "Targeted review completed; three taught-principle cross-split overlaps noted. Evaluation novelty definition remains to be frozen.",
+  "original_source_complexity": "original-source-complexity-v02/summary.json"
+}

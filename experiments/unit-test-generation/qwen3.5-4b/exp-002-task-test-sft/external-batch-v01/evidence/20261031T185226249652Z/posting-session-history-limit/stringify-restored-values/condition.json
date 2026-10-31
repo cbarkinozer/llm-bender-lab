@@ -1,0 +1,5 @@
+{
+  "module": "posting.session_variables",
+  "mutation": "original=m.SessionVariables._restore\ndef broken(self,change):\n name=original(self,change)\n if name in self.values: self.values[name]=str(self.values[name])\n return name\nm.SessionVariables._restore=broken",
+  "seed": null
+}

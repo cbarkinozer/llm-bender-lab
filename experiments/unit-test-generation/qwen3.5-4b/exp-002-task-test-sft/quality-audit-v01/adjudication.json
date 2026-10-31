@@ -1,0 +1,73 @@
+{
+  "scope": "Static triage of all 58 test files plus targeted semantic spot checks and one executable before/after counterexample. This is not complete semantic approval.",
+  "findings": [
+    {
+      "task_id": "experiment-preflight",
+      "status": "confirmed and revised",
+      "problem": "Only rejection paths were checked; reject-every-input implementation survived.",
+      "before": {
+        "condition": "reject-every-input",
+        "seed": null,
+        "returncode": 0,
+        "cases": 4,
+        "order": [
+          "tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[missing-content]",
+          "tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[wrong-role]",
+          "tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[unknown-split]",
+          "tests/test_experiment_preflight.py::test_invalid_preflight_never_invokes_trainer"
+        ],
+        "called_cases": 4,
+        "killed": false,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/quality-audit-v01/preflight-before/evidence/20261031T190839010347Z/experiment-preflight/reject-every-input/pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/quality-audit-v01/preflight-before/evidence/20261031T190839010347Z/experiment-preflight/reject-every-input/pilot_probe.py"
+      },
+      "after": {
+        "condition": "reject-every-input",
+        "seed": null,
+        "returncode": 1,
+        "cases": 5,
+        "order": [
+          "tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[missing-content]",
+          "tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[wrong-role]",
+          "tests/test_experiment_preflight.py::test_malformed_data_fails_before_backend[unknown-split]",
+          "tests/test_experiment_preflight.py::test_invalid_preflight_never_invokes_trainer",
+          "tests/test_experiment_preflight.py::test_valid_preflight_reaches_backend"
+        ],
+        "called_cases": 5,
+        "killed": true,
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/quality-preflight-v01/evidence/20261031T191004642042Z/experiment-preflight/reject-every-input/pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/quality-preflight-v01/evidence/20261031T191004642042Z/experiment-preflight/reject-every-input/pilot_probe.py"
+      },
+      "replacement_bundle": "quality-preflight-v01",
+      "active_index": "candidate-index-v02.json"
+    },
+    {
+      "task_id": "snapshot-controller-routing",
+      "status": "scope limitation, not a confirmed faulty test",
+      "problem": "Injected operation tests controller routing only; it cannot establish real CLI/UI/repository integration."
+    },
+    {
+      "task_id": "tldr-python-client-cache-network-routing",
+      "status": "scope limitation, not a confirmed faulty test",
+      "problem": "Cache collaborators are mocked intentionally; composed cache filesystem/download behavior needs a separate component integration test."
+    },
+    {
+      "task_id": "all-planning-drafts",
+      "status": "review required",
+      "problem": "Existing plans are interface/task inventories. They are not a demonstrated ability to resolve ambiguous requirements, plan integration, or replan after real failures."
+    }
+  ],
+  "other_review_notes": [
+    "Numeric assertions, interaction assertions and multiple assertions are not automatically test smells.",
+    "Patching configured rules, clocks, transports and controller collaborators can be valid; judge it against the selected task.",
+    "Static flags cannot prove fixture hardcoding or identify every weakened oracle. Review expected values, fault results and implementation changes independently.",
+    "A justified correction to an inconsistent test is allowed; unexplained weakening to conceal a defect is not."
+  ],
+  "remaining_gaps": [
+    "Complete per-requirement semantic and near-duplicate review",
+    "Native loss label inspection",
+    "Real CLI/UI/component integration evaluation",
+    "Environment repair and actual replan trajectories",
+    "Untouched-model inference baseline"
+  ]
+}

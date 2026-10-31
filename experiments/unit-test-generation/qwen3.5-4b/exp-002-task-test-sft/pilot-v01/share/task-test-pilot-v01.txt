@@ -1,0 +1,1272 @@
+Eight task-level teaching candidates from two existing training families. Planning is input context, not an SFT target. No baseline model outputs or actual planning/tool trajectories are claimed.
+
+language-basic-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.
+
+AGREED PLAN
+[
+  {
+    "id": "language-basic",
+    "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+    "depends_on": [],
+    "implementation_files": [
+      "codelang_detect/__init__.py",
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_basics.py",
+    "acceptance": [
+      "Empty, whitespace and ordinary prose return unknown.",
+      "Clear Python and JavaScript snippets return py and js respectively."
+    ]
+  },
+  {
+    "id": "language-rules",
+    "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_rules.py",
+    "acceptance": [
+      "Weight 3 beats two matching weight-1 rules.",
+      "Equal scores choose declaration order, even when alphabetical order differs.",
+      "A single positive score qualifies; zero evidence remains unknown.",
+      "Replacing the public configuration between calls immediately changes the result."
+    ]
+  },
+  {
+    "id": "language-cli-success",
+    "title": "Specify CLI input routes and exact successful output.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_success.py",
+    "acceptance": [
+      "A Python snippet inside a .txt file is identified from its contents.",
+      "Piped text is accepted when no file argument exists.",
+      "Successful output has exactly one label/newline and no stderr."
+    ]
+  },
+  {
+    "id": "language-cli-errors",
+    "title": "Specify CLI failure classes and useful diagnostics.",
+    "depends_on": [
+      "language-cli-success"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_errors.py",
+    "acceptance": [
+      "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+      "Closed stdin and invalid UTF-8 produce processing exit 1.",
+      "Normal input errors do not print tracebacks."
+    ]
+  },
+  {
+    "id": "language-delivery",
+    "title": "Package the CLI and document examples and installation.",
+    "depends_on": [
+      "language-cli-success",
+      "language-cli-errors"
+    ],
+    "implementation_files": [
+      "pyproject.toml",
+      "README.md"
+    ],
+    "target_file": "tests/test_packaged_cli.py",
+    "acceptance": [
+      "Verify installation and documented examples in a clean environment.",
+      "Explicitly document starter languages and ambiguous-snippet limitations."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify unknown-input behavior and the initial Python/JavaScript detection contract.
+Target test file: tests/test_detection_basics.py
+Expected implementation files: codelang_detect/__init__.py, codelang_detect/detector.py
+
+INTERFACE CONTRACT
+Public codelang_detect.detect(text: str) -> str. Empty/whitespace/no positive rule evidence returns unknown. Initial language targets are Python (py) and JavaScript (js); additional language accuracy is outside this task. No network or model loading.
+
+ACCEPTANCE CRITERIA
+- Empty, whitespace and ordinary prose return unknown.
+- Clear Python and JavaScript snippets return py and js respectively.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+Negative examples check that the detector does not guess a language for ordinary text. Two clear code snippets provide positive controls so an always-unknown implementation also fails.
+
+TARGET OUTPUT:
+File: tests/test_detection_basics.py
+```python
+import pytest
+from codelang_detect import detect
+
+
+@pytest.mark.parametrize('text', ['', ' \n\t ', 'Please bring the notebook to our meeting.'])
+def test_unknown_without_code_evidence(text):
+    assert detect(text) == 'unknown'
+
+
+@pytest.mark.parametrize('text,expected', [('def compute_total(prices):\n    return sum(prices)\n', 'py'), ('const total = prices.reduce((a, b) => a + b, 0);\nconsole.log(total);', 'js')])
+def test_clear_language_markers(text, expected):
+    assert detect(text) == expected
+```
+
+REVIEW-ONLY METADATA
+Source group: codelang-detect; role: train candidate, not new holdout.
+Full native tokens: 1353
+Validation: passed
+
+----
+
+language-rules-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.
+
+AGREED PLAN
+[
+  {
+    "id": "language-basic",
+    "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+    "depends_on": [],
+    "implementation_files": [
+      "codelang_detect/__init__.py",
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_basics.py",
+    "acceptance": [
+      "Empty, whitespace and ordinary prose return unknown.",
+      "Clear Python and JavaScript snippets return py and js respectively."
+    ]
+  },
+  {
+    "id": "language-rules",
+    "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_rules.py",
+    "acceptance": [
+      "Weight 3 beats two matching weight-1 rules.",
+      "Equal scores choose declaration order, even when alphabetical order differs.",
+      "A single positive score qualifies; zero evidence remains unknown.",
+      "Replacing the public configuration between calls immediately changes the result."
+    ]
+  },
+  {
+    "id": "language-cli-success",
+    "title": "Specify CLI input routes and exact successful output.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_success.py",
+    "acceptance": [
+      "A Python snippet inside a .txt file is identified from its contents.",
+      "Piped text is accepted when no file argument exists.",
+      "Successful output has exactly one label/newline and no stderr."
+    ]
+  },
+  {
+    "id": "language-cli-errors",
+    "title": "Specify CLI failure classes and useful diagnostics.",
+    "depends_on": [
+      "language-cli-success"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_errors.py",
+    "acceptance": [
+      "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+      "Closed stdin and invalid UTF-8 produce processing exit 1.",
+      "Normal input errors do not print tracebacks."
+    ]
+  },
+  {
+    "id": "language-delivery",
+    "title": "Package the CLI and document examples and installation.",
+    "depends_on": [
+      "language-cli-success",
+      "language-cli-errors"
+    ],
+    "implementation_files": [
+      "pyproject.toml",
+      "README.md"
+    ],
+    "target_file": "tests/test_packaged_cli.py",
+    "acceptance": [
+      "Verify installation and documented examples in a clean environment.",
+      "Explicitly document starter languages and ambiguous-snippet limitations."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify weighted rules, deterministic ties and live configuration replacement.
+Target test file: tests/test_detection_rules.py
+Expected implementation files: codelang_detect/detector.py
+
+INTERFACE CONTRACT
+Public codelang_detect.detect(text) uses codelang_detect.detector.PATTERNS, an insertion-ordered dict of output_label -> list[(compiled regex, positive integer weight)]. Each matching rule contributes once. The greatest strictly positive total wins; tied positive totals choose the first declared key. Read PATTERNS at call time; custom keys are valid output labels. No score means unknown.
+
+ACCEPTANCE CRITERIA
+- Weight 3 beats two matching weight-1 rules.
+- Equal scores choose declaration order, even when alphabetical order differs.
+- A single positive score qualifies; zero evidence remains unknown.
+- Replacing the public configuration between calls immediately changes the result.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+The fixtures separate weighted scoring from match counting and declaration order from alphabetical order. Replacing the mapping between calls detects stale cached configuration; positive and zero-score controls distinguish an extra confidence threshold.
+
+TARGET OUTPUT:
+File: tests/test_detection_rules.py
+```python
+import re
+import pytest
+from codelang_detect import detect
+
+
+def test_weighted_evidence_not_match_count(monkeypatch):
+    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'first': [(re.compile('alpha'), 1), (re.compile('beta'), 1)], 'second': [(re.compile('gamma'), 3)]})
+    assert detect('alpha beta gamma') == 'second'
+
+
+def test_equal_scores_use_first_declared_label(monkeypatch):
+    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'zeta': [(re.compile('left'), 2)], 'alpha': [(re.compile('right'), 2)]})
+    assert detect('left right') == 'zeta'
+
+
+def test_rule_configuration_is_read_on_every_call(monkeypatch):
+    import codelang_detect.detector as detector
+    monkeypatch.setattr(detector, 'PATTERNS', {'zeta':[(re.compile('runtime_marker'),1)]})
+    assert detect('runtime_marker') == 'zeta'
+    monkeypatch.setattr(detector, 'PATTERNS', {'alpha':[(re.compile('runtime_marker'),1)]})
+    assert detect('runtime_marker') == 'alpha'
+
+
+@pytest.mark.parametrize('text,expected', [('a_single_marker','one'),('no evidence','unknown')])
+def test_any_positive_rule_score_qualifies(monkeypatch, text, expected):
+    monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'one':[(re.compile('a_single_marker'),1)]})
+    assert detect(text) == expected
+```
+
+REVIEW-ONLY METADATA
+Source group: codelang-detect; role: train candidate, not new holdout.
+Full native tokens: 1620
+Validation: passed
+
+----
+
+language-cli-success-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.
+
+AGREED PLAN
+[
+  {
+    "id": "language-basic",
+    "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+    "depends_on": [],
+    "implementation_files": [
+      "codelang_detect/__init__.py",
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_basics.py",
+    "acceptance": [
+      "Empty, whitespace and ordinary prose return unknown.",
+      "Clear Python and JavaScript snippets return py and js respectively."
+    ]
+  },
+  {
+    "id": "language-rules",
+    "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_rules.py",
+    "acceptance": [
+      "Weight 3 beats two matching weight-1 rules.",
+      "Equal scores choose declaration order, even when alphabetical order differs.",
+      "A single positive score qualifies; zero evidence remains unknown.",
+      "Replacing the public configuration between calls immediately changes the result."
+    ]
+  },
+  {
+    "id": "language-cli-success",
+    "title": "Specify CLI input routes and exact successful output.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_success.py",
+    "acceptance": [
+      "A Python snippet inside a .txt file is identified from its contents.",
+      "Piped text is accepted when no file argument exists.",
+      "Successful output has exactly one label/newline and no stderr."
+    ]
+  },
+  {
+    "id": "language-cli-errors",
+    "title": "Specify CLI failure classes and useful diagnostics.",
+    "depends_on": [
+      "language-cli-success"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_errors.py",
+    "acceptance": [
+      "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+      "Closed stdin and invalid UTF-8 produce processing exit 1.",
+      "Normal input errors do not print tracebacks."
+    ]
+  },
+  {
+    "id": "language-delivery",
+    "title": "Package the CLI and document examples and installation.",
+    "depends_on": [
+      "language-cli-success",
+      "language-cli-errors"
+    ],
+    "implementation_files": [
+      "pyproject.toml",
+      "README.md"
+    ],
+    "target_file": "tests/test_packaged_cli.py",
+    "acceptance": [
+      "Verify installation and documented examples in a clean environment.",
+      "Explicitly document starter languages and ambiguous-snippet limitations."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify CLI input routes and exact successful output.
+Target test file: tests/test_cli_success.py
+Expected implementation files: codelang_detect/cli.py
+
+INTERFACE CONTRACT
+codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions "can't open", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts "Error: Could not process the input.", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.
+
+ACCEPTANCE CRITERIA
+- A Python snippet inside a .txt file is identified from its contents.
+- Piped text is accepted when no file argument exists.
+- Successful output has exactly one label/newline and no stderr.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+A Python snippet stored as snippet.txt exposes filename-based guessing. Capturing stdout and stderr detects extra output, while the stdin fixture checks the other supported input route without touching the real console.
+
+TARGET OUTPUT:
+File: tests/test_cli_success.py
+```python
+import io
+import sys
+from codelang_detect.cli import main
+
+
+def test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):
+    path = tmp_path / 'snippet.txt'
+    path.write_text('def greet():\n    print("Merhaba dünya")\n', encoding='utf-8')
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])
+    main()
+    output = capsys.readouterr()
+    assert (output.out, output.err) == ('py\n', '')
+
+
+def test_cli_stdin_prints_one_label(monkeypatch, capsys):
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+    monkeypatch.setattr(sys, 'stdin', io.StringIO('def square(x):\n    return x * x\n'))
+    main()
+    output = capsys.readouterr()
+    assert (output.out, output.err) == ('py\n', '')
+```
+
+REVIEW-ONLY METADATA
+Source group: codelang-detect; role: train candidate, not new holdout.
+Full native tokens: 1517
+Validation: passed
+
+----
+
+language-cli-errors-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.
+
+AGREED PLAN
+[
+  {
+    "id": "language-basic",
+    "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+    "depends_on": [],
+    "implementation_files": [
+      "codelang_detect/__init__.py",
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_basics.py",
+    "acceptance": [
+      "Empty, whitespace and ordinary prose return unknown.",
+      "Clear Python and JavaScript snippets return py and js respectively."
+    ]
+  },
+  {
+    "id": "language-rules",
+    "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_rules.py",
+    "acceptance": [
+      "Weight 3 beats two matching weight-1 rules.",
+      "Equal scores choose declaration order, even when alphabetical order differs.",
+      "A single positive score qualifies; zero evidence remains unknown.",
+      "Replacing the public configuration between calls immediately changes the result."
+    ]
+  },
+  {
+    "id": "language-cli-success",
+    "title": "Specify CLI input routes and exact successful output.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_success.py",
+    "acceptance": [
+      "A Python snippet inside a .txt file is identified from its contents.",
+      "Piped text is accepted when no file argument exists.",
+      "Successful output has exactly one label/newline and no stderr."
+    ]
+  },
+  {
+    "id": "language-cli-errors",
+    "title": "Specify CLI failure classes and useful diagnostics.",
+    "depends_on": [
+      "language-cli-success"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_errors.py",
+    "acceptance": [
+      "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+      "Closed stdin and invalid UTF-8 produce processing exit 1.",
+      "Normal input errors do not print tracebacks."
+    ]
+  },
+  {
+    "id": "language-delivery",
+    "title": "Package the CLI and document examples and installation.",
+    "depends_on": [
+      "language-cli-success",
+      "language-cli-errors"
+    ],
+    "implementation_files": [
+      "pyproject.toml",
+      "README.md"
+    ],
+    "target_file": "tests/test_packaged_cli.py",
+    "acceptance": [
+      "Verify installation and documented examples in a clean environment.",
+      "Explicitly document starter languages and ambiguous-snippet limitations."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify CLI failure classes and useful diagnostics.
+Target test file: tests/test_cli_errors.py
+Expected implementation files: codelang_detect/cli.py
+
+INTERFACE CONTRACT
+codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions "can't open", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts "Error: Could not process the input.", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.
+
+ACCEPTANCE CRITERIA
+- Missing files produce usage exit 2 with useful stderr and empty stdout.
+- Closed stdin and invalid UTF-8 produce processing exit 1.
+- Normal input errors do not print tracebacks.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+Missing files are usage failures, while decoding and closed-stream errors are processing failures. Exact exit codes and empty stdout prevent an implementation from treating every error as success; the traceback check also catches deliberately printed tracebacks.
+
+TARGET OUTPUT:
+File: tests/test_cli_errors.py
+```python
+import io
+import sys
+import pytest
+from codelang_detect.cli import main
+
+
+def test_missing_file_exits_2_with_diagnostic(monkeypatch, tmp_path, capsys):
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 2
+    output = capsys.readouterr()
+    assert output.out == ''
+    assert "can't open" in output.err
+    # SystemExit guards uncaught exceptions; this also rejects explicitly printed tracebacks.
+    assert 'Traceback' not in output.err
+
+
+def test_closed_stdin_exits_1_with_processing_error(monkeypatch, capsys):
+    stream = io.StringIO('')
+    stream.close()
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+    monkeypatch.setattr(sys, 'stdin', stream)
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    output = capsys.readouterr()
+    assert output.out == ''
+    assert 'Error: Could not process the input.' in output.err
+
+
+def test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):
+    path = tmp_path/'invalid.txt'
+    path.write_bytes(b'\xff\xfe')
+    monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])
+    with pytest.raises(SystemExit) as error:
+        main()
+    assert error.value.code == 1
+    output = capsys.readouterr()
+    assert output.out == ''
+    assert output.err.startswith('Error: Could not process the input.')
+```
+
+REVIEW-ONLY METADATA
+Source group: codelang-detect; role: train candidate, not new holdout.
+Full native tokens: 1695
+Validation: passed
+
+----
+
+prices-returns-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Build me a small local Python cryptocurrency research app where I can choose coin tickers and a date range, fetch historical prices, compare their cumulative returns and correlations, and view charts and a concise data summary in a browser. Start with a working price-comparison workflow rather than every possible trading indicator or a trading bot. Calculate returns relative to the first observed price for each series, preserve missing observations instead of inventing prices, omit a coin only when its whole series is missing, and label the data source, timestamps and unavailable results clearly. Let me also run it with a saved sample dataset when offline. A provider failure should show a useful error rather than fabricated zero returns, and malformed selections or unusable baselines should be explained. Keep fetching, calculations and visualization separate enough to test with deterministic fixtures, never place trades or publish posts, and make the web workflow and setup straightforward on my Mac without paid services.
+
+AGREED PLAN
+[
+  {
+    "id": "prices-returns",
+    "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_cumulative_returns.py",
+    "acceptance": [
+      "100,150,75 yields 0,.5,-.25, not daily changes.",
+      "Different series can have different first-observed dates.",
+      "Missing observations and entirely missing columns stay missing.",
+      "Dates and input values are preserved; nonpositive baselines are rejected."
+    ]
+  },
+  {
+    "id": "prices-charts",
+    "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+    "depends_on": [
+      "prices-returns"
+    ],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_charts.py",
+    "acceptance": [
+      "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+      "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+      "Three observations discriminate daily changes from cumulative returns."
+    ]
+  },
+  {
+    "id": "prices-fetch",
+    "title": "Specify the offline-testable adjusted-price provider boundary.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_fetch.py",
+    "acceptance": [
+      "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+      "Only the Adj Close frame is returned.",
+      "All-missing tickers are removed; partially missing prices are preserved."
+    ]
+  },
+  {
+    "id": "prices-analysis",
+    "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+    "depends_on": [
+      "prices-returns",
+      "prices-fetch",
+      "prices-charts"
+    ],
+    "implementation_files": [
+      "price_workflow.py"
+    ],
+    "target_file": "tests/test_price_analysis.py",
+    "acceptance": [
+      "Normalize symbols and keep provider/CSV calculations equivalent.",
+      "Expose source labels, observed date bounds, correlation and omitted symbols.",
+      "First-observed baselines work when the first row is missing.",
+      "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+    ]
+  },
+  {
+    "id": "prices-web-delivery",
+    "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+    "depends_on": [
+      "prices-analysis"
+    ],
+    "implementation_files": [
+      "web_app.py",
+      "README.md"
+    ],
+    "target_file": "tests/test_web_workflow.py",
+    "acceptance": [
+      "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+      "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+      "Check actual browser behavior and Mac startup separately."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify cumulative-return mathematics, missing values and input preservation.
+Target test file: tests/test_cumulative_returns.py
+Expected implementation files: coin_comparator.py
+
+INTERFACE CONTRACT
+Public coin_comparator.calculate_cumulative_returns(prices: pandas.DataFrame) returns price/first-observed-nonmissing-price minus 1 independently per column. Preserve row/column order, dates, missing observations and input values. An entirely missing series stays missing. Nonpositive observed baselines raise ValueError mentioning baseline. Do not forward fill or convert cumulative returns to daily changes.
+
+ACCEPTANCE CRITERIA
+- 100,150,75 yields 0,.5,-.25, not daily changes.
+- Different series can have different first-observed dates.
+- Missing observations and entirely missing columns stay missing.
+- Dates and input values are preserved; nonpositive baselines are rejected.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+The three-point path separates cumulative from daily returns. Different first-observed rows prevent using a shared first row; explicit NaNs prevent forward filling. Input comparison checks preservation, and positive-valued examples prevent an always-error implementation from passing.
+
+TARGET OUTPUT:
+File: tests/test_cumulative_returns.py
+```python
+import pandas as pd
+from pandas.testing import assert_frame_equal
+from coin_comparator import calculate_cumulative_returns
+
+
+def test_returns_are_relative_to_first_price_not_daily_changes():
+    prices = pd.DataFrame({'BTC': [100., 150., 75.], 'ETH': [20., 10., 30.]})
+    expected = pd.DataFrame({'BTC': [0., .5, -.25], 'ETH': [0., -.5, .5]})
+    assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+
+def test_returns_preserve_dates_and_input_prices():
+    dates = pd.date_range('2026-01-01', periods=2)
+    prices = pd.DataFrame({'BTC': [10., 15.]}, index=dates)
+    original = prices.copy(deep=True)
+    result = calculate_cumulative_returns(prices)
+    assert_frame_equal(prices, original)
+    assert_frame_equal(result, pd.DataFrame({'BTC': [0., .5]}, index=dates))
+
+
+def test_missing_price_remains_missing():
+    prices = pd.DataFrame({'BTC': [100., float('nan'), 200.]})
+    expected = pd.DataFrame({'BTC': [0., float('nan'), 1.]})
+    assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+
+import pytest
+
+
+def test_first_observed_price_is_selected_independently_per_series():
+    missing=float('nan')
+    prices=pd.DataFrame({'late':[missing,10.,20.], 'early':[2.,4.,missing], 'missing':[missing,missing,missing]})
+    expected=pd.DataFrame({'late':[missing,0.,1.], 'early':[0.,1.,missing], 'missing':[missing,missing,missing]})
+    assert_frame_equal(calculate_cumulative_returns(prices),expected)
+
+
+@pytest.mark.parametrize('baseline',[0.,-1.])
+def test_nonpositive_observed_baselines_are_rejected(baseline):
+    with pytest.raises(ValueError,match='baseline'):
+        calculate_cumulative_returns(pd.DataFrame({'coin':[baseline,10.]}))
+```
+
+REVIEW-ONLY METADATA
+Source group: cryptocurrency-analyser; role: train candidate, not new holdout.
+Full native tokens: 1833
+Validation: passed
+
+----
+
+prices-charts-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Build me a small local Python cryptocurrency research app where I can choose coin tickers and a date range, fetch historical prices, compare their cumulative returns and correlations, and view charts and a concise data summary in a browser. Start with a working price-comparison workflow rather than every possible trading indicator or a trading bot. Calculate returns relative to the first observed price for each series, preserve missing observations instead of inventing prices, omit a coin only when its whole series is missing, and label the data source, timestamps and unavailable results clearly. Let me also run it with a saved sample dataset when offline. A provider failure should show a useful error rather than fabricated zero returns, and malformed selections or unusable baselines should be explained. Keep fetching, calculations and visualization separate enough to test with deterministic fixtures, never place trades or publish posts, and make the web workflow and setup straightforward on my Mac without paid services.
+
+AGREED PLAN
+[
+  {
+    "id": "prices-returns",
+    "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_cumulative_returns.py",
+    "acceptance": [
+      "100,150,75 yields 0,.5,-.25, not daily changes.",
+      "Different series can have different first-observed dates.",
+      "Missing observations and entirely missing columns stay missing.",
+      "Dates and input values are preserved; nonpositive baselines are rejected."
+    ]
+  },
+  {
+    "id": "prices-charts",
+    "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+    "depends_on": [
+      "prices-returns"
+    ],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_charts.py",
+    "acceptance": [
+      "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+      "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+      "Three observations discriminate daily changes from cumulative returns."
+    ]
+  },
+  {
+    "id": "prices-fetch",
+    "title": "Specify the offline-testable adjusted-price provider boundary.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_fetch.py",
+    "acceptance": [
+      "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+      "Only the Adj Close frame is returned.",
+      "All-missing tickers are removed; partially missing prices are preserved."
+    ]
+  },
+  {
+    "id": "prices-analysis",
+    "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+    "depends_on": [
+      "prices-returns",
+      "prices-fetch",
+      "prices-charts"
+    ],
+    "implementation_files": [
+      "price_workflow.py"
+    ],
+    "target_file": "tests/test_price_analysis.py",
+    "acceptance": [
+      "Normalize symbols and keep provider/CSV calculations equivalent.",
+      "Expose source labels, observed date bounds, correlation and omitted symbols.",
+      "First-observed baselines work when the first row is missing.",
+      "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+    ]
+  },
+  {
+    "id": "prices-web-delivery",
+    "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+    "depends_on": [
+      "prices-analysis"
+    ],
+    "implementation_files": [
+      "web_app.py",
+      "README.md"
+    ],
+    "target_file": "tests/test_web_workflow.py",
+    "acceptance": [
+      "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+      "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+      "Check actual browser behavior and Mac startup separately."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify Pearson correlation and the numeric content of comparison charts.
+Target test file: tests/test_price_charts.py
+Expected implementation files: coin_comparator.py
+
+INTERFACE CONTRACT
+Public coin_comparator.calculate_cumulative_returns(prices: pandas.DataFrame) returns price/first-observed-nonmissing-price minus 1 independently per column. Preserve row/column order, dates, missing observations and input values. An entirely missing series stays missing. Nonpositive observed baselines raise ValueError mentioning baseline. Do not forward fill or convert cumulative returns to daily changes. Public calculate_correlation(prices) returns prices Pearson correlation matrix in input column order. Public plot_combined(correlation,prices,tickers) returns a Plotly Figure: heatmap first, then one scatter per present ticker, in the requested ticker order. Scatter y-values use calculate_cumulative_returns and names use the ticker. Browser rendering and styling are separate manual checks.
+
+ACCEPTANCE CRITERIA
+- Oppositely moving series have Pearson correlation -1, with matching index/column order.
+- The Plotly figure contains a heatmap followed by named cumulative-return traces.
+- Three observations discriminate daily changes from cumulative returns.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+Opposite sequences provide a concrete correlation oracle. Inspecting trace types, names and numeric data checks the figure without browser screenshots. A three-point price series catches a chart that silently substitutes daily returns.
+
+TARGET OUTPUT:
+File: tests/test_price_charts.py
+```python
+import pandas as pd
+from pandas.testing import assert_frame_equal
+from coin_comparator import calculate_correlation
+
+
+def test_correlation_detects_opposite_price_movements():
+    prices = pd.DataFrame({'up': [1., 2., 3.], 'down': [6., 4., 2.]})
+    expected = pd.DataFrame([[1., -1.], [-1., 1.]], index=['up', 'down'], columns=['up', 'down'])
+    assert_frame_equal(calculate_correlation(prices), expected)
+
+
+def test_combined_plot_contains_correlation_and_each_return_series():
+    from coin_comparator import plot_combined
+    prices = pd.DataFrame({'BTC': [10., 15.], 'ETH': [20., 10.]}, index=pd.date_range('2026-01-01', periods=2))
+    correlation = pd.DataFrame([[1., -1.], [-1., 1.]], index=['BTC', 'ETH'], columns=['BTC', 'ETH'])
+    figure = plot_combined(correlation, prices, ['BTC', 'ETH'])
+    assert [trace.type for trace in figure.data] == ['heatmap', 'scatter', 'scatter']
+    assert list(figure.data[1].y) == [0., .5]
+    assert list(figure.data[2].y) == [0., -.5]
+    assert [trace.name for trace in figure.data[1:]] == ['BTC', 'ETH']
+
+
+def test_plot_three_observations_uses_cumulative_not_daily_returns():
+    from coin_comparator import plot_combined
+    prices=pd.DataFrame({'BTC':[100.,150.,75.]})
+    figure=plot_combined(prices.corr(),prices,['BTC'])
+    assert list(figure.data[1].y) == [0.,.5,-.25]
+```
+
+REVIEW-ONLY METADATA
+Source group: cryptocurrency-analyser; role: train candidate, not new holdout.
+Full native tokens: 1809
+Validation: passed
+
+----
+
+prices-fetch-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Build me a small local Python cryptocurrency research app where I can choose coin tickers and a date range, fetch historical prices, compare their cumulative returns and correlations, and view charts and a concise data summary in a browser. Start with a working price-comparison workflow rather than every possible trading indicator or a trading bot. Calculate returns relative to the first observed price for each series, preserve missing observations instead of inventing prices, omit a coin only when its whole series is missing, and label the data source, timestamps and unavailable results clearly. Let me also run it with a saved sample dataset when offline. A provider failure should show a useful error rather than fabricated zero returns, and malformed selections or unusable baselines should be explained. Keep fetching, calculations and visualization separate enough to test with deterministic fixtures, never place trades or publish posts, and make the web workflow and setup straightforward on my Mac without paid services.
+
+AGREED PLAN
+[
+  {
+    "id": "prices-returns",
+    "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_cumulative_returns.py",
+    "acceptance": [
+      "100,150,75 yields 0,.5,-.25, not daily changes.",
+      "Different series can have different first-observed dates.",
+      "Missing observations and entirely missing columns stay missing.",
+      "Dates and input values are preserved; nonpositive baselines are rejected."
+    ]
+  },
+  {
+    "id": "prices-charts",
+    "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+    "depends_on": [
+      "prices-returns"
+    ],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_charts.py",
+    "acceptance": [
+      "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+      "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+      "Three observations discriminate daily changes from cumulative returns."
+    ]
+  },
+  {
+    "id": "prices-fetch",
+    "title": "Specify the offline-testable adjusted-price provider boundary.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_fetch.py",
+    "acceptance": [
+      "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+      "Only the Adj Close frame is returned.",
+      "All-missing tickers are removed; partially missing prices are preserved."
+    ]
+  },
+  {
+    "id": "prices-analysis",
+    "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+    "depends_on": [
+      "prices-returns",
+      "prices-fetch",
+      "prices-charts"
+    ],
+    "implementation_files": [
+      "price_workflow.py"
+    ],
+    "target_file": "tests/test_price_analysis.py",
+    "acceptance": [
+      "Normalize symbols and keep provider/CSV calculations equivalent.",
+      "Expose source labels, observed date bounds, correlation and omitted symbols.",
+      "First-observed baselines work when the first row is missing.",
+      "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+    ]
+  },
+  {
+    "id": "prices-web-delivery",
+    "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+    "depends_on": [
+      "prices-analysis"
+    ],
+    "implementation_files": [
+      "web_app.py",
+      "README.md"
+    ],
+    "target_file": "tests/test_web_workflow.py",
+    "acceptance": [
+      "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+      "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+      "Check actual browser behavior and Mac startup separately."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify the offline-testable adjusted-price provider boundary.
+Target test file: tests/test_price_fetch.py
+Expected implementation files: coin_comparator.py
+
+INTERFACE CONTRACT
+Public coin_comparator.fetch_data(tickers,start,end,download=None) accepts timestamp strings YYYY-MM-DD HH:MM:SS and returns a pandas DataFrame. Call the injected download(tickers,start=datetime,end=datetime,auto_adjust=False), select Adj Close and drop only entirely missing columns. download defaults to yf.download; tests must inject a fake and never use the network. Existing tickers are already normalized for this boundary.
+
+ACCEPTANCE CRITERIA
+- The injected download callable receives ticker names, datetime bounds and auto_adjust=False.
+- Only the Adj Close frame is returned.
+- All-missing tickers are removed; partially missing prices are preserved.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+A provider spy checks the explicit timestamp/adjustment contract. One partly missing and one entirely missing series distinguish selective omission from blanket dropna or filling invented prices.
+
+TARGET OUTPUT:
+File: tests/test_price_fetch.py
+```python
+import pandas as pd
+from pandas.testing import assert_frame_equal
+from coin_comparator import fetch_data
+
+
+def test_fetch_drops_only_entirely_missing_tickers(monkeypatch):
+    from unittest.mock import Mock
+    prices = pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.], 'MISSING-USD': [float('nan'), float('nan')]})
+    download = Mock(return_value={'Adj Close': prices})
+    result = fetch_data(['BTC-USD', 'ETH-USD', 'MISSING-USD'], '2026-01-01 00:00:00', '2026-01-03 00:00:00', download=download)
+    assert_frame_equal(result, pd.DataFrame({'BTC-USD': [10., 12.], 'ETH-USD': [float('nan'), 3.]}))
+    from datetime import datetime
+    download.assert_called_once_with(['BTC-USD', 'ETH-USD', 'MISSING-USD'], start=datetime(2026, 1, 1), end=datetime(2026, 1, 3), auto_adjust=False)
+```
+
+REVIEW-ONLY METADATA
+Source group: cryptocurrency-analyser; role: train candidate, not new holdout.
+Full native tokens: 1608
+Validation: passed
+
+----
+
+prices-analysis-v01
+
+MODEL INPUT
+
+SYSTEM:
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+USER:
+APPLICATION REQUEST
+Build me a small local Python cryptocurrency research app where I can choose coin tickers and a date range, fetch historical prices, compare their cumulative returns and correlations, and view charts and a concise data summary in a browser. Start with a working price-comparison workflow rather than every possible trading indicator or a trading bot. Calculate returns relative to the first observed price for each series, preserve missing observations instead of inventing prices, omit a coin only when its whole series is missing, and label the data source, timestamps and unavailable results clearly. Let me also run it with a saved sample dataset when offline. A provider failure should show a useful error rather than fabricated zero returns, and malformed selections or unusable baselines should be explained. Keep fetching, calculations and visualization separate enough to test with deterministic fixtures, never place trades or publish posts, and make the web workflow and setup straightforward on my Mac without paid services.
+
+AGREED PLAN
+[
+  {
+    "id": "prices-returns",
+    "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_cumulative_returns.py",
+    "acceptance": [
+      "100,150,75 yields 0,.5,-.25, not daily changes.",
+      "Different series can have different first-observed dates.",
+      "Missing observations and entirely missing columns stay missing.",
+      "Dates and input values are preserved; nonpositive baselines are rejected."
+    ]
+  },
+  {
+    "id": "prices-charts",
+    "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+    "depends_on": [
+      "prices-returns"
+    ],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_charts.py",
+    "acceptance": [
+      "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+      "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+      "Three observations discriminate daily changes from cumulative returns."
+    ]
+  },
+  {
+    "id": "prices-fetch",
+    "title": "Specify the offline-testable adjusted-price provider boundary.",
+    "depends_on": [],
+    "implementation_files": [
+      "coin_comparator.py"
+    ],
+    "target_file": "tests/test_price_fetch.py",
+    "acceptance": [
+      "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+      "Only the Adj Close frame is returned.",
+      "All-missing tickers are removed; partially missing prices are preserved."
+    ]
+  },
+  {
+    "id": "prices-analysis",
+    "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+    "depends_on": [
+      "prices-returns",
+      "prices-fetch",
+      "prices-charts"
+    ],
+    "implementation_files": [
+      "price_workflow.py"
+    ],
+    "target_file": "tests/test_price_analysis.py",
+    "acceptance": [
+      "Normalize symbols and keep provider/CSV calculations equivalent.",
+      "Expose source labels, observed date bounds, correlation and omitted symbols.",
+      "First-observed baselines work when the first row is missing.",
+      "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+    ]
+  },
+  {
+    "id": "prices-web-delivery",
+    "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+    "depends_on": [
+      "prices-analysis"
+    ],
+    "implementation_files": [
+      "web_app.py",
+      "README.md"
+    ],
+    "target_file": "tests/test_web_workflow.py",
+    "acceptance": [
+      "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+      "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+      "Check actual browser behavior and Mac startup separately."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify price-analysis orchestration, offline parity and explicit failures.
+Target test file: tests/test_price_analysis.py
+Expected implementation files: price_workflow.py
+
+INTERFACE CONTRACT
+Public price_workflow.analyze(tickers,start,end,provider=None,csv_path=None) returns {returns:DataFrame,correlation:DataFrame,omitted:list[str],source:"csv"|"provider",observed_start:YYYY-MM-DD,observed_end:YYYY-MM-DD}. Normalize names to uppercase -USD; dates use [start,end). provider(symbols,start,end) returns a price frame. CSV uses a date index and named ticker columns, with no provider call. CSV/provider results match except inferred pandas frequency metadata. Omit and report only all-missing series; each retained series uses its first nonmissing positive baseline and preserves gaps. Empty selection or reversed dates raises ValueError before fetching. Nonpositive baselines raise ValueError mentioning baseline. Provider RuntimeError propagates for display; never fabricate zeros. The correlation matrix uses price values, not returns. Browser integration remains outside this task.
+
+ACCEPTANCE CRITERIA
+- Normalize symbols and keep provider/CSV calculations equivalent.
+- Expose source labels, observed date bounds, correlation and omitted symbols.
+- First-observed baselines work when the first row is missing.
+- Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.
+
+AUTHORED RATIONALE:
+Comparing offline and provider routes verifies shared calculations, while concrete expected returns prevent two identically wrong routes from passing. The provider spy checks normalized symbols; omitted-series and leading-gap controls protect the baseline policy. Errors must remain explicit instead of becoming zero-return results.
+
+TARGET OUTPUT:
+File: tests/test_price_analysis.py
+```python
+from unittest.mock import Mock
+import pandas as pd
+from pandas.testing import assert_frame_equal
+import pytest
+
+
+def prices():
+    return pd.DataFrame({'BTC-USD':[100.,150.,75.], 'ETH-USD':[20.,10.,30.]},
+                        index=pd.date_range('2026-01-01', periods=3, name='Date'))
+
+
+def test_saved_csv_matches_provider_calculation_and_declares_source(tmp_path):
+    from price_workflow import analyze
+    path = tmp_path/'prices.csv'
+    prices().to_csv(path)
+    provider = Mock(return_value=prices())
+    live = analyze(['btc','eth'], '2026-01-01','2026-01-04', provider=provider)
+    offline = analyze(['btc','eth'], '2026-01-01','2026-01-04', csv_path=path)
+    provider.assert_called_once_with(['BTC-USD','ETH-USD'], '2026-01-01','2026-01-04')
+    assert_frame_equal(live['returns'], offline['returns'], check_freq=False)
+    assert offline['returns']['BTC-USD'].tolist() == [0.,.5,-.25]
+    assert live['source'] == 'provider'
+    assert offline['source'] == 'csv'
+    assert_frame_equal(live['correlation'], prices().corr())
+    assert offline['observed_start'] == '2026-01-01'
+    assert offline['observed_end'] == '2026-01-03'
+
+
+def test_provider_failure_does_not_produce_zero_returns():
+    from price_workflow import analyze
+    with pytest.raises(RuntimeError, match='provider unavailable'):
+        analyze(['btc'], '2026-01-01','2026-01-04', provider=Mock(side_effect=RuntimeError('provider unavailable')))
+
+
+@pytest.mark.parametrize('tickers,start,end', [([], '2026-01-01','2026-01-04'),
+    (['btc'], '2026-01-04','2026-01-01')])
+def test_bad_selection_fails_before_fetch(tickers,start,end):
+    from price_workflow import analyze
+    provider = Mock()
+    with pytest.raises(ValueError):
+        analyze(tickers,start,end,provider=provider)
+    provider.assert_not_called()
+
+
+@pytest.mark.parametrize('baseline', [0.,-1.])
+def test_unusable_first_row_is_reported_not_filled(baseline):
+    from price_workflow import analyze
+    frame = prices()
+    frame.loc[frame.index[0], 'BTC-USD'] = baseline
+    with pytest.raises(ValueError, match='baseline'):
+        analyze(['btc','eth'], '2026-01-01','2026-01-04',provider=Mock(return_value=frame))
+
+
+def test_first_observed_baselines_and_omitted_series_are_reported():
+    from price_workflow import analyze
+    frame=prices()
+    frame.loc[frame.index[0],'BTC-USD']=float('nan')
+    frame['MISSING-USD']=float('nan')
+    result=analyze(['btc','eth','missing'],'2026-01-01','2026-01-04',provider=Mock(return_value=frame))
+    expected=pd.DataFrame({'BTC-USD':[float('nan'),0.,-.5],'ETH-USD':[0.,-.5,.5]},index=frame.index)
+    assert_frame_equal(result['returns'],expected)
+    assert result['omitted'] == ['MISSING-USD']
+    assert list(result['correlation'].columns) == ['BTC-USD','ETH-USD']
+```
+
+REVIEW-ONLY METADATA
+Source group: cryptocurrency-analyser; role: train candidate, not new holdout.
+Full native tokens: 2328
+Validation: passed

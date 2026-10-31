@@ -9,8 +9,8 @@ import subprocess
 
 ROOT=Path(__file__).resolve().parents[2]
 BUNDLE=ROOT/'experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03'
-ART=Path('/Users/cbarkinozer/Documents/llm-bender-artifacts')
-PYTHON=ART/'occam-gguf-20261026/.venv/bin/python'
+ART=Path(os.environ.get('TDD_ARTIFACTS','/Users/cbarkinozer/Documents/llm-bender-artifacts'))
+PYTHON=Path(os.environ.get('TDD_PYTHON',str(ART/'occam-gguf-20261026/.venv/bin/python')))
 DEPS=ART/'thinking-tdd/repo-audit-20261030/deps'
 FAULTS={
 'GitHub-insignia':{
@@ -141,45 +141,68 @@ def main():
     global BUNDLE
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo')
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06','app-core-v07'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
+    if args.revision=='app-core-v07':
+        FAULTS['cryptocurrency-analyser']['correlation-always-zero']=FAULTS['cryptocurrency-analyser']['correlation-always-zero'].replace('_calculate_correlation','calculate_correlation')
+        additions={
+            'ReflexModels':{
+                'always-fallback':('R5', "import reflexmodels as m\noriginal=m.fallback_gate\ndef broken(*a,**k):\n    return original(*a,**k)|{'fallback_required':True,'accepted':False}\nm.fallback_gate=broken"),
+                'ignore-confidence':('R5', "import reflexmodels as m\noriginal=m.fallback_gate\ndef broken(*a,**k):\n    k['min_confidence']=.01;return original(*a,**k)\nm.fallback_gate=broken")},
+            'ghost-box':{
+                'always-reject-summary':('R3', "import ghost_box.mail.summary as m\nm.checked_items=lambda *a,**k:[]"),
+                'summarize-entire-inbox':('R3', "from mail_workflow import MailApp\noriginal=MailApp.summarize\nMailApp.summarize=lambda self,ids:original(self,[m['id'] for m in self._mail])"),
+                'ignore-search-dates':('R2', "from mail_workflow import MailApp\nfrom datetime import datetime,timezone\noriginal=MailApp.search\ndef broken(self,*a,**k):\n    k['start']=datetime(2000,1,1,tzinfo=timezone.utc);k['end']=datetime(2100,1,1,tzinfo=timezone.utc)\n    return original(self,*a,**k)\nMailApp.search=broken")},
+            'llm-bender-lab':{
+                'trainer-receives-heldout':('R1', "import experiment_workflow as m\noriginal=m.run_experiment\ndef broken(root,name,config,rows,**kwargs):\n    train=kwargs['trainer']\n    kwargs['trainer']=lambda run,cfg,data:train(run,cfg,rows)\n    return original(root,name,config,rows,**kwargs)\nm.run_experiment=broken"),
+                'evaluator-receives-training':('R6', "import experiment_workflow as m\noriginal=m.run_experiment\ndef broken(root,name,config,rows,**kwargs):\n    evaluate=kwargs['evaluator']\n    kwargs['evaluator']=lambda model,data,settings:evaluate(model,rows,settings)\n    return original(root,name,config,rows,**kwargs)\nm.run_experiment=broken"),
+                'zero-metrics-become-unavailable':('R6', "import experiment_workflow as m\noriginal=m.run_experiment\ndef broken(*a,**k):\n    result=original(*a,**k)\n    for metric in result.get('comparison',{}).values():\n        for key,value in list(metric.items()):\n            if value==0:metric[key]=None\n    return result\nm.run_experiment=broken")},
+            'cryptocurrency-analyser':{
+                'first-row-instead-of-first-observed':('R2', "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices/prices.iloc[0]-1"),
+                'omit-unavailable-reporting':('R3', "import price_workflow as m\noriginal=m.analyze\nm.analyze=lambda *a,**k:original(*a,**k)|{'omitted':[]}")},
+        }
+        for repo, probes in additions.items():
+            for label,(requirement,code) in probes.items():
+                FAULTS[repo][label]=code
+                TARGETS[repo][label]=[requirement]
     output=ART/('thinking-tdd/'+args.revision+'-faults')/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     output.mkdir(parents=True)
-    config=json.loads((BUNDLE/'model-config.json').read_text()) if (BUNDLE/'model-config.json').exists() else {}
+    config=json.loads((BUNDLE/'model-config.json').read_text(encoding='utf-8')) if (BUNDLE/'model-config.json').exists() else {}
     preservation_labels={key:{label for check in checks for label in check['faults']} for key,checks in config.get('preservation_checks',{}).items()}
     results=[]
     if args.repo and args.repo not in FAULTS: raise ValueError(args.repo)
     for repo, faults in FAULTS.items():
         if args.repo and repo!=args.repo: continue
-        folder=BUNDLE/repo.lower(); source=ROOT.parent/repo
+        folder=BUNDLE/repo.lower(); source=Path(os.environ.get('TDD_SOURCE_ROOT',str(ROOT.parent)))/repo
         for label,code in faults.items():
             target=output/repo/label;target.mkdir(parents=True)
             plugin=target/'fault_probe.py'
-            plugin.write_text('import json\nfrom pathlib import Path\nFAILURES=[]\ndef pytest_configure(config):\n'+''.join('    '+line+'\n' for line in code.splitlines())+'\ndef pytest_runtest_logreport(report):\n    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))\ndef pytest_sessionfinish(session,exitstatus):\n    Path('+repr(str(target/'failures.json'))+').write_text(json.dumps(FAILURES,indent=2))\n')
-            python=source/'.venv/bin/python' if repo in ('GitHub-insignia','ghost-box') else PYTHON
+            plugin.write_text('import json\nfrom pathlib import Path\nFAILURES=[]\ndef pytest_configure(config):\n'+''.join('    '+line+'\n' for line in code.splitlines())+'\ndef pytest_runtest_logreport(report):\n    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))\ndef pytest_sessionfinish(session,exitstatus):\n    Path('+repr(str(target/'failures.json'))+').write_text(json.dumps(FAILURES,indent=2))\n', encoding='utf-8', newline='\n')
+            python=Path(os.environ['TDD_PYTHON']) if 'TDD_PYTHON' in os.environ else source/'.venv/bin/python' if repo in ('GitHub-insignia','ghost-box') else PYTHON
             paths=[str(target),str(folder/'reference'),str(source),str(source/'src'),str(DEPS)]
             env=dict(os.environ,PYTHONPATH=os.pathsep.join(paths),PYTHONDONTWRITEBYTECODE='1',QT_QPA_PLATFORM='offscreen',OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',HF_HUB_OFFLINE='1')
             for key in list(env):
                 if any(s in key.upper() for s in ('TOKEN','API_KEY','SECRET','PASSWORD')):env.pop(key)
             command=[str(python),'-m','pytest','-q','-p','fault_probe',str(folder/'tests')]
             if (folder/'pytest.ini').exists():command+=['-c',str(folder/'pytest.ini')]
-            result=subprocess.run(command,cwd=source,env=env,capture_output=True,text=True,timeout=90)
-            (target/'pytest.log').write_text(result.stdout+result.stderr)
-            failures=json.loads((target/'failures.json').read_text()) if (target/'failures.json').exists() else []
+            result=subprocess.run(command,cwd=folder if args.revision=='app-core-v07' else source,env=env,capture_output=True,text=True,timeout=90)
+            (target/'pytest.log').write_text(result.stdout+result.stderr, encoding='utf-8', newline='\n')
+            failures=json.loads((target/'failures.json').read_text(encoding='utf-8')) if (target/'failures.json').exists() else []
             killed=result.returncode==1 and any(f['when']=='call' and ('AssertionError' in f['detail'] or 'Failed:' in f['detail']) for f in failures)
             results.append(dict(repo=repo,fault=label,target_requirements=TARGETS[repo][label],preservation_probe=label in preservation_labels.get(repo.lower(),set()) or label in PRESERVATION_FAULTS.get(repo,{}),killed=killed,returncode=result.returncode,
                                 failing_tests=[f['nodeid'] for f in failures],log=str(target/'pytest.log'),
                                 mutation_sha256=sha256(plugin.read_bytes()).hexdigest(),
-                                test_snapshot={str(p.relative_to(folder)):sha256(p.read_bytes()).hexdigest() for p in sorted((folder/'tests').rglob('*.py'))}))
+                                test_snapshot={p.relative_to(folder).as_posix():sha256(p.read_bytes()).hexdigest() for p in sorted((folder/'tests').rglob('*.py'))},
+                                reference_snapshot={p.relative_to(folder).as_posix():sha256(p.read_bytes()).hexdigest() for p in sorted((folder/'reference').glob('*.py'))}))
             print(repo,label,'KILLED' if killed else 'NOT VALIDATED',flush=True)
     if args.repo:
-        previous=json.loads(Path(json.loads((BUNDLE/'fault-receipt.json').read_text())['results']).read_text())
+        previous=json.loads(Path(json.loads((BUNDLE/'fault-receipt.json').read_text(encoding='utf-8'))['results']).read_text(encoding='utf-8'))
         results=[r for r in previous['results'] if r['repo']!=args.repo]+results
     report=dict(results=results,all_killed=all(r['killed'] for r in results),
                 note='Targeted fault probes, not exhaustive mutation coverage. Original checkouts unchanged.')
-    (output/'results.json').write_text(json.dumps(report,indent=2)+'\n')
-    (BUNDLE/'fault-receipt.json').write_text(json.dumps({'results':str(output/'results.json'),'all_killed':report['all_killed']},indent=2)+'\n')
+    (output/'results.json').write_text(json.dumps(report,indent=2)+'\n', encoding='utf-8', newline='\n')
+    (BUNDLE/'fault-receipt.json').write_text(json.dumps({'results':str(output/'results.json'),'all_killed':report['all_killed']},indent=2)+'\n', encoding='utf-8', newline='\n')
     print(output)
 
 if __name__=='__main__':main()

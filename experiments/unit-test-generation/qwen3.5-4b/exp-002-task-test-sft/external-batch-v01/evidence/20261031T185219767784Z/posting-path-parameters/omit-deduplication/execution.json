@@ -1,0 +1,45 @@
+{
+  "order": [
+    "tests/test_path_parameters.py::test_placeholder_names_and_negative_controls",
+    "tests/test_path_parameters.py::test_substitution_scope_and_missing_values"
+  ],
+  "reports": [
+    {
+      "nodeid": "tests/test_path_parameters.py::test_placeholder_names_and_negative_controls",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_path_parameters.py::test_placeholder_names_and_negative_controls",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_path_parameters.py::test_placeholder_names_and_negative_controls",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_path_parameters.py::test_substitution_scope_and_missing_values",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_path_parameters.py::test_substitution_scope_and_missing_values",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_path_parameters.py::test_substitution_scope_and_missing_values",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1
+}

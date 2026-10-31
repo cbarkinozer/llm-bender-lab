@@ -1,0 +1,5 @@
+{
+  "module": "litecli.packages.parseutils",
+  "mutation": "original=m.is_destructive\nm.is_destructive=lambda sql: original(sql.split(';')[0])",
+  "seed": null
+}

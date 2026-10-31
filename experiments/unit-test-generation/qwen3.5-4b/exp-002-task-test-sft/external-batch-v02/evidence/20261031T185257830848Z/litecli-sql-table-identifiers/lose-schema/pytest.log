@@ -1,0 +1,27 @@
+.FF                                                                      [100%]
+================================== FAILURES ===================================
+_______________________ test_qualified_join_and_aliases _______________________
+
+    def test_qualified_join_and_aliases():
+>       assert extract_tables('SELECT u.id FROM main.users u JOIN orders o ON u.id=o.user_id') == [
+            ('main', 'users', 'u'), (None, 'orders', 'o')]
+E       AssertionError: assert [(None, 'user...orders', 'o')] == [('main', 'us...orders', 'o')]
+E         
+E         At index 0 diff: (None, 'users', 'u') != ('main', 'users', 'u')
+E         Use -v to get more diff
+
+tests\test_sql_table_identifiers.py:10: AssertionError
+_____________________________ test_nested_select ______________________________
+
+    def test_nested_select():
+>       assert extract_tables('SELECT * FROM (SELECT id FROM users) nested') == [(None, 'users', None)]
+E       AssertionError: assert [(None, 'nested', 'nested')] == [(None, 'users', None)]
+E         
+E         At index 0 diff: (None, 'nested', 'nested') != (None, 'users', None)
+E         Use -v to get more diff
+
+tests\test_sql_table_identifiers.py:15: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_sql_table_identifiers.py::test_qualified_join_and_aliases
+FAILED tests/test_sql_table_identifiers.py::test_nested_select - AssertionErr...
+2 failed, 1 passed in 0.07s

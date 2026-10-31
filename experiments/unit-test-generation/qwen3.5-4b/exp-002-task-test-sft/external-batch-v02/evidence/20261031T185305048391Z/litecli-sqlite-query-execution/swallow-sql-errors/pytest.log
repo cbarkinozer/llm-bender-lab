@@ -1,0 +1,18 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_________________________ test_empty_and_invalid_sql __________________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-256/test_empty_and_invalid_sql0')
+
+    def test_empty_and_invalid_sql(tmp_path):
+        db = SQLExecute(str(tmp_path / 'errors.sqlite'))
+        try:
+            assert list(db.run('  ')) == [(None, None, None, None)]
+>           with pytest.raises(OperationalError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE OperationalError
+
+tests\test_sqlite_query_execution.py:24: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_sqlite_query_execution.py::test_empty_and_invalid_sql - Fai...
+1 failed, 1 passed in 0.10s

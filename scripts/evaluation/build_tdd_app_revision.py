@@ -1,5 +1,6 @@
 """Build reviewable framing-B records; never exports approved SFT rows."""
 import argparse
+import os
 import ast
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -8,7 +9,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
 BUNDLE=ROOT/'experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v03'
-TOKENIZER=Path('/Users/cbarkinozer/Documents/llm-bender-artifacts/occam-gguf-20261026/base')
+TOKENIZER=Path(os.environ.get('TDD_TOKENIZER_PATH','/Users/cbarkinozer/Documents/llm-bender-artifacts/occam-gguf-20261026/base'))
 SYSTEM='''Prepare tests before implementing a Python application. Work from the request and the explicitly supplied preparation constraints. Produce five sections: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. Choose and explicitly document a minimal public interface; do not pretend the user specified your API names or defaults. Any necessary proposed behavior must be visible in the agreement. Leave nonessential unresolved choices open. Write compact pytest tests with all fixtures/configuration; Python standard library and declared dependencies only. Test observable contracts with deterministic offline fixtures, concrete justified expected results and useful assertions. Put subjective/live checks separately. Account for every requirement without claiming a narrow subset completes the app. Do not implement the app. Keep the accompanying rationale concise and focused on expected outcomes and coverage.'''
 PREPARATION='''Preparation constraints for this demo (assistant-authored, not historical user answers): use Python and pytest. External services and model backends must be replaceable with offline fixtures; do not download weights or launch inference. The target proposes its own interface before tests. API names in that proposal are design choices, not facts recoverable from this paragraph. Repository source and validation evidence are review-only, absent from model input.'''
 RATIONALES={
@@ -74,32 +75,32 @@ UNRESOLVED={
 def main():
     global BUNDLE,SYSTEM,PREPARATION,RATIONALES,UNRESOLVED
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06'],default='app-core-v03')
+    parser.add_argument('--revision',choices=['app-core-v03','app-core-v04','app-core-v05','app-core-v06','app-core-v07'],default='app-core-v03')
     args=parser.parse_args()
     BUNDLE=BUNDLE.parent/args.revision
     version=args.revision.rsplit('-',1)[-1]
-    config=json.loads((BUNDLE/'model-config.json').read_text()) if (BUNDLE/'model-config.json').exists() else {}
+    config=json.loads((BUNDLE/'model-config.json').read_text(encoding='utf-8')) if (BUNDLE/'model-config.json').exists() else {}
     if config:
         SYSTEM=config['system'];PREPARATION=config['preparation']
         RATIONALES=config['rationales'];UNRESOLVED=config['unresolved']
     from transformers import AutoTokenizer
     tokenizer=AutoTokenizer.from_pretrained(TOKENIZER,local_files_only=True,trust_remote_code=False)
-    inputs=[json.loads(l) for l in (BUNDLE/'source-briefs.jsonl').read_text().splitlines()]
-    runs={r['repo']:r for r in json.loads((BUNDLE/'token-and-execution-report.json').read_text())['reports']}
+    inputs=[json.loads(l) for l in (BUNDLE/'source-briefs.jsonl').read_text(encoding='utf-8').splitlines()]
+    runs={r['repo']:r for r in json.loads((BUNDLE/'token-and-execution-report.json').read_text(encoding='utf-8'))['reports']}
     for partial in BUNDLE.glob('execution-*.json'):
         if partial.name.startswith('execution-receipt'):continue
-        for run in json.loads(partial.read_text())['reports']:runs[run['repo']]=run
-    faults=json.loads(Path(json.loads((BUNDLE/'fault-receipt.json').read_text())['results']).read_text())
+        for run in json.loads(partial.read_text(encoding='utf-8'))['reports']:runs[run['repo']]=run
+    faults=json.loads(Path(json.loads((BUNDLE/'fault-receipt.json').read_text(encoding='utf-8'))['results']).read_text(encoding='utf-8'))
     records=[]
     for task in inputs:
         identifier=task['id']; folder=BUNDLE/identifier; run=runs[task['repo']]
         for file in run['files']+run['reference_files']:
             assert sha256((folder/file['path']).read_bytes()).hexdigest()==file['sha256'], 'Execution snapshot stale: '+file['path']
-        interface=(folder/'interface.md').read_text()
+        interface=(folder/'interface.md').read_text(encoding='utf-8')
         requirements=[dict(id=r['id'],text=r['requirement'],check_mode='automated-core',test_ids=[],manual_ids=[],coverage_status='mapped; semantic coverage requires review') for r in task['requirements']]
         req={r['id']:r for r in requirements}; tests=[]; imports=set()
         for file in sorted((folder/'tests').rglob('*.py')):
-            tree=ast.parse(file.read_text())
+            tree=ast.parse(file.read_text(encoding='utf-8'))
             for node in ast.walk(tree):
                 if isinstance(node,ast.ImportFrom) and node.module and node.module.startswith(APP_PREFIXES[identifier]):
                     for alias in node.names:imports.add((node.module,alias.name))
@@ -108,31 +109,31 @@ def main():
                         if alias.name.startswith(APP_PREFIXES[identifier]):imports.add((alias.name,'*'))
             for node in tree.body:
                 if not isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef)) or not node.name.startswith('test_'):continue
-                tid=str(file.relative_to(folder))+'::'+node.name
+                tid=file.relative_to(folder).as_posix()+'::'+node.name
                 override=config.get('test_requirement_overrides',{}).get(identifier,{}).get(tid)
                 matches=[override] if override is not None else [rs for prefix,rs in MAPS[identifier] if node.name[5:].startswith(prefix)]
                 if not matches:raise ValueError(f'Unmapped test: {identifier}:{node.name}')
                 ids=sorted(set(sum(matches,[])))
-                tid=str(file.relative_to(folder))+'::'+node.name
+                tid=file.relative_to(folder).as_posix()+'::'+node.name
                 tests.append(dict(id=tid,requirements=ids))
                 for rid in ids:req[rid]['test_ids'].append(tid)
         assert all(r['test_ids'] for r in requirements),identifier
-        if version in ('v05','v06'):
+        if version in ('v05','v06','v07'):
             from tdd_review_prechecks import check_test_numbering
             assert not check_test_numbering(tests), check_test_numbering(tests)
         for seam in config.get('public_attribute_seams',{}).get(identifier,[]):
             imports.add((seam['module'],seam['name']))
         # An exhaustive app import inventory supplements (not replaces) the prose contract.
         inventory='\n'.join('- `'+module+('` (module)' if name=='*' else '.'+name+'`') for module,name in sorted(imports))
-        agreement=interface+('\nPublic imports and configuration:\n' if config.get('public_attribute_seams',{}).get(identifier) else '\nPublic imports:\n' if version in ('v04','v05','v06') else '\nDeclared application import inventory (checked against test AST):\n')+inventory+'\n'
+        agreement=interface+('\nPublic imports and configuration:\n' if config.get('public_attribute_seams',{}).get(identifier) else '\nPublic imports:\n' if version in ('v04','v05','v06','v07') else '\nDeclared application import inventory (checked against test AST):\n')+inventory+'\n'
         manual=[dict(id=f'M{i+1}',text=text) for i,text in enumerate(config['manual_overrides'][identifier] if config else task['manual_checks']+EXTRA_MANUAL[identifier])]
         # Manual checks are adjuncts, never substitutions for missing backend coverage.
-        decisions=('Proposed decisions:\n\n' if version in ('v04','v05','v06') else 'These are assistant-proposed design choices for this demo, not recorded human answers.\n\n')+ '\n'.join('- '+d for d in task['assistant_decisions'] if 'unresolved behavior gaps' not in d and 'not yet represented' not in d)+'\n\nUnresolved/nonessential choices:\n'+'\n'.join('- '+d for d in UNRESOLVED[identifier])
+        decisions=('Proposed decisions:\n\n' if version in ('v04','v05','v06','v07') else 'These are assistant-proposed design choices for this demo, not recorded human answers.\n\n')+ '\n'.join('- '+d for d in task['assistant_decisions'] if 'unresolved behavior gaps' not in d and 'not yet represented' not in d)+'\n\nUnresolved/nonessential choices:\n'+'\n'.join('- '+d for d in UNRESOLVED[identifier])
         requirements.append(dict(id='R7' if len(requirements)==6 else 'R6',text='Usable delivery, documented commands and the declared live/manual integration checks.',check_mode='manual-or-live-integration',test_ids=[],manual_ids=[m['id'] for m in manual],coverage_status='explicitly pending; not certified by backend tests'))
         mapping='\n\n'.join(r['id']+': '+r['text']+'\n'+'\n'.join('- `'+t+'`' for t in r['test_ids'])+('\nManual/live: '+', '.join(r['manual_ids']) if r['manual_ids'] else '') for r in requirements)
         manual_text='\n'.join(m['id']+': '+m['text'] for m in manual)
-        target='## Decisions and unresolved questions\n\n'+decisions+'\n\n## Proposed interface agreement\n\n'+agreement+'\n## Requirement-to-test map\n\n'+mapping+'\n\n## Complete test files\n\n'+(folder/'test-output.md').read_text()+'\n## Manual checks\n\n'+manual_text+'\n'
-        messages=[{'role':'system','content':SYSTEM+('\n\n'+PREPARATION if version in ('v04','v05','v06') else '')},{'role':'user','content':task['user_request']+('' if version in ('v04','v05','v06') else '\n\n'+PREPARATION)},
+        target='## Decisions and unresolved questions\n\n'+decisions+'\n\n## Proposed interface agreement\n\n'+agreement+'\n## Requirement-to-test map\n\n'+mapping+'\n\n## Complete test files\n\n'+(folder/'test-output.md').read_text(encoding='utf-8')+'\n## Manual checks\n\n'+manual_text+'\n'
+        messages=[{'role':'system','content':SYSTEM+('\n\n'+PREPARATION if version in ('v04','v05','v06','v07') else '')},{'role':'user','content':task['user_request']+('' if version in ('v04','v05','v06','v07') else '\n\n'+PREPARATION)},
                   {'role':'assistant','reasoning_content':RATIONALES[identifier],'content':target}]
         sections=['Decisions and unresolved questions','Proposed interface agreement','Requirement-to-test map','Complete test files','Manual checks']
         positions=[target.index('## '+section+'\n') for section in sections]
@@ -144,8 +145,14 @@ def main():
         assert '<think>\n'+RATIONALES[identifier] in rendered and '</think>' in rendered
         assert len(ids)>=len(tokenizer.encode(target,add_special_tokens=False)), 'Full sequence cannot be shorter than the target'
         assert len(ids)==len(tokenizer.encode(rendered,add_special_tokens=False)), 'Serialized text and template token counts disagree'
-        stability_report=json.loads(Path(json.loads((BUNDLE/'stability-receipt.json').read_text())['results']).read_text())
+        stability_report=json.loads(Path(json.loads((BUNDLE/'stability-receipt.json').read_text(encoding='utf-8'))['results']).read_text(encoding='utf-8'))
         stable=[r for r in stability_report['results'] if r['repo']==task['repo']]
+        if version=='v07':
+            snapshot={p.relative_to(folder).as_posix():sha256(p.read_bytes()).hexdigest() for p in sorted((folder/'tests').rglob('*.py'))}
+            references={p.relative_to(folder).as_posix():sha256(p.read_bytes()).hexdigest() for p in sorted((folder/'reference').glob('*.py'))}
+            assert all(r['test_snapshot']==snapshot and r['reference_snapshot']==references for r in stable), 'Stale stability evidence'
+            assert all(f['test_snapshot']==snapshot and f.get('reference_snapshot')==references for f in faults['results'] if f['repo']==task['repo']), 'Stale fault evidence'
+            assert all(f['killed'] for f in faults['results'] if f['repo']==task['repo']), 'A targeted fault remains unvalidated'
         per_req_faults={r['id']:[f['fault'] for f in faults['results'] if f['repo']==task['repo'] and f['killed'] and r['id'] in f['target_requirements'] and any(node.split('[')[0].endswith(t['id']) and r['id'] in t['requirements'] for node in f['failing_tests'] for t in tests)] for r in requirements if r['check_mode']=='automated-core'}
         assert all(per_req_faults.values()), (identifier,per_req_faults)
         assert len(stable)==3 and all(r['returncode']==0 for r in stable)
@@ -160,7 +167,7 @@ def main():
                 assert any(node.split('[')[0].endswith(t['id']) and check['requirement_id'] in t['requirements'] for node in match[0]['failing_tests'] for t in tests), (identifier,check)
             preservation.append(dict(check,detected=True))
         record=dict(record_id=identifier+'-'+version,schema_version='1.0',record_version=int(version[1:]),
-            framing='request-to-proposed-interface-and-tests',status='awaiting-human-review',
+            framing='request-to-proposed-interface-and-tests',status='awaiting-ai-review' if version=='v07' else 'awaiting-human-review',
             source=dict(repo=task['repo'],revision=run['source_commit'],dirty=run['source_dirty'],
                         origin=task['provenance']['origin'],new_reference_files=run['reference_files'],
                         reference_note='New workflow references are validation material; they do not prove those workflows are wired into the original app.'),
@@ -172,35 +179,35 @@ def main():
             validation=dict(reference_pass=run['returncode']==0,execution_log=run['log'],
                             test_files=run['files'],faults=[f for f in faults['results'] if f['repo']==task['repo']],
                             structural_map_consistency=True,semantic_map_approval=False,
-                            test_numbering_consistent=(version in ('v05','v06')),preservation_checks=preservation,
+                            test_numbering_consistent=(version in ('v05','v06','v07')),preservation_checks=preservation,
                             fault_coverage_by_core_requirement=per_req_faults,all_core_requirements_have_killed_variant=True,
                             stability=stable,three_order_runs_pass=True,
                             interface_import_consistency=True,interface_attribute_and_schema_review='manual; import presence alone is insufficient',
                             smoke_only=True,full_original_app_certified=False),
             tokens=dict(full_sequence=len(ids),limit=8192,within_limit=len(ids)<=8192,
                         per_section={name:len(tokenizer.encode(value,add_special_tokens=False)) for name,value in
-                                     dict(system=messages[0]['content'],user=messages[1]['content'],reasoning=RATIONALES[identifier],interface=agreement,tests=(folder/'test-output.md').read_text(),target=target).items()},
+                                     dict(system=messages[0]['content'],user=messages[1]['content'],reasoning=RATIONALES[identifier],interface=agreement,tests=(folder/'test-output.md').read_text(encoding='utf-8'),target=target).items()},
                         tokenizer_sha256=sha256((TOKENIZER/'tokenizer.json').read_bytes()).hexdigest(),
                         chat_template_sha256=sha256((TOKENIZER/'chat_template.jinja').read_bytes()).hexdigest(),
                         note='Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence.'),
-            provenance=dict(drafter='OpenAI Codex session assistant; exact model build not exposed',date=(json.loads((folder/'record.json').read_text())['provenance']['date'] if (folder/'record.json').exists() else datetime.now(timezone.utc).isoformat()),prompt_version='tdd-framing-b-'+version,reviewer=None,review_history=[],
+            provenance=dict(drafter='OpenAI Codex session assistant; exact model build not exposed',date=(json.loads((folder/'record.json').read_text(encoding='utf-8'))['provenance']['date'] if (folder/'record.json').exists() else datetime.now(timezone.utc).isoformat()),prompt_version='tdd-framing-b-'+version,reviewer=None,review_history=[],
                             source_informed=True,not_historical_zero_shot_prompt=True),
             tags=dict(domain=task['repo'],difficulty='unrated',component_type='whole-app acceptance core',external_services_faked=True),
             training_eligible=False)
-        if version in ('v04','v05','v06'):
+        if version in ('v04','v05','v06','v07'):
             from scan_tdd_model_text import scan_record
             findings=scan_record(record)
             assert all(f['status']=='allowed' for f in findings), (identifier,findings)
             record['validation']['model_text_scan']={'findings':findings,'unresolved':0,'note':'Lexical construction-context check, not a scientific contamination proof.'}
-        (folder/'record.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
-        (folder/'request.md').write_text(messages[1]['content']+'\n')
-        (folder/'target.md').write_text(target)
-        (folder/'reasoning.md').write_text(RATIONALES[identifier]+'\n')
+        (folder/'record.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n', encoding='utf-8', newline='\n')
+        (folder/'request.md').write_text(messages[1]['content']+'\n', encoding='utf-8', newline='\n')
+        (folder/'target.md').write_text(target, encoding='utf-8', newline='\n')
+        (folder/'reasoning.md').write_text(RATIONALES[identifier]+'\n', encoding='utf-8', newline='\n')
         records.append(record)
         print(task['repo'],len(ids),'tokens',flush=True)
     assert len(records)==9
     assert not ({r['leakage_group'] for r in records if r['split']=='train'} & {r['leakage_group'] for r in records if r['split']=='eval'})
-    (BUNDLE/'records.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in records))
+    (BUNDLE/'records.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in records), encoding='utf-8', newline='\n')
     report=dict(records=len(records),all_reference_pass=all(r['validation']['reference_pass'] for r in records),
                 reference_cases=sum(len(r['validation']['stability'][0]['order']) for r in records),
                 preservation_contracts=sum(len(r['validation'].get('preservation_checks',[])) for r in records),
@@ -214,8 +221,8 @@ def main():
                 train_candidates=[r['record_id'] for r in records if r['split']=='train'],
                 heldout_repos=[r['source']['repo'] for r in records if r['split']=='eval'],
                 no_training_exports=True,all_requirements_mapped=True,all_core_requirements_have_killed_variant=True,all_three_order_runs_pass=True,
-                manual_approval_pending=True,scope_limit='Backend contracts plus explicitly pending delivery/live checks; not nine certified original apps.',records_sha256=sha256((BUNDLE/'records.jsonl').read_bytes()).hexdigest())
-    (BUNDLE/'validation-report.json').write_text(json.dumps(report,indent=2)+'\n')
+                manual_approval_pending=version!='v07',ai_review_pending=version=='v07',scope_limit='Backend contracts plus explicitly pending delivery/live checks; not nine certified original apps.',records_sha256=sha256((BUNDLE/'records.jsonl').read_bytes()).hexdigest())
+    (BUNDLE/'validation-report.json').write_text(json.dumps(report,indent=2)+'\n', encoding='utf-8', newline='\n')
     print(json.dumps(report,indent=2))
 
 if __name__=='__main__':main()

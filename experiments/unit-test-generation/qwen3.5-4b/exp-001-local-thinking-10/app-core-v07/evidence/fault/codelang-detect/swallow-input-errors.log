@@ -1,0 +1,57 @@
+.........FFF...                                                          [100%]
+================================== FAILURES ===================================
+__________________ test_missing_file_exits_2_with_diagnostic __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000021449EEE9C0>
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-105/test_missing_file_exits_2_with0')
+capsys = <_pytest.capture.CaptureFixture object at 0x0000021449FFC910>
+
+    def test_missing_file_exits_2_with_diagnostic(monkeypatch, tmp_path, capsys):
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])
+>       with pytest.raises(SystemExit) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE SystemExit
+
+tests\test_core.py:49: Failed
+---------------------------- Captured stderr call -----------------------------
+usage: codelang-detect [-h] [file]
+codelang-detect: error: argument file: can't open 'C:\Users\barkin\AppData\Local\Temp\pytest-of-barkin\pytest-105\test_missing_file_exits_2_with0\missing.py': [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-105\\test_missing_file_exits_2_with0\\missing.py'
+_______________ test_closed_stdin_exits_1_with_processing_error _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002144A080150>
+capsys = <_pytest.capture.CaptureFixture object at 0x000002144A0190F0>
+
+    def test_closed_stdin_exits_1_with_processing_error(monkeypatch, capsys):
+        stream = io.StringIO('')
+        stream.close()
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+        monkeypatch.setattr(sys, 'stdin', stream)
+>       with pytest.raises(SystemExit) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE SystemExit
+
+tests\test_core.py:64: Failed
+---------------------------- Captured stderr call -----------------------------
+Error: Could not process the input. I/O operation on closed file
+____________ test_invalid_utf8_file_exits_1_with_processing_error _____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-105/test_invalid_utf8_file_exits_10')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002144A080950>
+capsys = <_pytest.capture.CaptureFixture object at 0x000002144A0195B0>
+
+    def test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):
+        path = tmp_path/'invalid.txt'
+        path.write_bytes(b'\xff\xfe')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])
+>       with pytest.raises(SystemExit) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE SystemExit
+
+tests\test_core.py:76: Failed
+---------------------------- Captured stderr call -----------------------------
+Error: Could not process the input. 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_missing_file_exits_2_with_diagnostic - Failed...
+FAILED tests/test_core.py::test_closed_stdin_exits_1_with_processing_error - ...
+FAILED tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+3 failed, 12 passed in 0.13s

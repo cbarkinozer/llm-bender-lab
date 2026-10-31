@@ -1,0 +1,1678 @@
+{
+  "status": "triage only; no semantic approval",
+  "rows": [
+    {
+      "record_id": "language-basic-v02",
+      "task_id": "language-basic",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "b35eb00d80f8c67400dbb0d725be0f806f3fd443f89b94bd422ed9d3cfd68c2a",
+      "findings": {
+        "assert_lines": [
+          7,
+          12
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "language-rules-v02",
+      "task_id": "language-rules",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "cb69ca78595889a7c1bf79aa42a9ff1ac8011e3cd0e16580db8ad330cc69c7ea",
+      "findings": {
+        "assert_lines": [
+          8,
+          13,
+          19,
+          21,
+          27
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [
+          {
+            "line": 7,
+            "expression": "monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'first': [(re.compile('alpha'), 1), (re.compile('beta'), 1)], 'second': [(re.compile('gamma'), 3)]})"
+          },
+          {
+            "line": 12,
+            "expression": "monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'zeta': [(re.compile('left'), 2)], 'alpha': [(re.compile('right'), 2)]})"
+          },
+          {
+            "line": 18,
+            "expression": "monkeypatch.setattr(detector, 'PATTERNS', {'zeta': [(re.compile('runtime_marker'), 1)]})"
+          },
+          {
+            "line": 20,
+            "expression": "monkeypatch.setattr(detector, 'PATTERNS', {'alpha': [(re.compile('runtime_marker'), 1)]})"
+          },
+          {
+            "line": 26,
+            "expression": "monkeypatch.setattr('codelang_detect.detector.PATTERNS', {'one': [(re.compile('a_single_marker'), 1)]})"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "language-cli-success-v02",
+      "task_id": "language-cli-success",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "293f169f1a9baa1f3808205388f0da39c2aa162af1a2b525e131d2ffef7890c4",
+      "findings": {
+        "assert_lines": [
+          12,
+          20
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [
+          {
+            "line": 9,
+            "expression": "monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])"
+          },
+          {
+            "line": 16,
+            "expression": "monkeypatch.setattr(sys, 'argv', ['codelang-detect'])"
+          },
+          {
+            "line": 17,
+            "expression": "monkeypatch.setattr(sys, 'stdin', io.StringIO('def square(x):\\n    return x * x\\n'))"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "language-cli-errors-v02",
+      "task_id": "language-cli-errors",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "364ceea3a22d7e3f3d38b5025b8fd4359516ece22be09504cb38e422e1360a38",
+      "findings": {
+        "assert_lines": [
+          11,
+          13,
+          14,
+          16,
+          26,
+          28,
+          29,
+          38,
+          40,
+          41
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 9,
+            "exception": "SystemExit"
+          },
+          {
+            "line": 24,
+            "exception": "SystemExit"
+          },
+          {
+            "line": 36,
+            "exception": "SystemExit"
+          }
+        ],
+        "patches_to_review": [
+          {
+            "line": 8,
+            "expression": "monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])"
+          },
+          {
+            "line": 22,
+            "expression": "monkeypatch.setattr(sys, 'argv', ['codelang-detect'])"
+          },
+          {
+            "line": 23,
+            "expression": "monkeypatch.setattr(sys, 'stdin', stream)"
+          },
+          {
+            "line": 35,
+            "expression": "monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "prices-returns-v02",
+      "task_id": "prices-returns",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "6e969130edc2dcb90905eda16ac2e8b9cd997e5e01718a8dd32367f8231443f3",
+      "findings": {
+        "assert_lines": [],
+        "assertion_helper_calls": [
+          {
+            "line": 9,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 17,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 18,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 24,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 34,
+            "call": "assert_frame_equal"
+          }
+        ],
+        "expected_exceptions": [
+          {
+            "line": 39,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "prices-charts-v02",
+      "task_id": "prices-charts",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "7caf294b996e02215d805c086628576e883ee348be286500888d7e1d74bfd739",
+      "findings": {
+        "assert_lines": [
+          17,
+          18,
+          19,
+          20,
+          27
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 9,
+            "call": "assert_frame_equal"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "prices-fetch-v02",
+      "task_id": "prices-fetch",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "1da63860c5c6e21f17afafd3180d301d8900f059a488bdf9e2e1639688279c72",
+      "findings": {
+        "assert_lines": [],
+        "assertion_helper_calls": [
+          {
+            "line": 11,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 13,
+            "call": "download.assert_called_once_with"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "prices-analysis-v02",
+      "task_id": "prices-analysis",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "1aafdbf95cc458e6f93a161e6fd9f322fcbbe92af862c3ed94d6226d3e3c9ff7",
+      "findings": {
+        "assert_lines": [
+          21,
+          22,
+          23,
+          25,
+          26,
+          62,
+          63
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 19,
+            "call": "provider.assert_called_once_with"
+          },
+          {
+            "line": 20,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 24,
+            "call": "assert_frame_equal"
+          },
+          {
+            "line": 42,
+            "call": "provider.assert_not_called"
+          },
+          {
+            "line": 61,
+            "call": "assert_frame_equal"
+          }
+        ],
+        "expected_exceptions": [
+          {
+            "line": 31,
+            "exception": "RuntimeError"
+          },
+          {
+            "line": 40,
+            "exception": "ValueError"
+          },
+          {
+            "line": 50,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-store-v02",
+      "task_id": "mail-store",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "d2cb522edc0c89be494072aaa506830f7e5299d70da465cafa21c28e83ff6ccd",
+      "findings": {
+        "assert_lines": [
+          12,
+          13,
+          14,
+          21,
+          22
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-search-v02",
+      "task_id": "mail-search",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "242f3c2547ee31d2f91e1dc0e40eaacb6ac79164f4f353bbdd89a434035d87df",
+      "findings": {
+        "assert_lines": [
+          10,
+          11,
+          12,
+          16,
+          17
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-splitting-v02",
+      "task_id": "mail-splitting",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "4e1cb41da4c4eeabe6c81ae2075df408d6283f22998df364fab3ed8f91225490",
+      "findings": {
+        "assert_lines": [
+          13,
+          14,
+          15
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 19,
+            "exception": "TaskError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-quote-validation-v02",
+      "task_id": "mail-quote-validation",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "4849aebf349968dd737d23eca76a6b6360ec152b02ef4afc03b52db44cc03d8e",
+      "findings": {
+        "assert_lines": [
+          17
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 18,
+            "exception": "TaskError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-fetch-coverage-v02",
+      "task_id": "mail-fetch-coverage",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "1898e9781dd61ad70dd6b8db04663de3c566ea97fe0a0d60ce7801cda4725638",
+      "findings": {
+        "assert_lines": [
+          17,
+          25,
+          26
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 18,
+            "call": "provider.fetch.assert_not_called"
+          },
+          {
+            "line": 24,
+            "call": "provider.fetch.assert_called_once_with"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-selected-inference-v02",
+      "task_id": "mail-selected-inference",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "a0bc1b7b6d48d208efd6e9f8e17009c694846c7b0796ad8a7cd997059c997f1c",
+      "findings": {
+        "assert_lines": [
+          24,
+          26,
+          29,
+          31,
+          40
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 27,
+            "call": "model.answer.assert_called_once_with"
+          },
+          {
+            "line": 32,
+            "call": "model.summarize.assert_called_once_with"
+          }
+        ],
+        "expected_exceptions": [
+          {
+            "line": 34,
+            "exception": "ValueError"
+          },
+          {
+            "line": 36,
+            "exception": "ValueError"
+          },
+          {
+            "line": 38,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-cancellation-v02",
+      "task_id": "mail-cancellation",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "193b76ec204feba2c096a8d61b9696cd31e2a9105c4037cb31bb8715799d3ae2",
+      "findings": {
+        "assert_lines": [
+          19,
+          20,
+          21,
+          23,
+          24,
+          25
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "mail-model-lifecycle-v02",
+      "task_id": "mail-model-lifecycle",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "50c00d9ee2df7aa741520e712706eb8044169967108912c201c85b97db8cb392",
+      "findings": {
+        "assert_lines": [
+          19,
+          20,
+          32,
+          43
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 23,
+            "call": "model.load.assert_called_once_with"
+          },
+          {
+            "line": 26,
+            "call": "model.unload.assert_not_called"
+          },
+          {
+            "line": 29,
+            "call": "model.unload.assert_called_once_with"
+          },
+          {
+            "line": 42,
+            "call": "model.unload.assert_not_called"
+          },
+          {
+            "line": 46,
+            "call": "model.unload.assert_not_called"
+          },
+          {
+            "line": 49,
+            "call": "model.unload.assert_called_once_with"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "decision-requests-v02",
+      "task_id": "decision-requests",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "9a489eb91c8ce1eca9be8e09f5baa8a0022c24337c5c3e082aac975b02465b93",
+      "findings": {
+        "assert_lines": [
+          14,
+          15
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 20,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "decision-probabilities-v02",
+      "task_id": "decision-probabilities",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "2738b2078ec4d2d3623360a5b319c1a4431d8e812507a0eb1b8af7bbef5677df",
+      "findings": {
+        "assert_lines": [
+          15,
+          16,
+          18,
+          20,
+          21
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 26,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "decision-shared-state-v02",
+      "task_id": "decision-shared-state",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "b4c85e12c07196271710078bec88747540c0944737a41303efbe8dda40a30b2f",
+      "findings": {
+        "assert_lines": [
+          13,
+          14
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "decision-fallback-v02",
+      "task_id": "decision-fallback",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "2c57c2afa345bcaf76d013364909954be475cf88850a9830bff0259c8ef3a067",
+      "findings": {
+        "assert_lines": [
+          13,
+          14,
+          20,
+          21,
+          28,
+          29,
+          30,
+          33,
+          34
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "decision-calibration-v02",
+      "task_id": "decision-calibration",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "60ad460071edd8755dbb3997db0b6a7e3f183c0064d79f3398229518a3daaa4b",
+      "findings": {
+        "assert_lines": [
+          14,
+          15,
+          20
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 26,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "decision-ordinal-v02",
+      "task_id": "decision-ordinal",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "fb7d39c66dd7703c3260bf7a788a41d7f3ca5f1ec199e844940d036fc9cf0151",
+      "findings": {
+        "assert_lines": [
+          13,
+          14,
+          16
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "experiment-preflight-quality-after-v01",
+      "task_id": "experiment-preflight",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "8e657fb31f569db6ddb080fad47d65a760a08189d3f1cbdaf46d1521037a06c4",
+      "findings": {
+        "assert_lines": [
+          74,
+          76,
+          77
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 40,
+            "call": "trainer.assert_not_called"
+          },
+          {
+            "line": 54,
+            "call": "train.assert_not_called"
+          },
+          {
+            "line": 75,
+            "call": "trainer.assert_called_once"
+          }
+        ],
+        "expected_exceptions": [
+          {
+            "line": 38,
+            "exception": "ValueError"
+          },
+          {
+            "line": 52,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "experiment-matched-evaluation-v02",
+      "task_id": "experiment-matched-evaluation",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "7f89779a76bf02687663e07b0d1e02d3ba93c1788f8f8e6bc7cff021b7e019c4",
+      "findings": {
+        "assert_lines": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          56
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "experiment-artifact-isolation-v02",
+      "task_id": "experiment-artifact-isolation",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "45eaaca1ef2729a23b98290370e57bffcbfb1ff148d8dfcb4eca57eec2080900",
+      "findings": {
+        "assert_lines": [
+          40,
+          41,
+          42
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 37,
+            "exception": "FileExistsError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "experiment-failure-reporting-v02",
+      "task_id": "experiment-failure-reporting",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "3e9c2b1a32bab08b081b0961fca9ddb9298858333feab07df471041ea771026b",
+      "findings": {
+        "assert_lines": [
+          32,
+          33,
+          34,
+          35,
+          36,
+          37
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tensor-rms-normalization-v02",
+      "task_id": "tensor-rms-normalization",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "3ae0aad1d5bc6e3a4e574dbc2ea59a26d968d742954f6f35c379d3cbbfa1d8ee",
+      "findings": {
+        "assert_lines": [],
+        "assertion_helper_calls": [
+          {
+            "line": 11,
+            "call": "torch.testing.assert_close"
+          },
+          {
+            "line": 16,
+            "call": "torch.testing.assert_close"
+          },
+          {
+            "line": 23,
+            "call": "torch.testing.assert_close"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tensor-rotary-positions-v02",
+      "task_id": "tensor-rotary-positions",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "79e32f4bbe3063a09b916f4243f7989ea74d5ba807cd51020e7e5609b65f3695",
+      "findings": {
+        "assert_lines": [],
+        "assertion_helper_calls": [
+          {
+            "line": 8,
+            "call": "torch.testing.assert_close"
+          },
+          {
+            "line": 13,
+            "call": "torch.testing.assert_close"
+          },
+          {
+            "line": 20,
+            "call": "torch.testing.assert_close"
+          }
+        ],
+        "expected_exceptions": [
+          {
+            "line": 24,
+            "exception": "ValueError"
+          },
+          {
+            "line": 29,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tensor-model-composition-v02",
+      "task_id": "tensor-model-composition",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "32e193e99ee1deb53b4b01836447b0a3b148c2c14abe16bd86d4aba9d0032e9a",
+      "findings": {
+        "assert_lines": [
+          15,
+          18,
+          19
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 21,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tensor-causal-independence-v02",
+      "task_id": "tensor-causal-independence",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "15483535bae3e8412e059b3ca50743d964d8f07617f8304ce0f79362d88595e6",
+      "findings": {
+        "assert_lines": [
+          16
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 15,
+            "call": "torch.testing.assert_close"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tensor-checkpoint-roundtrip-v02",
+      "task_id": "tensor-checkpoint-roundtrip",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "7980c02954c42b5185483f134399a96b4de4ab6f307e5ad3f680aa0ba60bb84f",
+      "findings": {
+        "assert_lines": [],
+        "assertion_helper_calls": [
+          {
+            "line": 18,
+            "call": "torch.testing.assert_close"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tensor-training-generation-v02",
+      "task_id": "tensor-training-generation",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "f8ae3ba530ac8a5f024e60a20686611cecb76860b9b336c1ec659937265a574b",
+      "findings": {
+        "assert_lines": [
+          16,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          34
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 39,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "snapshot-file-tree-v02",
+      "task_id": "snapshot-file-tree",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "1eab2a5437bc7bae19c95f8af6b0d0f981e113bb8acab932c092de33dfc3792b",
+      "findings": {
+        "assert_lines": [
+          11,
+          12,
+          13,
+          20,
+          21
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "snapshot-dependencies-v02",
+      "task_id": "snapshot-dependencies",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "cbeee7cf05de8c9b769cefdf117a2632799c0a39c600f97fc851e8d03b2b5c22",
+      "findings": {
+        "assert_lines": [
+          7,
+          8,
+          9,
+          15,
+          16,
+          17
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "snapshot-url-routing-v02",
+      "task_id": "snapshot-url-routing",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "5cfcf9ed9f615384beed84e233370a092a09bb2bc7714415f56383fa6da0849a",
+      "findings": {
+        "assert_lines": [
+          5,
+          11
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "snapshot-text-decoding-v02",
+      "task_id": "snapshot-text-decoding",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "6aa55cdb8c9b1233070a312ad41be9ecce8f8eee8fad29b49a73688dceae7c45",
+      "findings": {
+        "assert_lines": [
+          7,
+          13
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "snapshot-safe-context-v02",
+      "task_id": "snapshot-safe-context",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "2920e062f432df285b21bb00756e612b09be99794d63b4ea354fe02beab49c59",
+      "findings": {
+        "assert_lines": [
+          18,
+          19,
+          20,
+          21,
+          33,
+          34,
+          35
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 17,
+            "call": "clone.assert_called_once_with"
+          }
+        ],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "snapshot-controller-routing-v02",
+      "task_id": "snapshot-controller-routing",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "21cd4959dafbc3348562368cb52e60f9d8135dcb27024ef4df2e6c08810199dd",
+      "findings": {
+        "assert_lines": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "assertion_helper_calls": [
+          {
+            "line": 19,
+            "call": "clone.assert_not_called"
+          }
+        ],
+        "expected_exceptions": [
+          {
+            "line": 17,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "litecli-sql-table-identifiers-external-v02",
+      "task_id": "litecli-sql-table-identifiers",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "c1fe54acc82460bc722cc3a5baec6f1474e66cabaae19c4753cca7fe58e8a561",
+      "findings": {
+        "assert_lines": [
+          5,
+          6,
+          10,
+          15
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "litecli-sql-destructive-detection-external-v02",
+      "task_id": "litecli-sql-destructive-detection",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "171682ee6ef348850f15a270be5c5165c2950764114762f853014c0ddac705a7",
+      "findings": {
+        "assert_lines": [
+          7,
+          13
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "litecli-completion-last-word-external-v02",
+      "task_id": "litecli-completion-last-word",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "9d4f61926e3da524a2d42a0de1080fdd25d5dab59169e975316288ddae84951f",
+      "findings": {
+        "assert_lines": [
+          8,
+          12,
+          13
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "litecli-path-completion-external-v02",
+      "task_id": "litecli-path-completion",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "b2f895703687aa8306b6ce6c3c8dd0920011e4c65b4a30711d57cfa51f28aba4",
+      "findings": {
+        "assert_lines": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          17,
+          18
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "litecli-sqlite-query-execution-external-v02",
+      "task_id": "litecli-sqlite-query-execution",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "c390b34c82271814e4e3269ab8952d98d37ba98af472aa597a1a3f777fc1c385",
+      "findings": {
+        "assert_lines": [
+          12,
+          13,
+          14,
+          15,
+          23
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 24,
+            "exception": "OperationalError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "litecli-special-command-dispatch-external-v02",
+      "task_id": "litecli-special-command-dispatch",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "2cd09e45aab83c07d0d88602ff88cda804c1c7fcc6104a9ec227d882ed3a76da",
+      "findings": {
+        "assert_lines": [
+          6,
+          7,
+          8,
+          19,
+          20
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 21,
+            "exception": "special.CommandNotFound"
+          }
+        ],
+        "patches_to_review": [
+          {
+            "line": 12,
+            "expression": "monkeypatch.setattr(special, 'COMMANDS', {})"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tldr-python-client-language-selection-external-v02",
+      "task_id": "tldr-python-client-language-selection",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "a7ffd96688960dd8a1750c72421433d78e189cc7d27445051304540ca0634111",
+      "findings": {
+        "assert_lines": [
+          8,
+          15,
+          17,
+          19
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tldr-python-client-cache-path-selection-external-v02",
+      "task_id": "tldr-python-client-cache-path-selection",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "8188259fc05a10ca6f6f19b93df7bd7fa5e5c4ef0b0c26f7c6079cea62107a4a",
+      "findings": {
+        "assert_lines": [
+          10,
+          12,
+          14,
+          21,
+          20
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [
+          {
+            "line": 9,
+            "expression": "monkeypatch.setattr(Path, 'home', classmethod(lambda cls: fallback))"
+          },
+          {
+            "line": 18,
+            "expression": "monkeypatch.setattr(tldr, 'get_cache_dir', lambda: tmp_path)"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tldr-python-client-cache-freshness-external-v02",
+      "task_id": "tldr-python-client-cache-freshness",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "62c9af2fcbcf4e8283fd688bd9c663912d709c0a1c8e443c7be87ce9da419162",
+      "findings": {
+        "assert_lines": [
+          16,
+          21
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [
+          {
+            "line": 13,
+            "expression": "monkeypatch.setattr(tldr, 'datetime', Clock)"
+          },
+          {
+            "line": 14,
+            "expression": "monkeypatch.setattr(tldr, 'MAX_CACHE_AGE', 24)"
+          },
+          {
+            "line": 15,
+            "expression": "monkeypatch.setattr(tldr, 'get_cache_file_path', lambda *args: cache)"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tldr-python-client-page-url-external-v02",
+      "task_id": "tldr-python-client-page-url",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "e82d1a0084ed7995041aa41d99211926ada08885df0a0c38e422f5c68069c82b",
+      "findings": {
+        "assert_lines": [
+          8,
+          13
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [
+          {
+            "line": 7,
+            "expression": "monkeypatch.setattr(tldr, 'PAGES_SOURCE_LOCATION', 'https://pages.example/pages')"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tldr-python-client-cache-network-routing-external-v02",
+      "task_id": "tldr-python-client-cache-network-routing",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "e078fc49845581b2e6aa2b7a38ba749f40a0db9fce9a62f1dc4380cb9cecef23",
+      "findings": {
+        "assert_lines": [
+          13,
+          26,
+          27,
+          28,
+          32,
+          33
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 35,
+            "exception": "OSError"
+          },
+          {
+            "line": 45,
+            "exception": "tldr.CacheNotExist"
+          }
+        ],
+        "patches_to_review": [
+          {
+            "line": 7,
+            "expression": "monkeypatch.setattr(tldr, 'USE_CACHE', True)"
+          },
+          {
+            "line": 8,
+            "expression": "monkeypatch.setattr(tldr, 'have_recent_cache', lambda *args: True)"
+          },
+          {
+            "line": 9,
+            "expression": "monkeypatch.setattr(tldr, 'load_page_from_cache', lambda *args: b'cached\\npage')"
+          },
+          {
+            "line": 12,
+            "expression": "monkeypatch.setattr(tldr, 'urlopen', unexpected)"
+          },
+          {
+            "line": 17,
+            "expression": "monkeypatch.setattr(tldr, 'USE_CACHE', True)"
+          },
+          {
+            "line": 18,
+            "expression": "monkeypatch.setattr(tldr, 'have_recent_cache', lambda *args: False)"
+          },
+          {
+            "line": 23,
+            "expression": "monkeypatch.setattr(tldr, 'urlopen', download)"
+          },
+          {
+            "line": 24,
+            "expression": "monkeypatch.setattr(tldr, 'store_page_to_cache', lambda *args: writes.append(args))"
+          },
+          {
+            "line": 25,
+            "expression": "monkeypatch.setattr(tldr, 'load_page_from_cache', lambda *args: b'stale')"
+          },
+          {
+            "line": 31,
+            "expression": "monkeypatch.setattr(tldr, 'urlopen', failed)"
+          },
+          {
+            "line": 34,
+            "expression": "monkeypatch.setattr(tldr, 'load_page_from_cache', lambda *args: None)"
+          },
+          {
+            "line": 40,
+            "expression": "monkeypatch.setattr(tldr, 'USE_CACHE', True)"
+          },
+          {
+            "line": 41,
+            "expression": "monkeypatch.setattr(tldr, 'have_recent_cache', lambda *args: False)"
+          },
+          {
+            "line": 44,
+            "expression": "monkeypatch.setattr(tldr, 'urlopen', unexpected)"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "tldr-python-client-platform-priority-external-v02",
+      "task_id": "tldr-python-client-platform-priority",
+      "split": "train",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "58018a013fc1031087671acf3318233928488388033b052ac0e2965c3a8a449f",
+      "findings": {
+        "assert_lines": [
+          9,
+          15,
+          16,
+          17
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [
+          {
+            "line": 8,
+            "expression": "monkeypatch.setattr(tldr.sys, 'platform', system)"
+          },
+          {
+            "line": 13,
+            "expression": "monkeypatch.setattr(tldr, 'get_platform', lambda: 'windows')"
+          }
+        ],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "posting-path-parameters-external-v02",
+      "task_id": "posting-path-parameters",
+      "split": "development",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "38732657f8a25464b55882173f396807416c5defe019433502b2629f4eaec530",
+      "findings": {
+        "assert_lines": [
+          6,
+          7,
+          12
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "posting-query-pair-merge-external-v02",
+      "task_id": "posting-query-pair-merge",
+      "split": "development",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "ff65d3326664c526f5b965d937bf9aeeb00b1f21140d7204457d4ecc4cfb8266",
+      "findings": {
+        "assert_lines": [
+          5,
+          6,
+          12,
+          13,
+          14
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "posting-request-filenames-external-v02",
+      "task_id": "posting-request-filenames",
+      "split": "development",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "2f8e75fd792e867aa9f492a099cb315eed430635a200acacc972d869396d3612",
+      "findings": {
+        "assert_lines": [
+          8,
+          12,
+          14,
+          16,
+          18,
+          19
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "posting-session-undo-redo-external-v02",
+      "task_id": "posting-session-undo-redo",
+      "split": "development",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "c25224f0fb874cab51b576507cd0ac36171c0115eecca83c42b1975139bcead8",
+      "findings": {
+        "assert_lines": [
+          6,
+          7,
+          8,
+          9,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          25,
+          26,
+          28,
+          29
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "posting-session-history-limit-external-v02",
+      "task_id": "posting-session-history-limit",
+      "split": "development",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "e86d8aa3bcd10cac9ee8800738948976dc830fd4292f1ef590688e77c7b6d1ea",
+      "findings": {
+        "assert_lines": [
+          10,
+          11,
+          17,
+          19,
+          20,
+          21,
+          9
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "ddgr-unicode-safe-urls-external-v02",
+      "task_id": "ddgr-unicode-safe-urls",
+      "split": "holdout",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "7877c5c5205f1cedf0a904d98b21d01a3442a186df74b84938a71ed9d8453293",
+      "findings": {
+        "assert_lines": [
+          6,
+          10,
+          15
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "ddgr-search-pagination-external-v02",
+      "task_id": "ddgr-search-pagination",
+      "split": "holdout",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "bde39569f84c651161a69ee174f39c1b00494853d60a698c999bfc52fd0f9537",
+      "findings": {
+        "assert_lines": [
+          7,
+          10,
+          12,
+          14,
+          16,
+          17,
+          26
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [
+          {
+            "line": 22,
+            "exception": "ValueError"
+          },
+          {
+            "line": 24,
+            "exception": "ValueError"
+          }
+        ],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    },
+    {
+      "record_id": "ddgr-result-serialization-external-v02",
+      "task_id": "ddgr-result-serialization",
+      "split": "holdout",
+      "input_records": "quality-audit-v01/current-test-candidates.jsonl",
+      "records_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+      "artifact_sha256": "1fa2a0d4545721cb86a73b074a3ef66bc696b40af77ce64ae2bc0756a66080d9",
+      "findings": {
+        "assert_lines": [
+          8,
+          9,
+          10,
+          14,
+          16
+        ],
+        "assertion_helper_calls": [],
+        "expected_exceptions": [],
+        "patches_to_review": [],
+        "flags": [],
+        "limitations": "Does not infer correct expected values, positive-control sufficiency, mocked-away business logic, commented-out historical tests or implementation hardcoding."
+      }
+    }
+  ]
+}

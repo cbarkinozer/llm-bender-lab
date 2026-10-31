@@ -6,7 +6,7 @@ import re
 
 REPO_NAMES = r'github[-_]insignia|ghost[-_]box|slm[-_]test[-_]generation|llm[-_]bender(?:[-_]lab)?|reflexmodels|codelang[-_]detect|repo[-_]context|cryptocurrency[-_]analyser|miniature[-_]llms'
 # Letter boundaries also detect test_revisions.py and model_revision.
-TERMS = re.compile(r'(?<![A-Za-z])(?:revisions?|references?|paper|reviews?|reviewer|step4\w*|Occam|'+REPO_NAMES+r')(?![A-Za-z])', re.I)
+TERMS = re.compile(r'(?<![A-Za-z])(?:new\s+(?:(?:public|shared)\s+)?facade|new\s+public|revisions?|references?|paper|reviews?|reviewer|step4\w*|Occam|'+REPO_NAMES+r')(?![A-Za-z])', re.I)
 META = re.compile(r'assistant-authored|assistant-proposed|historical (?:user|human) answers|dataset-construction|annotation (?:feedback|status)|absent from model input|checked against test AST|reference uses local image|not (?:a path|facts?) (?:inferred|recoverable)|/Users/[^/]+/Documents/GitHub/', re.I)
 SCHEMA_IDENTIFIERS = {'model_revision','data_revision','code_revision','source_revision','tokenizer_revision'}
 

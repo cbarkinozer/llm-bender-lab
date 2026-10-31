@@ -1,0 +1,165 @@
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+APPLICATION REQUEST
+Make me a small Python desktop email assistant called Ghost-box that runs locally on my Mac. I want to connect one Gmail or Outlook account at a time, explicitly fetch messages for a date range, browse them, search the downloaded mail by text with sender and date filters, and select messages to summarize or ask questions about using a local model. Keep downloaded emails and derived results in RAM rather than an email database. Searches and answers must make the local coverage clear; finding nothing in downloaded mail must not claim that no such email exists anywhere. Summarization should receive only the selected messages and answers should retain references to their source messages. Keep the window responsive during fetches and generation, show progress and useful errors, and let me cancel work. Let me choose a local MLX or GGUF model, reuse it for follow-ups, unload it manually or after five idle minutes, and clear downloaded mail and derived results explicitly. Changing accounts must not mix the old account's mail into the new one. No background synchronization or automatic sending is needed. Give me a practical single-window app with setup and run instructions, not just isolated functions.
+
+AGREED PLAN
+[
+  {
+    "id": "mail-store",
+    "title": "Specify RAM-only account separation, deduplication and explicit clearing.",
+    "depends_on": [],
+    "implementation_files": [
+      "ghost_box/mail/store.py"
+    ],
+    "target_file": "tests/test_mail_store.py",
+    "acceptance": [
+      "Repeated IDs do not duplicate messages.",
+      "Separate accounts and fresh stores remain isolated.",
+      "Clear removes messages and coverage."
+    ]
+  },
+  {
+    "id": "mail-search",
+    "title": "Specify downloaded-only search and Unicode-aware sender filters.",
+    "depends_on": [],
+    "implementation_files": [
+      "ghost_box/mail/search.py"
+    ],
+    "target_file": "tests/test_mail_search.py",
+    "acceptance": [
+      "A known sender matches under the declared Turkish-aware fold.",
+      "Empty or absent queries produce no invented matches.",
+      "A sender-only filter never matches text found only in the body or subject."
+    ]
+  },
+  {
+    "id": "mail-splitting",
+    "title": "Specify lossless bounded splitting of selected message bodies.",
+    "depends_on": [],
+    "implementation_files": [
+      "ghost_box/mail/tasks.py"
+    ],
+    "target_file": "tests/test_mail_splitting.py",
+    "acceptance": [
+      "Concatenating all parts reproduces the exact Unicode body.",
+      "IDs remain unchanged and part numbers are consecutive.",
+      "Exceeding the maximum task count raises TaskError rather than dropping content."
+    ]
+  },
+  {
+    "id": "mail-quote-validation",
+    "title": "Specify source-bound quotation checking with valid and invalid controls.",
+    "depends_on": [],
+    "implementation_files": [
+      "ghost_box/mail/summary.py"
+    ],
+    "target_file": "tests/test_mail_quote_validation.py",
+    "acceptance": [
+      "An own-body quotation is accepted.",
+      "A fact borrowed from another email raises TaskError.",
+      "An unclear item may use the declared empty classification quote."
+    ]
+  },
+  {
+    "id": "mail-fetch-coverage",
+    "title": "Specify explicit provider fetching and truthful downloaded-range coverage.",
+    "depends_on": [],
+    "implementation_files": [
+      "mail_workflow.py"
+    ],
+    "target_file": "tests/test_mail_fetch_coverage.py",
+    "acceptance": [
+      "Reading messages never initiates fetching.",
+      "Explicit fetch forwards account and timezone-aware dates and deduplicates IDs.",
+      "A narrower search retains the downloaded coverage range even when no results match."
+    ]
+  },
+  {
+    "id": "mail-selected-inference",
+    "title": "Specify combined filters, selected-only inference and citation validation.",
+    "depends_on": [],
+    "implementation_files": [
+      "mail_workflow.py"
+    ],
+    "target_file": "tests/test_mail_selected_inference.py",
+    "acceptance": [
+      "Date and sender filters both exclude downloaded rows.",
+      "Answer and summary receive only selected rows.",
+      "Empty, unknown or foreign-citation selections are rejected without extra model calls."
+    ]
+  },
+  {
+    "id": "mail-cancellation",
+    "title": "Specify cancellation and account-epoch protection for delayed callbacks.",
+    "depends_on": [],
+    "implementation_files": [
+      "mail_workflow.py"
+    ],
+    "target_file": "tests/test_mail_cancellation.py",
+    "acceptance": [
+      "A cancelled callback cannot replace the current result.",
+      "A valid current callback is accepted.",
+      "Changing account clears results and rejects old-account callbacks."
+    ]
+  },
+  {
+    "id": "mail-model-lifecycle",
+    "title": "Specify model reuse, manual unload and activity-aware idle boundaries.",
+    "depends_on": [],
+    "implementation_files": [
+      "mail_workflow.py"
+    ],
+    "target_file": "tests/test_mail_model_lifecycle.py",
+    "acceptance": [
+      "Repeated loads reuse the same path.",
+      "Clear removes derived content.",
+      "299.99 seconds does not unload; 300 seconds does.",
+      "Active operations prevent idle unloading and completion resets the timer."
+    ]
+  },
+  {
+    "id": "ghost-box-delivery",
+    "title": "Verify documented delivery and live UI/backend integration separately.",
+    "depends_on": [],
+    "implementation_files": [
+      "README.md"
+    ],
+    "target_file": "tests/test_delivery.py",
+    "acceptance": [
+      "Native-window responsiveness, real provider authentication and actual model loading remain manual integration checks."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify source-bound quotation checking with valid and invalid controls.
+Target test file: tests/test_mail_quote_validation.py
+Expected implementation files: ghost_box/mail/summary.py
+
+INTERFACE CONTRACT
+Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. 
+- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.
+- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field="all")` -> bool, literal Turkish-aware case folding; sender filter never searches body.
+- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.
+- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:"downloaded-only"}`, combined filters. No-results never claims global absence.
+- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.
+- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.
+- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.
+Dependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.
+
+- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.
+- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.
+- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.
+
+
+
+ACCEPTANCE CRITERIA
+- An own-body quotation is accepted.
+- A fact borrowed from another email raises TaskError.
+- An unclear item may use the declared empty classification quote.
+
+AVAILABLE CONTEXT
+Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run.
+No application implementation or existing solution tests are supplied. Write the selected test file only.

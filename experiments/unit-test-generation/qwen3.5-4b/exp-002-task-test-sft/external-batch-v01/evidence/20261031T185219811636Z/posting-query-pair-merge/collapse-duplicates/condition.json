@@ -1,0 +1,5 @@
+{
+  "module": "posting.urls",
+  "mutation": "original=m.extract_query_pairs\nm.extract_query_pairs=lambda url,**kwargs: list(dict(original(url,**kwargs)).items())",
+  "seed": null
+}

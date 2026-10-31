@@ -1,0 +1,10 @@
+[
+  [
+    "never-cache-download",
+    "original=m.get_page_for_platform\ndef broken(*args,**kwargs):\n writer=m.store_page_to_cache\n m.store_page_to_cache=lambda *args: None\n try: return original(*args,**kwargs)\n finally: m.store_page_to_cache=writer\nm.get_page_for_platform=broken"
+  ],
+  [
+    "ignore-cache-only",
+    "original=m.get_page_for_platform\ndef broken(command,platform,remote,language,only_use_cache=False,system_cache=False):\n return original(command,platform,remote,language,False,system_cache)\nm.get_page_for_platform=broken"
+  ]
+]

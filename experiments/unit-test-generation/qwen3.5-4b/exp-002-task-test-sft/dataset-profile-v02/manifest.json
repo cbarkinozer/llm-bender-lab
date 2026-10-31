@@ -1,0 +1,27 @@
+{
+  "status": "descriptive profile and candidate retrieval; semantic adjudication follows separately",
+  "records": 95,
+  "methods": {
+    "tokens": "Pinned native chat template and audited loss masks; all split targets measured for audit only.",
+    "standard_deviation": "Population std by default; sample std also saved. Percentiles use linear interpolation.",
+    "complexity": "Radon default CC counts assert as a decision; also measured with no_assert=True. Test functions only in primary CC summaries; helpers separately retained.",
+    "similarity": "Purpose/acceptance word+bigram sublinear TF-IDF cosine, system boilerplate and full repeated interfaces removed. Retrieval only, not embeddings or an automatic semantic verdict.",
+    "domain": "Explicit analyst mapping of 11 source families into 6 broad domains; not learned labels.",
+    "reference_complexity": "Audit-only direct module mappings, hash-checked for pinned source files. No implementation bodies saved."
+  },
+  "input_sha256": {
+    "quality-audit-v01/current-test-candidates.jsonl": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+    "planning-pilot-v04/records.jsonl": "0a092c912c515a2035d704590e7138855103a3cc2a134f981c4e72daf6981d24",
+    "reliability-pilot-v03/records.jsonl": "d51a46562cba3288c58f2b9b0609c43d46d70037c84f0b5db6b477fc7b6048a9"
+  },
+  "code_sha256": "c2831b1d03851272408307992ba61997dece5c2ca299859a9dbb1c9dde4b1285",
+  "packages": {
+    "radon": "6.0.1",
+    "matplotlib": "3.11.2",
+    "transformers": "5.13.1",
+    "tokenizers": "0.22.2"
+  },
+  "total_pairs": 4465,
+  "cross_split_pairs": 1398,
+  "training_enabled": false
+}

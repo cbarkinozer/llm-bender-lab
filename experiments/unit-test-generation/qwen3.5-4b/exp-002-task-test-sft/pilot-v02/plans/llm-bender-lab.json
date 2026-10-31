@@ -1,0 +1,78 @@
+{
+  "application": "llm-bender-lab",
+  "goal": "Make me a practical Python lab for running small language-model fine-tuning experiments reproducibly. I want to define an experiment, validate conversational training data and its train/evaluation separation, save the resolved configuration, run a short training smoke through a replaceable trainer, save its adapter and metadata, evaluate the starting model and candidate under matched settings, and get a readable before/after summary. A malformed dataset or overlapping held-out examples should stop preflight rather than quietly train. Keep experiment runs in separate directories, preserve older outputs, and record model/data revisions, seed, code identity and effective settings so I can tell what actually ran. If a run fails, retain its logs and status without claiming success. Do not require a GPU, download weights or start real training when I run the lab's own tests: use a tiny fake trainer/evaluator there, but make the workflow ready to connect to a real backend. Keep credentials and large weights out of manifests and Git, distinguish unavailable metrics from zeros, and give me simple commands for preparing, running and comparing one experiment.",
+  "tasks": [
+    {
+      "id": "experiment-preflight",
+      "title": "Specify conversation/split validation before any backend is invoked.",
+      "depends_on": [],
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_preflight.py",
+      "acceptance": [
+        "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+        "The trainer is never invoked after invalid preflight."
+      ]
+    },
+    {
+      "id": "experiment-matched-evaluation",
+      "title": "Specify train/test routing and reproducible matched model comparisons.",
+      "depends_on": [],
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_matched_evaluation.py",
+      "acceptance": [
+        "Trainer receives only training rows and evaluator only test rows.",
+        "Baseline identity is the model revision and candidate identity the adapter path.",
+        "Preserve resolved config, adapter and completed status.",
+        "Report real deltas and unavailable metrics without replacing missingness with zero."
+      ]
+    },
+    {
+      "id": "experiment-artifact-isolation",
+      "title": "Specify immutable previous runs and faithful zero-valued metrics.",
+      "depends_on": [],
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_artifact_isolation.py",
+      "acceptance": [
+        "Reject an existing run directory.",
+        "A distinct run succeeds without modifying any previous file bytes.",
+        "A real 0.0 metric remains before=after=delta=0.0."
+      ]
+    },
+    {
+      "id": "experiment-failure-reporting",
+      "title": "Specify explicit failed status and secret-free returned and saved errors.",
+      "depends_on": [],
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_failure_reporting.py",
+      "acceptance": [
+        "Backend failure yields failed status, useful diagnostics and no success summary.",
+        "Configured secret values are absent from returned errors and every saved text artifact."
+      ]
+    },
+    {
+      "id": "llm-bender-lab-delivery",
+      "title": "Verify documented delivery and live UI/backend integration separately.",
+      "depends_on": [],
+      "implementation_files": [
+        "README.md"
+      ],
+      "target_file": "tests/test_delivery.py",
+      "acceptance": [
+        "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+      ],
+      "demonstration_available": false
+    }
+  ],
+  "unresolved": [
+    "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+  ],
+  "context_policy": "Interfaces are agreed; implementations may not exist yet. No completion or tool execution is implied."
+}

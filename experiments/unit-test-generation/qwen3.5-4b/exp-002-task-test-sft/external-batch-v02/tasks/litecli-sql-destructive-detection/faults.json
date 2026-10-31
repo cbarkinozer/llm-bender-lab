@@ -1,0 +1,10 @@
+[
+  [
+    "always-safe",
+    "m.is_destructive=lambda sql: False"
+  ],
+  [
+    "first-statement-only",
+    "original=m.is_destructive\nm.is_destructive=lambda sql: original(sql.split(';')[0])"
+  ]
+]

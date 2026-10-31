@@ -1,0 +1,170 @@
+.......FFFF...F...F...................                                   [100%]
+================================== FAILURES ===================================
+___ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer] ____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-60/test_r5_failed_refresh_preserv0')
+api_factory = <function api_factory.<locals>.make at 0x000001BC977FCC20>
+endpoint = '/users/cbarkinozer'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_requirements.py:100: AssertionError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-60/test_r5_failed_refresh_preserv1')
+api_factory = <function api_factory.<locals>.make at 0x000001BC97782FC0>
+endpoint = '/users/cbarkinozer/repos'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_requirements.py:100: AssertionError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-60/test_r5_failed_refresh_preserv2')
+api_factory = <function api_factory.<locals>.make at 0x000001BC97782A20>
+endpoint = '/repos/cbarkinozer/alpha/languages'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_requirements.py:100: AssertionError
+________ test_r5_failed_refresh_preserves_complete_snapshot[/graphql] _________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-60/test_r5_failed_refresh_preserv3')
+api_factory = <function api_factory.<locals>.make at 0x000001BC9780E0C0>
+endpoint = '/graphql'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+        assert failed["error"]
+>       assert failed["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_requirements.py:100: AssertionError
+____________ test_r5_cache_write_failure_preserves_memory_and_disk ____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-60/test_r5_cache_write_failure_pr0')
+api_factory = <function api_factory.<locals>.make at 0x000001BC977CC720>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001BC977D8D70>
+
+    async def test_r5_cache_write_failure_preserves_memory_and_disk(tmp_path, api_factory, monkeypatch):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = service.cache_path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        def fail(data):
+            raise OSError("disk full")
+        monkeypatch.setattr(service, "_save", fail)
+        result = await service.refresh()
+        assert result["error"]
+>       assert result["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_requirements.py:139: AssertionError
+___________ test_graphql_http_200_errors_preserve_previous_snapshot ___________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-60/test_graphql_http_200_errors_p0')
+api_factory = <function api_factory.<locals>.make at 0x000001BC993D98A0>
+
+    async def test_graphql_http_200_errors_preserve_previous_snapshot(tmp_path, api_factory):
+        api, requests = api_factory(token="secret-token")
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        service.clock = lambda: NOW + timedelta(hours=1)
+        handler = api.transport.handler
+        def broken(request):
+            if request.url.path == "/graphql":
+                return httpx.Response(200, json={"errors": [{"message": "secret-token internal"}]})
+            return handler(request)
+        service.api = GitHubClient(token="secret-token", transport=httpx.MockTransport(broken))
+        result = await service.refresh()
+>       assert result["snapshot"] == old
+E       AssertionError: assert {'username': ... 25.0}]}, ...} == {'username': ... 25.0}]}, ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Differing items:
+E         {'fetched_at': '2026-10-30T12:00:01+00:00'} != {'fetched_at': '2026-10-30T12:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:33: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]
+FAILED tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk
+FAILED tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot
+6 failed, 32 passed in 3.73s

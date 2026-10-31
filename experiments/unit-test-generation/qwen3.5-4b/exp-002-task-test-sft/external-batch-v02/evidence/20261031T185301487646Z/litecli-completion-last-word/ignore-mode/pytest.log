@@ -1,0 +1,16 @@
+.....F                                                                   [100%]
+================================== FAILURES ===================================
+____________________________ test_punctuation_mode ____________________________
+
+    def test_punctuation_mode():
+>       assert last_word('select $name', include='most_punctuations') == '$name'
+E       AssertionError: assert 'name' == '$name'
+E         
+E         - $name
+E         ? -
+E         + name
+
+tests\test_completion_last_word.py:12: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_completion_last_word.py::test_punctuation_mode - AssertionE...
+1 failed, 5 passed in 0.07s

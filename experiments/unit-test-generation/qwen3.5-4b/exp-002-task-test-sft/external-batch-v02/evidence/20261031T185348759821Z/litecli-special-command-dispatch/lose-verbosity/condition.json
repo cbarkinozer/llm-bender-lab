@@ -1,0 +1,5 @@
+{
+  "module": "litecli.packages.special.main",
+  "mutation": "original=m.parse_special_command\ndef broken(sql):\n c,v,a=original(sql)\n return c,m.Verbosity.NORMAL,a\nm.parse_special_command=broken",
+  "seed": null
+}

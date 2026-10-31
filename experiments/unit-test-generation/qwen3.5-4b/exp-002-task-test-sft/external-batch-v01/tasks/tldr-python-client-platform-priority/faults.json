@@ -1,0 +1,10 @@
+[
+  [
+    "always-linux",
+    "m.get_platform=lambda: 'linux'"
+  ],
+  [
+    "duplicate-active",
+    "original=m.get_platform_list\nm.get_platform_list=lambda: original()+[m.get_platform()]"
+  ]
+]

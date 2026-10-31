@@ -1,0 +1,47 @@
+APPLICATION
+Build a terminal reference-page client with translated pages, a local cache and offline fallback.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "language-selection",
+    "module": "tldr",
+    "target_file": "tests/test_language_selection.py"
+  },
+  {
+    "id": "cache-path-selection",
+    "module": "tldr",
+    "target_file": "tests/test_cache_path_selection.py"
+  },
+  {
+    "id": "cache-freshness",
+    "module": "tldr",
+    "target_file": "tests/test_cache_freshness.py"
+  },
+  {
+    "id": "page-url",
+    "module": "tldr",
+    "target_file": "tests/test_page_url.py"
+  },
+  {
+    "id": "cache-network-routing",
+    "module": "tldr",
+    "target_file": "tests/test_cache_network_routing.py"
+  },
+  {
+    "id": "platform-priority",
+    "module": "tldr",
+    "target_file": "tests/test_platform_priority.py"
+  }
+]
+
+CURRENT TASK
+language-selection
+Target file: tests/test_language_selection.py
+Implementation module: tldr
+
+INTERFACE AND ACCEPTANCE CONTRACT
+get_language_code strips encoding and region except pt_PT, pt_BR and zh_TW; pt maps to pt_PT. get_language_list uses TLDR_LANGUAGE first, then LANGUAGE entries, then LANG if absent, then English. C/POSIX LANG disables ordinary locale candidates but still permits an explicit TLDR_LANGUAGE. Isolate LANG, LANGUAGE and TLDR_LANGUAGE.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

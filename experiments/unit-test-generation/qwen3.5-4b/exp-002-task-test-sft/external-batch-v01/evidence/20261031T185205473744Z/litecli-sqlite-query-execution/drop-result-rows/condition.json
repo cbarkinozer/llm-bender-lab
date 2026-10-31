@@ -1,0 +1,5 @@
+{
+  "module": "litecli.sqlexecute",
+  "mutation": "original=m.SQLExecute.get_result\ndef broken(self,cursor):\n t,r,h,s=original(self,cursor)\n return t,([] if r is not None else r),h,s\nm.SQLExecute.get_result=broken",
+  "seed": null
+}

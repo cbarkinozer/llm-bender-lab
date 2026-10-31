@@ -1,0 +1,21 @@
+....F..                                                                  [100%]
+================================== FAILURES ===================================
+___________ test_run_directories_are_distinct_and_never_overwritten ___________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-92/test_run_directories_are_disti0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_run_directories_are_distinct_and_never_overwritten(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        evaluate = lambda *args: {'accuracy':0.0}
+        run_experiment(tmp_path, 'one', experiment_config, experiment_rows, trainer=trainer, evaluator=evaluate)
+        before = {p.name:p.read_bytes() for p in (tmp_path/'one').iterdir() if p.is_file()}
+>       with pytest.raises(FileExistsError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE FileExistsError
+
+tests\test_workflow.py:43: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten
+1 failed, 6 passed in 0.12s

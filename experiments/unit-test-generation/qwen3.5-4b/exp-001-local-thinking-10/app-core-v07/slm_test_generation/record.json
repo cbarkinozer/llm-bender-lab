@@ -1,0 +1,871 @@
+{
+  "record_id": "slm_test_generation-v07",
+  "schema_version": "1.0",
+  "record_version": 7,
+  "framing": "request-to-proposed-interface-and-tests",
+  "status": "awaiting-ai-review",
+  "source": {
+    "repo": "slm_test_generation",
+    "revision": "380b7d362f49d43fd55af5b2f7e015d4fa651e97",
+    "dirty": false,
+    "origin": "assistant reconstruction from owner-owned repository documentation and prior discussion; not an original historical prompt",
+    "new_reference_files": [
+      {
+        "path": "reference/benchmark_workflow.py",
+        "sha256": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f"
+      },
+      {
+        "path": "reference/oracle_analysis.py",
+        "sha256": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      }
+    ],
+    "reference_note": "New workflow references are validation material; they do not prove those workflows are wired into the original app."
+  },
+  "split": "eval",
+  "split_status": "proposed; disjoint by repo; no training export",
+  "leakage_group": "slm_test_generation",
+  "paper_benchmark_overlap": "same-repository-and-taxonomy; no benchmark instances used",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.\n\nUse Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests."
+    },
+    {
+      "role": "user",
+      "content": "Build me a Python research pipeline for benchmarking small language models that generate tests from functions. I want to give it task records, model outputs and run configuration, execute each generated pytest suite in an isolated network-disabled environment with a time limit, and get reproducible per-task results and comparison tables. Keep raw generations unchanged and distinguish collection errors, runtime failures, timeouts and genuinely passing suites. A suite that passes without exercising a meaningful assertion must not be reported as a useful test-generation success. Record which oracle checks actually execute and distinguish trivial, weak, strong and unresolved checks using an explicit taxonomy, while keeping semantic correctness as a separate judgment. Support context/dependency metadata, aggregate with the correct eligible-task denominators, retain unsuccessful and missing observations visibly, and report mutation results with clear unconditional and conditional denominators. Save task identities, configuration and source revisions so I can trace every reported number. Keep the pipeline small and usable with documented commands and fixture-based tests, and never launch model inference or alter the frozen benchmark merely to run its own tests."
+    },
+    {
+      "role": "assistant",
+      "reasoning_content": "A passing pytest exit status alone is insufficient: skipped, uncalled and untaken assertions provide no reached oracle. Exact equality is strong even when its expected value is wrong, and execution failure must disable success gates. The fixture runner derives its gate from actual pytest outcomes. One successful observation among four eligible tasks is 25%, even with two observations missing. One killed mutant out of four eligible and two valid tasks gives 25% unconditional and 50% conditional; empty denominators are unavailable.",
+      "content": "## Decisions and unresolved questions\n\nProposed decisions:\n\n- All eligible task IDs form the success-rate denominator; missing observations remain visible.\n- Mutation rates are killed/eligible and killed/valid, with unavailable values for zero denominators.\n- Usefulness requires a successful suite and a reached weak or strong oracle; a strong but wrong assertion still fails.\n- Trusted unit fixtures explicitly inject a local executor; untrusted generated outputs use the default bounded Docker executor.\n\nUnresolved/nonessential choices:\n- Semantic-correctness adjudication policy and final table layout remain open; UNKNOWN does not qualify as strong.\n\n## Proposed interface agreement\n\nProposed public modules: `oracle_analysis` and `benchmark_workflow`.\n- `OracleClass` enum: TRIVIAL=constant independent assertions, WEAK=SUT-derived coarse nullity/type/truthiness, STRONG=specific value/exception/state comparison, UNKNOWN=unresolved helper behavior. Here `assert True` is TRIVIAL; `result=sut(); assert result is not None` is WEAK; `assert sut()==42` is STRONG; `assert helper(result)` is UNKNOWN. \"Unresolved\" maps to UNKNOWN. Strength is independent of correctness.\n- `classify_oracles(source,sut_names=())` -> list of sites exposing `.oracle_id` and `.oracle_class`. `instrument_oracles(source,sut_names=())` -> `(instrumented_source,sites)` preserving assertion behavior. A reached check appends JSONL `{oracle_id:string}` to the file named by ORACLE_EXECUTION_FILE. Declared code is trusted only in unit microfixtures; generated suites run in Docker.\n- `gate_outcomes(suite_passed,sites,executed_ids)` returns exactly `{execution_success,executed_nontrivial_gate,executed_strong_gate}` booleans: suite success; success AND reached WEAK/STRONG; success AND reached STRONG, respectively. Merely classified/skipped/untaken checks do not count.\n- `run_task(task,root=...,sut_source=...,timeout_seconds=...)` consumes task `{id,source,sut_names,context,dependency}`; creates root/id exclusively; writes exact generation.txt. Runs collected pytest in Docker, no network, bounded time/memory/processes, only task directory mounted. Use a pinned Python+pytest image. SUT fixture exports sut(). Returns `{task_id,context,dependency,outcome,returncode,stdout,stderr,useful_success,reached_oracles}`. outcome is passed/runtime_failure/collection_error/timeout; useful_success requires passed AND reached nontrivial oracle. All-skipped has outcome passed; no tests collected has collection_error; both have no reached_oracles and never useful_success. All-skipped has outcome passed but never useful_success. Infrastructure failure raises RuntimeError, not suite failure. Nonpositive timeout/unsafe task IDs raise ValueError. No inference/backend downloads or frozen benchmark writes.\n- `summarize(eligible_ids=...,observations=...)` consumes observations `{task_id,useful_success}`; returns `{eligible,observed,missing,successful,success_rate}`; all eligible IDs in denominator; None rate when empty; unknown/duplicate IDs raise ValueError.\n- `mutation_summary(eligible=...,valid=...,killed=...)` requires 0<=killed<=valid<=eligible; returns same counts plus unconditional=killed/eligible and conditional=killed/valid; zero denominators -> None; invalid counts -> ValueError.\n- `save_manifest(path,dict)` / `load_manifest(path)` preserve task_ids,model_revision,data_revision,code_revision,seed,timeout_seconds,network_disabled,context,dependency as JSON. Table/command documentation and sandbox live isolation have dedicated manual/live checks.\nDependencies: Python, pytest and Docker with a configured pinned image.\n\n- run_task also accepts executor=None. The default executor uses the configured Docker image. Trusted unit fixtures inject local_executor(run_directory, timeout_seconds); it executes supervisor.py locally and must write execution.json. It is not an isolation boundary for untrusted outputs. timeout_seconds bounds pytest only; Docker startup has a separate 15-second allowance. run_task instruments a copy, retaining unmodified generation.txt. reached_oracles is a sorted unique list of oracle_id strings.\n\n\nPublic imports:\n- `benchmark_workflow.load_manifest`\n- `benchmark_workflow.mutation_summary`\n- `benchmark_workflow.run_task`\n- `benchmark_workflow.save_manifest`\n- `benchmark_workflow.summarize`\n- `oracle_analysis.OracleClass`\n- `oracle_analysis.classify_oracles`\n- `oracle_analysis.gate_outcomes`\n- `oracle_analysis.instrument_oracles`\n\n## Requirement-to-test map\n\nR1: Keep raw generations and distinct execution outcomes.\n- `tests/test_core.py::test_pytest_execution_controls_reachability_and_success`\n- `tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes`\n- `tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful`\n- `tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation`\n\nR2: Require a runtime-reached meaningful oracle for non-trivial success.\n- `tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence`\n- `tests/test_core.py::test_reached_strong_oracle_satisfies_gate`\n- `tests/test_core.py::test_trivial_pass_is_not_meaningful_success`\n- `tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success`\n- `tests/test_core.py::test_pytest_execution_controls_reachability_and_success`\n- `tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes`\n- `tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful`\n- `tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation`\n\nR3: Keep oracle strength separate from correctness.\n- `tests/test_core.py::test_oracle_strength_is_explicit`\n- `tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success`\n- `tests/test_core.py::test_pytest_execution_controls_reachability_and_success`\n\nR4: Use correct aggregation denominators and preserve missingness.\n- `tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness`\n- `tests/test_workflow.py::test_duplicate_observation_ids_are_rejected`\n\nR5: Keep mutation denominators explicit.\n- `tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged`\n\nR6: Preserve reproducibility and sandbox restrictions.\n- `tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes`\n- `tests/test_workflow.py::test_manifest_roundtrip`\n- `tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root`\n\nR7: Usable delivery, documented commands and the declared live/manual integration checks.\n\nManual/live: M1, M2, M3\n\n## Complete test files\n\nFile: tests/conftest.py\n```python\nimport os\nimport subprocess\nimport sys\nimport pytest\n\n@pytest.fixture\ndef local_executor():\n    # Trusted authored microfixtures only. Generated suites use the Docker default.\n    def execute(run_directory, timeout_seconds):\n        env=dict(os.environ, SUITE_TIMEOUT=str(timeout_seconds),\n                 ORACLE_EXECUTION_FILE=str(run_directory/'events.jsonl'),\n                 PYTEST_DISABLE_PLUGIN_AUTOLOAD='1', PYTHONDONTWRITEBYTECODE='1')\n        env.pop('PYTEST_ADDOPTS',None)\n        subprocess.run([sys.executable,'supervisor.py'], cwd=run_directory, env=env,\n                       check=True, capture_output=True, text=True, timeout=timeout_seconds+10)\n    return execute\n```\n\nFile: tests/test_core.py\n```python\n'Acceptance checks for observable application behavior.'\nimport json\nimport pytest\nfrom oracle_analysis import OracleClass, classify_oracles, instrument_oracles, gate_outcomes\n\n\n@pytest.mark.parametrize('source,kind', [('assert True', OracleClass.TRIVIAL), ('result = sut()\\nassert result is not None', OracleClass.WEAK), ('result = sut()\\nassert result == 42', OracleClass.STRONG), ('result = sut()\\nassert helper(result)', OracleClass.UNKNOWN)])\ndef test_oracle_strength_is_explicit(source, kind):\n    sites = classify_oracles(source, sut_names={'sut'})\n    assert [s.oracle_class for s in sites] == [kind]\n\n\ndef reached(path):\n    return {json.loads(line)['oracle_id'] for line in path.read_text().splitlines()} if path.exists() else set()\n\n\ndef run_fixture(source, tmp_path, monkeypatch):\n    target = tmp_path / 'events.jsonl'\n    monkeypatch.setenv('ORACLE_EXECUTION_FILE', str(target))\n    instrumented, sites = instrument_oracles(source, sut_names={'sut'})\n    namespace = {'sut': lambda: 42}\n    exec(compile(instrumented, '<trusted-audit-fixture>', 'exec'), namespace)\n    return namespace, sites, target\n\n\ndef test_uncalled_assertion_is_not_runtime_evidence(tmp_path, monkeypatch):\n    _, sites, target = run_fixture('def test_never_called():\\n    assert sut() == 42\\n', tmp_path, monkeypatch)\n    assert gate_outcomes(True, sites, reached(target)) == {'execution_success': True, 'executed_nontrivial_gate': False, 'executed_strong_gate': False}\n\n\ndef test_reached_strong_oracle_satisfies_gate(tmp_path, monkeypatch):\n    namespace, sites, target = run_fixture('def test_value():\\n    assert sut() == 42\\n', tmp_path, monkeypatch)\n    namespace['test_value']()\n    assert gate_outcomes(True, sites, reached(target)) == {'execution_success': True, 'executed_nontrivial_gate': True, 'executed_strong_gate': True}\n\n\ndef test_trivial_pass_is_not_meaningful_success(tmp_path, monkeypatch):\n    namespace, sites, target = run_fixture('def test_constant():\\n    assert True\\n', tmp_path, monkeypatch)\n    namespace['test_constant']()\n    assert gate_outcomes(True, sites, reached(target))['executed_nontrivial_gate'] is False\n\n\ndef test_wrong_exact_assertion_is_strong_but_not_success(tmp_path, monkeypatch):\n    namespace, sites, target = run_fixture('def test_wrong():\\n    assert sut() == 43\\n', tmp_path, monkeypatch)\n    with pytest.raises(AssertionError):\n        namespace['test_wrong']()\n    assert sites[0].oracle_class is OracleClass.STRONG\n    assert gate_outcomes(False, sites, reached(target)) == {'execution_success': False, 'executed_nontrivial_gate': False, 'executed_strong_gate': False}\n\n\n@pytest.mark.parametrize('body,expected', [\n    ('@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42', (True,False,False)),\n    ('def test_case():\\n    if sut() == 0:\\n        assert sut() == 42', (True,False,False)),\n    ('def test_case():\\n    assert sut() == 43', (False,False,False)),\n    ('def test_case():\\n    assert sut() == 42', (True,True,True))])\ndef test_pytest_execution_controls_reachability_and_success(tmp_path, monkeypatch, body, expected):\n    import os\n    import subprocess\n    import sys\n    source = 'import pytest\\ndef sut(): return 42\\n' + body + '\\n'\n    target = tmp_path/'events.jsonl'\n    instrumented, sites = instrument_oracles(source, sut_names={'sut'})\n    (tmp_path/'test_fixture.py').write_text(instrumented)\n    env = dict(os.environ, ORACLE_EXECUTION_FILE=str(target), PYTEST_DISABLE_PLUGIN_AUTOLOAD='1')\n    env.pop('PYTEST_ADDOPTS', None)\n    result = subprocess.run([sys.executable,'-m','pytest','-q',str(tmp_path/'test_fixture.py')],\n                            cwd=tmp_path,env=env,capture_output=True,text=True,timeout=15)\n    assert result.returncode in (0,1), result.stdout + result.stderr\n    gates = gate_outcomes(result.returncode == 0, sites, reached(target))\n    assert (gates['execution_success'], gates['executed_nontrivial_gate'], gates['executed_strong_gate']) == expected\n```\n\nFile: tests/test_workflow.py\n```python\n'Acceptance checks for observable application behavior.'\nimport json\nimport pytest\n\n\ndef task(identifier, source):\n    return {'id': identifier, 'source': source, 'sut_names': ['sut'], 'context': 'B', 'dependency': 'L1'}\n\n\n@pytest.mark.parametrize('source,outcome', [\n    ('def test_ok():\\n    assert sut() == 42', 'passed'),\n    ('def test_wrong():\\n    assert sut() == 43', 'runtime_failure'),\n    ('def test_(:', 'collection_error'),\n    ('def test_wait():\\n    while True: pass', 'timeout')])\ndef test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome, local_executor):\n    from benchmark_workflow import run_task\n    row = task('fresh', source)\n    result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=.5 if outcome=='timeout' else 5, executor=local_executor)\n    assert result['outcome'] == outcome\n    assert result['task_id'] == 'fresh'\n    assert result['context'] == 'B'\n    assert result['dependency'] == 'L1'\n    assert (tmp_path/'fresh'/'generation.txt').read_text() == source\n    assert result['useful_success'] is (outcome == 'passed')\n\n\n@pytest.mark.parametrize('source,outcome', [('import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42', 'passed'), ('# no tests', 'collection_error')])\ndef test_passing_empty_or_skipped_suite_is_not_useful(tmp_path, source, outcome, local_executor):\n    from benchmark_workflow import run_task\n    row = task('skipped', source)\n    result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=5, executor=local_executor)\n    assert result['outcome'] == outcome\n    assert result['useful_success'] is False\n    assert result['reached_oracles'] == []\n\n\ndef test_aggregation_keeps_eligible_denominator_and_missingness():\n    from benchmark_workflow import summarize\n    result = summarize(eligible_ids=['a','b','c','d'], observations=[\n        {'task_id':'a','useful_success':True}, {'task_id':'b','useful_success':False}])\n    assert result == {'eligible':4, 'observed':2, 'missing':2, 'successful':1,\n                      'success_rate':0.25}\n    assert summarize(eligible_ids=[], observations=[])['success_rate'] is None\n    with pytest.raises(ValueError):\n        summarize(eligible_ids=['a'], observations=[{'task_id':'outside','useful_success':True}])\n\n\ndef test_mutation_denominators_are_named_and_not_interchanged():\n    from benchmark_workflow import mutation_summary\n    assert mutation_summary(eligible=4, valid=2, killed=1) == {\n        'unconditional':0.25, 'conditional':0.5, 'eligible':4, 'valid':2, 'killed':1}\n    assert mutation_summary(eligible=0, valid=0, killed=0) == {\n        'unconditional':None, 'conditional':None, 'eligible':0, 'valid':0, 'killed':0}\n    with pytest.raises(ValueError):\n        mutation_summary(eligible=2, valid=1, killed=2)\n\n\ndef test_manifest_roundtrip(tmp_path):\n    from benchmark_workflow import save_manifest, load_manifest\n    manifest = {'task_ids':['fresh'], 'model_revision':'m1', 'data_revision':'d1',\n                'code_revision':'c1', 'seed':7, 'timeout_seconds':1,\n                'network_disabled':True, 'context':'B', 'dependency':'L1'}\n    path = tmp_path/'manifest.json'\n    save_manifest(path, manifest)\n    assert load_manifest(path) == manifest\n    assert json.loads(path.read_text()) == manifest\n\n\ndef test_valid_docstring_and_future_import_survive_instrumentation(tmp_path, local_executor):\n    from benchmark_workflow import run_task\n    source = ('\"\"\"Generated checks.\"\"\"\\nfrom __future__ import annotations\\n'\n              'def test_value():\\n    assert __doc__ == \"Generated checks.\"\\n    assert sut() == 42\\n')\n    compile(source, '<valid-original-module>', 'exec')\n    result = run_task(task('header',source), root=tmp_path,\n                      sut_source='def sut(): return 42', timeout_seconds=5, executor=local_executor)\n    assert result['outcome'] == 'passed'\n    assert result['useful_success'] is True\n    assert (tmp_path/'header'/'generation.txt').read_text() == source\n\ndef test_unsafe_task_id_never_writes_outside_root(tmp_path, local_executor):\n    from benchmark_workflow import run_task\n    root=tmp_path/'runs'\n    with pytest.raises(ValueError):\n        run_task(task('../escape','def test_ok(): pass'),root=root,\n                 sut_source='def sut(): return 42',timeout_seconds=5,executor=local_executor)\n    assert not root.exists()\n    assert not (tmp_path/'escape').exists()\n\ndef test_duplicate_observation_ids_are_rejected():\n    from benchmark_workflow import summarize\n    observation={'task_id':'a','useful_success':True}\n    with pytest.raises(ValueError):\n        summarize(eligible_ids=['a'], observations=[observation, observation])\n\n```\n\n## Manual checks\n\nM1: Reproduce a small report from saved raw records and inspect table labels.\nM2: Probe the configured execution environment for actual network denial and process/memory limits.\nM3: Run documented fixture commands; verify they launch no inference and preserve the frozen benchmark.\n"
+    }
+  ],
+  "teacher_reasoning": "A passing pytest exit status alone is insufficient: skipped, uncalled and untaken assertions provide no reached oracle. Exact equality is strong even when its expected value is wrong, and execution failure must disable success gates. The fixture runner derives its gate from actual pytest outcomes. One successful observation among four eligible tasks is 25%, even with two observations missing. One killed mutant out of four eligible and two valid tasks gives 25% unconditional and 50% conditional; empty denominators are unavailable.",
+  "decisions": "Proposed decisions:\n\n- All eligible task IDs form the success-rate denominator; missing observations remain visible.\n- Mutation rates are killed/eligible and killed/valid, with unavailable values for zero denominators.\n- Usefulness requires a successful suite and a reached weak or strong oracle; a strong but wrong assertion still fails.\n- Trusted unit fixtures explicitly inject a local executor; untrusted generated outputs use the default bounded Docker executor.\n\nUnresolved/nonessential choices:\n- Semantic-correctness adjudication policy and final table layout remain open; UNKNOWN does not qualify as strong.",
+  "interface": {
+    "location": "target-output",
+    "text": "Proposed public modules: `oracle_analysis` and `benchmark_workflow`.\n- `OracleClass` enum: TRIVIAL=constant independent assertions, WEAK=SUT-derived coarse nullity/type/truthiness, STRONG=specific value/exception/state comparison, UNKNOWN=unresolved helper behavior. Here `assert True` is TRIVIAL; `result=sut(); assert result is not None` is WEAK; `assert sut()==42` is STRONG; `assert helper(result)` is UNKNOWN. \"Unresolved\" maps to UNKNOWN. Strength is independent of correctness.\n- `classify_oracles(source,sut_names=())` -> list of sites exposing `.oracle_id` and `.oracle_class`. `instrument_oracles(source,sut_names=())` -> `(instrumented_source,sites)` preserving assertion behavior. A reached check appends JSONL `{oracle_id:string}` to the file named by ORACLE_EXECUTION_FILE. Declared code is trusted only in unit microfixtures; generated suites run in Docker.\n- `gate_outcomes(suite_passed,sites,executed_ids)` returns exactly `{execution_success,executed_nontrivial_gate,executed_strong_gate}` booleans: suite success; success AND reached WEAK/STRONG; success AND reached STRONG, respectively. Merely classified/skipped/untaken checks do not count.\n- `run_task(task,root=...,sut_source=...,timeout_seconds=...)` consumes task `{id,source,sut_names,context,dependency}`; creates root/id exclusively; writes exact generation.txt. Runs collected pytest in Docker, no network, bounded time/memory/processes, only task directory mounted. Use a pinned Python+pytest image. SUT fixture exports sut(). Returns `{task_id,context,dependency,outcome,returncode,stdout,stderr,useful_success,reached_oracles}`. outcome is passed/runtime_failure/collection_error/timeout; useful_success requires passed AND reached nontrivial oracle. All-skipped has outcome passed; no tests collected has collection_error; both have no reached_oracles and never useful_success. All-skipped has outcome passed but never useful_success. Infrastructure failure raises RuntimeError, not suite failure. Nonpositive timeout/unsafe task IDs raise ValueError. No inference/backend downloads or frozen benchmark writes.\n- `summarize(eligible_ids=...,observations=...)` consumes observations `{task_id,useful_success}`; returns `{eligible,observed,missing,successful,success_rate}`; all eligible IDs in denominator; None rate when empty; unknown/duplicate IDs raise ValueError.\n- `mutation_summary(eligible=...,valid=...,killed=...)` requires 0<=killed<=valid<=eligible; returns same counts plus unconditional=killed/eligible and conditional=killed/valid; zero denominators -> None; invalid counts -> ValueError.\n- `save_manifest(path,dict)` / `load_manifest(path)` preserve task_ids,model_revision,data_revision,code_revision,seed,timeout_seconds,network_disabled,context,dependency as JSON. Table/command documentation and sandbox live isolation have dedicated manual/live checks.\nDependencies: Python, pytest and Docker with a configured pinned image.\n\n- run_task also accepts executor=None. The default executor uses the configured Docker image. Trusted unit fixtures inject local_executor(run_directory, timeout_seconds); it executes supervisor.py locally and must write execution.json. It is not an isolation boundary for untrusted outputs. timeout_seconds bounds pytest only; Docker startup has a separate 15-second allowance. run_task instruments a copy, retaining unmodified generation.txt. reached_oracles is a sorted unique list of oracle_id strings.\n\n\nPublic imports:\n- `benchmark_workflow.load_manifest`\n- `benchmark_workflow.mutation_summary`\n- `benchmark_workflow.run_task`\n- `benchmark_workflow.save_manifest`\n- `benchmark_workflow.summarize`\n- `oracle_analysis.OracleClass`\n- `oracle_analysis.classify_oracles`\n- `oracle_analysis.gate_outcomes`\n- `oracle_analysis.instrument_oracles`\n",
+    "imports": [
+      {
+        "module": "benchmark_workflow",
+        "name": "load_manifest"
+      },
+      {
+        "module": "benchmark_workflow",
+        "name": "mutation_summary"
+      },
+      {
+        "module": "benchmark_workflow",
+        "name": "run_task"
+      },
+      {
+        "module": "benchmark_workflow",
+        "name": "save_manifest"
+      },
+      {
+        "module": "benchmark_workflow",
+        "name": "summarize"
+      },
+      {
+        "module": "oracle_analysis",
+        "name": "OracleClass"
+      },
+      {
+        "module": "oracle_analysis",
+        "name": "classify_oracles"
+      },
+      {
+        "module": "oracle_analysis",
+        "name": "gate_outcomes"
+      },
+      {
+        "module": "oracle_analysis",
+        "name": "instrument_oracles"
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Keep raw generations and distinct execution outcomes.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful",
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R2",
+      "text": "Require a runtime-reached meaningful oracle for non-trivial success.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+        "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+        "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+        "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful",
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R3",
+      "text": "Keep oracle strength separate from correctness.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_core.py::test_oracle_strength_is_explicit",
+        "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R4",
+      "text": "Use correct aggregation denominators and preserve missingness.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+        "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R5",
+      "text": "Keep mutation denominators explicit.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R6",
+      "text": "Preserve reproducibility and sandbox restrictions.",
+      "check_mode": "automated-core",
+      "test_ids": [
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes",
+        "tests/test_workflow.py::test_manifest_roundtrip",
+        "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root"
+      ],
+      "manual_ids": [],
+      "coverage_status": "mapped; semantic coverage requires review"
+    },
+    {
+      "id": "R7",
+      "text": "Usable delivery, documented commands and the declared live/manual integration checks.",
+      "check_mode": "manual-or-live-integration",
+      "test_ids": [],
+      "manual_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "coverage_status": "explicitly pending; not certified by backend tests"
+    }
+  ],
+  "test_registry": [
+    {
+      "id": "tests/test_core.py::test_oracle_strength_is_explicit",
+      "requirements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+      "requirements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+      "requirements": [
+        "R2",
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_core.py::test_pytest_execution_controls_reachability_and_success",
+      "requirements": [
+        "R1",
+        "R2",
+        "R3"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes",
+      "requirements": [
+        "R1",
+        "R2",
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful",
+      "requirements": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+      "requirements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+      "requirements": [
+        "R5"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_manifest_roundtrip",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+      "requirements": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+      "requirements": [
+        "R6"
+      ]
+    },
+    {
+      "id": "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+      "requirements": [
+        "R4"
+      ]
+    }
+  ],
+  "manual_checks": [
+    {
+      "id": "M1",
+      "text": "Reproduce a small report from saved raw records and inspect table labels."
+    },
+    {
+      "id": "M2",
+      "text": "Probe the configured execution environment for actual network denial and process/memory limits."
+    },
+    {
+      "id": "M3",
+      "text": "Run documented fixture commands; verify they launch no inference and preserve the frozen benchmark."
+    }
+  ],
+  "validation": {
+    "reference_pass": true,
+    "execution_log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/execution/slm_test_generation.log",
+    "test_files": [
+      {
+        "path": "tests/conftest.py",
+        "chars": 684,
+        "tokens": 155,
+        "sha256": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad"
+      },
+      {
+        "path": "tests/test_core.py",
+        "chars": 3964,
+        "tokens": 1045,
+        "sha256": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483"
+      },
+      {
+        "path": "tests/test_workflow.py",
+        "chars": 4719,
+        "tokens": 1216,
+        "sha256": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      }
+    ],
+    "faults": [
+      {
+        "repo": "slm_test_generation",
+        "fault": "ignore-reachability",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-reachability.log",
+        "mutation_sha256": "d3d9b91b221267031a390b02d28f0cbf32a62d19bb96b8e6b911788beae61420",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\ignore-reachability\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-reachability.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "weak-is-strong",
+        "target_requirements": [
+          "R3"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/weak-is-strong.log",
+        "mutation_sha256": "4ece44451fc51a7bc0f8d1565bf95609a65d9c8f4c0d1efe09c1907bf48ce696",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\weak-is-strong\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/weak-is-strong.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "ignore-suite-failure",
+        "target_requirements": [
+          "R2"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-suite-failure.log",
+        "mutation_sha256": "84fcc4458ff7ea4ca5d4bdbc42b8fb366b576b7e2734fb4395b273932f7476ae",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\ignore-suite-failure\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-suite-failure.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "collapse-execution-outcomes",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/collapse-execution-outcomes.log",
+        "mutation_sha256": "a853eeab0927ec78a161957e8bd951fc86a763442bee51afa1880faefa0f9430",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\collapse-execution-outcomes\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/collapse-execution-outcomes.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "observed-instead-of-eligible-denominator",
+        "target_requirements": [
+          "R4"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/observed-instead-of-eligible-denominator.log",
+        "mutation_sha256": "627188c45d678355de9a93db217f45c412ec96b1da8bf2798ec64339ceb0d148",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\observed-instead-of-eligible-denominator\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/observed-instead-of-eligible-denominator.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "conditional-uses-eligible",
+        "target_requirements": [
+          "R5"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/conditional-uses-eligible.log",
+        "mutation_sha256": "a9d7df89963ffe087a8fba48597ee32674cb3d7bcb3f85afd41b24eae506589b",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\conditional-uses-eligible\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/conditional-uses-eligible.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "manifest-loses-seed",
+        "target_requirements": [
+          "R6"
+        ],
+        "preservation_probe": true,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_manifest_roundtrip"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/manifest-loses-seed.log",
+        "mutation_sha256": "f5fac7267a2ce2593a86b70ac87dcf483d04aed6ac30139ec709ae89b23a628a",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\manifest-loses-seed\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/manifest-loses-seed.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "break-valid-module-header",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": false,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/break-valid-module-header.log",
+        "mutation_sha256": "00dc8ad8110037d32131fc7318d4cdaf9a42ebcd51e26b4cabe0533fe82bcec0",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\break-valid-module-header\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/break-valid-module-header.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "raw-generation-overwritten-by-instrumentation",
+        "target_requirements": [
+          "R1"
+        ],
+        "preservation_probe": true,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+          "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/raw-generation-overwritten-by-instrumentation.log",
+        "mutation_sha256": "4b5975ba9871544faa51ad3730cf093d9a2d40b566696769421ff1d4d331d48b",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\raw-generation-overwritten-by-instrumentation\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/raw-generation-overwritten-by-instrumentation.txt"
+      },
+      {
+        "repo": "slm_test_generation",
+        "fault": "missing-observations-erased",
+        "target_requirements": [
+          "R4"
+        ],
+        "preservation_probe": true,
+        "killed": true,
+        "returncode": 1,
+        "failing_tests": [
+          "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/missing-observations-erased.log",
+        "mutation_sha256": "f3aed9bf810404325dfb3d7f5f9d7a61a96fcb78bdfd5a67359e2c1855cc4cf4",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\missing-observations-erased\\pytest.log",
+        "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/missing-observations-erased.txt"
+      }
+    ],
+    "structural_map_consistency": true,
+    "semantic_map_approval": false,
+    "test_numbering_consistent": true,
+    "preservation_checks": [
+      {
+        "requirement_id": "R1",
+        "contract": "Raw generations are retained unchanged.",
+        "faults": [
+          "raw-generation-overwritten-by-instrumentation"
+        ],
+        "detected": true
+      },
+      {
+        "requirement_id": "R4",
+        "contract": "Missing observations remain visible.",
+        "faults": [
+          "missing-observations-erased"
+        ],
+        "detected": true
+      },
+      {
+        "requirement_id": "R6",
+        "contract": "Reproducibility records retain the seed.",
+        "faults": [
+          "manifest-loses-seed"
+        ],
+        "detected": true
+      }
+    ],
+    "fault_coverage_by_core_requirement": {
+      "R1": [
+        "collapse-execution-outcomes",
+        "break-valid-module-header",
+        "raw-generation-overwritten-by-instrumentation"
+      ],
+      "R2": [
+        "ignore-reachability",
+        "ignore-suite-failure"
+      ],
+      "R3": [
+        "weak-is-strong"
+      ],
+      "R4": [
+        "observed-instead-of-eligible-denominator",
+        "missing-observations-erased"
+      ],
+      "R5": [
+        "conditional-uses-eligible"
+      ],
+      "R6": [
+        "manifest-loses-seed"
+      ]
+    },
+    "all_core_requirements_have_killed_variant": true,
+    "stability": [
+      {
+        "repo": "slm_test_generation",
+        "seed": 17,
+        "returncode": 0,
+        "collected": 24,
+        "order": [
+          "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+          "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result == 42-STRONG]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+          "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+          "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+          "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+          "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+          "tests/test_workflow.py::test_manifest_roundtrip",
+          "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[assert True-TRIVIAL]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert helper(result)-UNKNOWN]",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]",
+          "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+          "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 42-expected3]",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/slm_test_generation/17.log",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\slm_test_generation\\17\\pytest.log"
+      },
+      {
+        "repo": "slm_test_generation",
+        "seed": 43,
+        "returncode": 0,
+        "collected": 24,
+        "order": [
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result == 42-STRONG]",
+          "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+          "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+          "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+          "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]",
+          "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+          "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+          "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+          "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[assert True-TRIVIAL]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+          "tests/test_workflow.py::test_manifest_roundtrip",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert helper(result)-UNKNOWN]",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 42-expected3]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+          "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/slm_test_generation/43.log",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\slm_test_generation\\43\\pytest.log"
+      },
+      {
+        "repo": "slm_test_generation",
+        "seed": 91,
+        "returncode": 0,
+        "collected": 24,
+        "order": [
+          "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[assert True-TRIVIAL]",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]",
+          "tests/test_core.py::test_trivial_pass_is_not_meaningful_success",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 42-expected3]",
+          "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+          "tests/test_workflow.py::test_manifest_roundtrip",
+          "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+          "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert helper(result)-UNKNOWN]",
+          "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]",
+          "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]",
+          "tests/test_workflow.py::test_unsafe_task_id_never_writes_outside_root",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+          "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+          "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation",
+          "tests/test_core.py::test_reached_strong_oracle_satisfies_gate",
+          "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness",
+          "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result == 42-STRONG]"
+        ],
+        "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/stability/slm_test_generation/91.log",
+        "test_snapshot": {
+          "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+          "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+          "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+        },
+        "reference_snapshot": {
+          "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+          "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+        },
+        "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-stability\\20261031T075606582021Z\\slm_test_generation\\91\\pytest.log"
+      }
+    ],
+    "three_order_runs_pass": true,
+    "interface_import_consistency": true,
+    "interface_attribute_and_schema_review": "manual; import presence alone is insufficient",
+    "smoke_only": true,
+    "full_original_app_certified": false,
+    "model_text_scan": {
+      "findings": [
+        {
+          "role": "user",
+          "part": "content",
+          "line": 1,
+          "term": "revisions",
+          "text": "Build me a Python research pipeline for benchmarking small language models that generate tests from functions. I want to give it task records, model outputs and run configuration, execute each generated pytest suite in an isolated network-disabled environment with a time limit, and get reproducible per-task results and comparison tables. Keep raw generations unchanged and distinguish collection errors, runtime failures, timeouts and genuinely passing suites. A suite that passes without exercising a meaningful assertion must not be reported as a useful test-generation success. Record which oracle checks actually execute and distinguish trivial, weak, strong and unresolved checks using an explicit taxonomy, while keeping semantic correctness as a separate judgment. Support context/dependency metadata, aggregate with the correct eligible-task denominators, retain unsuccessful and missing observations visibly, and report mutation results with clear unconditional and conditional denominators. Save task identities, configuration and source revisions so I can trace every reported number. Keep the pipeline small and usable with documented commands and fixture-based tests, and never launch model inference or alter the frozen benchmark merely to run its own tests.",
+          "status": "allowed",
+          "reason": "Functional source/model/data provenance requirement"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 22,
+          "term": "revision",
+          "text": "- `save_manifest(path,dict)` / `load_manifest(path)` preserve task_ids,model_revision,data_revision,code_revision,seed,timeout_seconds,network_disabled,context,dependency as JSON. Table/command documentation and sandbox live isolation have dedicated manual/live checks.",
+          "status": "allowed",
+          "reason": "Functional revision/provenance field in the application contract"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 22,
+          "term": "revision",
+          "text": "- `save_manifest(path,dict)` / `load_manifest(path)` preserve task_ids,model_revision,data_revision,code_revision,seed,timeout_seconds,network_disabled,context,dependency as JSON. Table/command documentation and sandbox live isolation have dedicated manual/live checks.",
+          "status": "allowed",
+          "reason": "Functional revision/provenance field in the application contract"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 22,
+          "term": "revision",
+          "text": "- `save_manifest(path,dict)` / `load_manifest(path)` preserve task_ids,model_revision,data_revision,code_revision,seed,timeout_seconds,network_disabled,context,dependency as JSON. Table/command documentation and sandbox live isolation have dedicated manual/live checks.",
+          "status": "allowed",
+          "reason": "Functional revision/provenance field in the application contract"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 235,
+          "term": "revision",
+          "text": "    manifest = {'task_ids':['fresh'], 'model_revision':'m1', 'data_revision':'d1',",
+          "status": "allowed",
+          "reason": "Functional revision/provenance field in the application contract"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 235,
+          "term": "revision",
+          "text": "    manifest = {'task_ids':['fresh'], 'model_revision':'m1', 'data_revision':'d1',",
+          "status": "allowed",
+          "reason": "Functional revision/provenance field in the application contract"
+        },
+        {
+          "role": "assistant",
+          "part": "content",
+          "line": 236,
+          "term": "revision",
+          "text": "                'code_revision':'c1', 'seed':7, 'timeout_seconds':1,",
+          "status": "allowed",
+          "reason": "Functional revision/provenance field in the application contract"
+        }
+      ],
+      "unresolved": 0,
+      "note": "Lexical construction-context check, not a scientific contamination proof."
+    }
+  },
+  "tokens": {
+    "full_sequence": 4482,
+    "limit": 8192,
+    "within_limit": true,
+    "per_section": {
+      "system": 151,
+      "user": 208,
+      "reasoning": 101,
+      "interface": 832,
+      "tests": 2453,
+      "target": 4003
+    },
+    "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+    "chat_template_sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+    "note": "Actual native chat serialization including reasoning and EOS; section counts need not add exactly to full sequence."
+  },
+  "provenance": {
+    "drafter": "OpenAI Codex session assistant; exact model build not exposed",
+    "date": "2026-10-31T08:02:02.708420+00:00",
+    "prompt_version": "tdd-framing-b-v07",
+    "reviewer": null,
+    "review_history": [],
+    "source_informed": true,
+    "not_historical_zero_shot_prompt": true
+  },
+  "tags": {
+    "domain": "slm_test_generation",
+    "difficulty": "unrated",
+    "component_type": "whole-app acceptance core",
+    "external_services_faked": true
+  },
+  "training_eligible": false
+}

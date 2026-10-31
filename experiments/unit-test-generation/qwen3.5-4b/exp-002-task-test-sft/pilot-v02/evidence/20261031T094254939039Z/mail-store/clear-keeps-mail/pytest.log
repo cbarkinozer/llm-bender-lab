@@ -1,0 +1,16 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_clear_removes_mail_and_coverage _____________________
+
+    def test_clear_removes_mail_and_coverage():
+        store = MailStore()
+        store.replace('account-a', [mail('a')], coverage={'count': 1})
+        store.clear()
+>       assert message(store, 'account-a', 'a') is None
+E       AssertionError: assert {'id': 'a', 'timestamp': 1, 'sender': 'İpek IŞIK', 'recipients': 'Team', ...} is None
+E        +  where {'id': 'a', 'timestamp': 1, 'sender': 'İpek IŞIK', 'recipients': 'Team', ...} = message(<ghost_box.mail.store.MailStore object at 0x000002A5B2AE6490>, 'account-a', 'a')
+
+tests\test_mail_store.py:21: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_mail_store.py::test_clear_removes_mail_and_coverage - Asser...
+1 failed, 1 passed in 0.05s

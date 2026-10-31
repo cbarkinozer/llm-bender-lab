@@ -1,0 +1,88 @@
+.......F..F..F..........                                                 [100%]
+================================== FAILURES ===================================
+____________ test_wrong_exact_assertion_is_strong_but_not_success _____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-80/test_wrong_exact_assertion_is_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001AC3199AE00>
+
+    def test_wrong_exact_assertion_is_strong_but_not_success(tmp_path, monkeypatch):
+        namespace, sites, target = run_fixture('def test_wrong():\n    assert sut() == 43\n', tmp_path, monkeypatch)
+        with pytest.raises(AssertionError):
+            namespace['test_wrong']()
+        assert sites[0].oracle_class is OracleClass.STRONG
+>       assert gate_outcomes(False, sites, reached(target)) == {'execution_success': False, 'executed_nontrivial_gate': False, 'executed_strong_gate': False}
+E       AssertionError: assert {'execution_s...g_gate': True} == {'execution_s..._gate': False}
+E         
+E         Differing items:
+E         {'executed_strong_gate': True} != {'executed_strong_gate': False}
+E         {'execution_success': True} != {'execution_success': False}
+E         {'executed_nontrivial_gate': True} != {'executed_nontrivial_gate': False}
+E         Use -v to get more diff
+
+tests\test_core.py:48: AssertionError
+_ test_pytest_execution_controls_reachability_and_success[def test_case():\n    assert sut() == 43-expected2] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-80/test_pytest_execution_controls2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001AC31A48650>
+body = 'def test_case():\n    assert sut() == 43'
+expected = (False, False, False)
+
+    @pytest.mark.parametrize('body,expected', [
+        ('@pytest.mark.skip(reason="fixture")\ndef test_case():\n    assert sut() == 42', (True,False,False)),
+        ('def test_case():\n    if sut() == 0:\n        assert sut() == 42', (True,False,False)),
+        ('def test_case():\n    assert sut() == 43', (False,False,False)),
+        ('def test_case():\n    assert sut() == 42', (True,True,True))])
+    def test_pytest_execution_controls_reachability_and_success(tmp_path, monkeypatch, body, expected):
+        import os
+        import subprocess
+        import sys
+        source = 'import pytest\ndef sut(): return 42\n' + body + '\n'
+        target = tmp_path/'events.jsonl'
+        instrumented, sites = instrument_oracles(source, sut_names={'sut'})
+        (tmp_path/'test_fixture.py').write_text(instrumented)
+        env = dict(os.environ, ORACLE_EXECUTION_FILE=str(target), PYTEST_DISABLE_PLUGIN_AUTOLOAD='1')
+        env.pop('PYTEST_ADDOPTS', None)
+        result = subprocess.run([sys.executable,'-m','pytest','-q',str(tmp_path/'test_fixture.py')],
+                                cwd=tmp_path,env=env,capture_output=True,text=True,timeout=15)
+        assert result.returncode in (0,1), result.stdout + result.stderr
+        gates = gate_outcomes(result.returncode == 0, sites, reached(target))
+>       assert (gates['execution_success'], gates['executed_nontrivial_gate'], gates['executed_strong_gate']) == expected
+E       assert (True, True, True) == (False, False, False)
+E         
+E         At index 0 diff: True != False
+E         Use -v to get more diff
+
+tests\test_core.py:70: AssertionError
+_ test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\n    assert sut() == 43-runtime_failure] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-80/test_runner_retains_raw_text_a1')
+source = 'def test_wrong():\n    assert sut() == 43'
+outcome = 'runtime_failure'
+local_executor = <function local_executor.<locals>.execute at 0x000001AC31AD8680>
+
+    @pytest.mark.parametrize('source,outcome', [
+        ('def test_ok():\n    assert sut() == 42', 'passed'),
+        ('def test_wrong():\n    assert sut() == 43', 'runtime_failure'),
+        ('def test_(:', 'collection_error'),
+        ('def test_wait():\n    while True: pass', 'timeout')])
+    def test_runner_retains_raw_text_and_distinct_outcomes(tmp_path, source, outcome, local_executor):
+        from benchmark_workflow import run_task
+        row = task('fresh', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=.5 if outcome=='timeout' else 5, executor=local_executor)
+        assert result['outcome'] == outcome
+        assert result['task_id'] == 'fresh'
+        assert result['context'] == 'B'
+        assert result['dependency'] == 'L1'
+        assert (tmp_path/'fresh'/'generation.txt').read_text() == source
+>       assert result['useful_success'] is (outcome == 'passed')
+E       AssertionError: assert True is ('runtime_failure' == 'passed'
+E         
+E         - passed
+E         + runtime_failure)
+
+tests\test_workflow.py:24: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success
+FAILED tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\n    assert sut() == 43-expected2]
+FAILED tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\n    assert sut() == 43-runtime_failure]
+3 failed, 21 passed in 7.67s

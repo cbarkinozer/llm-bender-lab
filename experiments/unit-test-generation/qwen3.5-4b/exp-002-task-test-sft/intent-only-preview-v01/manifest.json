@@ -1,0 +1,33 @@
+{
+  "status": "projection preview only; not approved training data",
+  "training_enabled": false,
+  "counts": {
+    "tests": 50,
+    "planning": 13,
+    "reliability": 15
+  },
+  "user_policy": "User intent, clarification, planning, file tasks and requirement-based pytest targets only. Repository implementation source is excluded from model input and targets. Source columns may remain audit-only.",
+  "allowed_fields": {
+    "record": [
+      "messages"
+    ],
+    "message": [
+      "role",
+      "content"
+    ],
+    "assistant_optional": [
+      "reasoning_content"
+    ]
+  },
+  "excluded_columns": "All other fields, including source code, reference implementations, mutation probes, validation logs and scoring references.",
+  "test_code_policy": "Generated pytest targets and necessary synthetic code snippets/test fixtures are task content, not repository implementation solutions.",
+  "semantic_limit": "The allowlist prevents accidental source-column leakage. It cannot prove implementation text was not embedded inside content; review model-visible messages before enabling training.",
+  "loss_label_audit": "pending",
+  "implementation_source_in_messages_review": "pending",
+  "output_sha256": {
+    "tests": "35938b6460122509507f601fed96a7aedd817b3cbfd38d4a44ca85a55db97ada",
+    "planning": "a8cfb186faf0dc80c7c55550451d75ddc40c468c390505e88f3a5712e6588aba",
+    "reliability": "26a182b5d53bcb6a511c1957a58286259bf5130b56afe596356c7434bc172418"
+  },
+  "builder_sha256": "e80786dc4140dd881bf027c75f3d11bb9d2bafc45f7d5328922d67c5ad7e0429"
+}

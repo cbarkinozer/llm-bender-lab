@@ -1,0 +1,40 @@
+import torch
+import pytest
+
+
+def model():
+    from tiny_model import TinyModel
+    torch.manual_seed(7)
+    return TinyModel(vocab_size=8, hidden_dim=8, num_heads=2, max_length=16)
+
+
+def test_deterministic_cpu_training_and_bounded_generation():
+    from tiny_model import train_demo, generate
+    tokens = torch.tensor([[1,2,1,2,1]])
+    first = train_demo(tokens, seed=7, steps=30, learning_rate=.03)
+    second = train_demo(tokens, seed=7, steps=30, learning_rate=.03)
+    assert all(isinstance(value,float) for value in first['losses'])
+    assert first['losses'] == second['losses']
+    assert all(torch.isfinite(torch.tensor(first['losses'])))
+    assert first['losses'][-1] < first['losses'][0]
+    output = generate(first['model'], [1], max_new_tokens=3)
+    assert output[:1] == [1]
+    assert len(output) == 4
+    assert all(0 <= token < 8 for token in output)
+
+
+@pytest.mark.parametrize('budget,expected', [(0,[1]),(3,[1,2,3,4])])
+def test_greedy_generation_follows_unique_logit_maxima(budget, expected):
+    from tiny_model import generate
+    class SuccessorModel(torch.nn.Module):
+        def forward(self, tokens):
+            # Every position predicts (its current token + 1) mod 8 uniquely.
+            logits = torch.full((*tokens.shape, 8), -10.0)
+            return logits.scatter(-1, ((tokens+1)%8).unsqueeze(-1), 10.0)
+    assert generate(SuccessorModel(), [1], max_new_tokens=budget) == expected
+
+
+def test_negative_generation_budget_is_rejected():
+    from tiny_model import generate
+    with pytest.raises(ValueError):
+        generate(model(), [1], max_new_tokens=-1)

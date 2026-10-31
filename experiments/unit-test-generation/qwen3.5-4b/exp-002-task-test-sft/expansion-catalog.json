@@ -1,0 +1,1393 @@
+{
+  "catalog_entries": 100,
+  "built_teacher_candidates": 38,
+  "source_backed_backlog": 62,
+  "independent_training_families": 7,
+  "reserved_evaluation_families": [
+    "GitHub-insignia",
+    "slm_test_generation"
+  ],
+  "note": "This is a source-backed task catalog, not a 100-row training dataset. Backlog entries have no teacher messages/tests and are not training exports. Scope extensions and similar behaviors need contract review and deduplication before acceptance.",
+  "built": [
+    {
+      "task_id": "language-basic",
+      "source_group": "codelang-detect",
+      "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "language-basic-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "language-rules",
+      "source_group": "codelang-detect",
+      "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "language-rules-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "language-cli-success",
+      "source_group": "codelang-detect",
+      "title": "Specify CLI input routes and exact successful output.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "language-cli-success-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "language-cli-errors",
+      "source_group": "codelang-detect",
+      "title": "Specify CLI failure classes and useful diagnostics.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "language-cli-errors-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "prices-returns",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "prices-returns-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "prices-charts",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "prices-charts-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "prices-fetch",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Specify the offline-testable adjusted-price provider boundary.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "prices-fetch-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "prices-analysis",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "prices-analysis-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-store",
+      "source_group": "ghost-box",
+      "title": "Specify RAM-only account separation, deduplication and explicit clearing.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-store-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-search",
+      "source_group": "ghost-box",
+      "title": "Specify downloaded-only search and Unicode-aware sender filters.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-search-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-splitting",
+      "source_group": "ghost-box",
+      "title": "Specify lossless bounded splitting of selected message bodies.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-splitting-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-quote-validation",
+      "source_group": "ghost-box",
+      "title": "Specify source-bound quotation checking with valid and invalid controls.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-quote-validation-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-fetch-coverage",
+      "source_group": "ghost-box",
+      "title": "Specify explicit provider fetching and truthful downloaded-range coverage.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-fetch-coverage-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-selected-inference",
+      "source_group": "ghost-box",
+      "title": "Specify combined filters, selected-only inference and citation validation.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-selected-inference-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-cancellation",
+      "source_group": "ghost-box",
+      "title": "Specify cancellation and account-epoch protection for delayed callbacks.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-cancellation-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-model-lifecycle",
+      "source_group": "ghost-box",
+      "title": "Specify model reuse, manual unload and activity-aware idle boundaries.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "mail-model-lifecycle-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-requests",
+      "source_group": "ReflexModels",
+      "title": "Specify typed request validation and lossless Unicode request serialization.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "decision-requests-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-probabilities",
+      "source_group": "ReflexModels",
+      "title": "Specify logits, probability validation and numeric uncertainty output.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "decision-probabilities-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-shared-state",
+      "source_group": "ReflexModels",
+      "title": "Specify independent results for multiple questions sharing one state.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "decision-shared-state-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-fallback",
+      "source_group": "ReflexModels",
+      "title": "Specify confidence, margin and answerability gating with acceptance controls.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "decision-fallback-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-calibration",
+      "source_group": "ReflexModels",
+      "title": "Specify honest multiclass metrics and undefined-input failures.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "decision-calibration-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-ordinal",
+      "source_group": "ReflexModels",
+      "title": "Specify ordinal identities and deterministic declaration-order ties.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "decision-ordinal-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "experiment-preflight",
+      "source_group": "llm-bender-lab",
+      "title": "Specify conversation/split validation before any backend is invoked.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "experiment-preflight-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "experiment-matched-evaluation",
+      "source_group": "llm-bender-lab",
+      "title": "Specify train/test routing and reproducible matched model comparisons.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "experiment-matched-evaluation-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "experiment-artifact-isolation",
+      "source_group": "llm-bender-lab",
+      "title": "Specify immutable previous runs and faithful zero-valued metrics.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "experiment-artifact-isolation-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "experiment-failure-reporting",
+      "source_group": "llm-bender-lab",
+      "title": "Specify explicit failed status and secret-free returned and saved errors.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "experiment-failure-reporting-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-rms-normalization",
+      "source_group": "miniature-llms",
+      "title": "Specify RMS normalization scale, epsilon and numeric gradients.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "tensor-rms-normalization-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-rotary-positions",
+      "source_group": "miniature-llms",
+      "title": "Specify rotary half-rotation, sequence positions and dimension errors.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "tensor-rotary-positions-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-model-composition",
+      "source_group": "miniature-llms",
+      "title": "Specify composed logits, trainable gradients and incompatible dimensions.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "tensor-model-composition-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-causal-independence",
+      "source_group": "miniature-llms",
+      "title": "Specify causal invariance and sensitivity for the composed model.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "tensor-causal-independence-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-checkpoint-roundtrip",
+      "source_group": "miniature-llms",
+      "title": "Specify configuration/weight checkpoint preservation.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "tensor-checkpoint-roundtrip-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-training-generation",
+      "source_group": "miniature-llms",
+      "title": "Specify deterministic tiny CPU training and actual greedy next-token decoding.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "tensor-training-generation-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "snapshot-file-tree",
+      "source_group": "repo-context",
+      "title": "Specify extension and ignore filtering in a deterministic file tree.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "snapshot-file-tree-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "snapshot-dependencies",
+      "source_group": "repo-context",
+      "title": "Specify dependency summaries from requirements and project metadata.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "snapshot-dependencies-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "snapshot-url-routing",
+      "source_group": "repo-context",
+      "title": "Specify repository, branch and subfolder extraction from simple GitHub URLs.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "snapshot-url-routing-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "snapshot-text-decoding",
+      "source_group": "repo-context",
+      "title": "Specify UTF-8 text recognition with invalid-byte controls.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "snapshot-text-decoding-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "snapshot-safe-context",
+      "source_group": "repo-context",
+      "title": "Specify scoped snapshots, sorted content, truncation, secret exclusion and cleanup.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "snapshot-safe-context-v02",
+      "training_eligible": false
+    },
+    {
+      "task_id": "snapshot-controller-routing",
+      "source_group": "repo-context",
+      "title": "Specify shared CLI/UI behavior and invalid-URL rejection before cloning.",
+      "status": "teacher artifact passes reference/order/targeted-fault checks; semantic review pending",
+      "record_id": "snapshot-controller-routing-v02",
+      "training_eligible": false
+    }
+  ],
+  "backlog": [
+    {
+      "task_id": "mail-date-bounds",
+      "source_group": "ghost-box",
+      "title": "Convert user date selections into explicit message time bounds.",
+      "source_file": "ghost_box/mail/dates.py",
+      "source_sha256": "a7e3f969a930305db9712020470edeb8b7cd8b7e18c0324dc8736fe892d39df7",
+      "available_symbols": [
+        "time_bounds"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-language-context",
+      "source_group": "ghost-box",
+      "title": "Apply the selected response language without losing original message context.",
+      "source_file": "ghost_box/mail/context.py",
+      "source_sha256": "d7754cdbe9d1df4953a12de079144956f99897b9d174d12d86ea50007c655f5f",
+      "available_symbols": [
+        "with_language",
+        "build_context"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-context-budget",
+      "source_group": "ghost-box",
+      "title": "Assemble bounded message context with explicit truncation behavior.",
+      "source_file": "ghost_box/mail/context.py",
+      "source_sha256": "d7754cdbe9d1df4953a12de079144956f99897b9d174d12d86ea50007c655f5f",
+      "available_symbols": [
+        "with_language",
+        "build_context"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-address-normalization",
+      "source_group": "ghost-box",
+      "title": "Normalize sender/recipient address metadata.",
+      "source_file": "ghost_box/mail/metadata.py",
+      "source_sha256": "4d0cb46d3f6304980ccdca196f7173d76243445bfdbcf12baa7cded48781991a",
+      "available_symbols": [
+        "addresses",
+        "details"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-display-metadata",
+      "source_group": "ghost-box",
+      "title": "Build truthful message details from missing and present metadata.",
+      "source_file": "ghost_box/mail/metadata.py",
+      "source_sha256": "4d0cb46d3f6304980ccdca196f7173d76243445bfdbcf12baa7cded48781991a",
+      "available_symbols": [
+        "addresses",
+        "details"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-draft-recipients",
+      "source_group": "ghost-box",
+      "title": "Parse and format draft recipient lists with malformed-input handling.",
+      "source_file": "ghost_box/mail/drafting.py",
+      "source_sha256": "0ec7ec73da9866dedc56048ae302b297cebde2f1087ee6bca719e621961a0c20",
+      "available_symbols": [
+        "parse_recipients",
+        "recipients_text",
+        "prepare",
+        "draft_prompt",
+        "build_payload"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-draft-payload",
+      "source_group": "ghost-box",
+      "title": "Build draft payloads without silently losing recipient/content fields.",
+      "source_file": "ghost_box/mail/drafting.py",
+      "source_sha256": "0ec7ec73da9866dedc56048ae302b297cebde2f1087ee6bca719e621961a0c20",
+      "available_symbols": [
+        "parse_recipients",
+        "recipients_text",
+        "prepare",
+        "draft_prompt",
+        "build_payload"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-followup-retrieval",
+      "source_group": "ghost-box",
+      "title": "Retrieve only permitted source messages for a follow-up question.",
+      "source_file": "ghost_box/mail/followup.py",
+      "source_sha256": "b2dda46170fcf0c68031c088761fb99e45c121f0bb263f95a639ccbe2765e39e",
+      "available_symbols": [
+        "snippet",
+        "retrieve",
+        "follow_up"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-followup-snippets",
+      "source_group": "ghost-box",
+      "title": "Construct bounded source snippets with stable message identities.",
+      "source_file": "ghost_box/mail/followup.py",
+      "source_sha256": "b2dda46170fcf0c68031c088761fb99e45c121f0bb263f95a639ccbe2765e39e",
+      "available_symbols": [
+        "snippet",
+        "retrieve",
+        "follow_up"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-summary-passages",
+      "source_group": "ghost-box",
+      "title": "Split source text into traceable passages without URL boilerplate.",
+      "source_file": "ghost_box/mail/summary.py",
+      "source_sha256": "d15f39f564bb7e7aca77efb68908a3b9f5d67d69d686891a08a220093fdd0df6",
+      "available_symbols": [
+        "markdown_text",
+        "normalized",
+        "passages",
+        "checked_items",
+        "card_markdown",
+        "summarize"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-markdown-escaping",
+      "source_group": "ghost-box",
+      "title": "Escape email-derived text for literal Markdown display.",
+      "source_file": "ghost_box/mail/summary.py",
+      "source_sha256": "d15f39f564bb7e7aca77efb68908a3b9f5d67d69d686891a08a220093fdd0df6",
+      "available_symbols": [
+        "markdown_text",
+        "normalized",
+        "passages",
+        "checked_items",
+        "card_markdown",
+        "summarize"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-progress-events",
+      "source_group": "ghost-box",
+      "title": "Maintain ordered progress steps and coherent completion state.",
+      "source_file": "ghost_box/mail/steps.py",
+      "source_sha256": "d63232c7ab104469e5f63fb87013989889d7c81e320fc18a5194f8f350ac54dc",
+      "available_symbols": [
+        "Steps.__init__",
+        "Steps.add",
+        "Steps.send",
+        "Steps.set",
+        "Steps.finish"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-store-removal",
+      "source_group": "ghost-box",
+      "title": "Remove selected messages while retaining unrelated account state.",
+      "source_file": "ghost_box/mail/store.py",
+      "source_sha256": "a6f1e2eacccca88ecd14637ee1b6d300d2b59f55d0644210fa360caa981444b3",
+      "available_symbols": [
+        "MailStore.__init__",
+        "MailStore.replace",
+        "MailStore.remove",
+        "MailStore.clear",
+        "messages",
+        "message"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-gmail-profile-errors",
+      "source_group": "ghost-box",
+      "title": "Classify failed Gmail profile responses using offline response fixtures.",
+      "source_file": "ghost_box/mail/gmail.py",
+      "source_sha256": "46c844ad4ac915970cca471576d3de5ba554be5a3699b7eb93813de80061d582",
+      "available_symbols": [
+        "check_profile_response",
+        "saved_account",
+        "connect",
+        "disconnect",
+        "fetch",
+        "can_send",
+        "credentials_for",
+        "send"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-outlook-pagination",
+      "source_group": "ghost-box",
+      "title": "Traverse mocked Outlook pagination without duplicate messages.",
+      "source_file": "ghost_box/mail/outlook.py",
+      "source_sha256": "af631ca13d1230349901aaedc4649128f0f239dc1b583456edf44ea12f12e04e",
+      "available_symbols": [
+        "_url",
+        "_check",
+        "_get",
+        "_pages",
+        "_excluded_folders",
+        "_addresses",
+        "decode_message",
+        "fetch",
+        "build_payload",
+        "send"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-outlook-decoding",
+      "source_group": "ghost-box",
+      "title": "Decode Outlook payloads with missing optional message fields.",
+      "source_file": "ghost_box/mail/outlook.py",
+      "source_sha256": "af631ca13d1230349901aaedc4649128f0f239dc1b583456edf44ea12f12e04e",
+      "available_symbols": [
+        "_url",
+        "_check",
+        "_get",
+        "_pages",
+        "_excluded_folders",
+        "_addresses",
+        "decode_message",
+        "fetch",
+        "build_payload",
+        "send"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-settings-validation",
+      "source_group": "ghost-box",
+      "title": "Reject malformed local generation/settings values.",
+      "source_file": "ghost_box/models/settings.py",
+      "source_sha256": "98cf6e8b2e1a5d5674a138eba2f7ee61b56ff2819483996c688e8c80125d52d7",
+      "available_symbols": [
+        "validate",
+        "read_settings",
+        "parameters",
+        "defaults",
+        "reset",
+        "save",
+        "write_settings"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-settings-roundtrip",
+      "source_group": "ghost-box",
+      "title": "Persist, reset and restore nonsecret model settings.",
+      "source_file": "ghost_box/models/settings.py",
+      "source_sha256": "98cf6e8b2e1a5d5674a138eba2f7ee61b56ff2819483996c688e8c80125d52d7",
+      "available_symbols": [
+        "validate",
+        "read_settings",
+        "parameters",
+        "defaults",
+        "reset",
+        "save",
+        "write_settings"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-memory-projection",
+      "source_group": "ghost-box",
+      "title": "Compute explicit cache-byte and model-memory projections.",
+      "source_file": "ghost_box/models/projection.py",
+      "source_sha256": "6fe32fecb3ecb1b1843f334fa2880e3a1b7d4d3f4110a7c3a8a7a8c74dbc42ef",
+      "available_symbols": [
+        "cache_bytes_per_token",
+        "describe"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-download-integrity",
+      "source_group": "ghost-box",
+      "title": "Verify local artifact digests and incomplete-download state.",
+      "source_file": "ghost_box/models/download.py",
+      "source_sha256": "202ac3abdd80362ea3f22cc0f3013a2dedc12f98b58e709b48f99a866fc05516",
+      "available_symbols": [
+        "ready",
+        "check_cancel",
+        "digest_file",
+        "download",
+        "remove_preset"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-download-cancellation",
+      "source_group": "ghost-box",
+      "title": "Cancel a mocked download without treating partial bytes as complete.",
+      "source_file": "ghost_box/models/download.py",
+      "source_sha256": "202ac3abdd80362ea3f22cc0f3013a2dedc12f98b58e709b48f99a866fc05516",
+      "available_symbols": [
+        "ready",
+        "check_cancel",
+        "digest_file",
+        "download",
+        "remove_preset"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-session-transitions",
+      "source_group": "ghost-box",
+      "title": "Track busy, loaded and failed model session transitions.",
+      "source_file": "ghost_box/models/session.py",
+      "source_sha256": "fe3e95be0b50999eadbae8759d24a80b07bb06f5907684f3b39f03ad817c93b4",
+      "available_symbols": [
+        "ModelSession.__init__",
+        "ModelSession.busy",
+        "ModelSession.set_state",
+        "ModelSession.matches",
+        "ModelSession.load",
+        "ModelSession.start_process",
+        "ModelSession.write",
+        "ModelSession.send_request",
+        "ModelSession.read_events",
+        "ModelSession.unload",
+        "ModelSession.stop_process",
+        "ModelSession.process_error",
+        "ModelSession.finished",
+        "ModelSession.shutdown"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "model-session-messaging",
+      "source_group": "ghost-box",
+      "title": "Frame mocked worker requests and responses without launching a model.",
+      "source_file": "ghost_box/models/session.py",
+      "source_sha256": "fe3e95be0b50999eadbae8759d24a80b07bb06f5907684f3b39f03ad817c93b4",
+      "available_symbols": [
+        "ModelSession.__init__",
+        "ModelSession.busy",
+        "ModelSession.set_state",
+        "ModelSession.matches",
+        "ModelSession.load",
+        "ModelSession.start_process",
+        "ModelSession.write",
+        "ModelSession.send_request",
+        "ModelSession.read_events",
+        "ModelSession.unload",
+        "ModelSession.stop_process",
+        "ModelSession.process_error",
+        "ModelSession.finished",
+        "ModelSession.shutdown"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "mail-history-selection",
+      "source_group": "ghost-box",
+      "title": "Select and clear local history without retaining removed source references.",
+      "source_file": "ghost_box/ui/history.py",
+      "source_sha256": "30fdc0e4aed0101786b45a254d6961803abb7158cac46247bf2124b0a6da73cf",
+      "available_symbols": [
+        "History.__init__",
+        "History.current",
+        "History.append",
+        "History.select",
+        "History.remove_sources",
+        "History.clear"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "answerability-metrics",
+      "source_group": "ReflexModels",
+      "title": "Report answerability prediction quality with explicit denominators.",
+      "source_file": "src/reflexmodels/answerability.py",
+      "source_sha256": "d82a8d8e27d6dc0c045a970f613f9c601edbcdaa675d165506f845aa144b9a8d",
+      "available_symbols": [
+        "answerability_metrics",
+        "selective_accuracy",
+        "select_answerability_threshold"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "answerability-selective-accuracy",
+      "source_group": "ReflexModels",
+      "title": "Measure accuracy on accepted decisions and report rejection coverage.",
+      "source_file": "src/reflexmodels/answerability.py",
+      "source_sha256": "d82a8d8e27d6dc0c045a970f613f9c601edbcdaa675d165506f845aa144b9a8d",
+      "available_symbols": [
+        "answerability_metrics",
+        "selective_accuracy",
+        "select_answerability_threshold"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "answerability-threshold-selection",
+      "source_group": "ReflexModels",
+      "title": "Select a threshold under a documented answerability objective.",
+      "source_file": "src/reflexmodels/answerability.py",
+      "source_sha256": "d82a8d8e27d6dc0c045a970f613f9c601edbcdaa675d165506f845aa144b9a8d",
+      "available_symbols": [
+        "answerability_metrics",
+        "selective_accuracy",
+        "select_answerability_threshold"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "calibration-temperature-scale",
+      "source_group": "ReflexModels",
+      "title": "Transform probability logits using a positive temperature.",
+      "source_file": "src/reflexmodels/calibration.py",
+      "source_sha256": "514607aa1c10791436736e20db5ea490d0aae88ab8fad622f7f9fce08bfa7bac",
+      "available_symbols": [
+        "temperature_scale",
+        "nll",
+        "fit_temperature",
+        "reliability_bins"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "calibration-temperature-fit",
+      "source_group": "ReflexModels",
+      "title": "Fit a temperature on development fixtures while retaining input values.",
+      "source_file": "src/reflexmodels/calibration.py",
+      "source_sha256": "514607aa1c10791436736e20db5ea490d0aae88ab8fad622f7f9fce08bfa7bac",
+      "available_symbols": [
+        "temperature_scale",
+        "nll",
+        "fit_temperature",
+        "reliability_bins"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "calibration-reliability-bins",
+      "source_group": "ReflexModels",
+      "title": "Assign calibration bins and handle empty bins explicitly.",
+      "source_file": "src/reflexmodels/calibration.py",
+      "source_sha256": "514607aa1c10791436736e20db5ea490d0aae88ab8fad622f7f9fce08bfa7bac",
+      "available_symbols": [
+        "temperature_scale",
+        "nll",
+        "fit_temperature",
+        "reliability_bins"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "causal-branch-prefix",
+      "source_group": "ReflexModels",
+      "title": "Construct a stable decision branch prefix from typed input.",
+      "source_file": "src/reflexmodels/causal_scoring.py",
+      "source_sha256": "b306fb1771b3c98324c9420b961a7d6297f73103eca82f15b8a71fd10ea59c6c",
+      "available_symbols": [
+        "branch_prefix",
+        "candidate_sequences",
+        "option_logprobabilities",
+        "score_causal_decision"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "causal-candidate-tokenization",
+      "source_group": "ReflexModels",
+      "title": "Preserve option boundaries and token positions across candidates.",
+      "source_file": "src/reflexmodels/causal_scoring.py",
+      "source_sha256": "b306fb1771b3c98324c9420b961a7d6297f73103eca82f15b8a71fd10ea59c6c",
+      "available_symbols": [
+        "branch_prefix",
+        "candidate_sequences",
+        "option_logprobabilities",
+        "score_causal_decision"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "causal-option-logprobs",
+      "source_group": "ReflexModels",
+      "title": "Aggregate only the intended option-token log probabilities.",
+      "source_file": "src/reflexmodels/causal_scoring.py",
+      "source_sha256": "b306fb1771b3c98324c9420b961a7d6297f73103eca82f15b8a71fd10ea59c6c",
+      "available_symbols": [
+        "branch_prefix",
+        "candidate_sequences",
+        "option_logprobabilities",
+        "score_causal_decision"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "causal-score-decision",
+      "source_group": "ReflexModels",
+      "title": "Map injected causal scores back to the original option identifiers.",
+      "source_file": "src/reflexmodels/causal_scoring.py",
+      "source_sha256": "b306fb1771b3c98324c9420b961a7d6297f73103eca82f15b8a71fd10ea59c6c",
+      "available_symbols": [
+        "branch_prefix",
+        "candidate_sequences",
+        "option_logprobabilities",
+        "score_causal_decision"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-branch-serialization",
+      "source_group": "ReflexModels",
+      "title": "Serialize duplicated branches without mixing state and question options.",
+      "source_file": "src/reflexmodels/serialization.py",
+      "source_sha256": "43683d85e4c5be98fcc37ad7e627d1aed9c4da89986565251a2723ff48775327",
+      "available_symbols": [
+        "duplicated_choice_branches",
+        "duplicated_decision_branches"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "split-normalized-hash",
+      "source_group": "ReflexModels",
+      "title": "Hash normalized text deterministically under an explicit normalization contract.",
+      "source_file": "src/reflexmodels/split_policy.py",
+      "source_sha256": "97cc176b0828c89894fd996d43a6fc926184dfe6f7bfc6c32d86bb1badd86b83",
+      "available_symbols": [
+        "normalized_text_hash",
+        "apply_overlap_policy"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "split-overlap-policy",
+      "source_group": "ReflexModels",
+      "title": "Apply declared overlap rules to synthetic split identities.",
+      "source_file": "src/reflexmodels/split_policy.py",
+      "source_sha256": "97cc176b0828c89894fd996d43a6fc926184dfe6f7bfc6c32d86bb1badd86b83",
+      "available_symbols": [
+        "normalized_text_hash",
+        "apply_overlap_policy"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "decision-batch-serialization",
+      "source_group": "ReflexModels",
+      "title": "Serialize shared-state batches with independent question schemas.",
+      "source_file": "src/reflexmodels/protocol.py",
+      "source_sha256": "d3f4ac47d1d094c49391978adf05f5b7b6094cad31614f5a1f80bdafa32e4483",
+      "available_symbols": [
+        "request_to_dict",
+        "request_to_json",
+        "batch_request_to_dict",
+        "decision_candidates",
+        "decision_response",
+        "choice_response",
+        "response_to_json"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-bpe-tokenization",
+      "source_group": "miniature-llms",
+      "title": "Learn and apply deterministic tiny-corpus byte-pair merges.",
+      "source_file": "_1_BytePairEncodingTokenization/pytorch.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "available_symbols": [],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-token-embedding",
+      "source_group": "miniature-llms",
+      "title": "Look up token vectors and verify index/gradient behavior.",
+      "source_file": "_2_TokenEmbedding/pytorch.py",
+      "source_sha256": "dbe760d153af10944d653285f1deed04f79551dcc1c67aa054243e7f2177d753",
+      "available_symbols": [
+        "TokenEmbedding.__init__",
+        "TokenEmbedding.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-sinusoidal-positions",
+      "source_group": "miniature-llms",
+      "title": "Check sinusoidal position values, shape and repeatability.",
+      "source_file": "_3_SinusoidalEmbeddings/pytorch.py",
+      "source_sha256": "5d8b638d560511656463f400b5b18db79449790056d795c18868b427ca3191e6",
+      "available_symbols": [
+        "SinusoidalPositionalEmbedding.__init__",
+        "SinusoidalPositionalEmbedding.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-yarn-position-scaling",
+      "source_group": "miniature-llms",
+      "title": "Check declared long-position scaling at numeric boundary cases.",
+      "source_file": "_5_YaRN/pytorch.py",
+      "source_sha256": "1e036938fb2e1923d62a044f96dcdbbd0925ba1ff59c00a1addd4c6908a8d62c",
+      "available_symbols": [
+        "rotate_half",
+        "RoPE.__init__",
+        "RoPE.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-alibi-biases",
+      "source_group": "miniature-llms",
+      "title": "Check attention bias slopes and relative-position direction.",
+      "source_file": "_6_AliBi/pytorch.py",
+      "source_sha256": "d11240c73525060e3fc8276c17575ae43b6c31c5f20c6bb2014db4ea981b5534",
+      "available_symbols": [
+        "ALiBiAttention.__init__",
+        "ALiBiAttention.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-swiglu-gating",
+      "source_group": "miniature-llms",
+      "title": "Verify gated feed-forward values and gradient propagation.",
+      "source_file": "_8_SwiGLU/pytorch.py",
+      "source_sha256": "13046d5ced3dd3ed0a8220a00ac711d235a478a48ac40a3150a5e24e8c7bb545",
+      "available_symbols": [
+        "SwiGLUMLP.__init__",
+        "SwiGLUMLP.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-multihead-attention",
+      "source_group": "miniature-llms",
+      "title": "Verify attention head reshaping and numeric outputs.",
+      "source_file": "_9_MultiHeadAttention/pytorch.py",
+      "source_sha256": "83e34913c44872bf534249b4f44289c5ad339b16547efc3cb91f9c93b8b1b93b",
+      "available_symbols": [
+        "MultiHeadAttention.__init__",
+        "MultiHeadAttention.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-kv-cache-updates",
+      "source_group": "miniature-llms",
+      "title": "Append and reuse key/value cache state without stale entries.",
+      "source_file": "_11_KVCache/pytorch.py",
+      "source_sha256": "5534e3176b076c98e47e756745500420650f818a4074b84158344fb4ec8c5dc1",
+      "available_symbols": [
+        "CausalSelfAttention.__init__",
+        "CausalSelfAttention.reset_cache",
+        "CausalSelfAttention.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-qk-normalization",
+      "source_group": "miniature-llms",
+      "title": "Normalize query/key heads without mixing sequence positions.",
+      "source_file": "_12_QK-Norm/pytorch.py",
+      "source_sha256": "4c45ba6dc341f34ea2fabb43b211c6d1019c98812edfd12f3f9add5122c9bc0b",
+      "available_symbols": [
+        "QKNormAttention.__init__",
+        "QKNormAttention.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-grouped-query-attention",
+      "source_group": "miniature-llms",
+      "title": "Replicate shared key/value groups under explicit head mappings.",
+      "source_file": "_13_GroupedQueryAttention/pytorch.py",
+      "source_sha256": "09a0f2104a0f6d85d7625437db338edd5e92f5c7b315fca79bcd8e3cfd355115",
+      "available_symbols": [
+        "GQAAttention.__init__",
+        "GQAAttention.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-cross-attention",
+      "source_group": "miniature-llms",
+      "title": "Separate query length from external key/value context length.",
+      "source_file": "_17_CrossAttention/pytorch.py",
+      "source_sha256": "607b2039591d2b27d26ad0672e2e441688743ed5cbe6b9d41997ec8ae282f26d",
+      "available_symbols": [
+        "CrossAttention.__init__",
+        "CrossAttention.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "tensor-residual-block",
+      "source_group": "miniature-llms",
+      "title": "Preserve residual and normalization order under a declared block contract.",
+      "source_file": "_21_ResidualBlock/pytorch.py",
+      "source_sha256": "ee2657772f4ba0cdcd90e675a34811a2bbb62fa4cd7eacbec31cfb18aea7d581",
+      "available_symbols": [
+        "TransformerBlock.__init__",
+        "TransformerBlock.forward"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "repository-contributor-count",
+      "source_group": "repo-context",
+      "title": "Read contributor counts from offline API response fixtures.",
+      "source_file": "src/repo_context/gpqs_calculator.py",
+      "source_sha256": "a03b487d7cc9dc36f0a14688402ed3542b2c1167784d5e9cb617bcd94269f317",
+      "available_symbols": [
+        "get_repo_data",
+        "get_contributors_count",
+        "get_commit_activity",
+        "get_git_tree",
+        "has_tests_in_tree",
+        "get_readme_size",
+        "check_file_existence",
+        "get_project_management_stats",
+        "calculate_community_score",
+        "calculate_development_score",
+        "calculate_code_quality_score",
+        "calculate_documentation_score",
+        "calculate_project_management_score",
+        "run_gpqs_analysis"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "repository-commit-activity",
+      "source_group": "repo-context",
+      "title": "Aggregate time-bucketed activity with explicit missing-data behavior.",
+      "source_file": "src/repo_context/gpqs_calculator.py",
+      "source_sha256": "a03b487d7cc9dc36f0a14688402ed3542b2c1167784d5e9cb617bcd94269f317",
+      "available_symbols": [
+        "get_repo_data",
+        "get_contributors_count",
+        "get_commit_activity",
+        "get_git_tree",
+        "has_tests_in_tree",
+        "get_readme_size",
+        "check_file_existence",
+        "get_project_management_stats",
+        "calculate_community_score",
+        "calculate_development_score",
+        "calculate_code_quality_score",
+        "calculate_documentation_score",
+        "calculate_project_management_score",
+        "run_gpqs_analysis"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "repository-tree-evidence",
+      "source_group": "repo-context",
+      "title": "Recognize declared test/configuration evidence in a repository tree.",
+      "source_file": "src/repo_context/gpqs_calculator.py",
+      "source_sha256": "a03b487d7cc9dc36f0a14688402ed3542b2c1167784d5e9cb617bcd94269f317",
+      "available_symbols": [
+        "get_repo_data",
+        "get_contributors_count",
+        "get_commit_activity",
+        "get_git_tree",
+        "has_tests_in_tree",
+        "get_readme_size",
+        "check_file_existence",
+        "get_project_management_stats",
+        "calculate_community_score",
+        "calculate_development_score",
+        "calculate_code_quality_score",
+        "calculate_documentation_score",
+        "calculate_project_management_score",
+        "run_gpqs_analysis"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "repository-readme-evidence",
+      "source_group": "repo-context",
+      "title": "Measure README availability/size without inventing documentation evidence.",
+      "source_file": "src/repo_context/gpqs_calculator.py",
+      "source_sha256": "a03b487d7cc9dc36f0a14688402ed3542b2c1167784d5e9cb617bcd94269f317",
+      "available_symbols": [
+        "get_repo_data",
+        "get_contributors_count",
+        "get_commit_activity",
+        "get_git_tree",
+        "has_tests_in_tree",
+        "get_readme_size",
+        "check_file_existence",
+        "get_project_management_stats",
+        "calculate_community_score",
+        "calculate_development_score",
+        "calculate_code_quality_score",
+        "calculate_documentation_score",
+        "calculate_project_management_score",
+        "run_gpqs_analysis"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "repository-file-existence",
+      "source_group": "repo-context",
+      "title": "Check repository-relative paths using an injected API boundary.",
+      "source_file": "src/repo_context/gpqs_calculator.py",
+      "source_sha256": "a03b487d7cc9dc36f0a14688402ed3542b2c1167784d5e9cb617bcd94269f317",
+      "available_symbols": [
+        "get_repo_data",
+        "get_contributors_count",
+        "get_commit_activity",
+        "get_git_tree",
+        "has_tests_in_tree",
+        "get_readme_size",
+        "check_file_existence",
+        "get_project_management_stats",
+        "calculate_community_score",
+        "calculate_development_score",
+        "calculate_code_quality_score",
+        "calculate_documentation_score",
+        "calculate_project_management_score",
+        "run_gpqs_analysis"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "repository-quality-components",
+      "source_group": "repo-context",
+      "title": "Compute and label repository score components under an explicit formula.",
+      "source_file": "src/repo_context/gpqs_calculator.py",
+      "source_sha256": "a03b487d7cc9dc36f0a14688402ed3542b2c1167784d5e9cb617bcd94269f317",
+      "available_symbols": [
+        "get_repo_data",
+        "get_contributors_count",
+        "get_commit_activity",
+        "get_git_tree",
+        "has_tests_in_tree",
+        "get_readme_size",
+        "check_file_existence",
+        "get_project_management_stats",
+        "calculate_community_score",
+        "calculate_development_score",
+        "calculate_code_quality_score",
+        "calculate_documentation_score",
+        "calculate_project_management_score",
+        "run_gpqs_analysis"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "analysis-cache-identity",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Cache synthetic analysis requests without mixing distinct inputs.",
+      "source_file": "coin_analyser.py",
+      "source_sha256": "5f8bf5e202ad3ce6d6bba13a1a85dc8f921901956b60fff27d7eb4d97e7e39b3",
+      "available_symbols": [
+        "_get_llm",
+        "_get_answer_from_llm",
+        "cached",
+        "coin_analyser"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "analysis-ticker-normalization",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Convert valid coin names to provider ticker identifiers.",
+      "source_file": "technical_analyser.py",
+      "source_sha256": "454c07a50df4440740ac4b09466aee4063b0dc58ab00fb577872759841b07873",
+      "available_symbols": [
+        "get_coin_ticker",
+        "fetch_coin_price",
+        "calculate_indicators",
+        "calculate_max_percentage_gain",
+        "generate_signals",
+        "plot_data",
+        "_get_llm",
+        "_get_answer_from_llm",
+        "technical_analyser"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "analysis-max-gain",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Compute the maximum price increase and associated elapsed days.",
+      "source_file": "technical_analyser.py",
+      "source_sha256": "454c07a50df4440740ac4b09466aee4063b0dc58ab00fb577872759841b07873",
+      "available_symbols": [
+        "get_coin_ticker",
+        "fetch_coin_price",
+        "calculate_indicators",
+        "calculate_max_percentage_gain",
+        "generate_signals",
+        "plot_data",
+        "_get_llm",
+        "_get_answer_from_llm",
+        "technical_analyser"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "analysis-http-health",
+      "source_group": "cryptocurrency-analyser",
+      "title": "Expose local API health without invoking external providers or LLMs.",
+      "source_file": "app.py",
+      "source_sha256": "df7290cfdce72b44bf831cc20beca0ab1c746bed10b580cbf9b6e12f80a43bab",
+      "available_symbols": [
+        "check_health",
+        "tweet_analyzer",
+        "coin_analyzer",
+        "coins_comparator",
+        "start_fastapi",
+        "_save_tweets",
+        "_copy_analysed_tweets_csv",
+        "send_tweet",
+        "run_schedule"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "request-recorder-stream",
+      "source_group": "llm-bender-lab",
+      "title": "Preserve local HTTP streaming payloads while excluding authorization headers.",
+      "source_file": "scripts/evaluation/pi_request_recorder.py",
+      "source_sha256": "d9fcae3883bcf2254d611f4df3292281f872e9be4ab5678045568a288afdee1d",
+      "available_symbols": [
+        "LocalRequestRecorder.__init__",
+        "LocalRequestRecorder.__enter__",
+        "LocalRequestRecorder.__exit__"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    },
+    {
+      "task_id": "review-agreement-denominator",
+      "source_group": "llm-bender-lab",
+      "title": "Report actual paired-rating agreement with explicit missingness.",
+      "source_file": "scripts/evaluation/tdd_review_rules.py",
+      "source_sha256": "ea16b47b3d4d4b6f5baa75c52cf7f59eadbaac1bf1f9eaf158230c22f242156f",
+      "available_symbols": [
+        "approval_blockers",
+        "validate_submitted_decision",
+        "agreement"
+      ],
+      "task_type": "feature-extension",
+      "status": "source-backed proposal; contract, teacher artifact and executable checks pending",
+      "training_eligible": false
+    }
+  ]
+}

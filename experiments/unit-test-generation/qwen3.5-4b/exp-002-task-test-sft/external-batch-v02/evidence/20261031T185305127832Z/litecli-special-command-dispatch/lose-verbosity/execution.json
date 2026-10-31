@@ -1,0 +1,45 @@
+{
+  "order": [
+    "tests/test_special_command_dispatch.py::test_parse_verbosity_and_argument",
+    "tests/test_special_command_dispatch.py::test_dispatch_and_unknown"
+  ],
+  "reports": [
+    {
+      "nodeid": "tests/test_special_command_dispatch.py::test_parse_verbosity_and_argument",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_special_command_dispatch.py::test_parse_verbosity_and_argument",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_special_command_dispatch.py::test_parse_verbosity_and_argument",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_special_command_dispatch.py::test_dispatch_and_unknown",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_special_command_dispatch.py::test_dispatch_and_unknown",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_special_command_dispatch.py::test_dispatch_and_unknown",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1
+}

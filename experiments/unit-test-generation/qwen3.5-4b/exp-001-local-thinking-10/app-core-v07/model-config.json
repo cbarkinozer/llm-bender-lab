@@ -1,0 +1,354 @@
+{
+  "system": "Write Python pytest acceptance tests before implementing the requested application. Return five sections in order: Decisions and unresolved questions; Proposed interface agreement; Requirement-to-test map; Complete test files; Manual checks. State necessary assumptions explicitly as proposals, leave nonessential choices open, and define the public API before using it in tests. Cover observable requirements with compact, meaningful assertions and provide all fixtures and configuration. Use deterministic offline fixtures for external services and model backends. Keep subjective and live checks separate. Do not silently add requirements or implement the application. Include concise rationale explaining important expected outcomes.",
+  "preparation": "Use Python and pytest. Keep the tests offline with replaceable external services and model backends. Do not download weights, launch model inference or start real training from the tests.",
+  "manual_overrides": {
+    "github-insignia": [
+      "Check desktop/mobile appearance, keyboard usability and screenshots.",
+      "Run startup instructions from a clean installation and perform one authenticated live contribution fetch.",
+      "Verify the dashboard shows no letter grade and that closing the app works."
+    ],
+    "ghost-box": [
+      "Check native-window responsiveness, sign-in, progress, cancellation, selection and clear/account-switch controls.",
+      "Check factual summaries and selected-message citations on representative messages.",
+      "Observe storage to verify that mail content and derived results are not persisted.",
+      "Exercise model selection, reuse and unloading with both MLX and GGUF."
+    ],
+    "slm_test_generation": [
+      "Reproduce a small report from saved raw records and inspect table labels.",
+      "Probe the configured execution environment for actual network denial and process/memory limits.",
+      "Run documented fixture commands; verify they launch no inference and preserve the frozen benchmark."
+    ],
+    "llm-bender-lab": [
+      "Run documented prepare/run/compare commands and connect one real training backend separately.",
+      "Check credential/weight exclusion in Git and published artifacts."
+    ],
+    "reflexmodels": [
+      "Run the documented local request/scoring/response/fallback example and check the uncertainty schema.",
+      "Evaluate calibration and fallback thresholds with representative application traffic."
+    ],
+    "codelang-detect": [
+      "Run installation instructions and documented examples.",
+      "Choose additional language targets beyond Python and JavaScript, document their labels, and add acceptance cases before declaring them supported. Evaluate ambiguous snippets separately."
+    ],
+    "repo-context": [
+      "Exercise actual CLI and Streamlit generate/download controls, ensuring equivalent snapshots and visible failures.",
+      "Check private-repository authentication with credentials absent from the snapshot."
+    ],
+    "cryptocurrency-analyser": [
+      "Check browser readability, chart data, source/time labels, offline sample selection and visible provider/baseline errors.",
+      "Perform one live provider fetch using the documented setup."
+    ],
+    "miniature-llms": [
+      "Check educational explanations and run the documented CPU training/generation commands.",
+      "Verify commands invoke the composed model and require no weight downloads or GPU.",
+      "Inspect embedding, attention and feed-forward educational components individually; standalone block numeric contracts are outside the composed-model automated scope."
+    ]
+  },
+  "rationales": {
+    "github-insignia": "Public owned nonfork repositories with 5 and 9 stars total 14; 500 Rust bytes out of 800 yield 62.5%. Fixed UTC dates make calendar boundaries reproducible. Offline REST and GraphQL fixtures distinguish missing contributions from genuine zero, exercise pagination and preserve a previous snapshot after refresh failure. HTTP and MCP must expose the same stored data. Cache schema and credential checks protect observable state, while browser appearance and live authentication remain separate checks. Failure checks compare deep snapshots with an advanced clock and unchanged cache bytes; a later successful refresh must replace both contents and timestamp.",
+    "ghost-box": "Downloaded mail is a limited local corpus, so an empty search retains its coverage rather than asserting global absence. Account switching and clearing must invalidate both stored results and delayed callbacks. Combined filters and selected-only inference protect source provenance. A fake monotonic clock distinguishes 299.99 seconds from the 300-second idle boundary without sleeping; a fake model checks reuse and unload without loading weights. Real sign-in, native-window responsiveness and summary factuality remain unresolved/live checks.",
+    "slm_test_generation": "A passing pytest exit status alone is insufficient: skipped, uncalled and untaken assertions provide no reached oracle. Exact equality is strong even when its expected value is wrong, and execution failure must disable success gates. The fixture runner derives its gate from actual pytest outcomes. One successful observation among four eligible tasks is 25%, even with two observations missing. One killed mutant out of four eligible and two valid tasks gives 25% unconditional and 50% conditional; empty denominators are unavailable.",
+    "llm-bender-lab": "Preflight must run before a trainer is called, so malformed conversations and overlapping prompts use a spy backend. A tiny trainer writes a real fixture adapter, and an evaluator records held-out rows/settings to establish matched comparison. A change from .5 to .75 is +.25; an unavailable metric remains unavailable. Exclusive run directories preserve earlier artifacts. A deliberate backend failure checks persistent failed status and sanitized logs without producing a success summary.",
+    "reflexmodels": "Two logits differing by 2 give softmax probabilities about .880797 and .119203, attached to the original Unicode option IDs. Invalid probabilities must fail before routing. Fallback depends separately on margin and answerability. Predictions that never select one class still need that class in macro-F1; accuracy .5 is compatible with macro-F1 1/3. Correct .75-confidence predictions have NLL -log(.75), Brier .125 and calibration error .25. Empty metric inputs raise an explicit error.",
+    "codelang-detect": "Controlled rules distinguish weighted evidence from match counting: weight 3 beats two weight-1 matches. With equal weights, zeta is declared before alpha, so expecting zeta detects an accidental alphabetical tie rule. A Python snippet stored as snippet.txt must still yield py, which distinguishes content detection from filename guessing. The positive-score policy uses a single weight-1 marker; replacing the public mapping between calls must immediately change its returned label. Invalid UTF-8 must produce processing exit 1 with empty stdout; a missing file instead produces usage exit 2. These checks cover the initial Python/JavaScript targets; additional languages remain an explicit open decision.",
+    "repo-context": "The fixture checkout includes selected content, ignored content, a secret and an escaping symlink, so inclusion and exclusion are observable together. A one-line limit must include the first line, omit the second and disclose truncation. Exact metadata/dependency examples test truthful content, while cleanup is checked on success and clone failure. CLI/UI controller wrappers share one operation; actual UI wiring and private authentication still need a live check. Slash-containing branch ambiguity remains open rather than guessed.",
+    "cryptocurrency-analyser": "Prices 100,150,75 give cumulative returns 0,.5,-.25; they are not daily percentage changes. Interior missing values remain missing and only entirely missing series are omitted. Oppositely moving price series have correlation -1. CSV and provider inputs must yield the same values and dates, without requiring pandas inferred frequency metadata. Invalid selections fail before fetch; Each series starts at its first observed nonmissing price; earlier missing rows remain missing. Nonpositive observed baselines are rejected; all-missing tickers are reported as omitted. Provider failure never becomes a zero-return chart.",
+    "miniature-llms": "For [3,4], RMS is sqrt(12.5), so learned scales [2,3] produce [6,12]/sqrt(12.5). Position-zero RoPE is identity for every head and position-one rotation is determined by sequence, not head index. Shape checks alone cannot establish causal behavior, so future tokens are changed while earlier logits must remain fixed. Numeric gradients, checkpoint equality and repeatable CPU training test independent contracts. A controlled logit fixture uniquely predicts successor IDs, so prompt [1] must continue as [1,2,3,4]; length alone would allow a constant generator. Loss improvement is only a bounded smoke check, not proof of general model quality."
+  },
+  "unresolved": {
+    "github-insignia": [
+      "Visual theme and screenshot composition remain open."
+    ],
+    "ghost-box": [
+      "Qt view layout and OAuth UX are not fixed by this contract; verify actual backend/progress integration separately."
+    ],
+    "slm_test_generation": [
+      "Semantic-correctness adjudication policy and final table layout remain open; UNKNOWN does not qualify as strong."
+    ],
+    "llm-bender-lab": [
+      "Real training backend selection remains open; the demo only fixes its callable boundary."
+    ],
+    "reflexmodels": [
+      "Production scoring model and acceptable calibration threshold require empirical selection."
+    ],
+    "codelang-detect": [
+      "Additional supported languages beyond Python/JavaScript and accuracy expectations for ambiguous snippets remain open under M2."
+    ],
+    "repo-context": [
+      "Slash-containing branch names need a separate branch argument or an unambiguous future URL syntax."
+    ],
+    "cryptocurrency-analyser": [
+      "Live-provider UI retry/backoff behavior remains open."
+    ],
+    "miniature-llms": [
+      "Tokenizer for a larger text corpus and real-language generation quality are out of this fixed token-fixture contract."
+    ]
+  },
+  "test_requirement_overrides": {
+    "github-insignia": {
+      "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares": [
+        "R1"
+      ],
+      "tests/test_requirements.py::test_r1_empty_language_data_is_not_a_fabricated_percentage": [
+        "R1"
+      ],
+      "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort": [
+        "R2"
+      ],
+      "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting": [
+        "R3"
+      ],
+      "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests": [
+        "R4"
+      ],
+      "tests/test_requirements.py::test_r3_graphql_window_combination_and_secret_absence": [
+        "R3",
+        "R4",
+        "R6"
+      ],
+      "tests/test_requirements.py::test_r5_cache_read_restart_and_manual_refresh": [
+        "R5"
+      ],
+      "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot": [
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "tests/test_requirements.py::test_r4_graphql_errors_and_timeout_are_failures": [
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk": [
+        "R5"
+      ],
+      "tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service": [
+        "R6"
+      ],
+      "tests/test_snapshot_contract.py::test_actual_transport_timeout_is_sanitized": [
+        "R4",
+        "R6"
+      ],
+      "tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot": [
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "tests/test_snapshot_contract.py::test_real_zero_activity_stays_zero": [
+        "R3"
+      ],
+      "tests/test_snapshot_contract.py::test_pagination_cannot_forward_credentials_to_another_host": [
+        "R4",
+        "R6"
+      ],
+      "tests/test_snapshot_contract.py::test_corrupt_cache_is_unavailable": [
+        "R5"
+      ],
+      "tests/test_snapshot_contract.py::test_missing_graphql_totals_does_not_turn_into_zero": [
+        "R3",
+        "R4"
+      ],
+      "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool": [
+        "R6"
+      ],
+      "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected": [
+        "R5"
+      ],
+      "tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart": [
+        "R3",
+        "R5"
+      ],
+      "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp": [
+        "R5"
+      ],
+      "tests/test_snapshot_contract.py::test_http_local_origin_and_host_guards": [
+        "R6"
+      ]
+    },
+    "ghost-box": {
+      "tests/test_workflow.py::test_idle_timer_resets_and_active_operations_prevent_unload": [
+        "R6"
+      ]
+    },
+    "slm_test_generation": {
+      "tests/test_workflow.py::test_duplicate_observation_ids_are_rejected": [
+        "R4"
+      ]
+    },
+    "reflexmodels": {
+      "tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence": [
+        "R5"
+      ],
+      "tests/test_core.py::test_ordinal_scoring_and_declaration_order_ties": [
+        "R1",
+        "R2"
+      ]
+    },
+    "repo-context": {
+      "tests/test_workflow.py::test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories": [
+        "R2",
+        "R3",
+        "R4"
+      ]
+    },
+    "cryptocurrency-analyser": {
+      "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported": [
+        "R2",
+        "R3",
+        "R6"
+      ]
+    },
+    "llm-bender-lab": {
+      "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations": [
+        "R1",
+        "R2",
+        "R4",
+        "R6"
+      ]
+    }
+  },
+  "preservation_checks": {
+    "github-insignia": [
+      {
+        "requirement_id": "R5",
+        "contract": "A failed refresh preserves the last successful timestamp.",
+        "faults": [
+          "timestamp-changes-on-failed-refresh"
+        ]
+      },
+      {
+        "requirement_id": "R5",
+        "contract": "Cache-save failure preserves the last successful in-memory snapshot.",
+        "faults": [
+          "memory-replaced-before-cache-save"
+        ]
+      },
+      {
+        "requirement_id": "R5",
+        "contract": "Failed refresh preserves durable cache bytes.",
+        "faults": [
+          "disk-overwritten-on-failed-refresh"
+        ]
+      },
+      {
+        "requirement_id": "R5",
+        "contract": "A successful refresh replaces stale data and timestamp.",
+        "faults": [
+          "keep-old-snapshot-after-successful-refresh"
+        ]
+      }
+    ],
+    "ghost-box": [
+      {
+        "requirement_id": "R4",
+        "contract": "A canceled callback cannot overwrite the current operation result.",
+        "faults": [
+          "apply-cancelled-result"
+        ]
+      },
+      {
+        "requirement_id": "R5",
+        "contract": "Clear/account switch isolates mail and derived state.",
+        "faults": [
+          "clear-keeps-derived-result"
+        ]
+      },
+      {
+        "requirement_id": "R3",
+        "contract": "Selected-message inference retains the selected-source boundary.",
+        "faults": [
+          "send-entire-inbox-to-model"
+        ]
+      }
+    ],
+    "slm_test_generation": [
+      {
+        "requirement_id": "R1",
+        "contract": "Raw generations are retained unchanged.",
+        "faults": [
+          "raw-generation-overwritten-by-instrumentation"
+        ]
+      },
+      {
+        "requirement_id": "R4",
+        "contract": "Missing observations remain visible.",
+        "faults": [
+          "missing-observations-erased"
+        ]
+      },
+      {
+        "requirement_id": "R6",
+        "contract": "Reproducibility records retain the seed.",
+        "faults": [
+          "manifest-loses-seed"
+        ]
+      }
+    ],
+    "llm-bender-lab": [
+      {
+        "requirement_id": "R2",
+        "contract": "Resolved configuration retains the seed.",
+        "faults": [
+          "resolved-config-loses-seed"
+        ]
+      },
+      {
+        "requirement_id": "R3",
+        "contract": "Older run outputs survive duplicate and new run attempts.",
+        "faults": [
+          "allow-overwrite",
+          "new-run-corrupts-older-adapter"
+        ]
+      }
+    ],
+    "reflexmodels": [
+      {
+        "requirement_id": "R1",
+        "contract": "Original Unicode option identifiers are preserved.",
+        "faults": [
+          "request-loses-original-option-ids"
+        ]
+      },
+      {
+        "requirement_id": "R4",
+        "contract": "Shared-state questions retain independent option results.",
+        "faults": [
+          "mix-shared-question-options"
+        ]
+      }
+    ],
+    "cryptocurrency-analyser": [
+      {
+        "requirement_id": "R2",
+        "contract": "Return calculations do not mutate original prices.",
+        "faults": [
+          "returns-mutate-input-prices"
+        ]
+      },
+      {
+        "requirement_id": "R3",
+        "contract": "Partial missingness is preserved.",
+        "faults": [
+          "zero-fill-missing-prices"
+        ]
+      }
+    ],
+    "miniature-llms": [
+      {
+        "requirement_id": "R5",
+        "contract": "Checkpoint reload preserves predictions.",
+        "faults": [
+          "checkpoint-loses-weights"
+        ]
+      }
+    ]
+  },
+  "public_attribute_seams": {
+    "codelang-detect": [
+      {
+        "module": "codelang_detect.detector",
+        "name": "PATTERNS"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+________________ test_placeholder_names_and_negative_controls _________________
+
+    def test_placeholder_names_and_negative_controls():
+        url = 'https://example.test/:user/::literal/:item/:user?q=:ignored#x:ignored'
+>       assert extract_path_param_names(url) == ['user', 'item']
+E       AssertionError: assert ['user', 'item', 'user'] == ['user', 'item']
+E         
+E         Left contains one more item: 'user'
+E         Use -v to get more diff
+
+tests\test_path_parameters.py:6: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_path_parameters.py::test_placeholder_names_and_negative_controls
+1 failed, 1 passed in 0.07s

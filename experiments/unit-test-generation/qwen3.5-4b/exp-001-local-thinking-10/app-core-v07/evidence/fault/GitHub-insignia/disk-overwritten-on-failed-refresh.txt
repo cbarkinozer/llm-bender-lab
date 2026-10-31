@@ -1,0 +1,17 @@
+import json
+from pathlib import Path
+FAILURES=[]
+def pytest_configure(config):
+    from insignia.service import DashboardService
+    import json
+    original=DashboardService.refresh
+    async def broken(self):
+        result=await original(self)
+        if result['error'] and self.snapshot is not None:self.cache_path.write_text(json.dumps({'fetched_at':'corrupted'}))
+        return result
+    DashboardService.refresh=broken
+
+def pytest_runtest_logreport(report):
+    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))
+def pytest_sessionfinish(session,exitstatus):
+    Path('C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\disk-overwritten-on-failed-refresh\\failures.json').write_text(json.dumps(FAILURES,indent=2))

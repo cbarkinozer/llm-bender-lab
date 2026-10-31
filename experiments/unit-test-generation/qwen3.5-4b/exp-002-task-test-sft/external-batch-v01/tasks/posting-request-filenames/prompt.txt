@@ -1,0 +1,42 @@
+APPLICATION
+Build a terminal HTTP client with saved requests, URL parameters and editable session variables.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "path-parameters",
+    "module": "posting.urls",
+    "target_file": "tests/test_path_parameters.py"
+  },
+  {
+    "id": "query-pair-merge",
+    "module": "posting.urls",
+    "target_file": "tests/test_query_pair_merge.py"
+  },
+  {
+    "id": "request-filenames",
+    "module": "posting.files",
+    "target_file": "tests/test_request_filenames.py"
+  },
+  {
+    "id": "session-undo-redo",
+    "module": "posting.session_variables",
+    "target_file": "tests/test_session_undo_redo.py"
+  },
+  {
+    "id": "session-history-limit",
+    "module": "posting.session_variables",
+    "target_file": "tests/test_session_history_limit.py"
+  }
+]
+
+CURRENT TASK
+request-filenames
+Target file: tests/test_request_filenames.py
+Implementation module: posting.files
+
+INTERFACE AND ACCEPTANCE CONTRACT
+is_valid_filename rejects empty/whitespace, native path separators, >255 characters, Windows device names with optional extension, dot-prefixed, dot-suffixed and double-dot names. Ordinary filenames are valid. get_unique_request_filename(name,directory) returns an unused .posting.yaml name; repeated collisions advance a two-digit -01/-02 suffix. It proposes a name without creating files. Test exact .posting.yaml collisions; mixed .yml extensions and numbered-input policy are outside this task.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

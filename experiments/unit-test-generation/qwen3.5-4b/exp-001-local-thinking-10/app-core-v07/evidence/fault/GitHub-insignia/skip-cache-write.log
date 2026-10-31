@@ -1,0 +1,319 @@
+......FFFFF...F.F...................F.                                   [100%]
+================================== FAILURES ===================================
+________________ test_r5_cache_read_restart_and_manual_refresh ________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_cache_read_restart_and0')
+api_factory = <function api_factory.<locals>.make at 0x000002703F244680>
+
+    async def test_r5_cache_read_restart_and_manual_refresh(tmp_path, api_factory):
+        api, requests = api_factory()
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        assert service.read()["snapshot"] is None
+        assert requests == []
+        result = await service.refresh()
+        assert result["error"] is None
+        before = len(requests)
+        assert service.read()["snapshot"]["fetched_at"] == NOW.isoformat()
+        restarted = DashboardService(api, path, clock=lambda: NOW)
+>       assert restarted.read() == service.read()
+E       AssertionError: assert {'snapshot': ...'error': None} == {'snapshot': ...'error': None}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'snapshot': None} != {'snapshot': {'username': 'cbarkinozer', 'fetched_at': '2026-10-30T12:00:00+00:00', 'profile': {'login': 'cbarkinozer'...anguages': [{'name': 'Python', 'bytes': 600, 'percent': 75.0}, {'name': 'Rust', 'bytes': 200, 'percent': 25.0}]}, ...}}
+E         Use -v to get more diff
+
+tests\test_requirements.py:84: AssertionError
+___ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer] ____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv0')
+api_factory = <function api_factory.<locals>.make at 0x0000027040412FC0>
+endpoint = '/users/cbarkinozer'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+>       original_bytes = path.read_bytes()
+                         ^^^^^^^^^^^^^^^^^
+
+tests\test_requirements.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv0/snapshot.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_r5_failed_refresh_preserv0\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv1')
+api_factory = <function api_factory.<locals>.make at 0x0000027040412CA0>
+endpoint = '/users/cbarkinozer/repos'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+>       original_bytes = path.read_bytes()
+                         ^^^^^^^^^^^^^^^^^
+
+tests\test_requirements.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv1/snapshot.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_r5_failed_refresh_preserv1\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv2')
+api_factory = <function api_factory.<locals>.make at 0x000002703F2449A0>
+endpoint = '/repos/cbarkinozer/alpha/languages'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+>       original_bytes = path.read_bytes()
+                         ^^^^^^^^^^^^^^^^^
+
+tests\test_requirements.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv2/snapshot.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_r5_failed_refresh_preserv2\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+________ test_r5_failed_refresh_preserves_complete_snapshot[/graphql] _________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv3')
+api_factory = <function api_factory.<locals>.make at 0x000002703F2C2AC0>
+endpoint = '/graphql'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+>       original_bytes = path.read_bytes()
+                         ^^^^^^^^^^^^^^^^^
+
+tests\test_requirements.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_failed_refresh_preserv3/snapshot.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_r5_failed_refresh_preserv3\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+____________ test_r5_cache_write_failure_preserves_memory_and_disk ____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_cache_write_failure_pr0')
+api_factory = <function api_factory.<locals>.make at 0x000002703F2C3100>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000270403E4590>
+
+    async def test_r5_cache_write_failure_preserves_memory_and_disk(tmp_path, api_factory, monkeypatch):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+>       original_bytes = service.cache_path.read_bytes()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_requirements.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_abc.py:625: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_cache_write_failure_pr0/snapshot.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_r5_cache_write_failure_pr0\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_________ test_r5_successful_refresh_replaces_snapshot_and_timestamp __________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_successful_refresh_rep0')
+api_factory = <function api_factory.<locals>.make at 0x000002703F2C2980>
+
+    async def test_r5_successful_refresh_replaces_snapshot_and_timestamp(tmp_path, api_factory):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path/'snapshot.json', clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())['snapshot'])
+        service.clock = lambda: NOW + timedelta(hours=1)
+        handler = api.transport.handler
+        def changed(request):
+            response = handler(request)
+            if request.url.path.endswith('/repos') and request.url.params.get('page') != '2':
+                payload = response.json()
+                payload[0]['stargazers_count'] = 25
+                return httpx.Response(200,json=payload,headers=response.headers)
+            return response
+        service.api = GitHubClient(transport=httpx.MockTransport(changed))
+        result = await service.refresh()
+        assert result['error'] is None
+        assert result['snapshot']['fetched_at'] == (NOW + timedelta(hours=1)).isoformat()
+        assert result['snapshot']['metrics']['stars'] == 34
+        assert old['metrics']['stars'] == 14
+>       assert json.loads(service.cache_path.read_text()) == result['snapshot']
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_requirements.py:185: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_r5_successful_refresh_rep0/snapshot.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_r5_successful_refresh_rep0\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+________________ test_authenticated_snapshot_survives_restart _________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_authenticated_snapshot_su0')
+api_factory = <function api_factory.<locals>.make at 0x0000027041FF3A60>
+
+    async def test_authenticated_snapshot_survives_restart(tmp_path, api_factory):
+        api, requests = api_factory(token='fixture-token')
+        path = tmp_path / 'snapshot.json'
+        service = DashboardService(api, path, clock=lambda: NOW)
+        expected = await service.refresh()
+        requests.clear()
+        restored = DashboardService(api, path)
+>       assert "fixture-token" not in path.read_text()
+                                      ^^^^^^^^^^^^^^^^
+
+tests\test_snapshot_contract.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-57/test_authenticated_snapshot_su0/snapshot.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\barkin\\AppData\\Local\\Temp\\pytest-of-barkin\\pytest-57\\test_authenticated_snapshot_su0\\snapshot.json'
+
+C:\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/test_requirements.py::test_r5_cache_read_restart_and_manual_refresh
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]
+FAILED tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk
+FAILED tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp
+FAILED tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart
+8 failed, 30 passed in 3.41s

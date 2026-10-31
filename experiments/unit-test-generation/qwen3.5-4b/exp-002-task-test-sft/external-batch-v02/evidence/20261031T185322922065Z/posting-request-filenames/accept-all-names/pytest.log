@@ -1,0 +1,100 @@
+FFFFFFFF.                                                                [100%]
+================================== FAILURES ===================================
+____________________________ test_invalid_names[] _____________________________
+
+name = ''
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('')
+
+tests\test_request_filenames.py:8: AssertionError
+___________________________ test_invalid_names[   ] ___________________________
+
+name = '   '
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('   ')
+
+tests\test_request_filenames.py:8: AssertionError
+_________________________ test_invalid_names[CON.txt] _________________________
+
+name = 'CON.txt'
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('CON.txt')
+
+tests\test_request_filenames.py:8: AssertionError
+_________________________ test_invalid_names[.hidden] _________________________
+
+name = '.hidden'
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('.hidden')
+
+tests\test_request_filenames.py:8: AssertionError
+__________________________ test_invalid_names[end.] ___________________________
+
+name = 'end.'
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('end.')
+
+tests\test_request_filenames.py:8: AssertionError
+__________________________ test_invalid_names[a..b] ___________________________
+
+name = 'a..b'
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('a..b')
+
+tests\test_request_filenames.py:8: AssertionError
+_ test_invalid_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+name = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+tests\test_request_filenames.py:8: AssertionError
+________________________ test_invalid_names[dir\\file] ________________________
+
+name = 'dir\\file'
+
+    @pytest.mark.parametrize('name', ['', '   ', 'CON.txt', '.hidden', 'end.', 'a..b', 'a' * 256, 'dir' + os.path.sep + 'file'])
+    def test_invalid_names(name):
+>       assert is_valid_filename(name) is False
+E       AssertionError: assert True is False
+E        +  where True = is_valid_filename('dir\\file')
+
+tests\test_request_filenames.py:8: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_request_filenames.py::test_invalid_names[] - AssertionError...
+FAILED tests/test_request_filenames.py::test_invalid_names[   ] - AssertionEr...
+FAILED tests/test_request_filenames.py::test_invalid_names[CON.txt] - Asserti...
+FAILED tests/test_request_filenames.py::test_invalid_names[.hidden] - Asserti...
+FAILED tests/test_request_filenames.py::test_invalid_names[end.] - AssertionE...
+FAILED tests/test_request_filenames.py::test_invalid_names[a..b] - AssertionE...
+FAILED tests/test_request_filenames.py::test_invalid_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/test_request_filenames.py::test_invalid_names[dir\\file] - Asser...
+8 failed, 1 passed in 0.09s

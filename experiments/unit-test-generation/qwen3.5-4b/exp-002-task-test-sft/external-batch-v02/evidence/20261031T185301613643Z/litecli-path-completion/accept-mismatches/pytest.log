@@ -1,0 +1,17 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_______________________ test_path_parsing_and_matching ________________________
+
+    def test_path_parsing_and_matching():
+        path = os.path.join('folder', 'draft')
+        assert parse_path(path) == ('folder', 'draft', -5)
+        assert parse_path('') == ('', '', 0)
+        assert complete_path('draft.txt', 'dra') == 'draft.txt'
+>       assert complete_path('draft.txt', 'other') is None
+E       AssertionError: assert 'draft.txt' is None
+E        +  where 'draft.txt' = complete_path('draft.txt', 'other')
+
+tests\test_path_completion.py:10: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_path_completion.py::test_path_parsing_and_matching - Assert...
+1 failed, 1 passed in 0.08s

@@ -1,0 +1,37 @@
+..........F.F                                                            [100%]
+================================== FAILURES ===================================
+_____________ test_unusable_first_row_is_reported_not_filled[0.0] _____________
+
+baseline = 0.0
+
+    @pytest.mark.parametrize('baseline', [0.,-1.])
+    def test_unusable_first_row_is_reported_not_filled(baseline):
+        from price_workflow import analyze
+        frame = prices()
+        frame.loc[frame.index[0], 'BTC-USD'] = baseline
+>       with pytest.raises(ValueError, match='baseline'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_workflow.py:51: Failed
+________ test_first_observed_baselines_and_omitted_series_are_reported ________
+
+    def test_first_observed_baselines_and_omitted_series_are_reported():
+        from price_workflow import analyze
+        frame=prices()
+        frame.loc[frame.index[0],'BTC-USD']=float('nan')
+        frame['MISSING-USD']=float('nan')
+        result=analyze(['btc','eth','missing'],'2026-01-01','2026-01-04',provider=Mock(return_value=frame))
+        expected=pd.DataFrame({'BTC-USD':[float('nan'),0.,-.5],'ETH-USD':[0.,-.5,.5]},index=frame.index)
+>       assert_frame_equal(result['returns'],expected)
+E       AssertionError: DataFrame are different
+E       
+E       DataFrame shape mismatch
+E       [left]:  (3, 3)
+E       [right]: (3, 2)
+
+tests\test_workflow.py:61: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]
+FAILED tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported
+2 failed, 11 passed in 0.44s

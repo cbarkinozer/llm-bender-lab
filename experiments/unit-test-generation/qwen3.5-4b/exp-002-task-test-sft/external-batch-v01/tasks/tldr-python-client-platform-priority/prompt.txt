@@ -1,0 +1,47 @@
+APPLICATION
+Build a terminal reference-page client with translated pages, a local cache and offline fallback.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "language-selection",
+    "module": "tldr",
+    "target_file": "tests/test_language_selection.py"
+  },
+  {
+    "id": "cache-path-selection",
+    "module": "tldr",
+    "target_file": "tests/test_cache_path_selection.py"
+  },
+  {
+    "id": "cache-freshness",
+    "module": "tldr",
+    "target_file": "tests/test_cache_freshness.py"
+  },
+  {
+    "id": "page-url",
+    "module": "tldr",
+    "target_file": "tests/test_page_url.py"
+  },
+  {
+    "id": "cache-network-routing",
+    "module": "tldr",
+    "target_file": "tests/test_cache_network_routing.py"
+  },
+  {
+    "id": "platform-priority",
+    "module": "tldr",
+    "target_file": "tests/test_platform_priority.py"
+  }
+]
+
+CURRENT TASK
+platform-priority
+Target file: tests/test_platform_priority.py
+Implementation module: tldr
+
+INTERFACE AND ACCEPTANCE CONTRACT
+get_platform maps sys.platform prefixes: darwin to osx, win32 to windows, linux variants to linux, unknown platforms to linux. get_platform_list returns each supported platform once, with the current platform first and common included. The remaining order is unspecified.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

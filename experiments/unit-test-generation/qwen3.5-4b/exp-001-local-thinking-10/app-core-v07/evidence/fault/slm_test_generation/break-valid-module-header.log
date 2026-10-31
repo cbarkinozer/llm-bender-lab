@@ -1,0 +1,24 @@
+.....................F..                                                 [100%]
+================================== FAILURES ===================================
+_______ test_valid_docstring_and_future_import_survive_instrumentation ________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-87/test_valid_docstring_and_futur0')
+local_executor = <function local_executor.<locals>.execute at 0x000001F732581440>
+
+    def test_valid_docstring_and_future_import_survive_instrumentation(tmp_path, local_executor):
+        from benchmark_workflow import run_task
+        source = ('"""Generated checks."""\nfrom __future__ import annotations\n'
+                  'def test_value():\n    assert __doc__ == "Generated checks."\n    assert sut() == 42\n')
+        compile(source, '<valid-original-module>', 'exec')
+        result = run_task(task('header',source), root=tmp_path,
+                          sut_source='def sut(): return 42', timeout_seconds=5, executor=local_executor)
+>       assert result['outcome'] == 'passed'
+E       AssertionError: assert 'collection_error' == 'passed'
+E         
+E         - passed
+E         + collection_error
+
+tests\test_workflow.py:76: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation
+1 failed, 23 passed in 7.82s

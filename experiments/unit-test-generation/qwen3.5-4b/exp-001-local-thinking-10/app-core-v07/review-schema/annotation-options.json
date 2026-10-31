@@ -1,0 +1,168 @@
+[
+  {
+    "name": "source_relevance",
+    "title": "Q1. Request/source relevance and scope",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "yes",
+      "too-broad",
+      "too-narrow",
+      "mismatch",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "interface_quality",
+    "title": "Q2. Derivable from input and target agreement (framing B)?",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "yes",
+      "minor-gaps",
+      "no",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "coverage",
+    "title": "Q3. Important requirements covered adequately?",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "yes",
+      "partial-but-disclosed",
+      "no",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "expectation_correctness",
+    "title": "Q4a. Are expected outcomes correct?",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "all-correct",
+      "some-wrong",
+      "cannot-verify"
+    ]
+  },
+  {
+    "name": "expectation_justification",
+    "title": "Q4b. Are values and choices justified explicitly?",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "yes",
+      "unexplained",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "assertion_quality",
+    "title": "Q5. Meaningful fault discrimination? See per-requirement evidence.",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "strong",
+      "mixed",
+      "weak",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "smell_quality",
+    "title": "Q6. Actionable test smells?",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "none",
+      "cosmetic",
+      "actionable",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "approval",
+    "title": "Q7. Overall decision — apply guideline rule",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "approve",
+      "revise",
+      "reject",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "reasoning_quality",
+    "title": "Q8. Concise rationale grounded in request and declared choices?",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "yes",
+      "too-long",
+      "reference-leak",
+      "unjustified-values",
+      "uncertain"
+    ]
+  },
+  {
+    "name": "confidence",
+    "title": "Reviewer confidence",
+    "required": true,
+    "kind": "single-choice",
+    "options": [
+      "high",
+      "low"
+    ]
+  },
+  {
+    "name": "smells",
+    "title": "Fixed defect categories (optional; explain concrete harm)",
+    "required": false,
+    "kind": "multi-select",
+    "options": [
+      "Undeclared interface",
+      "Tautological assertion",
+      "Weak or missing oracle",
+      "White-box coupling",
+      "Duplicate or redundant case",
+      "Poor failure diagnosis",
+      "Hidden test logic",
+      "Non-determinism",
+      "Unexplained expected value",
+      "Misleading test name",
+      "Unjustified skip, xfail or catch",
+      "Review/meta text leaked into input or target"
+    ]
+  },
+  {
+    "name": "missing_interface",
+    "title": "Missing interface: name/decision -> where used -> declaration",
+    "required": false,
+    "kind": "text",
+    "options": null
+  },
+  {
+    "name": "missing_coverage",
+    "title": "Missing coverage: R-id -> case -> test/manual/scope fix",
+    "required": false,
+    "kind": "text",
+    "options": null
+  },
+  {
+    "name": "assertion_evidence",
+    "title": "file::test -> category -> reason -> fix",
+    "required": false,
+    "kind": "text",
+    "options": null
+  },
+  {
+    "name": "blocking_issues",
+    "title": "Approval blockers only; enter none if empty. For uncertain, name missing evidence.",
+    "required": true,
+    "kind": "text",
+    "options": null
+  }
+]

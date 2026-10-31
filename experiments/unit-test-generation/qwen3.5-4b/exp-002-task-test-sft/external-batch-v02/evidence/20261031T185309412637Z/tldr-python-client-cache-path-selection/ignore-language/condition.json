@@ -1,0 +1,5 @@
+{
+  "module": "tldr",
+  "mutation": "original=m.get_cache_file_path\nm.get_cache_file_path=lambda command,platform,language,system_cache=False: original(command,platform,'en',system_cache)",
+  "seed": null
+}

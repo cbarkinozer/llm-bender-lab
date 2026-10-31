@@ -1,0 +1,418 @@
+.........................FFFFFFFFFFF..                                   [100%]
+================================== FAILURES ===================================
+__________________ test_http_mcp_transport_and_refresh_tool ___________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_http_mcp_transport_and_re0')
+api_factory = <function api_factory.<locals>.make at 0x00000243A72E7600>
+
+    async def test_http_mcp_transport_and_refresh_tool(tmp_path, api_factory):
+        from insignia.app import create_app
+        from fastmcp import Client
+        from fastapi.testclient import TestClient
+        api, requests = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        app = create_app(service)
+        async with Client(app.state.mcp) as client:
+            result = await client.call_tool("refresh_data", {})
+            assert result.data["snapshot"]["metrics"]["stars"] == 14
+            result = await client.call_tool("activity_summary", {})
+>           assert result.data["fetched_at"] == NOW.isoformat()
+E           AssertionError: assert '2000-01-01T00:00:00+00:00' == '2026-10-30T12:00:00+00:00'
+E             
+E             - 2026-10-30T12:00:00+00:00
+E             + 2000-01-01T00:00:00+00:00
+
+tests\test_snapshot_contract.py:107: AssertionError
+____ test_structurally_invalid_cache_is_rejected[missing-reason-<lambda>] _____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach0')
+api_factory = <function api_factory.<locals>.make at 0x00000243A72E5C60>
+defect = 'missing-reason', mutate = <function <lambda> at 0x00000243A4581300>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+________ test_structurally_invalid_cache_is_rejected[profile-<lambda>] ________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach1')
+api_factory = <function api_factory.<locals>.make at 0x00000243A72AD440>
+defect = 'profile', mutate = <function <lambda> at 0x00000243A4581440>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+________ test_structurally_invalid_cache_is_rejected[metrics-<lambda>] ________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach2')
+api_factory = <function api_factory.<locals>.make at 0x00000243A72AD760>
+defect = 'metrics', mutate = <function <lambda> at 0x00000243A4580A40>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+_____ test_structurally_invalid_cache_is_rejected[repositories-<lambda>] ______
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach3')
+api_factory = <function api_factory.<locals>.make at 0x00000243A72AE980>
+defect = 'repositories', mutate = <function <lambda> at 0x00000243A4581260>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+_________ test_structurally_invalid_cache_is_rejected[scope-<lambda>] _________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach4')
+api_factory = <function api_factory.<locals>.make at 0x00000243A73E3600>
+defect = 'scope', mutate = <function <lambda> at 0x00000243A45811C0>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+________ test_structurally_invalid_cache_is_rejected[window-<lambda>] _________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach5')
+api_factory = <function api_factory.<locals>.make at 0x00000243A73E3D80>
+defect = 'window', mutate = <function <lambda> at 0x00000243A4581120>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+______ test_structurally_invalid_cache_is_rejected[fetched-at-<lambda>] _______
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach6')
+api_factory = <function api_factory.<locals>.make at 0x00000243A741C4A0>
+defect = 'fetched-at', mutate = <function <lambda> at 0x00000243A4581080>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+___ test_structurally_invalid_cache_is_rejected[language-percent-<lambda>] ____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach7')
+api_factory = <function api_factory.<locals>.make at 0x00000243A741CEA0>
+defect = 'language-percent', mutate = <function <lambda> at 0x00000243A4580FE0>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+_____ test_structurally_invalid_cache_is_rejected[activity-days-<lambda>] _____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach8')
+api_factory = <function api_factory.<locals>.make at 0x00000243A741D620>
+defect = 'activity-days', mutate = <function <lambda> at 0x00000243A4580F40>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+____ test_structurally_invalid_cache_is_rejected[activity-count-<lambda>] _____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-58/test_structurally_invalid_cach9')
+api_factory = <function api_factory.<locals>.make at 0x00000243A741DDA0>
+defect = 'activity-count', mutate = <function <lambda> at 0x00000243A4580EA0>
+
+    @pytest.mark.parametrize('defect,mutate', [
+        ('missing-reason', lambda s:s.pop('activity_unavailable_reason')),
+        ('profile', lambda s:s.update(profile={})),
+        ('metrics', lambda s:s['metrics'].update(stars='many')),
+        ('repositories', lambda s:s['repositories'][0].update(stargazers_count=None)),
+        ('scope', lambda s:s.update(scope=[])),
+        ('window', lambda s:s['window'].update(start='not a date')),
+        ('fetched-at', lambda s:s.update(fetched_at='2026-10-30T12:00:00')),
+        ('language-percent', lambda s:s['metrics']['languages'][0].update(percent=float('nan'))),
+        ('activity-days', lambda s:s['activity']['days'][0].update(date='2026-02-30')),
+        ('activity-count', lambda s:s['activity'].update(commits=-1)),
+    ], ids=lambda value:value if isinstance(value,str) else None)
+    async def test_structurally_invalid_cache_is_rejected(tmp_path, api_factory, defect, mutate):
+        api, _ = api_factory(token='fixture-token')
+        saved = await api.fetch('cbarkinozer', NOW)
+        mutate(saved)
+        path = tmp_path / 'snapshot.json'
+        original = json.dumps(saved)
+        path.write_text(original)
+        api, requests = api_factory()
+        service = DashboardService(api, path)
+        assert service.read()['snapshot'] is None
+        assert service.read()['error']
+>       assert service.summary() == service.read()
+E       AssertionError: assert {'snapshot': ...:00:00+00:00'} == {'snapshot': ...ew snapshot.'}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Left contains 1 more item:
+E         {'fetched_at': '2000-01-01T00:00:00+00:00'}
+E         Use -v to get more diff
+
+tests\test_snapshot_contract.py:137: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[missing-reason-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[profile-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[metrics-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[repositories-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[scope-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[window-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[fetched-at-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[language-percent-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-days-<lambda>]
+FAILED tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-count-<lambda>]
+11 failed, 27 passed in 3.40s

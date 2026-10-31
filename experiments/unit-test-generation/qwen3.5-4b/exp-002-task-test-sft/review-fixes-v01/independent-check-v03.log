@@ -1,0 +1,80 @@
+codelang-detect-app-plan-planning-v03 - OK (all shared-file edits serialized)
+cryptocurrency-analyser-app-plan-planning-v03 - VIOLATIONS:
+   file=coin_comparator.py tasks=(prices-returns, prices-fetch) concurrent, no dependency edge
+   file=coin_comparator.py tasks=(prices-charts, prices-fetch) concurrent, no dependency edge
+ghost-box-app-plan-planning-v03 - VIOLATIONS:
+   file=mail_workflow.py tasks=(mail-fetch-coverage, mail-selected-inference) concurrent, no dependency edge
+   file=mail_workflow.py tasks=(mail-fetch-coverage, mail-cancellation) concurrent, no dependency edge
+   file=mail_workflow.py tasks=(mail-fetch-coverage, mail-model-lifecycle) concurrent, no dependency edge
+   file=mail_workflow.py tasks=(mail-selected-inference, mail-cancellation) concurrent, no dependency edge
+   file=mail_workflow.py tasks=(mail-selected-inference, mail-model-lifecycle) concurrent, no dependency edge
+   file=mail_workflow.py tasks=(mail-cancellation, mail-model-lifecycle) concurrent, no dependency edge
+llm-bender-lab-app-plan-planning-v03 - VIOLATIONS:
+   file=experiment_workflow.py tasks=(experiment-preflight, experiment-matched-evaluation) concurrent, no dependency edge
+   file=experiment_workflow.py tasks=(experiment-preflight, experiment-artifact-isolation) concurrent, no dependency edge
+   file=experiment_workflow.py tasks=(experiment-preflight, experiment-failure-reporting) concurrent, no dependency edge
+   file=experiment_workflow.py tasks=(experiment-matched-evaluation, experiment-artifact-isolation) concurrent, no dependency edge
+   file=experiment_workflow.py tasks=(experiment-matched-evaluation, experiment-failure-reporting) concurrent, no dependency edge
+   file=experiment_workflow.py tasks=(experiment-artifact-isolation, experiment-failure-reporting) concurrent, no dependency edge
+miniature-llms-app-plan-planning-v03 - VIOLATIONS:
+   file=tiny_model.py tasks=(tensor-model-composition, tensor-causal-independence) concurrent, no dependency edge
+   file=tiny_model.py tasks=(tensor-model-composition, tensor-checkpoint-roundtrip) concurrent, no dependency edge
+   file=tiny_model.py tasks=(tensor-model-composition, tensor-training-generation) concurrent, no dependency edge
+   file=tiny_model.py tasks=(tensor-causal-independence, tensor-checkpoint-roundtrip) concurrent, no dependency edge
+   file=tiny_model.py tasks=(tensor-causal-independence, tensor-training-generation) concurrent, no dependency edge
+   file=tiny_model.py tasks=(tensor-checkpoint-roundtrip, tensor-training-generation) concurrent, no dependency edge
+reflexmodels-app-plan-planning-v03 - VIOLATIONS:
+   file=reflexmodels/types.py tasks=(decision-requests, decision-shared-state) concurrent, no dependency edge
+   file=reflexmodels/types.py tasks=(decision-requests, decision-ordinal) concurrent, no dependency edge
+   file=reflexmodels/types.py tasks=(decision-shared-state, decision-ordinal) concurrent, no dependency edge
+   file=reflexmodels/protocol.py tasks=(decision-requests, decision-probabilities) concurrent, no dependency edge
+   file=reflexmodels/scoring.py tasks=(decision-probabilities, decision-shared-state) concurrent, no dependency edge
+   file=reflexmodels/scoring.py tasks=(decision-probabilities, decision-ordinal) concurrent, no dependency edge
+   file=reflexmodels/scoring.py tasks=(decision-shared-state, decision-ordinal) concurrent, no dependency edge
+   file=reflexmodels/routing.py tasks=(decision-probabilities, decision-fallback) concurrent, no dependency edge
+repo-context-app-plan-planning-v03 - VIOLATIONS:
+   file=repo_context/core.py tasks=(snapshot-file-tree, snapshot-dependencies) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-file-tree, snapshot-url-routing) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-file-tree, snapshot-text-decoding) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-dependencies, snapshot-url-routing) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-dependencies, snapshot-text-decoding) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-url-routing, snapshot-text-decoding) concurrent, no dependency edge
+   file=context_workflow.py tasks=(snapshot-safe-context, snapshot-controller-routing) concurrent, no dependency edge
+litecli-backend-plan-planning-v03 - VIOLATIONS:
+   file=litecli/packages/parseutils.py tasks=(litecli-sql-table-identifiers, litecli-sql-destructive-detection) concurrent, no dependency edge
+   file=litecli/packages/parseutils.py tasks=(litecli-sql-table-identifiers, litecli-completion-last-word) concurrent, no dependency edge
+   file=litecli/packages/parseutils.py tasks=(litecli-sql-destructive-detection, litecli-completion-last-word) concurrent, no dependency edge
+tldr-python-client-backend-plan-planning-v03 - VIOLATIONS:
+   file=tldr.py tasks=(tldr-python-client-language-selection, tldr-python-client-cache-path-selection) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-language-selection, tldr-python-client-cache-freshness) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-language-selection, tldr-python-client-page-url) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-language-selection, tldr-python-client-cache-network-routing) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-language-selection, tldr-python-client-platform-priority) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-path-selection, tldr-python-client-cache-freshness) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-path-selection, tldr-python-client-page-url) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-path-selection, tldr-python-client-cache-network-routing) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-path-selection, tldr-python-client-platform-priority) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-freshness, tldr-python-client-page-url) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-freshness, tldr-python-client-cache-network-routing) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-freshness, tldr-python-client-platform-priority) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-page-url, tldr-python-client-cache-network-routing) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-page-url, tldr-python-client-platform-priority) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-network-routing, tldr-python-client-platform-priority) concurrent, no dependency edge
+posting-backend-plan-planning-v03 - VIOLATIONS:
+   file=src/posting/urls.py tasks=(posting-path-parameters, posting-query-pair-merge) concurrent, no dependency edge
+   file=src/posting/session_variables.py tasks=(posting-session-undo-redo, posting-session-history-limit) concurrent, no dependency edge
+ddgr-backend-plan-planning-v03 - VIOLATIONS:
+   file=ddgr tasks=(ddgr-unicode-safe-urls, ddgr-search-pagination) concurrent, no dependency edge
+   file=ddgr tasks=(ddgr-unicode-safe-urls, ddgr-result-serialization) concurrent, no dependency edge
+   file=ddgr tasks=(ddgr-search-pagination, ddgr-result-serialization) concurrent, no dependency edge
+litecli-backend-plan-sql-core-planning-v03 - VIOLATIONS:
+   file=litecli/packages/parseutils.py tasks=(litecli-sql-table-identifiers, litecli-sql-destructive-detection) concurrent, no dependency edge
+tldr-python-client-backend-plan-offline-cache-planning-v03 - VIOLATIONS:
+   file=tldr.py tasks=(tldr-python-client-cache-path-selection, tldr-python-client-cache-freshness) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-path-selection, tldr-python-client-cache-network-routing) concurrent, no dependency edge
+   file=tldr.py tasks=(tldr-python-client-cache-freshness, tldr-python-client-cache-network-routing) concurrent, no dependency edge
+repo-context-app-plan-snapshot-core-planning-v03 - VIOLATIONS:
+   file=repo_context/core.py tasks=(snapshot-file-tree, snapshot-dependencies) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-file-tree, snapshot-text-decoding) concurrent, no dependency edge
+   file=repo_context/core.py tasks=(snapshot-dependencies, snapshot-text-decoding) concurrent, no dependency edge
+ghost-box-app-plan-first-memory-milestone-planning-v03 - OK (all shared-file edits serialized)

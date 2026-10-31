@@ -1,0 +1,10 @@
+[
+  [
+    "no-encoding",
+    "m.quote=lambda text: text"
+  ],
+  [
+    "english-suffix",
+    "original=m.get_page_url\nm.get_page_url=lambda command,platform,remote,language: original(command,platform,remote,'en')"
+  ]
+]

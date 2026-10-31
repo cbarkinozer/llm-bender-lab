@@ -1,3 +1,5 @@
+> Current, 2026-10-31: [revision 07](app-core-v07/README.md) fixes the v06 AI-review findings and includes a fresh nine-example TXT plus response template. All nine suites pass (153 cases), all 81 targeted faults are detected, and all examples fit 8K (largest 7,548). The owner chose AI annotation for this utility demo; current revised ratings are pending. No whole-app baseline inference or Qwen SFT has run. Older status blocks below are history.
+
 > Current, 2026-10-31: [revision 06](app-core-v06/README.md) corrects the codelang-detect
 > fixtures and API decisions; the other eight model conversations match v05.
 > Review: http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode

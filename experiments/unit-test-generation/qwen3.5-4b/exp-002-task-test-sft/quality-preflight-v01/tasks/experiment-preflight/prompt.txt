@@ -1,0 +1,61 @@
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+APPLICATION REQUEST
+Make me a practical Python lab for running small language-model fine-tuning experiments reproducibly. I want to define an experiment, validate conversational training data and its train/evaluation separation, save the resolved configuration, run a short training smoke through a replaceable trainer, save its adapter and metadata, evaluate the starting model and candidate under matched settings, and get a readable before/after summary. A malformed dataset or overlapping held-out examples should stop preflight rather than quietly train. Keep experiment runs in separate directories, preserve older outputs, and record model/data revisions, seed, code identity and effective settings so I can tell what actually ran. If a run fails, retain its logs and status without claiming success. Do not require a GPU, download weights or start real training when I run the lab's own tests: use a tiny fake trainer/evaluator there, but make the workflow ready to connect to a real backend. Keep credentials and large weights out of manifests and Git, distinguish unavailable metrics from zeros, and give me simple commands for preparing, running and comparing one experiment.
+
+AGREED PLAN
+[
+  {
+    "id": "experiment-preflight",
+    "title": "Specify conversation/split validation before any backend is invoked.",
+    "depends_on": [],
+    "implementation_files": [
+      "experiment_workflow.py"
+    ],
+    "target_file": "tests/test_experiment_preflight.py",
+    "acceptance": [
+      "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+      "The trainer is never invoked after invalid preflight.",
+      "Valid disjoint train/test rows pass preflight and reach the injected trainer; invalid inputs still fail before it."
+    ]
+  },
+  {
+    "id": "llm-bender-lab-delivery",
+    "title": "Verify documented delivery and live UI/backend integration separately.",
+    "depends_on": [],
+    "implementation_files": [
+      "README.md"
+    ],
+    "target_file": "tests/test_delivery.py",
+    "acceptance": [
+      "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify conversation/split validation before any backend is invoked.
+Target test file: tests/test_experiment_preflight.py
+Expected implementation files: experiment_workflow.py
+
+INTERFACE CONTRACT
+Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.
+- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.
+- Rows: `{id,split:"train"|"test",messages:[{role:"user",content},{role:"assistant",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.
+- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.
+- Success returns `{status:"completed",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:"failed",error}`, retains sanitized run.log/status.json, and never writes a success summary.
+Dependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.
+
+- trainer receives exactly the train-split rows; both evaluator calls receive exactly the test-split rows. Baseline identity is config['model_revision']; candidate identity is the adapter path string. A real 0.0 metric remains 0.0, including its computed delta. Successful status.json declares completed; returned errors redact secrets as well as saved logs.
+
+
+
+ACCEPTANCE CRITERIA
+- Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.
+- The trainer is never invoked after invalid preflight.
+- Valid disjoint train/test rows pass preflight and reach the injected trainer; invalid inputs still fail before it.
+
+AVAILABLE CONTEXT
+Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run.
+No application implementation or existing solution tests are supplied. Write the selected test file only.

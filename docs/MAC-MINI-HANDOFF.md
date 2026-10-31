@@ -1,3 +1,5 @@
+> Resume update, 2026-10-31: the active direction is [exp-002 task-to-tests](../experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/README.md). Eight task-format candidates and two separate planning contexts are prepared; 32 cases and 16 fault probes pass. Source expansion, split freeze and a new baseline precede SFT. Older whole-app/Occam instructions below are history. Windows pilot logs and source pins are portable; no model weights or Qwen training were started.
+
 > Latest example correction, 2026-10-31: [revision 06](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v06/README.md).
 > http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode
 > codelang-detect: stronger tie/content/read-error cases, explicit API decisions,

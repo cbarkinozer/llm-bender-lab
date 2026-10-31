@@ -1,0 +1,25 @@
+..........F....                                                          [100%]
+================================== FAILURES ===================================
+_______________ test_checkpoint_roundtrip_preserves_all_logits ________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-132/test_checkpoint_roundtrip_pres0')
+
+    def test_checkpoint_roundtrip_preserves_all_logits(tmp_path):
+        from tiny_model import TinyModel
+        net = model().eval()
+        tokens = torch.tensor([[1,2,3]])
+        expected = net(tokens).detach()
+        path = tmp_path/'weights.pt'
+        net.save(path)
+        restored = TinyModel.load(path).eval()
+>       torch.testing.assert_close(restored(tokens), expected, rtol=0,atol=0)
+E       AssertionError: Tensor-likes are not equal!
+E       
+E       Mismatched elements: 24 / 24 (100.0%)
+E       Greatest absolute difference: 1.777768611907959 at index (0, 2, 2)
+E       Greatest relative difference: 1.0 at index (0, 0, 0)
+
+tests\test_workflow.py:43: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits
+1 failed, 14 passed in 1.73s

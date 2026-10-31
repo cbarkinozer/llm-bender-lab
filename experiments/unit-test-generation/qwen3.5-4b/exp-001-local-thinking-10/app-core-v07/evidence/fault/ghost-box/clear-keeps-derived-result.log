@@ -1,0 +1,36 @@
+.........FF.                                                             [100%]
+================================== FAILURES ===================================
+_________ test_cancelled_or_previous_account_result_cannot_be_applied _________
+
+    def test_cancelled_or_previous_account_result_cannot_be_applied():
+        app, _, _, _ = make_app()
+        app.switch_account('a')
+        old = app.begin_operation()
+        app.cancel(old)
+        current = app.begin_operation()
+        assert app.finish(old, 'stale') is False
+        assert app.finish(current, 'current') is True
+        assert app.result == 'current'
+        app.switch_account('b')
+>       assert app.result is None
+E       AssertionError: assert 'current' is None
+E        +  where 'current' = <mail_workflow.MailApp object at 0x000001A59038F4D0>.result
+
+tests\test_workflow.py:71: AssertionError
+_________ test_clear_removes_derived_results_and_model_idle_boundary __________
+
+    def test_clear_removes_derived_results_and_model_idle_boundary():
+        app, _, model, now = make_app()
+        app.switch_account('a')
+        op = app.begin_operation()
+        app.finish(op, 'sensitive derived content')
+        app.clear()
+>       assert app.result is None
+E       AssertionError: assert 'sensitive derived content' is None
+E        +  where 'sensitive derived content' = <mail_workflow.MailApp object at 0x000001A59043C640>.result
+
+tests\test_workflow.py:82: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied
+FAILED tests/test_workflow.py::test_clear_removes_derived_results_and_model_idle_boundary
+2 failed, 10 passed in 0.16s

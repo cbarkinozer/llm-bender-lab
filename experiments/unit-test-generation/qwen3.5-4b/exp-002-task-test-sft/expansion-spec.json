@@ -1,0 +1,2089 @@
+{
+  "schema_version": "1.1",
+  "pilot_version": "v02",
+  "primary_objective": "task + agreed contract -> one useful pytest artifact",
+  "planning_training_enabled": false,
+  "code_generation_training_enabled": false,
+  "training_task_target": 100,
+  "applications": [
+    {
+      "id": "codelang-detect",
+      "unresolved": [
+        "Additional language targets, installation examples and ambiguous-snippet accuracy remain manual/future work."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "language-delivery",
+          "title": "Package the CLI and document examples and installation.",
+          "depends_on": [
+            "language-cli-success",
+            "language-cli-errors"
+          ],
+          "implementation_files": [
+            "pyproject.toml",
+            "README.md"
+          ],
+          "target_file": "tests/test_packaged_cli.py",
+          "acceptance": [
+            "Verify installation and documented examples in a clean environment.",
+            "Explicitly document starter languages and ambiguous-snippet limitations."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "cryptocurrency-analyser",
+      "unresolved": [
+        "Browser wiring, live-provider display and retry/backoff remain manual/future work."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "prices-web-delivery",
+          "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+          "depends_on": [
+            "prices-analysis"
+          ],
+          "implementation_files": [
+            "web_app.py",
+            "README.md"
+          ],
+          "target_file": "tests/test_web_workflow.py",
+          "acceptance": [
+            "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+            "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+            "Check actual browser behavior and Mac startup separately."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "ghost-box",
+      "unresolved": [
+        "Native-window responsiveness, real provider authentication and actual model loading remain manual integration checks."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "ghost-box-delivery",
+          "title": "Verify documented delivery and live UI/backend integration separately.",
+          "depends_on": [],
+          "implementation_files": [
+            "README.md"
+          ],
+          "target_file": "tests/test_delivery.py",
+          "acceptance": [
+            "Native-window responsiveness, real provider authentication and actual model loading remain manual integration checks."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "reflexmodels",
+      "unresolved": [
+        "Production model quality and calibration on real traffic remain separate empirical evaluations."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "reflexmodels-delivery",
+          "title": "Verify documented delivery and live UI/backend integration separately.",
+          "depends_on": [],
+          "implementation_files": [
+            "README.md"
+          ],
+          "target_file": "tests/test_delivery.py",
+          "acceptance": [
+            "Production model quality and calibration on real traffic remain separate empirical evaluations."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "llm-bender-lab",
+      "unresolved": [
+        "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "llm-bender-lab-delivery",
+          "title": "Verify documented delivery and live UI/backend integration separately.",
+          "depends_on": [],
+          "implementation_files": [
+            "README.md"
+          ],
+          "target_file": "tests/test_delivery.py",
+          "acceptance": [
+            "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "miniature-llms",
+      "unresolved": [
+        "Standalone architecture documentation and actual CLI integration remain separate checks; do not treat PyTorch/JAX variants as independent behaviors."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "miniature-llms-delivery",
+          "title": "Verify documented delivery and live UI/backend integration separately.",
+          "depends_on": [],
+          "implementation_files": [
+            "README.md"
+          ],
+          "target_file": "tests/test_delivery.py",
+          "acceptance": [
+            "Standalone architecture documentation and actual CLI integration remain separate checks; do not treat PyTorch/JAX variants as independent behaviors."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "repo-context",
+      "unresolved": [
+        "Actual CLI/Streamlit event wiring and private authentication remain manual checks. Slash-containing branch names remain unresolved."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "repo-context-delivery",
+          "title": "Verify documented delivery and live UI/backend integration separately.",
+          "depends_on": [],
+          "implementation_files": [
+            "README.md"
+          ],
+          "target_file": "tests/test_delivery.py",
+          "acceptance": [
+            "Actual CLI/Streamlit event wiring and private authentication remain manual checks. Slash-containing branch names remain unresolved."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "language-basic",
+      "application": "codelang-detect",
+      "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+      "implementation_files": [
+        "codelang_detect/__init__.py",
+        "codelang_detect/detector.py"
+      ],
+      "target_file": "tests/test_detection_basics.py",
+      "depends_on": [],
+      "acceptance": [
+        "Empty, whitespace and ordinary prose return unknown.",
+        "Clear Python and JavaScript snippets return py and js respectively."
+      ],
+      "contract": "Public codelang_detect.detect(text: str) -> str. Empty/whitespace/no positive rule evidence returns unknown. Initial language targets are Python (py) and JavaScript (js); additional language accuracy is outside this task. No network or model loading.",
+      "rationale": "Negative examples check that the detector does not guess a language for ordinary text. Two clear code snippets provide positive controls so an always-unknown implementation also fails.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "classification",
+        "state": "stateless",
+        "dependencies": "none",
+        "boundaries": [
+          "empty",
+          "whitespace",
+          "non-code"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_unknown_without_code_evidence",
+            "test_clear_language_markers"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "empty-input-guesses-python",
+          "code": "import codelang_detect.detector as m\noriginal=m.detect\nm.detect=lambda text:\"py\" if not text or not text.strip() else original(text)\nimport codelang_detect as package\npackage.detect=m.detect"
+        },
+        {
+          "id": "always-unknown",
+          "code": "import codelang_detect.detector as m\nm.detect=lambda text:\"unknown\"\nimport codelang_detect as package\npackage.detect=m.detect"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "language-rules",
+      "application": "codelang-detect",
+      "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+      "implementation_files": [
+        "codelang_detect/detector.py"
+      ],
+      "target_file": "tests/test_detection_rules.py",
+      "depends_on": [
+        "language-basic"
+      ],
+      "acceptance": [
+        "Weight 3 beats two matching weight-1 rules.",
+        "Equal scores choose declaration order, even when alphabetical order differs.",
+        "A single positive score qualifies; zero evidence remains unknown.",
+        "Replacing the public configuration between calls immediately changes the result."
+      ],
+      "contract": "Public codelang_detect.detect(text) uses codelang_detect.detector.PATTERNS, an insertion-ordered dict of output_label -> list[(compiled regex, positive integer weight)]. Each matching rule contributes once. The greatest strictly positive total wins; tied positive totals choose the first declared key. Read PATTERNS at call time; custom keys are valid output labels. No score means unknown.",
+      "rationale": "The fixtures separate weighted scoring from match counting and declaration order from alphabetical order. Replacing the mapping between calls detects stale cached configuration; positive and zero-score controls distinguish an extra confidence threshold.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "weighted-selection",
+        "state": "replaceable-configuration",
+        "dependencies": "public-monkeypatch-seam",
+        "boundaries": [
+          "ties",
+          "zero-score",
+          "positive-score"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_weighted_evidence_not_match_count",
+            "test_equal_scores_use_first_declared_label",
+            "test_rule_configuration_is_read_on_every_call",
+            "test_any_positive_rule_score_qualifies"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "ignore-rule-weights",
+          "code": "import codelang_detect.detector as m\noriginal=m.detect\ndef broken(text):\n    saved=m.PATTERNS\n    try:\n        m.PATTERNS={key:[(pattern,1) for pattern,weight in rules] for key,rules in saved.items()}\n        return original(text)\n    finally:m.PATTERNS=saved\nm.detect=broken\nimport codelang_detect as package\npackage.detect=m.detect"
+        },
+        {
+          "id": "cache-initial-configuration",
+          "code": "import codelang_detect.detector as m\noriginal=m.detect\ncached=m.PATTERNS\ndef broken(text):\n    current=m.PATTERNS\n    try:\n        m.PATTERNS=cached;return original(text)\n    finally:m.PATTERNS=current\nm.detect=broken\nimport codelang_detect as package\npackage.detect=m.detect"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "language-cli-success",
+      "application": "codelang-detect",
+      "title": "Specify CLI input routes and exact successful output.",
+      "implementation_files": [
+        "codelang_detect/cli.py"
+      ],
+      "target_file": "tests/test_cli_success.py",
+      "depends_on": [
+        "language-basic"
+      ],
+      "acceptance": [
+        "A Python snippet inside a .txt file is identified from its contents.",
+        "Piped text is accepted when no file argument exists.",
+        "Successful output has exactly one label/newline and no stderr."
+      ],
+      "contract": "codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions \"can't open\", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts \"Error: Could not process the input.\", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.",
+      "rationale": "A Python snippet stored as snippet.txt exposes filename-based guessing. Capturing stdout and stderr detects extra output, while the stdin fixture checks the other supported input route without touching the real console.",
+      "diversity": {
+        "surface": "cli",
+        "behavior": "input-routing",
+        "state": "temporary-files",
+        "dependencies": "stdin-and-argv-fixtures",
+        "boundaries": [
+          "file-vs-stdin",
+          "suffix-mismatch"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_cli_file_prints_one_label",
+            "test_cli_stdin_prints_one_label"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "extra-output",
+          "code": "import codelang_detect.cli as m\noriginal=m.main\ndef broken():\n    original();print(\"extra\")\nm.main=broken"
+        },
+        {
+          "id": "guess-file-suffix",
+          "code": "import codelang_detect.cli as m\nimport sys\nfrom pathlib import Path\noriginal=m.main\ndef broken():\n    if len(sys.argv)==2 and Path(sys.argv[1]).is_file():print(Path(sys.argv[1]).suffix.lstrip(\".\"));return\n    return original()\nm.main=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "language-cli-errors",
+      "application": "codelang-detect",
+      "title": "Specify CLI failure classes and useful diagnostics.",
+      "implementation_files": [
+        "codelang_detect/cli.py"
+      ],
+      "target_file": "tests/test_cli_errors.py",
+      "depends_on": [
+        "language-cli-success"
+      ],
+      "acceptance": [
+        "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+        "Closed stdin and invalid UTF-8 produce processing exit 1.",
+        "Normal input errors do not print tracebacks."
+      ],
+      "contract": "codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions \"can't open\", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts \"Error: Could not process the input.\", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.",
+      "rationale": "Missing files are usage failures, while decoding and closed-stream errors are processing failures. Exact exit codes and empty stdout prevent an implementation from treating every error as success; the traceback check also catches deliberately printed tracebacks.",
+      "diversity": {
+        "surface": "cli",
+        "behavior": "error-handling",
+        "state": "temporary-files",
+        "dependencies": "stdin-and-argv-fixtures",
+        "boundaries": [
+          "missing-file",
+          "invalid-utf8",
+          "closed-stream"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_missing_file_exits_2_with_diagnostic",
+            "test_closed_stdin_exits_1_with_processing_error",
+            "test_invalid_utf8_file_exits_1_with_processing_error"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "swallow-input-errors",
+          "code": "import codelang_detect.cli as m\noriginal=m.main\ndef broken():\n    try:return original()\n    except SystemExit:return None\nm.main=broken"
+        },
+        {
+          "id": "print-traceback",
+          "code": "import codelang_detect.cli as m\nimport sys\noriginal=m.main\ndef broken():\n    try:return original()\n    except SystemExit:\n        print(\"Traceback (most recent call last):\",file=sys.stderr);raise\nm.main=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-returns",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_cumulative_returns.py",
+      "depends_on": [],
+      "acceptance": [
+        "100,150,75 yields 0,.5,-.25, not daily changes.",
+        "Different series can have different first-observed dates.",
+        "Missing observations and entirely missing columns stay missing.",
+        "Dates and input values are preserved; nonpositive baselines are rejected."
+      ],
+      "contract": "Public coin_comparator.calculate_cumulative_returns(prices: pandas.DataFrame) returns price/first-observed-nonmissing-price minus 1 independently per column. Preserve row/column order, dates, missing observations and input values. An entirely missing series stays missing. Nonpositive observed baselines raise ValueError mentioning baseline. Do not forward fill or convert cumulative returns to daily changes.",
+      "rationale": "The three-point path separates cumulative from daily returns. Different first-observed rows prevent using a shared first row; explicit NaNs prevent forward filling. Input comparison checks preservation, and positive-valued examples prevent an always-error implementation from passing.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "numeric-transformation",
+        "state": "input-preservation",
+        "dependencies": "pandas",
+        "boundaries": [
+          "leading-missing",
+          "interior-missing",
+          "all-missing",
+          "zero",
+          "negative"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "tests": [
+            "test_returns_are_relative_to_first_price_not_daily_changes",
+            "test_returns_preserve_dates_and_input_prices",
+            "test_missing_price_remains_missing"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "daily-instead-of-cumulative",
+          "code": "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices.pct_change(fill_method=None).fillna(0)"
+        },
+        {
+          "id": "first-row-baseline",
+          "code": "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices/prices.iloc[0]-1"
+        }
+      ],
+      "additional_tests": "import pytest\n\n\ndef test_first_observed_price_is_selected_independently_per_series():\n    missing=float('nan')\n    prices=pd.DataFrame({'late':[missing,10.,20.], 'early':[2.,4.,missing], 'missing':[missing,missing,missing]})\n    expected=pd.DataFrame({'late':[missing,0.,1.], 'early':[0.,1.,missing], 'missing':[missing,missing,missing]})\n    assert_frame_equal(calculate_cumulative_returns(prices),expected)\n\n\n@pytest.mark.parametrize('baseline',[0.,-1.])\ndef test_nonpositive_observed_baselines_are_rejected(baseline):\n    with pytest.raises(ValueError,match='baseline'):\n        calculate_cumulative_returns(pd.DataFrame({'coin':[baseline,10.]}))\n",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-charts",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_price_charts.py",
+      "depends_on": [
+        "prices-returns"
+      ],
+      "acceptance": [
+        "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+        "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+        "Three observations discriminate daily changes from cumulative returns."
+      ],
+      "contract": "Public coin_comparator.calculate_cumulative_returns(prices: pandas.DataFrame) returns price/first-observed-nonmissing-price minus 1 independently per column. Preserve row/column order, dates, missing observations and input values. An entirely missing series stays missing. Nonpositive observed baselines raise ValueError mentioning baseline. Do not forward fill or convert cumulative returns to daily changes. Public calculate_correlation(prices) returns prices Pearson correlation matrix in input column order. Public plot_combined(correlation,prices,tickers) returns a Plotly Figure: heatmap first, then one scatter per present ticker, in the requested ticker order. Scatter y-values use calculate_cumulative_returns and names use the ticker. Browser rendering and styling are separate manual checks.",
+      "rationale": "Opposite sequences provide a concrete correlation oracle. Inspecting trace types, names and numeric data checks the figure without browser screenshots. A three-point price series catches a chart that silently substitutes daily returns.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "numeric-visualization",
+        "state": "stateless",
+        "dependencies": "pandas-and-plotly",
+        "boundaries": [
+          "opposite-correlation",
+          "trace-order",
+          "three-period-returns"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "tests": [
+            "test_correlation_detects_opposite_price_movements",
+            "test_combined_plot_contains_correlation_and_each_return_series"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "zero-correlations",
+          "code": "import coin_comparator as m\noriginal=m.calculate_correlation\nm.calculate_correlation=lambda prices:original(prices)*0"
+        },
+        {
+          "id": "chart-uses-daily-returns",
+          "code": "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices.pct_change(fill_method=None).fillna(0)"
+        }
+      ],
+      "additional_tests": "def test_plot_three_observations_uses_cumulative_not_daily_returns():\n    from coin_comparator import plot_combined\n    prices=pd.DataFrame({'BTC':[100.,150.,75.]})\n    figure=plot_combined(prices.corr(),prices,['BTC'])\n    assert list(figure.data[1].y) == [0.,.5,-.25]\n",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-fetch",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify the offline-testable adjusted-price provider boundary.",
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_price_fetch.py",
+      "depends_on": [],
+      "acceptance": [
+        "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+        "Only the Adj Close frame is returned.",
+        "All-missing tickers are removed; partially missing prices are preserved."
+      ],
+      "contract": "Public coin_comparator.fetch_data(tickers,start,end,download=None) accepts timestamp strings YYYY-MM-DD HH:MM:SS and returns a pandas DataFrame. Call the injected download(tickers,start=datetime,end=datetime,auto_adjust=False), select Adj Close and drop only entirely missing columns. download defaults to yf.download; tests must inject a fake and never use the network. Existing tickers are already normalized for this boundary.",
+      "rationale": "A provider spy checks the explicit timestamp/adjustment contract. One partly missing and one entirely missing series distinguish selective omission from blanket dropna or filling invented prices.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "provider-adapter",
+        "state": "stateless",
+        "dependencies": "injected-network-provider",
+        "boundaries": [
+          "partial-vs-all-missing",
+          "datetime-conversion",
+          "adjustment-policy"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "tests": [
+            "test_fetch_drops_only_entirely_missing_tickers"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "drop-partial-series",
+          "code": "import coin_comparator as m\noriginal=m.fetch_data\nm.fetch_data=lambda *a,**k:original(*a,**k).dropna(axis=1)"
+        },
+        {
+          "id": "wrong-adjustment-policy",
+          "code": "import coin_comparator as m\noriginal=m.fetch_data\ndef broken(*a,**k):\n    download=k[\"download\"]\n    def adjusted(*args,**kwargs):\n        kwargs[\"auto_adjust\"]=True;return download(*args,**kwargs)\n    k[\"download\"]=adjusted\n    return original(*a,**k)\nm.fetch_data=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-analysis",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+      "implementation_files": [
+        "price_workflow.py"
+      ],
+      "target_file": "tests/test_price_analysis.py",
+      "depends_on": [
+        "prices-returns",
+        "prices-fetch",
+        "prices-charts"
+      ],
+      "acceptance": [
+        "Normalize symbols and keep provider/CSV calculations equivalent.",
+        "Expose source labels, observed date bounds, correlation and omitted symbols.",
+        "First-observed baselines work when the first row is missing.",
+        "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+      ],
+      "contract": "Public price_workflow.analyze(tickers,start,end,provider=None,csv_path=None) returns {returns:DataFrame,correlation:DataFrame,omitted:list[str],source:\"csv\"|\"provider\",observed_start:YYYY-MM-DD,observed_end:YYYY-MM-DD}. Normalize names to uppercase -USD; dates use [start,end). provider(symbols,start,end) returns a price frame. CSV uses a date index and named ticker columns, with no provider call. CSV/provider results match except inferred pandas frequency metadata. Omit and report only all-missing series; each retained series uses its first nonmissing positive baseline and preserves gaps. Empty selection or reversed dates raises ValueError before fetching. Nonpositive baselines raise ValueError mentioning baseline. Provider RuntimeError propagates for display; never fabricate zeros. The correlation matrix uses price values, not returns. Browser integration remains outside this task.",
+      "rationale": "Comparing offline and provider routes verifies shared calculations, while concrete expected returns prevent two identically wrong routes from passing. The provider spy checks normalized symbols; omitted-series and leading-gap controls protect the baseline policy. Errors must remain explicit instead of becoming zero-return results.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "orchestration",
+        "state": "temporary-csv",
+        "dependencies": "injected-provider-and-pandas",
+        "boundaries": [
+          "offline-parity",
+          "invalid-selection",
+          "provider-failure",
+          "leading-missing",
+          "nonpositive-baseline"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_saved_csv_matches_provider_calculation_and_declares_source",
+            "test_provider_failure_does_not_produce_zero_returns",
+            "test_bad_selection_fails_before_fetch",
+            "test_unusable_first_row_is_reported_not_filled",
+            "test_first_observed_baselines_and_omitted_series_are_reported"
+          ],
+          "helpers": [
+            "prices"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "csv-source-mislabeled",
+          "code": "import price_workflow as m\noriginal=m.analyze\nm.analyze=lambda *a,**k:original(*a,**k)|{\"source\":\"provider\"}"
+        },
+        {
+          "id": "provider-gets-lowercase-symbols",
+          "code": "import price_workflow as m\noriginal=m.analyze\ndef broken(*a,**k):\n    if k.get(\"provider\") is not None:\n        provider=k[\"provider\"];k[\"provider\"]=lambda symbols,start,end:provider([s.lower() for s in symbols],start,end)\n    return original(*a,**k)\nm.analyze=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "mail-store",
+      "application": "ghost-box",
+      "title": "Specify RAM-only account separation, deduplication and explicit clearing.",
+      "implementation_files": [
+        "ghost_box/mail/store.py"
+      ],
+      "target_file": "tests/test_mail_store.py",
+      "depends_on": [],
+      "acceptance": [
+        "Repeated IDs do not duplicate messages.",
+        "Separate accounts and fresh stores remain isolated.",
+        "Clear removes messages and coverage."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "A duplicate ID and a second account separate deduplication from account isolation. A fresh store is empty, and clear must remove both content and its coverage metadata.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "validation",
+        "state": "account-scoped-memory",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Repeated IDs do not duplicate messages.",
+          "Separate accounts and fresh stores remain isolated.",
+          "Clear removes messages and coverage."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_session_mail_is_not_restored_and_accounts_do_not_mix",
+            "test_clear_removes_mail_and_coverage"
+          ],
+          "helpers": [
+            "mail"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "clear-keeps-mail",
+          "code": "from ghost_box.mail.store import MailStore\nMailStore.clear=lambda self:None"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-search",
+      "application": "ghost-box",
+      "title": "Specify downloaded-only search and Unicode-aware sender filters.",
+      "implementation_files": [
+        "ghost_box/mail/search.py"
+      ],
+      "target_file": "tests/test_mail_search.py",
+      "depends_on": [],
+      "acceptance": [
+        "A known sender matches under the declared Turkish-aware fold.",
+        "Empty or absent queries produce no invented matches.",
+        "A sender-only filter never matches text found only in the body or subject."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "Positive sender matches and negative subject-only queries prevent an always-true matcher from passing; an unrelated downloaded message also prevents claiming global search coverage.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "search-and-unicode",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "A known sender matches under the declared Turkish-aware fold.",
+          "Empty or absent queries produce no invented matches.",
+          "A sender-only filter never matches text found only in the body or subject."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_search_respects_the_explicit_downloaded_scope",
+            "test_literal_sender_filter_is_unicode_aware"
+          ],
+          "helpers": [
+            "mail"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "all-fields-always-match",
+          "code": "import ghost_box.mail.search as m\nm.matches=lambda *a,**k:True"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-splitting",
+      "application": "ghost-box",
+      "title": "Specify lossless bounded splitting of selected message bodies.",
+      "implementation_files": [
+        "ghost_box/mail/tasks.py"
+      ],
+      "target_file": "tests/test_mail_splitting.py",
+      "depends_on": [],
+      "acceptance": [
+        "Concatenating all parts reproduces the exact Unicode body.",
+        "IDs remain unchanged and part numbers are consecutive.",
+        "Exceeding the maximum task count raises TaskError rather than dropping content."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "A long multilingual body reveals lossy slicing. Budget success and budget failure are both exercised, so unconditional errors or silently returning the unsplit message cannot satisfy the contract.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "lossless-transformation",
+        "state": "stateless",
+        "dependencies": "token-counter-callable",
+        "boundaries": [
+          "Concatenating all parts reproduces the exact Unicode body.",
+          "IDs remain unchanged and part numbers are consecutive.",
+          "Exceeding the maximum task count raises TaskError rather than dropping content."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_long_mail_splitting_preserves_exact_unicode_content",
+            "test_task_cap_does_not_silently_discard_selected_content"
+          ],
+          "helpers": [
+            "mail"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "ignore-task-budget",
+          "code": "import ghost_box.mail.tasks as m\nm.split_emails=lambda rows,*a,**k:[rows]"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-quote-validation",
+      "application": "ghost-box",
+      "title": "Specify source-bound quotation checking with valid and invalid controls.",
+      "implementation_files": [
+        "ghost_box/mail/summary.py"
+      ],
+      "target_file": "tests/test_mail_quote_validation.py",
+      "depends_on": [],
+      "acceptance": [
+        "An own-body quotation is accepted.",
+        "A fact borrowed from another email raises TaskError.",
+        "An unclear item may use the declared empty classification quote."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "The valid counterpart is essential: rejecting every model payload must fail. The invalid counterpart changes only the quotation owner, isolating provenance checking from unrelated schema errors.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "structured-validation",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "An own-body quotation is accepted.",
+          "A fact borrowed from another email raises TaskError.",
+          "An unclear item may use the declared empty classification quote."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_summary_quote_cannot_be_borrowed_from_another_email"
+          ],
+          "helpers": [
+            "mail"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "reject-all-items",
+          "code": "import ghost_box.mail.summary as m\nm.checked_items=lambda *a,**k:[]"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-fetch-coverage",
+      "application": "ghost-box",
+      "title": "Specify explicit provider fetching and truthful downloaded-range coverage.",
+      "implementation_files": [
+        "mail_workflow.py"
+      ],
+      "target_file": "tests/test_mail_fetch_coverage.py",
+      "depends_on": [],
+      "acceptance": [
+        "Reading messages never initiates fetching.",
+        "Explicit fetch forwards account and timezone-aware dates and deduplicates IDs.",
+        "A narrower search retains the downloaded coverage range even when no results match."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "The provider spy distinguishes browsing from fetching. Querying a narrower range catches coverage that merely echoes the current query rather than describing the downloaded corpus.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "provider-orchestration",
+        "state": "downloaded-corpus",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Reading messages never initiates fetching.",
+          "Explicit fetch forwards account and timezone-aware dates and deduplicates IDs.",
+          "A narrower search retains the downloaded coverage range even when no results match."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_explicit_fetch_preserves_range_and_reports_coverage"
+          ],
+          "helpers": [
+            "make_app"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "fetch-wrong-account",
+          "code": "from mail_workflow import MailApp\noriginal=MailApp.fetch\ndef broken(self,*a,**k):\n    self.account='wrong-account'\n    return original(self,*a,**k)\nMailApp.fetch=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-selected-inference",
+      "application": "ghost-box",
+      "title": "Specify combined filters, selected-only inference and citation validation.",
+      "implementation_files": [
+        "mail_workflow.py"
+      ],
+      "target_file": "tests/test_mail_selected_inference.py",
+      "depends_on": [],
+      "acceptance": [
+        "Date and sender filters both exclude downloaded rows.",
+        "Answer and summary receive only selected rows.",
+        "Empty, unknown or foreign-citation selections are rejected without extra model calls."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "Provider and model spies preserve the selection boundary. A foreign citation and an unknown selected ID exercise independent failure paths instead of accepting an answer about any downloaded message.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "selection-and-citations",
+        "state": "downloaded-corpus",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Date and sender filters both exclude downloaded rows.",
+          "Answer and summary receive only selected rows.",
+          "Empty, unknown or foreign-citation selections are rejected without extra model calls."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_combined_search_filters_and_selected_inference"
+          ],
+          "helpers": [
+            "make_app"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "send-entire-inbox-to-model",
+          "code": "from mail_workflow import MailApp\noriginal=MailApp.answer\nMailApp.answer=lambda self,ids,question:original(self,[m['id'] for m in self._mail],question)"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-cancellation",
+      "application": "ghost-box",
+      "title": "Specify cancellation and account-epoch protection for delayed callbacks.",
+      "implementation_files": [
+        "mail_workflow.py"
+      ],
+      "target_file": "tests/test_mail_cancellation.py",
+      "depends_on": [],
+      "acceptance": [
+        "A cancelled callback cannot replace the current result.",
+        "A valid current callback is accepted.",
+        "Changing account clears results and rejects old-account callbacks."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "Testing a valid current completion alongside a stale one prevents always-reject behavior. The result must remain current until account switching deliberately clears it.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "state-transitions",
+        "state": "operation-epoch",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "A cancelled callback cannot replace the current result.",
+          "A valid current callback is accepted.",
+          "Changing account clears results and rejects old-account callbacks."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_cancelled_or_previous_account_result_cannot_be_applied"
+          ],
+          "helpers": [
+            "make_app"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "apply-cancelled-result",
+          "code": "from mail_workflow import MailApp\ndef broken(self,op,result):\n    self.result=result\n    return True\nMailApp.finish=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "mail-model-lifecycle",
+      "application": "ghost-box",
+      "title": "Specify model reuse, manual unload and activity-aware idle boundaries.",
+      "implementation_files": [
+        "mail_workflow.py"
+      ],
+      "target_file": "tests/test_mail_model_lifecycle.py",
+      "depends_on": [],
+      "acceptance": [
+        "Repeated loads reuse the same path.",
+        "Clear removes derived content.",
+        "299.99 seconds does not unload; 300 seconds does.",
+        "Active operations prevent idle unloading and completion resets the timer."
+      ],
+      "contract": "Proposed component package `ghost_box.mail` plus a public `mail_workflow.MailApp` facade. \n- `store.MailStore()` is RAM-only. `.replace(account, messages, coverage=None)` deduplicates IDs per account; `.clear()` removes all mail and coverage; `.coverage` is a mapping. `store.messages(store,account)` -> rows and `store.message(store,account,id)` -> row or None. Rows have id,timestamp,sender,recipients,subject,body. A new store is empty. Storage can retain isolated accounts; switching the active app account clears accessible state.\n- `search.search(rows,query,limit=5)` returns ranked dicts with id/source/subject/score; empty query -> []. `search.matches(row,query,field=\"all\")` -> bool, literal Turkish-aware case folding; sender filter never searches body.\n- `tasks.split_emails(rows,count_tokens,context_budget,max_tasks)` -> list of batches, losslessly splitting body and preserving ID with consecutive `part` starting at 1. Raise `tasks.TaskError` rather than silently drop content when max_tasks is exceeded. `summary.checked_items(json_text, source_rows)` validates item key/kind/kind_quote/facts[{text,quote}], with source rows carrying key/source. A quotation borrowed from another source raises TaskError.\n- `MailApp(provider=...,model=...,clock=...)`: provider.fetch(account,start,end) -> full rows, datetime range [start,end), aware dates. `.switch_account(id)`, `.fetch(start,end)`, `.messages()`, `.clear()`. Fetch only explicitly; deduplicate IDs. `.search(query,sender=...,start=...,end=...)` -> `{messages,coverage:{account,start,end},scope:\"downloaded-only\"}`, combined filters. No-results never claims global absence.\n- `.answer(selected_ids,question)` passes only selected full rows to model.answer(rows,question), returns `{text,source_ids}` with selected-only citations, rejects empty/unknown IDs with ValueError. `.result` holds latest answer/operation result or None; clear/account switch removes it.\n- `.begin_operation()` -> opaque handle; `.cancel(handle)`; `.finish(handle,result)` returns bool accepted. Canceled, already completed and previous-account callbacks return False and cannot replace current result.\n- `.load_model(path)` calls model.load(path) once for unchanged path; `.unload_model()` releases current model through model.unload(). Clock is monotonic seconds; `.check_idle()` unloads at >=300 idle seconds, never while active operations exist; explicit model loads and successful inference reset idle activity.\nDependencies: Python, pytest; these tests do not import Qt or load weights. GUI/provider sign-in support remains separately checked.\n\n- Literal folding maps I/İ/ı/i to i before Unicode casefold, for both queries and stored fields. Coverage always describes the downloaded range, even for narrower queries. count_tokens(list_of_row_dicts) returns an integer.\n- checked_items accepts {items:[{key,kind,kind_quote,facts:[{text,quote}]}]}. kind is information/reply_requested/action_requested/unclear; unclear may have an empty kind_quote. Other kind quotes and every fact quote must occur in that item's own source body.\n- .summarize(selected_ids) calls model.summarize(selected_rows), with the same selection/citation validation as answer; returns {text,source_ids}. Successful inference, load_model and begin/finish operations reset idle activity.\n\n",
+      "rationale": "A fake clock distinguishes both sides of the five-minute boundary without sleeps. The active-operation case prevents a timer-only implementation from unloading a busy model.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "resource-lifecycle",
+        "state": "model-and-idle-clock",
+        "dependencies": "model-spy-and-fake-clock",
+        "boundaries": [
+          "Repeated loads reuse the same path.",
+          "Clear removes derived content.",
+          "299.99 seconds does not unload; 300 seconds does.",
+          "Active operations prevent idle unloading and completion resets the timer."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_clear_removes_derived_results_and_model_idle_boundary",
+            "test_idle_timer_resets_and_active_operations_prevent_unload"
+          ],
+          "helpers": [
+            "make_app"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "never-unload-idle-model",
+          "code": "from mail_workflow import MailApp\nMailApp.check_idle=lambda self:None"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "decision-requests",
+      "application": "reflexmodels",
+      "title": "Specify typed request validation and lossless Unicode request serialization.",
+      "implementation_files": [
+        "reflexmodels/types.py",
+        "reflexmodels/protocol.py"
+      ],
+      "target_file": "tests/test_decision_requests.py",
+      "depends_on": [],
+      "acceptance": [
+        "Preserve the original Unicode state and option identifiers.",
+        "Reject insufficient options, duplicate ordinal levels and empty questions."
+      ],
+      "contract": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\n- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.\n- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.\n\n",
+      "rationale": "A valid Unicode request is the control for the invalid constructors; this protects against both lossy normalization and rejecting every request.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "typed-validation",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Preserve the original Unicode state and option identifiers.",
+          "Reject insufficient options, duplicate ordinal levels and empty questions."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_runtime_unicode_options_roundtrip",
+            "test_invalid_decision_requests_are_rejected"
+          ],
+          "helpers": [
+            "choice"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "request-loses-original-option-ids",
+          "code": "import reflexmodels.protocol as m\nimport json\noriginal=m.request_to_json\ndef broken(*a,**k):\n    row=json.loads(original(*a,**k));row['options']={'wrong':'option'};return json.dumps(row)\nm.request_to_json=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "decision-probabilities",
+      "application": "reflexmodels",
+      "title": "Specify logits, probability validation and numeric uncertainty output.",
+      "implementation_files": [
+        "reflexmodels/scoring.py",
+        "reflexmodels/protocol.py",
+        "reflexmodels/routing.py"
+      ],
+      "target_file": "tests/test_decision_probabilities.py",
+      "depends_on": [],
+      "acceptance": [
+        "Logits 2 and 0 map to approximately .880797 and .119203.",
+        "Selected identifiers and strict JSON serialization remain stable.",
+        "Margin and normalized entropy have concrete numeric values.",
+        "Reject negative, nonfinite, nonnormalized or mismatched probabilities."
+      ],
+      "contract": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\n- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.\n- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.\n\n",
+      "rationale": "Exact softmax values and uncertainty calculations check more than shape. Invalid distributions cover numeric and schema failures without weakening the valid scored response.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "probability-calculation",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Logits 2 and 0 map to approximately .880797 and .119203.",
+          "Selected identifiers and strict JSON serialization remain stable.",
+          "Margin and normalized entropy have concrete numeric values.",
+          "Reject negative, nonfinite, nonnormalized or mismatched probabilities."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_logits_map_to_original_option_ids",
+            "test_invalid_probabilities_are_rejected"
+          ],
+          "helpers": [
+            "choice"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "select-wrong-option",
+          "code": "import reflexmodels as m\noriginal=m.score_decision\ndef broken(*a,**k):\n    result=original(*a,**k);result['selected_option']='web';return result\nm.score_decision=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "decision-shared-state",
+      "application": "reflexmodels",
+      "title": "Specify independent results for multiple questions sharing one state.",
+      "implementation_files": [
+        "reflexmodels/scoring.py",
+        "reflexmodels/types.py"
+      ],
+      "target_file": "tests/test_decision_shared_state.py",
+      "depends_on": [],
+      "acceptance": [
+        "Keep choice and binary option identifiers separate.",
+        "Equal logits give .5/.5 independently for both questions."
+      ],
+      "contract": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\n- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.\n- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.\n\n",
+      "rationale": "Distinct option schemas make accidental reuse of one question distribution observable even when both tasks have the same numeric probabilities.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "batch-isolation",
+        "state": "shared-input",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Keep choice and binary option identifiers separate.",
+          "Equal logits give .5/.5 independently for both questions."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_shared_state_keeps_question_results_separate"
+          ],
+          "helpers": [
+            "choice"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "mix-shared-question-options",
+          "code": "import reflexmodels as m\noriginal=m.score_shared_state\ndef broken(*a,**k):\n    result=original(*a,**k);result['continue']=result['tool'];return result\nm.score_shared_state=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "decision-fallback",
+      "application": "reflexmodels",
+      "title": "Specify confidence, margin and answerability gating with acceptance controls.",
+      "implementation_files": [
+        "reflexmodels/routing.py"
+      ],
+      "target_file": "tests/test_decision_fallback.py",
+      "depends_on": [],
+      "acceptance": [
+        "Low margin, low confidence and insufficient answerability trigger their own reason codes.",
+        "A confident, answerable high-margin result requires no fallback and has no reasons."
+      ],
+      "contract": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\n- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.\n- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.\n\n",
+      "rationale": "The accepted case defeats an always-fallback implementation. Independent threshold failures ensure a confident answer is still rejected when answerability is insufficient.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "threshold-routing",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Low margin, low confidence and insufficient answerability trigger their own reason codes.",
+          "A confident, answerable high-margin result requires no fallback and has no reasons."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_low_margin_requires_fallback",
+            "test_low_answerability_overrides_confident_choice",
+            "test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence"
+          ],
+          "helpers": [
+            "choice"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "always-fallback",
+          "code": "import reflexmodels as m\noriginal=m.fallback_gate\nm.fallback_gate=lambda *a,**k:original(*a,**k)|{\"fallback_required\":True,\"accepted\":False}"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "decision-calibration",
+      "application": "reflexmodels",
+      "title": "Specify honest multiclass metrics and undefined-input failures.",
+      "implementation_files": [
+        "reflexmodels/metrics.py"
+      ],
+      "target_file": "tests/test_decision_calibration.py",
+      "depends_on": [],
+      "acceptance": [
+        "Macro-F1 includes the unpredicted class, yielding 1/3 in the provided two-label fixture.",
+        "For two correct .75-confidence predictions, NLL=-log(.75), Brier=.125 and ECE=.25.",
+        "Empty inputs and invalid bin counts raise ValueError."
+      ],
+      "contract": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\n- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.\n- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.\n\n",
+      "rationale": "Concrete calibration values expose formula errors, while a never-predicted class distinguishes macro-F1 from accuracy. Invalid inputs remain explicit rather than producing perfect metrics.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "metrics-and-calibration",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Macro-F1 includes the unpredicted class, yielding 1/3 in the provided two-label fixture.",
+          "For two correct .75-confidence predictions, NLL=-log(.75), Brier=.125 and ECE=.25.",
+          "Empty inputs and invalid bin counts raise ValueError."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_metrics_include_unpredicted_class",
+            "test_calibration_metrics_have_concrete_expected_values",
+            "test_undefined_metrics_reject_invalid_inputs"
+          ],
+          "helpers": [
+            "choice"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "f1-equals-accuracy",
+          "code": "import reflexmodels.metrics as m\noriginal=m.classification_metrics\ndef broken(*a,**k):\n    result=original(*a,**k)\n    result['macro_f1']=result['accuracy']\n    return result\nm.classification_metrics=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "decision-ordinal",
+      "application": "reflexmodels",
+      "title": "Specify ordinal identities and deterministic declaration-order ties.",
+      "implementation_files": [
+        "reflexmodels/scoring.py",
+        "reflexmodels/types.py"
+      ],
+      "target_file": "tests/test_decision_ordinal.py",
+      "depends_on": [],
+      "acceptance": [
+        "Ordinal option IDs are the ordered level strings.",
+        "A uniquely highest medium score selects medium.",
+        "Tied nominal options choose zeta when it was declared before alpha."
+      ],
+      "contract": "Proposed API in `reflexmodels`:\n- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.\n- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.\n- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.\n- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.\n- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.\nDependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.\n\n- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.\n- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.\n\n",
+      "rationale": "An ordinal result must preserve level identity, and reversing alphabetical/declaration order makes a deterministic but wrong tie policy fail.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "ordered-selection",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Ordinal option IDs are the ordered level strings.",
+          "A uniquely highest medium score selects medium.",
+          "Tied nominal options choose zeta when it was declared before alpha."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_ordinal_scoring_and_declaration_order_ties"
+          ],
+          "helpers": [
+            "choice"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "always-first-level",
+          "code": "import reflexmodels as m\noriginal=m.score_decision\ndef broken(*a,**k):\n    result=original(*a,**k);return result|{\"selected_option\":next(iter(result[\"option_probabilities\"]))}\nm.score_decision=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "experiment-preflight",
+      "application": "llm-bender-lab",
+      "title": "Specify conversation/split validation before any backend is invoked.",
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_preflight.py",
+      "depends_on": [],
+      "acceptance": [
+        "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+        "The trainer is never invoked after invalid preflight."
+      ],
+      "contract": "Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\n- trainer receives exactly the train-split rows; both evaluator calls receive exactly the test-split rows. Baseline identity is config['model_revision']; candidate identity is the adapter path string. A real 0.0 metric remains 0.0, including its computed delta. Successful status.json declares completed; returned errors redact secrets as well as saved logs.\n\n",
+      "rationale": "A backend spy distinguishes early validation from an error after training has started. Synthetic rows exercise schema and leakage failures without importing evaluation examples.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "schema-and-leakage-validation",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+          "The trainer is never invoked after invalid preflight."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/conftest.py",
+          "tests": [],
+          "helpers": [
+            "config",
+            "rows",
+            "experiment_config",
+            "experiment_rows"
+          ]
+        },
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_malformed_data_fails_before_backend"
+          ],
+          "helpers": []
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_invalid_preflight_never_invokes_trainer"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "normalize-away-invalid-conversation",
+          "code": "import experiment_workflow as m\nfrom copy import deepcopy\noriginal=m.run_experiment\ndef broken(root,name,config,rows,**k):\n    rows=deepcopy(rows)\n    for i,row in enumerate(rows):\n        row['split']='train' if i==0 else 'test'\n        row['messages']=[{'role':'user','content':str(i)},{'role':'assistant','content':'5'}]\n    return original(root,name,config,rows,**k)\nm.run_experiment=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "experiment-matched-evaluation",
+      "application": "llm-bender-lab",
+      "title": "Specify train/test routing and reproducible matched model comparisons.",
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_matched_evaluation.py",
+      "depends_on": [],
+      "acceptance": [
+        "Trainer receives only training rows and evaluator only test rows.",
+        "Baseline identity is the model revision and candidate identity the adapter path.",
+        "Preserve resolved config, adapter and completed status.",
+        "Report real deltas and unavailable metrics without replacing missingness with zero."
+      ],
+      "contract": "Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\n- trainer receives exactly the train-split rows; both evaluator calls receive exactly the test-split rows. Baseline identity is config['model_revision']; candidate identity is the adapter path string. A real 0.0 metric remains 0.0, including its computed delta. Successful status.json declares completed; returned errors redact secrets as well as saved logs.\n\n",
+      "rationale": "Inspecting the actual rows passed to each callback catches a shared wrong split that equality between evaluation calls alone would miss. The adapter is an inert fixture file, not real weight training.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "orchestration",
+        "state": "run-directory",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Trainer receives only training rows and evaluator only test rows.",
+          "Baseline identity is the model revision and candidate identity the adapter path.",
+          "Preserve resolved config, adapter and completed status.",
+          "Report real deltas and unavailable metrics without replacing missingness with zero."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/conftest.py",
+          "tests": [],
+          "helpers": [
+            "config",
+            "rows",
+            "experiment_config",
+            "experiment_rows"
+          ]
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+          ],
+          "helpers": [
+            "trainer"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "resolved-config-loses-seed",
+          "code": "import experiment_workflow as m\nfrom pathlib import Path\nimport json\noriginal=m.run_experiment\ndef broken(root,name,*a,**k):\n    result=original(root,name,*a,**k)\n    path=Path(root)/name/'resolved.json'\n    data=json.loads(path.read_text());data['seed']=0;path.write_text(json.dumps(data))\n    return result\nm.run_experiment=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "experiment-artifact-isolation",
+      "application": "llm-bender-lab",
+      "title": "Specify immutable previous runs and faithful zero-valued metrics.",
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_artifact_isolation.py",
+      "depends_on": [],
+      "acceptance": [
+        "Reject an existing run directory.",
+        "A distinct run succeeds without modifying any previous file bytes.",
+        "A real 0.0 metric remains before=after=delta=0.0."
+      ],
+      "contract": "Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\n- trainer receives exactly the train-split rows; both evaluator calls receive exactly the test-split rows. Baseline identity is config['model_revision']; candidate identity is the adapter path string. A real 0.0 metric remains 0.0, including its computed delta. Successful status.json declares completed; returned errors redact secrets as well as saved logs.\n\n",
+      "rationale": "A new successful run is the control for duplicate rejection. Comparing all old file bytes checks preservation beyond merely refusing one duplicate call.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "artifact-preservation",
+        "state": "filesystem",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Reject an existing run directory.",
+          "A distinct run succeeds without modifying any previous file bytes.",
+          "A real 0.0 metric remains before=after=delta=0.0."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/conftest.py",
+          "tests": [],
+          "helpers": [
+            "config",
+            "rows",
+            "experiment_config",
+            "experiment_rows"
+          ]
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_run_directories_are_distinct_and_never_overwritten"
+          ],
+          "helpers": [
+            "trainer"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "allow-overwrite",
+          "code": "import experiment_workflow as m\noriginal=m.run_experiment\nfrom pathlib import Path\nimport shutil\ndef broken(root,name,*a,**k):\n    shutil.rmtree(Path(root)/name,ignore_errors=True)\n    return original(root,name,*a,**k)\nm.run_experiment=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "experiment-failure-reporting",
+      "application": "llm-bender-lab",
+      "title": "Specify explicit failed status and secret-free returned and saved errors.",
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_failure_reporting.py",
+      "depends_on": [],
+      "acceptance": [
+        "Backend failure yields failed status, useful diagnostics and no success summary.",
+        "Configured secret values are absent from returned errors and every saved text artifact."
+      ],
+      "contract": "Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\n- trainer receives exactly the train-split rows; both evaluator calls receive exactly the test-split rows. Baseline identity is config['model_revision']; candidate identity is the adapter path string. A real 0.0 metric remains 0.0, including its computed delta. Successful status.json declares completed; returned errors redact secrets as well as saved logs.\n\n",
+      "rationale": "The injected error deliberately contains the fixture secret. Both in-memory and persisted diagnostics must redact it while retaining the useful failure reason.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "failure-reporting",
+        "state": "filesystem",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Backend failure yields failed status, useful diagnostics and no success summary.",
+          "Configured secret values are absent from returned errors and every saved text artifact."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/conftest.py",
+          "tests": [],
+          "helpers": [
+            "config",
+            "rows",
+            "experiment_config",
+            "experiment_rows"
+          ]
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_failure_is_recorded_without_success_or_credential_leak"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "backend-failure-claims-success",
+          "code": "import experiment_workflow as m\noriginal=m.run_experiment\ndef broken(*a,**k):\n    result=original(*a,**k)\n    if result['status']=='failed':result['status']='completed'\n    return result\nm.run_experiment=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "tensor-rms-normalization",
+      "application": "miniature-llms",
+      "title": "Specify RMS normalization scale, epsilon and numeric gradients.",
+      "implementation_files": [
+        "_7_RMSNorm/pytorch.py"
+      ],
+      "target_file": "tests/test_tensor_rms_normalization.py",
+      "depends_on": [],
+      "acceptance": [
+        "Normalize the last dimension by sqrt(mean(x squared)+epsilon), then learned scale.",
+        "Positive epsilon maps zero inputs to finite zeros.",
+        "Scale gradients agree with the explicit [3,4]/sqrt(12.5) fixture."
+      ],
+      "contract": "Proposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n",
+      "rationale": "Learned scales 2 and 3 expose an implementation that drops the weight. A zero-input control and an exact backward result check separate stability and differentiability.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "numeric-normalization",
+        "state": "stateless",
+        "dependencies": "pytorch",
+        "boundaries": [
+          "Normalize the last dimension by sqrt(mean(x squared)+epsilon), then learned scale.",
+          "Positive epsilon maps zero inputs to finite zeros.",
+          "Scale gradients agree with the explicit [3,4]/sqrt(12.5) fixture."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_normalization_and_rope.py",
+          "tests": [
+            "test_rmsnorm_uses_last_dimension_and_learned_scale",
+            "test_rmsnorm_epsilon_keeps_zero_input_finite",
+            "test_rmsnorm_backpropagates_expected_scale_gradient"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "rmsnorm-ignores-learned-scale",
+          "code": "from _7_RMSNorm.pytorch import RMSNorm\noriginal=RMSNorm.forward\nRMSNorm.forward=lambda self,x:original(self,x)/self.weight"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "tensor-rotary-positions",
+      "application": "miniature-llms",
+      "title": "Specify rotary half-rotation, sequence positions and dimension errors.",
+      "implementation_files": [
+        "_4_RoPE/pytorch.py"
+      ],
+      "target_file": "tests/test_tensor_rotary_positions.py",
+      "depends_on": [],
+      "acceptance": [
+        "rotate_half negates the second half and concatenates the first.",
+        "Position zero is identity on every head.",
+        "Position one rotates along sequence rather than head axes.",
+        "Reject odd or mismatched head dimensions with the declared diagnostics."
+      ],
+      "contract": "Proposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n",
+      "rationale": "Multiple heads at the same sequence position detect head/sequence confusion; explicit position-one sine/cosine values expose a shape-correct identity implementation.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "position-transformation",
+        "state": "stateless",
+        "dependencies": "pytorch",
+        "boundaries": [
+          "rotate_half negates the second half and concatenates the first.",
+          "Position zero is identity on every head.",
+          "Position one rotates along sequence rather than head axes.",
+          "Reject odd or mismatched head dimensions with the declared diagnostics."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_normalization_and_rope.py",
+          "tests": [
+            "test_rotate_half_moves_and_negates_second_half",
+            "test_rope_position_zero_is_identity_for_every_head",
+            "test_rope_rotates_sequence_axis_not_head_axis",
+            "test_rope_rejects_odd_head_dimension",
+            "test_rope_rejects_mismatched_input_dimension"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "rotate-head-axis",
+          "code": "from _4_RoPE.pytorch import RoPE\noriginal=RoPE.forward\nRoPE.forward=lambda self,x:original(self,x.transpose(1,2)).transpose(1,2)"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "tensor-model-composition",
+      "application": "miniature-llms",
+      "title": "Specify composed logits, trainable gradients and incompatible dimensions.",
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_model_composition.py",
+      "depends_on": [],
+      "acceptance": [
+        "Return [batch,sequence,vocab] logits.",
+        "All trainable parameters have finite gradients and some gradient is nonzero.",
+        "Reject indivisible hidden sizes and odd per-head dimensions."
+      ],
+      "contract": "Proposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n",
+      "rationale": "Shape and gradient checks are separate: a correctly shaped constant tensor is insufficient. The valid fixture controls the negative dimension cases.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "module-composition",
+        "state": "stateless",
+        "dependencies": "pytorch",
+        "boundaries": [
+          "Return [batch,sequence,vocab] logits.",
+          "All trainable parameters have finite gradients and some gradient is nonzero.",
+          "Reject indivisible hidden sizes and odd per-head dimensions."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_composed_model_shapes_gradients_and_invalid_dimensions"
+          ],
+          "helpers": [
+            "model"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "wrong-logit-vocabulary-dimension",
+          "code": "from tiny_model import TinyModel\noriginal=TinyModel.forward\nTinyModel.forward=lambda self,tokens:original(self,tokens)[...,:-1]"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "tensor-causal-independence",
+      "application": "miniature-llms",
+      "title": "Specify causal invariance and sensitivity for the composed model.",
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_causal_independence.py",
+      "depends_on": [],
+      "acceptance": [
+        "Changing future tokens cannot alter earlier logits.",
+        "Later logits must still respond to changed input."
+      ],
+      "contract": "Proposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n",
+      "rationale": "The second assertion prevents a constant-output model from satisfying causal invariance vacuously; only future positions are changed in the paired inputs.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "causal-invariant",
+        "state": "stateless",
+        "dependencies": "pytorch",
+        "boundaries": [
+          "Changing future tokens cannot alter earlier logits.",
+          "Later logits must still respond to changed input."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_causal_outputs_cannot_observe_future_tokens"
+          ],
+          "helpers": [
+            "model"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "remove-causal-mask",
+          "code": "import tiny_model as m\noriginal=m.F.scaled_dot_product_attention\ndef broken(*a,**k):\n    k['is_causal']=False\n    return original(*a,**k)\nm.F.scaled_dot_product_attention=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "tensor-checkpoint-roundtrip",
+      "application": "miniature-llms",
+      "title": "Specify configuration/weight checkpoint preservation.",
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_checkpoint_roundtrip.py",
+      "depends_on": [],
+      "acceptance": [
+        "Saving and loading reconstructs the same CPU model configuration and weights.",
+        "Eval logits match exactly at the same runtime."
+      ],
+      "contract": "Proposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n",
+      "rationale": "Comparing actual logits after reload catches a checkpoint that retains only model shape or configuration while losing learned weights.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "serialization",
+        "state": "checkpoint-file",
+        "dependencies": "pytorch",
+        "boundaries": [
+          "Saving and loading reconstructs the same CPU model configuration and weights.",
+          "Eval logits match exactly at the same runtime."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_checkpoint_roundtrip_preserves_all_logits"
+          ],
+          "helpers": [
+            "model"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "checkpoint-loses-weights",
+          "code": "from tiny_model import TinyModel\nimport torch\noriginal=TinyModel.load\ndef broken(cls,path):\n    result=original(path)\n    with torch.no_grad():\n        for p in result.parameters():p.zero_()\n    return result\nTinyModel.load=classmethod(broken)"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "tensor-training-generation",
+      "application": "miniature-llms",
+      "title": "Specify deterministic tiny CPU training and actual greedy next-token decoding.",
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_training_generation.py",
+      "depends_on": [],
+      "acceptance": [
+        "Repeat the same seed and fixture to get identical finite loss histories.",
+        "The bounded smoke loss improves; no claim of general language capability.",
+        "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+      ],
+      "contract": "Proposed components plus public `tiny_model`:\n- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.\n- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning \"head_dimension must be even\"; wrong forward dimension -> ValueError \"Expected head dimension <n>, got <n>\".\n- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.\n- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.\n- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.\n- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.\nDependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.\n\n- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.\n- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.\n\n",
+      "rationale": "A controlled successor-logit model checks actual predicted tokens independently of training loss. Length-only checks would allow constant tokens; exact greedy values do not.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "bounded-training-and-decoding",
+        "state": "stateless",
+        "dependencies": "pytorch",
+        "boundaries": [
+          "Repeat the same seed and fixture to get identical finite loss histories.",
+          "The bounded smoke loss improves; no claim of general language capability.",
+          "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_deterministic_cpu_training_and_bounded_generation",
+            "test_greedy_generation_follows_unique_logit_maxima",
+            "test_negative_generation_budget_is_rejected"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "constant-generated-tokens",
+          "code": "import tiny_model as m\nm.generate=lambda model,prompt,**k:list(prompt)+[0]*k['max_new_tokens']"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "snapshot-file-tree",
+      "application": "repo-context",
+      "title": "Specify extension and ignore filtering in a deterministic file tree.",
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_file_tree.py",
+      "depends_on": [],
+      "acceptance": [
+        "Show selected .py files and the declared root label.",
+        "Exclude other extensions, node_modules and caller-ignored files.",
+        "An entirely ignored tree contains only the root line."
+      ],
+      "contract": "Proposed public helpers `repo_context.core` plus a shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate receiving pathlib.Path, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; details identify the dependency file and contain its dependency entries; whitespace layout is not fixed. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n- CLI/UI use context_workflow.snapshot through their common injected operation. Legacy adapters are outside this contract. Snapshot metadata identifies the canonical repository and branch; commit-hash rendering is not claimed by this interface.\n",
+      "rationale": "Presence and exclusion checks protect meaningful tree content without requiring undocumented whitespace. An explicit ignore predicate distinguishes caller policy from built-in dependency filtering.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "file-selection",
+        "state": "temporary-files",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Show selected .py files and the declared root label.",
+          "Exclude other extensions, node_modules and caller-ignored files.",
+          "An entirely ignored tree contains only the root line."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_tree_filters_extensions_and_ignored_directories",
+            "test_explicit_ignore_removes_matching_file"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "ignore-caller-predicate",
+          "code": "import repo_context.core as m\noriginal=m.build_file_tree\nm.build_file_tree=lambda root,name,ignore,extensions:original(root,name,lambda path:False,extensions)"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "snapshot-dependencies",
+      "application": "repo-context",
+      "title": "Specify dependency summaries from requirements and project metadata.",
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_dependencies.py",
+      "depends_on": [],
+      "acceptance": [
+        "Recognize Python from requirements.txt and pyproject.toml.",
+        "Include the source filename and dependency entries.",
+        "Formatting whitespace is not part of the contract."
+      ],
+      "contract": "Proposed public helpers `repo_context.core` plus a shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate receiving pathlib.Path, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; details identify the dependency file and contain its dependency entries; whitespace layout is not fixed. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n- CLI/UI use context_workflow.snapshot through their common injected operation. Legacy adapters are outside this contract. Snapshot metadata identifies the canonical repository and branch; commit-hash rendering is not claimed by this interface.\n",
+      "rationale": "Two source formats avoid treating one parser as the entire feature. Content assertions check truthful dependencies rather than reproducing a renderer quirk.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "metadata-parsing",
+        "state": "temporary-files",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Recognize Python from requirements.txt and pyproject.toml.",
+          "Include the source filename and dependency entries.",
+          "Formatting whitespace is not part of the contract."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_requirements_are_included_in_dependency_context",
+            "test_pyproject_dependencies_are_listed"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "omit-dependency-summary",
+          "code": "import repo_context.core as m\nm.analyze_dependencies=lambda root:('Python','')"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "snapshot-url-routing",
+      "application": "repo-context",
+      "title": "Specify repository, branch and subfolder extraction from simple GitHub URLs.",
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_url_routing.py",
+      "depends_on": [],
+      "acceptance": [
+        "Normalize the repository to a canonical .git URL.",
+        "Preserve simple branch names and nested subfolder paths.",
+        "Do not guess slash-containing branch semantics."
+      ],
+      "contract": "Proposed public helpers `repo_context.core` plus a shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate receiving pathlib.Path, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; details identify the dependency file and contain its dependency entries; whitespace layout is not fixed. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n- CLI/UI use context_workflow.snapshot through their common injected operation. Legacy adapters are outside this contract. Snapshot metadata identifies the canonical repository and branch; commit-hash rendering is not claimed by this interface.\n",
+      "rationale": "Using both main and dev prevents a hardcoded default branch from passing. A nested directory must remain separate from the branch name.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "url-parsing",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Normalize the repository to a canonical .git URL.",
+          "Preserve simple branch names and nested subfolder paths.",
+          "Do not guess slash-containing branch semantics."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_branch_and_subdirectory_are_separated"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "ignore-requested-branch",
+          "code": "import repo_context.core as m\noriginal=m.parse_github_url\ndef broken(url):\n    base,branch,sub=original(url);return base,'main',sub\nm.parse_github_url=broken"
+        }
+      ],
+      "additional_tests": "from repo_context.core import parse_github_url\n\ndef test_nondefault_branch_and_nested_directory():\n    assert parse_github_url('https://github.com/owner/project/tree/dev/lib/pkg/') == ('https://github.com/owner/project.git','dev','lib/pkg')\n",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "snapshot-text-decoding",
+      "application": "repo-context",
+      "title": "Specify UTF-8 text recognition with invalid-byte controls.",
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_text_decoding.py",
+      "depends_on": [],
+      "acceptance": [
+        "Valid Turkish UTF-8 text is recognized.",
+        "Invalid UTF-8 bytes are rejected."
+      ],
+      "contract": "Proposed public helpers `repo_context.core` plus a shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate receiving pathlib.Path, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; details identify the dependency file and contain its dependency entries; whitespace layout is not fixed. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n- CLI/UI use context_workflow.snapshot through their common injected operation. Legacy adapters are outside this contract. Snapshot metadata identifies the canonical repository and branch; commit-hash rendering is not claimed by this interface.\n",
+      "rationale": "A valid multilingual file and an invalid byte sequence prevent both always-text and always-binary implementations from passing.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "decoding",
+        "state": "temporary-files",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Valid Turkish UTF-8 text is recognized.",
+          "Invalid UTF-8 bytes are rejected."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_utf8_file_is_recognized",
+            "test_invalid_utf8_is_rejected"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "always-text",
+          "code": "import repo_context.core as m\nm.is_text_file=lambda path:True"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "snapshot-safe-context",
+      "application": "repo-context",
+      "title": "Specify scoped snapshots, sorted content, truncation, secret exclusion and cleanup.",
+      "implementation_files": [
+        "context_workflow.py"
+      ],
+      "target_file": "tests/test_snapshot_safe_context.py",
+      "depends_on": [],
+      "acceptance": [
+        "Preserve branch/subfolder and honor the public clone injection contract.",
+        "Respect .gitignore, extension, symlink and dependency-directory exclusions.",
+        "Show truncation and deterministic multi-file order without leaking tokens.",
+        "Owned checkouts are deleted after successful snapshot creation."
+      ],
+      "contract": "Proposed public helpers `repo_context.core` plus a shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate receiving pathlib.Path, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; details identify the dependency file and contain its dependency entries; whitespace layout is not fixed. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n- CLI/UI use context_workflow.snapshot through their common injected operation. Legacy adapters are outside this contract. Snapshot metadata identifies the canonical repository and branch; commit-hash rendering is not claimed by this interface.\n",
+      "rationale": "The fixture contains excluded markers beside legitimate content, so a blank snapshot also fails. Ordered files and a one-line limit test independent constraints rather than only the final string length.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "safe-context-assembly",
+        "state": "owned-checkout",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Preserve branch/subfolder and honor the public clone injection contract.",
+          "Respect .gitignore, extension, symlink and dependency-directory exclusions.",
+          "Show truncation and deterministic multi-file order without leaking tokens.",
+          "Owned checkouts are deleted after successful snapshot creation."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+            "test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "ignore-gitignore-policy",
+          "code": "import context_workflow as m\nm.parse_gitignore=lambda path:lambda file:False"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    },
+    {
+      "id": "snapshot-controller-routing",
+      "application": "repo-context",
+      "title": "Specify shared CLI/UI behavior and invalid-URL rejection before cloning.",
+      "implementation_files": [
+        "context_workflow.py"
+      ],
+      "target_file": "tests/test_snapshot_controller_routing.py",
+      "depends_on": [],
+      "acceptance": [
+        "CLI and UI wrappers invoke the same operation with identical arguments.",
+        "A non-HTTPS GitHub URL fails before clone is called."
+      ],
+      "contract": "Proposed public helpers `repo_context.core` plus a shared facade `context_workflow`:\n- `parse_github_url(url)` -> (canonical .git URL,branch or None,subfolder or None); /tree/dev/src uses simple branch dev, subfolder src. Slash-containing branch names are unresolved; tests do not guess them.\n- `build_file_tree(root,name,ignore,extensions)` -> deterministic tree string using 📂/📄 and box lines; ignores node_modules/generated directories and caller ignore predicate receiving pathlib.Path, extensions filter files. This rendering is an explicit proposed presentation convention.\n- `analyze_dependencies(root)` -> (stack,Markdown details), reading requirements.txt or pyproject.toml project.dependencies; details identify the dependency file and contain its dependency entries; whitespace layout is not fixed. `is_text_file(path)` accepts UTF-8 including Turkish, rejects invalid UTF-8.\n- `context_workflow.snapshot(url,extensions=...,line_limit=...,token=None,clone=...)` -> Markdown. Accept only HTTPS github.com URLs, nonnegative line limit (0 unlimited); clone(canonical_url,branch=...,token=...) returns an owned temporary checkout path. Ownership transfers to snapshot and it deletes that checkout after success/failure. Honor root .gitignore, selected subfolder/extensions, generated dirs; exclude .env* and all symlinks. Never follow escaping symlinks. Never print token. UTF-8 files in sorted order; truncated marker when necessary. Invalid URL -> ValueError before clone.\n- `cli_snapshot(url,operation=...)` and `ui_snapshot(url,operation=...)` call the same injected operation and return identical Markdown. These are controller contracts; actual CLI/Streamlit event wiring still requires a manual end-to-end check.\nDependencies: Python, pytest, GitPython, gitignore-parser, TOML reader. No real cloning in tests; docs/UI integration remains separate.\n- CLI/UI use context_workflow.snapshot through their common injected operation. Legacy adapters are outside this contract. Snapshot metadata identifies the canonical repository and branch; commit-hash rendering is not claimed by this interface.\n",
+      "rationale": "The operation spy verifies shared behavior rather than identical hardcoded text. Invalid URL rejection must happen before any I/O boundary is invoked.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "controller-routing",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "CLI and UI wrappers invoke the same operation with identical arguments.",
+          "A non-HTTPS GitHub URL fails before clone is called."
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_cli_and_ui_call_the_shared_operation",
+            "test_invalid_url_is_not_sent_to_clone"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "ui-does-not-use-shared-operation",
+          "code": "import context_workflow as m\nm.ui_snapshot=lambda *a,**k:'stale preview'"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    }
+  ],
+  "description": "Expands the eight-task v01 pilot to all seven training families; v01 records are superseded, not additive."
+}

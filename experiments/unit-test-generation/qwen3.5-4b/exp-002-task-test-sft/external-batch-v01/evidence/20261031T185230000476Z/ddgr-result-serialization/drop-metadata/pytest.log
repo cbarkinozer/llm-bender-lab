@@ -1,0 +1,18 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+___________________________ test_optional_metadata ____________________________
+
+    def test_optional_metadata():
+>       assert Result('4', 'Title', 'url', 'body', 'publisher').jsonizable_object() == {
+            'title': 'Title', 'url': 'url', 'abstract': 'body', 'metadata': 'publisher'}
+E       AssertionError: assert {'title': 'Ti...ract': 'body'} == {'title': 'Ti...: 'publisher'}
+E         
+E         Omitting 3 identical items, use -vv to show
+E         Right contains 1 more item:
+E         {'metadata': 'publisher'}
+E         Use -v to get more diff
+
+tests\test_result_serialization.py:14: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_result_serialization.py::test_optional_metadata - Assertion...
+1 failed, 1 passed in 0.06s

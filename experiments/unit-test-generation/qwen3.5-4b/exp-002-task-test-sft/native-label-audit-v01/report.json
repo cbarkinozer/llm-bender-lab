@@ -1,0 +1,61 @@
+{
+  "status": "passed for this preprocessing implementation and these active inputs",
+  "counts": {
+    "sequences": 78,
+    "input_tokens": 144394,
+    "supervised_tokens": 64885,
+    "ignored_tokens": 79509,
+    "with_reasoning": 50,
+    "without_reasoning": 28
+  },
+  "tracks": {
+    "tests": 50,
+    "planning": 13,
+    "reliability": 15
+  },
+  "max_sequence_tokens": 5328,
+  "max_length": 8192,
+  "truncation_count": 0,
+  "tokenizer_revision_verified": true,
+  "tokenizer_path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\tokenizer",
+  "eos_token": "<|im_end|>",
+  "eos_token_id": 248046,
+  "pad_token": "<|endoftext|>",
+  "pad_token_id": 248044,
+  "ignore_index": -100,
+  "policy": {
+    "scope": "single system/user/assistant plain-text conversations only",
+    "thinking_enabled": true,
+    "supervised": "Entire native assistant body: think markup, supplied rationale if any, answer and native assistant im_end EOS.",
+    "masked": "All system/user tokens, assistant role header, trailing post-EOS newline, and padding.",
+    "label_shift": "Unshifted labels; causal model loss performs next-token shift. Do not shift these again in a collator.",
+    "reasoning_absent": "Preserve the native empty think block; do not invent rationale. 28 examples teach immediate closure.",
+    "padding": "Dynamic batch padding; position-based masks, both sides tested including pad==EOS.",
+    "packing": "Disabled; no cross-example attention or label packing is audited.",
+    "truncation": "Forbidden; overflow fails instead of removing targets or EOS.",
+    "mask_method": "Verified native rendering plus fast-tokenizer character offsets; fail on mixed-loss token boundary. No template generation-tag mask assumed.",
+    "region_counts": "Membership counts can overlap at BPE boundaries; do not sum them as disjoint loss counts."
+  },
+  "trainer_label_parity_verified": false,
+  "training_enabled": false,
+  "limitation": "No trainer is configured. This audit establishes a reusable preprocessor and its actual label arrays, not that an arbitrary future trainer preserves them. Compare trainer batches before a run.",
+  "input_sha256": {
+    "candidate-index-v03.json": "5f7e56ddea29a6897378f82291861894b216369a47f9b647d73459ba9943f417",
+    "planning-pilot-v04/records.jsonl": "0a092c912c515a2035d704590e7138855103a3cc2a134f981c4e72daf6981d24",
+    "reliability-pilot-v03/records.jsonl": "d51a46562cba3288c58f2b9b0609c43d46d70037c84f0b5db6b477fc7b6048a9",
+    "quality-audit-v01/current-test-candidates.jsonl": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+    "intent-only-preview-v02/audit-index.json": "d37d3c6ddf8b230fba05c4d48156793233063d0f26ecfe03c55eabb5bb6e0172",
+    "intent-only-preview-v02/planning-train-preview.jsonl": "aa700e417a62a27a9723f754a0e3656f83798ca09d80b04e52feeae7ae2c0ce5",
+    "intent-only-preview-v02/reliability-train-preview.jsonl": "26a182b5d53bcb6a511c1957a58286259bf5130b56afe596356c7434bc172418",
+    "intent-only-preview-v02/tests-train-preview.jsonl": "35938b6460122509507f601fed96a7aedd817b3cbfd38d4a44ca85a55db97ada"
+  },
+  "code_sha256": {
+    "native_tdd_labels.py": "ba1be9c832814800a4b48803da1a07e2fd2b02382b66ce92c66d732b0124f215",
+    "audit_native_tdd_labels.py": "061c91c03ffe5e716ed320ed0646e8176f7bf1f26ce256294995b2ed30409fb5"
+  },
+  "environment": {
+    "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+    "transformers": "5.13.1",
+    "tokenizers": "0.22.2"
+  }
+}

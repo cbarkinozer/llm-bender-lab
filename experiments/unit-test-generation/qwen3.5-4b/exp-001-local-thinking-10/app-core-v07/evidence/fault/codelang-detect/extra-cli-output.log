@@ -1,0 +1,42 @@
+.......FF......                                                          [100%]
+================================== FAILURES ===================================
+_______________________ test_cli_file_prints_one_label ________________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-102/test_cli_file_prints_one_label0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000026AED848950>
+capsys = <_pytest.capture.CaptureFixture object at 0x0000026AED7E70E0>
+
+    def test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):
+        path = tmp_path / 'snippet.txt'
+        path.write_text('def greet():\n    print("Merhaba dünya")\n', encoding='utf-8')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])
+        main()
+        output = capsys.readouterr()
+>       assert (output.out, output.err) == ('py\n', '')
+E       AssertionError: assert ('py\nunknown\n', '') == ('py\n', '')
+E         
+E         At index 0 diff: 'py\nunknown\n' != 'py\n'
+E         Use -v to get more diff
+
+tests\test_core.py:36: AssertionError
+_______________________ test_cli_stdin_prints_one_label _______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000026AED6FE7A0>
+capsys = <_pytest.capture.CaptureFixture object at 0x0000026AED80C410>
+
+    def test_cli_stdin_prints_one_label(monkeypatch, capsys):
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect'])
+        monkeypatch.setattr(sys, 'stdin', io.StringIO('def square(x):\n    return x * x\n'))
+        main()
+        output = capsys.readouterr()
+>       assert (output.out, output.err) == ('py\n', '')
+E       AssertionError: assert ('py\nunknown\n', '') == ('py\n', '')
+E         
+E         At index 0 diff: 'py\nunknown\n' != 'py\n'
+E         Use -v to get more diff
+
+tests\test_core.py:44: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_cli_file_prints_one_label - AssertionError: a...
+FAILED tests/test_core.py::test_cli_stdin_prints_one_label - AssertionError: ...
+2 failed, 13 passed in 0.11s

@@ -1,0 +1,10 @@
+[
+  [
+    "english-only",
+    "m.get_language_list=lambda: ['en']"
+  ],
+  [
+    "erase-special-region",
+    "m.get_language_code=lambda language: language.split('.')[0].split('_')[0]"
+  ]
+]

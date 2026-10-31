@@ -1,0 +1,22 @@
+............F                                                            [100%]
+================================== FAILURES ===================================
+________ test_first_observed_baselines_and_omitted_series_are_reported ________
+
+    def test_first_observed_baselines_and_omitted_series_are_reported():
+        from price_workflow import analyze
+        frame=prices()
+        frame.loc[frame.index[0],'BTC-USD']=float('nan')
+        frame['MISSING-USD']=float('nan')
+        result=analyze(['btc','eth','missing'],'2026-01-01','2026-01-04',provider=Mock(return_value=frame))
+        expected=pd.DataFrame({'BTC-USD':[float('nan'),0.,-.5],'ETH-USD':[0.,-.5,.5]},index=frame.index)
+        assert_frame_equal(result['returns'],expected)
+>       assert result['omitted'] == ['MISSING-USD']
+E       AssertionError: assert [] == ['MISSING-USD']
+E         
+E         Right contains one more item: 'MISSING-USD'
+E         Use -v to get more diff
+
+tests\test_workflow.py:62: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported
+1 failed, 12 passed in 0.42s

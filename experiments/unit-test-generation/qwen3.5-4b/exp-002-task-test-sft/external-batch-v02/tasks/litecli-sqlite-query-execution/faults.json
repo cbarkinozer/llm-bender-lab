@@ -1,0 +1,10 @@
+[
+  [
+    "drop-result-rows",
+    "original=m.SQLExecute.get_result\ndef broken(self,cursor):\n t,r,h,s=original(self,cursor)\n return t,([] if r is not None else r),h,s\nm.SQLExecute.get_result=broken"
+  ],
+  [
+    "swallow-sql-errors",
+    "original=m.SQLExecute.run\ndef broken(self,sql):\n try: yield from original(self,sql)\n except m.OperationalError: yield (None,None,None,None)\nm.SQLExecute.run=broken"
+  ]
+]

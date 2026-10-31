@@ -1,0 +1,536 @@
+[
+  {
+    "record_id": "language-basic-v02",
+    "track": "tests",
+    "supervised_text": "<think>\nNegative examples check that the detector does not guess a language for ordinary text. Two clear code snippets provide positive controls so an always-unknown implementation also fails.\n</think>\n\nFile: tests/test_detection_basics.py\n```python\nimport pytest\nfrom codelang_detect import detect\n\n\n@pytest.mark.parametrize('text', ['', ' \\n\\t ', 'Please bring the notebook to our meeting.'])\ndef test_unknown_without_code_evidence(text):\n    assert detect(text) == 'unknown'\n\n\n@pytest.mark.parametrize('text,expected', [('def compute_total(prices):\\n    return sum(prices)\\n', 'py'), ('const total = prices.reduce((a, b) => a + b, 0);\\nconsole.log(total);', 'js')])\ndef test_clear_language_markers(text, expected):\n    assert detect(text) == expected\n```<|im_end|>",
+    "boundary_tokens": [
+      {
+        "position": 1168,
+        "id": 248046,
+        "token": "<|im_end|>",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 1169,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 1170,
+        "id": 248045,
+        "token": "<|im_start|>",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 1171,
+        "id": 74455,
+        "token": "assistant",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 1172,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 1173,
+        "id": 248068,
+        "token": "<think>",
+        "label": 248068,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 1174,
+        "id": 198,
+        "token": "Ċ",
+        "label": 198,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 1175,
+        "id": 37212,
+        "token": "Negative",
+        "label": 37212,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1176,
+        "id": 9989,
+        "token": "Ġexamples",
+        "label": 9989,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1177,
+        "id": 1716,
+        "token": "Ġcheck",
+        "label": 1716,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1178,
+        "id": 421,
+        "token": "Ġthat",
+        "label": 421,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1179,
+        "id": 279,
+        "token": "Ġthe",
+        "label": 279,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1180,
+        "id": 30192,
+        "token": "Ġdetector",
+        "label": 30192,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1181,
+        "id": 1503,
+        "token": "Ġdoes",
+        "label": 1503,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1182,
+        "id": 524,
+        "token": "Ġnot",
+        "label": 524,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1183,
+        "id": 7692,
+        "token": "Ġguess",
+        "label": 7692,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1184,
+        "id": 264,
+        "token": "Ġa",
+        "label": 264,
+        "regions": [
+          "reasoning"
+        ]
+      },
+      {
+        "position": 1351,
+        "id": 248046,
+        "token": "<|im_end|>",
+        "label": 248046,
+        "regions": [
+          "end_of_turn"
+        ]
+      },
+      {
+        "position": 1352,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "tail"
+        ]
+      }
+    ]
+  },
+  {
+    "record_id": "codelang-detect-app-plan-planning-v04",
+    "track": "planning",
+    "supervised_text": "<think>\n\n</think>\n\n{\n  \"intent\": \"Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.\",\n  \"shared_contracts\": {\n    \"contract-ad027bebea59\": \"Public codelang_detect.detect(text: str) -> str. Empty/whitespace/no positive rule evidence returns unknown. Initial language targets are Python (py) and JavaScript (js); additional language accuracy is outside this task. No network or model loading.\",\n    \"contract-cc33f986a414\": \"Public codelang_detect.detect(text) uses codelang_detect.detector.PATTERNS, an insertion-ordered dict of output_label -> list[(compiled regex, positive integer weight)]. Each matching rule contributes once. The greatest strictly positive total wins; tied positive totals choose the first declared key. Read PATTERNS at call time; custom keys are valid output labels. No score means unknown.\",\n    \"contract-7929d2ead10a\": \"codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions \\\"can't open\\\", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts \\\"Error: Could not process the input.\\\", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.\"\n  },\n  \"dispatch_policy\": \"Attach the complete named shared contract, current task acceptance criteria, application request and unresolved decisions to each child. Confirm unresolved user-visible behavior before freezing its oracle; internal design choices do not require blanket approval.\",\n  \"task_order_policy\": \"Tasks are test specifications first, then implementations. Dependencies must be satisfied before a dependent task. Tasks editing a shared file execute sequentially; independent files may run concurrently after shared interfaces are agreed.\",\n  \"tasks\": [\n    {\n      \"id\": \"language-basic\",\n      \"purpose\": \"Specify unknown-input behavior and the initial Python/JavaScript detection contract.\",\n      \"depends_on\": [],\n      \"implementation_files\": [\n        \"codelang_detect/__init__.py\",\n        \"codelang_detect/detector.py\"\n      ],\n      \"test_file\": \"tests/test_detection_basics.py\",\n      \"acceptance_criteria\": [\n        \"Empty, whitespace and ordinary prose return unknown.\",\n        \"Clear Python and JavaScript snippets return py and js respectively.\"\n      ],\n      \"verification\": \"offline pytest reference and fault checks\",\n      \"child_prompt\": \"Write tests/test_detection_basics.py for: Specify unknown-input behavior and the initial Python/JavaScript detection contract.\\nUse the required contract attached by the orchestrator.\\nAcceptance:\\n- Empty, whitespace and ordinary prose return unknown.\\n- Clear Python and JavaScript snippets return py and js respectively.\",\n      \"status\": \"planned; no execution claimed\",\n      \"required_contract\": \"contract-ad027bebea59\",\n      \"interface_status\": \"proposed; resolve applicable behavior decisions before freezing assertions\",\n      \"test_then_code\": [\n        \"Write requirement-based tests with success and failure controls.\",\n        \"Implement the selected behavior without weakening agreed assertions.\",\n        \"Run the task checks and report actual evidence.\"\n      ]\n    },\n    {\n      \"id\": \"language-rules\",\n      \"purpose\": \"Specify weighted rules, deterministic ties and live configuration replacement.\",\n      \"depends_on\": [\n        \"language-basic\"\n      ],\n      \"implementation_files\": [\n        \"codelang_detect/detector.py\"\n      ],\n      \"test_file\": \"tests/test_detection_rules.py\",\n      \"acceptance_criteria\": [\n        \"Weight 3 beats two matching weight-1 rules.\",\n        \"Equal scores choose declaration order, even when alphabetical order differs.\",\n        \"A single positive score qualifies; zero evidence remains unknown.\",\n        \"Replacing the public configuration between calls immediately changes the result.\"\n      ],\n      \"verification\": \"offline pytest reference and fault checks\",\n      \"child_prompt\": \"Write tests/test_detection_rules.py for: Specify weighted rules, deterministic ties and live configuration replacement.\\nUse the required contract attached by the orchestrator.\\nAcceptance:\\n- Weight 3 beats two matching weight-1 rules.\\n- Equal scores choose declaration order, even when alphabetical order differs.\\n- A single positive score qualifies; zero evidence remains unknown.\\n- Replacing the public configuration between calls immediately changes the result.\",\n      \"status\": \"planned; no execution claimed\",\n      \"required_contract\": \"contract-cc33f986a414\",\n      \"interface_status\": \"proposed; resolve applicable behavior decisions before freezing assertions\",\n      \"test_then_code\": [\n        \"Write requirement-based tests with success and failure controls.\",\n        \"Implement the selected behavior without weakening agreed assertions.\",\n        \"Run the task checks and report actual evidence.\"\n      ]\n    },\n    {\n      \"id\": \"language-cli-success\",\n      \"purpose\": \"Specify CLI input routes and exact successful output.\",\n      \"depends_on\": [\n        \"language-basic\"\n      ],\n      \"implementation_files\": [\n        \"codelang_detect/cli.py\"\n      ],\n      \"test_file\": \"tests/test_cli_success.py\",\n      \"acceptance_criteria\": [\n        \"A Python snippet inside a .txt file is identified from its contents.\",\n        \"Piped text is accepted when no file argument exists.\",\n        \"Successful output has exactly one label/newline and no stderr.\"\n      ],\n      \"verification\": \"offline pytest reference and fault checks\",\n      \"child_prompt\": \"Write tests/test_cli_success.py for: Specify CLI input routes and exact successful output.\\nUse the required contract attached by the orchestrator.\\nAcceptance:\\n- A Python snippet inside a .txt file is identified from its contents.\\n- Piped text is accepted when no file argument exists.\\n- Successful output has exactly one label/newline and no stderr.\",\n      \"status\": \"planned; no execution claimed\",\n      \"required_contract\": \"contract-7929d2ead10a\",\n      \"interface_status\": \"proposed; resolve applicable behavior decisions before freezing assertions\",\n      \"test_then_code\": [\n        \"Write requirement-based tests with success and failure controls.\",\n        \"Implement the selected behavior without weakening agreed assertions.\",\n        \"Run the task checks and report actual evidence.\"\n      ]\n    },\n    {\n      \"id\": \"language-cli-errors\",\n      \"purpose\": \"Specify CLI failure classes and useful diagnostics.\",\n      \"depends_on\": [\n        \"language-cli-success\"\n      ],\n      \"implementation_files\": [\n        \"codelang_detect/cli.py\"\n      ],\n      \"test_file\": \"tests/test_cli_errors.py\",\n      \"acceptance_criteria\": [\n        \"Missing files produce usage exit 2 with useful stderr and empty stdout.\",\n        \"Closed stdin and invalid UTF-8 produce processing exit 1.\",\n        \"Normal input errors do not print tracebacks.\"\n      ],\n      \"verification\": \"offline pytest reference and fault checks\",\n      \"child_prompt\": \"Write tests/test_cli_errors.py for: Specify CLI failure classes and useful diagnostics.\\nUse the required contract attached by the orchestrator.\\nAcceptance:\\n- Missing files produce usage exit 2 with useful stderr and empty stdout.\\n- Closed stdin and invalid UTF-8 produce processing exit 1.\\n- Normal input errors do not print tracebacks.\",\n      \"status\": \"planned; no execution claimed\",\n      \"required_contract\": \"contract-7929d2ead10a\",\n      \"interface_status\": \"proposed; resolve applicable behavior decisions before freezing assertions\",\n      \"test_then_code\": [\n        \"Write requirement-based tests with success and failure controls.\",\n        \"Implement the selected behavior without weakening agreed assertions.\",\n        \"Run the task checks and report actual evidence.\"\n      ]\n    },\n    {\n      \"id\": \"language-delivery\",\n      \"purpose\": \"Package the CLI and document examples and installation.\",\n      \"depends_on\": [\n        \"language-basic\",\n        \"language-rules\",\n        \"language-cli-success\",\n        \"language-cli-errors\"\n      ],\n      \"implementation_files\": [\n        \"pyproject.toml\",\n        \"README.md\",\n        \"codelang_detect/cli.py\"\n      ],\n      \"test_file\": \"tests/test_packaged_cli.py\",\n      \"acceptance_criteria\": [\n        \"Verify installation and documented examples in a clean environment.\",\n        \"Explicitly document starter languages and ambiguous-snippet limitations.\",\n        \"Exercise actual user entry points and document remaining manual acceptance checks; README completion alone is not application completion.\"\n      ],\n      \"verification\": \"delivery/integration verification; specify runnable contract first\",\n      \"child_prompt\": \"Write tests/test_packaged_cli.py for: Package the CLI and document examples and installation.\\nClarify integration interfaces before implementing automated tests.\\nAcceptance:\\n- Verify installation and documented examples in a clean environment.\\n- Explicitly document starter languages and ambiguous-snippet limitations.\",\n      \"status\": \"planned; no execution claimed\",\n      \"required_contract\": null,\n      \"interface_status\": \"proposed; resolve applicable behavior decisions before freezing assertions\",\n      \"test_then_code\": [\n        \"Write requirement-based tests with success and failure controls.\",\n        \"Implement the selected behavior without weakening agreed assertions.\",\n        \"Run the task checks and report actual evidence.\"\n      ]\n    },\n    {\n      \"id\": \"integration-codelang-detect-app-plan\",\n      \"purpose\": \"Verify the selected components together before claiming milestone completion.\",\n      \"depends_on\": [\n        \"language-basic\",\n        \"language-rules\",\n        \"language-cli-success\",\n        \"language-cli-errors\",\n        \"language-delivery\"\n      ],\n      \"implementation_files\": [\n        \"codelang_detect/cli.py\",\n        \"pyproject.toml\"\n      ],\n      \"test_file\": \"tests/integration/test_codelang_detect_workflow.py\",\n      \"required_contract\": null,\n      \"interface_status\": \"proposed integration boundary; resolve applicable behavior decisions\",\n      \"acceptance_criteria\": [\n        \"Use an installed CLI subprocess with UTF-8 files and piped input; verify code/unknown results, stdout/stderr, exit status and no network. Include unreadable and invalid-UTF-8 controls.\",\n        \"Execute the real selected behavior; mock external transport/model boundaries only.\",\n        \"Retain unit tests and report integration failures separately.\"\n      ],\n      \"verification\": \"Planned integration execution; no run is claimed.\",\n      \"status\": \"planned; no execution claimed\",\n      \"child_prompt\": \"Write the specified integration file after its component interfaces exist. Use an installed CLI subprocess with UTF-8 files and piped input; verify code/unknown results, stdout/stderr, exit status and no network. Include unreadable and invalid-UTF-8 controls. Use all attached selected contracts. Do not weaken required assertions or replace the entire composed operation with a stub.\",\n      \"test_then_code\": [\n        \"Write the integration test against the agreed cross-component outcome.\",\n        \"Repair wiring or implementation defects while preserving the agreed oracle.\",\n        \"Run and record the actual result.\"\n      ]\n    }\n  ],\n  \"open_questions_and_deferred_scope\": [\n    \"Additional language targets, installation examples and ambiguous-snippet accuracy remain manual/future work.\"\n  ],\n  \"delivery_gate\": \"Run reference checks, fault probes and integration checks before claiming the application is complete.\",\n  \"requirements_and_design\": {\n    \"user_requirements\": \"The request paragraph is authoritative; scoped milestone limits are explicit in that request.\",\n    \"interface_status\": \"Shared contracts below are proposed design choices authored for this dataset, not interfaces supplied by the user.\",\n    \"design_choice_policy\": \"Choose routine internal names, modules and fixtures autonomously. Do not turn a proposed user-visible policy into an agreed requirement.\",\n    \"blocking_behavior_decisions\": [\n      {\n        \"id\": \"starter-languages\",\n        \"question\": \"Which languages belong to the documented starter set? Python and JavaScript are a proposed first slice, not an agreed exhaustive list.\",\n        \"reason\": \"This choice changes acceptance behavior; independent implementation work may continue.\"\n      }\n    ],\n    \"execution_status\": \"Plan only. No implementation, command output or successful application run is claimed.\"\n  },\n  \"acceptance_gate\": {\n    \"unit\": \"Selected reference behavior and discriminating success/failure controls pass.\",\n    \"integration\": \"The real composed selected path passes the planned integration checks.\",\n    \"delivery\": \"For full-app requests, actual entry points and documented manual checks must pass; for scoped requests, broader delivery stays deferred.\",\n    \"latency\": \"Only impose a latency bound when workload, environment, metric and limit are specified.\",\n    \"quality\": \"Run configured static checks; a clean linter does not substitute for functional acceptance.\",\n    \"failure\": \"Report unmet requirements and replan affected tasks; never fabricate a successful run.\"\n  },\n  \"file_edit_order_policy\": \"depends_on includes logical prerequisites and explicit shared-file edit ordering. Added resource-order edges serialize writes; they do not imply extra user requirements. Independent files may still run concurrently.\",\n  \"resource_order_edges\": []\n}<|im_end|>",
+    "boundary_tokens": [
+      {
+        "position": 223,
+        "id": 248046,
+        "token": "<|im_end|>",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 224,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 225,
+        "id": 248045,
+        "token": "<|im_start|>",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 226,
+        "id": 74455,
+        "token": "assistant",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 227,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 228,
+        "id": 248068,
+        "token": "<think>",
+        "label": 248068,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 229,
+        "id": 271,
+        "token": "ĊĊ",
+        "label": 271,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 230,
+        "id": 248069,
+        "token": "</think>",
+        "label": 248069,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 231,
+        "id": 271,
+        "token": "ĊĊ",
+        "label": 271,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 232,
+        "id": 90,
+        "token": "{",
+        "label": 90,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 233,
+        "id": 198,
+        "token": "Ċ",
+        "label": 198,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 234,
+        "id": 220,
+        "token": "Ġ",
+        "label": 220,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 235,
+        "id": 328,
+        "token": "Ġ\"",
+        "label": 328,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 236,
+        "id": 54537,
+        "token": "intent",
+        "label": 54537,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 237,
+        "id": 763,
+        "token": "\":",
+        "label": 763,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 238,
+        "id": 328,
+        "token": "Ġ\"",
+        "label": 328,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 239,
+        "id": 7825,
+        "token": "Make",
+        "label": 7825,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 3327,
+        "id": 248046,
+        "token": "<|im_end|>",
+        "label": 248046,
+        "regions": [
+          "end_of_turn"
+        ]
+      },
+      {
+        "position": 3328,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "tail"
+        ]
+      }
+    ]
+  },
+  {
+    "record_id": "returns-baseline-reliability-v03",
+    "track": "reliability",
+    "supervised_text": "<think>\n\n</think>\n\n{\n  \"action\": \"ask\",\n  \"questions\": [\n    \"Should each coin use its first non-missing observed price, or must the requested start-date price exist?\"\n  ],\n  \"reason\": \"Those definitions produce different expected returns for late-starting series.\",\n  \"objective_contract\": [],\n  \"verification_plan\": [\n    \"After clarification, test series with different initial missing rows and preserved missing observations. Agree zero/negative-baseline behavior separately before asserting it.\"\n  ],\n  \"execution_claim\": \"No execution performed.\"\n}<|im_end|>",
+    "boundary_tokens": [
+      {
+        "position": 97,
+        "id": 248046,
+        "token": "<|im_end|>",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 98,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 99,
+        "id": 248045,
+        "token": "<|im_start|>",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 100,
+        "id": 74455,
+        "token": "assistant",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 101,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "prompt"
+        ]
+      },
+      {
+        "position": 102,
+        "id": 248068,
+        "token": "<think>",
+        "label": 248068,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 103,
+        "id": 271,
+        "token": "ĊĊ",
+        "label": 271,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 104,
+        "id": 248069,
+        "token": "</think>",
+        "label": 248069,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 105,
+        "id": 271,
+        "token": "ĊĊ",
+        "label": 271,
+        "regions": [
+          "reasoning_markup"
+        ]
+      },
+      {
+        "position": 106,
+        "id": 90,
+        "token": "{",
+        "label": 90,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 107,
+        "id": 198,
+        "token": "Ċ",
+        "label": 198,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 108,
+        "id": 220,
+        "token": "Ġ",
+        "label": 220,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 109,
+        "id": 328,
+        "token": "Ġ\"",
+        "label": 328,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 110,
+        "id": 1265,
+        "token": "action",
+        "label": 1265,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 111,
+        "id": 763,
+        "token": "\":",
+        "label": 763,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 112,
+        "id": 328,
+        "token": "Ġ\"",
+        "label": 328,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 113,
+        "id": 1038,
+        "token": "ask",
+        "label": 1038,
+        "regions": [
+          "answer"
+        ]
+      },
+      {
+        "position": 226,
+        "id": 248046,
+        "token": "<|im_end|>",
+        "label": 248046,
+        "regions": [
+          "end_of_turn"
+        ]
+      },
+      {
+        "position": 227,
+        "id": 198,
+        "token": "Ċ",
+        "label": -100,
+        "regions": [
+          "tail"
+        ]
+      }
+    ]
+  }
+]

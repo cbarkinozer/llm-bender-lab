@@ -1,0 +1,19 @@
+{
+  "status": "draft",
+  "count": 20,
+  "split_counts": {
+    "train": 12,
+    "development": 5,
+    "holdout": 3
+  },
+  "source_roles_frozen": false,
+  "training_enabled": false,
+  "builder_sha256": "096120ee9d296e6e1bedd51f888d44cc0a5f840972c1fd3429c9450902437752",
+  "definitions_sha256": "dcaf3400b08636380bdf3eefc6989ff2c58a693dbeb68175373b344153ada37d",
+  "provenance": "Trusted authored demo data; no model inference or training performed.",
+  "isolation": "Host subprocesses with credential-filtered environment and bounded runtime; not an OS network sandbox.",
+  "adapters": {
+    "posting": "Empty package initializer avoids unrelated UI imports; files.py, save_request.py, urls.py and session_variables.py are unchanged.",
+    "ddgr": "Unchanged extensionless main script copied as ddgr.py for a stable import path."
+  }
+}

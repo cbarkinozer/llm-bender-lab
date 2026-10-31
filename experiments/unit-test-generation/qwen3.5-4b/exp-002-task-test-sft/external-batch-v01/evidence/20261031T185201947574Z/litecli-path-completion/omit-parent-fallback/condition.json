@@ -1,0 +1,5 @@
+{
+  "module": "litecli.packages.filepaths",
+  "mutation": "original=m.suggest_path\nm.suggest_path=lambda path: original(path) if m.os.path.exists(path) else []",
+  "seed": null
+}

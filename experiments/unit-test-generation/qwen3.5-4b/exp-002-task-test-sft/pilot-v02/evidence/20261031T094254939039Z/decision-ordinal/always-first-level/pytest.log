@@ -1,0 +1,19 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________ test_ordinal_scoring_and_declaration_order_ties _______________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_ordinal_scoring_and_declaration_order_ties(choice):
+        ordinal = Ordinal('state', 'Priority?', ('low','medium','high'))
+        result = score_decision(ordinal, request_id='o', scorer=lambda branch:2. if 'medium' in branch else 0.)
+>       assert result['selected_option'] == 'medium'
+E       AssertionError: assert 'low' == 'medium'
+E         
+E         - medium
+E         + low
+
+tests\test_decision_ordinal.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_decision_ordinal.py::test_ordinal_scoring_and_declaration_order_ties
+1 failed in 0.05s

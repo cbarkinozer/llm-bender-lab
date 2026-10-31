@@ -1,0 +1,20 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_____________________ test_fifty_edit_retention_boundary ______________________
+
+    def test_fifty_edit_retention_boundary():
+        state = SessionVariables()
+        for index in range(55):
+            state.set('key', str(index))
+        for _ in range(50):
+            assert state.undo() == 'key'
+        assert state.values == {'key': '4'}
+>       assert state.undo() is None
+E       AssertionError: assert 'key' is None
+E        +  where 'key' = undo()
+E        +    where undo = <posting.session_variables.SessionVariables object at 0x000002323E8B8830>.undo
+
+tests\test_session_history_limit.py:11: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_session_history_limit.py::test_fifty_edit_retention_boundary
+1 failed, 1 passed in 0.06s

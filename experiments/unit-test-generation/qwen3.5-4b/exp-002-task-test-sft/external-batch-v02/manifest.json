@@ -1,0 +1,20 @@
+{
+  "status": "draft",
+  "count": 20,
+  "split_counts": {
+    "train": 12,
+    "development": 5,
+    "holdout": 3
+  },
+  "source_roles_frozen": false,
+  "training_enabled": false,
+  "builder_sha256": "00e9f0ab8eb82842ddb7f6556e8e296482dee26ca7a665fed915c03092d53078",
+  "definitions_sha256": "84d4ad0d0a46431f94a5286fb6ad43c7f92ab04b6f5542b00c018f6f794877b4",
+  "provenance": "Trusted authored demo data; no model inference or training performed.",
+  "isolation": "Host subprocesses with credential-filtered environment and bounded runtime; not an OS network sandbox.",
+  "adapters": {
+    "litecli": "Minimal distribution metadata supplies a version string required by __init__; application source is unchanged.",
+    "posting": "Empty package initializer avoids unrelated UI imports; files.py, save_request.py, urls.py and session_variables.py are unchanged.",
+    "ddgr": "Unchanged extensionless main script copied as ddgr.py for a stable import path."
+  }
+}

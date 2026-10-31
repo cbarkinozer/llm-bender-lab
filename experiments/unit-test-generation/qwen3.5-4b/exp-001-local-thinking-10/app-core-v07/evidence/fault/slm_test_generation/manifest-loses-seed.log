@@ -1,0 +1,25 @@
+....................F...                                                 [100%]
+================================== FAILURES ===================================
+___________________________ test_manifest_roundtrip ___________________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-86/test_manifest_roundtrip0')
+
+    def test_manifest_roundtrip(tmp_path):
+        from benchmark_workflow import save_manifest, load_manifest
+        manifest = {'task_ids':['fresh'], 'model_revision':'m1', 'data_revision':'d1',
+                    'code_revision':'c1', 'seed':7, 'timeout_seconds':1,
+                    'network_disabled':True, 'context':'B', 'dependency':'L1'}
+        path = tmp_path/'manifest.json'
+        save_manifest(path, manifest)
+>       assert load_manifest(path) == manifest
+E       AssertionError: assert {'task_ids': ...n': 'c1', ...} == {'task_ids': ...n': 'c1', ...}
+E         
+E         Omitting 8 identical items, use -vv to show
+E         Right contains 1 more item:
+E         {'seed': 7}
+E         Use -v to get more diff
+
+tests\test_workflow.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_manifest_roundtrip - AssertionError: asse...
+1 failed, 23 passed in 6.92s

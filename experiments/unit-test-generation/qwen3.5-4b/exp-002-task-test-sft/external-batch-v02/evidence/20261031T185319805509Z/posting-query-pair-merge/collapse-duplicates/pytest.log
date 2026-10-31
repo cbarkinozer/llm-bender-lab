@@ -1,0 +1,30 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_query_pairs_and_literal_dollars _____________________
+
+    def test_query_pairs_and_literal_dollars():
+>       assert extract_query_pairs('https://example.test/?a=1&a=&b=two+words') == [('a', '1'), ('a', ''), ('b', 'two words')]
+E       AssertionError: assert [('a', ''), (... 'two words')] == [('a', '1'), ... 'two words')]
+E         
+E         At index 0 diff: ('a', '') != ('a', '1')
+E         Right contains one more item: ('b', 'two words')
+E         Use -v to get more diff
+
+tests\test_query_pair_merge.py:5: AssertionError
+_____________ test_merge_by_occurrence_and_preserve_disabled_rows _____________
+
+    def test_merge_by_occurrence_and_preserve_disabled_rows():
+        params = [('a', '', False), ('a', 'override', True), ('tail', 'keep', False)]
+        url, merged = merge_url_query_into_params('https://example.test/path?a=one&a=two&b=#frag', params)
+        assert url == 'https://example.test/path#frag'
+>       assert merged == [('a', 'one', False), ('a', 'override', True), ('b', '', True), ('tail', 'keep', False)]
+E       AssertionError: assert [('a', 'two',...keep', False)] == [('a', 'one',...keep', False)]
+E         
+E         At index 0 diff: ('a', 'two', False) != ('a', 'one', False)
+E         Use -v to get more diff
+
+tests\test_query_pair_merge.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_query_pair_merge.py::test_query_pairs_and_literal_dollars
+FAILED tests/test_query_pair_merge.py::test_merge_by_occurrence_and_preserve_disabled_rows
+2 failed in 0.07s

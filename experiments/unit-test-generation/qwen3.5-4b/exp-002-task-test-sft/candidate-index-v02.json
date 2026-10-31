@@ -1,0 +1,24 @@
+{
+  "status": "draft candidates; semantic approval and native-label audit pending",
+  "count": 58,
+  "replacement": {
+    "task_id": "experiment-preflight",
+    "old_record": "experiment-preflight-v02",
+    "replacement_record": "experiment-preflight-quality-after-v01",
+    "reason": "Add valid-input control; demonstrated reject-every-input survivor in prior task."
+  },
+  "sources": [
+    {
+      "path": "pilot-v02\\records.jsonl",
+      "sha256": "d7730c56f56159a46e7a47afdc74a6169efa6d1458bef08b524eaa67755fdf9d"
+    },
+    {
+      "path": "external-batch-v02\\records.jsonl",
+      "sha256": "00044ccab4714735997197ecd3f5c9d28b96524922d3c185a7f8db6b33f3fbac"
+    },
+    {
+      "path": "quality-preflight-v01\\records.jsonl",
+      "sha256": "314836c3cc0e0833dd315b23cb266bf32a1225f84e627da85aab790aecc25871"
+    }
+  ]
+}

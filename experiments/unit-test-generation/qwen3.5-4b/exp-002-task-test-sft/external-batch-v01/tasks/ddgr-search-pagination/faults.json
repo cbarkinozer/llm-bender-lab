@@ -1,0 +1,10 @@
+[
+  [
+    "next-no-op",
+    "m.DdgUrl.next_page=lambda self: None"
+  ],
+  [
+    "allow-negative-page",
+    "def broken(self): self._page-=1\nm.DdgUrl.prev_page=broken"
+  ]
+]

@@ -1,0 +1,21 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+___________________________ test_language_priority ____________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D3973696E0>
+
+    def test_language_priority(monkeypatch):
+        monkeypatch.setenv('LANG', 'de_DE.UTF-8')
+        monkeypatch.setenv('LANGUAGE', 'fr:de')
+        monkeypatch.setenv('TLDR_LANGUAGE', 'pt_BR')
+>       assert tldr.get_language_list() == ['pt_BR', 'fr', 'de', 'en']
+E       AssertionError: assert ['en'] == ['pt_BR', 'fr', 'de', 'en']
+E         
+E         At index 0 diff: 'en' != 'pt_BR'
+E         Right contains 3 more items, first extra item: 'fr'
+E         Use -v to get more diff
+
+tests\test_language_selection.py:15: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_language_selection.py::test_language_priority - AssertionEr...
+1 failed, 4 passed in 0.06s

@@ -1,0 +1,29 @@
+.........F.....                                                          [100%]
+================================== FAILURES ===================================
+__________________ test_missing_file_exits_2_with_diagnostic __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000259F575E8B0>
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-111/test_missing_file_exits_2_with0')
+capsys = <_pytest.capture.CaptureFixture object at 0x00000259F5880910>
+
+    def test_missing_file_exits_2_with_diagnostic(monkeypatch, tmp_path, capsys):
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(tmp_path / 'missing.py')])
+        with pytest.raises(SystemExit) as error:
+            main()
+        assert error.value.code == 2
+        output = capsys.readouterr()
+        assert output.out == ''
+        assert "can't open" in output.err
+        # SystemExit guards uncaught exceptions; this also rejects explicitly printed tracebacks.
+>       assert 'Traceback' not in output.err
+E       AssertionError: assert 'Traceback' not in 'usage: code...all last):\n'
+E         
+E         'Traceback' is contained here:
+E           ssing.py'
+E           Traceback (most recent call last):
+E         ? +++++++++
+
+tests\test_core.py:56: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_missing_file_exits_2_with_diagnostic - Assert...
+1 failed, 14 passed in 0.13s

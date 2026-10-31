@@ -1,0 +1,17 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+______________ test_script_value_restored_without_type_coercion _______________
+
+    def test_script_value_restored_without_type_coercion():
+        state = SessionVariables()
+        state.values['number'] = 42
+        assert state.undo() is None
+        state.set('number', 'editor text')
+        assert state.undo() == 'number'
+>       assert state.values['number'] == 42
+E       AssertionError: assert '42' == 42
+
+tests\test_session_history_limit.py:20: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_session_history_limit.py::test_script_value_restored_without_type_coercion
+1 failed, 1 passed in 0.06s

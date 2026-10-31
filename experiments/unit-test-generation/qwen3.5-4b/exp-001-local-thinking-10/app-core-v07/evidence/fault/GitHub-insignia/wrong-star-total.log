@@ -1,0 +1,93 @@
+F...F..........FF........F............                                   [100%]
+================================== FAILURES ===================================
+_________________ test_r1_filter_calculation_and_byte_shares __________________
+
+    def test_r1_filter_calculation_and_byte_shares():
+        items = [repo(), repo("beta", 9, archived=True), repo("fork", 100, fork=True), repo("secret", 200, private=True), repo("other", 300, owner={"login": "other"})]
+        result = repository_metrics(items, {"alpha": {"Python": 300, "Rust": 100}, "beta": {"Rust": 400}}, "cbarkinozer")
+>       assert result["stars"] == 14
+E       assert 0 == 14
+
+tests\test_requirements.py:16: AssertionError
+___________ test_r4_pagination_and_filter_before_language_requests ____________
+
+api_factory = <function api_factory.<locals>.make at 0x0000014D60AA2F20>
+
+    async def test_r4_pagination_and_filter_before_language_requests(api_factory):
+        api, requests = api_factory()
+        data = await api.fetch("cbarkinozer", NOW)
+>       assert data["metrics"]["stars"] == 14
+E       assert 0 == 14
+
+tests\test_requirements.py:48: AssertionError
+____________________ test_r6_fastapi_and_mcp_share_service ____________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-50/test_r6_fastapi_and_mcp_share_0')
+api_factory = <function api_factory.<locals>.make at 0x0000014D61E1D940>
+
+    async def test_r6_fastapi_and_mcp_share_service(tmp_path, api_factory):
+        from fastapi.testclient import TestClient
+        from fastmcp import Client
+        from insignia.app import create_app
+        api, requests = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        app = create_app(service)
+        with TestClient(app) as web:
+            assert web.get("/").status_code == 200
+            assert web.get("/api/dashboard").json()["snapshot"] is None
+            assert requests == []
+>           assert web.post("/api/refresh").json()["snapshot"]["metrics"]["stars"] == 14
+E           assert 0 == 14
+
+tests\test_requirements.py:155: AssertionError
+_________ test_r5_successful_refresh_replaces_snapshot_and_timestamp __________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-50/test_r5_successful_refresh_rep0')
+api_factory = <function api_factory.<locals>.make at 0x0000014D61E1DA80>
+
+    async def test_r5_successful_refresh_replaces_snapshot_and_timestamp(tmp_path, api_factory):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path/'snapshot.json', clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())['snapshot'])
+        service.clock = lambda: NOW + timedelta(hours=1)
+        handler = api.transport.handler
+        def changed(request):
+            response = handler(request)
+            if request.url.path.endswith('/repos') and request.url.params.get('page') != '2':
+                payload = response.json()
+                payload[0]['stargazers_count'] = 25
+                return httpx.Response(200,json=payload,headers=response.headers)
+            return response
+        service.api = GitHubClient(transport=httpx.MockTransport(changed))
+        result = await service.refresh()
+        assert result['error'] is None
+        assert result['snapshot']['fetched_at'] == (NOW + timedelta(hours=1)).isoformat()
+>       assert result['snapshot']['metrics']['stars'] == 34
+E       assert 0 == 34
+
+tests\test_requirements.py:183: AssertionError
+__________________ test_http_mcp_transport_and_refresh_tool ___________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-50/test_http_mcp_transport_and_re0')
+api_factory = <function api_factory.<locals>.make at 0x0000014D63ADA5C0>
+
+    async def test_http_mcp_transport_and_refresh_tool(tmp_path, api_factory):
+        from insignia.app import create_app
+        from fastmcp import Client
+        from fastapi.testclient import TestClient
+        api, requests = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        app = create_app(service)
+        async with Client(app.state.mcp) as client:
+            result = await client.call_tool("refresh_data", {})
+>           assert result.data["snapshot"]["metrics"]["stars"] == 14
+E           assert 0 == 14
+
+tests\test_snapshot_contract.py:105: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares
+FAILED tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests
+FAILED tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service - as...
+FAILED tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp
+FAILED tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool
+5 failed, 33 passed in 4.34s

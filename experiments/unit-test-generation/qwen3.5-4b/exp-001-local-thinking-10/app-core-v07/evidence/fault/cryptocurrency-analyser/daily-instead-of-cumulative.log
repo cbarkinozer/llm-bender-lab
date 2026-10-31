@@ -1,0 +1,101 @@
+F.F...F.....F                                                            [100%]
+================================== FAILURES ===================================
+_________ test_returns_are_relative_to_first_price_not_daily_changes __________
+
+    def test_returns_are_relative_to_first_price_not_daily_changes():
+        prices = pd.DataFrame({'BTC': [100., 150., 75.], 'ETH': [20., 10., 30.]})
+        expected = pd.DataFrame({'BTC': [0., .5, -.25], 'ETH': [0., -.5, .5]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+tests\test_coin_comparator.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (33.33333 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.5, -0.5]
+E   [right]: [0.0, 0.5, -0.25]
+E   At positional index 2, first diff: -0.5 != -0.25
+
+pandas/_libs/testing.pyx:171: AssertionError
+_____________________ test_missing_price_remains_missing ______________________
+
+    def test_missing_price_remains_missing():
+        prices = pd.DataFrame({'BTC': [100., float('nan'), 200.]})
+        expected = pd.DataFrame({'BTC': [0., float('nan'), 1.]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+tests\test_coin_comparator.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (66.66667 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, 0.0, 0.0]
+E   [right]: [0.0, nan, 1.0]
+E   At positional index 1, first diff: 0.0 != nan
+
+pandas/_libs/testing.pyx:171: AssertionError
+_______ test_saved_csv_matches_provider_calculation_and_declares_source _______
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-135/test_saved_csv_matches_provide0')
+
+    def test_saved_csv_matches_provider_calculation_and_declares_source(tmp_path):
+        from price_workflow import analyze
+        path = tmp_path/'prices.csv'
+        prices().to_csv(path)
+        provider = Mock(return_value=prices())
+        live = analyze(['btc','eth'], '2026-01-01','2026-01-04', provider=provider)
+        offline = analyze(['btc','eth'], '2026-01-01','2026-01-04', csv_path=path)
+        provider.assert_called_once_with(['BTC-USD','ETH-USD'], '2026-01-01','2026-01-04')
+        assert_frame_equal(live['returns'], offline['returns'], check_freq=False)
+>       assert offline['returns']['BTC-USD'].tolist() == [0.,.5,-.25]
+E       assert [0.0, 0.5, -0.5] == [0.0, 0.5, -0.25]
+E         
+E         At index 2 diff: -0.5 != -0.25
+E         Use -v to get more diff
+
+tests\test_workflow.py:22: AssertionError
+________ test_first_observed_baselines_and_omitted_series_are_reported ________
+
+    def test_first_observed_baselines_and_omitted_series_are_reported():
+        from price_workflow import analyze
+        frame=prices()
+        frame.loc[frame.index[0],'BTC-USD']=float('nan')
+        frame['MISSING-USD']=float('nan')
+        result=analyze(['btc','eth','missing'],'2026-01-01','2026-01-04',provider=Mock(return_value=frame))
+        expected=pd.DataFrame({'BTC-USD':[float('nan'),0.,-.5],'ETH-USD':[0.,-.5,.5]},index=frame.index)
+>       assert_frame_equal(result['returns'],expected)
+
+tests\test_workflow.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC-USD") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC-USD") values are different (33.33333 %)
+E   [index]: [2026-01-01T00:00:00.000000, 2026-01-02T00:00:00.000000, 2026-01-03T00:00:00.000000]
+E   [left]:  [0.0, 0.0, -0.5]
+E   [right]: [nan, 0.0, -0.5]
+E   At positional index 0, first diff: 0.0 != nan
+
+pandas/_libs/testing.pyx:171: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes
+FAILED tests/test_coin_comparator.py::test_missing_price_remains_missing - As...
+FAILED tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source
+FAILED tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported
+4 failed, 9 passed in 0.52s

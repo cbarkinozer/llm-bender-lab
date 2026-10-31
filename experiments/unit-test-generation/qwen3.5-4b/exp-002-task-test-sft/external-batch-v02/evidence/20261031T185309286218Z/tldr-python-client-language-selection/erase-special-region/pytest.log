@@ -1,0 +1,65 @@
+.FFFF                                                                    [100%]
+================================== FAILURES ===================================
+________________________ test_language_codes[pt-pt_PT] ________________________
+
+locale = 'pt', expected = 'pt_PT'
+
+    @pytest.mark.parametrize('locale,expected', [('tr_TR.UTF-8', 'tr'), ('pt', 'pt_PT'),
+                                                 ('pt_BR.UTF-8', 'pt_BR'), ('zh_TW', 'zh_TW')])
+    def test_language_codes(locale, expected):
+>       assert tldr.get_language_code(locale) == expected
+E       AssertionError: assert 'pt' == 'pt_PT'
+E         
+E         - pt_PT
+E         + pt
+
+tests\test_language_selection.py:8: AssertionError
+___________________ test_language_codes[pt_BR.UTF-8-pt_BR] ____________________
+
+locale = 'pt_BR.UTF-8', expected = 'pt_BR'
+
+    @pytest.mark.parametrize('locale,expected', [('tr_TR.UTF-8', 'tr'), ('pt', 'pt_PT'),
+                                                 ('pt_BR.UTF-8', 'pt_BR'), ('zh_TW', 'zh_TW')])
+    def test_language_codes(locale, expected):
+>       assert tldr.get_language_code(locale) == expected
+E       AssertionError: assert 'pt' == 'pt_BR'
+E         
+E         - pt_BR
+E         + pt
+
+tests\test_language_selection.py:8: AssertionError
+______________________ test_language_codes[zh_TW-zh_TW] _______________________
+
+locale = 'zh_TW', expected = 'zh_TW'
+
+    @pytest.mark.parametrize('locale,expected', [('tr_TR.UTF-8', 'tr'), ('pt', 'pt_PT'),
+                                                 ('pt_BR.UTF-8', 'pt_BR'), ('zh_TW', 'zh_TW')])
+    def test_language_codes(locale, expected):
+>       assert tldr.get_language_code(locale) == expected
+E       AssertionError: assert 'zh' == 'zh_TW'
+E         
+E         - zh_TW
+E         + zh
+
+tests\test_language_selection.py:8: AssertionError
+___________________________ test_language_priority ____________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F2A459810>
+
+    def test_language_priority(monkeypatch):
+        monkeypatch.setenv('LANG', 'de_DE.UTF-8')
+        monkeypatch.setenv('LANGUAGE', 'fr:de')
+        monkeypatch.setenv('TLDR_LANGUAGE', 'pt_BR')
+>       assert tldr.get_language_list() == ['pt_BR', 'fr', 'de', 'en']
+E       AssertionError: assert ['pt', 'fr', 'de', 'en'] == ['pt_BR', 'fr', 'de', 'en']
+E         
+E         At index 0 diff: 'pt' != 'pt_BR'
+E         Use -v to get more diff
+
+tests\test_language_selection.py:15: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_language_selection.py::test_language_codes[pt-pt_PT] - Asse...
+FAILED tests/test_language_selection.py::test_language_codes[pt_BR.UTF-8-pt_BR]
+FAILED tests/test_language_selection.py::test_language_codes[zh_TW-zh_TW] - A...
+FAILED tests/test_language_selection.py::test_language_priority - AssertionEr...
+4 failed, 1 passed in 0.07s

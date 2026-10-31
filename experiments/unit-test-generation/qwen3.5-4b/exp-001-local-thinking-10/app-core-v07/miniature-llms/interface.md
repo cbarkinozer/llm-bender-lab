@@ -1,0 +1,12 @@
+Proposed components plus public `tiny_model`:
+- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.
+- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning "head_dimension must be even"; wrong forward dimension -> ValueError "Expected head dimension <n>, got <n>".
+- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.
+- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.
+- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.
+- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.
+Dependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.
+
+- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.
+- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.
+

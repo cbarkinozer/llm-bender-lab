@@ -1,0 +1,19 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_________ test_cancelled_or_previous_account_result_cannot_be_applied _________
+
+    def test_cancelled_or_previous_account_result_cannot_be_applied():
+        app, _, _, _ = make_app()
+        app.switch_account('a')
+        old = app.begin_operation()
+        app.cancel(old)
+        current = app.begin_operation()
+>       assert app.finish(old, 'stale') is False
+E       AssertionError: assert True is False
+E        +  where True = broken((1, <object object at 0x0000018D70851D10>), 'stale')
+E        +    where broken = <mail_workflow.MailApp object at 0x0000018D73DB2270>.finish
+
+tests\test_mail_cancellation.py:19: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_mail_cancellation.py::test_cancelled_or_previous_account_result_cannot_be_applied
+1 failed in 0.12s

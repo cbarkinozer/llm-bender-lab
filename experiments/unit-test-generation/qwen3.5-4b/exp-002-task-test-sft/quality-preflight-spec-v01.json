@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.1",
+  "pilot_version": "quality-after-v01",
+  "primary_objective": "task + agreed contract -> one useful pytest artifact",
+  "planning_training_enabled": false,
+  "code_generation_training_enabled": false,
+  "training_task_target": 100,
+  "applications": [
+    {
+      "id": "llm-bender-lab",
+      "unresolved": [
+        "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "llm-bender-lab-delivery",
+          "title": "Verify documented delivery and live UI/backend integration separately.",
+          "depends_on": [],
+          "implementation_files": [
+            "README.md"
+          ],
+          "target_file": "tests/test_delivery.py",
+          "acceptance": [
+            "Real training backend integration, credential publishing policy and actual CLI delivery remain separate checks."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "experiment-preflight",
+      "application": "llm-bender-lab",
+      "title": "Specify conversation/split validation before any backend is invoked.",
+      "implementation_files": [
+        "experiment_workflow.py"
+      ],
+      "target_file": "tests/test_experiment_preflight.py",
+      "depends_on": [],
+      "acceptance": [
+        "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+        "The trainer is never invoked after invalid preflight.",
+        "Valid disjoint train/test rows pass preflight and reach the injected trainer; invalid inputs still fail before it."
+      ],
+      "contract": "Proposed `experiment_workflow.run_experiment(root,name,config,rows,trainer=...,evaluator=...)` is a complete orchestration boundary.\n- Config: model_revision,data_revision,code_revision strings, seed int, generation mapping (temperature,max_new_tokens). Credential fields api_key/token/password/secret are excluded from saved config, logs and results; external secret values are redacted from backend errors. Manifest secret filtering is limited to this declared top-level schema; arbitrary nested secrets require a future schema decision.\n- Rows: `{id,split:\"train\"|\"test\",messages:[{role:\"user\",content},{role:\"assistant\",reasoning_content?,content}]}`. Both splits required; nonempty text; reject malformed roles, unknown split and normalized duplicate prompts before trainer invocation.\n- Run IDs are simple directory names. Create root/name exclusively, rejecting existing run with FileExistsError; never overwrite previous artifacts. resolved.json holds effective nonsecret config and all revision identities/seed/settings. status.json states running/completed/failed. trainer(run_dir,resolved_config,training_rows) returns an existing adapter file inside run_dir; evaluator(model_or_adapter,heldout_rows,generation_settings) returns metric-name -> float or None. Call baseline then adapter with identical held-out rows and settings; no real training dependency imported in this workflow.\n- Success returns `{status:\"completed\",comparison:{metric:{before,after,delta}}}` and writes summary.md, run.log, status.json. delta=after-before, None if either unavailable; zero is an actual zero. Failure returns `{status:\"failed\",error}`, retains sanitized run.log/status.json, and never writes a success summary.\nDependencies: Python standard library and pytest. Tests supply trainer/evaluator fakes; setup commands and connecting a real backend remain manual checks.\n\n- trainer receives exactly the train-split rows; both evaluator calls receive exactly the test-split rows. Baseline identity is config['model_revision']; candidate identity is the adapter path string. A real 0.0 metric remains 0.0, including its computed delta. Successful status.json declares completed; returned errors redact secrets as well as saved logs.\n\n",
+      "rationale": "Invalid inputs must be rejected before backend invocation. A valid-data control must reach the trainer and complete; otherwise an always-reject implementation could pass every negative test.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "schema-and-leakage-validation",
+        "state": "stateless",
+        "dependencies": "injected-fixtures",
+        "boundaries": [
+          "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+          "The trainer is never invoked after invalid preflight."
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/conftest.py",
+          "tests": [],
+          "helpers": [
+            "config",
+            "rows",
+            "experiment_config",
+            "experiment_rows"
+          ]
+        },
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_malformed_data_fails_before_backend"
+          ],
+          "helpers": []
+        },
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_invalid_preflight_never_invokes_trainer"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "normalize-away-invalid-conversation",
+          "code": "import experiment_workflow as m\nfrom copy import deepcopy\noriginal=m.run_experiment\ndef broken(root,name,config,rows,**k):\n    rows=deepcopy(rows)\n    for i,row in enumerate(rows):\n        row['split']='train' if i==0 else 'test'\n        row['messages']=[{'role':'user','content':str(i)},{'role':'assistant','content':'5'}]\n    return original(root,name,config,rows,**k)\nm.run_experiment=broken"
+        },
+        {
+          "id": "reject-every-input",
+          "code": "import experiment_workflow as m\ndef reject(*args,**kwargs):\n    raise ValueError(\"invalid preflight\")\nm.run_experiment=reject"
+        }
+      ],
+      "additional_tests": "\n\ndef test_valid_preflight_reaches_backend(tmp_path, experiment_config, experiment_rows):\n    from experiment_workflow import run_experiment\n    from unittest.mock import Mock\n    import pytest\n    def train(run_dir, resolved, train_rows):\n        artifact = run_dir / 'fixture-adapter.bin'\n        artifact.write_bytes(b'fixture')\n        return artifact\n    trainer = Mock(side_effect=train)\n    evaluator = Mock(return_value={'accuracy': 0.5})\n    try:\n        result = run_experiment(tmp_path, 'valid', experiment_config, experiment_rows,\n                                trainer=trainer, evaluator=evaluator)\n    except ValueError as error:\n        pytest.fail('Valid disjoint data was rejected: ' + str(error))\n    assert result['status'] == 'completed'\n    trainer.assert_called_once()\n    assert trainer.call_args.args[2] == [experiment_rows[0]]\n    assert evaluator.call_count == 2\n",
+      "context": "Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run."
+    }
+  ],
+  "description": "Expands the eight-task v01 pilot to all seven training families; v01 records are superseded, not additive."
+}

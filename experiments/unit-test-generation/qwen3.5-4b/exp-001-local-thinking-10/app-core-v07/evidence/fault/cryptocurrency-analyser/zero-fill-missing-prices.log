@@ -1,0 +1,62 @@
+..F.........F                                                            [100%]
+================================== FAILURES ===================================
+_____________________ test_missing_price_remains_missing ______________________
+
+    def test_missing_price_remains_missing():
+        prices = pd.DataFrame({'BTC': [100., float('nan'), 200.]})
+        expected = pd.DataFrame({'BTC': [0., float('nan'), 1.]})
+>       assert_frame_equal(calculate_cumulative_returns(prices), expected)
+
+tests\test_coin_comparator.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC") values are different (33.33333 %)
+E   [index]: [0, 1, 2]
+E   [left]:  [0.0, -1.0, 1.0]
+E   [right]: [0.0, nan, 1.0]
+E   At positional index 1, first diff: -1.0 != nan
+
+pandas/_libs/testing.pyx:171: AssertionError
+________ test_first_observed_baselines_and_omitted_series_are_reported ________
+
+    def test_first_observed_baselines_and_omitted_series_are_reported():
+        from price_workflow import analyze
+        frame=prices()
+        frame.loc[frame.index[0],'BTC-USD']=float('nan')
+        frame['MISSING-USD']=float('nan')
+>       result=analyze(['btc','eth','missing'],'2026-01-01','2026-01-04',provider=Mock(return_value=frame))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_workflow.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+reference\price_workflow.py:20: in analyze
+    return {'returns':calculate_cumulative_returns(prices),'correlation':calculate_correlation(prices),'omitted':omitted,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\..\..\..\..\llm-bender-artifacts\tdd-v07-windows\thinking-tdd\app-core-v07-faults\20261031T080054961413Z\cryptocurrency-analyser\zero-fill-missing-prices\fault_probe.py:7: in <lambda>
+    m.calculate_cumulative_returns=lambda prices:original(prices.fillna(0))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+prices =             BTC-USD  ETH-USD
+Date                        
+2026-01-01      0.0     20.0
+2026-01-02    150.0     10.0
+2026-01-03     75.0     30.0
+
+    def calculate_cumulative_returns(prices):
+        baselines=prices.apply(lambda column:column.dropna().iloc[0] if column.notna().any() else float('nan'))
+>       if (baselines.dropna()<=0).any(): raise ValueError('Invalid baseline')
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Invalid baseline
+
+reference\coin_comparator.py:10: ValueError
+=========================== short test summary info ===========================
+FAILED tests/test_coin_comparator.py::test_missing_price_remains_missing - As...
+FAILED tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported
+2 failed, 11 passed in 0.43s

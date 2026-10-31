@@ -1,0 +1,38 @@
+FF...                                                                    [100%]
+================================== FAILURES ===================================
+______________________ test_platform_mapping[darwin-osx] ______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000209C2DB9CD0>
+system = 'darwin', expected = 'osx'
+
+    @pytest.mark.parametrize('system,expected', [('darwin', 'osx'), ('win32', 'windows'),
+                                                 ('linux2', 'linux'), ('unknown-os', 'linux')])
+    def test_platform_mapping(monkeypatch, system, expected):
+        monkeypatch.setattr(tldr.sys, 'platform', system)
+>       assert tldr.get_platform() == expected
+E       AssertionError: assert 'linux' == 'osx'
+E         
+E         - osx
+E         + linux
+
+tests\test_platform_priority.py:9: AssertionError
+____________________ test_platform_mapping[win32-windows] _____________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000209C2DB9A70>
+system = 'win32', expected = 'windows'
+
+    @pytest.mark.parametrize('system,expected', [('darwin', 'osx'), ('win32', 'windows'),
+                                                 ('linux2', 'linux'), ('unknown-os', 'linux')])
+    def test_platform_mapping(monkeypatch, system, expected):
+        monkeypatch.setattr(tldr.sys, 'platform', system)
+>       assert tldr.get_platform() == expected
+E       AssertionError: assert 'linux' == 'windows'
+E         
+E         - windows
+E         + linux
+
+tests\test_platform_priority.py:9: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_platform_priority.py::test_platform_mapping[darwin-osx] - A...
+FAILED tests/test_platform_priority.py::test_platform_mapping[win32-windows]
+2 failed, 3 passed in 0.06s

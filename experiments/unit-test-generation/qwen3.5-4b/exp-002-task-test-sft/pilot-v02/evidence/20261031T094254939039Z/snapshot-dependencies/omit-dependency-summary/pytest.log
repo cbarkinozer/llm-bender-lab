@@ -1,0 +1,30 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________ test_requirements_are_included_in_dependency_context _____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-216/test_requirements_are_included0')
+
+    def test_requirements_are_included_in_dependency_context(tmp_path):
+        (tmp_path / 'requirements.txt').write_text('fastapi==0.115.0\npytest==8.4.2\n')
+        stack, details = analyze_dependencies(tmp_path)
+        assert stack == 'Python'
+>       assert 'requirements.txt' in details
+E       AssertionError: assert 'requirements.txt' in ''
+
+tests\test_snapshot_dependencies.py:8: AssertionError
+___________________ test_pyproject_dependencies_are_listed ____________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-216/test_pyproject_dependencies_ar0')
+
+    def test_pyproject_dependencies_are_listed(tmp_path):
+        (tmp_path / 'pyproject.toml').write_text('[project]\ndependencies = ["httpx>=0.28", "pytest>=8"]\n')
+        stack, details=analyze_dependencies(tmp_path)
+        assert stack == 'Python'
+>       assert 'pyproject.toml' in details
+E       AssertionError: assert 'pyproject.toml' in ''
+
+tests\test_snapshot_dependencies.py:16: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_snapshot_dependencies.py::test_requirements_are_included_in_dependency_context
+FAILED tests/test_snapshot_dependencies.py::test_pyproject_dependencies_are_listed
+2 failed in 0.09s

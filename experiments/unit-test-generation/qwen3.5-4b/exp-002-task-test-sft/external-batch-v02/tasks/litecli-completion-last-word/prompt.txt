@@ -1,0 +1,47 @@
+APPLICATION
+Build a SQLite terminal client with query execution, SQL-aware completion and special commands.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "sql-table-identifiers",
+    "module": "litecli.packages.parseutils",
+    "target_file": "tests/test_sql_table_identifiers.py"
+  },
+  {
+    "id": "sql-destructive-detection",
+    "module": "litecli.packages.parseutils",
+    "target_file": "tests/test_sql_destructive_detection.py"
+  },
+  {
+    "id": "completion-last-word",
+    "module": "litecli.packages.parseutils",
+    "target_file": "tests/test_completion_last_word.py"
+  },
+  {
+    "id": "path-completion",
+    "module": "litecli.packages.filepaths",
+    "target_file": "tests/test_path_completion.py"
+  },
+  {
+    "id": "sqlite-query-execution",
+    "module": "litecli.sqlexecute",
+    "target_file": "tests/test_sqlite_query_execution.py"
+  },
+  {
+    "id": "special-command-dispatch",
+    "module": "litecli.packages.special.main",
+    "target_file": "tests/test_special_command_dispatch.py"
+  }
+]
+
+CURRENT TASK
+completion-last-word
+Target file: tests/test_completion_last_word.py
+Implementation module: litecli.packages.parseutils
+
+INTERFACE AND ACCEPTANCE CONTRACT
+last_word(text, include="alphanum_underscore") returns the final completion token. Empty input or trailing whitespace returns an empty string. Default mode retains letters/digits/underscores; most_punctuations also retains dollar signs but splits on periods, commas, colons and parentheses.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

@@ -1,6 +1,14 @@
 # macOS Finder metadata
 .DS_Store
 
+# Temporary local review workspace; finalized review evidence lives in experiments.
+/.review-scratch/
+# Accidental scratchpad export produced by an earlier local review tool.
+/experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/planning-pilot-v03/*scratchpad*.txt
+
+# Portable sharing packages are generated outside Git; retain builders/manifests.
+/dataset-share/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

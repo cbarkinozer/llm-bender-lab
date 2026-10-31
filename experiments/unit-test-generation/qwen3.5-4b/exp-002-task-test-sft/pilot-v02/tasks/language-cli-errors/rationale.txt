@@ -1,0 +1,1 @@
+Missing files are usage failures, while decoding and closed-stream errors are processing failures. Exact exit codes and empty stdout prevent an implementation from treating every error as success; the traceback check also catches deliberately printed tracebacks.

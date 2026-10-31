@@ -1,0 +1,42 @@
+APPLICATION
+Build a terminal HTTP client with saved requests, URL parameters and editable session variables.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "path-parameters",
+    "module": "posting.urls",
+    "target_file": "tests/test_path_parameters.py"
+  },
+  {
+    "id": "query-pair-merge",
+    "module": "posting.urls",
+    "target_file": "tests/test_query_pair_merge.py"
+  },
+  {
+    "id": "request-filenames",
+    "module": "posting.files",
+    "target_file": "tests/test_request_filenames.py"
+  },
+  {
+    "id": "session-undo-redo",
+    "module": "posting.session_variables",
+    "target_file": "tests/test_session_undo_redo.py"
+  },
+  {
+    "id": "session-history-limit",
+    "module": "posting.session_variables",
+    "target_file": "tests/test_session_history_limit.py"
+  }
+]
+
+CURRENT TASK
+query-pair-merge
+Target file: tests/test_query_pair_merge.py
+Implementation module: posting.urls
+
+INTERFACE AND ACCEPTANCE CONTRACT
+extract_query_pairs(url) retains duplicate keys, blanks and ordering. merge_url_query_into_params(url, params) matches table (name,value,enabled) triples to URL occurrences in order. Nonempty table values win; empty table values use URL values; preserve disabled flags, unmatched URL rows (enabled=True), and unmatched table rows. Return URL with query removed, preserving path/fragment. With escape_dollars=True percent-encoded dollar signs decode to doubled dollars for later literal-template handling.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

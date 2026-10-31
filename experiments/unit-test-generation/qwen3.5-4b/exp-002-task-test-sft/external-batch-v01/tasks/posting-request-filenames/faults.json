@@ -1,0 +1,10 @@
+[
+  [
+    "accept-all-names",
+    "m.is_valid_filename=lambda name: True"
+  ],
+  [
+    "ignore-collisions",
+    "m.get_unique_request_filename=lambda name,directory: name"
+  ]
+]

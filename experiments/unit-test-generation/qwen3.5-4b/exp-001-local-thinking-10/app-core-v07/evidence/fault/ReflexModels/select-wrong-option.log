@@ -1,0 +1,33 @@
+....F............F                                                       [100%]
+================================== FAILURES ===================================
+___________________ test_logits_map_to_original_option_ids ____________________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_logits_map_to_original_option_ids(choice):
+        response = score_decision(choice, request_id='r1', scorer=lambda branch: 2. if 'Dosyaları ara' in branch else 0.)
+>       assert response['selected_option'] == 'files'
+E       AssertionError: assert 'web' == 'files'
+E         
+E         - files
+E         + web
+
+tests\test_core.py:29: AssertionError
+_______________ test_ordinal_scoring_and_declaration_order_ties _______________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_ordinal_scoring_and_declaration_order_ties(choice):
+        ordinal = Ordinal('state', 'Priority?', ('low','medium','high'))
+        result = score_decision(ordinal, request_id='o', scorer=lambda branch:2. if 'medium' in branch else 0.)
+>       assert result['selected_option'] == 'medium'
+E       AssertionError: assert 'web' == 'medium'
+E         
+E         - medium
+E         + web
+
+tests\test_core.py:97: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_logits_map_to_original_option_ids - Assertion...
+FAILED tests/test_core.py::test_ordinal_scoring_and_declaration_order_ties - ...
+2 failed, 16 passed in 0.10s

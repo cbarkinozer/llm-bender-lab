@@ -1,0 +1,5 @@
+{
+  "module": "posting.urls",
+  "mutation": "original=m.substitute_path_params\ndef broken(url,params):\n result=original(url,params)\n for key,value in params.items(): result=result.replace(':'+key,value)\n return result\nm.substitute_path_params=broken",
+  "seed": null
+}

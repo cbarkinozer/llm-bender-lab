@@ -1,0 +1,801 @@
+[
+  {
+    "prior_record_id": "codelang-detect-app-plan-planning-v03",
+    "new_record_id": "codelang-detect-app-plan-planning-v04",
+    "prior_conflicts": [],
+    "added_edges": [],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "cryptocurrency-analyser-app-plan-planning-v03",
+    "new_record_id": "cryptocurrency-analyser-app-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "prices-returns",
+        "right": "prices-fetch",
+        "files": [
+          "coin_comparator.py"
+        ]
+      },
+      {
+        "left": "prices-charts",
+        "right": "prices-fetch",
+        "files": [
+          "coin_comparator.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "prices-fetch",
+        "depends_on": "prices-charts",
+        "reason": "serialize edits to shared file",
+        "file": "coin_comparator.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": true
+  },
+  {
+    "prior_record_id": "ghost-box-app-plan-planning-v03",
+    "new_record_id": "ghost-box-app-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "mail-fetch-coverage",
+        "right": "mail-selected-inference",
+        "files": [
+          "mail_workflow.py"
+        ]
+      },
+      {
+        "left": "mail-fetch-coverage",
+        "right": "mail-cancellation",
+        "files": [
+          "mail_workflow.py"
+        ]
+      },
+      {
+        "left": "mail-fetch-coverage",
+        "right": "mail-model-lifecycle",
+        "files": [
+          "mail_workflow.py"
+        ]
+      },
+      {
+        "left": "mail-selected-inference",
+        "right": "mail-cancellation",
+        "files": [
+          "mail_workflow.py"
+        ]
+      },
+      {
+        "left": "mail-selected-inference",
+        "right": "mail-model-lifecycle",
+        "files": [
+          "mail_workflow.py"
+        ]
+      },
+      {
+        "left": "mail-cancellation",
+        "right": "mail-model-lifecycle",
+        "files": [
+          "mail_workflow.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "mail-selected-inference",
+        "depends_on": "mail-fetch-coverage",
+        "reason": "serialize edits to shared file",
+        "file": "mail_workflow.py"
+      },
+      {
+        "task": "mail-cancellation",
+        "depends_on": "mail-selected-inference",
+        "reason": "serialize edits to shared file",
+        "file": "mail_workflow.py"
+      },
+      {
+        "task": "mail-model-lifecycle",
+        "depends_on": "mail-cancellation",
+        "reason": "serialize edits to shared file",
+        "file": "mail_workflow.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "llm-bender-lab-app-plan-planning-v03",
+    "new_record_id": "llm-bender-lab-app-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "experiment-preflight",
+        "right": "experiment-matched-evaluation",
+        "files": [
+          "experiment_workflow.py"
+        ]
+      },
+      {
+        "left": "experiment-preflight",
+        "right": "experiment-artifact-isolation",
+        "files": [
+          "experiment_workflow.py"
+        ]
+      },
+      {
+        "left": "experiment-preflight",
+        "right": "experiment-failure-reporting",
+        "files": [
+          "experiment_workflow.py"
+        ]
+      },
+      {
+        "left": "experiment-matched-evaluation",
+        "right": "experiment-artifact-isolation",
+        "files": [
+          "experiment_workflow.py"
+        ]
+      },
+      {
+        "left": "experiment-matched-evaluation",
+        "right": "experiment-failure-reporting",
+        "files": [
+          "experiment_workflow.py"
+        ]
+      },
+      {
+        "left": "experiment-artifact-isolation",
+        "right": "experiment-failure-reporting",
+        "files": [
+          "experiment_workflow.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "experiment-matched-evaluation",
+        "depends_on": "experiment-preflight",
+        "reason": "serialize edits to shared file",
+        "file": "experiment_workflow.py"
+      },
+      {
+        "task": "experiment-artifact-isolation",
+        "depends_on": "experiment-matched-evaluation",
+        "reason": "serialize edits to shared file",
+        "file": "experiment_workflow.py"
+      },
+      {
+        "task": "experiment-failure-reporting",
+        "depends_on": "experiment-artifact-isolation",
+        "reason": "serialize edits to shared file",
+        "file": "experiment_workflow.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "miniature-llms-app-plan-planning-v03",
+    "new_record_id": "miniature-llms-app-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "tensor-model-composition",
+        "right": "tensor-causal-independence",
+        "files": [
+          "tiny_model.py"
+        ]
+      },
+      {
+        "left": "tensor-model-composition",
+        "right": "tensor-checkpoint-roundtrip",
+        "files": [
+          "tiny_model.py"
+        ]
+      },
+      {
+        "left": "tensor-model-composition",
+        "right": "tensor-training-generation",
+        "files": [
+          "tiny_model.py"
+        ]
+      },
+      {
+        "left": "tensor-causal-independence",
+        "right": "tensor-checkpoint-roundtrip",
+        "files": [
+          "tiny_model.py"
+        ]
+      },
+      {
+        "left": "tensor-causal-independence",
+        "right": "tensor-training-generation",
+        "files": [
+          "tiny_model.py"
+        ]
+      },
+      {
+        "left": "tensor-checkpoint-roundtrip",
+        "right": "tensor-training-generation",
+        "files": [
+          "tiny_model.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "tensor-causal-independence",
+        "depends_on": "tensor-model-composition",
+        "reason": "serialize edits to shared file",
+        "file": "tiny_model.py"
+      },
+      {
+        "task": "tensor-checkpoint-roundtrip",
+        "depends_on": "tensor-causal-independence",
+        "reason": "serialize edits to shared file",
+        "file": "tiny_model.py"
+      },
+      {
+        "task": "tensor-training-generation",
+        "depends_on": "tensor-checkpoint-roundtrip",
+        "reason": "serialize edits to shared file",
+        "file": "tiny_model.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "reflexmodels-app-plan-planning-v03",
+    "new_record_id": "reflexmodels-app-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "decision-requests",
+        "right": "decision-probabilities",
+        "files": [
+          "reflexmodels/protocol.py"
+        ]
+      },
+      {
+        "left": "decision-requests",
+        "right": "decision-shared-state",
+        "files": [
+          "reflexmodels/types.py"
+        ]
+      },
+      {
+        "left": "decision-requests",
+        "right": "decision-ordinal",
+        "files": [
+          "reflexmodels/types.py"
+        ]
+      },
+      {
+        "left": "decision-probabilities",
+        "right": "decision-shared-state",
+        "files": [
+          "reflexmodels/scoring.py"
+        ]
+      },
+      {
+        "left": "decision-probabilities",
+        "right": "decision-fallback",
+        "files": [
+          "reflexmodels/routing.py"
+        ]
+      },
+      {
+        "left": "decision-probabilities",
+        "right": "decision-ordinal",
+        "files": [
+          "reflexmodels/scoring.py"
+        ]
+      },
+      {
+        "left": "decision-shared-state",
+        "right": "decision-ordinal",
+        "files": [
+          "reflexmodels/scoring.py",
+          "reflexmodels/types.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "decision-probabilities",
+        "depends_on": "decision-requests",
+        "reason": "serialize edits to shared file",
+        "file": "reflexmodels/protocol.py"
+      },
+      {
+        "task": "decision-shared-state",
+        "depends_on": "decision-probabilities",
+        "reason": "serialize edits to shared file",
+        "file": "reflexmodels/scoring.py"
+      },
+      {
+        "task": "decision-fallback",
+        "depends_on": "decision-probabilities",
+        "reason": "serialize edits to shared file",
+        "file": "reflexmodels/routing.py"
+      },
+      {
+        "task": "decision-ordinal",
+        "depends_on": "decision-shared-state",
+        "reason": "serialize edits to shared file",
+        "file": "reflexmodels/scoring.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "repo-context-app-plan-planning-v03",
+    "new_record_id": "repo-context-app-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "snapshot-file-tree",
+        "right": "snapshot-dependencies",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-file-tree",
+        "right": "snapshot-url-routing",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-file-tree",
+        "right": "snapshot-text-decoding",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-dependencies",
+        "right": "snapshot-url-routing",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-dependencies",
+        "right": "snapshot-text-decoding",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-url-routing",
+        "right": "snapshot-text-decoding",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-safe-context",
+        "right": "snapshot-controller-routing",
+        "files": [
+          "context_workflow.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "snapshot-dependencies",
+        "depends_on": "snapshot-file-tree",
+        "reason": "serialize edits to shared file",
+        "file": "repo_context/core.py"
+      },
+      {
+        "task": "snapshot-url-routing",
+        "depends_on": "snapshot-dependencies",
+        "reason": "serialize edits to shared file",
+        "file": "repo_context/core.py"
+      },
+      {
+        "task": "snapshot-text-decoding",
+        "depends_on": "snapshot-url-routing",
+        "reason": "serialize edits to shared file",
+        "file": "repo_context/core.py"
+      },
+      {
+        "task": "snapshot-controller-routing",
+        "depends_on": "snapshot-safe-context",
+        "reason": "serialize edits to shared file",
+        "file": "context_workflow.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "litecli-backend-plan-planning-v03",
+    "new_record_id": "litecli-backend-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "litecli-sql-table-identifiers",
+        "right": "litecli-sql-destructive-detection",
+        "files": [
+          "litecli/packages/parseutils.py"
+        ]
+      },
+      {
+        "left": "litecli-sql-table-identifiers",
+        "right": "litecli-completion-last-word",
+        "files": [
+          "litecli/packages/parseutils.py"
+        ]
+      },
+      {
+        "left": "litecli-sql-destructive-detection",
+        "right": "litecli-completion-last-word",
+        "files": [
+          "litecli/packages/parseutils.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "litecli-sql-destructive-detection",
+        "depends_on": "litecli-sql-table-identifiers",
+        "reason": "serialize edits to shared file",
+        "file": "litecli/packages/parseutils.py"
+      },
+      {
+        "task": "litecli-completion-last-word",
+        "depends_on": "litecli-sql-destructive-detection",
+        "reason": "serialize edits to shared file",
+        "file": "litecli/packages/parseutils.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "tldr-python-client-backend-plan-planning-v03",
+    "new_record_id": "tldr-python-client-backend-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "tldr-python-client-language-selection",
+        "right": "tldr-python-client-cache-path-selection",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-language-selection",
+        "right": "tldr-python-client-cache-freshness",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-language-selection",
+        "right": "tldr-python-client-page-url",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-language-selection",
+        "right": "tldr-python-client-cache-network-routing",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-language-selection",
+        "right": "tldr-python-client-platform-priority",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-path-selection",
+        "right": "tldr-python-client-cache-freshness",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-path-selection",
+        "right": "tldr-python-client-page-url",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-path-selection",
+        "right": "tldr-python-client-cache-network-routing",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-path-selection",
+        "right": "tldr-python-client-platform-priority",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-freshness",
+        "right": "tldr-python-client-page-url",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-freshness",
+        "right": "tldr-python-client-cache-network-routing",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-freshness",
+        "right": "tldr-python-client-platform-priority",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-page-url",
+        "right": "tldr-python-client-cache-network-routing",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-page-url",
+        "right": "tldr-python-client-platform-priority",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-network-routing",
+        "right": "tldr-python-client-platform-priority",
+        "files": [
+          "tldr.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "tldr-python-client-cache-path-selection",
+        "depends_on": "tldr-python-client-language-selection",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      },
+      {
+        "task": "tldr-python-client-cache-freshness",
+        "depends_on": "tldr-python-client-cache-path-selection",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      },
+      {
+        "task": "tldr-python-client-page-url",
+        "depends_on": "tldr-python-client-cache-freshness",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      },
+      {
+        "task": "tldr-python-client-cache-network-routing",
+        "depends_on": "tldr-python-client-page-url",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      },
+      {
+        "task": "tldr-python-client-platform-priority",
+        "depends_on": "tldr-python-client-cache-network-routing",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "posting-backend-plan-planning-v03",
+    "new_record_id": "posting-backend-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "posting-path-parameters",
+        "right": "posting-query-pair-merge",
+        "files": [
+          "src/posting/urls.py"
+        ]
+      },
+      {
+        "left": "posting-session-undo-redo",
+        "right": "posting-session-history-limit",
+        "files": [
+          "src/posting/session_variables.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "posting-query-pair-merge",
+        "depends_on": "posting-path-parameters",
+        "reason": "serialize edits to shared file",
+        "file": "src/posting/urls.py"
+      },
+      {
+        "task": "posting-session-history-limit",
+        "depends_on": "posting-session-undo-redo",
+        "reason": "serialize edits to shared file",
+        "file": "src/posting/session_variables.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "ddgr-backend-plan-planning-v03",
+    "new_record_id": "ddgr-backend-plan-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "ddgr-unicode-safe-urls",
+        "right": "ddgr-search-pagination",
+        "files": [
+          "ddgr"
+        ]
+      },
+      {
+        "left": "ddgr-unicode-safe-urls",
+        "right": "ddgr-result-serialization",
+        "files": [
+          "ddgr"
+        ]
+      },
+      {
+        "left": "ddgr-search-pagination",
+        "right": "ddgr-result-serialization",
+        "files": [
+          "ddgr"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "ddgr-search-pagination",
+        "depends_on": "ddgr-unicode-safe-urls",
+        "reason": "serialize edits to shared file",
+        "file": "ddgr"
+      },
+      {
+        "task": "ddgr-result-serialization",
+        "depends_on": "ddgr-search-pagination",
+        "reason": "serialize edits to shared file",
+        "file": "ddgr"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "litecli-backend-plan-sql-core-planning-v03",
+    "new_record_id": "litecli-backend-plan-sql-core-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "litecli-sql-table-identifiers",
+        "right": "litecli-sql-destructive-detection",
+        "files": [
+          "litecli/packages/parseutils.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "litecli-sql-destructive-detection",
+        "depends_on": "litecli-sql-table-identifiers",
+        "reason": "serialize edits to shared file",
+        "file": "litecli/packages/parseutils.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "tldr-python-client-backend-plan-offline-cache-planning-v03",
+    "new_record_id": "tldr-python-client-backend-plan-offline-cache-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "tldr-python-client-cache-path-selection",
+        "right": "tldr-python-client-cache-freshness",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-path-selection",
+        "right": "tldr-python-client-cache-network-routing",
+        "files": [
+          "tldr.py"
+        ]
+      },
+      {
+        "left": "tldr-python-client-cache-freshness",
+        "right": "tldr-python-client-cache-network-routing",
+        "files": [
+          "tldr.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "tldr-python-client-cache-freshness",
+        "depends_on": "tldr-python-client-cache-path-selection",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      },
+      {
+        "task": "tldr-python-client-cache-network-routing",
+        "depends_on": "tldr-python-client-cache-freshness",
+        "reason": "serialize edits to shared file",
+        "file": "tldr.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "repo-context-app-plan-snapshot-core-planning-v03",
+    "new_record_id": "repo-context-app-plan-snapshot-core-planning-v04",
+    "prior_conflicts": [
+      {
+        "left": "snapshot-file-tree",
+        "right": "snapshot-dependencies",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-file-tree",
+        "right": "snapshot-text-decoding",
+        "files": [
+          "repo_context/core.py"
+        ]
+      },
+      {
+        "left": "snapshot-dependencies",
+        "right": "snapshot-text-decoding",
+        "files": [
+          "repo_context/core.py"
+        ]
+      }
+    ],
+    "added_edges": [
+      {
+        "task": "snapshot-dependencies",
+        "depends_on": "snapshot-file-tree",
+        "reason": "serialize edits to shared file",
+        "file": "repo_context/core.py"
+      },
+      {
+        "task": "snapshot-text-decoding",
+        "depends_on": "snapshot-dependencies",
+        "reason": "serialize edits to shared file",
+        "file": "repo_context/core.py"
+      }
+    ],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  },
+  {
+    "prior_record_id": "ghost-box-app-plan-first-memory-milestone-planning-v03",
+    "new_record_id": "ghost-box-app-plan-first-memory-milestone-planning-v04",
+    "prior_conflicts": [],
+    "added_edges": [],
+    "remaining_conflicts": [],
+    "price_policy_clarified": false
+  }
+]

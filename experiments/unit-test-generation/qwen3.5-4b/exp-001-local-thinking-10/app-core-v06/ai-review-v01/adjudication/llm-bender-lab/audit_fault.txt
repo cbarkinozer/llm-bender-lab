@@ -1,0 +1,9 @@
+def pytest_configure(config):
+    import experiment_workflow as m
+    original=m.run_experiment
+    def broken(root,name,config,rows,**kwargs):
+        train=kwargs['trainer'];evaluate=kwargs['evaluator']
+        kwargs['trainer']=lambda run,cfg,data:train(run,cfg,rows)
+        kwargs['evaluator']=lambda model,data,settings:evaluate(model,rows,settings)
+        return original(root,name,config,rows,**kwargs)
+    m.run_experiment=broken

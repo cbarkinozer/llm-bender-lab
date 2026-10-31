@@ -1,0 +1,47 @@
+APPLICATION
+Build a terminal reference-page client with translated pages, a local cache and offline fallback.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "language-selection",
+    "module": "tldr",
+    "target_file": "tests/test_language_selection.py"
+  },
+  {
+    "id": "cache-path-selection",
+    "module": "tldr",
+    "target_file": "tests/test_cache_path_selection.py"
+  },
+  {
+    "id": "cache-freshness",
+    "module": "tldr",
+    "target_file": "tests/test_cache_freshness.py"
+  },
+  {
+    "id": "page-url",
+    "module": "tldr",
+    "target_file": "tests/test_page_url.py"
+  },
+  {
+    "id": "cache-network-routing",
+    "module": "tldr",
+    "target_file": "tests/test_cache_network_routing.py"
+  },
+  {
+    "id": "platform-priority",
+    "module": "tldr",
+    "target_file": "tests/test_platform_priority.py"
+  }
+]
+
+CURRENT TASK
+cache-network-routing
+Target file: tests/test_cache_network_routing.py
+Implementation module: tldr
+
+INTERFACE AND ACCEPTANCE CONTRACT
+get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

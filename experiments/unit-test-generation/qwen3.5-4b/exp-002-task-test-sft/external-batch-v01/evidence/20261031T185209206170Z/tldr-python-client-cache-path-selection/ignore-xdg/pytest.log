@@ -1,0 +1,21 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_________________________ test_cache_root_precedence __________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000181C1B49940>
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-231/test_cache_root_precedence0')
+
+    def test_cache_root_precedence(monkeypatch, tmp_path):
+        xdg, home, fallback = (tmp_path / name for name in ('xdg', 'home', 'fallback'))
+        monkeypatch.setenv('XDG_CACHE_HOME', str(xdg))
+        monkeypatch.setenv('HOME', str(home))
+        monkeypatch.setattr(Path, 'home', classmethod(lambda cls: fallback))
+>       assert tldr.get_cache_dir() == xdg / 'tldr'
+E       AssertionError: assert WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-231/test_cache_root_precedence0/home/.cache/tldr') == (WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-231/test_cache_root_precedence0/xdg') / 'tldr')
+E        +  where WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-231/test_cache_root_precedence0/home/.cache/tldr') = <function <lambda> at 0x00000181C184A700>()
+E        +    where <function <lambda> at 0x00000181C184A700> = tldr.get_cache_dir
+
+tests\test_cache_path_selection.py:10: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_cache_path_selection.py::test_cache_root_precedence - Asser...
+1 failed, 1 passed in 0.07s

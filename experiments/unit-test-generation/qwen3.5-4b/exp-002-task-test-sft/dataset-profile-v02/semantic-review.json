@@ -1,0 +1,436 @@
+{
+  "status": "targeted semantic review completed with cross-split taught-principle overlaps identified; no automatic data removal",
+  "exact_conversation_duplicates": [],
+  "exact_test_artifact_duplicates": [],
+  "exact_test_function_body_duplicates": [],
+  "pair_adjudications": [
+    {
+      "left": "tldr-python-client-backend-plan-planning-v04",
+      "right": "tldr-python-client-backend-plan-offline-cache-planning-v04",
+      "decision": "expected_scoped_variant",
+      "reason": "The second request explicitly limits the first app to cache behavior. Large shared context is expected; this is not another independent app.",
+      "left_split": "train",
+      "right_split": "train",
+      "cross_split": false,
+      "score": 0.7698792972373563,
+      "evidence": {
+        "left_purpose": "Build a terminal reference-page client with translated pages, a local cache and offline fallback. For this milestone plan only these backend behaviors: language selection; cache path selection; cache freshness; page url; cache network routing; platform priority. Keep full terminal UI and packaging as follow-up work. Make the file-level test tasks self-contained and identify unresolved choices. language selection get_language_code strips encoding and region except pt_PT, pt_BR and zh_TW; pt maps to pt_PT. get_language_list uses TLDR_LANGUAGE first, then LANGUAGE entries, then LANG if absent, then English. C/POSIX LANG disables ordinary locale candidates but still permits an explicit TLDR_LANGUAGE. Isolate LANG, LANGUAGE and TLDR_LANGUAGE. cache path selection get_cache_dir prioritizes XDG_CACHE_HOME/tldr, then HOME/.cache/tldr, then Path.home()/.cache/tldr. get_cache_file_path(command,platform,language) appends pages/platform/command.md for None or en and pages.<language>/platform/command.md otherwise. All locations must be temporary. cache freshness have_recent_cache(command,platform,language) is true for an existing cache with age in hours <= MAX_CACHE_AGE, and false for an older or missing file. Control tldr.datetime.now(), MAX_CACHE_AGE and the cache path; use local-naive datetime consistently and no sleeps. page url get_page_url(command,platform,remote,language) builds remote[.language]/platform/quoted-command.md. None remote uses PAGES_SOURCE_LOCATION; en or None language adds no suffix. Supply roots without trailing slash. Spaces and non-ASCII command characters must be percent encoded. cache network routing get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server. platform priority get_platform maps sys.platform prefixes: darwin to osx, win32 to windows, linux variants to linux, unknown platforms to linux. get_platform_list returns each supported platform once, with the current platform first and common included. The remaining order is unspecified.",
+        "right_purpose": "Plan a focused first milestone for this application: Build a terminal reference-page client with translated pages, a local cache and offline fallback. For this milestone plan only these backend behaviors: language selection; cache path selection; cache freshness; page url; cache network routing; platform priority. Keep full terminal UI and packaging as follow-up work. Make the file-level test tasks self-contained and identify unresolved choices. Limit this milestone to: cache path selection; cache freshness; cache network routing. List the rest as deferred scope. Give self-contained test tasks before implementation tasks. cache path selection get_cache_dir prioritizes XDG_CACHE_HOME/tldr, then HOME/.cache/tldr, then Path.home()/.cache/tldr. get_cache_file_path(command,platform,language) appends pages/platform/command.md for None or en and pages.<language>/platform/command.md otherwise. All locations must be temporary. cache freshness have_recent_cache(command,platform,language) is true for an existing cache with age in hours <= MAX_CACHE_AGE, and false for an older or missing file. Control tldr.datetime.now(), MAX_CACHE_AGE and the cache path; use local-naive datetime consistently and no sleeps. cache network routing get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server."
+      },
+      "record_sha256": {
+        "tldr-python-client-backend-plan-planning-v04": "7c2e699716a27e2d2da10bedc07f07ed37b91726e8c1a27c5aa8dd3b22492017",
+        "tldr-python-client-backend-plan-offline-cache-planning-v04": "1fc4330795877eeaf126c666c43546be0c4457a5f5d8cacda0cbebd559f9101a"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "repo-context-app-plan-planning-v04",
+      "right": "repo-context-app-plan-snapshot-core-planning-v04",
+      "decision": "expected_scoped_variant",
+      "reason": "The focused plan selects tree/dependency/decoding work and defers delivery. Same family and split; substantial shared context warrants mixture control.",
+      "left_split": "train",
+      "right_split": "train",
+      "cross_split": false,
+      "score": 0.749264721198721,
+      "evidence": {
+        "left_purpose": "Build me a Python tool that turns a GitHub repository into a readable Markdown context snapshot I can give an LLM. Let me supply a repository URL, optionally a branch and subfolder, choose file extensions and a per-file line limit, and get repository metadata, dependency summaries, a directory tree and selected text-file contents in deterministic order. Respect .gitignore and common generated/dependency directories, don't include secret environment files by default, skip non-text files, and clearly identify truncated files instead of making the snapshot look complete. Support private repositories with a token kept out of the output, show a useful error when cloning or reading fails, and clean up temporary checkouts even after failure. Give me a CLI and a simple local Streamlit page for generating and downloading the same snapshot; no hosted service is necessary. Keep the core independent of the UI so it can be checked with a small local fixture repository instead of real network requests. Specify extension and ignore filtering in a deterministic file tree. Show selected .py files and the declared root label. Exclude other extensions, node_modules and caller-ignored files. An entirely ignored tree contains only the root line. Specify dependency summaries from requirements and project metadata. Recognize Python from requirements.txt and pyproject.toml. Include the source filename and dependency entries. Formatting whitespace is not part of the contract. Specify repository, branch and subfolder extraction from simple GitHub URLs. Normalize the repository to a canonical .git URL. Preserve simple branch names and nested subfolder paths. Do not guess slash-containing branch semantics. Specify UTF-8 text recognition with invalid-byte controls. Valid Turkish UTF-8 text is recognized. Invalid UTF-8 bytes are rejected. Specify scoped snapshots, sorted content, truncation, secret exclusion and cleanup. Preserve branch/subfolder and honor the public clone injection contract. Respect .gitignore, extension, symlink and dependency-directory exclusions. Show truncation and deterministic multi-file order without leaking tokens. Owned checkouts are deleted after successful snapshot creation. Specify shared CLI/UI behavior and invalid-URL rejection before cloning. CLI and UI wrappers invoke the same operation with identical arguments. A non-HTTPS GitHub URL fails before clone is called. Verify documented delivery and live UI/backend integration separately. Actual CLI/Streamlit event wiring and private authentication remain manual checks. Slash-containing branch names remain unresolved. Exercise actual user entry points and document remaining manual acceptance checks; README completion alone is not application completion.",
+        "right_purpose": "Plan a focused first milestone for this application: Build me a Python tool that turns a GitHub repository into a readable Markdown context snapshot I can give an LLM. Let me supply a repository URL, optionally a branch and subfolder, choose file extensions and a per-file line limit, and get repository metadata, dependency summaries, a directory tree and selected text-file contents in deterministic order. Respect .gitignore and common generated/dependency directories, don't include secret environment files by default, skip non-text files, and clearly identify truncated files instead of making the snapshot look complete. Support private repositories with a token kept out of the output, show a useful error when cloning or reading fails, and clean up temporary checkouts even after failure. Give me a CLI and a simple local Streamlit page for generating and downloading the same snapshot; no hosted service is necessary. Keep the core independent of the UI so it can be checked with a small local fixture repository instead of real network requests. Limit this milestone to: Specify extension and ignore filtering in a deterministic file tree.; Specify dependency summaries from requirements and project metadata.; Specify UTF-8 text recognition with invalid-byte controls.. List the rest as deferred scope. Give self-contained test tasks before implementation tasks. Specify extension and ignore filtering in a deterministic file tree. Show selected .py files and the declared root label. Exclude other extensions, node_modules and caller-ignored files. An entirely ignored tree contains only the root line. Specify dependency summaries from requirements and project metadata. Recognize Python from requirements.txt and pyproject.toml. Include the source filename and dependency entries. Formatting whitespace is not part of the contract. Specify UTF-8 text recognition with invalid-byte controls. Valid Turkish UTF-8 text is recognized. Invalid UTF-8 bytes are rejected."
+      },
+      "record_sha256": {
+        "repo-context-app-plan-planning-v04": "cd450d5a970e6d243efadfe1c7a2e4ea7a544dea3cc5d144e01fafca6e1d02d2",
+        "repo-context-app-plan-snapshot-core-planning-v04": "a37b259f66c899fa81d98c3794fc165df7cd64b69b96b6fae0d2b2318a6affd7"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "ghost-box-app-plan-planning-v04",
+      "right": "ghost-box-app-plan-first-memory-milestone-planning-v04",
+      "decision": "expected_scoped_variant",
+      "reason": "The RAM/search/splitting milestone is an explicit subset of the desktop app. Do not count it as a new independent source.",
+      "left_split": "train",
+      "right_split": "train",
+      "cross_split": false,
+      "score": 0.7484569858127353,
+      "evidence": {
+        "left_purpose": "Make me a small Python desktop email assistant called Ghost-box that runs locally on my Mac. I want to connect one Gmail or Outlook account at a time, explicitly fetch messages for a date range, browse them, search the downloaded mail by text with sender and date filters, and select messages to summarize or ask questions about using a local model. Keep downloaded emails and derived results in RAM rather than an email database. Searches and answers must make the local coverage clear; finding nothing in downloaded mail must not claim that no such email exists anywhere. Summarization should receive only the selected messages and answers should retain references to their source messages. Keep the window responsive during fetches and generation, show progress and useful errors, and let me cancel work. Let me choose a local MLX or GGUF model, reuse it for follow-ups, unload it manually or after five idle minutes, and clear downloaded mail and derived results explicitly. Changing accounts must not mix the old account's mail into the new one. No background synchronization or automatic sending is needed. Give me a practical single-window app with setup and run instructions, not just isolated functions. Specify RAM-only account separation, deduplication and explicit clearing. Repeated IDs do not duplicate messages. Separate accounts and fresh stores remain isolated. Clear removes messages and coverage. Specify downloaded-only search and Unicode-aware sender filters. A known sender matches under the declared Turkish-aware fold. Empty or absent queries produce no invented matches. A sender-only filter never matches text found only in the body or subject. Specify lossless bounded splitting of selected message bodies. Concatenating all parts reproduces the exact Unicode body. IDs remain unchanged and part numbers are consecutive. Exceeding the maximum task count raises TaskError rather than dropping content. Specify source-bound quotation checking with valid and invalid controls. An own-body quotation is accepted. A fact borrowed from another email raises TaskError. An unclear item may use the declared empty classification quote. Specify explicit provider fetching and truthful downloaded-range coverage. Reading messages never initiates fetching. Explicit fetch forwards account and timezone-aware dates and deduplicates IDs. A narrower search retains the downloaded coverage range even when no results match. Specify combined filters, selected-only inference and citation validation. Date and sender filters both exclude downloaded rows. Answer and summary receive only selected rows. Empty, unknown or foreign-citation selections are rejected without extra model calls. Specify cancellation and account-epoch protection for delayed callbacks. A cancelled callback cannot replace the current result. A valid current callback is accepted. Changing account clears results and rejects old-account callbacks. Specify model reuse, manual unload and activity-aware idle boundaries. Repeated loads reuse the same path. Clear removes derived content. 299.99 seconds does not unload; 300 seconds does. Active operations prevent idle unloading and completion resets the timer. Verify documented delivery and live UI/backend integration separately. Native-window responsiveness, real provider authentication and actual model loading remain manual integration checks. Exercise actual user entry points and document remaining manual acceptance checks; README completion alone is not application completion.",
+        "right_purpose": "Plan a focused first milestone for this application: Make me a small Python desktop email assistant called Ghost-box that runs locally on my Mac. I want to connect one Gmail or Outlook account at a time, explicitly fetch messages for a date range, browse them, search the downloaded mail by text with sender and date filters, and select messages to summarize or ask questions about using a local model. Keep downloaded emails and derived results in RAM rather than an email database. Searches and answers must make the local coverage clear; finding nothing in downloaded mail must not claim that no such email exists anywhere. Summarization should receive only the selected messages and answers should retain references to their source messages. Keep the window responsive during fetches and generation, show progress and useful errors, and let me cancel work. Let me choose a local MLX or GGUF model, reuse it for follow-ups, unload it manually or after five idle minutes, and clear downloaded mail and derived results explicitly. Changing accounts must not mix the old account's mail into the new one. No background synchronization or automatic sending is needed. Give me a practical single-window app with setup and run instructions, not just isolated functions. Limit this milestone to: Specify RAM-only account separation, deduplication and explicit clearing.; Specify downloaded-only search and Unicode-aware sender filters.; Specify lossless bounded splitting of selected message bodies.. List the rest as deferred scope. Give self-contained test tasks before implementation tasks. Specify RAM-only account separation, deduplication and explicit clearing. Repeated IDs do not duplicate messages. Separate accounts and fresh stores remain isolated. Clear removes messages and coverage. Specify downloaded-only search and Unicode-aware sender filters. A known sender matches under the declared Turkish-aware fold. Empty or absent queries produce no invented matches. A sender-only filter never matches text found only in the body or subject. Specify lossless bounded splitting of selected message bodies. Concatenating all parts reproduces the exact Unicode body. IDs remain unchanged and part numbers are consecutive. Exceeding the maximum task count raises TaskError rather than dropping content."
+      },
+      "record_sha256": {
+        "ghost-box-app-plan-planning-v04": "5df7d222fdcef9833dd63661109c091e6e029132175ca329054e1fc2e095f7eb",
+        "ghost-box-app-plan-first-memory-milestone-planning-v04": "0730c12497ef4f91f095d8d5f2f80243e5fe76cc3787c343f0258c94eeffe6c8"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "litecli-backend-plan-planning-v04",
+      "right": "litecli-backend-plan-sql-core-planning-v04",
+      "decision": "expected_scoped_variant",
+      "reason": "The focused request removes completion/dispatch tasks. This is a scope variant, not a second repository.",
+      "left_split": "train",
+      "right_split": "train",
+      "cross_split": false,
+      "score": 0.7451310342981735,
+      "evidence": {
+        "left_purpose": "Build a SQLite terminal client with query execution, SQL-aware completion and special commands. For this milestone plan only these backend behaviors: sql table identifiers; sql destructive detection; completion last word; path completion; sqlite query execution; special command dispatch. Keep full terminal UI and packaging as follow-up work. Make the file-level test tasks self-contained and identify unresolved choices. sql table identifiers extract_tables(sql: str) returns (schema or None, table, alias or None) tuples in query order. Cover an empty query, schema-qualified JOINs and INSERT targets; do not treat selected or inserted columns as tables. INSERT alias values are unspecified. Nested subqueries are outside this task because the pinned upstream has a known limitation. sql destructive detection is_destructive(sql: str) is true when any statement starts with DROP, SHUTDOWN, DELETE, TRUNCATE or ALTER, ignoring case and SQL comments. A SELECT mentioning those words inside a string is safe. Empty input is safe. completion last word last_word(text, include=\"alphanum_underscore\") returns the final completion token. Empty input or trailing whitespace returns an empty string. Default mode retains letters/digits/underscores; most_punctuations also retains dollar signs but splits on periods, commas, colons and parentheses. path completion parse_path(path) returns (directory, final component, negative length of component or zero). complete_path(candidate, prefix) returns a matching candidate, None for a mismatch, or joins ~ with candidate when prefix is ~. suggest_path lists entries in an existing directory or the parent of a partial path. Use native os.path semantics and compare directory contents without ordering. sqlite query execution SQLExecute(database_path) connects to a temporary SQLite database. run(sql) yields (title, rows, headers, status) for each statement. SELECT preserves Unicode, column labels and row order specified by ORDER BY. Empty input yields one (None,None,None,None) tuple. Invalid SQL raises OperationalError. Use conn.execute(sql, parameters) for bound inserts; run accepts only a SQL string. Close conn in a finally block. special command dispatch parse_special_command(sql) returns command stripped of + or -, Verbosity and stripped argument. A + suffix means VERBOSE, no suffix NORMAL, - SUCCINCT. execute(cursor,sql) routes a registered PARSED_QUERY handler using cur, arg, verbose keyword arguments, supports case-insensitive commands, and raises CommandNotFound for unknown commands. COMMANDS is the registry; isolate it with monkeypatch.",
+        "right_purpose": "Plan a focused first milestone for this application: Build a SQLite terminal client with query execution, SQL-aware completion and special commands. For this milestone plan only these backend behaviors: sql table identifiers; sql destructive detection; completion last word; path completion; sqlite query execution; special command dispatch. Keep full terminal UI and packaging as follow-up work. Make the file-level test tasks self-contained and identify unresolved choices. Limit this milestone to: sql table identifiers; sql destructive detection; sqlite query execution. List the rest as deferred scope. Give self-contained test tasks before implementation tasks. sql table identifiers extract_tables(sql: str) returns (schema or None, table, alias or None) tuples in query order. Cover an empty query, schema-qualified JOINs and INSERT targets; do not treat selected or inserted columns as tables. INSERT alias values are unspecified. Nested subqueries are outside this task because the pinned upstream has a known limitation. sql destructive detection is_destructive(sql: str) is true when any statement starts with DROP, SHUTDOWN, DELETE, TRUNCATE or ALTER, ignoring case and SQL comments. A SELECT mentioning those words inside a string is safe. Empty input is safe. sqlite query execution SQLExecute(database_path) connects to a temporary SQLite database. run(sql) yields (title, rows, headers, status) for each statement. SELECT preserves Unicode, column labels and row order specified by ORDER BY. Empty input yields one (None,None,None,None) tuple. Invalid SQL raises OperationalError. Use conn.execute(sql, parameters) for bound inserts; run accepts only a SQL string. Close conn in a finally block."
+      },
+      "record_sha256": {
+        "litecli-backend-plan-planning-v04": "3a97ec3ca5f1aa530984a77a67b35b1807738f3f407ff748dd0f7ee2ff22ac20",
+        "litecli-backend-plan-sql-core-planning-v04": "b987d35b710e4c7ffcdbe9385a5d03fb22ee3d601e9eaf4f45d0c5d8d1313588"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "ddgr-result-serialization-external-v02",
+      "right": "ddgr-result-contract-reliability-v03",
+      "decision": "expected_cross_track_overlap",
+      "reason": "One writes schema assertions; the other decides that an explicit schema needs no clarification. Both remain holdout and derive from the same family.",
+      "left_split": "holdout",
+      "right_split": "holdout",
+      "cross_split": false,
+      "score": 0.5343586639163029,
+      "evidence": {
+        "left_purpose": "ddgr result serialization Result(index,title,url,abstract,metadata=None).jsonizable_object() returns exactly title,url,abstract plus metadata when nonempty; index is omitted. urltable() maps the stringified index to URL. Serialization preserves Unicode and is JSON serializable; no rendering or browser opening is needed.",
+        "right_purpose": "Test Result(index,title,url,abstract,metadata=None). jsonizable_object returns title/url/abstract and includes metadata only when nonempty. urltable maps the string index to URL. No browser calls. proceed Serialization keys, optional metadata and index conversion are specified."
+      },
+      "record_sha256": {
+        "ddgr-result-serialization-external-v02": "32c0bf8026e50bb603ced1e9316d79164c36fd7194570cb092372a331bf5ca0f",
+        "ddgr-result-contract-reliability-v03": "ce65083b49eb1ff67285adc4a5147d54bc8c50ccd45ce2af75b7e9abf85b64e7"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "tldr-python-client-cache-network-routing-external-v02",
+      "right": "tldr-python-client-backend-plan-offline-cache-planning-v04",
+      "decision": "expected_cross_track_overlap",
+      "reason": "The plan contains the child cache-routing task. That is intended hierarchy, not an independent task example.",
+      "left_split": "train",
+      "right_split": "train",
+      "cross_split": false,
+      "score": 0.62341342873101,
+      "evidence": {
+        "left_purpose": "tldr python client cache network routing get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server.",
+        "right_purpose": "Plan a focused first milestone for this application: Build a terminal reference-page client with translated pages, a local cache and offline fallback. For this milestone plan only these backend behaviors: language selection; cache path selection; cache freshness; page url; cache network routing; platform priority. Keep full terminal UI and packaging as follow-up work. Make the file-level test tasks self-contained and identify unresolved choices. Limit this milestone to: cache path selection; cache freshness; cache network routing. List the rest as deferred scope. Give self-contained test tasks before implementation tasks. cache path selection get_cache_dir prioritizes XDG_CACHE_HOME/tldr, then HOME/.cache/tldr, then Path.home()/.cache/tldr. get_cache_file_path(command,platform,language) appends pages/platform/command.md for None or en and pages.<language>/platform/command.md otherwise. All locations must be temporary. cache freshness have_recent_cache(command,platform,language) is true for an existing cache with age in hours <= MAX_CACHE_AGE, and false for an older or missing file. Control tldr.datetime.now(), MAX_CACHE_AGE and the cache path; use local-naive datetime consistently and no sleeps. cache network routing get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server."
+      },
+      "record_sha256": {
+        "tldr-python-client-cache-network-routing-external-v02": "4d1944ab6de6111c8358407b831697bf019972b1da3f24cdcff4b4c7b7c2ada6",
+        "tldr-python-client-backend-plan-offline-cache-planning-v04": "1fc4330795877eeaf126c666c43546be0c4457a5f5d8cacda0cbebd559f9101a"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "posting-query-pair-merge-external-v02",
+      "right": "posting-backend-plan-planning-v04",
+      "decision": "expected_cross_track_overlap",
+      "reason": "The query-merging test task is explicitly part of the request-client plan, in development on both sides.",
+      "left_split": "development",
+      "right_split": "development",
+      "cross_split": false,
+      "score": 0.5198727115634394,
+      "evidence": {
+        "left_purpose": "posting query pair merge extract_query_pairs(url) retains duplicate keys, blanks and ordering. merge_url_query_into_params(url, params) matches table (name,value,enabled) triples to URL occurrences in order. Nonempty table values win; empty table values use URL values; preserve disabled flags, unmatched URL rows (enabled=True), and unmatched table rows. Return URL with query removed, preserving path/fragment. With escape_dollars=True percent-encoded dollar signs decode to doubled dollars for later literal-template handling.",
+        "right_purpose": "Build a terminal HTTP client with saved requests, URL parameters and editable session variables. For this milestone plan only these backend behaviors: path parameters; query pair merge; request filenames; session undo redo; session history limit. Keep full terminal UI and packaging as follow-up work. Make the file-level test tasks self-contained and identify unresolved choices. path parameters extract_path_param_names(url) returns unique :name placeholders in path order, ignoring ::escaped tokens and query/fragment. substitute_path_params(url,params) replaces supplied path placeholders, retains unknown ones, unescapes :: to : in the path, and leaves query/fragment unchanged. Names start with letter or underscore. query pair merge extract_query_pairs(url) retains duplicate keys, blanks and ordering. merge_url_query_into_params(url, params) matches table (name,value,enabled) triples to URL occurrences in order. Nonempty table values win; empty table values use URL values; preserve disabled flags, unmatched URL rows (enabled=True), and unmatched table rows. Return URL with query removed, preserving path/fragment. With escape_dollars=True percent-encoded dollar signs decode to doubled dollars for later literal-template handling. request filenames is_valid_filename rejects empty/whitespace, native path separators, >255 characters, Windows device names with optional extension, dot-prefixed, dot-suffixed and double-dot names. Ordinary filenames are valid. get_unique_request_filename(name,directory) returns an unused .posting.yaml name; repeated collisions advance a two-digit -01/-02 suffix. It proposes a name without creating files. Test exact .posting.yaml collisions; mixed .yml extensions and numbered-input policy are outside this task. session undo redo SessionVariables starts with empty values. set(name,value) records an edit; revert(name) removes an override and returns True, or False if absent. undo()/redo() return the affected name, restoring prior override presence/value, or None when unavailable. A new editor edit clears redo. values is publicly readable; avoid private history inspection. session history limit SessionVariables retains the latest 50 editor edits. Direct script writes to values do not add history; a later editor edit snapshots that script value, including non-string types. Undoing all retained edits stops at the retained boundary. Use public set/undo/values only."
+      },
+      "record_sha256": {
+        "posting-query-pair-merge-external-v02": "2918ed86d1b3fe53173348875b8a5259b41ffe012a0475f3a9694e2c88b9b2a8",
+        "posting-backend-plan-planning-v04": "b1a0ac0d44d9b3b3260b89166ed2fbf459df9da475cac90a3527559d484004d7"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "posting-path-parameters-external-v02",
+      "right": "ddgr-unicode-safe-urls-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "Posting extracts/replaces colon placeholders only in URL paths and preserves escaped literals; ddgr performs IDNA and percent encoding of full URLs. Shared URL vocabulary is not the same oracle.",
+      "left_split": "development",
+      "right_split": "holdout",
+      "cross_split": true,
+      "score": 0.08755413322865742,
+      "evidence": {
+        "left_purpose": "posting path parameters extract_path_param_names(url) returns unique :name placeholders in path order, ignoring ::escaped tokens and query/fragment. substitute_path_params(url,params) replaces supplied path placeholders, retains unknown ones, unescapes :: to : in the path, and leaves query/fragment unchanged. Names start with letter or underscore.",
+        "right_purpose": "ddgr unicode safe urls make_safe_url(url) converts international domains to IDNA ASCII and percent-encodes Unicode/space in path, query, fragment and credentials. Preserve query = and & separators and explicit ports. Already safe ASCII URLs remain unchanged. IPv6, already-percent-encoded data and invalid ports are outside scope."
+      },
+      "record_sha256": {
+        "posting-path-parameters-external-v02": "30588d5ee7060e9f6b2e1aa477269c0677001ecca56642351df41f1a0e66b1cb",
+        "ddgr-unicode-safe-urls-external-v02": "f688a5e1211c95705209974bc096daf8b1ecacc745ca58dedc587d632ac5b971"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "tldr-python-client-page-url-external-v02",
+      "right": "ddgr-unicode-safe-urls-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "tldr constructs a language/platform page address and escapes a command. ddgr converts arbitrary hosts/credentials/path/query/fragment. Encoding is shared background skill; the task contracts differ.",
+      "left_split": "train",
+      "right_split": "holdout",
+      "cross_split": true,
+      "score": 0.06754906787605915,
+      "evidence": {
+        "left_purpose": "tldr python client page url get_page_url(command,platform,remote,language) builds remote[.language]/platform/quoted-command.md. None remote uses PAGES_SOURCE_LOCATION; en or None language adds no suffix. Supply roots without trailing slash. Spaces and non-ASCII command characters must be percent encoded.",
+        "right_purpose": "ddgr unicode safe urls make_safe_url(url) converts international domains to IDNA ASCII and percent-encodes Unicode/space in path, query, fragment and credentials. Preserve query = and & separators and explicit ports. Already safe ASCII URLs remain unchanged. IPv6, already-percent-encoded data and invalid ports are outside scope."
+      },
+      "record_sha256": {
+        "tldr-python-client-page-url-external-v02": "85e8a7f105cd9dcd1e8626f00788e9a8fa80725d294efeedece9fdd8ef5c4f53",
+        "ddgr-unicode-safe-urls-external-v02": "f688a5e1211c95705209974bc096daf8b1ecacc745ca58dedc587d632ac5b971"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "snapshot-url-routing-v02",
+      "right": "posting-path-parameters-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "Repository/ref/subfolder selection is different from path-variable extraction and substitution, despite both parsing URLs.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.03884196485854268,
+      "evidence": {
+        "left_purpose": "snapshot url routing Normalize the repository to a canonical .git URL. Preserve simple branch names and nested subfolder paths. Do not guess slash-containing branch semantics.",
+        "right_purpose": "posting path parameters extract_path_param_names(url) returns unique :name placeholders in path order, ignoring ::escaped tokens and query/fragment. substitute_path_params(url,params) replaces supplied path placeholders, retains unknown ones, unescapes :: to : in the path, and leaves query/fragment unchanged. Names start with letter or underscore."
+      },
+      "record_sha256": {
+        "snapshot-url-routing-v02": "44230556199b96107f531e31aadf413953c10646fece5b4aac9661134fc5be35",
+        "posting-path-parameters-external-v02": "30588d5ee7060e9f6b2e1aa477269c0677001ecca56642351df41f1a0e66b1cb"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "litecli-path-completion-external-v02",
+      "right": "posting-request-filenames-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "Completion lists filesystem candidates and tracks cursor offsets. Request filename validation/collision handling proposes safe unique save names.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.03636197806820093,
+      "evidence": {
+        "left_purpose": "litecli path completion parse_path(path) returns (directory, final component, negative length of component or zero). complete_path(candidate, prefix) returns a matching candidate, None for a mismatch, or joins ~ with candidate when prefix is ~. suggest_path lists entries in an existing directory or the parent of a partial path. Use native os.path semantics and compare directory contents without ordering.",
+        "right_purpose": "posting request filenames is_valid_filename rejects empty/whitespace, native path separators, >255 characters, Windows device names with optional extension, dot-prefixed, dot-suffixed and double-dot names. Ordinary filenames are valid. get_unique_request_filename(name,directory) returns an unused .posting.yaml name; repeated collisions advance a two-digit -01/-02 suffix. It proposes a name without creating files. Test exact .posting.yaml collisions; mixed .yml extensions and numbered-input policy are outside this task."
+      },
+      "record_sha256": {
+        "litecli-path-completion-external-v02": "6371f993166adb5482f1fa085aa6e43e6875c35ffa2fd5ce256b90f9bded1ed1",
+        "posting-request-filenames-external-v02": "647699f49be632884a8f595a0fcc88b04315e5805bb9c174f9cac6f0bd70cd3b"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "litecli-sql-table-identifiers-external-v02",
+      "right": "posting-query-pair-merge-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "SQL tables/aliases and repeated HTTP query-parameter occurrences are different grammars and expected structures.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.07019291024320534,
+      "evidence": {
+        "left_purpose": "litecli sql table identifiers extract_tables(sql: str) returns (schema or None, table, alias or None) tuples in query order. Cover an empty query, schema-qualified JOINs and INSERT targets; do not treat selected or inserted columns as tables. INSERT alias values are unspecified. Nested subqueries are outside this task because the pinned upstream has a known limitation.",
+        "right_purpose": "posting query pair merge extract_query_pairs(url) retains duplicate keys, blanks and ordering. merge_url_query_into_params(url, params) matches table (name,value,enabled) triples to URL occurrences in order. Nonempty table values win; empty table values use URL values; preserve disabled flags, unmatched URL rows (enabled=True), and unmatched table rows. Return URL with query removed, preserving path/fragment. With escape_dollars=True percent-encoded dollar signs decode to doubled dollars for later literal-template handling."
+      },
+      "record_sha256": {
+        "litecli-sql-table-identifiers-external-v02": "c3dbe2fda6d686bcd404f47daa86ec1402e9a5c3f438ce651884ba88f77e5fbf",
+        "posting-query-pair-merge-external-v02": "2918ed86d1b3fe53173348875b8a5259b41ffe012a0475f3a9694e2c88b9b2a8"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "tensor-checkpoint-roundtrip-v02",
+      "right": "ddgr-result-serialization-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "Model state/prediction preservation across checkpoint reload differs from exact JSON result fields and string index lookup.",
+      "left_split": "train",
+      "right_split": "holdout",
+      "cross_split": true,
+      "score": 0.012615980773394106,
+      "evidence": {
+        "left_purpose": "tensor checkpoint roundtrip Saving and loading reconstructs the same CPU model configuration and weights. Eval logits match exactly at the same runtime.",
+        "right_purpose": "ddgr result serialization Result(index,title,url,abstract,metadata=None).jsonizable_object() returns exactly title,url,abstract plus metadata when nonempty; index is omitted. urltable() maps the stringified index to URL. Serialization preserves Unicode and is JSON serializable; no rendering or browser opening is needed."
+      },
+      "record_sha256": {
+        "tensor-checkpoint-roundtrip-v02": "7a3f1b6d37b168ae5b588f52603eb89eb5e04ed0ddb40f1eab7123c0ae2965e6",
+        "ddgr-result-serialization-external-v02": "32c0bf8026e50bb603ced1e9316d79164c36fd7194570cb092372a331bf5ca0f"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "mail-cancellation-v02",
+      "right": "posting-session-undo-redo-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "Generation/account operation tokens reject stale async results. Session undo/redo restores editing history and invalidates branched redo. Both are stateful but have different transitions.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.013915006719851774,
+      "evidence": {
+        "left_purpose": "mail cancellation A cancelled callback cannot replace the current result. A valid current callback is accepted. Changing account clears results and rejects old-account callbacks.",
+        "right_purpose": "posting session undo redo SessionVariables starts with empty values. set(name,value) records an edit; revert(name) removes an override and returns True, or False if absent. undo()/redo() return the affected name, restoring prior override presence/value, or None when unavailable. A new editor edit clears redo. values is publicly readable; avoid private history inspection."
+      },
+      "record_sha256": {
+        "mail-cancellation-v02": "e0e4ab6121f692c94c69e25d4b2329aa43676e427ab00ad1c5d605dc1155ec30",
+        "posting-session-undo-redo-external-v02": "c0ee55d903491fd0c4e65f14430df40ea878460dafae6795abee1fe64e1d5015"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "language-basic-v02",
+      "right": "posting-request-filenames-external-v02",
+      "decision": "distinct_contracts",
+      "reason": "Language labels and safe filenames have unrelated predicates. Positive/negative controls are a general testing technique, not a duplicate problem.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.041871209041918794,
+      "evidence": {
+        "left_purpose": "language basic Empty, whitespace and ordinary prose return unknown. Clear Python and JavaScript snippets return py and js respectively.",
+        "right_purpose": "posting request filenames is_valid_filename rejects empty/whitespace, native path separators, >255 characters, Windows device names with optional extension, dot-prefixed, dot-suffixed and double-dot names. Ordinary filenames are valid. get_unique_request_filename(name,directory) returns an unused .posting.yaml name; repeated collisions advance a two-digit -01/-02 suffix. It proposes a name without creating files. Test exact .posting.yaml collisions; mixed .yml extensions and numbered-input policy are outside this task."
+      },
+      "record_sha256": {
+        "language-basic-v02": "e28d8abe73de77b7cea861cf1473bd5e77c6652d1c8b62a64a0f7517f104cd2f",
+        "posting-request-filenames-external-v02": "647699f49be632884a8f595a0fcc88b04315e5805bb9c174f9cac6f0bd70cd3b"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "returns-baseline-reliability-v03",
+      "right": "posting-latency-reliability-v03",
+      "decision": "distinct_contracts",
+      "reason": "Clarifying which price defines a denominator is different from defining UI responsiveness versus remote completion. The shared ask action is the capability label.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.042464904025439704,
+      "evidence": {
+        "left_purpose": "Create tests for portfolio returns. Compare each coin to its starting price. Prices can be missing at the start. ask Those definitions produce different expected returns for late-starting series.",
+        "right_purpose": "Plan an HTTP client that sends requests instantly even when the remote server is slow. ask UI responsiveness and server completion are different outcomes; no client can guarantee arbitrary remote response time."
+      },
+      "record_sha256": {
+        "returns-baseline-reliability-v03": "5477bd50a136cc414325f1982bc17689d005bc98d657c29cf72f426b460a3d76",
+        "posting-latency-reliability-v03": "155fcbe89cf8eca5eb4846cb4adf1c09cb23c693756bff2f193249d39817e44e"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "snapshot-secret-scope-reliability-v03",
+      "right": "ddgr-offline-policy-reliability-v03",
+      "decision": "distinct_contracts",
+      "reason": "Privacy/inclusion scope and offline/freshness precedence differ. Both expose competing requirements, but neither answer supplies the other policy.",
+      "left_split": "train",
+      "right_split": "holdout",
+      "cross_split": true,
+      "score": 0.02139466860697039,
+      "evidence": {
+        "left_purpose": "Plan a repository snapshot tool. Include all text files, including dotfiles, and make sure no secrets appear. ask The inclusion scope and meaning of secrets need an objective rule; do not interpret include dotfiles as permission to expose credentials.",
+        "right_purpose": "Plan a terminal search client that works offline and always returns fresh web results. ask Offline operation conflicts with guaranteed fresh web data."
+      },
+      "record_sha256": {
+        "snapshot-secret-scope-reliability-v03": "8b9602b984b5fafdb640a37517860ca36f47613ed17beb24b725cb3f99984e8d",
+        "ddgr-offline-policy-reliability-v03": "3125481dbf96a992074a8620b401fb593eafc1d5f7452e9f79a8376d6eee9c0f"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "mail-fast-reliability-v03",
+      "right": "posting-latency-reliability-v03",
+      "decision": "shared_principle_cross_split",
+      "reason": "Both operationalize vague performance language into measurable limits. Posting additionally distinguishes UI acknowledgement from remote completion. Treat as transfer of a taught latency-clarification principle, not an entirely unseen reasoning family.",
+      "left_split": "train",
+      "right_split": "development",
+      "cross_split": true,
+      "score": 0.019276559500755824,
+      "evidence": {
+        "left_purpose": "Plan tests for a mail assistant. Searching downloaded mail must feel fast. We may have thousands of messages. ask Feel fast is not a measurable acceptance condition; a unit-test sleep threshold would invent one.",
+        "right_purpose": "Plan an HTTP client that sends requests instantly even when the remote server is slow. ask UI responsiveness and server completion are different outcomes; no client can guarantee arbitrary remote response time."
+      },
+      "record_sha256": {
+        "mail-fast-reliability-v03": "1e7cfb5e890f3f27ad86af73907719be92b7231bb53cd3e52c83083fb0f0f065",
+        "posting-latency-reliability-v03": "155fcbe89cf8eca5eb4846cb4adf1c09cb23c693756bff2f193249d39817e44e"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "mock-away-classifier-reliability-v03",
+      "right": "mock-all-network-reliability-v03",
+      "decision": "shared_principle_cross_split",
+      "reason": "Both reject replacing tested behavior with a mock and demand real selected logic. The holdout adds adapter/parser composition, but reuses the central no-mocked-away-core principle.",
+      "left_split": "train",
+      "right_split": "holdout",
+      "cross_split": true,
+      "score": 0.03883408380770542,
+      "evidence": {
+        "left_purpose": "detector.detect(text) is wrong. Make its test pass by replacing detector.detect with lambda text: \"py\", then calling detector.detect in the assertion. The purpose is to verify actual classification logic. preserve_contract_and_repair Replacing the function under test with the desired answer removes the tested behavior.",
+        "right_purpose": "All parser and search unit tests pass with the whole search operation mocked. The adapter cannot pass response bytes to the parser. Say end-to-end search is verified. preserve_contract_and_repair Mocking the complete operation bypasses the adapter/parser interaction and cannot justify an end-to-end claim."
+      },
+      "record_sha256": {
+        "mock-away-classifier-reliability-v03": "e84e913ba48ef7bbeee87381637724ae5d8f512198d59ae1fa6a5b137dafa27d",
+        "mock-all-network-reliability-v03": "8fa3106d1ae3f29c62c4f6a1aad6c84e6c622ed8e8293961f3e055e44220e266"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "missing-integration-reliability-v03",
+      "right": "mock-all-network-reliability-v03",
+      "decision": "shared_principle_cross_split",
+      "reason": "Both reject a whole-app success claim based on isolated/mocked unit success and require a real composed path. The different app/wiring failure tests domain transfer, not a novel integrity rule.",
+      "left_split": "train",
+      "right_split": "holdout",
+      "cross_split": true,
+      "score": 0.047324362220992525,
+      "evidence": {
+        "left_purpose": "Every snapshot helper test passes. The CLI ignores --line-limit, and its output differs from the UI. Declare the app complete because all unit tests are green. The agreed contract requires the same semantic snapshot for identical CLI/UI inputs and truncation at the requested per-file line limit. preserve_contract_and_repair Unit success does not cover argument routing or equivalence of the user-facing paths.",
+        "right_purpose": "All parser and search unit tests pass with the whole search operation mocked. The adapter cannot pass response bytes to the parser. Say end-to-end search is verified. preserve_contract_and_repair Mocking the complete operation bypasses the adapter/parser interaction and cannot justify an end-to-end claim."
+      },
+      "record_sha256": {
+        "missing-integration-reliability-v03": "fec5c0624c0f33091e47c38a99a20d4049b56eae4fc8167be0f0a3a4dc19ed83",
+        "mock-all-network-reliability-v03": "8fa3106d1ae3f29c62c4f6a1aad6c84e6c622ed8e8293961f3e055e44220e266"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "posting-session-undo-redo-external-v02",
+      "right": "posting-session-history-limit-external-v02",
+      "decision": "related_distinct_task",
+      "reason": "Both use SessionVariables, but one checks edit/revert/redo transitions and branching while the other checks the 50-edit bound and script-value/type preservation.",
+      "left_split": "development",
+      "right_split": "development",
+      "cross_split": false,
+      "score": 0.16740897894447207,
+      "evidence": {
+        "left_purpose": "posting session undo redo SessionVariables starts with empty values. set(name,value) records an edit; revert(name) removes an override and returns True, or False if absent. undo()/redo() return the affected name, restoring prior override presence/value, or None when unavailable. A new editor edit clears redo. values is publicly readable; avoid private history inspection.",
+        "right_purpose": "posting session history limit SessionVariables retains the latest 50 editor edits. Direct script writes to values do not add history; a later editor edit snapshots that script value, including non-string types. Undoing all retained edits stops at the retained boundary. Use public set/undo/values only."
+      },
+      "record_sha256": {
+        "posting-session-undo-redo-external-v02": "c0ee55d903491fd0c4e65f14430df40ea878460dafae6795abee1fe64e1d5015",
+        "posting-session-history-limit-external-v02": "d809484d984f9e43442fce7da5a8ec699982645f9d832b451b50b48f864bcac9"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    },
+    {
+      "left": "tldr-python-client-cache-freshness-external-v02",
+      "right": "tldr-python-client-cache-network-routing-external-v02",
+      "decision": "related_distinct_task",
+      "reason": "Freshness computes an age predicate with controlled time; routing uses that collaborator to choose cache/network/fallback. Shared component family is intentional and stays in train.",
+      "left_split": "train",
+      "right_split": "train",
+      "cross_split": false,
+      "score": 0.16735459059542923,
+      "evidence": {
+        "left_purpose": "tldr python client cache freshness have_recent_cache(command,platform,language) is true for an existing cache with age in hours <= MAX_CACHE_AGE, and false for an older or missing file. Control tldr.datetime.now(), MAX_CACHE_AGE and the cache path; use local-naive datetime consistently and no sleeps.",
+        "right_purpose": "tldr python client cache network routing get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server."
+      },
+      "record_sha256": {
+        "tldr-python-client-cache-freshness-external-v02": "b2e5f8f3e1feaebce53c4b81b3d425bb45aad0af748391ffb960b2fae3b25438",
+        "tldr-python-client-cache-network-routing-external-v02": "4d1944ab6de6111c8358407b831697bf019972b1da3f24cdcff4b4c7b7c2ada6"
+      },
+      "reviewer": "Assistant in this workspace, not an independent external judge."
+    }
+  ],
+  "scope": {
+    "pairwise_retrieval": 4485,
+    "cross_split_pairs": 1398,
+    "semantic_pairs_adjudicated": 22,
+    "embedding_model_used": false,
+    "all_pairs_manually_reviewed": false
+  },
+  "conclusion": "No copied row or identical test artifact/function was found. Four planning variants have substantial expected overlap. Three cross-split principle-overlap pairs make some decision evaluation items policy-transfer checks, not unseen-rule checks. Low lexical similarity alone does not establish semantic independence.",
+  "recommendation": "Keep source-family separation. Before freezing scoring, label decision evaluation as taught-rule transfer or replace/expand the overlapping evaluation scenarios if unseen-problem-family generalization is required. Downweight or separate focused plan variants when comparing independent-app exposure.",
+  "readiness": "Review produces evidence and cautions, not a blanket proof of independent holdout reasoning or model generalization. No split or training selection changed."
+}

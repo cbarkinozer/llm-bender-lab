@@ -1,0 +1,18 @@
+...F...........                                                          [100%]
+================================== FAILURES ===================================
+_ test_clear_language_markers[def compute_total(prices):\n    return sum(prices)\n-py] _
+
+text = 'def compute_total(prices):\n    return sum(prices)\n', expected = 'py'
+
+    @pytest.mark.parametrize('text,expected', [('def compute_total(prices):\n    return sum(prices)\n', 'py'), ('const total = prices.reduce((a, b) => a + b, 0);\nconsole.log(total);', 'js')])
+    def test_clear_language_markers(text, expected):
+>       assert detect(text) == expected
+E       AssertionError: assert 'js' == 'py'
+E         
+E         - py
+E         + js
+
+tests\test_core.py:17: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_clear_language_markers[def compute_total(prices):\n    return sum(prices)\n-py]
+1 failed, 14 passed in 0.14s

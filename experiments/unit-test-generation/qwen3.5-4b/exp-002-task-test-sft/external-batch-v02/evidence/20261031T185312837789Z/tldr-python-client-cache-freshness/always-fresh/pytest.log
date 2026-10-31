@@ -1,0 +1,26 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________________ test_cache_age_boundary_and_missing _____________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001FD28189810>
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-267/test_cache_age_boundary_and_mi0')
+
+    def test_cache_age_boundary_and_missing(monkeypatch, tmp_path):
+        now = datetime(2026, 1, 15, 12)
+        class Clock(datetime):
+            @classmethod
+            def now(cls):
+                return now
+        cache = tmp_path / 'git.md'
+        monkeypatch.setattr(tldr, 'datetime', Clock)
+        monkeypatch.setattr(tldr, 'MAX_CACHE_AGE', 24)
+        monkeypatch.setattr(tldr, 'get_cache_file_path', lambda *args: cache)
+>       assert tldr.have_recent_cache('git', 'linux', 'en') is False
+E       AssertionError: assert True is False
+E        +  where True = <function <lambda> at 0x000001FD268DA7A0>('git', 'linux', 'en')
+E        +    where <function <lambda> at 0x000001FD268DA7A0> = tldr.have_recent_cache
+
+tests\test_cache_freshness.py:16: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_cache_freshness.py::test_cache_age_boundary_and_missing - A...
+1 failed in 0.08s

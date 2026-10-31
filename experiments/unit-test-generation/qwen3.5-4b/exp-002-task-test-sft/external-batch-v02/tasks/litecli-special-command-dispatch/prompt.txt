@@ -1,0 +1,47 @@
+APPLICATION
+Build a SQLite terminal client with query execution, SQL-aware completion and special commands.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "sql-table-identifiers",
+    "module": "litecli.packages.parseutils",
+    "target_file": "tests/test_sql_table_identifiers.py"
+  },
+  {
+    "id": "sql-destructive-detection",
+    "module": "litecli.packages.parseutils",
+    "target_file": "tests/test_sql_destructive_detection.py"
+  },
+  {
+    "id": "completion-last-word",
+    "module": "litecli.packages.parseutils",
+    "target_file": "tests/test_completion_last_word.py"
+  },
+  {
+    "id": "path-completion",
+    "module": "litecli.packages.filepaths",
+    "target_file": "tests/test_path_completion.py"
+  },
+  {
+    "id": "sqlite-query-execution",
+    "module": "litecli.sqlexecute",
+    "target_file": "tests/test_sqlite_query_execution.py"
+  },
+  {
+    "id": "special-command-dispatch",
+    "module": "litecli.packages.special.main",
+    "target_file": "tests/test_special_command_dispatch.py"
+  }
+]
+
+CURRENT TASK
+special-command-dispatch
+Target file: tests/test_special_command_dispatch.py
+Implementation module: litecli.packages.special.main
+
+INTERFACE AND ACCEPTANCE CONTRACT
+parse_special_command(sql) returns command stripped of + or -, Verbosity and stripped argument. A + suffix means VERBOSE, no suffix NORMAL, - SUCCINCT. execute(cursor,sql) routes a registered PARSED_QUERY handler using cur, arg, verbose keyword arguments, supports case-insensitive commands, and raises CommandNotFound for unknown commands. COMMANDS is the registry; isolate it with monkeypatch.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

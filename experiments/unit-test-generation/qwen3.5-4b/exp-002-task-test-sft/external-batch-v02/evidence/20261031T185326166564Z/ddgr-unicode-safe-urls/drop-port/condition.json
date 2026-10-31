@@ -1,0 +1,5 @@
+{
+  "module": "ddgr",
+  "mutation": "original=m.make_safe_url\nm.make_safe_url=lambda url: original(url).replace(':8443','')",
+  "seed": null
+}

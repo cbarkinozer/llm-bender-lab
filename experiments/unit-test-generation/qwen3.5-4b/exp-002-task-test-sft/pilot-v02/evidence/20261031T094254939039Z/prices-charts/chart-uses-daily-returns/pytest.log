@@ -1,0 +1,18 @@
+..F                                                                      [100%]
+================================== FAILURES ===================================
+_______ test_plot_three_observations_uses_cumulative_not_daily_returns ________
+
+    def test_plot_three_observations_uses_cumulative_not_daily_returns():
+        from coin_comparator import plot_combined
+        prices=pd.DataFrame({'BTC':[100.,150.,75.]})
+        figure=plot_combined(prices.corr(),prices,['BTC'])
+>       assert list(figure.data[1].y) == [0.,.5,-.25]
+E       assert [np.float64(0...float64(-0.5)] == [0.0, 0.5, -0.25]
+E         
+E         At index 2 diff: np.float64(-0.5) != -0.25
+E         Use -v to get more diff
+
+tests\test_price_charts.py:27: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_price_charts.py::test_plot_three_observations_uses_cumulative_not_daily_returns
+1 failed, 2 passed in 0.35s

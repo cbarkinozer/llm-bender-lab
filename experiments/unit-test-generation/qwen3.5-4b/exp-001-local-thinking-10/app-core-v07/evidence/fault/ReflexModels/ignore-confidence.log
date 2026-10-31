@@ -1,0 +1,22 @@
+................F.                                                       [100%]
+================================== FAILURES ===================================
+_ test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence _
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence(choice):
+        response = choice_response(choice, request_id='r', probabilities={'files':.9,'web':.1})
+        gate = fallback_gate(response, min_confidence=.8, min_margin=.2,
+                             answerability_probability=.9, min_answerability=.7)
+        assert gate['fallback_required'] is False
+        assert gate['reason_codes'] == []
+        assert gate['accepted'] is True
+        uncertain = choice_response(choice, request_id='u', probabilities={'files':.6,'web':.4})
+        rejected = fallback_gate(uncertain, min_confidence=.8)
+>       assert rejected['fallback_required'] is True
+E       assert False is True
+
+tests\test_core.py:91: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence
+1 failed, 17 passed in 0.09s

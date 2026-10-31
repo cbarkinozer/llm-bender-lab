@@ -1,0 +1,106 @@
+{
+  "application": "repo-context",
+  "goal": "Build me a Python tool that turns a GitHub repository into a readable Markdown context snapshot I can give an LLM. Let me supply a repository URL, optionally a branch and subfolder, choose file extensions and a per-file line limit, and get repository metadata, dependency summaries, a directory tree and selected text-file contents in deterministic order. Respect .gitignore and common generated/dependency directories, don't include secret environment files by default, skip non-text files, and clearly identify truncated files instead of making the snapshot look complete. Support private repositories with a token kept out of the output, show a useful error when cloning or reading fails, and clean up temporary checkouts even after failure. Give me a CLI and a simple local Streamlit page for generating and downloading the same snapshot; no hosted service is necessary. Keep the core independent of the UI so it can be checked with a small local fixture repository instead of real network requests.",
+  "tasks": [
+    {
+      "id": "snapshot-file-tree",
+      "title": "Specify extension and ignore filtering in a deterministic file tree.",
+      "depends_on": [],
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_file_tree.py",
+      "acceptance": [
+        "Show selected .py files and the declared root label.",
+        "Exclude other extensions, node_modules and caller-ignored files.",
+        "An entirely ignored tree contains only the root line."
+      ]
+    },
+    {
+      "id": "snapshot-dependencies",
+      "title": "Specify dependency summaries from requirements and project metadata.",
+      "depends_on": [],
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_dependencies.py",
+      "acceptance": [
+        "Recognize Python from requirements.txt and pyproject.toml.",
+        "Include the source filename and dependency entries.",
+        "Formatting whitespace is not part of the contract."
+      ]
+    },
+    {
+      "id": "snapshot-url-routing",
+      "title": "Specify repository, branch and subfolder extraction from simple GitHub URLs.",
+      "depends_on": [],
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_url_routing.py",
+      "acceptance": [
+        "Normalize the repository to a canonical .git URL.",
+        "Preserve simple branch names and nested subfolder paths.",
+        "Do not guess slash-containing branch semantics."
+      ]
+    },
+    {
+      "id": "snapshot-text-decoding",
+      "title": "Specify UTF-8 text recognition with invalid-byte controls.",
+      "depends_on": [],
+      "implementation_files": [
+        "repo_context/core.py"
+      ],
+      "target_file": "tests/test_snapshot_text_decoding.py",
+      "acceptance": [
+        "Valid Turkish UTF-8 text is recognized.",
+        "Invalid UTF-8 bytes are rejected."
+      ]
+    },
+    {
+      "id": "snapshot-safe-context",
+      "title": "Specify scoped snapshots, sorted content, truncation, secret exclusion and cleanup.",
+      "depends_on": [],
+      "implementation_files": [
+        "context_workflow.py"
+      ],
+      "target_file": "tests/test_snapshot_safe_context.py",
+      "acceptance": [
+        "Preserve branch/subfolder and honor the public clone injection contract.",
+        "Respect .gitignore, extension, symlink and dependency-directory exclusions.",
+        "Show truncation and deterministic multi-file order without leaking tokens.",
+        "Owned checkouts are deleted after successful snapshot creation."
+      ]
+    },
+    {
+      "id": "snapshot-controller-routing",
+      "title": "Specify shared CLI/UI behavior and invalid-URL rejection before cloning.",
+      "depends_on": [],
+      "implementation_files": [
+        "context_workflow.py"
+      ],
+      "target_file": "tests/test_snapshot_controller_routing.py",
+      "acceptance": [
+        "CLI and UI wrappers invoke the same operation with identical arguments.",
+        "A non-HTTPS GitHub URL fails before clone is called."
+      ]
+    },
+    {
+      "id": "repo-context-delivery",
+      "title": "Verify documented delivery and live UI/backend integration separately.",
+      "depends_on": [],
+      "implementation_files": [
+        "README.md"
+      ],
+      "target_file": "tests/test_delivery.py",
+      "acceptance": [
+        "Actual CLI/Streamlit event wiring and private authentication remain manual checks. Slash-containing branch names remain unresolved."
+      ],
+      "demonstration_available": false
+    }
+  ],
+  "unresolved": [
+    "Actual CLI/Streamlit event wiring and private authentication remain manual checks. Slash-containing branch names remain unresolved."
+  ],
+  "context_policy": "Interfaces are agreed; implementations may not exist yet. No completion or tool execution is implied."
+}

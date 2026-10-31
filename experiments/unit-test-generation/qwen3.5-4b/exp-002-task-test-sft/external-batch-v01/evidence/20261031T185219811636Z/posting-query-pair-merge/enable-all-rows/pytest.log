@@ -1,0 +1,18 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_____________ test_merge_by_occurrence_and_preserve_disabled_rows _____________
+
+    def test_merge_by_occurrence_and_preserve_disabled_rows():
+        params = [('a', '', False), ('a', 'override', True), ('tail', 'keep', False)]
+        url, merged = merge_url_query_into_params('https://example.test/path?a=one&a=two&b=#frag', params)
+        assert url == 'https://example.test/path#frag'
+>       assert merged == [('a', 'one', False), ('a', 'override', True), ('b', '', True), ('tail', 'keep', False)]
+E       AssertionError: assert [('a', 'one',...'keep', True)] == [('a', 'one',...keep', False)]
+E         
+E         At index 0 diff: ('a', 'one', True) != ('a', 'one', False)
+E         Use -v to get more diff
+
+tests\test_query_pair_merge.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_query_pair_merge.py::test_merge_by_occurrence_and_preserve_disabled_rows
+1 failed, 1 passed in 0.07s

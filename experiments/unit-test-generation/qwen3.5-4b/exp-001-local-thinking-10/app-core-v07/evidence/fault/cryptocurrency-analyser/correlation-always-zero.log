@@ -1,0 +1,63 @@
+...F..F......                                                            [100%]
+================================== FAILURES ===================================
+______________ test_correlation_detects_opposite_price_movements ______________
+
+    def test_correlation_detects_opposite_price_movements():
+        prices = pd.DataFrame({'up': [1., 2., 3.], 'down': [6., 4., 2.]})
+        expected = pd.DataFrame([[1., -1.], [-1., 1.]], index=['up', 'down'], columns=['up', 'down'])
+>       assert_frame_equal(calculate_correlation(prices), expected)
+
+tests\test_coin_comparator.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="up") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="up") values are different (100.0 %)
+E   [index]: [up, down]
+E   [left]:  [0.0, -0.0]
+E   [right]: [1.0, -1.0]
+E   At positional index 0, first diff: 0.0 != 1.0
+
+pandas/_libs/testing.pyx:171: AssertionError
+_______ test_saved_csv_matches_provider_calculation_and_declares_source _______
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-138/test_saved_csv_matches_provide0')
+
+    def test_saved_csv_matches_provider_calculation_and_declares_source(tmp_path):
+        from price_workflow import analyze
+        path = tmp_path/'prices.csv'
+        prices().to_csv(path)
+        provider = Mock(return_value=prices())
+        live = analyze(['btc','eth'], '2026-01-01','2026-01-04', provider=provider)
+        offline = analyze(['btc','eth'], '2026-01-01','2026-01-04', csv_path=path)
+        provider.assert_called_once_with(['BTC-USD','ETH-USD'], '2026-01-01','2026-01-04')
+        assert_frame_equal(live['returns'], offline['returns'], check_freq=False)
+        assert offline['returns']['BTC-USD'].tolist() == [0.,.5,-.25]
+        assert live['source'] == 'provider'
+        assert offline['source'] == 'csv'
+>       assert_frame_equal(live['correlation'], prices().corr())
+
+tests\test_workflow.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+pandas/_libs/testing.pyx:53: in pandas._libs.testing.assert_almost_equal
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   ???
+E   AssertionError: DataFrame.iloc[:, 0] (column name="BTC-USD") are different
+E   
+E   DataFrame.iloc[:, 0] (column name="BTC-USD") values are different (100.0 %)
+E   [index]: [BTC-USD, ETH-USD]
+E   [left]:  [0.0, -0.0]
+E   [right]: [1.0, -0.9819805060619656]
+E   At positional index 0, first diff: 0.0 != 1.0
+
+pandas/_libs/testing.pyx:171: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements
+FAILED tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source
+2 failed, 11 passed in 0.45s

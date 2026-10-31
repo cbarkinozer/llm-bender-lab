@@ -1,0 +1,65 @@
+{
+  "train": {
+    "rows": 50,
+    "full_sequence_tokens": 91858,
+    "answer_tokens": 15597,
+    "rationale_tokens": 1419
+  },
+  "development": {
+    "rows": 5,
+    "full_sequence_tokens": 3646,
+    "answer_tokens": 1111,
+    "rationale_tokens": 115
+  },
+  "holdout": {
+    "rows": 3,
+    "full_sequence_tokens": 1946,
+    "answer_tokens": 705,
+    "rationale_tokens": 64
+  },
+  "planning_drafts": {
+    "rows": 15,
+    "source_families": 11,
+    "within_8192": 15,
+    "max_sequence_tokens": 5328,
+    "training_eligible": 0,
+    "bundle": "planning-pilot-v04"
+  },
+  "checks": {
+    "source_family_roles_disjoint": true,
+    "identical_test_AST_duplicates": 0,
+    "semantic_near_duplicate_review": "Targeted review completed with principle-transfer overlap findings; not an exhaustive semantic-independence certificate.",
+    "native_label_audit": "passed for active preview and native_tdd_labels.py; trainer batch parity pending",
+    "shared_file_serialization_conflicts": 0
+  },
+  "active_candidate_index": "candidate-index-v03.json",
+  "reliability_decision_drafts": {
+    "bundle": "reliability-pilot-v03",
+    "rows": 22,
+    "split_counts": {
+      "train": 15,
+      "development": 3,
+      "holdout": 4
+    },
+    "clarification": 12,
+    "test_integrity": 10,
+    "training_eligible": 0,
+    "max_sequence_tokens": 284
+  },
+  "combined_counts": {
+    "total": 95,
+    "train_candidates": 78,
+    "development": 9,
+    "holdout": 8,
+    "training_enabled": false
+  },
+  "review_fixes": "REVIEW-FIXES.md",
+  "native_labels": {
+    "report": "native-label-audit-v01/report.json",
+    "input_tokens": 144394,
+    "supervised_tokens": 64885,
+    "ignored_tokens": 79509,
+    "trainer_label_parity_verified": false
+  },
+  "dataset_profile": "dataset-profile-v02/summary.json"
+}

@@ -1,0 +1,45 @@
+{
+  "order": [
+    "tests/test_result_serialization.py::test_plain_result_and_url_lookup",
+    "tests/test_result_serialization.py::test_optional_metadata"
+  ],
+  "reports": [
+    {
+      "nodeid": "tests/test_result_serialization.py::test_plain_result_and_url_lookup",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_result_serialization.py::test_plain_result_and_url_lookup",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_result_serialization.py::test_plain_result_and_url_lookup",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_result_serialization.py::test_optional_metadata",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_result_serialization.py::test_optional_metadata",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_result_serialization.py::test_optional_metadata",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1
+}

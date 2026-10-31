@@ -1,0 +1,96 @@
+record_id,track,split,source_group,domain,subdomain,behavior,full_tokens,supervised_tokens,ignored_tokens,reasoning_tokens,test_cases,test_sloc,test_max_cc,test_max_cc_no_assert
+language-basic-v02,tests,train,codelang-detect,Developer tooling,Code-language detection,classification,1353,179,1174,31,5,8,2,1
+language-rules-v02,tests,train,codelang-detect,Developer tooling,Code-language detection,classification,1620,400,1220,37,5,19,3,1
+language-cli-success-v02,tests,train,codelang-detect,Developer tooling,Code-language detection,input-output-adapter,1517,270,1247,37,2,16,2,1
+language-cli-errors-v02,tests,train,codelang-detect,Developer tooling,Code-language detection,validation-and-errors,1695,450,1245,42,3,34,5,1
+prices-returns-v02,tests,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,numeric-transformation,1833,535,1298,48,6,28,1,1
+prices-charts-v02,tests,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,numeric-transformation,1809,460,1349,39,3,21,5,1
+prices-fetch-v02,tests,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,input-output-adapter,1608,325,1283,32,1,11,1,1
+prices-analysis-v02,tests,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,workflow-composition,2328,930,1398,52,7,51,6,1
+mail-store-v02,tests,train,ghost-box,Productivity,Local email assistant,state-and-lifecycle,2613,298,2315,32,2,16,4,1
+mail-search-v02,tests,train,ghost-box,Productivity,Local email assistant,text-search-transform,2569,244,2325,28,2,11,4,1
+mail-splitting-v02,tests,train,ghost-box,Productivity,Local email assistant,text-search-transform,2658,331,2327,34,2,14,7,4
+mail-quote-validation-v02,tests,train,ghost-box,Productivity,Local email assistant,validation-and-errors,2659,338,2321,32,1,15,2,1
+mail-fetch-coverage-v02,tests,train,ghost-box,Productivity,Local email assistant,workflow-composition,2686,363,2323,29,1,24,4,1
+mail-selected-inference-v02,tests,train,ghost-box,Productivity,Local email assistant,workflow-composition,2873,550,2323,31,1,36,7,2
+mail-cancellation-v02,tests,train,ghost-box,Productivity,Local email assistant,state-and-lifecycle,2559,243,2316,27,1,21,7,1
+mail-model-lifecycle-v02,tests,train,ghost-box,Productivity,Local email assistant,state-and-lifecycle,2803,465,2338,31,2,43,4,1
+decision-requests-v02,tests,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,validation-and-errors,2209,249,1960,24,4,15,3,1
+decision-probabilities-v02,tests,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,numeric-transformation,2423,415,2008,25,5,21,7,2
+decision-shared-state-v02,tests,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,state-and-lifecycle,2187,227,1960,21,1,10,3,1
+decision-fallback-v02,tests,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,routing-and-selection,2416,448,1968,26,3,26,6,1
+decision-calibration-v02,tests,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,numeric-transformation,2328,332,1996,32,4,19,3,1
+decision-ordinal-v02,tests,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,numeric-transformation,2215,242,1973,23,1,12,5,2
+experiment-preflight-quality-after-v01,tests,train,llm-bender-lab,AI/ML tooling,Experiment orchestration,validation-and-errors,1873,680,1193,32,5,57,5,3
+experiment-matched-evaluation-v02,tests,train,llm-bender-lab,AI/ML tooling,Experiment orchestration,workflow-composition,2195,632,1563,36,1,42,13,2
+experiment-artifact-isolation-v02,tests,train,llm-bender-lab,AI/ML tooling,Experiment orchestration,filesystem-and-artifacts,2026,475,1551,26,1,28,6,3
+experiment-failure-reporting-v02,tests,train,llm-bender-lab,AI/ML tooling,Experiment orchestration,workflow-composition,1954,413,1541,26,1,25,7,2
+tensor-rms-normalization-v02,tests,train,miniature-llms,AI/ML tooling,Neural-network components,numeric-model-behavior,2242,328,1914,32,3,17,1,1
+tensor-rotary-positions-v02,tests,train,miniature-llms,AI/ML tooling,Neural-network components,numeric-model-behavior,2347,432,1915,29,5,20,1,1
+tensor-model-composition-v02,tests,train,miniature-llms,AI/ML tooling,Neural-network components,numeric-model-behavior,2157,261,1896,24,1,18,7,4
+tensor-causal-independence-v02,tests,train,miniature-llms,AI/ML tooling,Neural-network components,numeric-model-behavior,2086,205,1881,27,1,12,2,1
+tensor-checkpoint-roundtrip-v02,tests,train,miniature-llms,AI/ML tooling,Neural-network components,parsing-and-serialization,2071,191,1880,21,1,14,1,1
+tensor-training-generation-v02,tests,train,miniature-llms,AI/ML tooling,Neural-network components,numeric-model-behavior,2406,496,1910,29,4,31,8,1
+snapshot-file-tree-v02,tests,train,repo-context,Developer tooling,Repository context extraction,filesystem-and-artifacts,2027,287,1740,27,2,17,4,1
+snapshot-dependencies-v02,tests,train,repo-context,Developer tooling,Repository context extraction,parsing-and-serialization,1990,257,1733,26,2,13,4,1
+snapshot-url-routing-v02,tests,train,repo-context,Developer tooling,Repository context extraction,parsing-and-serialization,1895,158,1737,24,2,6,2,1
+snapshot-text-decoding-v02,tests,train,repo-context,Developer tooling,Repository context extraction,text-search-transform,1869,146,1723,21,2,9,2,1
+snapshot-safe-context-v02,tests,train,repo-context,Developer tooling,Repository context extraction,workflow-composition,2283,523,1760,34,2,31,5,1
+snapshot-controller-routing-v02,tests,train,repo-context,Developer tooling,Repository context extraction,routing-and-selection,1947,217,1730,25,2,15,5,1
+litecli-sql-table-identifiers-external-v02,tests,train,dbcli/litecli,Databases,SQLite terminal client,parsing-and-serialization,736,192,544,23,3,10,3,1
+litecli-sql-destructive-detection-external-v02,tests,train,dbcli/litecli,Databases,SQLite terminal client,classification,692,166,526,19,8,9,2,1
+litecli-completion-last-word-external-v02,tests,train,dbcli/litecli,Databases,SQLite terminal client,text-search-transform,695,165,530,25,6,9,3,1
+litecli-path-completion-external-v02,tests,train,dbcli/litecli,Databases,SQLite terminal client,filesystem-and-artifacts,791,248,543,22,2,14,6,1
+litecli-sqlite-query-execution-external-v02,tests,train,dbcli/litecli,Databases,SQLite terminal client,workflow-composition,871,311,560,25,2,23,5,1
+litecli-special-command-dispatch-external-v02,tests,train,dbcli/litecli,Databases,SQLite terminal client,routing-and-selection,825,272,553,26,2,18,4,1
+tldr-python-client-language-selection-external-v02,tests,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,parsing-and-serialization,747,244,503,20,5,15,4,1
+tldr-python-client-cache-path-selection-external-v02,tests,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,filesystem-and-artifacts,808,311,497,19,2,17,5,2
+tldr-python-client-cache-freshness-external-v02,tests,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,state-and-lifecycle,771,277,494,24,1,19,4,2
+tldr-python-client-page-url-external-v02,tests,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,parsing-and-serialization,692,204,488,20,4,10,2,1
+tldr-python-client-cache-network-routing-external-v02,tests,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,workflow-composition,1190,655,535,24,3,40,6,1
+tldr-python-client-platform-priority-external-v02,tests,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,routing-and-selection,711,226,485,20,5,13,4,1
+posting-path-parameters-external-v02,tests,development,darrenburns/posting,Network clients,HTTP request client,parsing-and-serialization,656,193,463,17,2,9,3,1
+posting-query-pair-merge-external-v02,tests,development,darrenburns/posting,Network clients,HTTP request client,parsing-and-serialization,782,282,500,20,2,10,4,1
+posting-request-filenames-external-v02,tests,development,darrenburns/posting,Network clients,HTTP request client,filesystem-and-artifacts,782,278,504,29,9,15,6,1
+posting-session-undo-redo-external-v02,tests,development,darrenburns/posting,Network clients,HTTP request client,state-and-lifecycle,755,283,472,21,2,25,13,1
+posting-session-history-limit-external-v02,tests,development,darrenburns/posting,Network clients,HTTP request client,state-and-lifecycle,671,215,456,28,2,17,6,3
+ddgr-unicode-safe-urls-external-v02,tests,holdout,jarun/ddgr,Network clients,Terminal web search,parsing-and-serialization,639,261,378,20,3,10,2,1
+ddgr-search-pagination-external-v02,tests,holdout,jarun/ddgr,Network clients,Terminal web search,state-and-lifecycle,695,286,409,23,2,22,7,1
+ddgr-result-serialization-external-v02,tests,holdout,jarun/ddgr,Network clients,Terminal web search,parsing-and-serialization,612,237,375,21,2,12,4,1
+codelang-detect-app-plan-planning-v04,planning,train,codelang-detect,Developer tooling,Code-language detection,app-decomposition,3329,3100,229,0,,,,
+cryptocurrency-analyser-app-plan-planning-v04,planning,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,app-decomposition,3888,3644,244,0,,,,
+ghost-box-app-plan-planning-v04,planning,train,ghost-box,Productivity,Local email assistant,app-decomposition,5328,5040,288,0,,,,
+llm-bender-lab-app-plan-planning-v04,planning,train,llm-bender-lab,AI/ML tooling,Experiment orchestration,app-decomposition,3746,3469,277,0,,,,
+miniature-llms-app-plan-planning-v04,planning,train,miniature-llms,AI/ML tooling,Neural-network components,app-decomposition,4539,4279,260,0,,,,
+reflexmodels-app-plan-planning-v04,planning,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,app-decomposition,4632,4387,245,0,,,,
+repo-context-app-plan-planning-v04,planning,train,repo-context,Developer tooling,Repository context extraction,app-decomposition,4381,4133,248,0,,,,
+litecli-backend-plan-planning-v04,planning,train,dbcli/litecli,Databases,SQLite terminal client,app-decomposition,3797,3663,134,0,,,,
+tldr-python-client-backend-plan-planning-v04,planning,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,app-decomposition,3876,3744,132,0,,,,
+posting-backend-plan-planning-v04,planning,development,darrenburns/posting,Network clients,HTTP request client,app-decomposition,3374,3245,129,0,,,,
+ddgr-backend-plan-planning-v04,planning,holdout,jarun/ddgr,Network clients,Terminal web search,app-decomposition,2448,2327,121,0,,,,
+litecli-backend-plan-sql-core-planning-v04,planning,train,dbcli/litecli,Databases,SQLite terminal client,app-decomposition,2542,2366,176,0,,,,
+tldr-python-client-backend-plan-offline-cache-planning-v04,planning,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,app-decomposition,2584,2411,173,0,,,,
+repo-context-app-plan-snapshot-core-planning-v04,planning,train,repo-context,Developer tooling,Repository context extraction,app-decomposition,2951,2642,309,0,,,,
+ghost-box-app-plan-first-memory-milestone-planning-v04,planning,train,ghost-box,Productivity,Local email assistant,app-decomposition,3259,2908,351,0,,,,
+returns-baseline-reliability-v03,reliability,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,ask,228,125,103,0,,,,
+mail-fast-reliability-v03,reliability,train,ghost-box,Productivity,Local email assistant,ask,230,128,102,0,,,,
+fallback-policy-reliability-v03,reliability,train,ReflexModels,AI/ML tooling,Structured decisions and calibration,ask,219,123,96,0,,,,
+snapshot-secret-scope-reliability-v03,reliability,train,repo-context,Developer tooling,Repository context extraction,ask,239,136,103,0,,,,
+literal-detector-reliability-v03,reliability,train,codelang-detect,Developer tooling,Code-language detection,proceed,239,116,123,0,,,,
+sqlite-native-paths-reliability-v03,reliability,train,dbcli/litecli,Databases,SQLite terminal client,proceed,236,117,119,0,,,,
+tldr-cache-only-reliability-v03,reliability,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,proceed,240,116,124,0,,,,
+tensor-causal-contract-reliability-v03,reliability,train,miniature-llms,AI/ML tooling,Neural-network components,proceed,261,122,139,0,,,,
+posting-latency-reliability-v03,reliability,development,darrenburns/posting,Network clients,HTTP request client,ask,219,122,97,0,,,,
+posting-query-order-reliability-v03,reliability,development,darrenburns/posting,Network clients,HTTP request client,proceed,235,107,128,0,,,,
+ddgr-offline-policy-reliability-v03,reliability,holdout,jarun/ddgr,Network clients,Terminal web search,ask,208,112,96,0,,,,
+ddgr-result-contract-reliability-v03,reliability,holdout,jarun/ddgr,Network clients,Terminal web search,proceed,232,111,121,0,,,,
+weaken-negative-return-reliability-v03,reliability,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,preserve_contract_and_repair,261,117,144,0,,,,
+mock-away-classifier-reliability-v03,reliability,train,codelang-detect,Developer tooling,Code-language detection,preserve_contract_and_repair,231,111,120,0,,,,
+skip-failed-cancellation-reliability-v03,reliability,train,ghost-box,Productivity,Local email assistant,preserve_contract_and_repair,239,129,110,0,,,,
+hardcode-preflight-reliability-v03,reliability,train,llm-bender-lab,AI/ML tooling,Experiment orchestration,preserve_contract_and_repair,275,122,153,0,,,,
+missing-integration-reliability-v03,reliability,train,repo-context,Developer tooling,Repository context extraction,preserve_contract_and_repair,267,130,137,0,,,,
+lint-not-acceptance-reliability-v03,reliability,development,darrenburns/posting,Network clients,HTTP request client,preserve_contract_and_repair,234,113,121,0,,,,
+mock-all-network-reliability-v03,reliability,holdout,jarun/ddgr,Network clients,Terminal web search,preserve_contract_and_repair,247,134,113,0,,,,
+silence-boundary-failure-reliability-v03,reliability,holdout,jarun/ddgr,Network clients,Terminal web search,preserve_contract_and_repair,234,123,111,0,,,,
+correct-wrong-baseline-test-reliability-v03,reliability,train,cryptocurrency-analyser,Finance,Cryptocurrency time series,correct_inconsistent_test,284,129,155,0,,,,
+correct-unstated-tail-order-reliability-v03,reliability,train,tldr-pages/tldr-python-client,Developer tooling,Offline documentation client,correct_inconsistent_test,235,112,123,0,,,,

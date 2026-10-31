@@ -1,0 +1,22 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+______________________ test_plain_result_and_url_lookup _______________________
+
+    def test_plain_result_and_url_lookup():
+        result = Result(3, 'caf\u00e9', 'https://example.test', 'summary')
+        expected = {'title': 'caf\u00e9', 'url': 'https://example.test', 'abstract': 'summary'}
+        assert result.jsonizable_object() == expected
+        assert json.loads(json.dumps(result.jsonizable_object())) == expected
+>       assert result.urltable() == {'3': 'https://example.test'}
+E       AssertionError: assert {3: 'https://example.test'} == {'3': 'https://example.test'}
+E         
+E         Left contains 1 more item:
+E         {3: 'https://example.test'}
+E         Right contains 1 more item:
+E         {'3': 'https://example.test'}
+E         Use -v to get more diff
+
+tests\test_result_serialization.py:10: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_result_serialization.py::test_plain_result_and_url_lookup
+1 failed, 1 passed in 0.05s

@@ -1,0 +1,108 @@
+....F...FF......F.......                                                 [100%]
+================================== FAILURES ===================================
+_______________ test_uncalled_assertion_is_not_runtime_evidence _______________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-74/test_uncalled_assertion_is_not0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022521448B00>
+
+    def test_uncalled_assertion_is_not_runtime_evidence(tmp_path, monkeypatch):
+        _, sites, target = run_fixture('def test_never_called():\n    assert sut() == 42\n', tmp_path, monkeypatch)
+>       assert gate_outcomes(True, sites, reached(target)) == {'execution_success': True, 'executed_nontrivial_gate': False, 'executed_strong_gate': False}
+E       AssertionError: assert {'execution_s...g_gate': True} == {'execution_s..._gate': False}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'executed_strong_gate': True} != {'executed_strong_gate': False}
+E         {'executed_nontrivial_gate': True} != {'executed_nontrivial_gate': False}
+E         Use -v to get more diff
+
+tests\test_core.py:28: AssertionError
+_ test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason="fixture")\ndef test_case():\n    assert sut() == 42-expected0] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-74/test_pytest_execution_controls0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002252120F020>
+body = '@pytest.mark.skip(reason="fixture")\ndef test_case():\n    assert sut() == 42'
+expected = (True, False, False)
+
+    @pytest.mark.parametrize('body,expected', [
+        ('@pytest.mark.skip(reason="fixture")\ndef test_case():\n    assert sut() == 42', (True,False,False)),
+        ('def test_case():\n    if sut() == 0:\n        assert sut() == 42', (True,False,False)),
+        ('def test_case():\n    assert sut() == 43', (False,False,False)),
+        ('def test_case():\n    assert sut() == 42', (True,True,True))])
+    def test_pytest_execution_controls_reachability_and_success(tmp_path, monkeypatch, body, expected):
+        import os
+        import subprocess
+        import sys
+        source = 'import pytest\ndef sut(): return 42\n' + body + '\n'
+        target = tmp_path/'events.jsonl'
+        instrumented, sites = instrument_oracles(source, sut_names={'sut'})
+        (tmp_path/'test_fixture.py').write_text(instrumented)
+        env = dict(os.environ, ORACLE_EXECUTION_FILE=str(target), PYTEST_DISABLE_PLUGIN_AUTOLOAD='1')
+        env.pop('PYTEST_ADDOPTS', None)
+        result = subprocess.run([sys.executable,'-m','pytest','-q',str(tmp_path/'test_fixture.py')],
+                                cwd=tmp_path,env=env,capture_output=True,text=True,timeout=15)
+        assert result.returncode in (0,1), result.stdout + result.stderr
+        gates = gate_outcomes(result.returncode == 0, sites, reached(target))
+>       assert (gates['execution_success'], gates['executed_nontrivial_gate'], gates['executed_strong_gate']) == expected
+E       assert (True, True, True) == (True, False, False)
+E         
+E         At index 1 diff: True != False
+E         Use -v to get more diff
+
+tests\test_core.py:70: AssertionError
+_ test_pytest_execution_controls_reachability_and_success[def test_case():\n    if sut() == 0:\n        assert sut() == 42-expected1] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-74/test_pytest_execution_controls1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000225212A0350>
+body = 'def test_case():\n    if sut() == 0:\n        assert sut() == 42'
+expected = (True, False, False)
+
+    @pytest.mark.parametrize('body,expected', [
+        ('@pytest.mark.skip(reason="fixture")\ndef test_case():\n    assert sut() == 42', (True,False,False)),
+        ('def test_case():\n    if sut() == 0:\n        assert sut() == 42', (True,False,False)),
+        ('def test_case():\n    assert sut() == 43', (False,False,False)),
+        ('def test_case():\n    assert sut() == 42', (True,True,True))])
+    def test_pytest_execution_controls_reachability_and_success(tmp_path, monkeypatch, body, expected):
+        import os
+        import subprocess
+        import sys
+        source = 'import pytest\ndef sut(): return 42\n' + body + '\n'
+        target = tmp_path/'events.jsonl'
+        instrumented, sites = instrument_oracles(source, sut_names={'sut'})
+        (tmp_path/'test_fixture.py').write_text(instrumented)
+        env = dict(os.environ, ORACLE_EXECUTION_FILE=str(target), PYTEST_DISABLE_PLUGIN_AUTOLOAD='1')
+        env.pop('PYTEST_ADDOPTS', None)
+        result = subprocess.run([sys.executable,'-m','pytest','-q',str(tmp_path/'test_fixture.py')],
+                                cwd=tmp_path,env=env,capture_output=True,text=True,timeout=15)
+        assert result.returncode in (0,1), result.stdout + result.stderr
+        gates = gate_outcomes(result.returncode == 0, sites, reached(target))
+>       assert (gates['execution_success'], gates['executed_nontrivial_gate'], gates['executed_strong_gate']) == expected
+E       assert (True, True, True) == (True, False, False)
+E         
+E         At index 1 diff: True != False
+E         Use -v to get more diff
+
+tests\test_core.py:70: AssertionError
+_ test_passing_empty_or_skipped_suite_is_not_useful[import pytest\n@pytest.mark.skip(reason="fixture")\ndef test_skip():\n    assert sut() == 42-passed] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-74/test_passing_empty_or_skipped_0')
+source = 'import pytest\n@pytest.mark.skip(reason="fixture")\ndef test_skip():\n    assert sut() == 42'
+outcome = 'passed'
+local_executor = <function local_executor.<locals>.execute at 0x00000225212D5C60>
+
+    @pytest.mark.parametrize('source,outcome', [('import pytest\n@pytest.mark.skip(reason="fixture")\ndef test_skip():\n    assert sut() == 42', 'passed'), ('# no tests', 'collection_error')])
+    def test_passing_empty_or_skipped_suite_is_not_useful(tmp_path, source, outcome, local_executor):
+        from benchmark_workflow import run_task
+        row = task('skipped', source)
+        result = run_task(row, root=tmp_path, sut_source='def sut(): return 42', timeout_seconds=5, executor=local_executor)
+        assert result['outcome'] == outcome
+>       assert result['useful_success'] is False
+E       assert True is False
+
+tests\test_workflow.py:33: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence - ...
+FAILED tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason="fixture")\ndef test_case():\n    assert sut() == 42-expected0]
+FAILED tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\n    if sut() == 0:\n        assert sut() == 42-expected1]
+FAILED tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\n@pytest.mark.skip(reason="fixture")\ndef test_skip():\n    assert sut() == 42-passed]
+4 failed, 20 passed in 7.39s

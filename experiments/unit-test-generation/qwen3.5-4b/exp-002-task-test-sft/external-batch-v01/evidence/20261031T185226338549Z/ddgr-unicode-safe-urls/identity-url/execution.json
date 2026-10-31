@@ -1,0 +1,64 @@
+{
+  "order": [
+    "tests/test_unicode_safe_urls.py::test_ascii_url_unchanged",
+    "tests/test_unicode_safe_urls.py::test_unicode_domain_path_and_query",
+    "tests/test_unicode_safe_urls.py::test_credentials_and_port"
+  ],
+  "reports": [
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_ascii_url_unchanged",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_ascii_url_unchanged",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_ascii_url_unchanged",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_unicode_domain_path_and_query",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_unicode_domain_path_and_query",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_unicode_domain_path_and_query",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_credentials_and_port",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_credentials_and_port",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_unicode_safe_urls.py::test_credentials_and_port",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1
+}

@@ -1,0 +1,33 @@
+
+=================================== ERRORS ====================================
+_____________ ERROR collecting tests/test_completion_last_word.py _____________
+ImportError while importing test module 'C:\Users\barkin\AppData\Local\Temp\external-task-i0jc1pk1\tests\test_completion_last_word.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Python313\Lib\importlib\metadata\__init__.py:407: in from_name
+    return next(iter(cls.discover(name=name)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   StopIteration
+
+During handling of the above exception, another exception occurred:
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_completion_last_word.py:2: in <module>
+    from litecli.packages.parseutils import last_word
+litecli\__init__.py:5: in <module>
+    __version__ = importlib.metadata.version("litecli")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\importlib\metadata\__init__.py:987: in version
+    return distribution(distribution_name).version
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\importlib\metadata\__init__.py:960: in distribution
+    return Distribution.from_name(distribution_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python313\Lib\importlib\metadata\__init__.py:409: in from_name
+    raise PackageNotFoundError(name)
+E   importlib.metadata.PackageNotFoundError: No package metadata was found for litecli
+=========================== short test summary info ===========================
+ERROR tests/test_completion_last_word.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.15s

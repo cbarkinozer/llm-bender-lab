@@ -1,0 +1,16 @@
+..F...................................                                   [100%]
+================================== FAILURES ===================================
+______________ test_r2_sort_stars_activity_ties_and_invalid_sort ______________
+
+    def test_r2_sort_stars_activity_ties_and_invalid_sort():
+        items = [repo("zeta", 9, pushed_at="2026-01-01T00:00:00Z"), repo("alpha", 9), repo("beta", 2, pushed_at=None)]
+>       assert [r["name"] for r in top_repositories(items, "stars", 2)] == ["alpha", "zeta"]
+E       AssertionError: assert ['zeta', 'alpha'] == ['alpha', 'zeta']
+E         
+E         At index 0 diff: 'zeta' != 'alpha'
+E         Use -v to get more diff
+
+tests\test_requirements.py:27: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort
+1 failed, 37 passed in 4.82s

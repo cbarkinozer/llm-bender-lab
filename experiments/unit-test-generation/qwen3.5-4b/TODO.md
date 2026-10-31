@@ -1,3 +1,23 @@
+Current dataset profile: [token distributions, complexity, domains and semantic-overlap review](exp-002-task-test-sft/DATASET-PROFILE.md). Three cross-split taught-principle overlaps require an explicit evaluation interpretation; counts/splits are unchanged.
+
+Current label audit: [78-candidate native masking checks passed](exp-002-task-test-sft/NATIVE-LABEL-AUDIT.md). Actual trainer batch parity remains unverified. Semantic near-duplicate review and baseline runtime/protocol are next; training remains disabled.
+
+Current independent-review fixes: [REVIEW-FIXES.md](exp-002-task-test-sft/REVIEW-FIXES.md). All 15 v04 plans serialize shared-file edits; active-data checks pass. Label audit and baseline remain pending.
+
+Current intent-only policy and reviewed planning/decision revisions: [CONTENT-REVIEW.md](exp-002-task-test-sft/CONTENT-REVIEW.md). Repository implementation source is audit-only and excluded from model input/targets. Counts remain 95 total / 78 train-family candidates; no training has started.
+
+Current reliability work: [audit, corrected preflight row, 22 separate decision drafts and prepared baseline packet](exp-002-task-test-sft/RELIABILITY-PREPARATION.md). Test count remains 58; inference and training remain pending.
+
+## Current additions
+
+58 checked task-test candidates now exist: 50 train, 5 development and 3 holdout. A separate 15-row planner draft set needs requirement/dispatch review and is excluded from test-only SFT. Details: [CURRENT-CANDIDATES.md](exp-002-task-test-sft/CURRENT-CANDIDATES.md). Next: semantic review, label audit, split/protocol freeze and starting-model baseline. No training has started.
+
+> Existing-source expansion, 2026-10-31: [exp-002 pilot-v02](exp-002-task-test-sft/EXPANSION-RESULTS.md) builds 38 task candidates across all seven training families. A 62-proposal backlog is grounded in pinned source files; it is not yet training data. The two evaluation families remain excluded. Earlier eight-row pilot counts below are historical.
+
+> Active direction, 2026-10-31: [exp-002 task-to-tests plan](exp-002-task-test-sft/DATASET-PLAN.md). The task-format pilot passes 32 cases and 16 targeted faults. Next audit source suitability and freeze family roles, expand toward 100 training tasks plus separate dev/evaluation, then run a new baseline. Planning and implementation training are deferred. Earlier whole-app baseline/SFT instructions below are historical.
+
+> Active demo update, 2026-10-31: [v07](exp-001-local-thinking-10/app-core-v07/README.md) completes the first AI-feedback correction pass. Next: import the returned v07 AI review, resolve remaining blockers, freeze split/protocol, then untouched-model baseline and smoke/tiny/SFT. The owner selected AI review in place of manual annotation for this demo. Historical research checklists below are not the immediate execution order.
+
 > Latest: codelang-detect review fixes are complete in app-core-v06;
 > review at http://127.0.0.1:7900/dataset/b3adc9b0-a181-4c1f-9c51-d7e4512b677e/annotation-mode. Unchanged siblings retain their validation evidence.
 > Approve/fix the examples, then freeze a baseline before SFT. Earlier status

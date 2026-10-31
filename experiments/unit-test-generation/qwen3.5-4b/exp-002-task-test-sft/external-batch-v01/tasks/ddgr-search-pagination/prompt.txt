@@ -1,0 +1,32 @@
+APPLICATION
+Build a terminal search client with safe result URLs, pagination and structured result output.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "unicode-safe-urls",
+    "module": "ddgr",
+    "target_file": "tests/test_unicode_safe_urls.py"
+  },
+  {
+    "id": "search-pagination",
+    "module": "ddgr",
+    "target_file": "tests/test_search_pagination.py"
+  },
+  {
+    "id": "result-serialization",
+    "module": "ddgr",
+    "target_file": "tests/test_result_serialization.py"
+  }
+]
+
+CURRENT TASK
+search-pagination
+Target file: tests/test_search_pagination.py
+Implementation module: ddgr
+
+INTERFACE AND ACCEPTANCE CONTRACT
+DdgUrl(duration="",keywords=[...]) exposes query dict keys page and curindex. Initially page=0, curindex=1. update_num(n) records the most recent result count; next_page increments page and advances positive curindex by that count. prev_page decrements page and negates a positive index; first_page resets page=0, curindex=1. prev_page or first_page at page zero raises ValueError. Do not inspect private attributes.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

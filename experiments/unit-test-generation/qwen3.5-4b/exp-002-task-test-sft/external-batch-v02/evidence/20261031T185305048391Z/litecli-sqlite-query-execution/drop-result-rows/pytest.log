@@ -1,0 +1,24 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_____________________ test_bound_unicode_rows_and_headers _____________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-255/test_bound_unicode_rows_and_he0')
+
+    def test_bound_unicode_rows_and_headers(tmp_path):
+        db = SQLExecute(str(tmp_path / 'demo.sqlite'))
+        try:
+            list(db.run('CREATE TABLE messages(id INTEGER, body TEXT)'))
+            db.conn.execute('INSERT INTO messages VALUES (?, ?)', (2, '\u00e7ay'))
+            db.conn.execute('INSERT INTO messages VALUES (?, ?)', (1, "O'Reilly"))
+            title, rows, headers, status = list(db.run('SELECT body AS message FROM messages ORDER BY id'))[0]
+            assert title is None
+>           assert rows == [("O'Reilly",), ('\u00e7ay',)]
+E           assert [] == [("O'Reilly",), ('çay',)]
+E             
+E             Right contains 2 more items, first extra item: ("O'Reilly",)
+E             Use -v to get more diff
+
+tests\test_sqlite_query_execution.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_sqlite_query_execution.py::test_bound_unicode_rows_and_headers
+1 failed, 1 passed in 0.10s

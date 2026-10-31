@@ -1,0 +1,32 @@
+APPLICATION
+Build a terminal search client with safe result URLs, pagination and structured result output.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "unicode-safe-urls",
+    "module": "ddgr",
+    "target_file": "tests/test_unicode_safe_urls.py"
+  },
+  {
+    "id": "search-pagination",
+    "module": "ddgr",
+    "target_file": "tests/test_search_pagination.py"
+  },
+  {
+    "id": "result-serialization",
+    "module": "ddgr",
+    "target_file": "tests/test_result_serialization.py"
+  }
+]
+
+CURRENT TASK
+unicode-safe-urls
+Target file: tests/test_unicode_safe_urls.py
+Implementation module: ddgr
+
+INTERFACE AND ACCEPTANCE CONTRACT
+make_safe_url(url) converts international domains to IDNA ASCII and percent-encodes Unicode/space in path, query, fragment and credentials. Preserve query = and & separators and explicit ports. Already safe ASCII URLs remain unchanged. IPv6, already-percent-encoded data and invalid ports are outside scope.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

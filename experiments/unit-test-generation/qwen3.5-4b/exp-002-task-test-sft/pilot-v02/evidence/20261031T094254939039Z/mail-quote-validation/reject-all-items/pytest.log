@@ -1,0 +1,20 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+__________ test_summary_quote_cannot_be_borrowed_from_another_email ___________
+
+    def test_summary_quote_cannot_be_borrowed_from_another_email():
+        first = mail('one', 'The first unique original statement.') | {'key': '1:1', 'source': 1}
+        second = mail('two', 'A different original fact.') | {'key': '2:1', 'source': 2}
+        response = {'items': [{'key': '1:1', 'kind': 'information', 'kind_quote': first['body'], 'facts': [{'text': 'Wrong owner', 'quote': second['body']}]}, {'key': '2:1', 'kind': 'unclear', 'kind_quote': '', 'facts': []}]}
+        valid = json.loads(json.dumps(response))
+        valid['items'][0]['facts'][0]['quote'] = first['body']
+>       assert checked_items(json.dumps(valid), [first, second])
+E       assert []
+E        +  where [] = checked_items('{"items": [{"key": "1:1", "kind": "information", "kind_quote": "The first unique original statement.", "facts": [{"te..."quote": "The first unique original statement."}]}, {"key": "2:1", "kind": "unclear", "kind_quote": "", "facts": []}]}', [{'id': 'one', 'timestamp': 1, 'sender': 'İpek IŞIK', 'recipients': 'Team', ...}, {'id': 'two', 'timestamp': 1, 'sender': 'İpek IŞIK', 'recipients': 'Team', ...}])
+E        +    where '{"items": [{"key": "1:1", "kind": "information", "kind_quote": "The first unique original statement.", "facts": [{"te..."quote": "The first unique original statement."}]}, {"key": "2:1", "kind": "unclear", "kind_quote": "", "facts": []}]}' = <function dumps at 0x00000192551ED6C0>({'items': [{'key': '1:1', 'kind': 'information', 'kind_quote': 'The first unique original statement.', 'facts': [{'tex... 'quote': 'The first unique original statement.'}]}, {'key': '2:1', 'kind': 'unclear', 'kind_quote': '', 'facts': []}]})
+E        +      where <function dumps at 0x00000192551ED6C0> = json.dumps
+
+tests\test_mail_quote_validation.py:17: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_mail_quote_validation.py::test_summary_quote_cannot_be_borrowed_from_another_email
+1 failed in 0.05s

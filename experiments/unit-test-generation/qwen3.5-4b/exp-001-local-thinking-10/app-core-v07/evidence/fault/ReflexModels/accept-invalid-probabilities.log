@@ -1,0 +1,56 @@
+.....FFFF.........                                                       [100%]
+================================== FAILURES ===================================
+___________ test_invalid_probabilities_are_rejected[probabilities0] ___________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+probabilities = {'files': -0.1, 'web': 1.1}
+
+    @pytest.mark.parametrize('probabilities', [{'files': -0.1, 'web': 1.1}, {'files': math.nan, 'web': 0.5}, {'files': 0.7, 'web': 0.7}, {'missing': 1.}])
+    def test_invalid_probabilities_are_rejected(choice, probabilities):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_core.py:40: Failed
+___________ test_invalid_probabilities_are_rejected[probabilities1] ___________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+probabilities = {'files': nan, 'web': 0.5}
+
+    @pytest.mark.parametrize('probabilities', [{'files': -0.1, 'web': 1.1}, {'files': math.nan, 'web': 0.5}, {'files': 0.7, 'web': 0.7}, {'missing': 1.}])
+    def test_invalid_probabilities_are_rejected(choice, probabilities):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_core.py:40: Failed
+___________ test_invalid_probabilities_are_rejected[probabilities2] ___________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+probabilities = {'files': 0.7, 'web': 0.7}
+
+    @pytest.mark.parametrize('probabilities', [{'files': -0.1, 'web': 1.1}, {'files': math.nan, 'web': 0.5}, {'files': 0.7, 'web': 0.7}, {'missing': 1.}])
+    def test_invalid_probabilities_are_rejected(choice, probabilities):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_core.py:40: Failed
+___________ test_invalid_probabilities_are_rejected[probabilities3] ___________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+probabilities = {'missing': 1.0}
+
+    @pytest.mark.parametrize('probabilities', [{'files': -0.1, 'web': 1.1}, {'files': math.nan, 'web': 0.5}, {'files': 0.7, 'web': 0.7}, {'missing': 1.}])
+    def test_invalid_probabilities_are_rejected(choice, probabilities):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_core.py:40: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]
+FAILED tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]
+FAILED tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]
+FAILED tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]
+4 failed, 14 passed in 0.11s

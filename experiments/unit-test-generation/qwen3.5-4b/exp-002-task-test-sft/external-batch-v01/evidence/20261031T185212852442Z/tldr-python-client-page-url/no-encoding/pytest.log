@@ -1,0 +1,75 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+________________________ test_page_url_language[None-] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001C1499E9BA0>
+language = None, suffix = ''
+
+    @pytest.mark.parametrize('language,suffix', [(None, ''), ('en', ''), ('tr', '.tr')])
+    def test_page_url_language(monkeypatch, language, suffix):
+        monkeypatch.setattr(tldr, 'PAGES_SOURCE_LOCATION', 'https://pages.example/pages')
+>       assert tldr.get_page_url('git status', 'linux', None, language) == (
+            'https://pages.example/pages' + suffix + '/linux/git%20status.md')
+E       AssertionError: assert 'https://page...git status.md' == 'https://page...t%20status.md'
+E         
+E         - https://pages.example/pages/linux/git%20status.md
+E         ?                                      ^^^
+E         + https://pages.example/pages/linux/git status.md
+E         ?                                      ^
+
+tests\test_page_url.py:8: AssertionError
+_________________________ test_page_url_language[en-] _________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001C1499E9940>
+language = 'en', suffix = ''
+
+    @pytest.mark.parametrize('language,suffix', [(None, ''), ('en', ''), ('tr', '.tr')])
+    def test_page_url_language(monkeypatch, language, suffix):
+        monkeypatch.setattr(tldr, 'PAGES_SOURCE_LOCATION', 'https://pages.example/pages')
+>       assert tldr.get_page_url('git status', 'linux', None, language) == (
+            'https://pages.example/pages' + suffix + '/linux/git%20status.md')
+E       AssertionError: assert 'https://page...git status.md' == 'https://page...t%20status.md'
+E         
+E         - https://pages.example/pages/linux/git%20status.md
+E         ?                                      ^^^
+E         + https://pages.example/pages/linux/git status.md
+E         ?                                      ^
+
+tests\test_page_url.py:8: AssertionError
+_______________________ test_page_url_language[tr-.tr] ________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001C149A5B890>
+language = 'tr', suffix = '.tr'
+
+    @pytest.mark.parametrize('language,suffix', [(None, ''), ('en', ''), ('tr', '.tr')])
+    def test_page_url_language(monkeypatch, language, suffix):
+        monkeypatch.setattr(tldr, 'PAGES_SOURCE_LOCATION', 'https://pages.example/pages')
+>       assert tldr.get_page_url('git status', 'linux', None, language) == (
+            'https://pages.example/pages' + suffix + '/linux/git%20status.md')
+E       AssertionError: assert 'https://page...git status.md' == 'https://page...t%20status.md'
+E         
+E         - https://pages.example/pages.tr/linux/git%20status.md
+E         ?                                         ^^^
+E         + https://pages.example/pages.tr/linux/git status.md
+E         ?                                         ^
+
+tests\test_page_url.py:8: AssertionError
+________________________ test_custom_root_and_unicode _________________________
+
+    def test_custom_root_and_unicode():
+>       assert tldr.get_page_url('caf\u00e9', 'common', 'https://offline.example/docs', 'fr') == (
+            'https://offline.example/docs.fr/common/caf%C3%A9.md')
+E       AssertionError: assert 'https://offl...ommon/café.md' == 'https://offl.../caf%C3%A9.md'
+E         
+E         - https://offline.example/docs.fr/common/caf%C3%A9.md
+E         ?                                           ^^^^^^
+E         + https://offline.example/docs.fr/common/café.md
+E         ?                                           ^
+
+tests\test_page_url.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_page_url.py::test_page_url_language[None-] - AssertionError...
+FAILED tests/test_page_url.py::test_page_url_language[en-] - AssertionError: ...
+FAILED tests/test_page_url.py::test_page_url_language[tr-.tr] - AssertionErro...
+FAILED tests/test_page_url.py::test_custom_root_and_unicode - AssertionError:...
+4 failed in 0.07s

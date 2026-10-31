@@ -1,0 +1,10 @@
+[
+  [
+    "strip-whitespace",
+    "original=m.last_word\nm.last_word=lambda text,include=\"alphanum_underscore\": original(text.rstrip(),include)"
+  ],
+  [
+    "ignore-mode",
+    "original=m.last_word\nm.last_word=lambda text,include=\"alphanum_underscore\": original(text)"
+  ]
+]

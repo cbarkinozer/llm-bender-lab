@@ -9,19 +9,19 @@ import subprocess
 import time
 
 ROOT=Path(__file__).resolve().parents[2]
-REPOS=ROOT.parent
+REPOS=Path(os.environ.get('TDD_SOURCE_ROOT',str(ROOT.parent)))
 BUNDLE=ROOT/'experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v02'
-ARTIFACTS=Path('/Users/cbarkinozer/Documents/llm-bender-artifacts')
+ARTIFACTS=Path(os.environ.get('TDD_ARTIFACTS','/Users/cbarkinozer/Documents/llm-bender-artifacts'))
 AUDIT=ARTIFACTS/'thinking-tdd/repo-audit-20261030'
-PYTHON=ARTIFACTS/'occam-gguf-20261026/.venv/bin/python'
-TOKENIZER=ARTIFACTS/'occam-gguf-20261026/base'
+PYTHON=Path(os.environ.get('TDD_PYTHON',str(ARTIFACTS/'occam-gguf-20261026/.venv/bin/python')))
+TOKENIZER=Path(os.environ.get('TDD_TOKENIZER_PATH',str(ARTIFACTS/'occam-gguf-20261026/base')))
 NAMES=['GitHub-insignia','ghost-box','slm_test_generation','llm-bender-lab','ReflexModels','codelang-detect','repo-context','cryptocurrency-analyser','miniature-llms']
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo', choices=NAMES)
-    parser.add_argument('--revision', choices=['app-core-v02','app-core-v03','app-core-v04','app-core-v05','app-core-v06'], default='app-core-v02')
+    parser.add_argument('--revision', choices=['app-core-v02','app-core-v03','app-core-v04','app-core-v05','app-core-v06','app-core-v07'], default='app-core-v02')
     args=parser.parse_args()
     bundle=BUNDLE.parent/args.revision
     from tokenizers import Tokenizer
@@ -34,7 +34,7 @@ def main():
         files=sorted((folder/'tests').rglob('*.py'))
         if (folder/'pytest.ini').exists(): files.append(folder/'pytest.ini')
         assert files, name
-        python=repo/'.venv/bin/python' if name in ['GitHub-insignia','ghost-box'] else PYTHON
+        python=Path(os.environ['TDD_PYTHON']) if 'TDD_PYTHON' in os.environ else repo/'.venv/bin/python' if name in ['GitHub-insignia','ghost-box'] else PYTHON
         paths=[str(folder/'reference'),str(repo),str(repo/'src')]
         if name=='llm-bender-lab':paths.append(str(repo/'experiments/thinking-sft/qwen3.5-4b'))
         if name!='GitHub-insignia':paths.append(str(AUDIT/'deps'))
@@ -47,22 +47,22 @@ def main():
         if (folder/'pytest.ini').exists():command.extend(['-c',str(folder/'pytest.ini')])
         started=time.monotonic()
         try:
-            result=subprocess.run(command,cwd=repo,env=env,capture_output=True,text=True,timeout=90)
+            result=subprocess.run(command,cwd=folder if args.revision=='app-core-v07' else repo,env=env,capture_output=True,text=True,timeout=90)
             stdout=result.stdout+result.stderr;exitcode=result.returncode
         except subprocess.TimeoutExpired as exc:
             stdout=str(exc);exitcode=None
-        (output/(name+'.log')).write_text(stdout)
-        parts=[dict(path=str(p.relative_to(folder)),chars=len(p.read_text()),tokens=len(tokenizer.encode(p.read_text(),add_special_tokens=False).ids),sha256=sha256(p.read_bytes()).hexdigest()) for p in files]
+        (output/(name+'.log')).write_text(stdout, encoding='utf-8', newline='\n')
+        parts=[dict(path=p.relative_to(folder).as_posix(),chars=len(p.read_text(encoding='utf-8')),tokens=len(tokenizer.encode(p.read_text(encoding='utf-8'),add_special_tokens=False).ids),sha256=sha256(p.read_bytes()).hexdigest()) for p in files]
         # This is the exact test-files answer payload, not a sum of repo suites.
-        payload='\n\n'.join('File: '+str(p.relative_to(folder))+'\n```'+('ini' if p.suffix=='.ini' else 'python')+'\n'+p.read_text()+'```' for p in files)+'\n'
-        (folder/'test-output.md').write_text(payload)
-        report=dict(repo=name,returncode=exitcode,seconds=round(time.monotonic()-started,2),test_source_tokens=sum(p['tokens'] for p in parts),output_payload_tokens=len(tokenizer.encode(payload,add_special_tokens=False).ids),files=parts,log=str(output/(name+'.log')),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip(),reference_files=[dict(path=str(p.relative_to(folder)),sha256=sha256(p.read_bytes()).hexdigest()) for p in sorted((folder/'reference').glob('*.py'))],source_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=repo,text=True).strip()))
+        payload='\n\n'.join('File: '+p.relative_to(folder).as_posix()+'\n```'+('ini' if p.suffix=='.ini' else 'python')+'\n'+p.read_text(encoding='utf-8')+'```' for p in files)+'\n'
+        (folder/'test-output.md').write_text(payload, encoding='utf-8', newline='\n')
+        report=dict(repo=name,returncode=exitcode,seconds=round(time.monotonic()-started,2),test_source_tokens=sum(p['tokens'] for p in parts),output_payload_tokens=len(tokenizer.encode(payload,add_special_tokens=False).ids),files=parts,log=str(output/(name+'.log')),source_commit=(json.loads((REPOS/'source-manifest.json').read_text(encoding='utf-8'))[name]['revision'] if (REPOS/'source-manifest.json').exists() else subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()),reference_files=[dict(path=p.relative_to(folder).as_posix(),sha256=sha256(p.read_bytes()).hexdigest()) for p in sorted((folder/'reference').glob('*.py'))],source_dirty=(False if (REPOS/'source-manifest.json').exists() else bool(subprocess.check_output(['git','status','--porcelain'],cwd=repo,text=True).strip())))
         reports.append(report)
         print(name,exitcode,report['output_payload_tokens'],stdout[-150:].strip(),flush=True)
     manifest=dict(reports=reports,tokenizer=str(TOKENIZER),tokenizer_sha256=sha256((TOKENIZER/'tokenizer.json').read_bytes()).hexdigest(),total_test_output_tokens=sum(r['output_payload_tokens'] for r in reports),note='Candidate compact tests and required fixtures, not all-requirements certification. Payload excludes request, clarification/interface, teacher reasoning and native chat framing.')
-    (output/'results.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    (bundle/('execution-receipt-'+args.repo+'.json' if args.repo else 'execution-receipt.json')).write_text(json.dumps(dict(results=str(output/'results.json'),passed=all(r['returncode']==0 for r in reports)),indent=2)+'\n')
-    (bundle/('execution-'+args.repo+'.json' if args.repo else 'token-and-execution-report.json')).write_text(json.dumps(manifest,indent=2)+'\n')
+    (output/'results.json').write_text(json.dumps(manifest,indent=2)+'\n', encoding='utf-8', newline='\n')
+    (bundle/('execution-receipt-'+args.repo+'.json' if args.repo else 'execution-receipt.json')).write_text(json.dumps(dict(results=str(output/'results.json'),passed=all(r['returncode']==0 for r in reports)),indent=2)+'\n', encoding='utf-8', newline='\n')
+    (bundle/('execution-'+args.repo+'.json' if args.repo else 'token-and-execution-report.json')).write_text(json.dumps(manifest,indent=2)+'\n', encoding='utf-8', newline='\n')
     print('RESULTS',output,flush=True)
 
 if __name__=='__main__':main()

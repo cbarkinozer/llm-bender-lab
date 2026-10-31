@@ -1,0 +1,15 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_________________ test_nondefault_branch_and_nested_directory _________________
+
+    def test_nondefault_branch_and_nested_directory():
+>       assert parse_github_url('https://github.com/owner/project/tree/dev/lib/pkg/') == ('https://github.com/owner/project.git','dev','lib/pkg')
+E       AssertionError: assert ('https://git...n', 'lib/pkg') == ('https://git...v', 'lib/pkg')
+E         
+E         At index 1 diff: 'main' != 'dev'
+E         Use -v to get more diff
+
+tests\test_snapshot_url_routing.py:11: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_snapshot_url_routing.py::test_nondefault_branch_and_nested_directory
+1 failed, 1 passed in 0.06s

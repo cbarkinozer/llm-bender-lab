@@ -1,0 +1,5 @@
+{
+  "module": "tldr",
+  "mutation": "m.get_cache_dir=lambda: m.Path(m.os.environ['HOME'])/'.cache'/'tldr'",
+  "seed": null
+}

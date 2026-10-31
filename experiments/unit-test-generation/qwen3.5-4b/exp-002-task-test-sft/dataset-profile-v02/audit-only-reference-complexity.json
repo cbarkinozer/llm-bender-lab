@@ -1,0 +1,3192 @@
+{
+  "files": [
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\__init__.py",
+      "source_group": "codelang-detect",
+      "scope": "pinned original module",
+      "sha256": "da173ed201709f92aa149b91896dccc4b4e5a7d032e092f0c841a292f8c74341",
+      "metrics": {
+        "sloc": 3,
+        "lloc": 3,
+        "physical_lines": 5,
+        "functions": [],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "detector"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "e6177d030d6f3022c292ea4eb61fdb807a6f3e660b184e64b38494c9dba34a8b"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\detector.py",
+      "source_group": "codelang-detect",
+      "scope": "pinned original module",
+      "sha256": "538d1aff3cd06aad5043eb711316a31a024f0c6b75fb8ec7edfac834b8b4048d",
+      "metrics": {
+        "sloc": 13,
+        "lloc": 14,
+        "physical_lines": 28,
+        "functions": [
+          {
+            "name": "detect",
+            "line": 4,
+            "kind": "helper",
+            "cc": 9,
+            "cc_rank": "B",
+            "cc_without_asserts": 9
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "_patterns",
+          "collections"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "6ca29a0af51dbf71c2575f3212f37a95004de608e30a161800ac25cd7e94d522"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\cli.py",
+      "source_group": "codelang-detect",
+      "scope": "pinned original module",
+      "sha256": "5679ba29a734381ff52bcf0370abb5f3f551b202e7b1e0ef62f04f38c98c1c1c",
+      "metrics": {
+        "sloc": 28,
+        "lloc": 20,
+        "physical_lines": 33,
+        "functions": [
+          {
+            "name": "main",
+            "line": 5,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "argparse",
+          "detector",
+          "sys"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "90c48b6db39b5063c044f9cbbf161c678bb5cefc30ff53fcca67eede0c148a1b"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\cryptocurrency-analyser\\reference\\coin_comparator.py",
+      "source_group": "cryptocurrency-analyser",
+      "scope": "authored reference module",
+      "sha256": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+      "metrics": {
+        "sloc": 21,
+        "lloc": 25,
+        "physical_lines": 26,
+        "functions": [
+          {
+            "name": "calculate_cumulative_returns",
+            "line": 8,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "calculate_correlation",
+            "line": 13,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "fetch_data",
+            "line": 15,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "plot_combined",
+            "line": 20,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "datetime",
+          "pandas",
+          "plotly",
+          "yfinance"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "04f3d8e35b25341e37a7e575f19dace03b0742862fc0dce8a0d8409335769d2e"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\cryptocurrency-analyser\\reference\\price_workflow.py",
+      "source_group": "cryptocurrency-analyser",
+      "scope": "authored reference module",
+      "sha256": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443",
+      "metrics": {
+        "sloc": 20,
+        "lloc": 28,
+        "physical_lines": 22,
+        "functions": [
+          {
+            "name": "analyze",
+            "line": 6,
+            "kind": "helper",
+            "cc": 11,
+            "cc_rank": "C",
+            "cc_without_asserts": 11
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "coin_comparator",
+          "datetime",
+          "pandas"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "9ef113f66d74c41c8c0a5571954283876c4d018c5b36a87412d16bc06f2e3f3c"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\store.py",
+      "source_group": "ghost-box",
+      "scope": "pinned original module",
+      "sha256": "a6f1e2eacccca88ecd14637ee1b6d300d2b59f55d0644210fa360caa981444b3",
+      "metrics": {
+        "sloc": 21,
+        "lloc": 23,
+        "physical_lines": 32,
+        "functions": [
+          {
+            "name": "messages",
+            "line": 26,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "message",
+            "line": 31,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__init__",
+            "line": 5,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "replace",
+            "line": 9,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "remove",
+            "line": 16,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "clear",
+            "line": 21,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "322f6e8d8b8d45f7d7aa4448cb5e610f83924a398e83266969693cda6215f17b"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\search.py",
+      "source_group": "ghost-box",
+      "scope": "pinned original module",
+      "sha256": "2413000146e6540d8d2a38cc363f6435b7e9c776af6cba878b15445a09f147c3",
+      "metrics": {
+        "sloc": 32,
+        "lloc": 35,
+        "physical_lines": 44,
+        "functions": [
+          {
+            "name": "folded",
+            "line": 9,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "tokens",
+            "line": 13,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "search",
+            "line": 17,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "matches",
+            "line": 41,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "collections",
+          "math",
+          "re",
+          "unicodedata"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "6ebb3738ceb585eef85a4f79e279658447cb7292e2b51deee2882115d5f4f21c"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\tasks.py",
+      "source_group": "ghost-box",
+      "scope": "pinned original module",
+      "sha256": "ea18b00643b150c9989e5ebfaca8e1f57bc88b07ed9ea912068966f888d2347d",
+      "metrics": {
+        "sloc": 119,
+        "lloc": 117,
+        "physical_lines": 140,
+        "functions": [
+          {
+            "name": "pack",
+            "line": 22,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "split_emails",
+            "line": 37,
+            "kind": "helper",
+            "cc": 9,
+            "cc_rank": "B",
+            "cc_without_asserts": 9
+          },
+          {
+            "name": "add",
+            "line": 40,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "run",
+            "line": 75,
+            "kind": "helper",
+            "cc": 23,
+            "cc_rank": "D",
+            "cc_without_asserts": 23
+          },
+          {
+            "name": "prompt_for",
+            "line": 82,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "task",
+            "line": 90,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "context",
+          "json",
+          "steps"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "dfd06b5070e564556c93cffeabd67d38516fb398e89962684083ff2003087118"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\summary.py",
+      "source_group": "ghost-box",
+      "scope": "pinned original module",
+      "sha256": "d15f39f564bb7e7aca77efb68908a3b9f5d67d69d686891a08a220093fdd0df6",
+      "metrics": {
+        "sloc": 297,
+        "lloc": 304,
+        "physical_lines": 327,
+        "functions": [
+          {
+            "name": "markdown_text",
+            "line": 33,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "normalized",
+            "line": 38,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "passages",
+            "line": 42,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "checked_items",
+            "line": 57,
+            "kind": "helper",
+            "cc": 46,
+            "cc_rank": "F",
+            "cc_without_asserts": 46
+          },
+          {
+            "name": "reject",
+            "line": 59,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "supported",
+            "line": 119,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "card_markdown",
+            "line": 150,
+            "kind": "helper",
+            "cc": 34,
+            "cc_rank": "E",
+            "cc_without_asserts": 34
+          },
+          {
+            "name": "summarize",
+            "line": 201,
+            "kind": "helper",
+            "cc": 51,
+            "cc_rank": "F",
+            "cc_without_asserts": 51
+          },
+          {
+            "name": "notify",
+            "line": 216,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "diagnose",
+            "line": 220,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "update",
+            "line": 224,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "extraction",
+            "line": 230,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "call",
+            "line": 244,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "context",
+          "datetime",
+          "diagnostics",
+          "json",
+          "metadata",
+          "re",
+          "steps",
+          "tasks",
+          "time",
+          "urllib"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "e1e1e98c5fa9e90f5a65f3c51f11a17bf9c0de56866a6917183f7f3f7322e9d3"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\ghost-box\\reference\\mail_workflow.py",
+      "source_group": "ghost-box",
+      "scope": "authored reference module",
+      "sha256": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793",
+      "metrics": {
+        "sloc": 55,
+        "lloc": 87,
+        "physical_lines": 57,
+        "functions": [
+          {
+            "name": "__init__",
+            "line": 6,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "switch_account",
+            "line": 10,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "clear",
+            "line": 12,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "messages",
+            "line": 15,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "fetch",
+            "line": 17,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "search",
+            "line": 23,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "answer",
+            "line": 27,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "summarize",
+            "line": 34,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "begin_operation",
+            "line": 41,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "cancel",
+            "line": 44,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "finish",
+            "line": 46,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "load_model",
+            "line": 49,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "unload_model",
+            "line": 54,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "check_idle",
+            "line": 56,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "copy",
+          "ghost_box"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "7a39f0cf0c79542bfd5e2e41c917705321273dfb78c4e9ea5e0208e48b4b6a6a"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\types.py",
+      "source_group": "ReflexModels",
+      "scope": "pinned original module",
+      "sha256": "6c861abb4e69d75037b99068e858ac4f604a1b6a0ef961a11d2f8dda7cee6252",
+      "metrics": {
+        "sloc": 71,
+        "lloc": 91,
+        "physical_lines": 102,
+        "functions": [
+          {
+            "name": "_text",
+            "line": 14,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "__post_init__",
+            "line": 28,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__post_init__",
+            "line": 43,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "__post_init__",
+            "line": 66,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "__post_init__",
+            "line": 89,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "dataclasses",
+          "types",
+          "typing"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "b7d53b6e61df9315d628a7329cfcf7dcecdec23a08735f7eae3296760a9d213c"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\protocol.py",
+      "source_group": "ReflexModels",
+      "scope": "pinned original module",
+      "sha256": "d3f4ac47d1d094c49391978adf05f5b7b6094cad31614f5a1f80bdafa32e4483",
+      "metrics": {
+        "sloc": 64,
+        "lloc": 71,
+        "physical_lines": 91,
+        "functions": [
+          {
+            "name": "request_to_dict",
+            "line": 19,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "request_to_json",
+            "line": 36,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "batch_request_to_dict",
+            "line": 40,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "decision_candidates",
+            "line": 52,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "decision_response",
+            "line": 60,
+            "kind": "helper",
+            "cc": 10,
+            "cc_rank": "B",
+            "cc_without_asserts": 10
+          },
+          {
+            "name": "choice_response",
+            "line": 77,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "response_to_json",
+            "line": 84,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "collections",
+          "json",
+          "math",
+          "types",
+          "typing"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "f01db933f2e732adae87a72e0380bebe7f58239af9d3427e99b63e352a91d52e"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\scoring.py",
+      "source_group": "ReflexModels",
+      "scope": "pinned original module",
+      "sha256": "b3d9a090a1e4fd7747bd59f44c3d7ca3d3c5c82f2be9b9c4fb90b7a4b7c2a685",
+      "metrics": {
+        "sloc": 32,
+        "lloc": 37,
+        "physical_lines": 46,
+        "functions": [
+          {
+            "name": "softmax",
+            "line": 16,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "score_decision",
+            "line": 26,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "score_shared_state",
+            "line": 32,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "task",
+            "line": 38,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "collections",
+          "concurrent",
+          "math",
+          "protocol",
+          "serialization",
+          "types"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "1460ec0d646d9aab7ca0c2e9e3e0491539f396cda3915c4c9c327eb64e4ac004"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\routing.py",
+      "source_group": "ReflexModels",
+      "scope": "pinned original module",
+      "sha256": "e4ad851422bb674a8ff7685988fff56521eecf300a43f22dc3a2d3a25e34976d",
+      "metrics": {
+        "sloc": 49,
+        "lloc": 38,
+        "physical_lines": 62,
+        "functions": [
+          {
+            "name": "fallback_gate",
+            "line": 10,
+            "kind": "helper",
+            "cc": 28,
+            "cc_rank": "D",
+            "cc_without_asserts": 28
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "collections",
+          "math",
+          "typing"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "06f5abd54dc84a19a2fb4fea2bb6e8f14b1c0ddaa6188262389925c2ccb69e12"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\metrics.py",
+      "source_group": "ReflexModels",
+      "scope": "pinned original module",
+      "sha256": "6d306aad2cf0ec159b4a0746c5c1a61fb5c545a94fb69268d258c7016e079635",
+      "metrics": {
+        "sloc": 69,
+        "lloc": 45,
+        "physical_lines": 85,
+        "functions": [
+          {
+            "name": "_validate",
+            "line": 9,
+            "kind": "helper",
+            "cc": 11,
+            "cc_rank": "C",
+            "cc_without_asserts": 11
+          },
+          {
+            "name": "classification_metrics",
+            "line": 25,
+            "kind": "helper",
+            "cc": 21,
+            "cc_rank": "D",
+            "cc_without_asserts": 21
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "collections",
+          "math"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "f143b3f68ea968c21fc962dcf3cc9c8b3a8c578406cb5a60df5bee85c794c9fa"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\llm-bender-lab\\reference\\experiment_workflow.py",
+      "source_group": "llm-bender-lab",
+      "scope": "authored reference module",
+      "sha256": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0",
+      "metrics": {
+        "sloc": 42,
+        "lloc": 62,
+        "physical_lines": 44,
+        "functions": [
+          {
+            "name": "run_experiment",
+            "line": 6,
+            "kind": "helper",
+            "cc": 28,
+            "cc_rank": "D",
+            "cc_without_asserts": 28
+          },
+          {
+            "name": "write",
+            "line": 24,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "copy",
+          "json",
+          "pathlib"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "8dac4104ff8e288b4f2c0910383ca1ab2ca0aaf93b9f2635e5a7c78b7cec859a"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\miniature-llms\\_7_RMSNorm\\pytorch.py",
+      "source_group": "miniature-llms",
+      "scope": "pinned original module",
+      "sha256": "eaef124012decc1e4897391d145945dccc901318056a2a1b8afaa1b6a810c773",
+      "metrics": {
+        "sloc": 12,
+        "lloc": 12,
+        "physical_lines": 19,
+        "functions": [
+          {
+            "name": "__init__",
+            "line": 5,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "forward",
+            "line": 11,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "torch"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "81480c3bed1bb0221e0b917b066e6b76d32a3b2561e64b6ed331db70822ad0ea"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\miniature-llms\\_4_RoPE\\pytorch.py",
+      "source_group": "miniature-llms",
+      "scope": "pinned original module",
+      "sha256": "498b1320224d4a652d5cb9cd0017a4ddc3d0852ff5ae9667675f916115ebf00f",
+      "metrics": {
+        "sloc": 47,
+        "lloc": 38,
+        "physical_lines": 72,
+        "functions": [
+          {
+            "name": "rotate_half",
+            "line": 5,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__init__",
+            "line": 19,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "forward",
+            "line": 55,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "torch"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "b52c956a8593dd6c1989a4dbfe1b3bda1bf61781442f2d6b31f9b52e888317e0"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\miniature-llms\\reference\\tiny_model.py",
+      "source_group": "miniature-llms",
+      "scope": "authored reference module",
+      "sha256": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8",
+      "metrics": {
+        "sloc": 49,
+        "lloc": 67,
+        "physical_lines": 53,
+        "functions": [
+          {
+            "name": "train_demo",
+            "line": 36,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "generate",
+            "line": 47,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "__init__",
+            "line": 9,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "forward",
+            "line": 20,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "save",
+            "line": 30,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "load",
+            "line": 32,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "_4_RoPE",
+          "_7_RMSNorm",
+          "torch"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "bea1ed49db83e5218d4c965593980e5263841829827577a090cc3c75f1241ee1"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\repo-context\\src\\repo_context\\core.py",
+      "source_group": "repo-context",
+      "scope": "pinned original module",
+      "sha256": "cdc7b62f2a70fe423f1c97a530c68b88cb0cd7e49fee95257640590d6c6be53a",
+      "metrics": {
+        "sloc": 328,
+        "lloc": 274,
+        "physical_lines": 413,
+        "functions": [
+          {
+            "name": "remove_readonly",
+            "line": 124,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "is_text_file",
+            "line": 137,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "construct_auth_url",
+            "line": 146,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "get_repo_metadata",
+            "line": 154,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "parse_github_url",
+            "line": 166,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "build_file_tree",
+            "line": 185,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "_tree_generator",
+            "line": 188,
+            "kind": "helper",
+            "cc": 13,
+            "cc_rank": "C",
+            "cc_without_asserts": 13
+          },
+          {
+            "name": "analyze_dependencies",
+            "line": 212,
+            "kind": "helper",
+            "cc": 15,
+            "cc_rank": "C",
+            "cc_without_asserts": 15
+          },
+          {
+            "name": "get_file_heuristic_tag",
+            "line": 246,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          },
+          {
+            "name": "get_code_statistics",
+            "line": 257,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "generate_context_from_repo",
+            "line": 270,
+            "kind": "helper",
+            "cc": 32,
+            "cc_rank": "E",
+            "cc_without_asserts": 32
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "datetime",
+          "git",
+          "gitignore_parser",
+          "json",
+          "os",
+          "pathlib",
+          "re",
+          "shutil",
+          "stat",
+          "tempfile",
+          "tomli",
+          "urllib",
+          "yaml",
+          "zoneinfo"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "6a52f4198e795119e025deeac8e58d3a1b25963d16f2ab10129d987536c302ed"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\repo-context\\reference\\context_workflow.py",
+      "source_group": "repo-context",
+      "scope": "authored reference module",
+      "sha256": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f",
+      "metrics": {
+        "sloc": 30,
+        "lloc": 41,
+        "physical_lines": 33,
+        "functions": [
+          {
+            "name": "snapshot",
+            "line": 7,
+            "kind": "helper",
+            "cc": 20,
+            "cc_rank": "C",
+            "cc_without_asserts": 20
+          },
+          {
+            "name": "cli_snapshot",
+            "line": 32,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "ui_snapshot",
+            "line": 33,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "gitignore_parser",
+          "pathlib",
+          "repo_context",
+          "shutil"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "25ec555d5d0f9e9f92c416b7abf375a7398f6881d0b70080508e668b62b56942"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\parseutils.py",
+      "source_group": "dbcli/litecli",
+      "scope": "pinned external module",
+      "sha256": "0aafa835bd4e03b7803329a4e6920376b700aaa29cd5422aa8d779605ce0189d",
+      "metrics": {
+        "sloc": 124,
+        "lloc": 111,
+        "physical_lines": 230,
+        "functions": [
+          {
+            "name": "last_word",
+            "line": 24,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "is_subselect",
+            "line": 71,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "extract_from_part",
+            "line": 86,
+            "kind": "helper",
+            "cc": 17,
+            "cc_rank": "C",
+            "cc_without_asserts": 17
+          },
+          {
+            "name": "extract_table_identifiers",
+            "line": 125,
+            "kind": "helper",
+            "cc": 10,
+            "cc_rank": "B",
+            "cc_without_asserts": 10
+          },
+          {
+            "name": "extract_tables",
+            "line": 154,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "find_prev_keyword",
+            "line": 173,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "query_starts_with",
+            "line": 207,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "queries_start_with",
+            "line": 214,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "is_destructive",
+            "line": 222,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "re",
+          "sqlparse",
+          "typing"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "b2aeedf49f318be3eb9a9062b3d9aa27e55970be3edd0f038e92c62e6d8487d6"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\filepaths.py",
+      "source_group": "dbcli/litecli",
+      "scope": "pinned external module",
+      "sha256": "aceac15c60940119f3ac2c55a3ff4571a0cdf84e9037651b21bd1c864c5075d2",
+      "metrics": {
+        "sloc": 30,
+        "lloc": 36,
+        "physical_lines": 88,
+        "functions": [
+          {
+            "name": "list_path",
+            "line": 8,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "complete_path",
+            "line": 22,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "parse_path",
+            "line": 40,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "suggest_path",
+            "line": 56,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "dir_path_exists",
+            "line": 78,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "os"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "1a1397480da4c3a37ef4ce98c117f7ad8496395215a7302d63b5757cceabb280"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\sqlexecute.py",
+      "source_group": "dbcli/litecli",
+      "scope": "pinned external module",
+      "sha256": "649d63bda90ffa7844410cf267302f20c9fb1b204f036497b6e255c0b11826ce",
+      "metrics": {
+        "sloc": 161,
+        "lloc": 143,
+        "physical_lines": 222,
+        "functions": [
+          {
+            "name": "__init__",
+            "line": 62,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "connect",
+            "line": 72,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "run",
+            "line": 101,
+            "kind": "helper",
+            "cc": 19,
+            "cc_rank": "C",
+            "cc_without_asserts": 18
+          },
+          {
+            "name": "get_result",
+            "line": 157,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "tables",
+            "line": 181,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "table_columns",
+            "line": 191,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "databases",
+            "line": 201,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "functions",
+            "line": 210,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "server_type",
+            "line": 220,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 1,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "contextlib",
+          "litecli",
+          "logging",
+          "os",
+          "sqlean",
+          "sqlite3",
+          "sqlparse",
+          "typing",
+          "urllib"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "3f94865e81ba74325a30d9edb749a82ca6760c0ba63d89614cdd49a40106f8db"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\special\\main.py",
+      "source_group": "dbcli/litecli",
+      "scope": "pinned external module",
+      "sha256": "bd98de33750526d6705c58da97c75527c0680a6d2d3348e069795dee7aabcbcb",
+      "metrics": {
+        "sloc": 155,
+        "lloc": 91,
+        "physical_lines": 201,
+        "functions": [
+          {
+            "name": "parse_special_command",
+            "line": 57,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "special_command",
+            "line": 74,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "wrapper",
+            "line": 83,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "register_special_command",
+            "line": 100,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "execute",
+            "line": 126,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          },
+          {
+            "name": "show_help",
+            "line": 156,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "quit",
+            "line": 168,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "stub",
+            "line": 186,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "llm_stub",
+            "line": 200,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "__future__",
+          "collections",
+          "enum",
+          "llm",
+          "logging",
+          "typing"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "27b0a336411fd5335860beedb37df758177f0e827052658631454dfad7cffcdc"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py",
+      "source_group": "tldr-pages/tldr-python-client",
+      "scope": "pinned external module",
+      "sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+      "metrics": {
+        "sloc": 697,
+        "lloc": 483,
+        "physical_lines": 843,
+        "functions": [
+          {
+            "name": "get_language_code",
+            "line": 67,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "get_default_language",
+            "line": 76,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "get_cache_dir",
+            "line": 90,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "get_system_cache_dir",
+            "line": 98,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "get_cache_file_path",
+            "line": 108,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "load_page_from_cache",
+            "line": 117,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "store_page_to_cache",
+            "line": 131,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "have_recent_cache",
+            "line": 146,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "get_page_url",
+            "line": 156,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "get_page_for_platform",
+            "line": 168,
+            "kind": "helper",
+            "cc": 12,
+            "cc_rank": "C",
+            "cc_without_asserts": 12
+          },
+          {
+            "name": "update_page_for_platform",
+            "line": 206,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "get_platform",
+            "line": 220,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "get_platform_list",
+            "line": 227,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "get_language_list",
+            "line": 235,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          },
+          {
+            "name": "get_page_for_every_platform",
+            "line": 261,
+            "kind": "helper",
+            "cc": 25,
+            "cc_rank": "D",
+            "cc_without_asserts": 25
+          },
+          {
+            "name": "get_page",
+            "line": 361,
+            "kind": "helper",
+            "cc": 15,
+            "cc_rank": "C",
+            "cc_without_asserts": 15
+          },
+          {
+            "name": "get_commands",
+            "line": 434,
+            "kind": "helper",
+            "cc": 10,
+            "cc_rank": "B",
+            "cc_without_asserts": 10
+          },
+          {
+            "name": "colors_of",
+            "line": 458,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "output",
+            "line": 474,
+            "kind": "helper",
+            "cc": 16,
+            "cc_rank": "C",
+            "cc_without_asserts": 16
+          },
+          {
+            "name": "emphasise_example",
+            "line": 475,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "update_cache",
+            "line": 563,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "clear_cache",
+            "line": 598,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          },
+          {
+            "name": "create_parser",
+            "line": 615,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "main",
+            "line": 715,
+            "kind": "helper",
+            "cc": 35,
+            "cc_rank": "E",
+            "cc_without_asserts": 35
+          },
+          {
+            "name": "cli",
+            "line": 835,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "argparse",
+          "colorama",
+          "datetime",
+          "io",
+          "os",
+          "pathlib",
+          "re",
+          "shtab",
+          "shutil",
+          "ssl",
+          "sys",
+          "termcolor",
+          "typing",
+          "urllib",
+          "zipfile"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "8cf56ee7d47688d9863088c5632221d4ec6c55ba673d3fce58ad88df806b7d45"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\urls.py",
+      "source_group": "darrenburns/posting",
+      "scope": "pinned external module",
+      "sha256": "2e04c84258aec0b7c80042d278b2e6ea090c23ee7e79b15d44e35b6843642645",
+      "metrics": {
+        "sloc": 94,
+        "lloc": 83,
+        "physical_lines": 159,
+        "functions": [
+          {
+            "name": "ensure_protocol",
+            "line": 10,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "extract_path_param_names",
+            "line": 25,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "substitute_path_params",
+            "line": 50,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "replace",
+            "line": 67,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "replace",
+            "line": 76,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "extract_query_pairs",
+            "line": 95,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "set_query_pairs",
+            "line": 109,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "merge_url_query_into_params",
+            "line": 127,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "collections",
+          "re",
+          "urllib"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "fcfeb4d23fec1701d07df31a2225769841687ec670daa86c83fe9045a194029a"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\files.py",
+      "source_group": "darrenburns/posting",
+      "scope": "pinned external module",
+      "sha256": "8645715c6d0c4bfccc2a1d1b39fc040a9a2242eafb04012fcb1c35b546b326d7",
+      "metrics": {
+        "sloc": 95,
+        "lloc": 72,
+        "physical_lines": 146,
+        "functions": [
+          {
+            "name": "is_valid_filename",
+            "line": 10,
+            "kind": "helper",
+            "cc": 11,
+            "cc_rank": "C",
+            "cc_without_asserts": 11
+          },
+          {
+            "name": "get_request_file_stem_and_suffix",
+            "line": 62,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "request_file_exists",
+            "line": 72,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "get_unique_request_filename",
+            "line": 99,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "os",
+          "pathlib",
+          "posting",
+          "re"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "ab304b5e398fb5bb6c9cd010f4443e65eee564b77f0abb325abfbdad897fcfd4"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\session_variables.py",
+      "source_group": "darrenburns/posting",
+      "scope": "pinned external module",
+      "sha256": "729df568abef3ccb7849f54fd32210101bd5070811db2556ae1803d38e820932",
+      "metrics": {
+        "sloc": 44,
+        "lloc": 53,
+        "physical_lines": 63,
+        "functions": [
+          {
+            "name": "__init__",
+            "line": 20,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "_snapshot",
+            "line": 25,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "_record",
+            "line": 28,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "set",
+            "line": 33,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "revert",
+            "line": 37,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "_restore",
+            "line": 44,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "undo",
+            "line": 51,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "redo",
+            "line": 58,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 0,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "dataclasses"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "5d182cb3cf25e1e611b5bc4fbcbf2409b67ad01396694d90a5808fc0ab37f30d"
+      }
+    },
+    {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\ddgr-b0c9e74e226a\\ddgr",
+      "source_group": "jarun/ddgr",
+      "scope": "pinned external module",
+      "sha256": "055a9015c038a219baa5dced03d09fa4f07f15f540d85ad74bb0973900a880cf",
+      "metrics": {
+        "sloc": 1253,
+        "lloc": 1196,
+        "physical_lines": 2184,
+        "functions": [
+          {
+            "name": "sigint_handler",
+            "line": 61,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "make_safe_url",
+            "line": 96,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "open_url",
+            "line": 133,
+            "kind": "helper",
+            "cc": 11,
+            "cc_rank": "C",
+            "cc_without_asserts": 11
+          },
+          {
+            "name": "https_get",
+            "line": 197,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "https_post",
+            "line": 230,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "unwrap",
+            "line": 266,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "check_stdout_encoding",
+            "line": 283,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "printerr",
+            "line": 322,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "monkeypatch_textwrap_for_cjk",
+            "line": 331,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "textwrap_wrap",
+            "line": 339,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "textwrap_fill",
+            "line": 360,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "annotate_tag",
+            "line": 845,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "handler",
+            "line": 851,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "retrieve_tag_annotation",
+            "line": 859,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "handler",
+            "line": 865,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "require_keywords",
+            "line": 1351,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "enforced_method",
+            "line": 1355,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "no_argument",
+            "line": 1363,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "enforced_method",
+            "line": 1368,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "python_version",
+            "line": 1972,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "get_colorize",
+            "line": 1976,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "set_win_console_mode",
+            "line": 1987,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "completer_fetch_completions",
+            "line": 2020,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "completer_run",
+            "line": 2032,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "parse_args",
+            "line": 2040,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "main",
+            "line": 2100,
+            "kind": "helper",
+            "cc": 27,
+            "cc_rank": "D",
+            "cc_without_asserts": 27
+          },
+          {
+            "name": "__init__",
+            "line": 417,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__str__",
+            "line": 440,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "url",
+            "line": 444,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "hostname",
+            "line": 449,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "hostname",
+            "line": 454,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "keywords",
+            "line": 458,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "keywords",
+            "line": 463,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "news",
+            "line": 467,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "full",
+            "line": 471,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "update",
+            "line": 490,
+            "kind": "helper",
+            "cc": 9,
+            "cc_rank": "B",
+            "cc_without_asserts": 9
+          },
+          {
+            "name": "set_queries",
+            "line": 530,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "unset_queries",
+            "line": 547,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "next_page",
+            "line": 563,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "prev_page",
+            "line": 572,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "first_page",
+            "line": 592,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "netloc",
+            "line": 609,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "query",
+            "line": 613,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "update_num",
+            "line": 646,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__init__",
+            "line": 671,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__str__",
+            "line": 678,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "url",
+            "line": 682,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "hostname",
+            "line": 687,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "hostname",
+            "line": 692,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "keywords",
+            "line": 696,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "keywords",
+            "line": 701,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "netloc",
+            "line": 705,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "full",
+            "line": 709,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "__init__",
+            "line": 752,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "fetch_page",
+            "line": 762,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "__init__",
+            "line": 989,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "root_start",
+            "line": 1011,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "root_end",
+            "line": 1033,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "result_start",
+            "line": 1040,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "result_end",
+            "line": 1052,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "title_start",
+            "line": 1064,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "title_end",
+            "line": 1088,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "abstract_start",
+            "line": 1102,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "abstract_end",
+            "line": 1109,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          },
+          {
+            "name": "input_start",
+            "line": 1117,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "input_end",
+            "line": 1135,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "set_handlers_to",
+            "line": 1141,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "insert_annotation",
+            "line": 1145,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "start_populating_textbuf",
+            "line": 1150,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "record_transformed_data",
+            "line": 1155,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "pop_textbuf",
+            "line": 1163,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "stop_populating_textbuf",
+            "line": 1168,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "record_data",
+            "line": 1173,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "record_entityref",
+            "line": 1176,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "record_charref",
+            "line": 1190,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "classes",
+            "line": 1198,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "error",
+            "line": 1202,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__init__",
+            "line": 1247,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "_print_title_and_url",
+            "line": 1257,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "_print_metadata_and_abstract",
+            "line": 1279,
+            "kind": "helper",
+            "cc": 8,
+            "cc_rank": "B",
+            "cc_without_asserts": 8
+          },
+          {
+            "name": "print",
+            "line": 1305,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "print_paginated",
+            "line": 1311,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "jsonizable_object",
+            "line": 1317,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "urltable",
+            "line": 1328,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "__init__",
+            "line": 1410,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "options",
+            "line": 1430,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "keywords",
+            "line": 1435,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "fetch",
+            "line": 1440,
+            "kind": "helper",
+            "cc": 7,
+            "cc_rank": "B",
+            "cc_without_asserts": 7
+          },
+          {
+            "name": "display_instant_answer",
+            "line": 1497,
+            "kind": "helper",
+            "cc": 10,
+            "cc_rank": "B",
+            "cc_without_asserts": 10
+          },
+          {
+            "name": "display_results",
+            "line": 1530,
+            "kind": "helper",
+            "cc": 10,
+            "cc_rank": "B",
+            "cc_without_asserts": 10
+          },
+          {
+            "name": "fetch_and_display",
+            "line": 1567,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "read_next_command",
+            "line": 1599,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "help",
+            "line": 1632,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "do_first",
+            "line": 1638,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "do_ddg",
+            "line": 1655,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 5
+          },
+          {
+            "name": "do_next",
+            "line": 1671,
+            "kind": "helper",
+            "cc": 6,
+            "cc_rank": "B",
+            "cc_without_asserts": 6
+          },
+          {
+            "name": "handle_range",
+            "line": 1691,
+            "kind": "helper",
+            "cc": 11,
+            "cc_rank": "C",
+            "cc_without_asserts": 11
+          },
+          {
+            "name": "do_open",
+            "line": 1718,
+            "kind": "helper",
+            "cc": 11,
+            "cc_rank": "C",
+            "cc_without_asserts": 11
+          },
+          {
+            "name": "do_previous",
+            "line": 1743,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "copy_url",
+            "line": 1760,
+            "kind": "helper",
+            "cc": 14,
+            "cc_rank": "C",
+            "cc_without_asserts": 14
+          },
+          {
+            "name": "cmdloop",
+            "line": 1813,
+            "kind": "helper",
+            "cc": 28,
+            "cc_rank": "D",
+            "cc_without_asserts": 28
+          },
+          {
+            "name": "print_omniprompt_help",
+            "line": 1881,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "print_general_info",
+            "line": 1900,
+            "kind": "helper",
+            "cc": 2,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "print_help",
+            "line": 1910,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "error",
+            "line": 1916,
+            "kind": "helper",
+            "cc": 1,
+            "cc_rank": "A",
+            "cc_without_asserts": 1
+          },
+          {
+            "name": "positive_int",
+            "line": 1923,
+            "kind": "helper",
+            "cc": 3,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "nonnegative_int",
+            "line": 1933,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 2
+          },
+          {
+            "name": "is_duration",
+            "line": 1944,
+            "kind": "helper",
+            "cc": 4,
+            "cc_rank": "A",
+            "cc_without_asserts": 4
+          },
+          {
+            "name": "is_colorstr",
+            "line": 1959,
+            "kind": "helper",
+            "cc": 5,
+            "cc_rank": "A",
+            "cc_without_asserts": 3
+          }
+        ],
+        "test_functions": 0,
+        "assertions": 5,
+        "assertion_helper_calls": 0,
+        "imports": [
+          "argparse",
+          "codecs",
+          "collections",
+          "ctypes",
+          "functools",
+          "gzip",
+          "html",
+          "json",
+          "locale",
+          "logging",
+          "os",
+          "platform",
+          "readline",
+          "setproctitle",
+          "shutil",
+          "signal",
+          "subprocess",
+          "sys",
+          "tempfile",
+          "textwrap",
+          "unicodedata",
+          "urllib",
+          "webbrowser"
+        ],
+        "test_body_hashes": [],
+        "exact_ast_sha256": "49caf373cd9d48279e119c3d11f95dba917adc722c526eb05be0ad0071c9f71a"
+      }
+    }
+  ],
+  "missing_mappings": [],
+  "record_file_mapping": {
+    "language-basic-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\__init__.py",
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\detector.py"
+    ],
+    "language-rules-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\detector.py"
+    ],
+    "language-cli-success-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\cli.py"
+    ],
+    "language-cli-errors-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\codelang-detect\\codelang_detect\\cli.py"
+    ],
+    "prices-returns-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\cryptocurrency-analyser\\reference\\coin_comparator.py"
+    ],
+    "prices-charts-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\cryptocurrency-analyser\\reference\\coin_comparator.py"
+    ],
+    "prices-fetch-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\cryptocurrency-analyser\\reference\\coin_comparator.py"
+    ],
+    "prices-analysis-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\cryptocurrency-analyser\\reference\\price_workflow.py"
+    ],
+    "mail-store-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\store.py"
+    ],
+    "mail-search-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\search.py"
+    ],
+    "mail-splitting-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\tasks.py"
+    ],
+    "mail-quote-validation-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ghost-box\\ghost_box\\mail\\summary.py"
+    ],
+    "mail-fetch-coverage-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\ghost-box\\reference\\mail_workflow.py"
+    ],
+    "mail-selected-inference-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\ghost-box\\reference\\mail_workflow.py"
+    ],
+    "mail-cancellation-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\ghost-box\\reference\\mail_workflow.py"
+    ],
+    "mail-model-lifecycle-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\ghost-box\\reference\\mail_workflow.py"
+    ],
+    "decision-requests-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\types.py",
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\protocol.py"
+    ],
+    "decision-probabilities-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\scoring.py",
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\protocol.py",
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\routing.py"
+    ],
+    "decision-shared-state-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\scoring.py",
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\types.py"
+    ],
+    "decision-fallback-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\routing.py"
+    ],
+    "decision-calibration-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\metrics.py"
+    ],
+    "decision-ordinal-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\scoring.py",
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\ReflexModels\\src\\reflexmodels\\types.py"
+    ],
+    "experiment-preflight-quality-after-v01": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\llm-bender-lab\\reference\\experiment_workflow.py"
+    ],
+    "experiment-matched-evaluation-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\llm-bender-lab\\reference\\experiment_workflow.py"
+    ],
+    "experiment-artifact-isolation-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\llm-bender-lab\\reference\\experiment_workflow.py"
+    ],
+    "experiment-failure-reporting-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\llm-bender-lab\\reference\\experiment_workflow.py"
+    ],
+    "tensor-rms-normalization-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\miniature-llms\\_7_RMSNorm\\pytorch.py"
+    ],
+    "tensor-rotary-positions-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\miniature-llms\\_4_RoPE\\pytorch.py"
+    ],
+    "tensor-model-composition-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\miniature-llms\\reference\\tiny_model.py"
+    ],
+    "tensor-causal-independence-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\miniature-llms\\reference\\tiny_model.py"
+    ],
+    "tensor-checkpoint-roundtrip-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\miniature-llms\\reference\\tiny_model.py"
+    ],
+    "tensor-training-generation-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\miniature-llms\\reference\\tiny_model.py"
+    ],
+    "snapshot-file-tree-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\repo-context\\src\\repo_context\\core.py"
+    ],
+    "snapshot-dependencies-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\repo-context\\src\\repo_context\\core.py"
+    ],
+    "snapshot-url-routing-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\repo-context\\src\\repo_context\\core.py"
+    ],
+    "snapshot-text-decoding-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\sources\\repo-context\\src\\repo_context\\core.py"
+    ],
+    "snapshot-safe-context-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\repo-context\\reference\\context_workflow.py"
+    ],
+    "snapshot-controller-routing-v02": [
+      "C:\\Users\\barkin\\Documents\\GitHub\\llm-bender-lab\\experiments\\unit-test-generation\\qwen3.5-4b\\exp-001-local-thinking-10\\app-core-v07\\repo-context\\reference\\context_workflow.py"
+    ],
+    "litecli-sql-table-identifiers-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\parseutils.py"
+    ],
+    "litecli-sql-destructive-detection-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\parseutils.py"
+    ],
+    "litecli-completion-last-word-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\parseutils.py"
+    ],
+    "litecli-path-completion-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\filepaths.py"
+    ],
+    "litecli-sqlite-query-execution-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\sqlexecute.py"
+    ],
+    "litecli-special-command-dispatch-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530\\litecli\\packages\\special\\main.py"
+    ],
+    "tldr-python-client-language-selection-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py"
+    ],
+    "tldr-python-client-cache-path-selection-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py"
+    ],
+    "tldr-python-client-cache-freshness-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py"
+    ],
+    "tldr-python-client-page-url-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py"
+    ],
+    "tldr-python-client-cache-network-routing-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py"
+    ],
+    "tldr-python-client-platform-priority-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13\\tldr.py"
+    ],
+    "posting-path-parameters-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\urls.py"
+    ],
+    "posting-query-pair-merge-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\urls.py"
+    ],
+    "posting-request-filenames-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\files.py"
+    ],
+    "posting-session-undo-redo-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\session_variables.py"
+    ],
+    "posting-session-history-limit-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323\\src\\posting\\session_variables.py"
+    ],
+    "ddgr-unicode-safe-urls-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\ddgr-b0c9e74e226a\\ddgr"
+    ],
+    "ddgr-search-pagination-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\ddgr-b0c9e74e226a\\ddgr"
+    ],
+    "ddgr-result-serialization-external-v02": [
+      "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\ddgr-b0c9e74e226a\\ddgr"
+    ]
+  },
+  "policy": "Audit-only module statistics. No implementation text is saved or supplied to a model. Module metrics are not per-task solution complexity and repeated modules are counted once."
+}

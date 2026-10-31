@@ -1,0 +1,42 @@
+.......F...F...                                                          [100%]
+================================== FAILURES ===================================
+_______________________ test_cli_file_prints_one_label ________________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-107/test_cli_file_prints_one_label0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001DE1E76C950>
+capsys = <_pytest.capture.CaptureFixture object at 0x000001DE1E7070E0>
+
+    def test_cli_file_prints_one_label(tmp_path, monkeypatch, capsys):
+        path = tmp_path / 'snippet.txt'
+        path.write_text('def greet():\n    print("Merhaba dünya")\n', encoding='utf-8')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect', str(path)])
+        main()
+        output = capsys.readouterr()
+>       assert (output.out, output.err) == ('py\n', '')
+E       AssertionError: assert ('txt\n', '') == ('py\n', '')
+E         
+E         At index 0 diff: 'txt\n' != 'py\n'
+E         Use -v to get more diff
+
+tests\test_core.py:36: AssertionError
+____________ test_invalid_utf8_file_exits_1_with_processing_error _____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-107/test_invalid_utf8_file_exits_10')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001DE1E7B8750>
+capsys = <_pytest.capture.CaptureFixture object at 0x000001DE1E74D940>
+
+    def test_invalid_utf8_file_exits_1_with_processing_error(tmp_path, monkeypatch, capsys):
+        path = tmp_path/'invalid.txt'
+        path.write_bytes(b'\xff\xfe')
+        monkeypatch.setattr(sys, 'argv', ['codelang-detect',str(path)])
+>       with pytest.raises(SystemExit) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE SystemExit
+
+tests\test_core.py:76: Failed
+---------------------------- Captured stdout call -----------------------------
+txt
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_cli_file_prints_one_label - AssertionError: a...
+FAILED tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error
+2 failed, 13 passed in 0.13s

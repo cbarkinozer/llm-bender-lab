@@ -1,0 +1,5 @@
+{
+  "module": "posting.session_variables",
+  "mutation": "original=m.SessionVariables._record\ndef broken(self,name):\n redo=list(self._redo)\n original(self,name)\n self._redo=redo\nm.SessionVariables._record=broken",
+  "seed": null
+}

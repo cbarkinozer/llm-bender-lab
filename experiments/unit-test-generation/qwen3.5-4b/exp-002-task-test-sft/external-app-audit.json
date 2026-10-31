@@ -1,0 +1,2214 @@
+{
+  "audited_at": "2026-10-31T18:46:03.294917+00:00",
+  "sources": [
+    {
+      "repository": "dbcli/litecli",
+      "revision": "aa53bb0c1530cd1dfb30534babb0bf47df33c60a",
+      "commit_date": "2026-06-07T03:18:15Z",
+      "stars": 3320,
+      "license": "BSD-3-Clause",
+      "proposed_role": "train-proposed",
+      "local_source": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\litecli-aa53bb0c1530",
+      "archive_sha256": "9d5044cfeb127658066d23a352fb9289d2c8715a100d9d69c976d1b059ed308f",
+      "files": [
+        {
+          "path": "litecli/__init__.py",
+          "sha256": "95f0653ff26434dca1dd375f8b9b0d830bbb65a3aa0f98a14b4376d272422fc4",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "litecli/clibuffer.py",
+          "sha256": "60944b08bfa2fead3a9cab879675cce21c79a33963da039e7cb5a228f2626512",
+          "test": false,
+          "symbols": [
+            "cli_is_multiline",
+            "_multiline_exception"
+          ]
+        },
+        {
+          "path": "litecli/clistyle.py",
+          "sha256": "d3d2a05b2e847c66a9030e4f3cb83b6c90738b85ee1a98df8e86df906b8d2e6a",
+          "test": false,
+          "symbols": [
+            "parse_pygments_style",
+            "style_factory",
+            "style_factory_output"
+          ]
+        },
+        {
+          "path": "litecli/clitoolbar.py",
+          "sha256": "67be6046377db4f189e780547af438fd4044780e68da4091dd68fb89a0f073f7",
+          "test": false,
+          "symbols": [
+            "create_toolbar_tokens_func",
+            "_get_vi_mode"
+          ]
+        },
+        {
+          "path": "litecli/completion_refresher.py",
+          "sha256": "8e2d295675a69efc28d6932e4764502a3f42d975fbde2afb44755c2be29f193b",
+          "test": false,
+          "symbols": [
+            "CompletionRefresher",
+            "refresher",
+            "refresh_databases",
+            "refresh_schemata",
+            "refresh_tables",
+            "refresh_functions",
+            "refresh_special"
+          ]
+        },
+        {
+          "path": "litecli/config.py",
+          "sha256": "4b5ddde213eb1615cb80509d556f87b92342c6c49994727210724f5d939560d5",
+          "test": false,
+          "symbols": [
+            "config_location",
+            "load_config",
+            "ensure_dir_exists",
+            "write_default_config",
+            "upgrade_config",
+            "get_config"
+          ]
+        },
+        {
+          "path": "litecli/key_bindings.py",
+          "sha256": "18e351b354aa63d91872e3cab0954586ff1fabac6a0359b26067ac18bc02b5d0",
+          "test": false,
+          "symbols": [
+            "cli_bindings"
+          ]
+        },
+        {
+          "path": "litecli/lexer.py",
+          "sha256": "38e4ece5fa7f59b3d6a248b296945b7a8f318578004320ae2da93f137f8adc4e",
+          "test": false,
+          "symbols": [
+            "LiteCliLexer"
+          ]
+        },
+        {
+          "path": "litecli/main.py",
+          "sha256": "0ad966fbee9a3fadcfb6cc8bae72e63330ddaf9e7c39ccb72dd14c33e100053d",
+          "test": false,
+          "symbols": [
+            "_load_sqlite3",
+            "LiteCli",
+            "cli",
+            "need_completion_refresh",
+            "need_completion_reset",
+            "is_mutating",
+            "is_select"
+          ]
+        },
+        {
+          "path": "litecli/packages/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "litecli/packages/completion_engine.py",
+          "sha256": "5e0d2df4b050213af50eab4dd2ffc25f21d9472629b38ff5a7619f0574160029",
+          "test": false,
+          "symbols": [
+            "suggest_type",
+            "suggest_special",
+            "_expecting_arg_idx",
+            "suggest_based_on_last_token",
+            "identifies",
+            "_get_parent_name"
+          ]
+        },
+        {
+          "path": "litecli/packages/filepaths.py",
+          "sha256": "aceac15c60940119f3ac2c55a3ff4571a0cdf84e9037651b21bd1c864c5075d2",
+          "test": false,
+          "symbols": [
+            "list_path",
+            "complete_path",
+            "parse_path",
+            "suggest_path",
+            "dir_path_exists"
+          ]
+        },
+        {
+          "path": "litecli/packages/parseutils.py",
+          "sha256": "0aafa835bd4e03b7803329a4e6920376b700aaa29cd5422aa8d779605ce0189d",
+          "test": false,
+          "symbols": [
+            "last_word",
+            "is_subselect",
+            "extract_from_part",
+            "extract_table_identifiers",
+            "extract_tables",
+            "find_prev_keyword",
+            "query_starts_with",
+            "queries_start_with",
+            "is_destructive"
+          ]
+        },
+        {
+          "path": "litecli/packages/prompt_utils.py",
+          "sha256": "d11b2e84fd6657ae016b3258a7dae2c79749ed0720a5a17d43d5935f44ac88c9",
+          "test": false,
+          "symbols": [
+            "ConfirmBoolParamType",
+            "confirm_destructive_query",
+            "confirm",
+            "prompt"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/__init__.py",
+          "sha256": "3b03fb656051e7f5a448c84df222faec95519800f2d0e2ba1c04c67a1205c9ac",
+          "test": false,
+          "symbols": [
+            "export"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/dbcommands.py",
+          "sha256": "0eb6078493f06c91a7791f45ad9eae9a2c9e48f3a907e45f41aa6880d2056c79",
+          "test": false,
+          "symbols": [
+            "list_tables",
+            "list_views",
+            "show_schema",
+            "list_databases",
+            "list_indexes",
+            "status",
+            "load_extension",
+            "describe",
+            "import_file"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/favoritequeries.py",
+          "sha256": "501417a733802531141f594ba5b96f972df95484dade39ac62d65ebf20bf0f23",
+          "test": false,
+          "symbols": [
+            "FavoriteQueries"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/iocommands.py",
+          "sha256": "50215d2e16e660ca27dfa02f9312e1d55cb2e4f6df631e817cb85cff0076391d",
+          "test": false,
+          "symbols": [
+            "set_favorite_queries",
+            "set_pager_enabled",
+            "is_pager_enabled",
+            "set_pager",
+            "disable_pager",
+            "set_expanded_output",
+            "is_expanded_output",
+            "editor_command",
+            "get_filename",
+            "get_editor_query",
+            "open_external_editor",
+            "execute_favorite_query",
+            "list_favorite_queries",
+            "subst_favorite_query_args",
+            "save_favorite_query",
+            "delete_favorite_query",
+            "execute_system_command",
+            "parseargfile",
+            "set_tee",
+            "close_tee",
+            "no_tee",
+            "write_tee",
+            "set_once",
+            "write_once",
+            "unset_once_if_written",
+            "set_pipe_once",
+            "write_pipe_once",
+            "unset_pipe_once_if_written",
+            "watch_query"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/llm.py",
+          "sha256": "8421dcb1c25c23d88bf992bca31e038bd86b388fd7f4733d0fa956468b07fc62",
+          "test": false,
+          "symbols": [
+            "_load_llm_module",
+            "_load_llm_cli_module",
+            "run_external_cmd",
+            "build_command_tree",
+            "get_completions",
+            "FinishIteration",
+            "ensure_litecli_template",
+            "handle_llm",
+            "is_llm_command",
+            "sql_using_llm"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/main.py",
+          "sha256": "bd98de33750526d6705c58da97c75527c0680a6d2d3348e069795dee7aabcbcb",
+          "test": false,
+          "symbols": [
+            "ArgumentMissing",
+            "CommandNotFound",
+            "Verbosity",
+            "parse_special_command",
+            "special_command",
+            "register_special_command",
+            "execute",
+            "show_help",
+            "quit",
+            "stub"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/types.py",
+          "sha256": "346ba71c53d466c2d49b2a67cf92ae9af9193c55e6a8af4cd2b7f5a606d8b275",
+          "test": false,
+          "symbols": [
+            "DBCursor"
+          ]
+        },
+        {
+          "path": "litecli/packages/special/utils.py",
+          "sha256": "ed0415a7279088fcb6ab4da890450b52d4ef2b514f8309dd1ff56331c07cbc6d",
+          "test": false,
+          "symbols": [
+            "handle_cd_command",
+            "format_uptime",
+            "check_if_sqlitedotcommand"
+          ]
+        },
+        {
+          "path": "litecli/sqlcompleter.py",
+          "sha256": "f68d8a03bd8b7c8cc80c49a1f84449e2082516068807239e925afa09b62c5706",
+          "test": false,
+          "symbols": [
+            "SQLCompleter"
+          ]
+        },
+        {
+          "path": "litecli/sqlexecute.py",
+          "sha256": "649d63bda90ffa7844410cf267302f20c9fb1b204f036497b6e255c0b11826ce",
+          "test": false,
+          "symbols": [
+            "SQLExecute"
+          ]
+        },
+        {
+          "path": "tests/__init__.py",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "test": true,
+          "symbols": []
+        },
+        {
+          "path": "tests/conftest.py",
+          "sha256": "8a1ec76f27fa9a06c12260e1a433f03edbb770d1fea65dbbb422a96451c9baee",
+          "test": true,
+          "symbols": [
+            "connection",
+            "cursor",
+            "executor",
+            "exception_formatter",
+            "temp_config"
+          ]
+        },
+        {
+          "path": "tests/test_clistyle.py",
+          "sha256": "bc419bd8f9087935eb6291c9718784dabad4737d45364a916a4b7e003cdfc7b3",
+          "test": true,
+          "symbols": [
+            "test_style_factory",
+            "test_style_factory_unknown_name"
+          ]
+        },
+        {
+          "path": "tests/test_completion_engine.py",
+          "sha256": "b52dbb757abcf73c2395585460016cbf2277da1e4aa5b19a11a793cf1e8a6e92",
+          "test": true,
+          "symbols": [
+            "sorted_dicts",
+            "test_select_suggests_cols_with_visible_table_scope",
+            "test_select_suggests_cols_with_qualified_table_scope",
+            "test_order_by_suggests_cols_with_qualified_table_scope",
+            "test_where_suggests_columns_functions",
+            "test_where_in_suggests_columns",
+            "test_where_equals_any_suggests_columns_or_keywords",
+            "test_lparen_suggests_cols",
+            "test_operand_inside_function_suggests_cols1",
+            "test_operand_inside_function_suggests_cols2",
+            "test_select_suggests_cols_and_funcs",
+            "test_expression_suggests_tables_views_and_schemas",
+            "test_expression_suggests_qualified_tables_views_and_schemas",
+            "test_truncate_suggests_tables_and_schemas",
+            "test_truncate_suggests_qualified_tables",
+            "test_distinct_suggests_cols",
+            "test_col_comma_suggests_cols",
+            "test_table_comma_suggests_tables_and_schemas",
+            "test_into_suggests_tables_and_schemas",
+            "test_insert_into_lparen_suggests_cols",
+            "test_insert_into_lparen_partial_text_suggests_cols",
+            "test_insert_into_lparen_comma_suggests_cols",
+            "test_partially_typed_col_name_suggests_col_names",
+            "test_dot_suggests_cols_of_a_table_or_schema_qualified_table",
+            "test_dot_suggests_cols_of_an_alias",
+            "test_dot_col_comma_suggests_cols_or_schema_qualified_table",
+            "test_sub_select_suggests_keyword",
+            "test_sub_select_partial_text_suggests_keyword",
+            "test_outer_table_reference_in_exists_subquery_suggests_columns",
+            "test_sub_select_table_name_completion",
+            "test_sub_select_col_name_completion",
+            "test_sub_select_multiple_col_name_completion",
+            "test_suggested_multiple_column_names",
+            "test_sub_select_dot_col_name_completion",
+            "test_join_suggests_tables_and_schemas",
+            "test_join_alias_dot_suggests_cols1",
+            "test_join_alias_dot_suggests_cols2",
+            "test_on_suggests_aliases",
+            "test_on_suggests_tables",
+            "test_on_suggests_aliases_right_side",
+            "test_on_suggests_tables_right_side",
+            "test_join_using_suggests_common_columns",
+            "test_2_statements_2nd_current",
+            "test_2_statements_1st_current",
+            "test_3_statements_2nd_current",
+            "test_create_db_with_template",
+            "test_specials_included_for_initial_completion",
+            "test_specials_not_included_after_initial_token",
+            "test_drop_schema_qualified_table_suggests_only_tables",
+            "test_handle_pre_completion_comma_gracefully",
+            "test_cross_join",
+            "test_after_as",
+            "test_source_is_file"
+          ]
+        },
+        {
+          "path": "tests/test_completion_refresher.py",
+          "sha256": "13f1a1744d4dbd7c45916160bc8bb130ef3a4abc07ec0a53047b4424088c4070",
+          "test": true,
+          "symbols": [
+            "refresher",
+            "test_ctor",
+            "test_refresh_called_once",
+            "test_refresh_called_twice",
+            "test_refresh_with_callbacks"
+          ]
+        },
+        {
+          "path": "tests/test_dbspecial.py",
+          "sha256": "684bb201a5fc181d90dd5f6e82b213e4da059598959766de24feb6f57e6c06c9",
+          "test": true,
+          "symbols": [
+            "test_import_first_argument",
+            "test_u_suggests_databases",
+            "test_describe_table",
+            "test_list_or_show_create_tables",
+            "test_format_uptime",
+            "test_indexes",
+            "test_check_if_sqlitedotcommand",
+            "test_special_d",
+            "test_special_d_w_arg"
+          ]
+        },
+        {
+          "path": "tests/test_llm_special.py",
+          "sha256": "c57f1d6052aceb9088e38eddf5a8b1fce384bea830a3ee91a576bac45c9b7269",
+          "test": true,
+          "symbols": [
+            "enable_llm",
+            "test_llm_command_without_args",
+            "test_llm_command_with_c_flag",
+            "test_llm_command_with_c_flag_and_fenced_sql",
+            "test_llm_command_known_subcommand",
+            "test_llm_command_with_help_flag",
+            "test_llm_command_with_install_flag",
+            "test_llm_command_with_prompt",
+            "test_llm_command_question_with_context",
+            "test_llm_command_question_verbose"
+          ]
+        },
+        {
+          "path": "tests/test_main.py",
+          "sha256": "e75670f0251a3d58c90db1bc57db577653141b820be392722072dbc3b01836d2",
+          "test": true,
+          "symbols": [
+            "test_execute_arg",
+            "test_execute_arg_with_table",
+            "test_execute_arg_with_csv",
+            "test_batch_mode",
+            "test_batch_mode_table",
+            "test_batch_mode_csv",
+            "test_help_strings_end_with_periods",
+            "output",
+            "test_conditional_pager",
+            "test_reserved_space_is_integer",
+            "test_import_command",
+            "test_startup_commands",
+            "test_initialize_logging_expands_user_log_file",
+            "test_get_prompt",
+            "test_file_uri"
+          ]
+        },
+        {
+          "path": "tests/test_parseutils.py",
+          "sha256": "9b56dc67b1065e06f0852d2dc719cab1c5eca969bbfa910c3df9a8fc183a3f0c",
+          "test": true,
+          "symbols": [
+            "test_empty_string",
+            "test_simple_select_single_table",
+            "test_simple_select_single_table_schema_qualified",
+            "test_simple_select_multiple_tables",
+            "test_simple_select_multiple_tables_schema_qualified",
+            "test_simple_select_with_cols_single_table",
+            "test_simple_select_with_cols_single_table_schema_qualified",
+            "test_simple_select_with_cols_multiple_tables",
+            "test_simple_select_with_cols_multiple_tables_with_schema",
+            "test_select_with_hanging_comma_single_table",
+            "test_select_with_hanging_comma_multiple_tables",
+            "test_select_with_hanging_period_multiple_tables",
+            "test_simple_insert_single_table",
+            "test_simple_insert_single_table_schema_qualified",
+            "test_simple_update_table",
+            "test_simple_update_table_with_schema",
+            "test_join_table",
+            "test_join_table_schema_qualified",
+            "test_join_as_table",
+            "test_query_starts_with",
+            "test_query_starts_with_comment",
+            "test_queries_start_with",
+            "test_is_destructive"
+          ]
+        },
+        {
+          "path": "tests/test_prompt_utils.py",
+          "sha256": "67ec7125b4431a2ab042546a1f7b35ba6b78e9c1a55d2f32c7b3664869bdc818",
+          "test": true,
+          "symbols": [
+            "test_confirm_destructive_query_notty"
+          ]
+        },
+        {
+          "path": "tests/test_smart_completion_public_schema_only.py",
+          "sha256": "fbed66d5325a21683cf418bdc46662c51a28203dd2402597f264bc4d0df82f1a",
+          "test": true,
+          "symbols": [
+            "completer",
+            "complete_event",
+            "test_escape_name",
+            "test_empty_string_completion",
+            "test_select_keyword_completion",
+            "test_table_completion",
+            "test_function_name_completion",
+            "test_suggested_column_names",
+            "test_suggested_column_names_in_function",
+            "test_suggested_column_names_with_table_dot",
+            "test_suggested_column_names_with_alias",
+            "test_suggested_multiple_column_names",
+            "test_suggested_multiple_column_names_with_alias",
+            "test_suggested_multiple_column_names_with_dot",
+            "test_suggested_aliases_after_on",
+            "test_suggested_aliases_after_on_right_side",
+            "test_suggested_tables_after_on",
+            "test_suggested_tables_after_on_right_side",
+            "test_table_names_after_from",
+            "test_auto_escaped_col_names",
+            "test_un_escaped_table_names",
+            "dummy_list_path",
+            "test_file_name_completion"
+          ]
+        },
+        {
+          "path": "tests/test_special_iocommands.py",
+          "sha256": "d1c0d6f339097523506ca8001c062623c6a75ac0c72bf368153b62bd6259a1e5",
+          "test": true,
+          "symbols": [
+            "test_once_command",
+            "test_pipe_once_command",
+            "test_parse_special_command",
+            "test_parse_special_command_edge_cases"
+          ]
+        },
+        {
+          "path": "tests/test_sqlexecute.py",
+          "sha256": "735e5a51f38b3cfa66c8e5fdbe21522c11b3567e9e4b6aae291e3df0049be4b7",
+          "test": true,
+          "symbols": [
+            "_load_sqlite3",
+            "test_conn",
+            "test_bools",
+            "test_binary",
+            "test_table_and_columns_query",
+            "test_database_list",
+            "test_invalid_syntax",
+            "test_invalid_column_name",
+            "test_unicode_support_in_output",
+            "test_invalid_unicode_values_dont_choke",
+            "test_multiple_queries_same_line",
+            "test_multiple_queries_same_line_syntaxerror",
+            "test_favorite_query",
+            "test_bind_parameterized_favorite_query",
+            "test_verbose_feature_of_favorite_query",
+            "test_shell_parameterized_favorite_query",
+            "test_favorite_query_multiple_statement",
+            "test_favorite_query_expanded_output",
+            "test_special_command",
+            "test_cd_command_without_a_folder_name",
+            "test_system_command_not_found",
+            "test_system_command_output",
+            "test_cd_command_current_dir",
+            "test_unicode_support",
+            "test_timestamp_null",
+            "test_datetime_null",
+            "test_date_null",
+            "test_time_null"
+          ]
+        },
+        {
+          "path": "tests/utils.py",
+          "sha256": "07c158a4ac032bf06b34704742e5cc8797eadfc28ceb84dff7367de186eb7637",
+          "test": true,
+          "symbols": [
+            "db_connection",
+            "create_db",
+            "drop_tables",
+            "run",
+            "set_expanded_output",
+            "is_expanded_output",
+            "send_ctrl_c_to_pid",
+            "send_ctrl_c",
+            "assert_result_equal"
+          ]
+        }
+      ],
+      "counts": {
+        "python_or_extensionless_source_files": 24,
+        "test_support_files": 14
+      },
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "89336bf17c3e77924f1001b2cbf9a615be0db8bf103bdd953c8ba9792538f423"
+        }
+      ],
+      "candidate_tasks": [
+        {
+          "id": "litecli-sql-table-identifiers",
+          "source_file": "litecli/packages/parseutils.py",
+          "source_sha256": "0aafa835bd4e03b7803329a4e6920376b700aaa29cd5422aa8d779605ce0189d",
+          "symbols": [
+            "extract_tables"
+          ],
+          "behavior": "Extract schema, table and aliases across joins and nested queries.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "litecli-sql-destructive-detection",
+          "source_file": "litecli/packages/parseutils.py",
+          "source_sha256": "0aafa835bd4e03b7803329a4e6920376b700aaa29cd5422aa8d779605ce0189d",
+          "symbols": [
+            "is_destructive",
+            "queries_start_with"
+          ],
+          "behavior": "Recognize destructive statements across comments and multiple statements; reject safe SELECT controls.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "litecli-completion-last-word",
+          "source_file": "litecli/packages/parseutils.py",
+          "source_sha256": "0aafa835bd4e03b7803329a4e6920376b700aaa29cd5422aa8d779605ce0189d",
+          "symbols": [
+            "last_word"
+          ],
+          "behavior": "Respect punctuation modes, empty input and trailing whitespace.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "litecli-path-completion",
+          "source_file": "litecli/packages/filepaths.py",
+          "source_sha256": "aceac15c60940119f3ac2c55a3ff4571a0cdf84e9037651b21bd1c864c5075d2",
+          "symbols": [
+            "parse_path",
+            "complete_path",
+            "suggest_path"
+          ],
+          "behavior": "Complete temporary-directory paths and tilde prefixes with explicit platform semantics.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "litecli-sqlite-query-execution",
+          "source_file": "litecli/sqlexecute.py",
+          "source_sha256": "649d63bda90ffa7844410cf267302f20c9fb1b204f036497b6e255c0b11826ce",
+          "symbols": [
+            "SQLExecute"
+          ],
+          "behavior": "Run parameterized queries and preserve Unicode using a temporary SQLite database.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "litecli-special-command-dispatch",
+          "source_file": "litecli/packages/special/main.py",
+          "source_sha256": "bd98de33750526d6705c58da97c75527c0680a6d2d3348e069795dee7aabcbcb",
+          "symbols": [
+            "parse_special_command",
+            "execute"
+          ],
+          "behavior": "Parse command arguments and distinguish known from unknown commands.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        }
+      ],
+      "local_source_note": "External artifact location; archive hash and immutable GitHub revision identify the portable source."
+    },
+    {
+      "repository": "tldr-pages/tldr-python-client",
+      "revision": "c33ca6d38e1397a8ad9208ee83189b08b5446e0d",
+      "commit_date": "2026-10-27T05:26:15Z",
+      "stars": 755,
+      "license": "MIT",
+      "proposed_role": "train-proposed",
+      "local_source": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\tldr-python-client-c33ca6d38e13",
+      "archive_sha256": "236b7f339351f9097901436d96264a3adf658d860fdd64419141ecfa8f490c1a",
+      "files": [
+        {
+          "path": "docs/conf.py",
+          "sha256": "593b2730858484d235cd87853294b2db264b6848afeb78ff1acc8cec65aaa979",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "tests/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "test": true,
+          "symbols": []
+        },
+        {
+          "path": "tests/test_tldr.py",
+          "sha256": "4bc26b9f1850ade294b286e7e8e65a4c1729bfed6f5b7658158b7475f163e6ae",
+          "test": true,
+          "symbols": [
+            "test_whole_page",
+            "test_markdown_mode",
+            "test_error_message",
+            "test_get_language_code",
+            "test_get_default_language",
+            "test_get_default_language_unset",
+            "test_tldr_language",
+            "test_get_platform",
+            "test_get_cache_dir_xdg",
+            "test_get_cache_dir_home",
+            "test_get_cache_dir_default",
+            "test_get_commands"
+          ]
+        },
+        {
+          "path": "tldr.py",
+          "sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "test": false,
+          "symbols": [
+            "CacheNotExist",
+            "get_language_code",
+            "get_default_language",
+            "get_cache_dir",
+            "get_system_cache_dir",
+            "get_cache_file_path",
+            "load_page_from_cache",
+            "store_page_to_cache",
+            "have_recent_cache",
+            "get_page_url",
+            "get_page_for_platform",
+            "update_page_for_platform",
+            "get_platform",
+            "get_platform_list",
+            "get_language_list",
+            "get_page_for_every_platform",
+            "get_page",
+            "get_commands",
+            "colors_of",
+            "output",
+            "update_cache",
+            "clear_cache",
+            "create_parser",
+            "main",
+            "cli"
+          ]
+        }
+      ],
+      "counts": {
+        "python_or_extensionless_source_files": 2,
+        "test_support_files": 2
+      },
+      "license_files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "a2b242e67c6baccc453a00f7a3112b6a778a775fb87f447823d3cb01e91a3546"
+        }
+      ],
+      "candidate_tasks": [
+        {
+          "id": "tldr-python-client-language-selection",
+          "source_file": "tldr.py",
+          "source_sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "symbols": [
+            "get_language_code",
+            "get_language_list"
+          ],
+          "behavior": "Resolve locale variants and explicit language priority with English fallback.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "tldr-python-client-cache-path-selection",
+          "source_file": "tldr.py",
+          "source_sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "symbols": [
+            "get_cache_dir",
+            "get_cache_file_path"
+          ],
+          "behavior": "Resolve XDG, home, language and platform cache paths without touching real user files.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "tldr-python-client-cache-freshness",
+          "source_file": "tldr.py",
+          "source_sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "symbols": [
+            "have_recent_cache"
+          ],
+          "behavior": "Check fresh, boundary-age, stale and missing cache files against a controlled clock.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "tldr-python-client-page-url",
+          "source_file": "tldr.py",
+          "source_sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "symbols": [
+            "get_page_url"
+          ],
+          "behavior": "Build language-specific and default-English URLs with escaped command names.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "tldr-python-client-cache-network-routing",
+          "source_file": "tldr.py",
+          "source_sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "symbols": [
+            "get_page_for_platform"
+          ],
+          "behavior": "Exercise fresh-cache hits, successful mocked downloads, stale-cache fallback and cache-only misses.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "tldr-python-client-platform-priority",
+          "source_file": "tldr.py",
+          "source_sha256": "f315c118faf99e972ce4887c6816af82108428840cd09342674a9f06679b089a",
+          "symbols": [
+            "get_platform",
+            "get_platform_list"
+          ],
+          "behavior": "Place the active platform first without duplicate platforms; do not assert unordered tail order.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        }
+      ],
+      "local_source_note": "External artifact location; archive hash and immutable GitHub revision identify the portable source."
+    },
+    {
+      "repository": "darrenburns/posting",
+      "revision": "32c45669032342cf9b95d5758af47a0d93de0ad7",
+      "commit_date": "2026-10-15T23:00:05Z",
+      "stars": 12562,
+      "license": "Apache-2.0",
+      "proposed_role": "development-proposed",
+      "local_source": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\posting-32c456690323",
+      "archive_sha256": "8b255cbf12e5fba67f27826b923d5a05841d9c60d943a6f89e91bdbdfaaf8d4a",
+      "files": [
+        {
+          "path": "demo/server.py",
+          "sha256": "55c4ca611bbf698094cb3f3895cf89b132e1b8c342ca3603c8eda3ba5f6a7585",
+          "test": false,
+          "symbols": [
+            "Handler"
+          ]
+        },
+        {
+          "path": "docs/scripts/dev_styles.py",
+          "sha256": "435bdf9244e2a2bf50c38f670bbf56aa129c8cd4757b36732115f1aed1e5c1fe",
+          "test": false,
+          "symbols": [
+            "on_startup",
+            "on_post_page"
+          ]
+        },
+        {
+          "path": "docs/scripts/home_screens.py",
+          "sha256": "64c4519831b5a190de0c30aa48ee19a6b9fd1938915af6910e13f99db514ca86",
+          "test": false,
+          "symbols": [
+            "svg_group",
+            "main"
+          ]
+        },
+        {
+          "path": "src/posting/__init__.py",
+          "sha256": "cd4ab669408a8f1876dc7cf4e023665f73713f0721ac82202ca88afb44213144",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/__main__.py",
+          "sha256": "d15f8a3223309c00f2beb915a1d1e705e4c76c6a1468e4b81a21f2871c2ffb45",
+          "test": false,
+          "symbols": [
+            "create_config_file",
+            "create_default_collection",
+            "cli",
+            "default",
+            "locate",
+            "import_spec",
+            "sponsors",
+            "make_posting"
+          ]
+        },
+        {
+          "path": "src/posting/_start_time.py",
+          "sha256": "eb81c0fb426ace2e0b0085eed0538c466fc6ae351967696195b1f0a25d1ddcbc",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/app.py",
+          "sha256": "1acf72a481985ba7580e091dbf946e1fda48f06987e3a2b662869453bf0df4fd",
+          "test": false,
+          "symbols": [
+            "AppHeader",
+            "AppBody",
+            "MainScreen",
+            "Posting"
+          ]
+        },
+        {
+          "path": "src/posting/auth.py",
+          "sha256": "5d92835a5592fdbe75d5353b613656ae1fbb167bce835b3dea9b061b833e878b",
+          "test": false,
+          "symbols": [
+            "HttpxBearerTokenAuth"
+          ]
+        },
+        {
+          "path": "src/posting/collection.py",
+          "sha256": "1025a304d016edb07cb0d7016438a0b50fb0150d55632067d9fb3d68cb5c6f29",
+          "test": false,
+          "symbols": [
+            "Auth",
+            "BasicAuth",
+            "DigestAuth",
+            "BearerTokenAuth",
+            "PathParam",
+            "Header",
+            "FormItem",
+            "QueryParam",
+            "Cookie",
+            "Options",
+            "RequestBody",
+            "request_sort_key",
+            "Scripts",
+            "RequestModel",
+            "Contact",
+            "License",
+            "ExternalDocs",
+            "APIInfo",
+            "Collection",
+            "load_request_from_yaml"
+          ]
+        },
+        {
+          "path": "src/posting/commands.py",
+          "sha256": "a53c93c0df4b0cbc0bcaf5aad9742c7a9bf82f065f783c6b468ab37c497bf611",
+          "test": false,
+          "symbols": [
+            "RequestSearchProvider",
+            "PostingProvider"
+          ]
+        },
+        {
+          "path": "src/posting/config.py",
+          "sha256": "66472095b44bf2e79cc0f66ffe3348a624cffe5a01a8c2a4f0866e2d6157a12f",
+          "test": false,
+          "symbols": [
+            "HeadingSettings",
+            "UrlBarSettings",
+            "ResponseSettings",
+            "FocusSettings",
+            "CertificateSettings",
+            "TextInputSettings",
+            "CommandPaletteSettings",
+            "CollectionBrowserSettings",
+            "HistorySettings",
+            "Settings"
+          ]
+        },
+        {
+          "path": "src/posting/environment_commands.py",
+          "sha256": "003aef20ba47cc6b0ef30df98c5d5a28234213a9a1653be8862303dfedbe5a1d",
+          "test": false,
+          "symbols": [
+            "EnvironmentProvider",
+            "show_environment_palette"
+          ]
+        },
+        {
+          "path": "src/posting/environments.py",
+          "sha256": "fc89eb0625afc5a4faec85941c276725e0bcfc479cb98858efe2e6254fd83d8d",
+          "test": false,
+          "symbols": [
+            "switch_environment"
+          ]
+        },
+        {
+          "path": "src/posting/exit_codes.py",
+          "sha256": "3aa0275105e21fc5025272424ef16cf9335e32b0aedb928d902e289072d1e914",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/files.py",
+          "sha256": "8645715c6d0c4bfccc2a1d1b39fc040a9a2242eafb04012fcb1c35b546b326d7",
+          "test": false,
+          "symbols": [
+            "is_valid_filename",
+            "get_request_file_stem_and_suffix",
+            "request_file_exists",
+            "get_unique_request_filename"
+          ]
+        },
+        {
+          "path": "src/posting/help_data.py",
+          "sha256": "9bc7889fd87f8e352c4b8d61c3ccbf5caa2e80bca0d377c5db09073b04fedf2d",
+          "test": false,
+          "symbols": [
+            "HelpData"
+          ]
+        },
+        {
+          "path": "src/posting/help_screen.py",
+          "sha256": "d8521d590608385318d1a649a17270485aea8902c102ca7e75751b9c5b58b54b",
+          "test": false,
+          "symbols": [
+            "Helpable",
+            "HelpModalHeader",
+            "HelpModalFooter",
+            "HelpModalFocusNote",
+            "HelpScreen"
+          ]
+        },
+        {
+          "path": "src/posting/highlight_url.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/highlighters.py",
+          "sha256": "fe9ba102c61d273e3fbbd4f8290f25682e2bc96eeacfab0de06eb09117969884",
+          "test": false,
+          "symbols": [
+            "highlight_url",
+            "highlight_variables",
+            "highlight_path_params",
+            "VariableHighlighter",
+            "VariablesAndUrlHighlighter"
+          ]
+        },
+        {
+          "path": "src/posting/history.py",
+          "sha256": "391a94c032fb40bb88acaaba7cd070b1d466aad3e426be2be367cee0389712a0",
+          "test": false,
+          "symbols": [
+            "HistoryEntry",
+            "HistoryRecord",
+            "HistoryStore"
+          ]
+        },
+        {
+          "path": "src/posting/importing/curl.py",
+          "sha256": "453f2f686ba979da4398b38793f92916275dbb524ea9cd679aecc8a40a8cd425",
+          "test": false,
+          "symbols": [
+            "CurlImport"
+          ]
+        },
+        {
+          "path": "src/posting/importing/open_api.py",
+          "sha256": "a8ec1cc711f6afee1c79f31bdc548f9513d8fac01bf4df4d7970816a4d1390c1",
+          "test": false,
+          "symbols": [
+            "OpenAPIModels",
+            "_get_openapi_models",
+            "resolve_url_variables",
+            "generate_unique_env_filename",
+            "extract_server_variables",
+            "security_scheme_to_variables",
+            "security_scheme_to_auth",
+            "generate_readme",
+            "create_env_file",
+            "parse_component_ref",
+            "parse_schema_ref",
+            "resolve_parameter_ref",
+            "resolve_request_body_ref",
+            "JsonBodyGenerator",
+            "import_openapi_spec"
+          ]
+        },
+        {
+          "path": "src/posting/importing/postman.py",
+          "sha256": "4b15570587b588b1058ba02e69629080cc06283bcf9e8bb133786c446f49b684",
+          "test": false,
+          "symbols": [
+            "Variable",
+            "RawRequestOptions",
+            "RequestOptions",
+            "Body",
+            "Url",
+            "PostmanRequest",
+            "RequestItem",
+            "PostmanCollection",
+            "sanitize_variables",
+            "sanitize_str",
+            "create_env_file",
+            "format_request",
+            "process_item",
+            "import_postman_spec"
+          ]
+        },
+        {
+          "path": "src/posting/jump_overlay.py",
+          "sha256": "2980e8f908424ae95167813b5a5a6a49c781f75bb16e933f633e1ae25c940c31",
+          "test": false,
+          "symbols": [
+            "JumpOverlay"
+          ]
+        },
+        {
+          "path": "src/posting/jumper.py",
+          "sha256": "71c1b6ba18d4aa8d6be1b78b94c94c52c5c7f0d2c7f2bafa304ffb31b3745a27",
+          "test": false,
+          "symbols": [
+            "Jumpable",
+            "JumpInfo",
+            "Jumper"
+          ]
+        },
+        {
+          "path": "src/posting/locations.py",
+          "sha256": "f6e205cd6057740aa1906803f8dab31275cc1b6e1034fe8c938db950ab82a048",
+          "test": false,
+          "symbols": [
+            "_posting_directory",
+            "data_directory",
+            "theme_directory",
+            "default_collection_directory",
+            "config_directory",
+            "config_file"
+          ]
+        },
+        {
+          "path": "src/posting/messages.py",
+          "sha256": "60e87ad05c8ce578c7d3d1f9166ce5b59f9523bf7d2f150b7aee4258bfb219e4",
+          "test": false,
+          "symbols": [
+            "HttpResponseReceived"
+          ]
+        },
+        {
+          "path": "src/posting/method_styles.py",
+          "sha256": "e86a032d72d4e04ef6acbc1196e748ed6f1120c504da2e2f26536f975d16c1ba",
+          "test": false,
+          "symbols": [
+            "get_method_style",
+            "get_method_abbreviation",
+            "get_method_label"
+          ]
+        },
+        {
+          "path": "src/posting/request_headers.py",
+          "sha256": "919f280463b73bf774cbb58f20f108f4a69f89526a1da201bed7d4b734c8a9c1",
+          "test": false,
+          "symbols": [
+            "RequestHeader"
+          ]
+        },
+        {
+          "path": "src/posting/save_request.py",
+          "sha256": "001618b1cb1a4953c9cb6040b3a77cf170253691a84c67a4a7c8a8ac6855d96f",
+          "test": false,
+          "symbols": [
+            "slugify",
+            "generate_request_filename"
+          ]
+        },
+        {
+          "path": "src/posting/scripts.py",
+          "sha256": "e24008bfbece75c3fb06a077374625d3f6f5732d72e65ab394574c0ffccf6002",
+          "test": false,
+          "symbols": [
+            "Posting",
+            "clear_module_cache",
+            "execute_script",
+            "_import_script_as_module",
+            "_validate_function",
+            "uncache_module"
+          ]
+        },
+        {
+          "path": "src/posting/session_variables.py",
+          "sha256": "729df568abef3ccb7849f54fd32210101bd5070811db2556ae1803d38e820932",
+          "test": false,
+          "symbols": [
+            "_VariableChange",
+            "SessionVariables"
+          ]
+        },
+        {
+          "path": "src/posting/suggesters.py",
+          "sha256": "7e3b301ff073f8a26a463651843b2360b2c5ce3b31ab0ac8a62b3cb154f5e66c",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/themes.py",
+          "sha256": "1545eb86bf25cd8831be1c8338e46a413a7914829453d4850c35b40d39d67e5b",
+          "test": false,
+          "symbols": [
+            "PostingTextAreaTheme",
+            "SyntaxTheme",
+            "VariableStyles",
+            "UrlStyles",
+            "MethodStyles",
+            "Theme",
+            "UserThemeLoadResult",
+            "load_user_themes",
+            "load_user_theme"
+          ]
+        },
+        {
+          "path": "src/posting/tuple_to_multidict.py",
+          "sha256": "553df1dcff4e28a3d247370f4384d52236ea0e7c88e7d932c1f0d56db4981eca",
+          "test": false,
+          "symbols": [
+            "tuples_to_dict"
+          ]
+        },
+        {
+          "path": "src/posting/types.py",
+          "sha256": "ba489c1881915d14ff985f9dbd72a7b59d49d6d3848c8c761d4f51058e216d75",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/urls.py",
+          "sha256": "2e04c84258aec0b7c80042d278b2e6ea090c23ee7e79b15d44e35b6843642645",
+          "test": false,
+          "symbols": [
+            "ensure_protocol",
+            "extract_path_param_names",
+            "substitute_path_params",
+            "extract_query_pairs",
+            "set_query_pairs",
+            "merge_url_query_into_params"
+          ]
+        },
+        {
+          "path": "src/posting/user_host.py",
+          "sha256": "f5d91fdf58f9853560b126ab59ceece2f620c33b5c50f4ed4dbcf7fe590e7748",
+          "test": false,
+          "symbols": [
+            "get_user_host_string"
+          ]
+        },
+        {
+          "path": "src/posting/variables.py",
+          "sha256": "86afe136b4f21b331da769e40d6f4a136f6638c911d124f94bc83d374d29f08f",
+          "test": false,
+          "symbols": [
+            "SharedVariables",
+            "get_variables",
+            "load_variables",
+            "update_variables",
+            "find_variables",
+            "variable_range_at_cursor",
+            "is_cursor_within_variable",
+            "find_variable_start",
+            "find_variable_end",
+            "get_variable_at_cursor",
+            "extract_variable_name",
+            "SubstitutionError"
+          ]
+        },
+        {
+          "path": "src/posting/version.py",
+          "sha256": "20921f33c36d48af6a57c69460e10f156f4b848f661b2a3f6a8f818b188fa6a5",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/widgets/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/widgets/center_middle.py",
+          "sha256": "60234e8f526ca2e806a50a8e34fb3827aaf73bfec118bb78fae07ae1fef83dc7",
+          "test": false,
+          "symbols": [
+            "CenterMiddle"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/collection/browser.py",
+          "sha256": "0395e200b8676bd8e56eeb22257b2460e20377fdfc5b3e53d0ac550327779a9f",
+          "test": false,
+          "symbols": [
+            "CollectionTree",
+            "RequestPreview",
+            "CollectionBrowser"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/collection/history.py",
+          "sha256": "99bc3c3762f20a6187790329c91a83f186ef8e9432f23962e2547dba0ebe3dd2",
+          "test": false,
+          "symbols": [
+            "HistoryList",
+            "HistoryBrowser"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/collection/new_request_modal.py",
+          "sha256": "68b30ec2f8333ace514cb6cd2d6b458d43857c467c9e8d34835a0dd67d5ccd49",
+          "test": false,
+          "symbols": [
+            "NewRequestData",
+            "FileNameValidator",
+            "DirectoryValidator",
+            "NewRequestModal"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/confirmation.py",
+          "sha256": "4f439baa30dcd9628e8fca32545517012f24471be955d5acf445e1529c03d71f",
+          "test": false,
+          "symbols": [
+            "ConfirmationModal"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/datatable.py",
+          "sha256": "130ea4976c5168f7fe1c6b473d1557212cd69ef7ce070dc2518592d364530be8",
+          "test": false,
+          "symbols": [
+            "PostingDataTable"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/input.py",
+          "sha256": "8c1e8156fba23e8044c02f42966102bdee2ed0d310c664b4681caa974383a329",
+          "test": false,
+          "symbols": [
+            "PostingInput"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/key_value.py",
+          "sha256": "c4d722537df2f06c0edd5370744771b7f0881004acfc9bd04b34b9e7fa041c05",
+          "test": false,
+          "symbols": [
+            "KeyValueInput",
+            "KeyValueEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/key_value_copy_modal.py",
+          "sha256": "dcd59ff708792987029284a3da9901c8efc04bfb0fa99347700c7bc4aa31ed52",
+          "test": false,
+          "symbols": [
+            "KeyValueCopyModal"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/load_env_file_dialog.py",
+          "sha256": "fd661e77b853f10601f62abfa7debfbd63783ad85469be55f0ce7b17122b24fb",
+          "test": false,
+          "symbols": [
+            "is_env_file_candidate",
+            "resolve_env_file_path",
+            "load_env_file",
+            "EnvFilePathAutoComplete",
+            "show_load_env_file_dialog",
+            "LoadEnvFileDialog"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/__init__.py",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "test": false,
+          "symbols": []
+        },
+        {
+          "path": "src/posting/widgets/request/form_editor.py",
+          "sha256": "fe77e91adb62fef08de81fb7b120d2f57f7ea6d4f8c213a3a4b468977622a82d",
+          "test": false,
+          "symbols": [
+            "FormVariableInput",
+            "FormTable",
+            "FormEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/header_editor.py",
+          "sha256": "58f660537e19e9536dc33d9013e5bbefafb745665db6749409aa867ffc8f9e6b",
+          "test": false,
+          "symbols": [
+            "HeaderInput",
+            "HeaderEditor",
+            "HeadersTable"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/method_selection.py",
+          "sha256": "ff52d41b5e68572ec2e2dd780be937f321e4453f8a81ce1a33e4071fcfd07901",
+          "test": false,
+          "symbols": [
+            "MethodSelector"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/path_editor.py",
+          "sha256": "7e23c491d8a9ad32632078d9946d4f9d0c9e6bba4a2ac898e9781cb87ac6cc1d",
+          "test": false,
+          "symbols": [
+            "PathParamsTable",
+            "PathParamsEditor",
+            "PathEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/query_editor.py",
+          "sha256": "aea866e78185c75fdc031b8cae1187f9dd35c751b67406049eeebebd15409143",
+          "test": false,
+          "symbols": [
+            "ParamsTable",
+            "QueryStringEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/request_auth.py",
+          "sha256": "ecd315fb0379e72b0660b74880a6c98d0d0edafe74dd2d53f495ce5af5aa9869",
+          "test": false,
+          "symbols": [
+            "Form",
+            "UserNamePasswordForm",
+            "BearerTokenForm",
+            "RequestAuth"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/request_body.py",
+          "sha256": "f7bfad8ca8ca1af8b77f45c6a65aa3912921d0a82914484401d6c8609c77fcf4",
+          "test": false,
+          "symbols": [
+            "RequestBodyEditor",
+            "RequestBodyTextArea"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/request_editor.py",
+          "sha256": "e35026647091c0314558031528c77e9025c380326aee14ebf7b630de78f6ea3a",
+          "test": false,
+          "symbols": [
+            "RequestEditorTabbedContent",
+            "RequestEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/request_metadata.py",
+          "sha256": "71832a091c8b5abf02ecb709ead4cbe6d25876cdc6a8b5e847c5649c756997bb",
+          "test": false,
+          "symbols": [
+            "RequestMetadata"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/request_options.py",
+          "sha256": "924ebe1188c4d87c11d61feeeac9ce1771998f88f47aa6bbdb3cc74de38ec56a",
+          "test": false,
+          "symbols": [
+            "RequestOptions"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/request_scripts.py",
+          "sha256": "509be4268bbbda456c29c30678e826fbdd04a5af09dece9d95a465c53bed0d95",
+          "test": false,
+          "symbols": [
+            "ScriptPathInput",
+            "RequestScripts"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/request/url_bar.py",
+          "sha256": "16a6d8b6ed17c296248c76286b3330ff000589177edd7bd405362011debd0ab4",
+          "test": false,
+          "symbols": [
+            "CurlMessage",
+            "UrlInput",
+            "SendRequestButton",
+            "UrlBar"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/response/cookies_table.py",
+          "sha256": "3040b7371c5a590e1309a7bede6485c6ad632ef5c16703c89bc080890fdf609b",
+          "test": false,
+          "symbols": [
+            "CookiesSection"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/response/response_area.py",
+          "sha256": "75009999fe01195f8cdb6851d5faac0f43fd2082afa34b9baf39cf4831895b15",
+          "test": false,
+          "symbols": [
+            "ResponseTabbedContent",
+            "ResponseArea",
+            "content_type_to_language",
+            "human_readable_size"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/response/response_body.py",
+          "sha256": "adbe4cb45132b382d5e36bb63cfc096b084a032e8380905a5ec2c28585968814",
+          "test": false,
+          "symbols": [
+            "ResponseTextArea"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/response/response_headers.py",
+          "sha256": "65879d5af32ea4b53bfe24e624046a343edb35b009b879278be6c81f6d4dca49",
+          "test": false,
+          "symbols": [
+            "ResponseHeadersTable"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/response/response_trace.py",
+          "sha256": "4e21017d3a1075b86cf317c2b87b024c4e09e1c025d53be7e9e884845c2d12e9",
+          "test": false,
+          "symbols": [
+            "ResponseTrace"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/response/script_output.py",
+          "sha256": "a7548d8467e83e43a4ef6fdc32ea5837efa0b64de726c28422e6c29ff4c7b4a6",
+          "test": false,
+          "symbols": [
+            "ScriptOutput"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/rich_log.py",
+          "sha256": "894de72f4cd158cfdbbfcc13e23b7cb26f2498e353fc853a5c7f45666eca3d8a",
+          "test": false,
+          "symbols": [
+            "RichLogIO",
+            "PostingRichLog"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/select.py",
+          "sha256": "73a48a6737d650678aa3e7c20a755643a67dc79a435baef00a984cb03c301a0a",
+          "test": false,
+          "symbols": [
+            "PostingSelectOverlay",
+            "PostingSelect"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/tabbed_content.py",
+          "sha256": "7644448e2932a17c3ab18a4b34053f0c3b67395eb0b48546727d72eda62ddf5a",
+          "test": false,
+          "symbols": [
+            "PostingTabbedContent"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/text_area.py",
+          "sha256": "2363839b5eb1ce3debdb46898814561fde7f2ed6b57698f732872db03e6d004b",
+          "test": false,
+          "symbols": [
+            "TextAreaFooter",
+            "PostingTextArea",
+            "ReadOnlyTextArea",
+            "TextEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/tree.py",
+          "sha256": "171a8a28b770d2cf2b643cbd7e6a857a4a683eaa7f2b5e0e2017bf9a7bfee82f",
+          "test": false,
+          "symbols": [
+            "PostingTree"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/variable_autocomplete.py",
+          "sha256": "6bad379996946e8a855b45ac1ef0ab21ab4e1505c530bd75dcb4483165915863",
+          "test": false,
+          "symbols": [
+            "VariableAutoComplete"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/variable_input.py",
+          "sha256": "3376bd0030a0f693dc7c8d942723efbec93429ad14320cf4c6b57af497849795",
+          "test": false,
+          "symbols": [
+            "VariableInput"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/variable_text_area.py",
+          "sha256": "d2a6dc04c6a161f2feef6ad66c83718fc355bea9f1891cf5a5d172a1882a20c8",
+          "test": false,
+          "symbols": [
+            "TextAreaVariableAutoComplete",
+            "VariableTextArea"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/variables_editor.py",
+          "sha256": "27135dc802d34a6956258facee15ba560acb1b930859bf3ba71f63a2e303001b",
+          "test": false,
+          "symbols": [
+            "is_sensitive",
+            "build_rows",
+            "VariablesTable",
+            "VariablesEditor"
+          ]
+        },
+        {
+          "path": "src/posting/widgets/variables_modal.py",
+          "sha256": "21ad3e71903fe242a446089da799b017c7cc0a4a616e166c19b4fbc3d0940b21",
+          "test": false,
+          "symbols": [
+            "VariablesModal"
+          ]
+        },
+        {
+          "path": "src/posting/xresources.py",
+          "sha256": "d969a7b4c9e289949e619403bcce704c8bae63afa18a5b3aaec0a2b790707087",
+          "test": false,
+          "symbols": [
+            "load_xresources_themes"
+          ]
+        },
+        {
+          "path": "src/posting/yaml.py",
+          "sha256": "a7e5bbc37305e6e0fea288ed9ce0256d8aec9a44749add4f3ae968588bdecfb0",
+          "test": false,
+          "symbols": [
+            "str_presenter"
+          ]
+        },
+        {
+          "path": "tests/conftest.py",
+          "sha256": "6933cfd5801bf2d6de57cd4cf2ad7eece476f0a58d5050eaf5ebe55165f3af89",
+          "test": true,
+          "symbols": [
+            "isolated_history"
+          ]
+        },
+        {
+          "path": "tests/posting_snapshot_app.py",
+          "sha256": "05c41879b4ba4228958fd5bd615cd530b8d79204d228aa399f66e212b3409aa1",
+          "test": true,
+          "symbols": []
+        },
+        {
+          "path": "tests/sample-collections/scripts/my_script.py",
+          "sha256": "ba62d7a8e1f6de77051bf49b07ac5049795ba989bdc075bc682f5ced607b011c",
+          "test": true,
+          "symbols": [
+            "setup",
+            "on_request",
+            "on_response"
+          ]
+        },
+        {
+          "path": "tests/test_body_completion_options.py",
+          "sha256": "23c8f543a0ab11c350ec53a61a02b697db97305da0fc3e5348be98c08cd1e8f1",
+          "test": true,
+          "symbols": [
+            "test_body_completion_follows_substitution_option"
+          ]
+        },
+        {
+          "path": "tests/test_clipboard.py",
+          "sha256": "43aeaca6f4a05dda5904837644d6e36d3968b25ded6432803f3358601ea140ea",
+          "test": true,
+          "symbols": [
+            "make_text_area",
+            "test_copy_uses_native_clipboard_when_available",
+            "test_copy_falls_back_to_textual_clipboard"
+          ]
+        },
+        {
+          "path": "tests/test_curl_export.py",
+          "sha256": "de7701fe4ec8bcf914eb14fb4b29743f78d097ac1497e81b8edb25a1c1e5a6c1",
+          "test": true,
+          "symbols": [
+            "basic_request",
+            "test_simple_get_request",
+            "test_post_request_with_body",
+            "test_request_with_headers",
+            "test_request_with_query_params",
+            "test_request_with_existing_query_params",
+            "test_request_with_url_fragment",
+            "test_request_with_basic_auth",
+            "test_request_with_digest_auth",
+            "test_request_with_cookies",
+            "test_request_with_form_data",
+            "test_request_with_options",
+            "test_complex_request",
+            "test_special_characters_in_url_and_params"
+          ]
+        },
+        {
+          "path": "tests/test_curl_flags_ui.py",
+          "sha256": "990355f9fe9d633658b41d044879cb34b5554c08c386ec1e62b6886ef1dcb441",
+          "test": true,
+          "symbols": [
+            "test_curl_flags_before_url_paste"
+          ]
+        },
+        {
+          "path": "tests/test_curl_import.py",
+          "sha256": "c12206cb2bccc47589c17a0d618b1e3624f47ae7bef1f9dc7d5c66cea3e27f5a",
+          "test": true,
+          "symbols": [
+            "test_simple_get",
+            "test_get_with_headers",
+            "test_post_with_form_data",
+            "test_post_with_json_data",
+            "test_post_with_form_option",
+            "test_multiple_data_options",
+            "test_curl_with_user_and_password",
+            "test_curl_with_bearer_token",
+            "test_curl_with_insecure",
+            "test_curl_with_referer",
+            "test_curl_with_user_agent",
+            "test_curl_with_compressed",
+            "test_curl_with_method_and_data",
+            "test_curl_with_data_raw",
+            "test_curl_with_data_binary",
+            "test_curl_with_escaped_newlines",
+            "test_curl_with_no_space_in_header",
+            "test_curl_with_complex_command",
+            "test_curl_with_utf8_characters",
+            "test_curl_with_special_characters_in_data",
+            "test_curl_imports_max_time",
+            "test_curl_with_cookies_before_url",
+            "test_curl_with_cookies_and_headers_before_url",
+            "test_curl_with_location_flag",
+            "test_curl_with_proxy_flag"
+          ]
+        },
+        {
+          "path": "tests/test_environment_palette.py",
+          "sha256": "8445f6de3c19a06091b5a4cf07749710dc1f68db71530bb0ff0e409219b3d079",
+          "test": true,
+          "symbols": [
+            "test_environment_submenu",
+            "test_switch_environment_restarts_watcher"
+          ]
+        },
+        {
+          "path": "tests/test_files.py",
+          "sha256": "5037cd8c21f3d511a32b6c4d6193d8480eaae9870a42085c1e27d90a4c44a7c1",
+          "test": true,
+          "symbols": [
+            "test_is_valid_filename",
+            "test_is_valid_filename_with_none",
+            "test_is_valid_filename_os_specific"
+          ]
+        },
+        {
+          "path": "tests/test_history.py",
+          "sha256": "6b666fa3208779edfc9192b220f34d5cd39d6024b0b180390adb94541f11b5f6",
+          "test": true,
+          "symbols": [
+            "response",
+            "test_round_trip_survives_restart_and_preserves_response",
+            "test_compressed_binary_and_custom_metadata_round_trip",
+            "test_collection_isolation_and_canonical_paths",
+            "test_retention_delete_clear_and_multiple_connections",
+            "test_byte_budget_prunes_oldest_and_skips_oversize",
+            "test_corrupt_database_is_not_overwritten",
+            "test_request_snapshot_round_trip_is_detached_and_immutable",
+            "test_response_only_database_migrates_without_losing_entries",
+            "test_request_configuration_counts_toward_byte_budget"
+          ]
+        },
+        {
+          "path": "tests/test_history_ui.py",
+          "sha256": "89c485c877968e7569dbbad888673811b194605711dc8b4bda5a4d2f679939e5",
+          "test": true,
+          "symbols": [
+            "utc_timestamps",
+            "saved_response",
+            "saved_request",
+            "seed_history",
+            "open_history",
+            "TestHistory"
+          ]
+        },
+        {
+          "path": "tests/test_literal_body.py",
+          "sha256": "e481c4ca2b0a3d18c349197601f869b9ec9425528ebb5d75806cbb4a93d2b063",
+          "test": true,
+          "symbols": [
+            "test_literal_body_report_reproduces",
+            "test_disable_body_substitution_preserves_dollars",
+            "test_form_body_can_be_literal_and_option_roundtrips",
+            "test_literal_body_option"
+          ]
+        },
+        {
+          "path": "tests/test_load_env_file_dialog.py",
+          "sha256": "7d377f797cfc5f1d548f99f13756412f668cd8be8d75fbcc9f7e2fbc9ca7b63c",
+          "test": true,
+          "symbols": [
+            "test_empty_input_includes_cwd_and_config_env_candidates",
+            "test_empty_input_candidates_use_relative_and_absolute_values",
+            "test_relative_input_browses_from_working_directory",
+            "test_absolute_input_browses_from_absolute_path",
+            "test_tilde_input_browses_from_home",
+            "test_load_env_file_rejects_missing_paths",
+            "test_load_env_file_rejects_directories",
+            "test_load_env_file_updates_app_state_and_variables",
+            "test_make_posting_reloads_env_variables_even_when_cache_is_populated"
+          ]
+        },
+        {
+          "path": "tests/test_open_api_import.py",
+          "sha256": "b1e3149eeccafcac921bee476e8e7e54b00277a009ca066ff53fa3311c631213",
+          "test": true,
+          "symbols": [
+            "test_import",
+            "test_import_openapi_3_0",
+            "test_import_openapi_3_0_without_components_and_with_server_url",
+            "test_import_openapi_3_0_resolves_parameter_refs",
+            "test_import_openapi_3_0_resolves_request_body_refs",
+            "test_import_unsupported_version",
+            "test_get_openapi_models_30",
+            "test_get_openapi_models_31"
+          ]
+        },
+        {
+          "path": "tests/test_postman_import.py",
+          "sha256": "4b5a6846334a3114b1abe46f63adcb072aeb7cf5ef3d2cac435632340c7a3623",
+          "test": true,
+          "symbols": [
+            "test_import_postman_spec"
+          ]
+        },
+        {
+          "path": "tests/test_query_sync.py",
+          "sha256": "16727e92714482aa8edcf6a85e0277ccb2eb117efbcbbce359307f53eb5189ac",
+          "test": true,
+          "symbols": [
+            "outgoing_pairs",
+            "query_app",
+            "test_query_sync_preserves_duplicates",
+            "test_query_sync_loads_saved_url",
+            "test_query_sync_preserves_disabled_duplicate_on_url_edit",
+            "test_query_sync_does_not_rewrite_while_typing",
+            "test_query_sync_follows_table_edits",
+            "test_query_sync_survives_save_reload",
+            "test_query_sync_preserves_variables_and_reserved_characters"
+          ]
+        },
+        {
+          "path": "tests/test_release_integration.py",
+          "sha256": "0fd44b380823c07b1b58281289c14c34e6262791d6f5f3515ea3040a332b435a",
+          "test": true,
+          "symbols": [
+            "test_session_override_survives_switch_and_completion_uses_current_values",
+            "test_history_retains_literal_body_option_and_resends_using_new_environment"
+          ]
+        },
+        {
+          "path": "tests/test_request_model.py",
+          "sha256": "485c91a5c68f27d83399289fc8c732e0c8061bc458a2b1c3dbd0f99c2c3e3d3d",
+          "test": true,
+          "symbols": [
+            "test_apply_template_absorbs_url_query_params",
+            "test_apply_template_fills_empty_table_value_from_url",
+            "test_apply_template_resolves_variables_in_url_query",
+            "test_query_variables_keep_reserved_characters_in_one_value",
+            "test_variable_containing_entire_url_preserves_repeated_query",
+            "test_percent_encoded_dollar_is_literal_not_a_variable"
+          ]
+        },
+        {
+          "path": "tests/test_request_search.py",
+          "sha256": "af933c5b858f53ed76039646e8f0573b8259bc892611259e13c9233063be37bf",
+          "test": true,
+          "symbols": [
+            "test_request_search_matches_visible_text"
+          ]
+        },
+        {
+          "path": "tests/test_resave_deleted_request.py",
+          "sha256": "a04ed864e679c9f7efaf5154be007fa49028a0c6d81a27df706cce3b29e7c1d8",
+          "test": true,
+          "symbols": [
+            "test_resave_deleted_open_request"
+          ]
+        },
+        {
+          "path": "tests/test_safe_yaml_loader.py",
+          "sha256": "bfdb6415953f0fd12050bd0b54793146942fb9d367f4d658b67ddac13a223f16",
+          "test": true,
+          "symbols": [
+            "loader",
+            "test_rejects_python_tags",
+            "test_collection_scan_does_not_execute_yaml",
+            "test_request_roundtrip_preserves_multiline_format",
+            "test_theme_loader_rejects_python_tags"
+          ]
+        },
+        {
+          "path": "tests/test_session_variables.py",
+          "sha256": "75d5885589287f860e705087884719922dcab1aecc44820550a9ac7f929c5388",
+          "test": true,
+          "symbols": [
+            "test_undo_preserves_script_value",
+            "test_add_revert_and_repeated_undo_redo",
+            "test_new_edit_invalidates_redo_and_history_is_bounded"
+          ]
+        },
+        {
+          "path": "tests/test_snapshots.py",
+          "sha256": "e0cada0685036ea2689839262f6d16ae973a05733c36e58cc6fde501eec3ed6a",
+          "test": true,
+          "symbols": [
+            "use_config",
+            "patch_env",
+            "disable_blink_for_active_cursors",
+            "TestJumpMode",
+            "TestMethodSelection",
+            "TestUrlBar",
+            "TestCommandPalette",
+            "TestRequestSearchPalette",
+            "TestLoadEnvFileDialog",
+            "TestNewRequest",
+            "TestUserInterfaceShortcuts",
+            "TestLoadingRequest",
+            "TestHelpScreen",
+            "TestSave",
+            "TestSendRequest",
+            "TestConfig",
+            "TestVariables",
+            "TestVariablesEditor",
+            "TestCustomThemeSimple",
+            "TestCustomThemeComplex",
+            "TestFocusAutoSwitchingConfig",
+            "TestDisableRowInTable",
+            "TestCurlExport",
+            "TestScripts",
+            "TestHeaderAutoCompletion",
+            "TestEditKeyValues",
+            "TestKeyValueCopyModal"
+          ]
+        },
+        {
+          "path": "tests/test_ssl.py",
+          "sha256": "2237fdda55cf138c63ac08805b35cc4f0c3154a6b630f727ca5088d1a2f5e6d8",
+          "test": true,
+          "symbols": [
+            "isolated_tls_environment",
+            "certificates",
+            "tls_server",
+            "send_request",
+            "assert_client_certificate",
+            "test_client_certificate_with_custom_ca",
+            "test_custom_ca_without_client_certificate",
+            "test_client_certificate_with_verification_disabled",
+            "test_client_certificate_with_environment_ca",
+            "test_untrusted_server_is_rejected",
+            "test_encrypted_combined_certificate_with_environment_ca",
+            "test_custom_ca_still_checks_hostname"
+          ]
+        },
+        {
+          "path": "tests/test_text_area_completion.py",
+          "sha256": "335ff6fe8f97e0c5fe23fcead44b1d3b96986d15901c819d71876e03566be329",
+          "test": true,
+          "symbols": [
+            "test_body_variable_completion",
+            "test_description_variable_completion"
+          ]
+        },
+        {
+          "path": "tests/test_urls.py",
+          "sha256": "3f78459f08484684f99c91367451781f451f6ddc69ece94d0e0531f827858360",
+          "test": true,
+          "symbols": [
+            "test_ensure_protocol",
+            "test_extract_path_param_names_with_escaping",
+            "test_substitute_path_params_with_escaping_simple",
+            "test_substitute_path_params_preserves_escaped_literal",
+            "test_substitute_path_params_mixed_escaped_and_real",
+            "test_extract_query_pairs_keeps_blanks_and_order",
+            "test_set_query_pairs_replaces_query_and_keeps_path",
+            "test_merge_url_query_fills_empty_table_value",
+            "test_merge_url_query_keeps_nonempty_table_value",
+            "test_merge_url_query_appends_table_only_params",
+            "test_set_query_pairs_preserves_variable_syntax",
+            "test_merge_query_matches_duplicate_rows_by_occurrence"
+          ]
+        },
+        {
+          "path": "tests/test_variables.py",
+          "sha256": "b93ec57423889f230a4739fe3728422f003aea749e072962c92716977aea50d5",
+          "test": true,
+          "symbols": [
+            "test_find_variables",
+            "test_variable_range_at_cursor"
+          ]
+        },
+        {
+          "path": "tests/test_variables_editor.py",
+          "sha256": "857d08c3e530e412b5c747697d2a7cdae2126ef8c604693a562b0e0a9138b20b",
+          "test": true,
+          "symbols": [
+            "app",
+            "test_add_first_variable_and_replace_duplicate_name",
+            "test_secret_edit_cancel_copy_and_save_use_real_value",
+            "test_invalid_name_keeps_the_draft_without_adding_a_row",
+            "test_reload_updates_filtered_table_and_keeps_an_edit_draft",
+            "test_undo_preserves_type_and_survives_reopening",
+            "test_revert_uses_the_current_environment_file",
+            "test_switching_rows_keeps_the_new_row_in_edit_mode"
+          ]
+        },
+        {
+          "path": "tests/test_variables_modal.py",
+          "sha256": "6399dfc29b714e816fe5c3909792e97bce2cfe269a1a464670f9d3ac3a820a19",
+          "test": true,
+          "symbols": [
+            "test_sensitive_names_are_recognised",
+            "test_secrets_are_masked_by_default",
+            "test_masking_does_not_leak_secret_length",
+            "test_secrets_shown_when_revealed",
+            "test_source_distinguishes_session_from_env_file",
+            "test_filter_matches_on_name_case_insensitively",
+            "test_rows_are_sorted_by_name",
+            "test_non_string_values_are_rendered"
+          ]
+        }
+      ],
+      "counts": {
+        "python_or_extensionless_source_files": 82,
+        "test_support_files": 30
+      },
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "candidate_tasks": [
+        {
+          "id": "posting-path-parameters",
+          "source_file": "src/posting/urls.py",
+          "source_sha256": "2e04c84258aec0b7c80042d278b2e6ea090c23ee7e79b15d44e35b6843642645",
+          "symbols": [
+            "extract_path_param_names",
+            "substitute_path_params"
+          ],
+          "behavior": "Preserve placeholder order, escaped colons and query/fragment text.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "posting-query-pair-merge",
+          "source_file": "src/posting/urls.py",
+          "source_sha256": "2e04c84258aec0b7c80042d278b2e6ea090c23ee7e79b15d44e35b6843642645",
+          "symbols": [
+            "extract_query_pairs",
+            "merge_url_query_into_params"
+          ],
+          "behavior": "Preserve duplicate occurrences, blanks, table overrides and disabled rows.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "posting-request-filenames",
+          "source_file": "src/posting/files.py",
+          "source_sha256": "8645715c6d0c4bfccc2a1d1b39fc040a9a2242eafb04012fcb1c35b546b326d7",
+          "symbols": [
+            "is_valid_filename",
+            "get_unique_request_filename"
+          ],
+          "behavior": "Validate filenames and resolve collisions in a temporary directory.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "posting-session-undo-redo",
+          "source_file": "src/posting/session_variables.py",
+          "source_sha256": "729df568abef3ccb7849f54fd32210101bd5070811db2556ae1803d38e820932",
+          "symbols": [
+            "SessionVariables"
+          ],
+          "behavior": "Check set/revert/undo/redo transitions and redo invalidation after a new edit.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "posting-session-history-limit",
+          "source_file": "src/posting/session_variables.py",
+          "source_sha256": "729df568abef3ccb7849f54fd32210101bd5070811db2556ae1803d38e820932",
+          "symbols": [
+            "SessionVariables"
+          ],
+          "behavior": "Check the documented 50-edit retention boundary and script-written value restoration.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        }
+      ],
+      "local_source_note": "External artifact location; archive hash and immutable GitHub revision identify the portable source."
+    },
+    {
+      "repository": "jarun/ddgr",
+      "revision": "b0c9e74e226a22a96c863d03cb82e5b5569851c3",
+      "commit_date": "2026-10-31T14:06:48Z",
+      "stars": 3576,
+      "license": "GPL-3.0",
+      "proposed_role": "holdout-proposed",
+      "local_source": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\external-app-audit\\ddgr-b0c9e74e226a",
+      "archive_sha256": "ca96a7e050c99260af24459e8a77cda5a5a57f13f8a09861dd428ebbd71dc0f4",
+      "files": [
+        {
+          "path": "ddgr",
+          "sha256": "055a9015c038a219baa5dced03d09fa4f07f15f540d85ad74bb0973900a880cf",
+          "test": false,
+          "symbols": [
+            "sigint_handler",
+            "make_safe_url",
+            "open_url",
+            "https_get",
+            "https_post",
+            "unwrap",
+            "check_stdout_encoding",
+            "printerr",
+            "monkeypatch_textwrap_for_cjk",
+            "DdgUrl",
+            "DdgAPIUrl",
+            "DDGConnectionError",
+            "DdgConnection",
+            "annotate_tag",
+            "retrieve_tag_annotation",
+            "DdgParser",
+            "Result",
+            "DdgCmdException",
+            "NoKeywordsException",
+            "require_keywords",
+            "no_argument",
+            "DdgCmd",
+            "DdgArgumentParser",
+            "python_version",
+            "get_colorize",
+            "set_win_console_mode",
+            "completer_fetch_completions",
+            "completer_run",
+            "parse_args",
+            "main"
+          ]
+        },
+        {
+          "path": "setup.py",
+          "sha256": "90f332cbdf697217a5fd76e71cf98eef93ec604364ef12114783df9644b0ef95",
+          "test": false,
+          "symbols": []
+        }
+      ],
+      "counts": {
+        "python_or_extensionless_source_files": 2,
+        "test_support_files": 0
+      },
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        }
+      ],
+      "candidate_tasks": [
+        {
+          "id": "ddgr-unicode-safe-urls",
+          "source_file": "ddgr",
+          "source_sha256": "055a9015c038a219baa5dced03d09fa4f07f15f540d85ad74bb0973900a880cf",
+          "symbols": [
+            "make_safe_url"
+          ],
+          "behavior": "Check IDNA domains, credentials and percent encoding against an explicit approved contract.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "ddgr-search-pagination",
+          "source_file": "ddgr",
+          "source_sha256": "055a9015c038a219baa5dced03d09fa4f07f15f540d85ad74bb0973900a880cf",
+          "symbols": [
+            "DdgUrl"
+          ],
+          "behavior": "Check next/previous/first-page state transitions without network calls.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        },
+        {
+          "id": "ddgr-result-serialization",
+          "source_file": "ddgr",
+          "source_sha256": "055a9015c038a219baa5dced03d09fa4f07f15f540d85ad74bb0973900a880cf",
+          "symbols": [
+            "Result"
+          ],
+          "behavior": "Check structured result output and URL lookup without launching a browser.",
+          "status": "source-backed-proposal",
+          "training_eligible": false
+        }
+      ],
+      "local_source_note": "External artifact location; archive hash and immutable GitHub revision identify the portable source."
+    }
+  ],
+  "status": "static-source-audit-only",
+  "split_frozen": false,
+  "new_sft_rows": 0,
+  "tests_executed": false,
+  "licensing_status": "License IDs and local license hashes recorded; no model-training permission conclusion made.",
+  "overlap_policy": "Keep each upstream family in one role; compare proposed tasks with existing rows before admission. These projects are separate upstreams, but semantic near-duplicate checking is still pending."
+}

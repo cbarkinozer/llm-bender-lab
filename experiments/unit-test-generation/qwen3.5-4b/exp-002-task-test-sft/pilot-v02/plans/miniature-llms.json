@@ -1,0 +1,106 @@
+{
+  "application": "miniature-llms",
+  "goal": "Build me a small educational Python repository of working language-model components that I can run on CPU with tiny tensors and understand from the code. For the first complete version, include token embeddings, rotary position encoding, RMS normalization, a causal attention block, a feed-forward block and a tiny next-token model that composes them. Use PyTorch, keep tensors consistently batch-by-sequence-by-hidden dimension at public boundaries, make weights and dimensions configurable, and explain the role of each component without claiming this tiny model reproduces a frontier model's capability. I want numerical examples that check more than output shape, a demonstration that later tokens cannot influence earlier causal outputs, proper gradients, and saving/reloading weights without changing predictions. Include a short deterministic training demo on a tiny fixed local corpus and a generation command, with no model downloads or GPU requirement. Reject incompatible dimensions clearly and keep the implementation modular enough that I can later add other architectures; JAX, custom kernels and every advanced architecture can wait.",
+  "tasks": [
+    {
+      "id": "tensor-rms-normalization",
+      "title": "Specify RMS normalization scale, epsilon and numeric gradients.",
+      "depends_on": [],
+      "implementation_files": [
+        "_7_RMSNorm/pytorch.py"
+      ],
+      "target_file": "tests/test_tensor_rms_normalization.py",
+      "acceptance": [
+        "Normalize the last dimension by sqrt(mean(x squared)+epsilon), then learned scale.",
+        "Positive epsilon maps zero inputs to finite zeros.",
+        "Scale gradients agree with the explicit [3,4]/sqrt(12.5) fixture."
+      ]
+    },
+    {
+      "id": "tensor-rotary-positions",
+      "title": "Specify rotary half-rotation, sequence positions and dimension errors.",
+      "depends_on": [],
+      "implementation_files": [
+        "_4_RoPE/pytorch.py"
+      ],
+      "target_file": "tests/test_tensor_rotary_positions.py",
+      "acceptance": [
+        "rotate_half negates the second half and concatenates the first.",
+        "Position zero is identity on every head.",
+        "Position one rotates along sequence rather than head axes.",
+        "Reject odd or mismatched head dimensions with the declared diagnostics."
+      ]
+    },
+    {
+      "id": "tensor-model-composition",
+      "title": "Specify composed logits, trainable gradients and incompatible dimensions.",
+      "depends_on": [],
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_model_composition.py",
+      "acceptance": [
+        "Return [batch,sequence,vocab] logits.",
+        "All trainable parameters have finite gradients and some gradient is nonzero.",
+        "Reject indivisible hidden sizes and odd per-head dimensions."
+      ]
+    },
+    {
+      "id": "tensor-causal-independence",
+      "title": "Specify causal invariance and sensitivity for the composed model.",
+      "depends_on": [],
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_causal_independence.py",
+      "acceptance": [
+        "Changing future tokens cannot alter earlier logits.",
+        "Later logits must still respond to changed input."
+      ]
+    },
+    {
+      "id": "tensor-checkpoint-roundtrip",
+      "title": "Specify configuration/weight checkpoint preservation.",
+      "depends_on": [],
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_checkpoint_roundtrip.py",
+      "acceptance": [
+        "Saving and loading reconstructs the same CPU model configuration and weights.",
+        "Eval logits match exactly at the same runtime."
+      ]
+    },
+    {
+      "id": "tensor-training-generation",
+      "title": "Specify deterministic tiny CPU training and actual greedy next-token decoding.",
+      "depends_on": [],
+      "implementation_files": [
+        "tiny_model.py"
+      ],
+      "target_file": "tests/test_tensor_training_generation.py",
+      "acceptance": [
+        "Repeat the same seed and fixture to get identical finite loss histories.",
+        "The bounded smoke loss improves; no claim of general language capability.",
+        "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+      ]
+    },
+    {
+      "id": "miniature-llms-delivery",
+      "title": "Verify documented delivery and live UI/backend integration separately.",
+      "depends_on": [],
+      "implementation_files": [
+        "README.md"
+      ],
+      "target_file": "tests/test_delivery.py",
+      "acceptance": [
+        "Standalone architecture documentation and actual CLI integration remain separate checks; do not treat PyTorch/JAX variants as independent behaviors."
+      ],
+      "demonstration_available": false
+    }
+  ],
+  "unresolved": [
+    "Standalone architecture documentation and actual CLI integration remain separate checks; do not treat PyTorch/JAX variants as independent behaviors."
+  ],
+  "context_policy": "Interfaces are agreed; implementations may not exist yet. No completion or tool execution is implied."
+}

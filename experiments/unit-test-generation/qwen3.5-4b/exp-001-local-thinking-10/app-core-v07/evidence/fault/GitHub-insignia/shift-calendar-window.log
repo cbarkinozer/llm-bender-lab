@@ -1,0 +1,18 @@
+...F..................................                                   [100%]
+================================== FAILURES ===================================
+__________________ test_r3_utc_leap_date_and_year_splitting ___________________
+
+    def test_r3_utc_leap_date_and_year_splitting():
+        start, end = date_window(datetime.fromisoformat("2024-02-29T01:00:00+03:00"))
+>       assert start.isoformat() == "2023-02-28T00:00:00+00:00"
+E       AssertionError: assert '2023-02-27T00:00:00+00:00' == '2023-02-28T00:00:00+00:00'
+E         
+E         - 2023-02-28T00:00:00+00:00
+E         ?          ^
+E         + 2023-02-27T00:00:00+00:00
+E         ?          ^
+
+tests\test_requirements.py:35: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting
+1 failed, 37 passed in 3.33s

@@ -1,0 +1,132 @@
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+APPLICATION REQUEST
+Build me a small educational Python repository of working language-model components that I can run on CPU with tiny tensors and understand from the code. For the first complete version, include token embeddings, rotary position encoding, RMS normalization, a causal attention block, a feed-forward block and a tiny next-token model that composes them. Use PyTorch, keep tensors consistently batch-by-sequence-by-hidden dimension at public boundaries, make weights and dimensions configurable, and explain the role of each component without claiming this tiny model reproduces a frontier model's capability. I want numerical examples that check more than output shape, a demonstration that later tokens cannot influence earlier causal outputs, proper gradients, and saving/reloading weights without changing predictions. Include a short deterministic training demo on a tiny fixed local corpus and a generation command, with no model downloads or GPU requirement. Reject incompatible dimensions clearly and keep the implementation modular enough that I can later add other architectures; JAX, custom kernels and every advanced architecture can wait.
+
+AGREED PLAN
+[
+  {
+    "id": "tensor-rms-normalization",
+    "title": "Specify RMS normalization scale, epsilon and numeric gradients.",
+    "depends_on": [],
+    "implementation_files": [
+      "_7_RMSNorm/pytorch.py"
+    ],
+    "target_file": "tests/test_tensor_rms_normalization.py",
+    "acceptance": [
+      "Normalize the last dimension by sqrt(mean(x squared)+epsilon), then learned scale.",
+      "Positive epsilon maps zero inputs to finite zeros.",
+      "Scale gradients agree with the explicit [3,4]/sqrt(12.5) fixture."
+    ]
+  },
+  {
+    "id": "tensor-rotary-positions",
+    "title": "Specify rotary half-rotation, sequence positions and dimension errors.",
+    "depends_on": [],
+    "implementation_files": [
+      "_4_RoPE/pytorch.py"
+    ],
+    "target_file": "tests/test_tensor_rotary_positions.py",
+    "acceptance": [
+      "rotate_half negates the second half and concatenates the first.",
+      "Position zero is identity on every head.",
+      "Position one rotates along sequence rather than head axes.",
+      "Reject odd or mismatched head dimensions with the declared diagnostics."
+    ]
+  },
+  {
+    "id": "tensor-model-composition",
+    "title": "Specify composed logits, trainable gradients and incompatible dimensions.",
+    "depends_on": [],
+    "implementation_files": [
+      "tiny_model.py"
+    ],
+    "target_file": "tests/test_tensor_model_composition.py",
+    "acceptance": [
+      "Return [batch,sequence,vocab] logits.",
+      "All trainable parameters have finite gradients and some gradient is nonzero.",
+      "Reject indivisible hidden sizes and odd per-head dimensions."
+    ]
+  },
+  {
+    "id": "tensor-causal-independence",
+    "title": "Specify causal invariance and sensitivity for the composed model.",
+    "depends_on": [],
+    "implementation_files": [
+      "tiny_model.py"
+    ],
+    "target_file": "tests/test_tensor_causal_independence.py",
+    "acceptance": [
+      "Changing future tokens cannot alter earlier logits.",
+      "Later logits must still respond to changed input."
+    ]
+  },
+  {
+    "id": "tensor-checkpoint-roundtrip",
+    "title": "Specify configuration/weight checkpoint preservation.",
+    "depends_on": [],
+    "implementation_files": [
+      "tiny_model.py"
+    ],
+    "target_file": "tests/test_tensor_checkpoint_roundtrip.py",
+    "acceptance": [
+      "Saving and loading reconstructs the same CPU model configuration and weights.",
+      "Eval logits match exactly at the same runtime."
+    ]
+  },
+  {
+    "id": "tensor-training-generation",
+    "title": "Specify deterministic tiny CPU training and actual greedy next-token decoding.",
+    "depends_on": [],
+    "implementation_files": [
+      "tiny_model.py"
+    ],
+    "target_file": "tests/test_tensor_training_generation.py",
+    "acceptance": [
+      "Repeat the same seed and fixture to get identical finite loss histories.",
+      "The bounded smoke loss improves; no claim of general language capability.",
+      "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+    ]
+  },
+  {
+    "id": "miniature-llms-delivery",
+    "title": "Verify documented delivery and live UI/backend integration separately.",
+    "depends_on": [],
+    "implementation_files": [
+      "README.md"
+    ],
+    "target_file": "tests/test_delivery.py",
+    "acceptance": [
+      "Standalone architecture documentation and actual CLI integration remain separate checks; do not treat PyTorch/JAX variants as independent behaviors."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify causal invariance and sensitivity for the composed model.
+Target test file: tests/test_tensor_causal_independence.py
+Expected implementation files: tiny_model.py
+
+INTERFACE CONTRACT
+Proposed components plus public `tiny_model`:
+- `_7_RMSNorm.pytorch.RMSNorm(dimension,epsilon=...)` is a PyTorch layer with trainable `.weight`; normalize last dimension by sqrt(mean(x²)+epsilon), then multiply weight. Positive epsilon maps zero input to finite zeros; gradients must match formula.
+- `_4_RoPE.pytorch.rotate_half(x)` concatenates negative second half and first half along last dimension. `RoPE(head_dimension,max_sequence_length,base=10000)` takes [batch,sequence,head,head_dimension], rotates sequence positions, position0 identity. Odd dimension -> ValueError mentioning "head_dimension must be even"; wrong forward dimension -> ValueError "Expected head dimension <n>, got <n>".
+- `tiny_model.TinyModel(vocab_size,hidden_dim,num_heads,max_length)` takes integer tokens [batch,sequence], returns logits [batch,sequence,vocab]. Contains embedding, RoPE, RMSNorm, causal attention and feed-forward path; hidden_dim divisible by num_heads with even per-head dimension, otherwise ValueError. CPU tensors, configurable tiny sizes. Future token changes cannot affect earlier logits, yet later logits must be input-sensitive. All trainable parameters have finite gradients under the fixture loss and at least one nonzero gradient.
+- `.save(path)` / `TinyModel.load(path)` preserve config and all weights; eval-mode logits exactly preserved on same CPU fixture. Files contain only local tensors/config, no downloaded state.
+- `train_demo(tokens,seed=...,steps=...,learning_rate=...)` -> `{model,losses}`, with losses a list of Python floats. Demo model config (vocab8,hidden8,heads2,maxlen16), AdamW optimizer and provided repeating corpus, deterministic CPU seed; 30 steps at .03 produce finite improving loss.
+- `generate(model,prompt_ids,max_new_tokens=...)` -> complete token list, greedy decoding with exact requested additional length (no EOS in this fixture vocabulary), retaining prompt; reject negative budget.
+Dependencies: Python, pytest, PyTorch; no GPU/network/model downloads. Educational prose and actual CLI wiring remain manual checks.
+
+- Embedding, attention and feed-forward components are exercised through the composed TinyModel, not separately certified component APIs. Independent block-level numeric behavior and educational extension documentation remain manual checks; the automated scope is explicitly the composed model plus public RMSNorm/RoPE.
+- generate accepts any PyTorch nn.Module mapping LongTensor [1,sequence] to logits [1,sequence,vocab], using last-position logits for the next token.
+
+
+
+ACCEPTANCE CRITERIA
+- Changing future tokens cannot alter earlier logits.
+- Later logits must still respond to changed input.
+
+AVAILABLE CONTEXT
+Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run.
+No application implementation or existing solution tests are supplied. Write the selected test file only.

@@ -1,0 +1,5 @@
+{
+  "module": "posting.urls",
+  "mutation": "original=m.merge_url_query_into_params\ndef broken(*args,**kwargs):\n url,rows=original(*args,**kwargs)\n return url,[(k,v,True) for k,v,e in rows]\nm.merge_url_query_into_params=broken",
+  "seed": null
+}

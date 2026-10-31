@@ -1,0 +1,61 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+____________________ test_valid_preflight_reaches_backend _____________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-285/test_valid_preflight_reaches_b0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_valid_preflight_reaches_backend(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        from unittest.mock import Mock
+        import pytest
+        def train(run_dir, resolved, train_rows):
+            artifact = run_dir / 'fixture-adapter.bin'
+            artifact.write_bytes(b'fixture')
+            return artifact
+        trainer = Mock(side_effect=train)
+        evaluator = Mock(return_value={'accuracy': 0.5})
+        try:
+>           result = run_experiment(tmp_path, 'valid', experiment_config, experiment_rows,
+                                    trainer=trainer, evaluator=evaluator)
+
+tests\test_experiment_preflight.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-285/test_valid_preflight_reaches_b0'), 'valid...user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}])
+kwargs = {'trainer': <Mock id='3088303808128'>, 'evaluator': <Mock id='3088303809136'>}
+
+    def reject(*args,**kwargs):
+>       raise ValueError("invalid preflight")
+E       ValueError: invalid preflight
+
+..\..\evidence\20261031T191004642042Z\experiment-preflight\reject-every-input\pilot_probe.py:7: ValueError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-285/test_valid_preflight_reaches_b0')
+experiment_config = {'model_revision': 'base-v1', 'data_revision': 'data-v1', 'code_revision': 'code-v1', 'seed': 7, ...}
+experiment_rows = [{'split': 'train', 'id': 'train', 'messages': [{'role': 'user', 'content': 'Add 2 and 3'}, {'role': 'assistant', 'rea...'user', 'content': 'Add 1 and 4'}, {'role': 'assistant', 'reasoning_content': 'Add the quantities.', 'content': '5'}]}]
+
+    def test_valid_preflight_reaches_backend(tmp_path, experiment_config, experiment_rows):
+        from experiment_workflow import run_experiment
+        from unittest.mock import Mock
+        import pytest
+        def train(run_dir, resolved, train_rows):
+            artifact = run_dir / 'fixture-adapter.bin'
+            artifact.write_bytes(b'fixture')
+            return artifact
+        trainer = Mock(side_effect=train)
+        evaluator = Mock(return_value={'accuracy': 0.5})
+        try:
+            result = run_experiment(tmp_path, 'valid', experiment_config, experiment_rows,
+                                    trainer=trainer, evaluator=evaluator)
+        except ValueError as error:
+>           pytest.fail('Valid disjoint data was rejected: ' + str(error))
+E           Failed: Valid disjoint data was rejected: invalid preflight
+
+tests\test_experiment_preflight.py:73: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_experiment_preflight.py::test_valid_preflight_reaches_backend
+1 failed, 4 passed in 0.13s

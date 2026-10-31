@@ -1,0 +1,17 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+________________________ test_invalid_utf8_is_rejected ________________________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-225/test_invalid_utf8_is_rejected0')
+
+    def test_invalid_utf8_is_rejected(tmp_path):
+        path = tmp_path / 'binary.bin'
+        path.write_bytes(b'\xff\xfe\x00')
+>       assert is_text_file(path) is False
+E       AssertionError: assert True is False
+E        +  where True = is_text_file(WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-225/test_invalid_utf8_is_rejected0/binary.bin'))
+
+tests\test_snapshot_text_decoding.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_snapshot_text_decoding.py::test_invalid_utf8_is_rejected - ...
+1 failed, 1 passed in 0.08s

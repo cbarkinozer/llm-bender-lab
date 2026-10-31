@@ -1,0 +1,10 @@
+[
+  [
+    "drop-metadata",
+    "original=m.Result.jsonizable_object\ndef broken(self):\n result=original(self)\n result.pop(\"metadata\",None)\n return result\nm.Result.jsonizable_object=broken"
+  ],
+  [
+    "numeric-index",
+    "m.Result.urltable=lambda self: {int(self.index):self.url}"
+  ]
+]

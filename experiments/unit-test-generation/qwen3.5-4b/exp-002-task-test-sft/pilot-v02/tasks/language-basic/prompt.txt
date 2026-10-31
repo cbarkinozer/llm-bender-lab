@@ -1,0 +1,105 @@
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+APPLICATION REQUEST
+Make me a small zero-dependency Python tool that guesses the programming language of a code snippet without loading a model or using the network. I want both a callable library and a CLI that reads a UTF-8 file or piped text and prints the detected lowercase file extension, with unknown for empty input, whitespace or ordinary prose with no convincing code markers. Use a configurable set of weighted regex rules so stronger evidence wins rather than just the first matching language, support a documented starter set of common languages, and make ties deterministic. The CLI should give useful errors and a nonzero exit code when it cannot read its input without dumping a traceback in normal use. Include a few clear examples and install/run instructions, keep the code easy to extend, and don't promise perfect detection of inherently ambiguous snippets or tune the tests to a huge hidden benchmark.
+
+AGREED PLAN
+[
+  {
+    "id": "language-basic",
+    "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+    "depends_on": [],
+    "implementation_files": [
+      "codelang_detect/__init__.py",
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_basics.py",
+    "acceptance": [
+      "Empty, whitespace and ordinary prose return unknown.",
+      "Clear Python and JavaScript snippets return py and js respectively."
+    ]
+  },
+  {
+    "id": "language-rules",
+    "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/detector.py"
+    ],
+    "target_file": "tests/test_detection_rules.py",
+    "acceptance": [
+      "Weight 3 beats two matching weight-1 rules.",
+      "Equal scores choose declaration order, even when alphabetical order differs.",
+      "A single positive score qualifies; zero evidence remains unknown.",
+      "Replacing the public configuration between calls immediately changes the result."
+    ]
+  },
+  {
+    "id": "language-cli-success",
+    "title": "Specify CLI input routes and exact successful output.",
+    "depends_on": [
+      "language-basic"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_success.py",
+    "acceptance": [
+      "A Python snippet inside a .txt file is identified from its contents.",
+      "Piped text is accepted when no file argument exists.",
+      "Successful output has exactly one label/newline and no stderr."
+    ]
+  },
+  {
+    "id": "language-cli-errors",
+    "title": "Specify CLI failure classes and useful diagnostics.",
+    "depends_on": [
+      "language-cli-success"
+    ],
+    "implementation_files": [
+      "codelang_detect/cli.py"
+    ],
+    "target_file": "tests/test_cli_errors.py",
+    "acceptance": [
+      "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+      "Closed stdin and invalid UTF-8 produce processing exit 1.",
+      "Normal input errors do not print tracebacks."
+    ]
+  },
+  {
+    "id": "language-delivery",
+    "title": "Package the CLI and document examples and installation.",
+    "depends_on": [
+      "language-cli-success",
+      "language-cli-errors"
+    ],
+    "implementation_files": [
+      "pyproject.toml",
+      "README.md"
+    ],
+    "target_file": "tests/test_packaged_cli.py",
+    "acceptance": [
+      "Verify installation and documented examples in a clean environment.",
+      "Explicitly document starter languages and ambiguous-snippet limitations."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify unknown-input behavior and the initial Python/JavaScript detection contract.
+Target test file: tests/test_detection_basics.py
+Expected implementation files: codelang_detect/__init__.py, codelang_detect/detector.py
+
+INTERFACE CONTRACT
+Public codelang_detect.detect(text: str) -> str. Empty/whitespace/no positive rule evidence returns unknown. Initial language targets are Python (py) and JavaScript (js); additional language accuracy is outside this task. No network or model loading.
+
+ACCEPTANCE CRITERIA
+- Empty, whitespace and ordinary prose return unknown.
+- Clear Python and JavaScript snippets return py and js respectively.
+
+AVAILABLE CONTEXT
+Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied.
+No application implementation or existing solution tests are supplied. Write the selected test file only.

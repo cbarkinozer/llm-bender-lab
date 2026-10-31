@@ -1,0 +1,10 @@
+[
+  [
+    "omit-deduplication",
+    "m.extract_path_param_names=lambda url: [x.group(1) for x in m._PATH_PARAM_PATTERN.finditer(m.urlparse(url).path)]"
+  ],
+  [
+    "replace-query-too",
+    "original=m.substitute_path_params\ndef broken(url,params):\n result=original(url,params)\n for key,value in params.items(): result=result.replace(':'+key,value)\n return result\nm.substitute_path_params=broken"
+  ]
+]

@@ -1,0 +1,19 @@
+import json
+from pathlib import Path
+FAILURES=[]
+def pytest_configure(config):
+    import price_workflow as m
+    original=m.analyze
+    def broken(*a,**k):
+        if k.get('provider') is not None:
+            provider=k['provider']
+            def repaired(*args):
+                frame=provider(*args).copy();row=frame.iloc[0];frame.iloc[0]=row.mask(row.isna()|(row==0),1);return frame
+            k['provider']=repaired
+        return original(*a,**k)
+    m.analyze=broken
+
+def pytest_runtest_logreport(report):
+    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))
+def pytest_sessionfinish(session,exitstatus):
+    Path('C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\silently-repair-invalid-baseline\\failures.json').write_text(json.dumps(FAILURES,indent=2))

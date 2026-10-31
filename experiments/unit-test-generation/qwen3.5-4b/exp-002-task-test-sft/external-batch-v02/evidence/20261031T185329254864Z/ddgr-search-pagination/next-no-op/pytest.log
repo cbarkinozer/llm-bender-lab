@@ -1,0 +1,19 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_pagination_transitions_and_reset ____________________
+
+    def test_pagination_transitions_and_reset():
+        url = DdgUrl(duration='', keywords=['python'])
+        assert (url.query()['page'], url.query()['curindex']) == (0, 1)
+        url.update_num(10)
+        url.next_page()
+>       assert (url.query()['page'], url.query()['curindex']) == (1, 11)
+E       assert (0, 1) == (1, 11)
+E         
+E         At index 0 diff: 0 != 1
+E         Use -v to get more diff
+
+tests\test_search_pagination.py:10: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_search_pagination.py::test_pagination_transitions_and_reset
+1 failed, 1 passed in 0.06s

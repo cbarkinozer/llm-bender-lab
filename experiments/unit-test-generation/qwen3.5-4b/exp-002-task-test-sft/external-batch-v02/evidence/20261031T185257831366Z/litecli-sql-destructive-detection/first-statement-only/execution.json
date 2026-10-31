@@ -1,0 +1,159 @@
+{
+  "order": [
+    "tests/test_sql_destructive_detection.py::test_safe_statements[]",
+    "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 1]",
+    "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 'delete from users']",
+    "tests/test_sql_destructive_detection.py::test_safe_statements[-- delete\\nSELECT 2]",
+    "tests/test_sql_destructive_detection.py::test_destructive_statements[DROP TABLE users]",
+    "tests/test_sql_destructive_detection.py::test_destructive_statements[-- comment\\ndElEtE FROM users]",
+    "tests/test_sql_destructive_detection.py::test_destructive_statements[SELECT 1; ALTER TABLE users ADD COLUMN age INT]",
+    "tests/test_sql_destructive_detection.py::test_destructive_statements[TRUNCATE users]"
+  ],
+  "reports": [
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[]",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 1]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 1]",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 1]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 'delete from users']",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 'delete from users']",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[SELECT 'delete from users']",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[-- delete\\nSELECT 2]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[-- delete\\nSELECT 2]",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_safe_statements[-- delete\\nSELECT 2]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[DROP TABLE users]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[DROP TABLE users]",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[DROP TABLE users]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[-- comment\\ndElEtE FROM users]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[-- comment\\ndElEtE FROM users]",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[-- comment\\ndElEtE FROM users]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[SELECT 1; ALTER TABLE users ADD COLUMN age INT]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[SELECT 1; ALTER TABLE users ADD COLUMN age INT]",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[SELECT 1; ALTER TABLE users ADD COLUMN age INT]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[TRUNCATE users]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[TRUNCATE users]",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "tests/test_sql_destructive_detection.py::test_destructive_statements[TRUNCATE users]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1
+}

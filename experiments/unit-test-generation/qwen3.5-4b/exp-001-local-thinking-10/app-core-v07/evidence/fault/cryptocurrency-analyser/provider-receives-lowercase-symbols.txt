@@ -1,0 +1,16 @@
+import json
+from pathlib import Path
+FAILURES=[]
+def pytest_configure(config):
+    import price_workflow as m
+    original=m.analyze
+    def broken(*a,**k):
+        if k.get('provider') is not None:
+            provider=k['provider'];k['provider']=lambda symbols,start,end:provider([s.lower() for s in symbols],start,end)
+        return original(*a,**k)
+    m.analyze=broken
+
+def pytest_runtest_logreport(report):
+    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))
+def pytest_sessionfinish(session,exitstatus):
+    Path('C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\provider-receives-lowercase-symbols\\failures.json').write_text(json.dumps(FAILURES,indent=2))

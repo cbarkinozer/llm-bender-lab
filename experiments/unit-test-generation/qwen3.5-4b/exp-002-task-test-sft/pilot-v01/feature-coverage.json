@@ -1,0 +1,183 @@
+{
+  "surface": {
+    "library": [
+      "language-basic-v01",
+      "language-rules-v01",
+      "prices-returns-v01",
+      "prices-charts-v01",
+      "prices-fetch-v01"
+    ],
+    "cli": [
+      "language-cli-success-v01",
+      "language-cli-errors-v01"
+    ],
+    "service": [
+      "prices-analysis-v01"
+    ]
+  },
+  "behavior": {
+    "classification": [
+      "language-basic-v01"
+    ],
+    "weighted-selection": [
+      "language-rules-v01"
+    ],
+    "input-routing": [
+      "language-cli-success-v01"
+    ],
+    "error-handling": [
+      "language-cli-errors-v01"
+    ],
+    "numeric-transformation": [
+      "prices-returns-v01"
+    ],
+    "numeric-visualization": [
+      "prices-charts-v01"
+    ],
+    "provider-adapter": [
+      "prices-fetch-v01"
+    ],
+    "orchestration": [
+      "prices-analysis-v01"
+    ]
+  },
+  "state": {
+    "stateless": [
+      "language-basic-v01",
+      "prices-charts-v01",
+      "prices-fetch-v01"
+    ],
+    "replaceable-configuration": [
+      "language-rules-v01"
+    ],
+    "temporary-files": [
+      "language-cli-success-v01",
+      "language-cli-errors-v01"
+    ],
+    "input-preservation": [
+      "prices-returns-v01"
+    ],
+    "temporary-csv": [
+      "prices-analysis-v01"
+    ]
+  },
+  "dependencies": {
+    "none": [
+      "language-basic-v01"
+    ],
+    "public-monkeypatch-seam": [
+      "language-rules-v01"
+    ],
+    "stdin-and-argv-fixtures": [
+      "language-cli-success-v01",
+      "language-cli-errors-v01"
+    ],
+    "pandas": [
+      "prices-returns-v01"
+    ],
+    "pandas-and-plotly": [
+      "prices-charts-v01"
+    ],
+    "injected-network-provider": [
+      "prices-fetch-v01"
+    ],
+    "injected-provider-and-pandas": [
+      "prices-analysis-v01"
+    ]
+  },
+  "boundaries": {
+    "empty": [
+      "language-basic-v01"
+    ],
+    "whitespace": [
+      "language-basic-v01"
+    ],
+    "non-code": [
+      "language-basic-v01"
+    ],
+    "ties": [
+      "language-rules-v01"
+    ],
+    "zero-score": [
+      "language-rules-v01"
+    ],
+    "positive-score": [
+      "language-rules-v01"
+    ],
+    "file-vs-stdin": [
+      "language-cli-success-v01"
+    ],
+    "suffix-mismatch": [
+      "language-cli-success-v01"
+    ],
+    "missing-file": [
+      "language-cli-errors-v01"
+    ],
+    "invalid-utf8": [
+      "language-cli-errors-v01"
+    ],
+    "closed-stream": [
+      "language-cli-errors-v01"
+    ],
+    "leading-missing": [
+      "prices-returns-v01",
+      "prices-analysis-v01"
+    ],
+    "interior-missing": [
+      "prices-returns-v01"
+    ],
+    "all-missing": [
+      "prices-returns-v01"
+    ],
+    "zero": [
+      "prices-returns-v01"
+    ],
+    "negative": [
+      "prices-returns-v01"
+    ],
+    "opposite-correlation": [
+      "prices-charts-v01"
+    ],
+    "trace-order": [
+      "prices-charts-v01"
+    ],
+    "three-period-returns": [
+      "prices-charts-v01"
+    ],
+    "partial-vs-all-missing": [
+      "prices-fetch-v01"
+    ],
+    "datetime-conversion": [
+      "prices-fetch-v01"
+    ],
+    "adjustment-policy": [
+      "prices-fetch-v01"
+    ],
+    "offline-parity": [
+      "prices-analysis-v01"
+    ],
+    "invalid-selection": [
+      "prices-analysis-v01"
+    ],
+    "provider-failure": [
+      "prices-analysis-v01"
+    ],
+    "nonpositive-baseline": [
+      "prices-analysis-v01"
+    ]
+  },
+  "test_level": {
+    "unit": [
+      "language-basic-v01",
+      "language-rules-v01",
+      "prices-returns-v01",
+      "prices-fetch-v01"
+    ],
+    "integration": [
+      "language-cli-success-v01",
+      "language-cli-errors-v01",
+      "prices-charts-v01",
+      "prices-analysis-v01"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+APPLICATION
+Build a terminal HTTP client with saved requests, URL parameters and editable session variables.
+
+AGREED TASK PLAN
+[
+  {
+    "id": "path-parameters",
+    "module": "posting.urls",
+    "target_file": "tests/test_path_parameters.py"
+  },
+  {
+    "id": "query-pair-merge",
+    "module": "posting.urls",
+    "target_file": "tests/test_query_pair_merge.py"
+  },
+  {
+    "id": "request-filenames",
+    "module": "posting.files",
+    "target_file": "tests/test_request_filenames.py"
+  },
+  {
+    "id": "session-undo-redo",
+    "module": "posting.session_variables",
+    "target_file": "tests/test_session_undo_redo.py"
+  },
+  {
+    "id": "session-history-limit",
+    "module": "posting.session_variables",
+    "target_file": "tests/test_session_history_limit.py"
+  }
+]
+
+CURRENT TASK
+session-history-limit
+Target file: tests/test_session_history_limit.py
+Implementation module: posting.session_variables
+
+INTERFACE AND ACCEPTANCE CONTRACT
+SessionVariables retains the latest 50 editor edits. Direct script writes to values do not add history; a later editor edit snapshots that script value, including non-string types. Undoing all retained edits stops at the retained boundary. Use public set/undo/values only.
+
+CONTEXT
+Python 3.13 and pytest. Import the named module through its normal import path. No implementation or existing tests are supplied. All fixtures belong in this test file. Dependencies are supplied by the environment. Use temporary storage and mock external I/O. The task plan lists independent behavioral slices, not completed implementation steps.

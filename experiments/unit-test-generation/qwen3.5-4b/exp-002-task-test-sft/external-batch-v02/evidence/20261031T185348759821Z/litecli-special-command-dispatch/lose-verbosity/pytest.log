@@ -1,0 +1,36 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+______________________ test_parse_verbosity_and_argument ______________________
+
+    def test_parse_verbosity_and_argument():
+>       assert special.parse_special_command('demo+  two words ') == ('demo', special.Verbosity.VERBOSE, 'two words')
+E       AssertionError: assert ('demo', <Ver..., 'two words') == ('demo', <Ver..., 'two words')
+E         
+E         At index 1 diff: <Verbosity.NORMAL: 'normal'> != <Verbosity.VERBOSE: 'verbose'>
+E         Use -v to get more diff
+
+tests\test_special_command_dispatch.py:6: AssertionError
+__________________________ test_dispatch_and_unknown __________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002C040DF3BB0>
+
+    def test_dispatch_and_unknown(monkeypatch):
+        monkeypatch.setattr(special, 'COMMANDS', {})
+        calls = []
+        def handler(**kwargs):
+            calls.append(kwargs)
+            return [('done',)]
+        special.register_special_command(handler, 'demo', '', 'Demo')
+        cursor = object()
+        assert special.execute(cursor, 'DEMO+ value') == [('done',)]
+>       assert calls == [{'cur': cursor, 'arg': 'value', 'verbose': True}]
+E       AssertionError: assert [{'cur': <obj...bose': False}] == [{'cur': <obj...rbose': True}]
+E         
+E         At index 0 diff: {'cur': <object object at 0x000002C03D861F40>, 'arg': 'value', 'verbose': False} != {'cur': <object object at 0x000002C03D861F40>, 'arg': 'value', 'verbose': True}
+E         Use -v to get more diff
+
+tests\test_special_command_dispatch.py:20: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_special_command_dispatch.py::test_parse_verbosity_and_argument
+FAILED tests/test_special_command_dispatch.py::test_dispatch_and_unknown - As...
+2 failed in 0.07s

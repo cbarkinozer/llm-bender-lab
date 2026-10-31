@@ -1,0 +1,19 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_________________ test_substitution_scope_and_missing_values __________________
+
+    def test_substitution_scope_and_missing_values():
+        url = 'https://example.test/:user/::literal/:missing?q=:user#x:user'
+>       assert substitute_path_params(url, {'user': 'alice', 'literal': 'wrong'}) == (
+            'https://example.test/alice/:literal/:missing?q=:user#x:user')
+E       AssertionError: assert 'https://exam...=alice#xalice' == 'https://exam...=:user#x:user'
+E         
+E         - https://example.test/alice/:literal/:missing?q=:user#x:user
+E         ?                            ^^^^^ ^^            ^^^ -  ^^^ -
+E         + https://example.test/alice/wrong/:missing?q=alice#xalice
+E         ?                            ^ ^^^            ^^^^   ^^^^
+
+tests\test_path_parameters.py:12: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_path_parameters.py::test_substitution_scope_and_missing_values
+1 failed, 1 passed in 0.06s

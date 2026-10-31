@@ -1,3 +1,11 @@
+## Owner policy: intent-driven training, no implementation source
+
+Train the workflow from user intent through clarification, planning, file-level tasks and requirement-based tests. Repository implementation source must not appear in model inputs or targets, even if a rich audit record retains source/reference columns. Serialize only the explicit conversation-field allowlist; never serialize the whole record or concatenate audit columns. Public interface contracts may be supplied as task context or labeled as proposed design choices. Generated pytest code and necessary synthetic fixture snippets remain intended targets. The current projection preview and its regression checks are documented in experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/CONTENT-REVIEW.md.
+
+> New active format, 2026-10-31: [task-to-tests pilot](../experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/README.md). A persistent application plan and explicit interfaces are input context; each target is one complete pytest file with concise separate authored rationale. Planning targets remain separate and excluded from the first SFT. The whole-app format below is retained as history.
+
+> Current bundle: [app-core-v07](../experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/README.md). Static AI feedback is stored separately from model messages and human annotations. The owner selected AI review for this utility demo. v07 clarifies interfaces, adds discriminating controls and uses fresh portable execution/fault/order evidence; older revision descriptions below are historical.
+
 # Requirements-to-tests example format
 
 The task is a natural application request followed by a proposed interface and

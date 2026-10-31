@@ -1,0 +1,29 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+__________________________ test_dispatch_and_unknown __________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000029B30D13E10>
+
+    def test_dispatch_and_unknown(monkeypatch):
+        monkeypatch.setattr(special, 'COMMANDS', {})
+        calls = []
+        def handler(**kwargs):
+            calls.append(kwargs)
+            return [('done',)]
+        special.register_special_command(handler, 'demo', '', 'Demo')
+        cursor = object()
+>       assert special.execute(cursor, 'DEMO+ value') == [('done',)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_special_command_dispatch.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (<object object at 0x0000029B2ED81F40>, 'DEMO+ value')
+
+>   ???
+E   litecli.packages.special.main.CommandNotFound
+
+<string>:1: CommandNotFound
+=========================== short test summary info ===========================
+FAILED tests/test_special_command_dispatch.py::test_dispatch_and_unknown - li...
+1 failed, 1 passed in 0.06s

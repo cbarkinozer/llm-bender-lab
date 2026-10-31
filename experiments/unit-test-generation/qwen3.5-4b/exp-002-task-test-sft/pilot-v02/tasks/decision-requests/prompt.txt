@@ -1,0 +1,135 @@
+Write one complete Python pytest file for the current development task before its implementation. Use the application goal, explicit plan, interface contract and supplied context. Cover meaningful successful and failing behavior with deterministic offline fixtures. Do not implement application code or change the contract to make tests pass. Give concise rationale separately, then return exactly File: <target path> followed by one fenced python file. Respect the target path; do not generate the rest of the repository.
+
+APPLICATION REQUEST
+Build me a small Python decision-model toolkit for applications that need quick structured decisions rather than generated paragraphs. A caller should provide shared state, a natural-language question and options defined at runtime, including Turkish labels; support binary, choice and ordered-level decisions. Return stable typed results with the original option identifiers, probabilities, selected answer and uncertainty information, and let several questions share one state without mixing their options. Keep the scorer replaceable so I can use deterministic scores in tests and later connect a local model. Validate malformed requests, duplicate options and invalid probabilities rather than silently repairing them. Provide a configurable fallback decision when confidence, margin or answerability is insufficient, and evaluation/calibration helpers that report honest metrics, including undefined cases. Preserve Unicode and stable serialization so another process can consume results, don't train or download anything merely to test the toolkit, and document a complete local example from request through scoring to response and fallback.
+
+AGREED PLAN
+[
+  {
+    "id": "decision-requests",
+    "title": "Specify typed request validation and lossless Unicode request serialization.",
+    "depends_on": [],
+    "implementation_files": [
+      "reflexmodels/types.py",
+      "reflexmodels/protocol.py"
+    ],
+    "target_file": "tests/test_decision_requests.py",
+    "acceptance": [
+      "Preserve the original Unicode state and option identifiers.",
+      "Reject insufficient options, duplicate ordinal levels and empty questions."
+    ]
+  },
+  {
+    "id": "decision-probabilities",
+    "title": "Specify logits, probability validation and numeric uncertainty output.",
+    "depends_on": [],
+    "implementation_files": [
+      "reflexmodels/scoring.py",
+      "reflexmodels/protocol.py",
+      "reflexmodels/routing.py"
+    ],
+    "target_file": "tests/test_decision_probabilities.py",
+    "acceptance": [
+      "Logits 2 and 0 map to approximately .880797 and .119203.",
+      "Selected identifiers and strict JSON serialization remain stable.",
+      "Margin and normalized entropy have concrete numeric values.",
+      "Reject negative, nonfinite, nonnormalized or mismatched probabilities."
+    ]
+  },
+  {
+    "id": "decision-shared-state",
+    "title": "Specify independent results for multiple questions sharing one state.",
+    "depends_on": [],
+    "implementation_files": [
+      "reflexmodels/scoring.py",
+      "reflexmodels/types.py"
+    ],
+    "target_file": "tests/test_decision_shared_state.py",
+    "acceptance": [
+      "Keep choice and binary option identifiers separate.",
+      "Equal logits give .5/.5 independently for both questions."
+    ]
+  },
+  {
+    "id": "decision-fallback",
+    "title": "Specify confidence, margin and answerability gating with acceptance controls.",
+    "depends_on": [],
+    "implementation_files": [
+      "reflexmodels/routing.py"
+    ],
+    "target_file": "tests/test_decision_fallback.py",
+    "acceptance": [
+      "Low margin, low confidence and insufficient answerability trigger their own reason codes.",
+      "A confident, answerable high-margin result requires no fallback and has no reasons."
+    ]
+  },
+  {
+    "id": "decision-calibration",
+    "title": "Specify honest multiclass metrics and undefined-input failures.",
+    "depends_on": [],
+    "implementation_files": [
+      "reflexmodels/metrics.py"
+    ],
+    "target_file": "tests/test_decision_calibration.py",
+    "acceptance": [
+      "Macro-F1 includes the unpredicted class, yielding 1/3 in the provided two-label fixture.",
+      "For two correct .75-confidence predictions, NLL=-log(.75), Brier=.125 and ECE=.25.",
+      "Empty inputs and invalid bin counts raise ValueError."
+    ]
+  },
+  {
+    "id": "decision-ordinal",
+    "title": "Specify ordinal identities and deterministic declaration-order ties.",
+    "depends_on": [],
+    "implementation_files": [
+      "reflexmodels/scoring.py",
+      "reflexmodels/types.py"
+    ],
+    "target_file": "tests/test_decision_ordinal.py",
+    "acceptance": [
+      "Ordinal option IDs are the ordered level strings.",
+      "A uniquely highest medium score selects medium.",
+      "Tied nominal options choose zeta when it was declared before alpha."
+    ]
+  },
+  {
+    "id": "reflexmodels-delivery",
+    "title": "Verify documented delivery and live UI/backend integration separately.",
+    "depends_on": [],
+    "implementation_files": [
+      "README.md"
+    ],
+    "target_file": "tests/test_delivery.py",
+    "acceptance": [
+      "Production model quality and calibration on real traffic remain separate empirical evaluations."
+    ],
+    "demonstration_available": false
+  }
+]
+
+CURRENT TASK
+Specify typed request validation and lossless Unicode request serialization.
+Target test file: tests/test_decision_requests.py
+Expected implementation files: reflexmodels/types.py, reflexmodels/protocol.py
+
+INTERFACE CONTRACT
+Proposed API in `reflexmodels`:
+- `Choice(state,question,options)` uses ordered dict option_id -> Unicode label, at least two unique choices. `Binary(state,question)` uses yes/no; `Ordinal(state,question,labels)` rejects duplicate labels. Empty questions or invalid option structure raise ValueError. `SharedStateDecisions(state,{question_id:decision})` keeps questions/options separate.
+- `score_decision(decision,request_id=...,scorer=...)`: scorer(branch_text)->logit; stable softmax maps probabilities to original option IDs and selects max, ties resolved by declaration order. Branch text includes option label. `score_shared_state(batch,request_id=...,scorer=...,workers=1)` -> question_id -> result.
+- `choice_response(choice,request_id=...,probabilities={id:p})` validates exact keys, finite p in [0,1] and normalization with 1e-6 tolerance, otherwise ValueError. Returns JSON-compatible dict including selected_option and option_probabilities and confidence (selected probability). Uncertainty is exposed by fallback_gate, not added to the strict response JSON. `protocol.request_to_json(request,request_id=...)` exposes state/options; `response_to_json(response)` roundtrips same dict without Unicode loss.
+- `fallback_gate(response,min_confidence=...,min_margin=0,answerability_probability=None,min_answerability=...)` -> dict with fallback_required bool, reason_codes list. Low margin -> low_margin; insufficient answerability -> insufficient_evidence, independently of confident option.
+- `metrics.classification_metrics(labels,probabilities,ece_bins=15)` -> accuracy,macro_f1,nll,brier,ece floats. labels zero-based; probability rows same normalized class count>=2. Empty input/invalid bins raise ValueError. Macro-F1 includes all probability columns (undefined per-class F1 contributes 0). NLL uses true-class probabilities; Brier sums squared multiclass errors then averages; ECE is weighted top-label confidence/accuracy discrepancy. Exact ties use first index. For [.75,.25] and [.25,.75] with correct labels, NLL=-log(.75), Brier=.125, ECE=.25.
+Dependencies: Python standard library, pytest. Local model quality/calibration on real traffic remains an empirical/manual check.
+
+- Decisions expose public .state and .question; Choice exposes .options, Ordinal exposes .levels. Ordinal option IDs are the level strings in declaration order; score_decision returns the selected level as selected_option.
+- fallback_gate also returns confidence, margin (largest minus second-largest probability), normalized_entropy (-sum(p*ln(p))/ln(number_of_options)), accepted (inverse of fallback_required), and answerability_probability. Confidence below min_confidence adds low_confidence; no failed thresholds yields False with empty reason_codes.
+
+
+
+ACCEPTANCE CRITERIA
+- Preserve the original Unicode state and option identifiers.
+- Reject insufficient options, duplicate ordinal levels and empty questions.
+
+AVAILABLE CONTEXT
+Python and pytest. Use only the declared public boundaries. No existing application implementation is supplied. Define all synthetic helper data and fixtures in the target file; do not contact real services, load model weights or launch real training. Other plan tasks are context, not a claim that their implementation has run.
+No application implementation or existing solution tests are supplied. Write the selected test file only.

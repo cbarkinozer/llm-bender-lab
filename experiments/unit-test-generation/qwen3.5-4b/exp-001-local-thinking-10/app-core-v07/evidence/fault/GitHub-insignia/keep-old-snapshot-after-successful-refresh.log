@@ -1,0 +1,168 @@
+.......FFFF...F.F.F...................                                   [100%]
+================================== FAILURES ===================================
+___ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer] ____
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_r5_failed_refresh_preserv0')
+api_factory = <function api_factory.<locals>.make at 0x00000206114ACD60>
+endpoint = '/users/cbarkinozer'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+>       assert failed["error"]
+E       assert None
+
+tests\test_requirements.py:99: AssertionError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_r5_failed_refresh_preserv1')
+api_factory = <function api_factory.<locals>.make at 0x0000020611453060>
+endpoint = '/users/cbarkinozer/repos'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+>       assert failed["error"]
+E       assert None
+
+tests\test_requirements.py:99: AssertionError
+_ test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages] _
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_r5_failed_refresh_preserv2')
+api_factory = <function api_factory.<locals>.make at 0x0000020611452B60>
+endpoint = '/repos/cbarkinozer/alpha/languages'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+>       assert failed["error"]
+E       assert None
+
+tests\test_requirements.py:99: AssertionError
+________ test_r5_failed_refresh_preserves_complete_snapshot[/graphql] _________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_r5_failed_refresh_preserv3')
+api_factory = <function api_factory.<locals>.make at 0x000002061146A2A0>
+endpoint = '/graphql'
+
+    @pytest.mark.parametrize("endpoint", ["/users/cbarkinozer", "/users/cbarkinozer/repos", "/repos/cbarkinozer/alpha/languages", "/graphql"])
+    async def test_r5_failed_refresh_preserves_complete_snapshot(tmp_path, api_factory, endpoint):
+        api, _ = api_factory(token="secret")
+        path = tmp_path / "snapshot.json"
+        service = DashboardService(api, path, clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        broken, _ = api_factory(token="secret", failure=lambda r: r.url.path == endpoint)
+        service.api = broken
+        failed = await service.refresh()
+>       assert failed["error"]
+E       assert None
+
+tests\test_requirements.py:99: AssertionError
+____________ test_r5_cache_write_failure_preserves_memory_and_disk ____________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_r5_cache_write_failure_pr0')
+api_factory = <function api_factory.<locals>.make at 0x000002061152C5E0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000206114CC830>
+
+    async def test_r5_cache_write_failure_preserves_memory_and_disk(tmp_path, api_factory, monkeypatch):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        original_bytes = service.cache_path.read_bytes()
+        service.clock = lambda: NOW + timedelta(hours=1)
+        def fail(data):
+            raise OSError("disk full")
+        monkeypatch.setattr(service, "_save", fail)
+        result = await service.refresh()
+>       assert result["error"]
+E       assert None
+
+tests\test_requirements.py:138: AssertionError
+_________ test_r5_successful_refresh_replaces_snapshot_and_timestamp __________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_r5_successful_refresh_rep0')
+api_factory = <function api_factory.<locals>.make at 0x00000206141979C0>
+
+    async def test_r5_successful_refresh_replaces_snapshot_and_timestamp(tmp_path, api_factory):
+        api, _ = api_factory()
+        service = DashboardService(api, tmp_path/'snapshot.json', clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())['snapshot'])
+        service.clock = lambda: NOW + timedelta(hours=1)
+        handler = api.transport.handler
+        def changed(request):
+            response = handler(request)
+            if request.url.path.endswith('/repos') and request.url.params.get('page') != '2':
+                payload = response.json()
+                payload[0]['stargazers_count'] = 25
+                return httpx.Response(200,json=payload,headers=response.headers)
+            return response
+        service.api = GitHubClient(transport=httpx.MockTransport(changed))
+        result = await service.refresh()
+        assert result['error'] is None
+>       assert result['snapshot']['fetched_at'] == (NOW + timedelta(hours=1)).isoformat()
+E       AssertionError: assert '2026-10-30T12:00:00+00:00' == '2026-10-30T13:00:00+00:00'
+E         
+E         - 2026-10-30T13:00:00+00:00
+E         ?             ^
+E         + 2026-10-30T12:00:00+00:00
+E         ?             ^
+
+tests\test_requirements.py:182: AssertionError
+___________ test_graphql_http_200_errors_preserve_previous_snapshot ___________
+
+tmp_path = WindowsPath('C:/Users/barkin/AppData/Local/Temp/pytest-of-barkin/pytest-65/test_graphql_http_200_errors_p0')
+api_factory = <function api_factory.<locals>.make at 0x00000206141DB600>
+
+    async def test_graphql_http_200_errors_preserve_previous_snapshot(tmp_path, api_factory):
+        api, requests = api_factory(token="secret-token")
+        service = DashboardService(api, tmp_path / "snapshot.json", clock=lambda: NOW)
+        old = copy.deepcopy((await service.refresh())["snapshot"])
+        service.clock = lambda: NOW + timedelta(hours=1)
+        handler = api.transport.handler
+        def broken(request):
+            if request.url.path == "/graphql":
+                return httpx.Response(200, json={"errors": [{"message": "secret-token internal"}]})
+            return handler(request)
+        service.api = GitHubClient(token="secret-token", transport=httpx.MockTransport(broken))
+        result = await service.refresh()
+        assert result["snapshot"] == old
+>       assert "GraphQL" in result["error"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: argument of type 'NoneType' is not iterable
+
+tests\test_snapshot_contract.py:34: TypeError
+=========================== short test summary info ===========================
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]
+FAILED tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]
+FAILED tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk
+FAILED tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp
+FAILED tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot
+7 failed, 31 passed in 3.24s

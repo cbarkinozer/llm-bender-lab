@@ -1,0 +1,92 @@
+{
+  "application": "cryptocurrency-analyser",
+  "goal": "Build me a small local Python cryptocurrency research app where I can choose coin tickers and a date range, fetch historical prices, compare their cumulative returns and correlations, and view charts and a concise data summary in a browser. Start with a working price-comparison workflow rather than every possible trading indicator or a trading bot. Calculate returns relative to the first observed price for each series, preserve missing observations instead of inventing prices, omit a coin only when its whole series is missing, and label the data source, timestamps and unavailable results clearly. Let me also run it with a saved sample dataset when offline. A provider failure should show a useful error rather than fabricated zero returns, and malformed selections or unusable baselines should be explained. Keep fetching, calculations and visualization separate enough to test with deterministic fixtures, never place trades or publish posts, and make the web workflow and setup straightforward on my Mac without paid services.",
+  "tasks": [
+    {
+      "id": "prices-returns",
+      "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+      "depends_on": [],
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_cumulative_returns.py",
+      "acceptance": [
+        "100,150,75 yields 0,.5,-.25, not daily changes.",
+        "Different series can have different first-observed dates.",
+        "Missing observations and entirely missing columns stay missing.",
+        "Dates and input values are preserved; nonpositive baselines are rejected."
+      ]
+    },
+    {
+      "id": "prices-charts",
+      "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+      "depends_on": [
+        "prices-returns"
+      ],
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_price_charts.py",
+      "acceptance": [
+        "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+        "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+        "Three observations discriminate daily changes from cumulative returns."
+      ]
+    },
+    {
+      "id": "prices-fetch",
+      "title": "Specify the offline-testable adjusted-price provider boundary.",
+      "depends_on": [],
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_price_fetch.py",
+      "acceptance": [
+        "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+        "Only the Adj Close frame is returned.",
+        "All-missing tickers are removed; partially missing prices are preserved."
+      ]
+    },
+    {
+      "id": "prices-analysis",
+      "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+      "depends_on": [
+        "prices-returns",
+        "prices-fetch",
+        "prices-charts"
+      ],
+      "implementation_files": [
+        "price_workflow.py"
+      ],
+      "target_file": "tests/test_price_analysis.py",
+      "acceptance": [
+        "Normalize symbols and keep provider/CSV calculations equivalent.",
+        "Expose source labels, observed date bounds, correlation and omitted symbols.",
+        "First-observed baselines work when the first row is missing.",
+        "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+      ]
+    },
+    {
+      "id": "prices-web-delivery",
+      "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+      "depends_on": [
+        "prices-analysis"
+      ],
+      "implementation_files": [
+        "web_app.py",
+        "README.md"
+      ],
+      "target_file": "tests/test_web_workflow.py",
+      "acceptance": [
+        "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+        "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+        "Check actual browser behavior and Mac startup separately."
+      ],
+      "demonstration_available": false
+    }
+  ],
+  "unresolved": [
+    "Browser wiring, live-provider display and retry/backoff remain manual/future work."
+  ],
+  "context_policy": "Interfaces are agreed; implementations may not exist yet. No completion or tool execution is implied."
+}

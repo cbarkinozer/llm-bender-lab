@@ -36,6 +36,12 @@ class PrecheckTests(unittest.TestCase):
         self.assertTrue(result)
         self.assertTrue(all(f['status']=='allowed' for f in result))
 
+    def test_historical_facade_framing_requires_assessment(self):
+        for text in ['a new public facade', 'a new shared facade', 'new public `tiny_model`']:
+            findings=scan_record({'messages':[{'role':'assistant','content':text}]})
+            self.assertTrue(any(f['status']=='assess' for f in findings))
+        self.assertEqual(scan_record({'messages':[{'role':'assistant','content':'Create a new session on login.'}]}),[])
+
     def test_public_api_identifiers_are_distinguished_from_source_paths(self):
         row={'messages':[{'role':'assistant','content':'Use `reflexmodels.Choice`.'}],
              'interface':{'imports':[{'module':'reflexmodels','name':'Choice'}]}}

@@ -1,0 +1,2017 @@
+{
+  "results": [
+    {
+      "repo": "GitHub-insignia",
+      "fault": "wrong-star-total",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r1_filter_calculation_and_byte_shares",
+        "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+        "tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/wrong-star-total.log",
+      "mutation_sha256": "6eb3b6b7134bcc6835558d723b50f47349bec622788718546710e08bbde1991c",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\wrong-star-total\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/wrong-star-total.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "wrong-sort-order",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r2_sort_stars_activity_ties_and_invalid_sort"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/wrong-sort-order.log",
+      "mutation_sha256": "2fe787148aca253f335129a264f900db1c8125a1dce2b70d416b1819c4a02a12",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\wrong-sort-order\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/wrong-sort-order.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "shift-calendar-window",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r3_utc_leap_date_and_year_splitting"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/shift-calendar-window.log",
+      "mutation_sha256": "1ca4eafddd97583cd771ac99095ae753ac0915953102f0c6a72eb92c3dfb7248",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\shift-calendar-window\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/shift-calendar-window.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "drop-pagination-link",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r4_pagination_and_filter_before_language_requests",
+        "tests/test_requirements.py::test_r6_fastapi_and_mcp_share_service",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_snapshot_contract.py::test_pagination_cannot_forward_credentials_to_another_host",
+        "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool",
+        "tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/drop-pagination-link.log",
+      "mutation_sha256": "fc2e131fed1d64e2911fb4e5264ef873d370155494f9e801956162be71cdfacb",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\drop-pagination-link\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/drop-pagination-link.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "skip-cache-write",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r5_cache_read_restart_and_manual_refresh",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_snapshot_contract.py::test_authenticated_snapshot_survives_restart"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/skip-cache-write.log",
+      "mutation_sha256": "476b4f48c24a5b354e76fc5278ae2549c28f4058b2fda358ed8fcef3f04bfa5e",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\skip-cache-write\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/skip-cache-write.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "mcp-summary-has-stale-timestamp",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_snapshot_contract.py::test_http_mcp_transport_and_refresh_tool",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[missing-reason-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[profile-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[metrics-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[repositories-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[scope-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[window-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[fetched-at-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[language-percent-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-days-<lambda>]",
+        "tests/test_snapshot_contract.py::test_structurally_invalid_cache_is_rejected[activity-count-<lambda>]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/mcp-summary-has-stale-timestamp.log",
+      "mutation_sha256": "e9f235b35f3ef9877dd848c90bee3104e85f3162fad70ab5f5b9c4b80d471c75",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\mcp-summary-has-stale-timestamp\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/mcp-summary-has-stale-timestamp.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "timestamp-changes-on-failed-refresh",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/timestamp-changes-on-failed-refresh.log",
+      "mutation_sha256": "6d278c0636898f49713d4736a9e1323e9d8ad555ab1898158dcc23c6ebe6f101",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\timestamp-changes-on-failed-refresh\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/timestamp-changes-on-failed-refresh.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "memory-replaced-before-cache-save",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/memory-replaced-before-cache-save.log",
+      "mutation_sha256": "14e5d37d97594dba2cb587c78340f41410a44bd16a6277672d089a74b5543716",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\memory-replaced-before-cache-save\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/memory-replaced-before-cache-save.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "disk-overwritten-on-failed-refresh",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/disk-overwritten-on-failed-refresh.log",
+      "mutation_sha256": "b552ef5f62b8c8d484feaed8812667204cc5852305e4ef282f82298d5e9ef6ff",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\disk-overwritten-on-failed-refresh\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/disk-overwritten-on-failed-refresh.txt"
+    },
+    {
+      "repo": "GitHub-insignia",
+      "fault": "keep-old-snapshot-after-successful-refresh",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/users/cbarkinozer/repos]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/repos/cbarkinozer/alpha/languages]",
+        "tests/test_requirements.py::test_r5_failed_refresh_preserves_complete_snapshot[/graphql]",
+        "tests/test_requirements.py::test_r5_cache_write_failure_preserves_memory_and_disk",
+        "tests/test_requirements.py::test_r5_successful_refresh_replaces_snapshot_and_timestamp",
+        "tests/test_snapshot_contract.py::test_graphql_http_200_errors_preserve_previous_snapshot"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/keep-old-snapshot-after-successful-refresh.log",
+      "mutation_sha256": "89c488156a678a3fab327d61cb2654baae08e184e2751157745777468a9227c4",
+      "test_snapshot": {
+        "tests/conftest.py": "7acca81ecd23e03f86d3b1e0a09d0cd1096c372540e8bb847cb5a37a1bb9a19c",
+        "tests/test_requirements.py": "9ef584298e09e1cae00783b804190720fdc925a0b485084129f3702fe50612ea",
+        "tests/test_snapshot_contract.py": "6ee70e0c002f1177568c428368afd651c309905ef97f899cb6e61da344be61f1"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\GitHub-insignia\\keep-old-snapshot-after-successful-refresh\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/GitHub-insignia/keep-old-snapshot-after-successful-refresh.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "ignore-reachability",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_uncalled_assertion_is_not_runtime_evidence",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[@pytest.mark.skip(reason=\"fixture\")\\ndef test_case():\\n    assert sut() == 42-expected0]",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    if sut() == 0:\\n        assert sut() == 42-expected1]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[import pytest\\n@pytest.mark.skip(reason=\"fixture\")\\ndef test_skip():\\n    assert sut() == 42-passed]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-reachability.log",
+      "mutation_sha256": "d3d9b91b221267031a390b02d28f0cbf32a62d19bb96b8e6b911788beae61420",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\ignore-reachability\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-reachability.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "weak-is-strong",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_oracle_strength_is_explicit[result = sut()\\nassert result is not None-WEAK]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/weak-is-strong.log",
+      "mutation_sha256": "4ece44451fc51a7bc0f8d1565bf95609a65d9c8f4c0d1efe09c1907bf48ce696",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\weak-is-strong\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/weak-is-strong.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "ignore-suite-failure",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_wrong_exact_assertion_is_strong_but_not_success",
+        "tests/test_core.py::test_pytest_execution_controls_reachability_and_success[def test_case():\\n    assert sut() == 43-expected2]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-suite-failure.log",
+      "mutation_sha256": "84fcc4458ff7ea4ca5d4bdbc42b8fb366b576b7e2734fb4395b273932f7476ae",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\ignore-suite-failure\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/ignore-suite-failure.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "collapse-execution-outcomes",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_(:-collection_error]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+        "tests/test_workflow.py::test_passing_empty_or_skipped_suite_is_not_useful[# no tests-collection_error]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/collapse-execution-outcomes.log",
+      "mutation_sha256": "a853eeab0927ec78a161957e8bd951fc86a763442bee51afa1880faefa0f9430",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\collapse-execution-outcomes\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/collapse-execution-outcomes.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "observed-instead-of-eligible-denominator",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/observed-instead-of-eligible-denominator.log",
+      "mutation_sha256": "627188c45d678355de9a93db217f45c412ec96b1da8bf2798ec64339ceb0d148",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\observed-instead-of-eligible-denominator\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/observed-instead-of-eligible-denominator.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "conditional-uses-eligible",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_mutation_denominators_are_named_and_not_interchanged"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/conditional-uses-eligible.log",
+      "mutation_sha256": "a9d7df89963ffe087a8fba48597ee32674cb3d7bcb3f85afd41b24eae506589b",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\conditional-uses-eligible\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/conditional-uses-eligible.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "manifest-loses-seed",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_manifest_roundtrip"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/manifest-loses-seed.log",
+      "mutation_sha256": "f5fac7267a2ce2593a86b70ac87dcf483d04aed6ac30139ec709ae89b23a628a",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\manifest-loses-seed\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/manifest-loses-seed.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "break-valid-module-header",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/break-valid-module-header.log",
+      "mutation_sha256": "00dc8ad8110037d32131fc7318d4cdaf9a42ebcd51e26b4cabe0533fe82bcec0",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\break-valid-module-header\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/break-valid-module-header.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "raw-generation-overwritten-by-instrumentation",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_ok():\\n    assert sut() == 42-passed]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wrong():\\n    assert sut() == 43-runtime_failure]",
+        "tests/test_workflow.py::test_runner_retains_raw_text_and_distinct_outcomes[def test_wait():\\n    while True: pass-timeout]",
+        "tests/test_workflow.py::test_valid_docstring_and_future_import_survive_instrumentation"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/raw-generation-overwritten-by-instrumentation.log",
+      "mutation_sha256": "4b5975ba9871544faa51ad3730cf093d9a2d40b566696769421ff1d4d331d48b",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\raw-generation-overwritten-by-instrumentation\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/raw-generation-overwritten-by-instrumentation.txt"
+    },
+    {
+      "repo": "slm_test_generation",
+      "fault": "missing-observations-erased",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_aggregation_keeps_eligible_denominator_and_missingness"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/missing-observations-erased.log",
+      "mutation_sha256": "f3aed9bf810404325dfb3d7f5f9d7a61a96fcb78bdfd5a67359e2c1855cc4cf4",
+      "test_snapshot": {
+        "tests/conftest.py": "4586b1c2fa64f2549433bab19cf9c2c935b66bb24afa7f48168d6353becf73ad",
+        "tests/test_core.py": "0a5fa34a85935b26550eb21b5cefba6159bad8e9ae06ca909f794d884c210483",
+        "tests/test_workflow.py": "bdc6dbb925e1a670ce06cbde09c2f0522a896d74d286c28319b9cbffab4705a3"
+      },
+      "reference_snapshot": {
+        "reference/benchmark_workflow.py": "c3e76b9fe1ae66cd5d08e93038f3714ac58da6fae6c17b9781295507dd7b852f",
+        "reference/oracle_analysis.py": "c287aface39a7cfd61219f5ad5e689680800bc45483e4ca0e20bcbbd9f69deb8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\slm_test_generation\\missing-observations-erased\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/slm_test_generation/missing-observations-erased.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "missing-metrics-become-zero",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/missing-metrics-become-zero.log",
+      "mutation_sha256": "f9d22453fd78aa1e8732214bc99ba9295d990f179f2860c1301aa62b49299cb4",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\missing-metrics-become-zero\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/missing-metrics-become-zero.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "allow-overwrite",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/allow-overwrite.log",
+      "mutation_sha256": "24867f4a2de6b27b4386007eb0cac06dde1a47a9950f0610c69adf5b0adfa2fb",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\allow-overwrite\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/allow-overwrite.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "normalize-away-invalid-conversation",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_malformed_data_fails_before_backend[missing-content]",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[wrong-role]",
+        "tests/test_core.py::test_malformed_data_fails_before_backend[unknown-split]",
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations",
+        "tests/test_workflow.py::test_invalid_preflight_never_invokes_trainer"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/normalize-away-invalid-conversation.log",
+      "mutation_sha256": "4bd60390d0153cb7a169a6116402c28a413f2c12c910742ed250a3b57cc06027",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\normalize-away-invalid-conversation\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/normalize-away-invalid-conversation.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "resolved-config-loses-seed",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/resolved-config-loses-seed.log",
+      "mutation_sha256": "e9518d352898740ff19b6cc8e04741345ad14cd0eb6e5506f6d2c809fc929d5a",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\resolved-config-loses-seed\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/resolved-config-loses-seed.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "empty-adapter-artifact",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/empty-adapter-artifact.log",
+      "mutation_sha256": "e8e1270a001e5eafd83d1797b0b0183017b4e1cf3532e96cc23fd2e1f8f56cc5",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\empty-adapter-artifact\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/empty-adapter-artifact.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "backend-failure-claims-success",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_failure_is_recorded_without_success_or_credential_leak"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/backend-failure-claims-success.log",
+      "mutation_sha256": "177d3d3cf568e8940946c9f38d46edc82e07b7c09691d470f9159ad8a08a2ba5",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\backend-failure-claims-success\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/backend-failure-claims-success.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "new-run-corrupts-older-adapter",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/new-run-corrupts-older-adapter.log",
+      "mutation_sha256": "75447b0a19717b5014df00118a7362bfabb70d9f11413a7326da02afe96547df",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\new-run-corrupts-older-adapter\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/new-run-corrupts-older-adapter.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "trainer-receives-heldout",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/trainer-receives-heldout.log",
+      "mutation_sha256": "680086feed637729522513f778d30894c76ee07aebc6d564e051d018cd546d48",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\trainer-receives-heldout\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/trainer-receives-heldout.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "evaluator-receives-training",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/evaluator-receives-training.log",
+      "mutation_sha256": "ac4865affc9e714afccdb348b102f7fb8d7d42628fc12bc5c54a4b2cd7156804",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\evaluator-receives-training\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/evaluator-receives-training.txt"
+    },
+    {
+      "repo": "llm-bender-lab",
+      "fault": "zero-metrics-become-unavailable",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_run_directories_are_distinct_and_never_overwritten"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/zero-metrics-become-unavailable.log",
+      "mutation_sha256": "476e1b4a8f18e744a8941e33f6b94c0976a0a823bdb3f2231b1ef25d0fcbc4b8",
+      "test_snapshot": {
+        "tests/conftest.py": "82d7695017cd69cbf65d1add6e64cf5606cf47b02a640875ba1e02fe9c9a7625",
+        "tests/test_core.py": "5be23c508b109cb7d4e54fd10a5b4d991fa21ad422dfd7a717e64c80195ea703",
+        "tests/test_workflow.py": "6a7119ce4cd3b30f4067a2ca282877c9f18a0afb1a7d10da7234aa9e12d2a8a5"
+      },
+      "reference_snapshot": {
+        "reference/experiment_workflow.py": "5b33b2aa97dc280f82d86c244922f1802a04f7e5459c7e757d17a55dcbf5c5c0"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\llm-bender-lab\\zero-metrics-become-unavailable\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/llm-bender-lab/zero-metrics-become-unavailable.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "f1-equals-accuracy",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_metrics_include_unpredicted_class"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/f1-equals-accuracy.log",
+      "mutation_sha256": "755c5cc5ca513c3f3d1a8cbfa663a08405b9b410d726a9f41fefe4f22eb079e9",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\f1-equals-accuracy\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/f1-equals-accuracy.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "ignore-margin",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_low_margin_requires_fallback"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/ignore-margin.log",
+      "mutation_sha256": "6880f7ea0c263ecb87a84cac05c2ee45efcba496291213014e6fbdde28f175b0",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\ignore-margin\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/ignore-margin.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "request-loses-original-option-ids",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_runtime_unicode_options_roundtrip"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/request-loses-original-option-ids.log",
+      "mutation_sha256": "ebb1114f9c904987f31c01fbbb9238fc0a34df78086f6d4932161a78160c1e9f",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\request-loses-original-option-ids\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/request-loses-original-option-ids.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "select-wrong-option",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_logits_map_to_original_option_ids",
+        "tests/test_core.py::test_ordinal_scoring_and_declaration_order_ties"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/select-wrong-option.log",
+      "mutation_sha256": "a11682b449f384156635d8dd5739e327acf55c57748da57df4b55a9f3b549ecc",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\select-wrong-option\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/select-wrong-option.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "accept-invalid-probabilities",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities0]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities1]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities2]",
+        "tests/test_core.py::test_invalid_probabilities_are_rejected[probabilities3]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/accept-invalid-probabilities.log",
+      "mutation_sha256": "9cbb25f1336eaed1dea830222fb2838ed084c54d01290f58da71709b6e7af348",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\accept-invalid-probabilities\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/accept-invalid-probabilities.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "mix-shared-question-options",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_shared_state_keeps_question_results_separate"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/mix-shared-question-options.log",
+      "mutation_sha256": "f1fe1a770b0f120537106605347da28e2d4510a0e3dbe94086cab9580c89d8dc",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\mix-shared-question-options\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/mix-shared-question-options.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "always-fallback",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/always-fallback.log",
+      "mutation_sha256": "8e3956237c302c6ebc9cede8352d4bd5545108c92fc97476562e43bed44cb4bd",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\always-fallback\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/always-fallback.txt"
+    },
+    {
+      "repo": "ReflexModels",
+      "fault": "ignore-confidence",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/ignore-confidence.log",
+      "mutation_sha256": "32279b1bf2d5f026d2eba83791c615699032d96f82b2d78518868711683db3bb",
+      "test_snapshot": {
+        "tests/test_core.py": "7d2c2c1332959ed84a2892a2b105132f63453f52df6a6669cd681f72c17e0894"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\ReflexModels\\ignore-confidence\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ReflexModels/ignore-confidence.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "ignore-rule-weights",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_weighted_evidence_not_match_count"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/ignore-rule-weights.log",
+      "mutation_sha256": "02b7e3f8213cc89e4fe09160dff1e2f4238db59ed98518acfbd73148608ef03a",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\ignore-rule-weights\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/ignore-rule-weights.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "extra-cli-output",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_cli_file_prints_one_label",
+        "tests/test_core.py::test_cli_stdin_prints_one_label"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/extra-cli-output.log",
+      "mutation_sha256": "e0d54d135d62c5152ad334e57074e0ea49a31047fee83bc0336dfbbeef660ac7",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\extra-cli-output\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/extra-cli-output.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "empty-input-is-python",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_unknown_without_code_evidence[]",
+        "tests/test_core.py::test_unknown_without_code_evidence[ \\n\\t ]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/empty-input-is-python.log",
+      "mutation_sha256": "8cc0f3931bdb476a29bd154d5ac2c05d95d2eab839b38786a395c14e7fe3bf8c",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\empty-input-is-python\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/empty-input-is-python.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "swap-starter-language-label",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_clear_language_markers[def compute_total(prices):\\n    return sum(prices)\\n-py]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/swap-starter-language-label.log",
+      "mutation_sha256": "2c1c0f092128217a53409e13c98ade8bfd7f10c8629ec0359db90c2778e137b6",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\swap-starter-language-label\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/swap-starter-language-label.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "swallow-input-errors",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_missing_file_exits_2_with_diagnostic",
+        "tests/test_core.py::test_closed_stdin_exits_1_with_processing_error",
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/swallow-input-errors.log",
+      "mutation_sha256": "8bebc56f440e840af5cc4febf9cee059e5f71f872f8b8f3adaa039bca7b1ef64",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\swallow-input-errors\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/swallow-input-errors.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "alphabetical-instead-of-declaration-tie",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_equal_scores_use_first_declared_label"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/alphabetical-instead-of-declaration-tie.log",
+      "mutation_sha256": "b7256ae14aa52b2103427fd78b64c84b0de53ef93b20ad36efbd101079fc9a6d",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\alphabetical-instead-of-declaration-tie\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/alphabetical-instead-of-declaration-tie.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "cli-guesses-from-filename-suffix",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_cli_file_prints_one_label",
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/cli-guesses-from-filename-suffix.log",
+      "mutation_sha256": "2a289ff106b58f7b9738bc4cec141243c08fbe22ab52d1e8825b63967d1e1d0a",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\cli-guesses-from-filename-suffix\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/cli-guesses-from-filename-suffix.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "ignore-invalid-utf8",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_invalid_utf8_file_exits_1_with_processing_error"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/ignore-invalid-utf8.log",
+      "mutation_sha256": "8f757fc7164f29037e8a773416bf0f24a1c546fbdc0a632f9a1fd19fec607d3a",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\ignore-invalid-utf8\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/ignore-invalid-utf8.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "cache-rules-at-import-time",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_weighted_evidence_not_match_count",
+        "tests/test_core.py::test_equal_scores_use_first_declared_label",
+        "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/cache-rules-at-import-time.log",
+      "mutation_sha256": "0c427ef6e3de78426e31505db8c7c2ce5d01ebcb949027301e209a84693403d6",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\cache-rules-at-import-time\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/cache-rules-at-import-time.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "positive-score-needs-extra-threshold",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_rule_configuration_is_read_on_every_call",
+        "tests/test_core.py::test_any_positive_rule_score_qualifies[a_single_marker-one]"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/positive-score-needs-extra-threshold.log",
+      "mutation_sha256": "eba18fe16c66189a11770e9732c008f64a35ea4ed617796f4466fbb2e1a47aac",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\positive-score-needs-extra-threshold\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/positive-score-needs-extra-threshold.txt"
+    },
+    {
+      "repo": "codelang-detect",
+      "fault": "print-traceback-on-input-error",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_missing_file_exits_2_with_diagnostic"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/print-traceback-on-input-error.log",
+      "mutation_sha256": "6b92f4e8fa49260fbd890d0a625792b78d434e819dca079fb3d24fad37d4611b",
+      "test_snapshot": {
+        "tests/test_core.py": "258913775da899a6fafe0968aa9e1b574adbbb94c4d0a231d9c62b0b901ca864"
+      },
+      "reference_snapshot": {},
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\codelang-detect\\print-traceback-on-input-error\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/codelang-detect/print-traceback-on-input-error.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "leak-token",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/leak-token.log",
+      "mutation_sha256": "e655b63eba7f54fc20cc31c069fa30d8ef800f151b99fa5513225c4162f38b51",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\leak-token\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/leak-token.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "never-clean-checkout",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "tests/test_workflow.py::test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/never-clean-checkout.log",
+      "mutation_sha256": "a73c30912f1eebaf094e9e4d0ee67388435026c2dee77a8f0eafe659b5a5a978",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\never-clean-checkout\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/never-clean-checkout.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "ignore-requested-branch",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ignore-requested-branch.log",
+      "mutation_sha256": "bb72ac4dec7d169f0debbadabd83895be93482b580f980de618e9e9460b0e3b4",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\ignore-requested-branch\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ignore-requested-branch.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "ignore-gitignore-policy",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ignore-gitignore-policy.log",
+      "mutation_sha256": "31a38174b563b652eae3f417e0c10060aeaf37d4af200d4ccf7e85226a6de94f",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\ignore-gitignore-policy\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ignore-gitignore-policy.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "omit-dependency-summary",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_requirements_are_included_in_dependency_context",
+        "tests/test_core.py::test_pyproject_dependencies_are_listed"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/omit-dependency-summary.log",
+      "mutation_sha256": "23994482cec270a9cf843e11717873d7276918b3bfe6737217824c8e18ddcd87",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\omit-dependency-summary\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/omit-dependency-summary.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "ignore-line-limit",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_shared_operation_keeps_branch_subfolder_and_safe_file_scope"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ignore-line-limit.log",
+      "mutation_sha256": "280847acc320d85c8d842094a98ece0e6be999b2489b0722d71b1c9dde117ea3",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\ignore-line-limit\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ignore-line-limit.txt"
+    },
+    {
+      "repo": "repo-context",
+      "fault": "ui-does-not-use-shared-operation",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_cli_and_ui_call_the_shared_operation"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ui-does-not-use-shared-operation.log",
+      "mutation_sha256": "0e4e0416c31a1aa5bc7e9d89570524bf6b813d98b778d6269bbd1c656bc24c78",
+      "test_snapshot": {
+        "tests/conftest.py": "8dcb4ca7b1246540bd4e67941c4a0095e71d6de85ea64a812e00b26a1780303c",
+        "tests/test_core.py": "a846f25ba4cb92c73061377d03926de4a24cfb75f10ab015085e1f9665b1665b",
+        "tests/test_workflow.py": "051e0eb001ecf37efbf58d8903d7525547f3acb47a846fe99dbc54ee3c43343a"
+      },
+      "reference_snapshot": {
+        "reference/context_workflow.py": "744837ab7b0027768b6633cc4b73e9f3d682627b643d82f3ee90f89010deeb8f"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\repo-context\\ui-does-not-use-shared-operation\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/repo-context/ui-does-not-use-shared-operation.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "remove-causal-mask",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_causal_outputs_cannot_observe_future_tokens"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/remove-causal-mask.log",
+      "mutation_sha256": "ab2575a59cc5de6bfc11ed69a5c9f450c9fab9bada96456cd28bc6e97614506c",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\remove-causal-mask\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/remove-causal-mask.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "rotate-head-axis",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_normalization_and_rope.py::test_rope_position_zero_is_identity_for_every_head",
+        "tests/test_normalization_and_rope.py::test_rope_rotates_sequence_axis_not_head_axis"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/rotate-head-axis.log",
+      "mutation_sha256": "c01400f32b071964eaa77381ff21e67219163e1a6961e5349eed4ceac63aa1b9",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\rotate-head-axis\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/rotate-head-axis.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "wrong-logit-vocabulary-dimension",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_composed_model_shapes_gradients_and_invalid_dimensions",
+        "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/wrong-logit-vocabulary-dimension.log",
+      "mutation_sha256": "b101d79644202f268d98c1e8113ba86675864a32c3ea32f5a5035ff89c149152",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\wrong-logit-vocabulary-dimension\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/wrong-logit-vocabulary-dimension.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "rmsnorm-ignores-learned-scale",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_normalization_and_rope.py::test_rmsnorm_uses_last_dimension_and_learned_scale",
+        "tests/test_normalization_and_rope.py::test_rmsnorm_backpropagates_expected_scale_gradient"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/rmsnorm-ignores-learned-scale.log",
+      "mutation_sha256": "c075d2da560bfd5fd051f4e81054ccfa7847a69c9803996d0ad6ca28551d2a13",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\rmsnorm-ignores-learned-scale\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/rmsnorm-ignores-learned-scale.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "checkpoint-loses-weights",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_checkpoint_roundtrip_preserves_all_logits"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/checkpoint-loses-weights.log",
+      "mutation_sha256": "9051dab45cd067d58f04d44667964ed195ae0a7fcebe333037219bfbab251d88",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\checkpoint-loses-weights\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/checkpoint-loses-weights.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "generation-exceeds-token-budget",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_deterministic_cpu_training_and_bounded_generation",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[0-expected0]",
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+        "tests/test_workflow.py::test_negative_generation_budget_is_rejected"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/generation-exceeds-token-budget.log",
+      "mutation_sha256": "7479a51901795107b852e149ec0469352d82b7302bd4f345eaa056a97f33ae8e",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\generation-exceeds-token-budget\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/generation-exceeds-token-budget.txt"
+    },
+    {
+      "repo": "miniature-llms",
+      "fault": "constant-generated-tokens",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_greedy_generation_follows_unique_logit_maxima[3-expected1]",
+        "tests/test_workflow.py::test_negative_generation_budget_is_rejected"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/constant-generated-tokens.log",
+      "mutation_sha256": "aa8cecb10445bf239958a0fd03fd816c6a9a57de8186b24f5ff3f870b39469ce",
+      "test_snapshot": {
+        "tests/test_normalization_and_rope.py": "045df31faf832028c31360c61ddb0912b6d538b4b53c93c2741a5e93388a7fa5",
+        "tests/test_workflow.py": "7d92535592bc4fa402ba7ea4cc8105d25ec57f0c02fc5f2a3fc2ca5c317906d3"
+      },
+      "reference_snapshot": {
+        "reference/tiny_model.py": "78f83639296320a76c3b4f4ceaaa2627eab16be8a0a243436c3f28641043afc8"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\constant-generated-tokens\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/miniature-llms/constant-generated-tokens.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "apply-cancelled-result",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied",
+        "tests/test_workflow.py::test_idle_timer_resets_and_active_operations_prevent_unload"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/apply-cancelled-result.log",
+      "mutation_sha256": "9f3ea0674836d587aefca87c44b8e8ef6031ab80845e6e8b3a12ea64ba2ed56e",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\apply-cancelled-result\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/apply-cancelled-result.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "never-unload-idle-model",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_clear_removes_derived_results_and_model_idle_boundary",
+        "tests/test_workflow.py::test_idle_timer_resets_and_active_operations_prevent_unload"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/never-unload-idle-model.log",
+      "mutation_sha256": "2ee534e1c8b0cb9ee8e67a7f8a340070d95d3b45360dda30b59a0682581e7cb2",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\never-unload-idle-model\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/never-unload-idle-model.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "fetch-wrong-account",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_explicit_fetch_preserves_range_and_reports_coverage"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/fetch-wrong-account.log",
+      "mutation_sha256": "3395f6cee4f1eacf9bad8021a8d4843f53ff9d6dd8898b20e763bab384043268",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\fetch-wrong-account\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/fetch-wrong-account.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "ignore-sender-filter",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/ignore-sender-filter.log",
+      "mutation_sha256": "353572addecb26579a56fc8b07536dc33a3de94453a35a171e154e58f79d7774",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\ignore-sender-filter\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/ignore-sender-filter.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "send-entire-inbox-to-model",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/send-entire-inbox-to-model.log",
+      "mutation_sha256": "7ced6f0cd9a4aafdc68206c1fc3d8fc6299739ff5e50c4936ef4f03c0649dc54",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\send-entire-inbox-to-model\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/send-entire-inbox-to-model.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "clear-keeps-derived-result",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_cancelled_or_previous_account_result_cannot_be_applied",
+        "tests/test_workflow.py::test_clear_removes_derived_results_and_model_idle_boundary"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/clear-keeps-derived-result.log",
+      "mutation_sha256": "8d12e662c45a3d4c7554c5a4daecb6555ae9c097d3adc054a04806813bd9bef1",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\clear-keeps-derived-result\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/clear-keeps-derived-result.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "always-reject-summary",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_core.py::test_summary_quote_cannot_be_borrowed_from_another_email"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/always-reject-summary.log",
+      "mutation_sha256": "eb0bf17706fbc58343b96baa6d24b7ca6fbc975ffa5cff062cbc4744c0f39372",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\always-reject-summary\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/always-reject-summary.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "summarize-entire-inbox",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/summarize-entire-inbox.log",
+      "mutation_sha256": "8708b40d5ef401da2fe2907048536e9183a7496816426dd18cc0d1449c6ab100",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\summarize-entire-inbox\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/summarize-entire-inbox.txt"
+    },
+    {
+      "repo": "ghost-box",
+      "fault": "ignore-search-dates",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_combined_search_filters_and_selected_inference"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/ignore-search-dates.log",
+      "mutation_sha256": "01df397384a32a64a95382fd06b7cdaea5261b4f0caff08f6c451ff9f31c2c3d",
+      "test_snapshot": {
+        "tests/test_core.py": "ddb248117755c1a826b236925f7275a1af8a2e2b14d2280687e5864cd4a8cbd9",
+        "tests/test_workflow.py": "eabf442f575cab6569c4c15fa8ff0c781feccfb0824d182bb2f88723a099be01"
+      },
+      "reference_snapshot": {
+        "reference/mail_workflow.py": "57727378a3941711df231669cc6d53ba9f974baa7220f4ece71dfdb181e72793"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080046743760Z\\ghost-box\\ignore-search-dates\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/ghost-box/ignore-search-dates.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "daily-instead-of-cumulative",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_coin_comparator.py::test_returns_are_relative_to_first_price_not_daily_changes",
+        "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source",
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/daily-instead-of-cumulative.log",
+      "mutation_sha256": "52adcede39af1c4d74b34483fd63fa20f10b88e083826f89065f97983da4670e",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\daily-instead-of-cumulative\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/daily-instead-of-cumulative.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "zero-fill-missing-prices",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_coin_comparator.py::test_missing_price_remains_missing",
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/zero-fill-missing-prices.log",
+      "mutation_sha256": "8224046e0f99088e7c66ea4e1afec000918377df6504619634ea0f96bd0337ff",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\zero-fill-missing-prices\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/zero-fill-missing-prices.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "provider-receives-lowercase-symbols",
+      "target_requirements": [
+        "R1"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/provider-receives-lowercase-symbols.log",
+      "mutation_sha256": "775bfd6df983cc8afaa68f8880e15a06e9d11c5b333a2626d1e84f403b337b6c",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\provider-receives-lowercase-symbols\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/provider-receives-lowercase-symbols.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "correlation-always-zero",
+      "target_requirements": [
+        "R4"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_coin_comparator.py::test_correlation_detects_opposite_price_movements",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/correlation-always-zero.log",
+      "mutation_sha256": "2d1ac37ae0f3fb4c157634641cdab497f8a5ad5eafa051337bd7af8cd0954f1c",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\correlation-always-zero\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/correlation-always-zero.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "csv-source-mislabeled",
+      "target_requirements": [
+        "R5"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/csv-source-mislabeled.log",
+      "mutation_sha256": "860e2cc1c535653c21d63c12ac1e51f7d55c0d06eac1eccabd0989643796aee9",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\csv-source-mislabeled\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/csv-source-mislabeled.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "silently-repair-invalid-baseline",
+      "target_requirements": [
+        "R6"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_unusable_first_row_is_reported_not_filled[0.0]",
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/silently-repair-invalid-baseline.log",
+      "mutation_sha256": "5336016c94534277e232bc1e763324ba9cc00a11a329b3d6ae7ba6b4a72e78f1",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\silently-repair-invalid-baseline\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/silently-repair-invalid-baseline.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "returns-mutate-input-prices",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": true,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_coin_comparator.py::test_returns_preserve_dates_and_input_prices",
+        "tests/test_workflow.py::test_saved_csv_matches_provider_calculation_and_declares_source"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/returns-mutate-input-prices.log",
+      "mutation_sha256": "abd0347706c97212edc609a89d387b4a7d8e4f6ede5e3161077954303e23ee50",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\returns-mutate-input-prices\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/returns-mutate-input-prices.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "first-row-instead-of-first-observed",
+      "target_requirements": [
+        "R2"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/first-row-instead-of-first-observed.log",
+      "mutation_sha256": "f8680999597a8b64587df37284fabafc4faa958a0d6353ff4aab82ab25d621f2",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\first-row-instead-of-first-observed\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/first-row-instead-of-first-observed.txt"
+    },
+    {
+      "repo": "cryptocurrency-analyser",
+      "fault": "omit-unavailable-reporting",
+      "target_requirements": [
+        "R3"
+      ],
+      "preservation_probe": false,
+      "killed": true,
+      "returncode": 1,
+      "failing_tests": [
+        "tests/test_workflow.py::test_first_observed_baselines_and_omitted_series_are_reported"
+      ],
+      "log": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/omit-unavailable-reporting.log",
+      "mutation_sha256": "c2a694d5b7bc0f74c4b16f06e77a842f32bdef25442a1b84d722f28e64b29150",
+      "test_snapshot": {
+        "tests/test_coin_comparator.py": "20b42b1d070bd11218214bcaba06afdd86bf4c419765dc26502720bfe264c9ec",
+        "tests/test_workflow.py": "9bff1147f4d2931cce077b0883d2129de595793ac9f01628b911f4cfa14ded47"
+      },
+      "reference_snapshot": {
+        "reference/coin_comparator.py": "3c89521b983000228331fba670ccbd18af6187ef3e4e66e9f1b025c09994914c",
+        "reference/price_workflow.py": "1345d1ae7f932e859bc89807cc611f6f4283ca4ac30258b3ce2423733e5c1443"
+      },
+      "original_log": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T080054961413Z\\cryptocurrency-analyser\\omit-unavailable-reporting\\pytest.log",
+      "mutation_source": "experiments/unit-test-generation/qwen3.5-4b/exp-001-local-thinking-10/app-core-v07/evidence/fault/cryptocurrency-analyser/omit-unavailable-reporting.txt"
+    }
+  ],
+  "all_killed": true,
+  "note": "Targeted fault probes, not exhaustive mutation coverage. Original checkouts unchanged."
+}

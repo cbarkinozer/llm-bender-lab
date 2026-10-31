@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0",
+  "pilot_version": "v01",
+  "primary_objective": "task + agreed contract -> one useful pytest artifact",
+  "planning_training_enabled": false,
+  "code_generation_training_enabled": false,
+  "training_task_target": 100,
+  "applications": [
+    {
+      "id": "codelang-detect",
+      "unresolved": [
+        "Additional language targets, installation examples and ambiguous-snippet accuracy remain manual/future work."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "language-delivery",
+          "title": "Package the CLI and document examples and installation.",
+          "depends_on": [
+            "language-cli-success",
+            "language-cli-errors"
+          ],
+          "implementation_files": [
+            "pyproject.toml",
+            "README.md"
+          ],
+          "target_file": "tests/test_packaged_cli.py",
+          "acceptance": [
+            "Verify installation and documented examples in a clean environment.",
+            "Explicitly document starter languages and ambiguous-snippet limitations."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    },
+    {
+      "id": "cryptocurrency-analyser",
+      "unresolved": [
+        "Browser wiring, live-provider display and retry/backoff remain manual/future work."
+      ],
+      "delivery_tasks": [
+        {
+          "id": "prices-web-delivery",
+          "title": "Wire the analysis workflow into a usable browser interface with setup instructions.",
+          "depends_on": [
+            "prices-analysis"
+          ],
+          "implementation_files": [
+            "web_app.py",
+            "README.md"
+          ],
+          "target_file": "tests/test_web_workflow.py",
+          "acceptance": [
+            "User selection triggers analysis and displays charts, sources, dates and unavailable-series labels.",
+            "Show provider/baseline errors without fabricated zero returns; support saved offline sample data.",
+            "Check actual browser behavior and Mac startup separately."
+          ],
+          "demonstration_available": false
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "language-basic",
+      "application": "codelang-detect",
+      "title": "Specify unknown-input behavior and the initial Python/JavaScript detection contract.",
+      "implementation_files": [
+        "codelang_detect/__init__.py",
+        "codelang_detect/detector.py"
+      ],
+      "target_file": "tests/test_detection_basics.py",
+      "depends_on": [],
+      "acceptance": [
+        "Empty, whitespace and ordinary prose return unknown.",
+        "Clear Python and JavaScript snippets return py and js respectively."
+      ],
+      "contract": "Public codelang_detect.detect(text: str) -> str. Empty/whitespace/no positive rule evidence returns unknown. Initial language targets are Python (py) and JavaScript (js); additional language accuracy is outside this task. No network or model loading.",
+      "rationale": "Negative examples check that the detector does not guess a language for ordinary text. Two clear code snippets provide positive controls so an always-unknown implementation also fails.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "classification",
+        "state": "stateless",
+        "dependencies": "none",
+        "boundaries": [
+          "empty",
+          "whitespace",
+          "non-code"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_unknown_without_code_evidence",
+            "test_clear_language_markers"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "empty-input-guesses-python",
+          "code": "import codelang_detect.detector as m\noriginal=m.detect\nm.detect=lambda text:\"py\" if not text or not text.strip() else original(text)\nimport codelang_detect as package\npackage.detect=m.detect"
+        },
+        {
+          "id": "always-unknown",
+          "code": "import codelang_detect.detector as m\nm.detect=lambda text:\"unknown\"\nimport codelang_detect as package\npackage.detect=m.detect"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "language-rules",
+      "application": "codelang-detect",
+      "title": "Specify weighted rules, deterministic ties and live configuration replacement.",
+      "implementation_files": [
+        "codelang_detect/detector.py"
+      ],
+      "target_file": "tests/test_detection_rules.py",
+      "depends_on": [
+        "language-basic"
+      ],
+      "acceptance": [
+        "Weight 3 beats two matching weight-1 rules.",
+        "Equal scores choose declaration order, even when alphabetical order differs.",
+        "A single positive score qualifies; zero evidence remains unknown.",
+        "Replacing the public configuration between calls immediately changes the result."
+      ],
+      "contract": "Public codelang_detect.detect(text) uses codelang_detect.detector.PATTERNS, an insertion-ordered dict of output_label -> list[(compiled regex, positive integer weight)]. Each matching rule contributes once. The greatest strictly positive total wins; tied positive totals choose the first declared key. Read PATTERNS at call time; custom keys are valid output labels. No score means unknown.",
+      "rationale": "The fixtures separate weighted scoring from match counting and declaration order from alphabetical order. Replacing the mapping between calls detects stale cached configuration; positive and zero-score controls distinguish an extra confidence threshold.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "weighted-selection",
+        "state": "replaceable-configuration",
+        "dependencies": "public-monkeypatch-seam",
+        "boundaries": [
+          "ties",
+          "zero-score",
+          "positive-score"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_weighted_evidence_not_match_count",
+            "test_equal_scores_use_first_declared_label",
+            "test_rule_configuration_is_read_on_every_call",
+            "test_any_positive_rule_score_qualifies"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "ignore-rule-weights",
+          "code": "import codelang_detect.detector as m\noriginal=m.detect\ndef broken(text):\n    saved=m.PATTERNS\n    try:\n        m.PATTERNS={key:[(pattern,1) for pattern,weight in rules] for key,rules in saved.items()}\n        return original(text)\n    finally:m.PATTERNS=saved\nm.detect=broken\nimport codelang_detect as package\npackage.detect=m.detect"
+        },
+        {
+          "id": "cache-initial-configuration",
+          "code": "import codelang_detect.detector as m\noriginal=m.detect\ncached=m.PATTERNS\ndef broken(text):\n    current=m.PATTERNS\n    try:\n        m.PATTERNS=cached;return original(text)\n    finally:m.PATTERNS=current\nm.detect=broken\nimport codelang_detect as package\npackage.detect=m.detect"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "language-cli-success",
+      "application": "codelang-detect",
+      "title": "Specify CLI input routes and exact successful output.",
+      "implementation_files": [
+        "codelang_detect/cli.py"
+      ],
+      "target_file": "tests/test_cli_success.py",
+      "depends_on": [
+        "language-basic"
+      ],
+      "acceptance": [
+        "A Python snippet inside a .txt file is identified from its contents.",
+        "Piped text is accepted when no file argument exists.",
+        "Successful output has exactly one label/newline and no stderr."
+      ],
+      "contract": "codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions \"can't open\", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts \"Error: Could not process the input.\", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.",
+      "rationale": "A Python snippet stored as snippet.txt exposes filename-based guessing. Capturing stdout and stderr detects extra output, while the stdin fixture checks the other supported input route without touching the real console.",
+      "diversity": {
+        "surface": "cli",
+        "behavior": "input-routing",
+        "state": "temporary-files",
+        "dependencies": "stdin-and-argv-fixtures",
+        "boundaries": [
+          "file-vs-stdin",
+          "suffix-mismatch"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_cli_file_prints_one_label",
+            "test_cli_stdin_prints_one_label"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "extra-output",
+          "code": "import codelang_detect.cli as m\noriginal=m.main\ndef broken():\n    original();print(\"extra\")\nm.main=broken"
+        },
+        {
+          "id": "guess-file-suffix",
+          "code": "import codelang_detect.cli as m\nimport sys\nfrom pathlib import Path\noriginal=m.main\ndef broken():\n    if len(sys.argv)==2 and Path(sys.argv[1]).is_file():print(Path(sys.argv[1]).suffix.lstrip(\".\"));return\n    return original()\nm.main=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "language-cli-errors",
+      "application": "codelang-detect",
+      "title": "Specify CLI failure classes and useful diagnostics.",
+      "implementation_files": [
+        "codelang_detect/cli.py"
+      ],
+      "target_file": "tests/test_cli_errors.py",
+      "depends_on": [
+        "language-cli-success"
+      ],
+      "acceptance": [
+        "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+        "Closed stdin and invalid UTF-8 produce processing exit 1.",
+        "Normal input errors do not print tracebacks."
+      ],
+      "contract": "codelang_detect.cli.main() reads sys.argv and an optional UTF-8 file or sys.stdin. It detects content rather than suffix and prints exactly one lowercase label plus newline, with empty stderr on success. The starter detector recognizes clear Python as py and JavaScript as js. File-open failure raises SystemExit(2), stderr mentions \"can't open\", stdout is empty. Read/decoding/closed-stdin failures raise SystemExit(1), stderr starts \"Error: Could not process the input.\", stdout is empty, and normal input failures produce no traceback. Application runtime uses only the standard library.",
+      "rationale": "Missing files are usage failures, while decoding and closed-stream errors are processing failures. Exact exit codes and empty stdout prevent an implementation from treating every error as success; the traceback check also catches deliberately printed tracebacks.",
+      "diversity": {
+        "surface": "cli",
+        "behavior": "error-handling",
+        "state": "temporary-files",
+        "dependencies": "stdin-and-argv-fixtures",
+        "boundaries": [
+          "missing-file",
+          "invalid-utf8",
+          "closed-stream"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_core.py",
+          "tests": [
+            "test_missing_file_exits_2_with_diagnostic",
+            "test_closed_stdin_exits_1_with_processing_error",
+            "test_invalid_utf8_file_exits_1_with_processing_error"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "swallow-input-errors",
+          "code": "import codelang_detect.cli as m\noriginal=m.main\ndef broken():\n    try:return original()\n    except SystemExit:return None\nm.main=broken"
+        },
+        {
+          "id": "print-traceback",
+          "code": "import codelang_detect.cli as m\nimport sys\noriginal=m.main\ndef broken():\n    try:return original()\n    except SystemExit:\n        print(\"Traceback (most recent call last):\",file=sys.stderr);raise\nm.main=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-returns",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify cumulative-return mathematics, missing values and input preservation.",
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_cumulative_returns.py",
+      "depends_on": [],
+      "acceptance": [
+        "100,150,75 yields 0,.5,-.25, not daily changes.",
+        "Different series can have different first-observed dates.",
+        "Missing observations and entirely missing columns stay missing.",
+        "Dates and input values are preserved; nonpositive baselines are rejected."
+      ],
+      "contract": "Public coin_comparator.calculate_cumulative_returns(prices: pandas.DataFrame) returns price/first-observed-nonmissing-price minus 1 independently per column. Preserve row/column order, dates, missing observations and input values. An entirely missing series stays missing. Nonpositive observed baselines raise ValueError mentioning baseline. Do not forward fill or convert cumulative returns to daily changes.",
+      "rationale": "The three-point path separates cumulative from daily returns. Different first-observed rows prevent using a shared first row; explicit NaNs prevent forward filling. Input comparison checks preservation, and positive-valued examples prevent an always-error implementation from passing.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "numeric-transformation",
+        "state": "input-preservation",
+        "dependencies": "pandas",
+        "boundaries": [
+          "leading-missing",
+          "interior-missing",
+          "all-missing",
+          "zero",
+          "negative"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "tests": [
+            "test_returns_are_relative_to_first_price_not_daily_changes",
+            "test_returns_preserve_dates_and_input_prices",
+            "test_missing_price_remains_missing"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "daily-instead-of-cumulative",
+          "code": "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices.pct_change(fill_method=None).fillna(0)"
+        },
+        {
+          "id": "first-row-baseline",
+          "code": "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices/prices.iloc[0]-1"
+        }
+      ],
+      "additional_tests": "import pytest\n\n\ndef test_first_observed_price_is_selected_independently_per_series():\n    missing=float('nan')\n    prices=pd.DataFrame({'late':[missing,10.,20.], 'early':[2.,4.,missing], 'missing':[missing,missing,missing]})\n    expected=pd.DataFrame({'late':[missing,0.,1.], 'early':[0.,1.,missing], 'missing':[missing,missing,missing]})\n    assert_frame_equal(calculate_cumulative_returns(prices),expected)\n\n\n@pytest.mark.parametrize('baseline',[0.,-1.])\ndef test_nonpositive_observed_baselines_are_rejected(baseline):\n    with pytest.raises(ValueError,match='baseline'):\n        calculate_cumulative_returns(pd.DataFrame({'coin':[baseline,10.]}))\n",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-charts",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify Pearson correlation and the numeric content of comparison charts.",
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_price_charts.py",
+      "depends_on": [
+        "prices-returns"
+      ],
+      "acceptance": [
+        "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+        "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+        "Three observations discriminate daily changes from cumulative returns."
+      ],
+      "contract": "Public coin_comparator.calculate_cumulative_returns(prices: pandas.DataFrame) returns price/first-observed-nonmissing-price minus 1 independently per column. Preserve row/column order, dates, missing observations and input values. An entirely missing series stays missing. Nonpositive observed baselines raise ValueError mentioning baseline. Do not forward fill or convert cumulative returns to daily changes. Public calculate_correlation(prices) returns prices Pearson correlation matrix in input column order. Public plot_combined(correlation,prices,tickers) returns a Plotly Figure: heatmap first, then one scatter per present ticker, in the requested ticker order. Scatter y-values use calculate_cumulative_returns and names use the ticker. Browser rendering and styling are separate manual checks.",
+      "rationale": "Opposite sequences provide a concrete correlation oracle. Inspecting trace types, names and numeric data checks the figure without browser screenshots. A three-point price series catches a chart that silently substitutes daily returns.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "numeric-visualization",
+        "state": "stateless",
+        "dependencies": "pandas-and-plotly",
+        "boundaries": [
+          "opposite-correlation",
+          "trace-order",
+          "three-period-returns"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "tests": [
+            "test_correlation_detects_opposite_price_movements",
+            "test_combined_plot_contains_correlation_and_each_return_series"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "zero-correlations",
+          "code": "import coin_comparator as m\noriginal=m.calculate_correlation\nm.calculate_correlation=lambda prices:original(prices)*0"
+        },
+        {
+          "id": "chart-uses-daily-returns",
+          "code": "import coin_comparator as m\nm.calculate_cumulative_returns=lambda prices:prices.pct_change(fill_method=None).fillna(0)"
+        }
+      ],
+      "additional_tests": "def test_plot_three_observations_uses_cumulative_not_daily_returns():\n    from coin_comparator import plot_combined\n    prices=pd.DataFrame({'BTC':[100.,150.,75.]})\n    figure=plot_combined(prices.corr(),prices,['BTC'])\n    assert list(figure.data[1].y) == [0.,.5,-.25]\n",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-fetch",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify the offline-testable adjusted-price provider boundary.",
+      "implementation_files": [
+        "coin_comparator.py"
+      ],
+      "target_file": "tests/test_price_fetch.py",
+      "depends_on": [],
+      "acceptance": [
+        "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+        "Only the Adj Close frame is returned.",
+        "All-missing tickers are removed; partially missing prices are preserved."
+      ],
+      "contract": "Public coin_comparator.fetch_data(tickers,start,end,download=None) accepts timestamp strings YYYY-MM-DD HH:MM:SS and returns a pandas DataFrame. Call the injected download(tickers,start=datetime,end=datetime,auto_adjust=False), select Adj Close and drop only entirely missing columns. download defaults to yf.download; tests must inject a fake and never use the network. Existing tickers are already normalized for this boundary.",
+      "rationale": "A provider spy checks the explicit timestamp/adjustment contract. One partly missing and one entirely missing series distinguish selective omission from blanket dropna or filling invented prices.",
+      "diversity": {
+        "surface": "library",
+        "behavior": "provider-adapter",
+        "state": "stateless",
+        "dependencies": "injected-network-provider",
+        "boundaries": [
+          "partial-vs-all-missing",
+          "datetime-conversion",
+          "adjustment-policy"
+        ],
+        "test_level": "unit"
+      },
+      "selections": [
+        {
+          "path": "tests/test_coin_comparator.py",
+          "tests": [
+            "test_fetch_drops_only_entirely_missing_tickers"
+          ],
+          "helpers": []
+        }
+      ],
+      "faults": [
+        {
+          "id": "drop-partial-series",
+          "code": "import coin_comparator as m\noriginal=m.fetch_data\nm.fetch_data=lambda *a,**k:original(*a,**k).dropna(axis=1)"
+        },
+        {
+          "id": "wrong-adjustment-policy",
+          "code": "import coin_comparator as m\noriginal=m.fetch_data\ndef broken(*a,**k):\n    download=k[\"download\"]\n    def adjusted(*args,**kwargs):\n        kwargs[\"auto_adjust\"]=True;return download(*args,**kwargs)\n    k[\"download\"]=adjusted\n    return original(*a,**k)\nm.fetch_data=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    },
+    {
+      "id": "prices-analysis",
+      "application": "cryptocurrency-analyser",
+      "title": "Specify price-analysis orchestration, offline parity and explicit failures.",
+      "implementation_files": [
+        "price_workflow.py"
+      ],
+      "target_file": "tests/test_price_analysis.py",
+      "depends_on": [
+        "prices-returns",
+        "prices-fetch",
+        "prices-charts"
+      ],
+      "acceptance": [
+        "Normalize symbols and keep provider/CSV calculations equivalent.",
+        "Expose source labels, observed date bounds, correlation and omitted symbols.",
+        "First-observed baselines work when the first row is missing.",
+        "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+      ],
+      "contract": "Public price_workflow.analyze(tickers,start,end,provider=None,csv_path=None) returns {returns:DataFrame,correlation:DataFrame,omitted:list[str],source:\"csv\"|\"provider\",observed_start:YYYY-MM-DD,observed_end:YYYY-MM-DD}. Normalize names to uppercase -USD; dates use [start,end). provider(symbols,start,end) returns a price frame. CSV uses a date index and named ticker columns, with no provider call. CSV/provider results match except inferred pandas frequency metadata. Omit and report only all-missing series; each retained series uses its first nonmissing positive baseline and preserves gaps. Empty selection or reversed dates raises ValueError before fetching. Nonpositive baselines raise ValueError mentioning baseline. Provider RuntimeError propagates for display; never fabricate zeros. The correlation matrix uses price values, not returns. Browser integration remains outside this task.",
+      "rationale": "Comparing offline and provider routes verifies shared calculations, while concrete expected returns prevent two identically wrong routes from passing. The provider spy checks normalized symbols; omitted-series and leading-gap controls protect the baseline policy. Errors must remain explicit instead of becoming zero-return results.",
+      "diversity": {
+        "surface": "service",
+        "behavior": "orchestration",
+        "state": "temporary-csv",
+        "dependencies": "injected-provider-and-pandas",
+        "boundaries": [
+          "offline-parity",
+          "invalid-selection",
+          "provider-failure",
+          "leading-missing",
+          "nonpositive-baseline"
+        ],
+        "test_level": "integration"
+      },
+      "selections": [
+        {
+          "path": "tests/test_workflow.py",
+          "tests": [
+            "test_saved_csv_matches_provider_calculation_and_declares_source",
+            "test_provider_failure_does_not_produce_zero_returns",
+            "test_bad_selection_fails_before_fetch",
+            "test_unusable_first_row_is_reported_not_filled",
+            "test_first_observed_baselines_and_omitted_series_are_reported"
+          ],
+          "helpers": [
+            "prices"
+          ]
+        }
+      ],
+      "faults": [
+        {
+          "id": "csv-source-mislabeled",
+          "code": "import price_workflow as m\noriginal=m.analyze\nm.analyze=lambda *a,**k:original(*a,**k)|{\"source\":\"provider\"}"
+        },
+        {
+          "id": "provider-gets-lowercase-symbols",
+          "code": "import price_workflow as m\noriginal=m.analyze\ndef broken(*a,**k):\n    if k.get(\"provider\") is not None:\n        provider=k[\"provider\"];k[\"provider\"]=lambda symbols,start,end:provider([s.lower() for s in symbols],start,end)\n    return original(*a,**k)\nm.analyze=broken"
+        }
+      ],
+      "additional_tests": "",
+      "context": "Python and pytest; tests are offline and self-contained. All required test fixtures must be defined in the target file or supplied by pytest. Application interfaces below are proposed and agreed for this task; no implementation or claim of completed preceding tasks is supplied."
+    }
+  ]
+}

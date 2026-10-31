@@ -1,0 +1,15 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+_________________ test_literal_sender_filter_is_unicode_aware _________________
+
+    def test_literal_sender_filter_is_unicode_aware():
+        assert matches(mail('one'), 'ipek ışık', field='sender') is True
+>       assert matches(mail('one'), 'Invoice', field='sender') is False
+E       AssertionError: assert True is False
+E        +  where True = matches({'id': 'one', 'timestamp': 1, 'sender': 'İpek IŞIK', 'recipients': 'Team', ...}, 'Invoice', field='sender')
+E        +    where {'id': 'one', 'timestamp': 1, 'sender': 'İpek IŞIK', 'recipients': 'Team', ...} = mail('one')
+
+tests\test_mail_search.py:17: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_mail_search.py::test_literal_sender_filter_is_unicode_aware
+1 failed, 1 passed in 0.05s

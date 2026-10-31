@@ -1,0 +1,34 @@
+..F                                                                      [100%]
+================================== FAILURES ===================================
+____________________________ test_cache_only_miss _____________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001FB1012B1D0>
+
+    def test_cache_only_miss(monkeypatch):
+        monkeypatch.setattr(tldr, 'USE_CACHE', True)
+        monkeypatch.setattr(tldr, 'have_recent_cache', lambda *args: False)
+        def unexpected(*args, **kwargs):
+            pytest.fail('Cache-only mode must avoid network')
+        monkeypatch.setattr(tldr, 'urlopen', unexpected)
+        with pytest.raises(tldr.CacheNotExist):
+>           tldr.get_page_for_platform('git', 'linux', None, 'en', only_use_cache=True)
+
+tests\test_cache_network_routing.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<string>:3: in broken
+    ???
+tldr.py:189: in get_page_for_platform
+    data = urlopen(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (<urllib.request.Request object at 0x000001FB100B9810>,)
+kwargs = {'timeout': 10, 'context': None}
+
+    def unexpected(*args, **kwargs):
+>       pytest.fail('Cache-only mode must avoid network')
+E       Failed: Cache-only mode must avoid network
+
+tests\test_cache_network_routing.py:43: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_cache_network_routing.py::test_cache_only_miss - Failed: Ca...
+1 failed, 2 passed in 0.09s

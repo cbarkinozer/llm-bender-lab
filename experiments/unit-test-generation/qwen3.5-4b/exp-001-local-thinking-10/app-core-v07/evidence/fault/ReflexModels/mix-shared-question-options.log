@@ -1,0 +1,23 @@
+.........F........                                                       [100%]
+================================== FAILURES ===================================
+______________ test_shared_state_keeps_question_results_separate ______________
+
+choice = Choice(state='Kullanıcı dosya arıyor.', question='Hangi araç?', options=mappingproxy({'files': 'Dosyaları ara', 'web': 'Web üzerinde ara'}), language='tr')
+
+    def test_shared_state_keeps_question_results_separate(choice):
+        batch = SharedStateDecisions(choice.state, {'tool': choice, 'continue': Binary(choice.state, 'Devam mı?')})
+        results = score_shared_state(batch, request_id='r2', scorer=lambda branch: 0., workers=1)
+        assert results['tool']['option_probabilities'] == {'files': 0.5, 'web': 0.5}
+>       assert results['continue']['option_probabilities'] == {'yes': 0.5, 'no': 0.5}
+E       AssertionError: assert {'files': 0.5, 'web': 0.5} == {'yes': 0.5, 'no': 0.5}
+E         
+E         Left contains 2 more items:
+E         {'files': 0.5, 'web': 0.5}
+E         Right contains 2 more items:
+E         {'no': 0.5, 'yes': 0.5}
+E         Use -v to get more diff
+
+tests\test_core.py:48: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_core.py::test_shared_state_keeps_question_results_separate
+1 failed, 17 passed in 0.09s

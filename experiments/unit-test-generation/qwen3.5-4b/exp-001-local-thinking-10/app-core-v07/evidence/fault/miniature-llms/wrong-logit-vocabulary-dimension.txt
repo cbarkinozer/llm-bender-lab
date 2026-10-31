@@ -1,0 +1,12 @@
+import json
+from pathlib import Path
+FAILURES=[]
+def pytest_configure(config):
+    from tiny_model import TinyModel
+    original=TinyModel.forward
+    TinyModel.forward=lambda self,tokens:original(self,tokens)[...,:-1]
+
+def pytest_runtest_logreport(report):
+    if report.failed: FAILURES.append(dict(nodeid=report.nodeid,when=report.when,detail=report.longreprtext))
+def pytest_sessionfinish(session,exitstatus):
+    Path('C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-v07-windows\\thinking-tdd\\app-core-v07-faults\\20261031T075606596992Z\\miniature-llms\\wrong-logit-vocabulary-dimension\\failures.json').write_text(json.dumps(FAILURES,indent=2))

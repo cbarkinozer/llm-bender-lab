@@ -1,0 +1,947 @@
+{
+  "scope": "11 active source families only. Original pinned upstream snapshots; excludes authored reference overlays and generated dataset tests. Non-test includes application code plus scripts/examples/benchmarks, not exclusively production core.",
+  "method": "Radon CC per function, method and nested closure; no class aggregate blocks. Population std. Pooled values weight functions equally, not repositories. Files with no functions do not contribute function CC.",
+  "radon_version": "6.0.1",
+  "repo": {
+    "ReflexModels": {
+      "non_test": {
+        "functions": 232,
+        "cc": {
+          "n": 232,
+          "total": 1643,
+          "mean": 7.081896551724138,
+          "std_population": 8.164115121275323,
+          "std_sample": 8.181767282686547,
+          "min": 1,
+          "p10": 1.0,
+          "median": 4.0,
+          "p90": 17.0,
+          "p95": 26.44999999999999,
+          "max": 49,
+          "coefficient_of_variation": 1.1528147949701004
+        },
+        "cc_without_asserts": {
+          "n": 232,
+          "total": 1614,
+          "mean": 6.956896551724138,
+          "std_population": 8.127106879491482,
+          "std_sample": 8.144679022989214,
+          "min": 1,
+          "p10": 1.0,
+          "median": 4.0,
+          "p90": 16.0,
+          "p95": 26.44999999999999,
+          "max": 49,
+          "coefficient_of_variation": 1.1682086716493332
+        }
+      },
+      "tests": {
+        "functions": 475,
+        "cc": {
+          "n": 475,
+          "total": 690,
+          "mean": 1.4526315789473685,
+          "std_population": 1.7214951949892834,
+          "std_sample": 1.7233101614343183,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 3.0,
+          "p95": 3.0,
+          "max": 33,
+          "coefficient_of_variation": 1.1850872719129124
+        },
+        "cc_without_asserts": {
+          "n": 475,
+          "total": 686,
+          "mean": 1.4442105263157894,
+          "std_population": 1.7163434688450594,
+          "std_sample": 1.7181530038429933,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 2.0,
+          "p95": 3.0,
+          "max": 33,
+          "coefficient_of_variation": 1.1884302444626869
+        }
+      },
+      "file_counts": {
+        "non_test": 58,
+        "tests": 36
+      }
+    },
+    "codelang-detect": {
+      "non_test": {
+        "functions": 11,
+        "cc": {
+          "n": 11,
+          "total": 67,
+          "mean": 6.090909090909091,
+          "std_population": 3.175318035740542,
+          "std_sample": 3.330301651638946,
+          "min": 1,
+          "p10": 3.0,
+          "median": 5.0,
+          "p90": 9.0,
+          "p95": 10.5,
+          "max": 12,
+          "coefficient_of_variation": 0.5213208715394919
+        },
+        "cc_without_asserts": {
+          "n": 11,
+          "total": 67,
+          "mean": 6.090909090909091,
+          "std_population": 3.175318035740542,
+          "std_sample": 3.330301651638946,
+          "min": 1,
+          "p10": 3.0,
+          "median": 5.0,
+          "p90": 9.0,
+          "p95": 10.5,
+          "max": 12,
+          "coefficient_of_variation": 0.5213208715394919
+        }
+      },
+      "tests": {
+        "functions": 9,
+        "cc": {
+          "n": 9,
+          "total": 21,
+          "mean": 2.3333333333333335,
+          "std_population": 0.4714045207910317,
+          "std_sample": 0.5,
+          "min": 2,
+          "p10": 2.0,
+          "median": 2.0,
+          "p90": 3.0,
+          "p95": 3.0,
+          "max": 3,
+          "coefficient_of_variation": 0.20203050891044214
+        },
+        "cc_without_asserts": {
+          "n": 9,
+          "total": 10,
+          "mean": 1.1111111111111112,
+          "std_population": 0.31426968052735443,
+          "std_sample": 0.3333333333333333,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 1.2000000000000002,
+          "p95": 1.5999999999999996,
+          "max": 2,
+          "coefficient_of_variation": 0.28284271247461895
+        }
+      },
+      "file_counts": {
+        "non_test": 7,
+        "tests": 2
+      }
+    },
+    "cryptocurrency-analyser": {
+      "non_test": {
+        "functions": 86,
+        "cc": {
+          "n": 86,
+          "total": 449,
+          "mean": 5.22093023255814,
+          "std_population": 6.542172960236082,
+          "std_sample": 6.5805438051536305,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 10.5,
+          "p95": 20.0,
+          "max": 35,
+          "coefficient_of_variation": 1.2530665358135924
+        },
+        "cc_without_asserts": {
+          "n": 86,
+          "total": 449,
+          "mean": 5.22093023255814,
+          "std_population": 6.542172960236082,
+          "std_sample": 6.5805438051536305,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 10.5,
+          "p95": 20.0,
+          "max": 35,
+          "coefficient_of_variation": 1.2530665358135924
+        }
+      },
+      "tests": {
+        "functions": 0,
+        "cc": {
+          "n": 0
+        },
+        "cc_without_asserts": {
+          "n": 0
+        }
+      },
+      "file_counts": {
+        "non_test": 10
+      }
+    },
+    "darrenburns/posting": {
+      "non_test": {
+        "functions": 1256,
+        "cc": {
+          "n": 1256,
+          "total": 3543,
+          "mean": 2.820859872611465,
+          "std_population": 3.4165079612309004,
+          "std_sample": 3.417868848742043,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 6.0,
+          "p95": 8.0,
+          "max": 38,
+          "coefficient_of_variation": 1.2111583401936243
+        },
+        "cc_without_asserts": {
+          "n": 1256,
+          "total": 3521,
+          "mean": 2.803343949044586,
+          "std_population": 3.3975480522060866,
+          "std_sample": 3.3989013874727454,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 6.0,
+          "p95": 8.0,
+          "max": 38,
+          "coefficient_of_variation": 1.2119626110681183
+        }
+      },
+      "tests": {
+        "functions": 508,
+        "cc": {
+          "n": 508,
+          "total": 1311,
+          "mean": 2.5807086614173227,
+          "std_population": 2.6486108916334445,
+          "std_sample": 2.651221647212229,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 5.0,
+          "p95": 7.0,
+          "max": 22,
+          "coefficient_of_variation": 1.0263114667809228
+        },
+        "cc_without_asserts": {
+          "n": 508,
+          "total": 573,
+          "mean": 1.1279527559055118,
+          "std_population": 0.7218238476659898,
+          "std_sample": 0.722535354834954,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 1.0,
+          "p95": 2.0,
+          "max": 11,
+          "coefficient_of_variation": 0.6399415612815408
+        }
+      },
+      "file_counts": {
+        "non_test": 82,
+        "tests": 30
+      }
+    },
+    "dbcli/litecli": {
+      "non_test": {
+        "functions": 273,
+        "cc": {
+          "n": 273,
+          "total": 1180,
+          "mean": 4.322344322344322,
+          "std_population": 5.452973682008764,
+          "std_sample": 5.462988334489737,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 10.0,
+          "p95": 15.0,
+          "max": 50,
+          "coefficient_of_variation": 1.2615778094816887
+        },
+        "cc_without_asserts": {
+          "n": 273,
+          "total": 1147,
+          "mean": 4.201465201465202,
+          "std_population": 5.216176379464448,
+          "std_sample": 5.225756142134521,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 10.0,
+          "p95": 15.0,
+          "max": 49,
+          "coefficient_of_variation": 1.2415136456789837
+        }
+      },
+      "tests": {
+        "functions": 191,
+        "cc": {
+          "n": 191,
+          "total": 436,
+          "mean": 2.282722513089005,
+          "std_population": 1.519046587687968,
+          "std_sample": 1.523038832647957,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 3.0,
+          "p95": 4.0,
+          "max": 14,
+          "coefficient_of_variation": 0.665453895065142
+        },
+        "cc_without_asserts": {
+          "n": 191,
+          "total": 226,
+          "mean": 1.1832460732984293,
+          "std_population": 0.747023368623714,
+          "std_sample": 0.7489866397324172,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 1.0,
+          "p95": 2.0,
+          "max": 8,
+          "coefficient_of_variation": 0.6313339088811034
+        }
+      },
+      "file_counts": {
+        "non_test": 24,
+        "tests": 14
+      }
+    },
+    "ghost-box": {
+      "non_test": {
+        "functions": 413,
+        "cc": {
+          "n": 413,
+          "total": 2071,
+          "mean": 5.014527845036319,
+          "std_population": 6.506825031654536,
+          "std_sample": 6.514716878134978,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 11.0,
+          "p95": 15.399999999999977,
+          "max": 51,
+          "coefficient_of_variation": 1.297594755226134
+        },
+        "cc_without_asserts": {
+          "n": 413,
+          "total": 2071,
+          "mean": 5.014527845036319,
+          "std_population": 6.506825031654536,
+          "std_sample": 6.514716878134978,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 11.0,
+          "p95": 15.399999999999977,
+          "max": 51,
+          "coefficient_of_variation": 1.297594755226134
+        }
+      },
+      "tests": {
+        "functions": 312,
+        "cc": {
+          "n": 312,
+          "total": 772,
+          "mean": 2.4743589743589745,
+          "std_population": 2.0737947316661134,
+          "std_sample": 2.0771261309729483,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 5.900000000000034,
+          "p95": 6.449999999999989,
+          "max": 11,
+          "coefficient_of_variation": 0.8381139330049577
+        },
+        "cc_without_asserts": {
+          "n": 312,
+          "total": 772,
+          "mean": 2.4743589743589745,
+          "std_population": 2.0737947316661134,
+          "std_sample": 2.0771261309729483,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 5.900000000000034,
+          "p95": 6.449999999999989,
+          "max": 11,
+          "coefficient_of_variation": 0.8381139330049577
+        }
+      },
+      "file_counts": {
+        "non_test": 38,
+        "tests": 29
+      }
+    },
+    "jarun/ddgr": {
+      "non_test": {
+        "functions": 192,
+        "cc": {
+          "n": 192,
+          "total": 674,
+          "mean": 3.5104166666666665,
+          "std_population": 4.128142216508804,
+          "std_sample": 4.138934763597077,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 7.0,
+          "p95": 10.449999999999989,
+          "max": 28,
+          "coefficient_of_variation": 1.1759692960974635
+        },
+        "cc_without_asserts": {
+          "n": 192,
+          "total": 664,
+          "mean": 3.4583333333333335,
+          "std_population": 4.1304677566698045,
+          "std_sample": 4.141266383612011,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 7.0,
+          "p95": 10.449999999999989,
+          "max": 28,
+          "coefficient_of_variation": 1.1943521224105458
+        }
+      },
+      "tests": {
+        "functions": 0,
+        "cc": {
+          "n": 0
+        },
+        "cc_without_asserts": {
+          "n": 0
+        }
+      },
+      "file_counts": {
+        "non_test": 2
+      }
+    },
+    "llm-bender-lab": {
+      "non_test": {
+        "functions": 769,
+        "cc": {
+          "n": 769,
+          "total": 6014,
+          "mean": 7.820546163849155,
+          "std_population": 10.634930018704653,
+          "std_sample": 10.641851548899592,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 23.0,
+          "p95": 29.59999999999991,
+          "max": 96,
+          "coefficient_of_variation": 1.3598704995649946
+        },
+        "cc_without_asserts": {
+          "n": 769,
+          "total": 5294,
+          "mean": 6.884265279583875,
+          "std_population": 9.23136365415871,
+          "std_sample": 9.237371701429387,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.0,
+          "p90": 18.0,
+          "p95": 25.59999999999991,
+          "max": 82,
+          "coefficient_of_variation": 1.3409366547125137
+        }
+      },
+      "tests": {
+        "functions": 737,
+        "cc": {
+          "n": 737,
+          "total": 2142,
+          "mean": 2.9063772048846674,
+          "std_population": 2.4049192087172733,
+          "std_sample": 2.406552430779012,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 6.399999999999977,
+          "p95": 8.0,
+          "max": 18,
+          "coefficient_of_variation": 0.8274628649974932
+        },
+        "cc_without_asserts": {
+          "n": 737,
+          "total": 1294,
+          "mean": 1.7557666214382632,
+          "std_population": 1.7441656929690987,
+          "std_sample": 1.7453501859361638,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 4.0,
+          "p95": 6.0,
+          "max": 10,
+          "coefficient_of_variation": 0.9933926705704991
+        }
+      },
+      "file_counts": {
+        "non_test": 223,
+        "tests": 86
+      }
+    },
+    "miniature-llms": {
+      "non_test": {
+        "functions": 152,
+        "cc": {
+          "n": 152,
+          "total": 312,
+          "mean": 2.0526315789473686,
+          "std_population": 1.0989796325169001,
+          "std_sample": 1.102612632946818,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 3.0,
+          "p95": 4.449999999999989,
+          "max": 6,
+          "coefficient_of_variation": 0.5354003337902846
+        },
+        "cc_without_asserts": {
+          "n": 152,
+          "total": 288,
+          "mean": 1.894736842105263,
+          "std_population": 1.1306605820495177,
+          "std_sample": 1.134398313176772,
+          "min": 1,
+          "p10": 1.0,
+          "median": 2.0,
+          "p90": 3.0,
+          "p95": 4.449999999999989,
+          "max": 6,
+          "coefficient_of_variation": 0.5967375294150232
+        }
+      },
+      "tests": {
+        "functions": 0,
+        "cc": {
+          "n": 0
+        },
+        "cc_without_asserts": {
+          "n": 0
+        }
+      },
+      "file_counts": {
+        "non_test": 34
+      }
+    },
+    "repo-context": {
+      "non_test": {
+        "functions": 28,
+        "cc": {
+          "n": 28,
+          "total": 166,
+          "mean": 5.928571428571429,
+          "std_population": 6.32979672111295,
+          "std_sample": 6.4459494684851935,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.5,
+          "p90": 11.600000000000001,
+          "p95": 14.299999999999997,
+          "max": 32,
+          "coefficient_of_variation": 1.0676765553684493
+        },
+        "cc_without_asserts": {
+          "n": 28,
+          "total": 166,
+          "mean": 5.928571428571429,
+          "std_population": 6.32979672111295,
+          "std_sample": 6.4459494684851935,
+          "min": 1,
+          "p10": 1.0,
+          "median": 3.5,
+          "p90": 11.600000000000001,
+          "p95": 14.299999999999997,
+          "max": 32,
+          "coefficient_of_variation": 1.0676765553684493
+        }
+      },
+      "tests": {
+        "functions": 0,
+        "cc": {
+          "n": 0
+        },
+        "cc_without_asserts": {
+          "n": 0
+        }
+      },
+      "file_counts": {
+        "non_test": 8
+      }
+    },
+    "tldr-pages/tldr-python-client": {
+      "non_test": {
+        "functions": 25,
+        "cc": {
+          "n": 25,
+          "total": 177,
+          "mean": 7.08,
+          "std_population": 8.069299845711523,
+          "std_sample": 8.235694668130106,
+          "min": 1,
+          "p10": 1.0,
+          "median": 4.0,
+          "p90": 15.600000000000001,
+          "p95": 23.199999999999974,
+          "max": 35,
+          "coefficient_of_variation": 1.1397316166259213
+        },
+        "cc_without_asserts": {
+          "n": 25,
+          "total": 177,
+          "mean": 7.08,
+          "std_population": 8.069299845711523,
+          "std_sample": 8.235694668130106,
+          "min": 1,
+          "p10": 1.0,
+          "median": 4.0,
+          "p90": 15.600000000000001,
+          "p95": 23.199999999999974,
+          "max": 35,
+          "coefficient_of_variation": 1.1397316166259213
+        }
+      },
+      "tests": {
+        "functions": 12,
+        "cc": {
+          "n": 12,
+          "total": 29,
+          "mean": 2.4166666666666665,
+          "std_population": 0.7592027982620249,
+          "std_sample": 0.7929614610987591,
+          "min": 2,
+          "p10": 2.0,
+          "median": 2.0,
+          "p90": 3.9000000000000004,
+          "p95": 4.0,
+          "max": 4,
+          "coefficient_of_variation": 0.31415288203945857
+        },
+        "cc_without_asserts": {
+          "n": 12,
+          "total": 14,
+          "mean": 1.1666666666666667,
+          "std_population": 0.5527707983925666,
+          "std_sample": 0.5773502691896257,
+          "min": 1,
+          "p10": 1.0,
+          "median": 1.0,
+          "p90": 1.0,
+          "p95": 1.8999999999999986,
+          "max": 3,
+          "coefficient_of_variation": 0.4738035414793428
+        }
+      },
+      "file_counts": {
+        "non_test": 2,
+        "tests": 2
+      }
+    }
+  },
+  "pooled": {
+    "non_test": {
+      "functions": 3437,
+      "cc": {
+        "n": 3437,
+        "total": 16296,
+        "mean": 4.741344195519348,
+        "std_population": 6.982647243166119,
+        "std_sample": 6.983663270416773,
+        "min": 1,
+        "p10": 1.0,
+        "median": 2.0,
+        "p90": 11.0,
+        "p95": 18.0,
+        "max": 96,
+        "coefficient_of_variation": 1.472714689172923
+      },
+      "cc_without_asserts": {
+        "n": 3437,
+        "total": 15458,
+        "mean": 4.497526913005528,
+        "std_population": 6.412664517527914,
+        "std_sample": 6.413597608041042,
+        "min": 1,
+        "p10": 1.0,
+        "median": 2.0,
+        "p90": 11.0,
+        "p95": 16.0,
+        "max": 82,
+        "coefficient_of_variation": 1.425820154401827
+      }
+    },
+    "tests": {
+      "functions": 2244,
+      "cc": {
+        "n": 2244,
+        "total": 5401,
+        "mean": 2.406862745098039,
+        "std_population": 2.279640798874228,
+        "std_sample": 2.2801489100582657,
+        "min": 1,
+        "p10": 1.0,
+        "median": 2.0,
+        "p90": 5.0,
+        "p95": 7.0,
+        "max": 33,
+        "coefficient_of_variation": 0.9471420019762578
+      },
+      "cc_without_asserts": {
+        "n": 2244,
+        "total": 3575,
+        "mean": 1.5931372549019607,
+        "std_population": 1.6045743314295728,
+        "std_sample": 1.6049319764426913,
+        "min": 1,
+        "p10": 1.0,
+        "median": 1.0,
+        "p90": 3.0,
+        "p95": 4.849999999999909,
+        "max": 33,
+        "coefficient_of_variation": 1.0071789649588705
+      }
+    }
+  },
+  "all_original_python": {
+    "functions": 5681,
+    "cc": {
+      "n": 5681,
+      "total": 21697,
+      "mean": 3.8192219679633865,
+      "std_population": 5.7317758921520765,
+      "std_sample": 5.732280427683369,
+      "min": 1,
+      "p10": 1.0,
+      "median": 2.0,
+      "p90": 8.0,
+      "p95": 13.0,
+      "max": 96,
+      "coefficient_of_variation": 1.5007705601380812
+    },
+    "cc_without_asserts": {
+      "n": 5681,
+      "total": 19033,
+      "mean": 3.350290441823623,
+      "std_population": 5.283161702475746,
+      "std_sample": 5.283626749059321,
+      "min": 1,
+      "p10": 1.0,
+      "median": 1.0,
+      "p90": 8.0,
+      "p95": 12.0,
+      "max": 82,
+      "coefficient_of_variation": 1.576926476738544
+    }
+  },
+  "source_file_counts": {
+    "non_test": 488,
+    "tests": 199
+  },
+  "errors": [],
+  "top_non_test_functions": [
+    {
+      "family": "llm-bender-lab",
+      "path": "scripts/evaluation/build_tdd_app_revision.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 74,
+      "cc": 96,
+      "cc_without_asserts": 82
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "scripts/evaluation/run_requirement_smoke.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 20,
+      "cc": 62,
+      "cc_without_asserts": 62
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/audit_v2.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 16,
+      "cc": 61,
+      "cc_without_asserts": 34
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/thinking-sft/qwen3.5-4b/train.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 28,
+      "cc": 61,
+      "cc_without_asserts": 61
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/train_reviewed.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 53,
+      "cc": 59,
+      "cc_without_asserts": 37
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/build_v2.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 88,
+      "cc": 53,
+      "cc_without_asserts": 44
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/prepare_training.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 47,
+      "cc": 53,
+      "cc_without_asserts": 41
+    },
+    {
+      "family": "ghost-box",
+      "path": "ghost_box/mail/summary.py",
+      "category": "non_test",
+      "name": "summarize",
+      "line": 201,
+      "cc": 51,
+      "cc_without_asserts": 51
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-005-targeted-policy-sft/export_and_build.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 78,
+      "cc": 51,
+      "cc_without_asserts": 51
+    },
+    {
+      "family": "dbcli/litecli",
+      "path": "litecli/packages/completion_engine.py",
+      "category": "non_test",
+      "name": "suggest_based_on_last_token",
+      "line": 146,
+      "cc": 50,
+      "cc_without_asserts": 49
+    },
+    {
+      "family": "ReflexModels",
+      "path": "scripts/lint_annotation_template.py",
+      "category": "non_test",
+      "name": "row_stage",
+      "line": 102,
+      "cc": 49,
+      "cc_without_asserts": 49
+    },
+    {
+      "family": "ghost-box",
+      "path": "ghost_box/mail/summary.py",
+      "category": "non_test",
+      "name": "checked_items",
+      "line": 57,
+      "cc": 46,
+      "cc_without_asserts": 46
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/thinking-sft/qwen3.5-4b/fixed_thinking_matrix.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 61,
+      "cc": 44,
+      "cc_without_asserts": 44
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/thinking-sft/qwen3.5-4b/recover_thinking_limits.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 59,
+      "cc": 44,
+      "cc_without_asserts": 44
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/turkish-capability/qwen3.5-4b/exp-002-cetvel-tiny/evaluate_vllm.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 24,
+      "cc": 44,
+      "cc_without_asserts": 36
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/export_completed_reviews.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 27,
+      "cc": 42,
+      "cc_without_asserts": 42
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "scripts/evaluation/publish_tdd_app_revision.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 48,
+      "cc": 42,
+      "cc_without_asserts": 32
+    },
+    {
+      "family": "ReflexModels",
+      "path": "tools/report_a32.py",
+      "category": "non_test",
+      "name": "generate",
+      "line": 134,
+      "cc": 41,
+      "cc_without_asserts": 41
+    },
+    {
+      "family": "llm-bender-lab",
+      "path": "experiments/response-style-control/qwen3.5-4b/exp-015-target-quality-sft/prepare_pair.py",
+      "category": "non_test",
+      "name": "leakage",
+      "line": 127,
+      "cc": 41,
+      "cc_without_asserts": 38
+    },
+    {
+      "family": "ReflexModels",
+      "path": "experiments/decision-followups/fresh_phone_test_review.py",
+      "category": "non_test",
+      "name": "main",
+      "line": 24,
+      "cc": 40,
+      "cc_without_asserts": 40
+    }
+  ],
+  "source_body_exported": false,
+  "training_inputs_changed": false
+}

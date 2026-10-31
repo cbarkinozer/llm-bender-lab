@@ -1,0 +1,5 @@
+def pytest_configure(config):
+    import ghost_box.mail.summary as m
+    from ghost_box.mail.tasks import TaskError
+    def broken(*a,**k):raise TaskError('always reject')
+    m.checked_items=broken

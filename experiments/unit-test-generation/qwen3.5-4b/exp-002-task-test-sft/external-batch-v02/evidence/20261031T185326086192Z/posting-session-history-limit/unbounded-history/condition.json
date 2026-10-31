@@ -1,0 +1,5 @@
+{
+  "module": "posting.session_variables",
+  "mutation": "def broken(self,name):\n self._history.append(self._snapshot(name))\n self._redo.clear()\nm.SessionVariables._record=broken",
+  "seed": null
+}

@@ -1,0 +1,56 @@
+....FFFF                                                                 [100%]
+================================== FAILURES ===================================
+________________ test_destructive_statements[DROP TABLE users] ________________
+
+sql = 'DROP TABLE users'
+
+    @pytest.mark.parametrize('sql', ['DROP TABLE users', '-- comment\ndElEtE FROM users',
+                                        'SELECT 1; ALTER TABLE users ADD COLUMN age INT', 'TRUNCATE users'])
+    def test_destructive_statements(sql):
+>       assert is_destructive(sql) is True
+E       AssertionError: assert False is True
+E        +  where False = is_destructive('DROP TABLE users')
+
+tests\test_sql_destructive_detection.py:13: AssertionError
+_________ test_destructive_statements[-- comment\ndElEtE FROM users] __________
+
+sql = '-- comment\ndElEtE FROM users'
+
+    @pytest.mark.parametrize('sql', ['DROP TABLE users', '-- comment\ndElEtE FROM users',
+                                        'SELECT 1; ALTER TABLE users ADD COLUMN age INT', 'TRUNCATE users'])
+    def test_destructive_statements(sql):
+>       assert is_destructive(sql) is True
+E       AssertionError: assert False is True
+E        +  where False = is_destructive('-- comment\ndElEtE FROM users')
+
+tests\test_sql_destructive_detection.py:13: AssertionError
+_ test_destructive_statements[SELECT 1; ALTER TABLE users ADD COLUMN age INT] _
+
+sql = 'SELECT 1; ALTER TABLE users ADD COLUMN age INT'
+
+    @pytest.mark.parametrize('sql', ['DROP TABLE users', '-- comment\ndElEtE FROM users',
+                                        'SELECT 1; ALTER TABLE users ADD COLUMN age INT', 'TRUNCATE users'])
+    def test_destructive_statements(sql):
+>       assert is_destructive(sql) is True
+E       AssertionError: assert False is True
+E        +  where False = is_destructive('SELECT 1; ALTER TABLE users ADD COLUMN age INT')
+
+tests\test_sql_destructive_detection.py:13: AssertionError
+_________________ test_destructive_statements[TRUNCATE users] _________________
+
+sql = 'TRUNCATE users'
+
+    @pytest.mark.parametrize('sql', ['DROP TABLE users', '-- comment\ndElEtE FROM users',
+                                        'SELECT 1; ALTER TABLE users ADD COLUMN age INT', 'TRUNCATE users'])
+    def test_destructive_statements(sql):
+>       assert is_destructive(sql) is True
+E       AssertionError: assert False is True
+E        +  where False = is_destructive('TRUNCATE users')
+
+tests\test_sql_destructive_detection.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_sql_destructive_detection.py::test_destructive_statements[DROP TABLE users]
+FAILED tests/test_sql_destructive_detection.py::test_destructive_statements[-- comment\ndElEtE FROM users]
+FAILED tests/test_sql_destructive_detection.py::test_destructive_statements[SELECT 1; ALTER TABLE users ADD COLUMN age INT]
+FAILED tests/test_sql_destructive_detection.py::test_destructive_statements[TRUNCATE users]
+4 failed, 4 passed in 0.07s

@@ -1,0 +1,16 @@
+.F.                                                                      [100%]
+================================== FAILURES ===================================
+_______________________ test_qualified_join_and_aliases _______________________
+
+    def test_qualified_join_and_aliases():
+>       assert extract_tables('SELECT u.id FROM main.users u JOIN orders o ON u.id=o.user_id') == [
+            ('main', 'users', 'u'), (None, 'orders', 'o')]
+E       AssertionError: assert [(None, 'user...orders', 'o')] == [('main', 'us...orders', 'o')]
+E         
+E         At index 0 diff: (None, 'users', 'u') != ('main', 'users', 'u')
+E         Use -v to get more diff
+
+tests\test_sql_table_identifiers.py:10: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_sql_table_identifiers.py::test_qualified_join_and_aliases
+1 failed, 2 passed in 0.06s

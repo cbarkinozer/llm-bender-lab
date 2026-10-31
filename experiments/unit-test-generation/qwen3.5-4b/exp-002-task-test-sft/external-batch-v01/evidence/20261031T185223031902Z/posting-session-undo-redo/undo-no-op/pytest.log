@@ -1,0 +1,35 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+___________________ test_revert_undo_redo_and_empty_history ___________________
+
+    def test_revert_undo_redo_and_empty_history():
+        state = SessionVariables()
+        assert state.values == {}
+        assert state.undo() is None
+        assert state.redo() is None
+        assert state.revert('missing') is False
+        state.set('token', 'first')
+        state.set('token', 'second')
+        assert state.revert('token') is True
+        assert state.values == {}
+>       assert state.undo() == 'token'
+E       AssertionError: assert None == 'token'
+E        +  where None = <lambda>()
+E        +    where <lambda> = <posting.session_variables.SessionVariables object at 0x000001FFE9FE8830>.undo
+
+tests\test_session_undo_redo.py:14: AssertionError
+_______________________ test_new_edit_invalidates_redo ________________________
+
+    def test_new_edit_invalidates_redo():
+        state = SessionVariables()
+        state.set('a', 'one')
+>       assert state.undo() == 'a'
+E       AssertionError: assert None == 'a'
+E        +  where None = <lambda>()
+E        +    where <lambda> = <posting.session_variables.SessionVariables object at 0x000001FFE9F72AD0>.undo
+
+tests\test_session_undo_redo.py:25: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_session_undo_redo.py::test_revert_undo_redo_and_empty_history
+FAILED tests/test_session_undo_redo.py::test_new_edit_invalidates_redo - Asse...
+2 failed in 0.07s
