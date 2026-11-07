@@ -56,9 +56,9 @@ def causal_token_loss(outputs,labels,num_items_in_batch=None):
     denominator=num_items_in_batch if num_items_in_batch is not None else count
     if int(denominator)<count or count==0:raise ValueError('Invalid token-loss denominator')
     # Chunk CE to avoid allocating a full sequence*vocabulary float32 copy.
-    prediction=logits[...,:-1,:].reshape(-1,logits.shape[-1]);target=target.reshape(-1)
-    loss=sum(F.cross_entropy(prediction[i:i+128].float(),target[i:i+128],ignore_index=-100,reduction='sum')
-             for i in range(0,len(target),128))
+    loss=sum(F.cross_entropy(logits[b,i:min(i+128,logits.shape[1]-1),:].float(),
+                            labels[b,i+1:min(i+128,logits.shape[1]-1)+1],ignore_index=-100,reduction='sum')
+             for b in range(logits.shape[0]) for i in range(0,logits.shape[1]-1,128))
     return loss/denominator
 
 
@@ -199,7 +199,7 @@ def train(args, config):
                 stream.write(json.dumps(dict(step=self.state.global_step,input_tokens=int(inputs['attention_mask'].sum()),
                                              supervised_tokens=int((inputs['labels']!=-100).sum())))+'\n')
             return loss/trainer_backward_scale(self)
-    ta=TrainingArguments(output_dir=str(args.output/'checkpoints'),per_device_train_batch_size=1,
+    ta=TrainingArguments(output_dir=str(args.output/'checkpoints'),per_device_train_batch_size=1,per_device_eval_batch_size=1,
         gradient_accumulation_steps=1 if args.mode=='tiny' else t['gradient_accumulation_steps'],
         num_train_epochs=t['epochs'],max_steps=3 if args.mode=='smoke' else 20 if args.mode=='tiny' else -1,
         learning_rate=2e-4 if args.mode=='tiny' else t['learning_rate'],optim=t['optimizer'],
