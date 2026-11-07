@@ -1,0 +1,17 @@
+{
+  "arms": [
+    "A",
+    "B"
+  ],
+  "rows": 50,
+  "input_tokens_per_epoch": 91858,
+  "supervised_tokens_per_epoch": {
+    "A": 17266,
+    "B": 15847
+  },
+  "masked_rationale_tokens": 1419,
+  "mixed_rationale_markup_tokens": 0,
+  "shared_inference_identity": "98a41dc3fdfacdf0eb2e5b368553ec4c7e4e4ad280aa89db73221d55f644bd4e",
+  "limitation": "B still conditions on rationale input; this is not rationale-free training. GPU normalization/masking tests remain required.",
+  "runtime_revision": "Chunked prefill enabled; language-model-only. Initial engine failure preserved."
+}

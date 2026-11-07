@@ -75,7 +75,8 @@ def generate(args, config):
     prompts=[tokenizer.apply_chat_template(r['messages'],tokenize=False,add_generation_prompt=True,enable_thinking=True) for r in requests]
     options=dict(model=m['name'],revision=m['revision'],dtype=g['dtype'],max_model_len=g['max_model_len'],
                  gpu_memory_utilization=.80,max_num_seqs=1,enable_lora=True,max_lora_rank=16,
-                 seed=g['seed'],enable_chunked_prefill=False)
+                 seed=g['seed'],enable_chunked_prefill=g.get('enable_chunked_prefill',False),
+                 language_model_only=g.get('language_model_only',True))
     for prompt in prompts:
         if len(tokenizer.encode(prompt,add_special_tokens=False))+g['max_tokens']>g['max_model_len']:
             raise ValueError('Prompt plus generation allowance exceeds model context')
@@ -218,7 +219,7 @@ def train(args, config):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=['baseline','candidate','smoke','tiny','full'],required=True)
-    p.add_argument('--preflight',type=Path,default=EXP/'paired-preflight-v01/A');p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--preflight',type=Path,default=EXP/'paired-preflight-v02/A');p.add_argument('--output',type=Path,required=True)
     for key in ('adapter','baseline','smoke','tiny','reload','runtime-lock','baseline-review','execution-preflight'):p.add_argument('--'+key,type=Path)
     args=p.parse_args();config=verify_preflight(args.preflight)
     if args.mode=='candidate' and args.adapter is None:raise ValueError('Candidate requires adapter')

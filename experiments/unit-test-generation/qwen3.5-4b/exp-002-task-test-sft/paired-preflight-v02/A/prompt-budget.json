@@ -1,0 +1,46 @@
+{
+  "prompts": [
+    {
+      "record_id": "posting-path-parameters-external-v02",
+      "prompt_tokens": 464
+    },
+    {
+      "record_id": "posting-query-pair-merge-external-v02",
+      "prompt_tokens": 501
+    },
+    {
+      "record_id": "posting-request-filenames-external-v02",
+      "prompt_tokens": 505
+    },
+    {
+      "record_id": "posting-session-undo-redo-external-v02",
+      "prompt_tokens": 473
+    },
+    {
+      "record_id": "posting-session-history-limit-external-v02",
+      "prompt_tokens": 457
+    },
+    {
+      "record_id": "posting-backend-plan-planning-v04",
+      "prompt_tokens": 130
+    },
+    {
+      "record_id": "posting-latency-reliability-v03",
+      "prompt_tokens": 98
+    },
+    {
+      "record_id": "posting-query-order-reliability-v03",
+      "prompt_tokens": 129
+    },
+    {
+      "record_id": "lint-not-acceptance-reliability-v03",
+      "prompt_tokens": 122
+    }
+  ],
+  "max_prompt_tokens": 505,
+  "max_new_tokens": 8192,
+  "minimum_total_context": 8697,
+  "rounded_total_context": 9216,
+  "rounding_multiple": 1024,
+  "scope": "Current nine development requests only; runtime independently checks each prompt. Holdout unmeasured/unopened."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "local-preparation-passed; actual GPU/Unsloth/Docker checks pending",
+  "tests_passed": 46,
+  "subtests_passed": 4,
+  "cpu_trainer": "Synthetic one-step SGD matched global token-mean update with two variable-token microbatches; accumulation denominator3 supplied twice",
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.13.1",
+    "accelerate": "1.10.1",
+    "datasets": "5.0.1"
+  },
+  "supervised_tokens_per_epoch": {
+    "A": 17266,
+    "B": 15847
+  },
+  "masked_rationale_tokens": 1419,
+  "mixed_rationale_markup_tokens": 0,
+  "training_runs": 0,
+  "baseline_runs": 0,
+  "holdout_generated": false,
+  "code_sha256": {
+    "prepare_tdd_pair.py": "4aa530f4fb9dfd8e225207d9f0c6114600315b79bcb7b4f3393f83c38fb556eb",
+    "run_tdd_demo_gpu.py": "24b40bd2ddfe8e2164e4e2bc1f72b7b1fc10e2227d2323030d45a1b0caa8fb64",
+    "review_tdd_demo_outputs.py": "cfa2d9706db9e3e1eeebaac5250cf57588aa94f47bccb08e0c09491758c924a7"
+  }
+}
