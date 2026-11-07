@@ -1,3 +1,5 @@
+Latest handoff update2026-11-07: all five original questions and all fifteen candidate files inspected against the submitted LLM descriptions. Read [NEXT-PAIR-PLAN.md](NEXT-PAIR-PLAN.md) first. It distinguishes confirmed errors from under-specified contracts, records the proposed LR1e-5 versus3e-5 pair, and names the pending50-row semantic audit. No new GPU experiment is prepared. The reviewer descriptions are LLM-assisted, not independent human ground truth. Downloads contains the Claude continuation TXT and full five-case companion.
+
 # Current result: primary review complete, no demonstrated utility gain
 
 Update 2026-11-07: owner submitted all five primary comparisons. Results and

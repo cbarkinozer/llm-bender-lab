@@ -1,3 +1,5 @@
+Provenance clarification2026-11-07: the user identified the submitted detailed reviews as LLM evaluations. Treat the following ranks and evidence as user-submitted LLM-assisted judgments, not independent human validation. Original submissions and scores are preserved. Further code/contract inspection and qualifications are in [NEXT-PAIR-PLAN.md](NEXT-PAIR-PLAN.md).
+
 # Primary review and algorithmic quality results - 2026-11-07
 
 The current pair does not demonstrate improved useful test generation. The submitted
