@@ -227,6 +227,7 @@ def train(args, config):
     save(args.output/'training-arguments.json',ta.to_dict())
     save(args.output/'result.json',dict(status='completed',stage=args.mode,recipe_sha256=digest(args.preflight/'recipe.json'),
         metrics=result.metrics,before=before,after=after,loss_decreased=after<before if before is not None else None,
+        gpu_peak_allocated_bytes=torch.cuda.max_memory_allocated(),gpu_peak_reserved_bytes=torch.cuda.max_memory_reserved(),
         actual_batch_labels_verified=True,adapter_reload_verified=False))
 
 
