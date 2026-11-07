@@ -1,0 +1,66 @@
+{
+  "api_url": "http://127.0.0.1:7900",
+  "workspace": "tdd-blind-comparison",
+  "blinded": true,
+  "model_identities_uploaded": false,
+  "reasoning_uploaded": false,
+  "automatic_scores_uploaded": false,
+  "datasets": {
+    "primary": {
+      "id": "38871af8-c5fa-462c-b132-e57d23246d22",
+      "name": "tdd-threeway-primary-20261107-v01",
+      "records": 5,
+      "source_sha256": "0c2b8aadbaa5c313eb4904463475dc697cd4964319a3d4bb04a77da2380e958b",
+      "index": [
+        {
+          "record_id": "7d4ad595-3ad0-5d8e-a83b-79c47d1fda5f",
+          "case_id": "posting-path-parameters-external-v02"
+        },
+        {
+          "record_id": "0905c09a-8cee-5e7d-a993-d2f1596abe85",
+          "case_id": "posting-query-pair-merge-external-v02"
+        },
+        {
+          "record_id": "574568b1-9469-5e75-b57e-635008101f7a",
+          "case_id": "posting-request-filenames-external-v02"
+        },
+        {
+          "record_id": "32b39906-7a76-5193-9820-49f05f85153d",
+          "case_id": "posting-session-undo-redo-external-v02"
+        },
+        {
+          "record_id": "7ea1e491-3d38-5c47-9a0f-78d5571c1df5",
+          "case_id": "posting-session-history-limit-external-v02"
+        }
+      ],
+      "url": "http://127.0.0.1:7900/dataset/38871af8-c5fa-462c-b132-e57d23246d22/annotation-mode",
+      "saved_responses": 0
+    },
+    "supporting": {
+      "id": "5d13e6ae-4cc5-4054-b65e-9cb502ab0a43",
+      "name": "tdd-threeway-supporting-20261107-v01",
+      "records": 4,
+      "source_sha256": "694676cfcc4d373d997b431ebb8a80fae856c6d10e9f6dfcdb6dbd8b4420da55",
+      "index": [
+        {
+          "record_id": "9101c333-e652-5ad8-af34-984217c2a013",
+          "case_id": "posting-backend-plan-planning-v04"
+        },
+        {
+          "record_id": "b1393195-b7f0-55c6-9e61-4086dbfb357a",
+          "case_id": "posting-latency-reliability-v03"
+        },
+        {
+          "record_id": "af1532e8-9631-5279-afab-7f089b450f49",
+          "case_id": "posting-query-order-reliability-v03"
+        },
+        {
+          "record_id": "4c210ff2-9a26-5a49-b028-05fc3de51729",
+          "case_id": "lint-not-acceptance-reliability-v03"
+        }
+      ],
+      "url": "http://127.0.0.1:7900/dataset/5d13e6ae-4cc5-4054-b65e-9cb502ab0a43/annotation-mode",
+      "saved_responses": 0
+    }
+  }
+}
