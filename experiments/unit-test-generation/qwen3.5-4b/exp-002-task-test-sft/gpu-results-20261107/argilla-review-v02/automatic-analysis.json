@@ -1,0 +1,2934 @@
+[
+  {
+    "key": "posting-path-parameters-external-v02:X",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 6,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert set(extract_path_param_names('https://example.com/{a}/{b}')) == {'a', 'b'}"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 7,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert extract_path_param_names('http://x::{y}/z') == ['{y}']"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 8,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert extract_path_param_names('/foo/bar?k=v#s') == []"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 18,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert substitute_path_params(url, params) == result"
+        }
+      ],
+      "test_functions": 0,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": false,
+          "evidence": []
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "extract_path_param_names",
+        "substitute_path_params"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-path-parameters-external-v02:Y",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 6,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert extract_path_param_names('/api/:foo/bar') == [('foo', 'bar')]"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 7,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert extract_path_param_names('/:a/b::c?q=x&y=z#frag') == [('a', 'b')]"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 8,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert extract_path_param_names(':_underscore') == [('_underscore', '')]"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 15,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == '/api/hello/bar:baz'"
+        }
+      ],
+      "test_functions": 2,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_extract_path_param_names",
+              "lineno": 5,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_extract_path_param_names",
+              "lineno": 5,
+              "reason": "'extract_path_param_names' called 3 times in one test"
+            }
+          ]
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "extract_path_param_names",
+        "substitute_path_params"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-path-parameters-external-v02:Z",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "WEAK",
+          "lineno": 30,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_runtime_type",
+          "source": "assert isinstance(result, list)"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 31,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert len(expected_names) == len(result)"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 33,
+          "col_offset": 8,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert item == expected_names[i]"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 41,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == \"/api/123/profile\""
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 49,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == \"/api/100/:adminId\""
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 57,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == \"/search/hello?key=value#top\""
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 65,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == \"/api/:missingParam/data\""
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 73,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == \"/api/1\""
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 80,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert names == [\":valid\"]"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 87,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert names == [\":my-param\", \":another_one\"]"
+        },
+        {
+          "oracle_id": "oracle_0011",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 95,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert substituted == \"/api:endpoint:test\""
+        },
+        {
+          "oracle_id": "oracle_0012",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 105,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert \"https://domain.com/api:v1:v1/users/u1\" in result"
+        },
+        {
+          "oracle_id": "oracle_0013",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 106,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert \"?filter=:type\" in result"
+        }
+      ],
+      "test_functions": 10,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_extract_path_param_names",
+              "lineno": 25,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_boundary_complex_structure_with_escapes",
+              "lineno": 98,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_extract_path_param_names",
+              "lineno": 25,
+              "reason": "contains for loop"
+            }
+          ]
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "module",
+              "reason": "'result' setup repeated identically in 6 test functions"
+            }
+          ]
+        }
+      },
+      "inferred_sut_names": [],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-query-pair-merge-external-v02:X",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 9,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert merge_url_query_into_params(url,params)==url"
+        }
+      ],
+      "test_functions": 1,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": false,
+          "evidence": []
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "extract_query_pairs",
+        "merge_url_query_into_params"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-query-pair-merge-external-v02:Y",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 19,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "opaque_predicate_call",
+          "source": "assert tmp_path.joinpath(request.param).exists()"
+        }
+      ],
+      "test_functions": 1,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": false,
+          "evidence": []
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-query-pair-merge-external-v02:Z",
+    "analysis": {
+      "status": "unparseable",
+      "sites": [],
+      "smells": {},
+      "test_functions": 0
+    }
+  },
+  {
+    "key": "posting-request-filenames-external-v02:X",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 5,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('') == False"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 6,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('   ') == False"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 10,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('/foo/bar.txt') == False"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 15,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename(long_name) == False"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 19,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('C:.txt') == True"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 23,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('.hidden') == False"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 27,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('file.') == False"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 31,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('../parent/file.txt') == False"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 38,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == expected"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 44,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert result == 'test-01.posting.yaml'"
+        }
+      ],
+      "test_functions": 9,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_is_valid_filename_rejects_empty_and_whitespace",
+              "lineno": 4,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_get_unique_request_filename_returns_base_when_available",
+              "lineno": 35,
+              "reason": "hardcoded absolute path: '/tmp/sessions/'"
+            },
+            {
+              "scope": "test_get_unique_request_filename_appends_numbered_suffix_on_collision",
+              "lineno": 41,
+              "reason": "hardcoded absolute path: '/tmp/sessions/'"
+            }
+          ]
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-request-filenames-external-v02:Y",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 5,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('') == False"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 6,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename(' ') == False"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 7,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('/') == False"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 8,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(posting.files.is_valid_filename('a' * 256)) == 0"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 9,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('C:') == False"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 10,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('.hidden') == False"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 11,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('file.') == False"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 12,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('..relative') == False"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 13,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.is_valid_filename('ordinary.txt') == True"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 18,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.get_unique_request_filename(name, directory) == f'{directory}{name}.posting.yaml'"
+        },
+        {
+          "oracle_id": "oracle_0011",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 19,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.get_unique_request_filename(name, directory) == f'{directory}{name}-01.posting.yaml'"
+        },
+        {
+          "oracle_id": "oracle_0012",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 20,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert posting.files.get_unique_request_filename(name, directory) == f'{directory}{name}-02.posting.yaml'"
+        }
+      ],
+      "test_functions": 2,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_is_valid_filename",
+              "lineno": 4,
+              "reason": "9 assertions (9 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_get_unique_request_filename",
+              "lineno": 17,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_is_valid_filename",
+              "lineno": 4,
+              "reason": "magic number 256 in assertion"
+            }
+          ]
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-request-filenames-external-v02:Z",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 35,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"\") is False"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 39,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"   \") is False"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 40,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"\\t\\n\\r\") is False"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 44,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"/path/to/file\") is False"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 45,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"/\") is False"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 49,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(r\"C:\\Users\\File\") is False"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 50,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"\\\\\\\\\") is False"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 54,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"C:\") is False"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 55,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"Z:\") is False"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 59,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"C:.txt\") is False"
+        },
+        {
+          "oracle_id": "oracle_0011",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 60,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"D:.data\") is False"
+        },
+        {
+          "oracle_id": "oracle_0012",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 64,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\".config\") is False"
+        },
+        {
+          "oracle_id": "oracle_0013",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 65,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"..settings\") is False"
+        },
+        {
+          "oracle_id": "oracle_0014",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 69,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"file..txt\") is False"
+        },
+        {
+          "oracle_id": "oracle_0015",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 70,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"../relative\") is False"
+        },
+        {
+          "oracle_id": "oracle_0016",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 71,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"folder/../other\") is False"
+        },
+        {
+          "oracle_id": "oracle_0017",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 75,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"file.\") is False"
+        },
+        {
+          "oracle_id": "oracle_0018",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 76,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"file.name.\") is False"
+        },
+        {
+          "oracle_id": "oracle_0019",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 82,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(short_name) is True"
+        },
+        {
+          "oracle_id": "oracle_0020",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 83,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(long_name) is True"
+        },
+        {
+          "oracle_id": "oracle_0021",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 88,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(long_name) is False"
+        },
+        {
+          "oracle_id": "oracle_0022",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 92,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"RequestID_123\") is True"
+        },
+        {
+          "oracle_id": "oracle_0023",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 93,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"Session-v2.0\") is True"
+        },
+        {
+          "oracle_id": "oracle_0024",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 94,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"_private_data\") is True"
+        },
+        {
+          "oracle_id": "oracle_0025",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 98,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"file-name_v2\") is True"
+        },
+        {
+          "oracle_id": "oracle_0026",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 99,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert is_valid_filename(\"file.v2\") is True"
+        },
+        {
+          "oracle_id": "oracle_0027",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 128,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert \".posting.yaml\" in result"
+        },
+        {
+          "oracle_id": "oracle_0028",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 131,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert temp_directory in result"
+        },
+        {
+          "oracle_id": "oracle_0029",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 134,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert input_name.replace(\".\", \"\") in result.split(\"-\")[0] if \"-\" in result else result.split(\".\")[-2]"
+        },
+        {
+          "oracle_id": "oracle_0030",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 143,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert \"-01\" in result"
+        },
+        {
+          "oracle_id": "oracle_0031",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 144,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert result.endswith(\".posting.yaml\")"
+        },
+        {
+          "oracle_id": "oracle_0032",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 145,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert \"conflict\" in result"
+        },
+        {
+          "oracle_id": "oracle_0033",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 167,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert \"-01\" in res1"
+        },
+        {
+          "oracle_id": "oracle_0034",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 174,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert \"-02\" in res2 or \"-01\" in res2  # At least one variant found"
+        },
+        {
+          "oracle_id": "oracle_0035",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 179,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert match is not None"
+        },
+        {
+          "oracle_id": "oracle_0036",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 180,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert int(match.group(1)) >= 1"
+        },
+        {
+          "oracle_id": "oracle_0037",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 186,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert result.endswith(\".posting.yaml\")"
+        },
+        {
+          "oracle_id": "oracle_0038",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 187,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert \".yml\" not in result.lower().replace(\".posting.\", \"\")"
+        },
+        {
+          "oracle_id": "oracle_0039",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 204,
+          "col_offset": 20,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert isinstance(result, str)"
+        },
+        {
+          "oracle_id": "oracle_0040",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 211,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert custom_dir in result"
+        },
+        {
+          "oracle_id": "oracle_0041",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 213,
+          "col_offset": 12,
+          "sut_dependent": null,
+          "classification_reason": "Raw assertion not covered by paper classifier traversal",
+          "source": "assert result.startswith(custom_dir)"
+        }
+      ],
+      "test_functions": 19,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_whitespace_only",
+              "lineno": 37,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_native_separators_forward_slash",
+              "lineno": 42,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_native_separators_backslash",
+              "lineno": 47,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_windows_device_names_no_extension",
+              "lineno": 52,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_windows_device_names_with_extension",
+              "lineno": 57,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_dot_prefixed",
+              "lineno": 62,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_double_dot_containing",
+              "lineno": 67,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_dot_suffixed",
+              "lineno": 73,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_length_boundary_under_255",
+              "lineno": 78,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_mixed_case_alphanumerics",
+              "lineno": 90,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_special_characters_allowed",
+              "lineno": 96,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_basic_generation_success",
+              "lineno": 113,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_collision_suffix_policy_one",
+              "lineno": 136,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_collision_suffix_policy_two",
+              "lineno": 147,
+              "reason": "4 assertions (4 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_extension_consistency",
+              "lineno": 182,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_directory_argument_usage",
+              "lineno": 206,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_whitespace_only",
+              "lineno": 37,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_native_separators_forward_slash",
+              "lineno": 42,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_native_separators_backslash",
+              "lineno": 47,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_windows_device_names_no_extension",
+              "lineno": 52,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_windows_device_names_with_extension",
+              "lineno": 57,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_dot_prefixed",
+              "lineno": 62,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_double_dot_containing",
+              "lineno": 67,
+              "reason": "'is_valid_filename' called 3 times in one test"
+            },
+            {
+              "scope": "test_dot_suffixed",
+              "lineno": 73,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_length_boundary_under_255",
+              "lineno": 78,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_mixed_case_alphanumerics",
+              "lineno": 90,
+              "reason": "'is_valid_filename' called 3 times in one test"
+            },
+            {
+              "scope": "test_special_characters_allowed",
+              "lineno": 96,
+              "reason": "'is_valid_filename' called 2 times in one test"
+            },
+            {
+              "scope": "test_collision_suffix_policy_two",
+              "lineno": 147,
+              "reason": "'get_unique_request_filename' called 2 times in one test"
+            }
+          ]
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_basic_generation_success",
+              "lineno": 113,
+              "reason": "contains conditional expression (ternary)"
+            },
+            {
+              "scope": "test_proposal_without_creation",
+              "lineno": 189,
+              "reason": "contains conditional expression (ternary)"
+            }
+          ]
+        },
+        "fragile_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_native_separators_backslash",
+              "lineno": 47,
+              "reason": "hardcoded absolute path: 'C:\\\\Users\\\\File'"
+            }
+          ]
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_proposal_without_creation",
+              "lineno": 189,
+              "reason": "all 1 assertion(s) are trivially weak (null/type/bool checks)"
+            }
+          ]
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "get_unique_request_filename",
+        "is_valid_filename"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-session-undo-redo-external-v02:X",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 11,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('x') == ''"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 13,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('x') == 'a'"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 14,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.undo() == 'x'"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 15,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('x') == ''"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 16,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.redo() == 'x'"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 17,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('x') == 'a'"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 19,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('y') == ''"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 22,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('z') == ''"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 24,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('z') == 'b'"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 26,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('z') == ''"
+        },
+        {
+          "oracle_id": "oracle_0011",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 29,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('w') == ''"
+        },
+        {
+          "oracle_id": "oracle_0012",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 31,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('w') == 'c'"
+        },
+        {
+          "oracle_id": "oracle_0013",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 33,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('w') == ''"
+        },
+        {
+          "oracle_id": "oracle_0014",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 35,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.undo() is None"
+        },
+        {
+          "oracle_id": "oracle_0015",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 36,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.redo() is None"
+        },
+        {
+          "oracle_id": "oracle_0016",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 39,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('v') == ''"
+        },
+        {
+          "oracle_id": "oracle_0017",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 41,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert sv.get('v') == 'd'"
+        }
+      ],
+      "test_functions": 1,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_set_reverts_and_undoes",
+              "lineno": 10,
+              "reason": "17 assertions (17 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_set_reverts_and_undoes",
+              "lineno": 10,
+              "reason": "31 statements (threshold: 15)"
+            }
+          ]
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "SessionVariables"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-session-undo-redo-external-v02:Y",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 25,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {}"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 31,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "coarse_check_without_sut_provenance",
+          "source": "assert isinstance(session_vars.values, dict)"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 32,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values[\"key\"] == \"value\""
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 40,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values.get(\"var_name\") == \"initial_value\""
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 47,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values[\"counter\"] == \"second\""
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 56,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert result is True"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 57,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert \"flag\" not in session_vars.values"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 63,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert result is False"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 64,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert \"missing_key\" not in session_vars.values"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 71,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.revert(\"opt_a\") is True"
+        },
+        {
+          "oracle_id": "oracle_0011",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 72,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.revert(\"opt_b\") is True"
+        },
+        {
+          "oracle_id": "oracle_0012",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 73,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session_vars.values) == 0"
+        },
+        {
+          "oracle_id": "oracle_0013",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 82,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() == \"step_2\""
+        },
+        {
+          "oracle_id": "oracle_0014",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 83,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {\"step_1\": \"data_one\"}"
+        },
+        {
+          "oracle_id": "oracle_0015",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 91,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.redo() is None"
+        },
+        {
+          "oracle_id": "oracle_0016",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 102,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {\"phase_a\": \"start\", \"phase_b\": \"middle\"}"
+        },
+        {
+          "oracle_id": "oracle_0017",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 106,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {\"phase_a\": \"start\", \"phase_b\": \"middle\", \"phase_c\": \"end\"}"
+        },
+        {
+          "oracle_id": "oracle_0018",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 115,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() == \"v3\""
+        },
+        {
+          "oracle_id": "oracle_0019",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 116,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() == \"v2\""
+        },
+        {
+          "oracle_id": "oracle_0020",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 117,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() == \"v1\""
+        },
+        {
+          "oracle_id": "oracle_0021",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 118,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() is None  # Bottom of stack reached"
+        },
+        {
+          "oracle_id": "oracle_0022",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 129,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.redo() is None"
+        },
+        {
+          "oracle_id": "oracle_0023",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 134,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() is None"
+        },
+        {
+          "oracle_id": "oracle_0024",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 135,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.redo() is None"
+        },
+        {
+          "oracle_id": "oracle_0025",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 145,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {\"inactive\": \"no\"}"
+        },
+        {
+          "oracle_id": "oracle_0026",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 150,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() is None  # Assuming revert consumed the edit or history remains shallow"
+        },
+        {
+          "oracle_id": "oracle_0027",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 179,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {\"temp\": \"keep_me\"}"
+        },
+        {
+          "oracle_id": "oracle_0028",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 183,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values == {}"
+        },
+        {
+          "oracle_id": "oracle_0029",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 186,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.undo() is None"
+        }
+      ],
+      "test_functions": 15,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_values_readonly_access",
+              "lineno": 28,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_revert_removes_key_and_returns_true",
+              "lineno": 52,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_revert_nonexistent_returns_false",
+              "lineno": 60,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_multiple_reverts_independent",
+              "lineno": 67,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_undo_restores_previous_state",
+              "lineno": 78,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_redo_resumes_after_undo",
+              "lineno": 94,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_multi_step_undo_chain",
+              "lineno": 109,
+              "reason": "4 assertions (4 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_no_op_operations_return_none",
+              "lineno": 132,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_revert_does_not_break_undo_chain",
+              "lineno": 138,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_revert_then_undo_behavior",
+              "lineno": 172,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_initial_values_empty",
+              "lineno": 23,
+              "reason": "all 1 assertion(s) are trivially weak (null/type/bool checks)"
+            },
+            {
+              "scope": "test_undo_clears_redo_stack",
+              "lineno": 86,
+              "reason": "all 1 assertion(s) are trivially weak (null/type/bool checks)"
+            },
+            {
+              "scope": "test_editor_edit_clears_redo",
+              "lineno": 123,
+              "reason": "all 1 assertion(s) are trivially weak (null/type/bool checks)"
+            },
+            {
+              "scope": "test_no_op_operations_return_none",
+              "lineno": 132,
+              "reason": "all 2 assertion(s) are trivially weak (null/type/bool checks)"
+            }
+          ]
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "SessionVariables"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-session-undo-redo-external-v02:Z",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 11,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.set('x', 'a') == 'x'"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 12,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.revert('x') is True"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 13,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.values['x'] == ''"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 14,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.undo() == 'x'"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 15,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.redo() == 'x'"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 16,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.set('y', 'b') == 'y'"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 17,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.redo() is None"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 18,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.undo() == 'y'"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 19,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.redo() is None"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 20,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert vars.values == {'x': '', 'y': 'b'}"
+        }
+      ],
+      "test_functions": 1,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_set_revert_and_edit",
+              "lineno": 10,
+              "reason": "10 assertions (10 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": false,
+          "evidence": []
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "SessionVariables"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-session-history-limit-external-v02:X",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 22,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert values.get(\"key_50\") == \"value_50\""
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 25,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert values.get(\"key_0\") != \"value_0\""
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 64,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert values.get(\"my_var\") == 100"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 65,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert \"other_key\" not in values"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 66,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert \"another_key\" not in values"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 85,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert len(values) == 0"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 94,
+          "col_offset": 8,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert len(var.values()) == 0"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 103,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert var.values().get(\"new_item\") == \"data_new\""
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 125,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert var.values()[\"counter\"] == \"stringified_false\""
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "STRONG",
+          "lineno": 130,
+          "col_offset": 4,
+          "sut_dependent": true,
+          "classification_reason": "sut_derived_specific_comparison",
+          "source": "assert var.values()[\"counter\"][\"nested\"] is True"
+        }
+      ],
+      "test_functions": 4,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retention_policy",
+              "lineno": 8,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_direct_attribute_writes_do_not_add_history",
+              "lineno": 28,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_undo_stops_at_retained_boundary",
+              "lineno": 69,
+              "reason": "3 assertions (3 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_snapshot_of_non_string_types",
+              "lineno": 106,
+              "reason": "2 assertions (2 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retention_policy",
+              "lineno": 8,
+              "reason": "magic number in @parametrize: magic number 50 in assertion"
+            },
+            {
+              "scope": "test_direct_attribute_writes_do_not_add_history",
+              "lineno": 28,
+              "reason": "magic number 100 in assertion"
+            }
+          ]
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retention_policy",
+              "lineno": 8,
+              "reason": "contains for loop"
+            },
+            {
+              "scope": "test_undo_stops_at_retained_boundary",
+              "lineno": 69,
+              "reason": "contains for loop"
+            }
+          ]
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "module",
+              "reason": "'var' setup repeated identically in 4 test functions"
+            }
+          ]
+        }
+      },
+      "inferred_sut_names": [
+        "SessionVariables"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-session-history-limit-external-v02:Y",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 11,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 0"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 13,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 1"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 15,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 2"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 17,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 3"
+        },
+        {
+          "oracle_id": "oracle_0005",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 20,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 50"
+        },
+        {
+          "oracle_id": "oracle_0006",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 22,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 51"
+        },
+        {
+          "oracle_id": "oracle_0007",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 24,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(session.history) == 50"
+        },
+        {
+          "oracle_id": "oracle_0008",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 25,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session.values['e'] != 'f'"
+        },
+        {
+          "oracle_id": "oracle_0009",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 34,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session.values['x'] == [1]"
+        },
+        {
+          "oracle_id": "oracle_0010",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 35,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session.values['y'] == {'z': 2}"
+        },
+        {
+          "oracle_id": "oracle_0011",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 36,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session.values['w'] is True"
+        },
+        {
+          "oracle_id": "oracle_0012",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 37,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session.values['v'] is None"
+        }
+      ],
+      "test_functions": 2,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retention_boundary",
+              "lineno": 10,
+              "reason": "8 assertions (8 assert, 0 unittest), none carry a failure message"
+            },
+            {
+              "scope": "test_script_snapshot",
+              "lineno": 28,
+              "reason": "4 assertions (4 assert, 0 unittest), none carry a failure message"
+            }
+          ]
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retention_boundary",
+              "lineno": 10,
+              "reason": "magic number 3 in assertion"
+            }
+          ]
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retention_boundary",
+              "lineno": 10,
+              "reason": "contains while loop"
+            }
+          ]
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "SessionVariables"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  },
+  {
+    "key": "posting-session-history-limit-external-v02:Z",
+    "analysis": {
+      "status": "parseable",
+      "sites": [
+        {
+          "oracle_id": "oracle_0001",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 13,
+          "col_offset": 8,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len([v for v in session_vars.values()]) <= 50"
+        },
+        {
+          "oracle_id": "oracle_0002",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 19,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert list(session_vars.values()) == ['initial', 'assigned_via_bracket_notation']"
+        },
+        {
+          "oracle_id": "oracle_0003",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 26,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert session_vars.values() == [42, [1, 2, 3], {'key': 'value'}]"
+        },
+        {
+          "oracle_id": "oracle_0004",
+          "oracle_kind": "assert",
+          "oracle_class": "UNKNOWN",
+          "lineno": 33,
+          "col_offset": 4,
+          "sut_dependent": null,
+          "classification_reason": "comparison_without_sut_provenance",
+          "source": "assert len(list(session_vars.values())) == 50"
+        }
+      ],
+      "test_functions": 4,
+      "smells": {
+        "assertion_roulette": {
+          "flagged": false,
+          "evidence": []
+        },
+        "eager_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "mystery_guest": {
+          "flagged": false,
+          "evidence": []
+        },
+        "magic_number_test": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retains_last_50_editor_edits",
+              "lineno": 10,
+              "reason": "magic number 50 in assertion"
+            },
+            {
+              "scope": "test_non_string_types_snapshot_on_edit",
+              "lineno": 22,
+              "reason": "magic number 42 in assertion"
+            },
+            {
+              "scope": "test_undo_all_stops_at_boundary",
+              "lineno": 29,
+              "reason": "magic number 50 in assertion"
+            }
+          ]
+        },
+        "obscure_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "general_fixture": {
+          "flagged": false,
+          "evidence": []
+        },
+        "conditional_test_logic": {
+          "flagged": true,
+          "evidence": [
+            {
+              "scope": "test_retains_last_50_editor_edits",
+              "lineno": 10,
+              "reason": "contains for loop"
+            },
+            {
+              "scope": "test_undo_all_stops_at_boundary",
+              "lineno": 29,
+              "reason": "contains for loop"
+            }
+          ]
+        },
+        "fragile_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "unknown_test": {
+          "flagged": false,
+          "evidence": []
+        },
+        "trivial_assertion": {
+          "flagged": false,
+          "evidence": []
+        },
+        "duplicated_setup": {
+          "flagged": false,
+          "evidence": []
+        }
+      },
+      "inferred_sut_names": [
+        "SessionVariables"
+      ],
+      "runtime_reached": "not_measured"
+    }
+  }
+]

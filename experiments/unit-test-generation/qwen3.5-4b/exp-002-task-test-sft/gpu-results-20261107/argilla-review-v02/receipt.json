@@ -1,0 +1,790 @@
+{
+  "datasets": {
+    "primary": {
+      "id": "1ed2b4a4-a785-45b2-ba44-3e571a499bad",
+      "name": "tdd-threeway-primary-20261107-v02",
+      "records": 5,
+      "url": "http://127.0.0.1:7900/dataset/1ed2b4a4-a785-45b2-ba44-3e571a499bad/annotation-mode",
+      "index": [
+        {
+          "record_id": "85a71756-c9d5-5e30-a9d3-37f57df747f1",
+          "key": "posting-path-parameters-external-v02"
+        },
+        {
+          "record_id": "7584968a-be9f-59a0-ae86-fc75628c8561",
+          "key": "posting-query-pair-merge-external-v02"
+        },
+        {
+          "record_id": "32e94993-5845-5b7e-bd7a-a1f9b2ac3051",
+          "key": "posting-request-filenames-external-v02"
+        },
+        {
+          "record_id": "be628a48-df12-546e-a762-c1e16b5772e4",
+          "key": "posting-session-undo-redo-external-v02"
+        },
+        {
+          "record_id": "72eed072-6209-56d6-8c01-9f29c251df7a",
+          "key": "posting-session-history-limit-external-v02"
+        }
+      ]
+    },
+    "oracles": {
+      "id": "da418388-67c8-4111-934f-38384b94e508",
+      "name": "tdd-oracles-20261107-v02",
+      "records": 169,
+      "url": "http://127.0.0.1:7900/dataset/da418388-67c8-4111-934f-38384b94e508/annotation-mode",
+      "index": [
+        {
+          "record_id": "9b2c7676-e493-56d9-a18f-76a7532bcf49",
+          "key": "posting-path-parameters-external-v02:X:oracle_0001"
+        },
+        {
+          "record_id": "0b803171-4609-59f8-9a53-1936933927a9",
+          "key": "posting-path-parameters-external-v02:X:oracle_0002"
+        },
+        {
+          "record_id": "0e79a7a0-e479-5786-87d7-be15bb49a657",
+          "key": "posting-path-parameters-external-v02:X:oracle_0003"
+        },
+        {
+          "record_id": "b47e4d96-d17c-5adb-8d7e-91eba75b7374",
+          "key": "posting-path-parameters-external-v02:X:oracle_0004"
+        },
+        {
+          "record_id": "e8fac826-1b8f-5450-ac7a-857b6901d33f",
+          "key": "posting-path-parameters-external-v02:Y:oracle_0001"
+        },
+        {
+          "record_id": "24b89b41-96b2-5902-b8aa-d977fcd0c55e",
+          "key": "posting-path-parameters-external-v02:Y:oracle_0002"
+        },
+        {
+          "record_id": "11cdcaae-1a04-578e-8807-a49381c38ccf",
+          "key": "posting-path-parameters-external-v02:Y:oracle_0003"
+        },
+        {
+          "record_id": "18b902f2-0f9c-503b-99e8-297d334a758e",
+          "key": "posting-path-parameters-external-v02:Y:oracle_0004"
+        },
+        {
+          "record_id": "cd16055d-a176-5a3c-b64a-6b61b2975e0a",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0001"
+        },
+        {
+          "record_id": "c4cabbfc-e653-5559-bd75-e27ae957fa21",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0002"
+        },
+        {
+          "record_id": "63d10b6f-a966-5cf6-804a-8e67cb5a5e05",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0003"
+        },
+        {
+          "record_id": "7fe8d1f2-a39d-5119-8549-7a7d1c98bf02",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0004"
+        },
+        {
+          "record_id": "897834ba-e4a9-5c22-befd-27d7c7ff53cf",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0005"
+        },
+        {
+          "record_id": "faab0e15-410a-53d1-9e51-1d8759bd66a6",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0006"
+        },
+        {
+          "record_id": "aa56fb64-d20c-5e0f-a83e-284ed5d5153c",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0007"
+        },
+        {
+          "record_id": "b422790c-d75f-57ee-b5a9-bcc684387292",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0008"
+        },
+        {
+          "record_id": "12483c57-9f36-5657-8d7b-6d8f3ae53ba6",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0009"
+        },
+        {
+          "record_id": "7df433b0-e8cc-513f-b4e3-4353ac1fde91",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0010"
+        },
+        {
+          "record_id": "2f0a957a-9e0f-5558-9055-f5f010d64e00",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0011"
+        },
+        {
+          "record_id": "518fd2c2-25b0-54c1-a6d5-598026e5d937",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0012"
+        },
+        {
+          "record_id": "7ed14c98-d80e-5cbd-bde7-c6031d51cf01",
+          "key": "posting-path-parameters-external-v02:Z:oracle_0013"
+        },
+        {
+          "record_id": "a2a1232f-5591-5f3e-9230-067a977397f7",
+          "key": "posting-query-pair-merge-external-v02:X:oracle_0001"
+        },
+        {
+          "record_id": "4523aef8-4b2e-574d-98ed-8bb7fee325b1",
+          "key": "posting-query-pair-merge-external-v02:Y:oracle_0001"
+        },
+        {
+          "record_id": "84e2617a-f289-5158-a3dc-820f49c6a27e",
+          "key": "posting-query-pair-merge-external-v02:Z:unparseable"
+        },
+        {
+          "record_id": "401c1853-57cc-58a9-9d91-197db5b4b085",
+          "key": "posting-request-filenames-external-v02:X:oracle_0001"
+        },
+        {
+          "record_id": "190e168e-28f3-5ee9-87f0-ff6c2c7e4487",
+          "key": "posting-request-filenames-external-v02:X:oracle_0002"
+        },
+        {
+          "record_id": "08ca88dc-8aea-5c25-b6f2-74b7a52961c9",
+          "key": "posting-request-filenames-external-v02:X:oracle_0003"
+        },
+        {
+          "record_id": "057cbecd-da4b-5f03-b71b-3a6a5dbb4a5c",
+          "key": "posting-request-filenames-external-v02:X:oracle_0004"
+        },
+        {
+          "record_id": "41adb987-1208-5adf-b1de-f5eebb6c7b09",
+          "key": "posting-request-filenames-external-v02:X:oracle_0005"
+        },
+        {
+          "record_id": "71043e4d-f064-5047-aedc-bb89a00cf4b5",
+          "key": "posting-request-filenames-external-v02:X:oracle_0006"
+        },
+        {
+          "record_id": "c06143db-ecaa-5b69-bb9e-99d8def0f81d",
+          "key": "posting-request-filenames-external-v02:X:oracle_0007"
+        },
+        {
+          "record_id": "e4ccb188-fe27-5238-9c9d-b838bc227b5f",
+          "key": "posting-request-filenames-external-v02:X:oracle_0008"
+        },
+        {
+          "record_id": "068e7ded-9e12-5549-97f7-f8a0da553668",
+          "key": "posting-request-filenames-external-v02:X:oracle_0009"
+        },
+        {
+          "record_id": "79e35e53-e753-503d-a6ea-5280dbc9aef1",
+          "key": "posting-request-filenames-external-v02:X:oracle_0010"
+        },
+        {
+          "record_id": "516455e5-ffcb-5d8f-b449-39a74c6a9b2c",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0001"
+        },
+        {
+          "record_id": "104876e8-5c8a-5ba8-9ef8-c0d8b3551435",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0002"
+        },
+        {
+          "record_id": "56edd7c0-4899-5d9f-b225-11b687325292",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0003"
+        },
+        {
+          "record_id": "e93ae5f3-a566-5c18-a06e-04ebb0d8d288",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0004"
+        },
+        {
+          "record_id": "6e72a376-ac14-552e-bc4f-cb9c4405c496",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0005"
+        },
+        {
+          "record_id": "14770bf2-bdcb-5c68-8f2c-1c09f37791ac",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0006"
+        },
+        {
+          "record_id": "de2cd444-6dfe-5287-96d1-88f9c85c5ace",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0007"
+        },
+        {
+          "record_id": "dafa6935-4a35-5125-8e53-eb8fb9762a33",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0008"
+        },
+        {
+          "record_id": "bd32898a-0eb9-5446-bd3e-a7aac19ca768",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0009"
+        },
+        {
+          "record_id": "db5f8783-8930-551e-a214-38e8577bedde",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0010"
+        },
+        {
+          "record_id": "a416e654-31f3-5c77-b8b5-b1cc904da31b",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0011"
+        },
+        {
+          "record_id": "818d860a-cf79-5da5-8bbd-9a8fd42f2321",
+          "key": "posting-request-filenames-external-v02:Y:oracle_0012"
+        },
+        {
+          "record_id": "80e8ea3d-1e5b-5771-babb-3767b3f984ae",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0001"
+        },
+        {
+          "record_id": "2f9a0665-3806-57ea-8ee2-787401ff089d",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0002"
+        },
+        {
+          "record_id": "5c2bf896-9b8f-5567-a658-f3decdf3f311",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0003"
+        },
+        {
+          "record_id": "19b2b4ff-fb07-5a8f-adc4-cde117c0a579",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0004"
+        },
+        {
+          "record_id": "1eafd1e5-8a32-5cd9-bcad-e63bbd4b8753",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0005"
+        },
+        {
+          "record_id": "09c965ce-118e-56d9-a283-1bf5bd67a7ee",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0006"
+        },
+        {
+          "record_id": "1eb38dca-bfac-5ff9-9417-9a9fbffa7ea4",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0007"
+        },
+        {
+          "record_id": "6a5a0a44-eefb-529f-9bf9-c60eb3456e78",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0008"
+        },
+        {
+          "record_id": "b8894ea7-be36-5b8b-9fd6-f6174a7fd74a",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0009"
+        },
+        {
+          "record_id": "aa7900f3-b07e-59ca-a177-5b0436eba71b",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0010"
+        },
+        {
+          "record_id": "e3bc6d07-a798-5d0f-83d9-630a9cac0653",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0011"
+        },
+        {
+          "record_id": "1747a4df-aa25-521c-a1f5-9a80c5a4c6bd",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0012"
+        },
+        {
+          "record_id": "1cc2ce22-7317-5b82-88f9-feb26ee0f7d8",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0013"
+        },
+        {
+          "record_id": "ae37faba-2ab7-55fc-b43c-7d7c05cd7a81",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0014"
+        },
+        {
+          "record_id": "21336a7e-b809-5eb4-b7a1-d36b1605320e",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0015"
+        },
+        {
+          "record_id": "ec7a7c86-405b-5a4d-82b8-5209384aeb65",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0016"
+        },
+        {
+          "record_id": "62868bb8-dc15-5f7f-858a-2301e401e084",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0017"
+        },
+        {
+          "record_id": "622bcf91-b72d-585e-960d-2e66d2b5039d",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0018"
+        },
+        {
+          "record_id": "0da821b5-f120-5e7c-982a-4f4937f5700b",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0019"
+        },
+        {
+          "record_id": "8f28b955-2a26-5ac3-b6d5-a96a84e91a59",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0020"
+        },
+        {
+          "record_id": "c4d61663-503e-5b94-9dbf-2ee7d5adb5e2",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0021"
+        },
+        {
+          "record_id": "0f0dd1b5-4307-5c35-ad54-512ed7e5e36b",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0022"
+        },
+        {
+          "record_id": "95574bb3-b82e-5b32-aae9-23712418a48a",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0023"
+        },
+        {
+          "record_id": "74e6f830-5f97-5b9e-8e99-37f22d601f52",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0024"
+        },
+        {
+          "record_id": "83a75602-23cb-5630-bda5-03c626c33250",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0025"
+        },
+        {
+          "record_id": "4a7d0c1c-b53a-5046-8856-bdb11ff420df",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0026"
+        },
+        {
+          "record_id": "a73b4554-ed51-5274-a4d4-d6b32f752004",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0027"
+        },
+        {
+          "record_id": "ec761e13-e28e-5fe6-9b74-db460a064096",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0028"
+        },
+        {
+          "record_id": "87bc3557-cb90-5233-a400-d822c0624e60",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0029"
+        },
+        {
+          "record_id": "ed48d5ed-b378-5002-b9d2-2f184e2e4739",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0030"
+        },
+        {
+          "record_id": "f3e5c4cb-2828-5d16-9aef-5e8789a12137",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0031"
+        },
+        {
+          "record_id": "27e873d1-bee9-5d9f-b571-334bdf9451bc",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0032"
+        },
+        {
+          "record_id": "a37b7556-82b6-5473-b3bd-7e45f457f215",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0033"
+        },
+        {
+          "record_id": "a1776966-233e-58e8-b48b-b7a9435129eb",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0034"
+        },
+        {
+          "record_id": "3413ec1e-113f-59b1-aaac-c5b2e8b27931",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0035"
+        },
+        {
+          "record_id": "31ddc6ca-6579-5cf4-8d88-a23bee159ba1",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0036"
+        },
+        {
+          "record_id": "d1d79080-e5b5-5714-8afe-b09f28d3ad45",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0037"
+        },
+        {
+          "record_id": "b239c746-7cfd-5445-864a-f4af70fc2a04",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0038"
+        },
+        {
+          "record_id": "596bc6e6-2df9-5016-99d6-154f372e3e2c",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0039"
+        },
+        {
+          "record_id": "9c3f2872-e081-547e-9214-96054569cef4",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0040"
+        },
+        {
+          "record_id": "484f43dd-6899-5ce5-85c7-43abc0d90570",
+          "key": "posting-request-filenames-external-v02:Z:oracle_0041"
+        },
+        {
+          "record_id": "74218908-d936-5a5e-b11c-42ee278c00ef",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0001"
+        },
+        {
+          "record_id": "088e994e-1bfe-590a-8c6b-f6537eda3770",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0002"
+        },
+        {
+          "record_id": "5396fa14-c268-582b-8a49-6d7565d19809",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0003"
+        },
+        {
+          "record_id": "453db628-9a8e-51d9-b7cb-40be016eebad",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0004"
+        },
+        {
+          "record_id": "d7b2da35-3f38-5884-8653-ebfd845be608",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0005"
+        },
+        {
+          "record_id": "ee8b2aeb-d0a4-5cf4-8006-8bab58c06f29",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0006"
+        },
+        {
+          "record_id": "83109cfa-763e-59f4-9966-1559c24ef4ff",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0007"
+        },
+        {
+          "record_id": "d1673c24-555d-5444-be32-cee55f536aea",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0008"
+        },
+        {
+          "record_id": "3017a13c-4d43-526c-a108-75c44c3dd10a",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0009"
+        },
+        {
+          "record_id": "a17f2e62-bbd4-544d-920a-c01c97536f8c",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0010"
+        },
+        {
+          "record_id": "14005dc9-ba73-575c-ba30-e1945ba31260",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0011"
+        },
+        {
+          "record_id": "6a5efff3-c99e-51fb-b031-f7d1a5684806",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0012"
+        },
+        {
+          "record_id": "d89095a0-2fc2-5d57-9bcb-a26871e55c9f",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0013"
+        },
+        {
+          "record_id": "ab4a1a82-ad82-5a8e-a6fc-cbf9be8e23d6",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0014"
+        },
+        {
+          "record_id": "c8332261-8873-5dac-b792-c33237a7609b",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0015"
+        },
+        {
+          "record_id": "6f73b5fa-45b7-56c3-ba8a-17e0ddb7e7c3",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0016"
+        },
+        {
+          "record_id": "d87b4ac4-62e8-54c8-91e9-7972195e32fc",
+          "key": "posting-session-undo-redo-external-v02:X:oracle_0017"
+        },
+        {
+          "record_id": "b1735ca2-d694-561f-b96b-6a43a607875c",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0001"
+        },
+        {
+          "record_id": "95c7c64e-4f19-59ea-a178-9cf5b8d74881",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0002"
+        },
+        {
+          "record_id": "5bab460d-1b0a-5737-9a2c-3d35df6ae5e5",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0003"
+        },
+        {
+          "record_id": "87d58ec0-7f45-594a-a4a8-157fbbaaded5",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0004"
+        },
+        {
+          "record_id": "4cd2f5c0-af88-5466-9ff6-3a8ca8aaf0cc",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0005"
+        },
+        {
+          "record_id": "b51b4dae-7d85-55d3-98fb-a7462ef6a8d2",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0006"
+        },
+        {
+          "record_id": "2d248d0c-3eac-5418-9ce8-d8e8f61657e2",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0007"
+        },
+        {
+          "record_id": "83faf183-ea81-5792-8427-74346c640397",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0008"
+        },
+        {
+          "record_id": "759ba957-aac6-5f52-899d-ad2d5fe62763",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0009"
+        },
+        {
+          "record_id": "04a25982-b84f-57c0-9da9-eb07c92e26a4",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0010"
+        },
+        {
+          "record_id": "860251e3-4f2f-5efb-a8ca-bb7de69abeb0",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0011"
+        },
+        {
+          "record_id": "dc714fca-d84b-562a-89b7-b7dc417b4012",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0012"
+        },
+        {
+          "record_id": "28a766c5-15d1-5c31-8d88-42584572f7cf",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0013"
+        },
+        {
+          "record_id": "f8ac8043-fa51-5866-aedd-296e5fa74dd6",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0014"
+        },
+        {
+          "record_id": "401501e9-8409-528d-8923-b1bd33f1c6f2",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0015"
+        },
+        {
+          "record_id": "8b692c15-e711-558f-8e7b-31ef425ef741",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0016"
+        },
+        {
+          "record_id": "4286ddc8-02e9-5db0-bdca-2bc377645dde",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0017"
+        },
+        {
+          "record_id": "d086205f-7cfe-5bc5-905f-e17900da6a98",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0018"
+        },
+        {
+          "record_id": "3c332de4-a669-5946-a534-2e2a76f80dfd",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0019"
+        },
+        {
+          "record_id": "df1790b7-7547-5386-838f-3d61fc7a709e",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0020"
+        },
+        {
+          "record_id": "f1ee0056-5048-5303-8a05-28efcc9a9aed",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0021"
+        },
+        {
+          "record_id": "28218bce-3b65-5092-b1c6-0ef27444d8bd",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0022"
+        },
+        {
+          "record_id": "c89cf047-837d-5cd3-95be-ad620c45f56e",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0023"
+        },
+        {
+          "record_id": "60810626-8e25-596e-87b3-6423218e9671",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0024"
+        },
+        {
+          "record_id": "c228ea43-a2b1-5207-b88e-be27d64a4c7c",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0025"
+        },
+        {
+          "record_id": "c4f3bcd3-ffb9-5531-b199-860f5f06e699",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0026"
+        },
+        {
+          "record_id": "ef2ac0ed-5c68-5712-b6a0-2dedfab6d54f",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0027"
+        },
+        {
+          "record_id": "c97d830b-61aa-54c1-b380-7fa3e40d38d7",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0028"
+        },
+        {
+          "record_id": "9e3260de-55ef-544b-804e-ab2c62b2abba",
+          "key": "posting-session-undo-redo-external-v02:Y:oracle_0029"
+        },
+        {
+          "record_id": "2f942fce-d5d5-53ad-9d9e-5ffcad27a3d6",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0001"
+        },
+        {
+          "record_id": "2b434f90-07f6-56fc-b197-8ef78937ce46",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0002"
+        },
+        {
+          "record_id": "c793ab9d-9e04-5145-8b9e-0d2f09936fdd",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0003"
+        },
+        {
+          "record_id": "5e83ec68-cca8-5555-8cc4-e5885bcf0a3d",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0004"
+        },
+        {
+          "record_id": "10819b41-99bd-54de-b1ea-e2ed32f93d48",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0005"
+        },
+        {
+          "record_id": "cd9e988a-f6bd-57b0-89fb-4eb5846de3ac",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0006"
+        },
+        {
+          "record_id": "85e406fb-1a77-5c96-aa55-bc142188edeb",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0007"
+        },
+        {
+          "record_id": "69beb36f-553c-597a-b7e9-bc0642995e8b",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0008"
+        },
+        {
+          "record_id": "3ced78aa-819c-5c18-b0e9-8493cbdff2f4",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0009"
+        },
+        {
+          "record_id": "c8848b23-7ef3-5657-a77d-b46cff03dfeb",
+          "key": "posting-session-undo-redo-external-v02:Z:oracle_0010"
+        },
+        {
+          "record_id": "03ef1a31-2ba5-5a48-a04a-fb1169556f6a",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0001"
+        },
+        {
+          "record_id": "399221d2-7e09-57a4-94f0-ea6671c61f56",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0002"
+        },
+        {
+          "record_id": "fd4b3a54-ed0d-5b3d-a539-f83c472d4125",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0003"
+        },
+        {
+          "record_id": "973601ee-be0e-56cb-8d15-e356394a72c6",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0004"
+        },
+        {
+          "record_id": "cc3cea92-8965-58c8-a3e7-93deaa2c1899",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0005"
+        },
+        {
+          "record_id": "7dddc836-4a50-5f75-8037-66626a831b1f",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0006"
+        },
+        {
+          "record_id": "75835c94-7dde-5c3b-b4c2-4f64c428ae02",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0007"
+        },
+        {
+          "record_id": "e742a638-c97d-5f47-8bb1-dee733d06130",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0008"
+        },
+        {
+          "record_id": "1ff8c9a8-25d4-5f9f-b1e5-cd2386d23b19",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0009"
+        },
+        {
+          "record_id": "75d45b16-b034-5b10-9f19-e1e1e3c46eba",
+          "key": "posting-session-history-limit-external-v02:X:oracle_0010"
+        },
+        {
+          "record_id": "b2365401-7204-5cd5-af46-023f8d3021b1",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0001"
+        },
+        {
+          "record_id": "896c250b-ee46-52c4-aedf-16a28d730827",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0002"
+        },
+        {
+          "record_id": "6dfdb44a-2e8c-5e35-a27d-5472537d0573",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0003"
+        },
+        {
+          "record_id": "6be9160e-8a03-5a2e-bb6a-e6ac12492a52",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0004"
+        },
+        {
+          "record_id": "00d8422f-6bdf-52fb-b581-13c7c9ec57d6",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0005"
+        },
+        {
+          "record_id": "03d53bc6-2332-5035-8b96-8bcfdd5f66f1",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0006"
+        },
+        {
+          "record_id": "a9a62fb3-231f-50eb-9eca-2eda89fe13c2",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0007"
+        },
+        {
+          "record_id": "2f9b8496-d8e7-5a11-bedf-2bf30fb14311",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0008"
+        },
+        {
+          "record_id": "e076481d-98b3-53ee-ac46-67084400fc62",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0009"
+        },
+        {
+          "record_id": "f7924d53-255b-5286-870e-3b3072989986",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0010"
+        },
+        {
+          "record_id": "ac7b5921-e515-5f5a-9233-da93bbfa7ee9",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0011"
+        },
+        {
+          "record_id": "c1f689eb-e116-5146-81b1-a5b6103364e1",
+          "key": "posting-session-history-limit-external-v02:Y:oracle_0012"
+        },
+        {
+          "record_id": "ad4a62f1-2418-50c2-85b5-7012a620acd2",
+          "key": "posting-session-history-limit-external-v02:Z:oracle_0001"
+        },
+        {
+          "record_id": "e4b11a42-4a20-5493-8440-9c40e6714970",
+          "key": "posting-session-history-limit-external-v02:Z:oracle_0002"
+        },
+        {
+          "record_id": "b5482da0-808c-57af-8357-be4a03476ee8",
+          "key": "posting-session-history-limit-external-v02:Z:oracle_0003"
+        },
+        {
+          "record_id": "9e2e76dd-fc80-5db6-8cb6-c47962fe21ae",
+          "key": "posting-session-history-limit-external-v02:Z:oracle_0004"
+        }
+      ]
+    },
+    "smells": {
+      "id": "2a154ccb-eedb-4798-a38e-2b4275b1a8a6",
+      "name": "tdd-smells-20261107-v02",
+      "records": 15,
+      "url": "http://127.0.0.1:7900/dataset/2a154ccb-eedb-4798-a38e-2b4275b1a8a6/annotation-mode",
+      "index": [
+        {
+          "record_id": "16f2f7c8-965c-573a-a689-37561acbbb0b",
+          "key": "posting-path-parameters-external-v02:X"
+        },
+        {
+          "record_id": "a7af8c2d-ba0c-57c8-807f-c468e0df462b",
+          "key": "posting-path-parameters-external-v02:Y"
+        },
+        {
+          "record_id": "39f5ff78-dbb6-58e5-80ae-b6f6d6352c2c",
+          "key": "posting-path-parameters-external-v02:Z"
+        },
+        {
+          "record_id": "5374a584-cde1-54fa-a704-faf2c8fdf49f",
+          "key": "posting-query-pair-merge-external-v02:X"
+        },
+        {
+          "record_id": "8e0dfce7-aed7-5dea-8799-e45d5715b5d6",
+          "key": "posting-query-pair-merge-external-v02:Y"
+        },
+        {
+          "record_id": "d3c85c8d-da7c-56a9-a109-2b913aeccb53",
+          "key": "posting-query-pair-merge-external-v02:Z"
+        },
+        {
+          "record_id": "552582ab-d3da-58b4-b8dd-c1c9364e1e66",
+          "key": "posting-request-filenames-external-v02:X"
+        },
+        {
+          "record_id": "142a6026-e37e-54d1-a891-339fa4aa717b",
+          "key": "posting-request-filenames-external-v02:Y"
+        },
+        {
+          "record_id": "59099805-7b2b-532c-bb10-d04cc4cdd545",
+          "key": "posting-request-filenames-external-v02:Z"
+        },
+        {
+          "record_id": "352489fb-47ea-5f77-994f-0445ec85ed03",
+          "key": "posting-session-undo-redo-external-v02:X"
+        },
+        {
+          "record_id": "37b42be4-998c-597a-8bef-d432cfbb5fee",
+          "key": "posting-session-undo-redo-external-v02:Y"
+        },
+        {
+          "record_id": "e31df024-7246-5ed4-b1c6-3edb9cac2745",
+          "key": "posting-session-undo-redo-external-v02:Z"
+        },
+        {
+          "record_id": "862167b2-9122-55e7-8cf5-6cd36a4be24f",
+          "key": "posting-session-history-limit-external-v02:X"
+        },
+        {
+          "record_id": "953b183d-8230-5146-9c85-9e3a8c586f4c",
+          "key": "posting-session-history-limit-external-v02:Y"
+        },
+        {
+          "record_id": "f0a847ec-9d86-59f3-a3ee-b2ef65f3fcd9",
+          "key": "posting-session-history-limit-external-v02:Z"
+        }
+      ]
+    }
+  },
+  "api_url": "http://127.0.0.1:7900",
+  "workspace": "tdd-blind-comparison",
+  "source_sha256": "0c2b8aadbaa5c313eb4904463475dc697cd4964319a3d4bb04a77da2380e958b",
+  "protocol": "oracle PROTOCOL_V2 + current paper 11-smell implementation; measurement tools only",
+  "model_identities_uploaded": false,
+  "runtime_scores_uploaded": false
+}

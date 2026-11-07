@@ -236,6 +236,10 @@ tempCodeRunnerFile.py
 # Ruff stuff:
 .ruff_cache/
 
+# Local Argilla session exports and frozen independent human labels.
+experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/gpu-results-20261107/argilla-review-v02/snapshot-*/
+experiments/unit-test-generation/qwen3.5-4b/exp-002-task-test-sft/gpu-results-20261107/argilla-review-v02/independent-frozen.json
+
 # PyPI configuration file
 .pypirc
 
