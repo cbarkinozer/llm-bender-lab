@@ -78,6 +78,11 @@ def generate(args, config):
     lock=read_json(args.runtime_lock)
     if lock['packages']!=runtime_signature():raise ValueError('Inference environment differs from frozen runtime lock')
     requests=rows(args.preflight/'development-requests.jsonl')
+    # Reload is a compatibility probe, not another nine-item quality evaluation.
+    if args.mode=='reload':
+        requests=[dict(record_id='adapter-reload-probe',split='diagnostic',capability='adapter-reload',
+                       messages=[dict(role='system',content='Follow the instruction.'),dict(role='user',content='Reply with READY.')])]
+        g=dict(g,max_tokens=64)
     prompts=[tokenizer.apply_chat_template(r['messages'],tokenize=False,add_generation_prompt=True,enable_thinking=True) for r in requests]
     options=dict(model=m['name'],revision=m['revision'],dtype=g['dtype'],max_model_len=g['max_model_len'],
                  gpu_memory_utilization=.80,max_num_seqs=1,enable_lora=True,max_lora_rank=16,
@@ -110,12 +115,12 @@ def generate(args, config):
                             token_ids=list(output.token_ids),finish_reason=output.finish_reason,stop_reason=output.stop_reason))
     lines(args.output/'outputs.jsonl',records)
     if any(r['finish_reason'] not in ('stop','length') for r in records):raise ValueError('Unexpected generation failure')
-    save(args.output/'result.json',dict(status='completed',stage='candidate' if args.adapter else 'baseline',
+    save(args.output/'result.json',dict(status='completed',stage='reload' if args.mode=='reload' else 'candidate' if args.adapter else 'baseline',
          recipe_sha256=digest(args.preflight/'recipe.json'),requests=len(records),seconds=time.monotonic()-started,
          truncated=sum(r['finish_reason']=='length' for r in records),adapter=str(args.adapter) if args.adapter else None,
          runtime_lock_sha256=digest(args.runtime_lock),outputs_sha256=digest(args.output/'outputs.jsonl'),
          inference_identity=inference_identity(args.preflight,config),arm=config.get('arm','A'),
-         adapter_reload_verified=bool(args.adapter),runtime_execution=False))
+         adapter_reload_verified=bool(args.adapter) and all(r['token_ids'] for r in records),runtime_execution=False))
 
 
 def train(args, config):
@@ -145,7 +150,7 @@ def train(args, config):
         if args.reload is None or not read_json(args.reload/'result.json').get('adapter_reload_verified'):
             raise ValueError('Candidate generation from smoke adapter must verify reload before full')
         reload_result=read_json(args.reload/'result.json')
-        if reload_result['recipe_sha256']!=digest(args.preflight/'recipe.json') or Path(reload_result['adapter']).resolve()!=(args.smoke/'adapter').resolve():
+        if reload_result['stage']!='reload' or reload_result['recipe_sha256']!=digest(args.preflight/'recipe.json') or Path(reload_result['adapter']).resolve()!=(args.smoke/'adapter').resolve():
             raise ValueError('Reload evidence must refer to this recipe and smoke adapter')
     os.environ['UNSLOTH_RETURN_LOGITS']='1'
     from unsloth import FastLanguageModel
@@ -226,18 +231,18 @@ def train(args, config):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--mode',choices=['baseline','candidate','smoke','tiny','full'],required=True)
+    p=argparse.ArgumentParser();p.add_argument('--mode',choices=['baseline','candidate','reload','smoke','tiny','full'],required=True)
     p.add_argument('--preflight',type=Path,default=EXP/'paired-preflight-v02/A');p.add_argument('--output',type=Path,required=True)
     for key in ('adapter','baseline','smoke','tiny','reload','runtime-lock','baseline-review','execution-preflight'):p.add_argument('--'+key,type=Path)
     args=p.parse_args();config=verify_preflight(args.preflight)
-    if args.mode=='candidate' and args.adapter is None:raise ValueError('Candidate requires adapter')
+    if args.mode in ('candidate','reload') and args.adapter is None:raise ValueError('Candidate/reload requires adapter')
     if args.mode=='baseline' and args.adapter:raise ValueError('Baseline must be untouched base')
     if args.output.exists():raise ValueError('Preserve run directories')
     if subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip():raise ValueError('Commit source before GPU run')
     args.output.mkdir(parents=True)
     save(args.output/'environment.json',dict(git=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
          packages={d.metadata['Name']:d.version for d in importlib.metadata.distributions()},mode=args.mode))
-    if args.mode in ('baseline','candidate'):generate(args,config)
+    if args.mode in ('baseline','candidate','reload'):generate(args,config)
     else:train(args,config)
 
 
