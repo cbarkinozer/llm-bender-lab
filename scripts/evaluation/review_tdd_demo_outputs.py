@@ -40,6 +40,15 @@ def functions(code):
     return result
 
 
+def semantic_review_code(output):
+    """Show unchanged complete code even if its File header failed strict usability."""
+    if output['finish_reason']=='length' or output['text'].count('</think>')!=1:return None
+    answer=output['text'].split('</think>',1)[1]
+    blocks=re.findall(r'```(?:python|py)\s*\n(.*?)```',answer,re.S)
+    if len(blocks)!=1 or not functions(blocks[0]):return None
+    return blocks[0]
+
+
 def shingles(code):
     words=re.findall(r'[A-Za-z_][A-Za-z_0-9]*|\d+|[^\s\w]',code)
     return {sha256(' '.join(words[i:i+8]).encode()).hexdigest() for i in range(max(0,len(words)-7))}
@@ -58,9 +67,10 @@ def pair_review(base, candidate, output, requests, seed=7341,left_label='baselin
         presented={};mapping={}
         for side,(role,row) in zip(('A','B'),pair):
             extracted=extract_test(row)
-            presented[side]=extracted['code'] if extracted['code'] is not None else '[No complete parseable test file available]'
+            code=semantic_review_code(row)
+            presented[side]=code if code is not None else '[No complete parseable test file available]'
             mapping[side]=role
-            status.append(dict(record_id=rid,role=role,finish_reason=row['finish_reason'],status=extracted['status']))
+            status.append(dict(record_id=rid,role=role,finish_reason=row['finish_reason'],status=extracted['status'],semantic_code_available=code is not None))
         packet.append(dict(pair_id=rid,requirement=request['messages'][1]['content'],tests=presented,
                            grade=dict(preference='A / B / tie / both_unusable',requirement_coverage='',assertion_quality='',
                                       controls_and_mocks='',critical_defects='',evidence='')))

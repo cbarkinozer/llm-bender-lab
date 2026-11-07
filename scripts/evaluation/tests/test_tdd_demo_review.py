@@ -5,7 +5,7 @@ import pytest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from active_tdd_data import EXP,rows
 from run_tdd_demo_gpu import verified_stop_ids,verify_preflight
-from review_tdd_demo_outputs import extract_test,pair_review,functions,verify_generation_pair
+from review_tdd_demo_outputs import extract_test,pair_review,functions,verify_generation_pair,semantic_review_code
 from prepare_tdd_demo import save,digest
 from grade_tdd_demo_protected import classify
 
@@ -20,6 +20,13 @@ def test_parser_never_grades_thinking_or_truncated_code():
     assert extract_test(dict(row,finish_reason='length'))['code'] is None
     assert extract_test(dict(row,text=row['text'].replace('</think>','')))['code'] is None
     assert extract_test(dict(row,text=row['text'].replace('tests/test_ok.py','../escape.py')))['code'] is None
+
+
+def test_semantic_review_preserves_code_without_hiding_header_failure():
+    row=output();row['text']=row['text'].replace('File: tests/test_ok.py\n','')
+    assert extract_test(row)['status']=='invalid_file_format'
+    assert semantic_review_code(row)=='def test_ok():\n    assert 1 == 1\n'
+    assert semantic_review_code(dict(row,finish_reason='length')) is None
 
 
 def test_blinded_pairs_hide_role_and_rationale_and_keep_unusable_rows(tmp_path):
