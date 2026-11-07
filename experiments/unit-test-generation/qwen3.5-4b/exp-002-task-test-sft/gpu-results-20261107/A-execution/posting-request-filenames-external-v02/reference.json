@@ -1,0 +1,131 @@
+{
+  "order": [
+    "test_generated.py::test_is_valid_filename",
+    "test_generated.py::test_get_unique_request_filename[base-]",
+    "test_generated.py::test_get_unique_request_filename[base-/tmp]",
+    "test_generated.py::test_get_unique_request_filename[base-subdir]"
+  ],
+  "reports": [
+    {
+      "nodeid": "test_generated.py::test_is_valid_filename",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_is_valid_filename",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_is_valid_filename",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-]",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-/tmp]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-/tmp]",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-/tmp]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-subdir]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-subdir]",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_get_unique_request_filename[base-subdir]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1,
+  "returncode": 1,
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "tdd-demo-9f7e4c0e01b94201af4fe8ccace3c0c0",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--user",
+    "65534:65534",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=64m",
+    "--mount",
+    "type=bind,src=C:\\Users\\barkin\\AppData\\Local\\Temp\\tdd-protected-epwswzkj\\work,dst=/workspace,readonly",
+    "--workdir",
+    "/workspace",
+    "--env",
+    "PYTHONPATH=/workspace",
+    "--env",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "sha256:489e8b3d14d0379b3d2f248a239757bfa899fdbef596058e73da6c1b5f20718f",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "controlled_probe",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--override-ini",
+    "addopts=",
+    "test_generated.py"
+  ]
+}

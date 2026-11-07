@@ -27,6 +27,9 @@ def test_semantic_review_preserves_code_without_hiding_header_failure():
     assert extract_test(row)['status']=='invalid_file_format'
     assert semantic_review_code(row)=='def test_ok():\n    assert 1 == 1\n'
     assert semantic_review_code(dict(row,finish_reason='length')) is None
+    uncollected=output('def helper():\n    assert 1 == 1\n')
+    assert extract_test(uncollected)['status']=='no_test_functions'
+    assert semantic_review_code(uncollected)=='def helper():\n    assert 1 == 1\n'
 
 
 def test_blinded_pairs_hide_role_and_rationale_and_keep_unusable_rows(tmp_path):

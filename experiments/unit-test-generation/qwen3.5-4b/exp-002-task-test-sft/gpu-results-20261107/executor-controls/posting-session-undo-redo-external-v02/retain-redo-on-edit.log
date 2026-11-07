@@ -1,0 +1,21 @@
+.F                                                                       [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_revert_undo_redo_and_empty_history", "test_generated.py::test_new_edit_invalidates_redo"], "reports": [{"nodeid": "test_generated.py::test_revert_undo_redo_and_empty_history", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_revert_undo_redo_and_empty_history", "when": "call", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_revert_undo_redo_and_empty_history", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_new_edit_invalidates_redo", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_new_edit_invalidates_redo", "when": "call", "outcome": "failed", "assertion": true}, {"nodeid": "test_generated.py::test_new_edit_invalidates_redo", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+________________________ test_new_edit_invalidates_redo ________________________
+
+    def test_new_edit_invalidates_redo():
+        state = SessionVariables()
+        state.set('a', 'one')
+        assert state.undo() == 'a'
+        assert state.values == {}
+        state.set('b', 'two')
+>       assert state.redo() is None
+E       AssertionError: assert 'a' is None
+E        +  where 'a' = redo()
+E        +    where redo = <posting.session_variables.SessionVariables object at 0x7debb2b83250>.redo
+
+test_generated.py:28: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_new_edit_invalidates_redo - AssertionError: as...
+1 failed, 1 passed in 0.10s

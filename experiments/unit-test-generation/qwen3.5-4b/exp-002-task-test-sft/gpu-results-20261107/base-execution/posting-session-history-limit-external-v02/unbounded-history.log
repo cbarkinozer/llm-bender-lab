@@ -1,0 +1,121 @@
+FFFF                                                                     [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_retention_policy[50]", "test_generated.py::test_direct_attribute_writes_do_not_add_history", "test_generated.py::test_undo_stops_at_retained_boundary", "test_generated.py::test_snapshot_of_non_string_types"], "reports": [{"nodeid": "test_generated.py::test_retention_policy[50]", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_retention_policy[50]", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_retention_policy[50]", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_direct_attribute_writes_do_not_add_history", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_direct_attribute_writes_do_not_add_history", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_direct_attribute_writes_do_not_add_history", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_undo_stops_at_retained_boundary", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_undo_stops_at_retained_boundary", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_undo_stops_at_retained_boundary", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_snapshot_of_non_string_types", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_snapshot_of_non_string_types", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_snapshot_of_non_string_types", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+__________________________ test_retention_policy[50] ___________________________
+
+max_entries = 50
+
+    @pytest.mark.parametrize("max_entries", [50])
+    def test_retention_policy(max_entries: int) -> None:
+        """Verify that only the latest N edits are retained."""
+        from posting.session_variables import SessionVariables
+    
+        var = SessionVariables()
+    
+        # Populate with 51 distinct values
+        for i in range(51):
+            var.set(f"key_{i}", f"value_{i}")
+    
+        # Retrieve current values
+>       values = var.values()
+                 ^^^^^^^^^^^^
+E       TypeError: 'dict' object is not callable
+
+test_generated.py:19: TypeError
+_______________ test_direct_attribute_writes_do_not_add_history ________________
+
+    def test_direct_attribute_writes_do_not_add_history() -> None:
+        """Ensure direct script writes skip history accumulation."""
+        from posting.session_variables import SessionVariables
+    
+        var = SessionVariables()
+    
+        # Direct script write
+        var.my_var = 100
+    
+        # Editor edit (should add to history)
+        var.set("my_var", 200)
+    
+        # Undo should revert to the state captured by the editor edit
+        # (ignoring the earlier script write)
+        var.undo()
+    
+        # Restore to original script state
+        var.set("my_var", 100)
+    
+        # Final undo should bring us back to the very first state
+        # (the script write state), skipping any intermediate history
+        var.undo()
+    
+        # Note: Depending on implementation, 'my_var' may remain 100
+        # if the script write never entered history.
+        # The critical assertion here is that 'set' tracked the transition properly.
+        # We verify that multiple 'set' calls accumulate correctly.
+        var.set("other_key", "other_val")
+        var.set("another_key", "another_val")
+    
+        # Undo twice should remove the two 'set' entries
+        var.undo()
+        var.undo()
+    
+        # State should be restored to the script-write-only state
+>       values = var.values()
+                 ^^^^^^^^^^^^
+E       TypeError: 'dict' object is not callable
+
+test_generated.py:63: TypeError
+_____________________ test_undo_stops_at_retained_boundary _____________________
+
+    def test_undo_stops_at_retained_boundary() -> None:
+        """Verify that undo operations stop respecting the history limit."""
+        from posting.session_variables import SessionVariables
+    
+        var = SessionVariables()
+    
+        # Fill history to the limit
+        for i in range(50):
+            var.set(f"item_{i}", f"data_{i}")
+    
+        # Undo 50 times should clear the history completely
+        for _ in range(50):
+            var.undo()
+    
+        # At this point, history is exhausted
+>       values = var.values()
+                 ^^^^^^^^^^^^
+E       TypeError: 'dict' object is not callable
+
+test_generated.py:84: TypeError
+______________________ test_snapshot_of_non_string_types _______________________
+
+    def test_snapshot_of_non_string_types() -> None:
+        """Confirm that non-string types are snapshotted correctly."""
+        from posting.session_variables import SessionVariables
+    
+        var = SessionVariables()
+    
+        # Store complex/non-string types
+        var.set("counter", {"nested": True})
+        var.set("list_data", [1, 2, 3])
+    
+        # Modify via script (no history impact)
+        var.counter = False
+    
+        # Edit via set (snapshots the script value)
+        var.set("counter", "stringified_false")
+    
+        # Undo should reveal the stringified false
+        var.undo()
+    
+>       assert var.values()["counter"] == "stringified_false"
+               ^^^^^^^^^^^^
+E       TypeError: 'dict' object is not callable
+
+test_generated.py:125: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_retention_policy[50] - TypeError: 'dict' objec...
+FAILED test_generated.py::test_direct_attribute_writes_do_not_add_history - T...
+FAILED test_generated.py::test_undo_stops_at_retained_boundary - TypeError: '...
+FAILED test_generated.py::test_snapshot_of_non_string_types - TypeError: 'dic...
+4 failed in 0.24s

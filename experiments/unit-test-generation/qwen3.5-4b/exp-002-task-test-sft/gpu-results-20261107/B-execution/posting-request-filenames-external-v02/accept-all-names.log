@@ -1,0 +1,103 @@
+FFFFFFFFFF                                                               [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_is_valid_filename_rejects_empty_and_whitespace", "test_generated.py::test_is_valid_filename_rejects_native_separators", "test_generated.py::test_is_valid_filename_rejects_long_names", "test_generated.py::test_is_valid_filename_accepts_windows_device_with_extension", "test_generated.py::test_is_valid_filename_rejects_dot_prefix", "test_generated.py::test_is_valid_filename_rejects_dot_suffix", "test_generated.py::test_is_valid_filename_rejects_double_dots_in_name", "test_generated.py::test_get_unique_request_filename_returns_base_when_available[normal.txt]", "test_generated.py::test_get_unique_request_filename_returns_base_when_available[data.csv]", "test_generated.py::test_get_unique_request_filename_appends_numbered_suffix_on_collision"], "reports": [{"nodeid": "test_generated.py::test_is_valid_filename_rejects_empty_and_whitespace", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_empty_and_whitespace", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_empty_and_whitespace", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_native_separators", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_native_separators", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_native_separators", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_long_names", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_long_names", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_long_names", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_accepts_windows_device_with_extension", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_accepts_windows_device_with_extension", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_accepts_windows_device_with_extension", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_dot_prefix", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_dot_prefix", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_dot_prefix", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_dot_suffix", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_dot_suffix", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_dot_suffix", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_double_dots_in_name", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_double_dots_in_name", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename_rejects_double_dots_in_name", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_returns_base_when_available[normal.txt]", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_returns_base_when_available[normal.txt]", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_returns_base_when_available[normal.txt]", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_returns_base_when_available[data.csv]", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_returns_base_when_available[data.csv]", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_returns_base_when_available[data.csv]", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_appends_numbered_suffix_on_collision", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_appends_numbered_suffix_on_collision", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename_appends_numbered_suffix_on_collision", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+_____________ test_is_valid_filename_rejects_empty_and_whitespace ______________
+
+    def test_is_valid_filename_rejects_empty_and_whitespace():
+>       assert posting.files.is_valid_filename('') == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:5: NameError
+_______________ test_is_valid_filename_rejects_native_separators _______________
+
+    def test_is_valid_filename_rejects_native_separators():
+>       assert posting.files.is_valid_filename('/foo/bar.txt') == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:10: NameError
+__________________ test_is_valid_filename_rejects_long_names ___________________
+
+    def test_is_valid_filename_rejects_long_names():
+        long_name = 'a' * 260 + '.txt'
+>       assert posting.files.is_valid_filename(long_name) == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:15: NameError
+_________ test_is_valid_filename_accepts_windows_device_with_extension _________
+
+    def test_is_valid_filename_accepts_windows_device_with_extension():
+>       assert posting.files.is_valid_filename('C:.txt') == True
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:19: NameError
+__________________ test_is_valid_filename_rejects_dot_prefix ___________________
+
+    def test_is_valid_filename_rejects_dot_prefix():
+>       assert posting.files.is_valid_filename('.hidden') == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:23: NameError
+__________________ test_is_valid_filename_rejects_dot_suffix ___________________
+
+    def test_is_valid_filename_rejects_dot_suffix():
+>       assert posting.files.is_valid_filename('file.') == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:27: NameError
+______________ test_is_valid_filename_rejects_double_dots_in_name ______________
+
+    def test_is_valid_filename_rejects_double_dots_in_name():
+>       assert posting.files.is_valid_filename('../parent/file.txt') == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:31: NameError
+___ test_get_unique_request_filename_returns_base_when_available[normal.txt] ___
+
+base_name = 'normal.txt'
+
+    @pytest.mark.parametrize('base_name', ['normal.txt', 'data.csv'])
+    def test_get_unique_request_filename_returns_base_when_available(base_name):
+>       result = posting.files.get_unique_request_filename(base_name, '/tmp/sessions/')
+                 ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:36: NameError
+____ test_get_unique_request_filename_returns_base_when_available[data.csv] ____
+
+base_name = 'data.csv'
+
+    @pytest.mark.parametrize('base_name', ['normal.txt', 'data.csv'])
+    def test_get_unique_request_filename_returns_base_when_available(base_name):
+>       result = posting.files.get_unique_request_filename(base_name, '/tmp/sessions/')
+                 ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:36: NameError
+____ test_get_unique_request_filename_appends_numbered_suffix_on_collision _____
+
+    def test_get_unique_request_filename_appends_numbered_suffix_on_collision():
+>       posting.files._filename_counter['test'] = {'collision': [True]}
+        ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:42: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_is_valid_filename_rejects_empty_and_whitespace
+FAILED test_generated.py::test_is_valid_filename_rejects_native_separators - ...
+FAILED test_generated.py::test_is_valid_filename_rejects_long_names - NameErr...
+FAILED test_generated.py::test_is_valid_filename_accepts_windows_device_with_extension
+FAILED test_generated.py::test_is_valid_filename_rejects_dot_prefix - NameErr...
+FAILED test_generated.py::test_is_valid_filename_rejects_dot_suffix - NameErr...
+FAILED test_generated.py::test_is_valid_filename_rejects_double_dots_in_name
+FAILED test_generated.py::test_get_unique_request_filename_returns_base_when_available[normal.txt]
+FAILED test_generated.py::test_get_unique_request_filename_returns_base_when_available[data.csv]
+FAILED test_generated.py::test_get_unique_request_filename_appends_numbered_suffix_on_collision
+10 failed in 0.13s

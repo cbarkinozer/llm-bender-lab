@@ -45,7 +45,9 @@ def semantic_review_code(output):
     if output['finish_reason']=='length' or output['text'].count('</think>')!=1:return None
     answer=output['text'].split('</think>',1)[1]
     blocks=re.findall(r'```(?:python|py)\s*\n(.*?)```',answer,re.S)
-    if len(blocks)!=1 or not functions(blocks[0]):return None
+    if len(blocks)!=1:return None
+    try:ast.parse(blocks[0])
+    except SyntaxError:return None
     return blocks[0]
 
 
@@ -98,9 +100,10 @@ def overlap(outputs, upstream, destination):
         # Scope strictly to current development test tasks; do not inspect holdout.
         if not row['record_id'].startswith('posting-'):continue
         parsed=extract_test(row)
-        if parsed['code'] is None:
+        code=semantic_review_code(row)
+        if code is None:
             reports.append(dict(record_id=row['record_id'],status=parsed['status'],matches=[]));continue
-        generated=functions(parsed['code']);hashes={f['ast_sha256'] for f in generated};grams=shingles(parsed['code']);matches=[]
+        generated=functions(code);hashes={f['ast_sha256'] for f in generated};grams=shingles(code);matches=[]
         for item in inventory:
             exact=[f['name'] for f in item['functions'] if f['ast_sha256'] in hashes]
             similarity=len(grams&item['shingles'])/len(grams|item['shingles']) if grams|item['shingles'] else 0

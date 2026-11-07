@@ -1,0 +1,131 @@
+{
+  "order": [
+    "test_generated.py::test_retains_last_50_editor_edits",
+    "test_generated.py::test_direct_script_writes_bypass_history",
+    "test_generated.py::test_non_string_types_snapshot_on_edit",
+    "test_generated.py::test_undo_all_stops_at_boundary"
+  ],
+  "reports": [
+    {
+      "nodeid": "test_generated.py::test_retains_last_50_editor_edits",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_retains_last_50_editor_edits",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_retains_last_50_editor_edits",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_direct_script_writes_bypass_history",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_direct_script_writes_bypass_history",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_direct_script_writes_bypass_history",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_non_string_types_snapshot_on_edit",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_non_string_types_snapshot_on_edit",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_non_string_types_snapshot_on_edit",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_undo_all_stops_at_boundary",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_undo_all_stops_at_boundary",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_undo_all_stops_at_boundary",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1,
+  "returncode": 1,
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "tdd-demo-09834976f576447c873f6b3bb1a2f711",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--user",
+    "65534:65534",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=64m",
+    "--mount",
+    "type=bind,src=C:\\Users\\barkin\\AppData\\Local\\Temp\\tdd-protected-5aig0e6h\\work,dst=/workspace,readonly",
+    "--workdir",
+    "/workspace",
+    "--env",
+    "PYTHONPATH=/workspace",
+    "--env",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "sha256:489e8b3d14d0379b3d2f248a239757bfa899fdbef596058e73da6c1b5f20718f",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "controlled_probe",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--override-ini",
+    "addopts=",
+    "test_generated.py"
+  ]
+}

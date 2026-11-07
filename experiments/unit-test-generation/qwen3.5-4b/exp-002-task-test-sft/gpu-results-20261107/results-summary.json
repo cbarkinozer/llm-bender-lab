@@ -1,0 +1,53 @@
+{
+  "status": "GPU stages and local backup verified; independent blind grading pending",
+  "results": {
+    "base": {
+      "requests": 9,
+      "primary_tasks": 5,
+      "normal_stops": 8,
+      "truncated": 1,
+      "output_tokens": 41724,
+      "primary_output_tokens": 30990,
+      "generation_seconds": 418.6175363439979,
+      "primary_static_format_passes": 2,
+      "primary_semantic_code_available": 4,
+      "correct_reference_passes": 0,
+      "targeted_faults_detected": 0,
+      "targeted_faults": 10
+    },
+    "experiment_1": {
+      "requests": 9,
+      "primary_tasks": 5,
+      "normal_stops": 9,
+      "truncated": 0,
+      "output_tokens": 5924,
+      "primary_output_tokens": 1282,
+      "generation_seconds": 68.20438595100131,
+      "primary_static_format_passes": 5,
+      "primary_semantic_code_available": 5,
+      "correct_reference_passes": 0,
+      "targeted_faults_detected": 0,
+      "targeted_faults": 10
+    },
+    "experiment_2": {
+      "requests": 9,
+      "primary_tasks": 5,
+      "normal_stops": 9,
+      "truncated": 0,
+      "output_tokens": 7182,
+      "primary_output_tokens": 2261,
+      "generation_seconds": 82.09317721299885,
+      "primary_static_format_passes": 4,
+      "primary_semantic_code_available": 5,
+      "correct_reference_passes": 0,
+      "targeted_faults_detected": 0,
+      "targeted_faults": 10
+    }
+  },
+  "all_prompt_ids_identical": true,
+  "holdout_opened": false,
+  "interpretation": "Formatting/length changed, but no executable-correctness improvement demonstrated. Whole-suite reference pass gates fault credit. Small single-family development diagnostic.",
+  "blind_review": "blind-review-only-v02.zip",
+  "backup_archive_sha256": "ebe02ed7afe98a27ab6e1c23d1bf6b28e2b3558979c46e374d625e89bf8abfc8",
+  "backup_verification": "backup-verification.json"
+}

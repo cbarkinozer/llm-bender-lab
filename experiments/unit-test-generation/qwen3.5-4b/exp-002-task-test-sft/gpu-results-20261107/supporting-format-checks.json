@@ -1,0 +1,95 @@
+{
+  "note": "Strict JSON syntax and literal action labels only; synonyms can be semantically equivalent. Independent review is required.",
+  "results": {
+    "base": [
+      {
+        "record_id": "posting-backend-plan-planning-v04",
+        "strict_json": false,
+        "expected_action": null,
+        "actual_action": null,
+        "literal_action_match_not_semantic_grade": null
+      },
+      {
+        "record_id": "posting-latency-reliability-v03",
+        "strict_json": true,
+        "expected_action": "ask",
+        "actual_action": "request_clarification",
+        "literal_action_match_not_semantic_grade": false
+      },
+      {
+        "record_id": "posting-query-order-reliability-v03",
+        "strict_json": true,
+        "expected_action": "proceed",
+        "actual_action": "clarify_specification",
+        "literal_action_match_not_semantic_grade": false
+      },
+      {
+        "record_id": "lint-not-acceptance-reliability-v03",
+        "strict_json": true,
+        "expected_action": "preserve_contract_and_repair",
+        "actual_action": "Suspend Task Closure Pending Behavioral Evidence",
+        "literal_action_match_not_semantic_grade": false
+      }
+    ],
+    "A": [
+      {
+        "record_id": "posting-backend-plan-planning-v04",
+        "strict_json": false,
+        "expected_action": null,
+        "actual_action": null,
+        "literal_action_match_not_semantic_grade": null
+      },
+      {
+        "record_id": "posting-latency-reliability-v03",
+        "strict_json": true,
+        "expected_action": "ask",
+        "actual_action": "targeted_questions",
+        "literal_action_match_not_semantic_grade": false
+      },
+      {
+        "record_id": "posting-query-order-reliability-v03",
+        "strict_json": true,
+        "expected_action": "proceed",
+        "actual_action": "verify",
+        "literal_action_match_not_semantic_grade": false
+      },
+      {
+        "record_id": "lint-not-acceptance-reliability-v03",
+        "strict_json": true,
+        "expected_action": "preserve_contract_and_repair",
+        "actual_action": "close",
+        "literal_action_match_not_semantic_grade": false
+      }
+    ],
+    "B": [
+      {
+        "record_id": "posting-backend-plan-planning-v04",
+        "strict_json": true,
+        "expected_action": null,
+        "actual_action": null,
+        "literal_action_match_not_semantic_grade": null
+      },
+      {
+        "record_id": "posting-latency-reliability-v03",
+        "strict_json": false,
+        "expected_action": "ask",
+        "actual_action": null,
+        "literal_action_match_not_semantic_grade": false
+      },
+      {
+        "record_id": "posting-query-order-reliability-v03",
+        "strict_json": true,
+        "expected_action": "proceed",
+        "actual_action": "request_clarification",
+        "literal_action_match_not_semantic_grade": false
+      },
+      {
+        "record_id": "lint-not-acceptance-reliability-v03",
+        "strict_json": false,
+        "expected_action": "preserve_contract_and_repair",
+        "actual_action": null,
+        "literal_action_match_not_semantic_grade": false
+      }
+    ]
+  }
+}

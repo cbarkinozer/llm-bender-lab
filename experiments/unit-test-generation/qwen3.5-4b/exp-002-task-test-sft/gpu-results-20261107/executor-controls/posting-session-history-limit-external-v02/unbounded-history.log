@@ -1,0 +1,22 @@
+F.                                                                       [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_fifty_edit_retention_boundary", "test_generated.py::test_script_value_restored_without_type_coercion"], "reports": [{"nodeid": "test_generated.py::test_fifty_edit_retention_boundary", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_fifty_edit_retention_boundary", "when": "call", "outcome": "failed", "assertion": true}, {"nodeid": "test_generated.py::test_fifty_edit_retention_boundary", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_script_value_restored_without_type_coercion", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_script_value_restored_without_type_coercion", "when": "call", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_script_value_restored_without_type_coercion", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+______________________ test_fifty_edit_retention_boundary ______________________
+
+    def test_fifty_edit_retention_boundary():
+        state = SessionVariables()
+        for index in range(55):
+            state.set('key', str(index))
+        for _ in range(50):
+            assert state.undo() == 'key'
+        assert state.values == {'key': '4'}
+>       assert state.undo() is None
+E       AssertionError: assert 'key' is None
+E        +  where 'key' = undo()
+E        +    where undo = <posting.session_variables.SessionVariables object at 0x7b961ff88980>.undo
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_fifty_edit_retention_boundary - AssertionError...
+1 failed, 1 passed in 0.06s

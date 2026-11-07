@@ -1,0 +1,48 @@
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.9.6: Fast Qwen3_5 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA GeForce RTX 4090. Num GPUs = 1. Max memory: 23.597 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.7.1+cu128. CUDA: 8.9. CUDA Toolkit: 12.8. Triton: 3.3.1
+\        /    Bfloat16 = TRUE. FA [Xformers = None. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:   0%|          | 1/723 [00:00<01:28,  8.13it/s]Loading weights:   6%|▌         | 45/723 [00:00<00:02, 230.78it/s]Loading weights:  10%|▉         | 71/723 [00:00<00:02, 243.07it/s]Loading weights:  13%|█▎        | 97/723 [00:00<00:02, 234.14it/s]Loading weights:  17%|█▋        | 121/723 [00:00<00:02, 224.81it/s]Loading weights:  21%|██        | 151/723 [00:00<00:02, 247.07it/s]Loading weights:  24%|██▍       | 177/723 [00:00<00:02, 247.26it/s]Loading weights:  31%|███       | 225/723 [00:00<00:01, 317.13it/s]Loading weights:  38%|███▊      | 278/723 [00:00<00:01, 380.48it/s]Loading weights:  45%|████▌     | 327/723 [00:01<00:00, 413.14it/s]Loading weights:  51%|█████     | 369/723 [00:01<00:00, 392.10it/s]Loading weights:  57%|█████▋    | 413/723 [00:01<00:00, 405.06it/s]Loading weights:  99%|█████████▉| 715/723 [00:01<00:00, 1155.12it/s]Loading weights: 100%|██████████| 723/723 [00:01<00:00, 517.00it/s] 
+Unsloth: Explicit target_modules are constrained by the finetune_(vision|language|attention|mlp) filters; adapters attach only where both select.
+==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
+   \\   /|    Num examples = 50 | Num Epochs = 3 | Total steps = 21
+O^O/ \_/ \    Batch size per device = 1 | Gradient accumulation steps = 8
+\        /    Data Parallel GPUs = 1 | Total batch size (1 x 8 x 1) = 8
+ "-____-"     Trainable parameters = 21,233,664 of 4,560,499,200 (0.47% trained)
+  0%|          | 0/21 [00:00<?, ?it/s]/workspace/.venvs/exp009-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  return original(name)
+/workspace/.venvs/exp009-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  return original(name)
+/workspace/.venvs/exp009-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  return original(name)
+/workspace/.venvs/exp009-train/lib/python3.11/site-packages/unsloth/import_fixes.py:2825: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  return original(name)
+Unsloth: Will smartly offload gradients to save VRAM!
+Unsloth: Double buffering enabled (parallel H2D + compute) for backward pass.
+  5%|▍         | 1/21 [00:24<08:15, 24.76s/it]                                              {'loss': '0.8513', 'grad_norm': '0.4565', 'learning_rate': '0', 'epoch': '0.16'}
+  5%|▍         | 1/21 [00:24<08:15, 24.76s/it] 10%|▉         | 2/21 [00:31<04:27, 14.09s/it]                                              {'loss': '0.8117', 'grad_norm': '0.4424', 'learning_rate': '5e-05', 'epoch': '0.32'}
+ 10%|▉         | 2/21 [00:31<04:27, 14.09s/it] 14%|█▍        | 3/21 [00:38<03:13, 10.72s/it]                                              {'loss': '0.7837', 'grad_norm': '0.4059', 'learning_rate': '0.0001', 'epoch': '0.48'}
+ 14%|█▍        | 3/21 [00:38<03:13, 10.72s/it] 19%|█▉        | 4/21 [00:42<02:21,  8.30s/it]                                              {'loss': '0.6442', 'grad_norm': '0.3768', 'learning_rate': '9.932e-05', 'epoch': '0.64'}
+ 19%|█▉        | 4/21 [00:42<02:21,  8.30s/it] 24%|██▍       | 5/21 [00:48<01:57,  7.35s/it]                                              {'loss': '0.7631', 'grad_norm': '0.3097', 'learning_rate': '9.729e-05', 'epoch': '0.8'}
+ 24%|██▍       | 5/21 [00:48<01:57,  7.35s/it] 29%|██▊       | 6/21 [00:53<01:38,  6.60s/it]                                              {'loss': '0.7782', 'grad_norm': '0.3773', 'learning_rate': '9.397e-05', 'epoch': '0.96'}
+ 29%|██▊       | 6/21 [00:53<01:38,  6.60s/it] 33%|███▎      | 7/21 [00:54<01:08,  4.86s/it]                                              {'loss': '0.6446', 'grad_norm': '0.6043', 'learning_rate': '8.946e-05', 'epoch': '1'}
+ 33%|███▎      | 7/21 [00:54<01:08,  4.86s/it] 38%|███▊      | 8/21 [01:00<01:06,  5.14s/it]                                              {'loss': '0.6409', 'grad_norm': '0.3195', 'learning_rate': '8.386e-05', 'epoch': '1.16'}
+ 38%|███▊      | 8/21 [01:00<01:06,  5.14s/it] 43%|████▎     | 9/21 [01:06<01:03,  5.31s/it]                                              {'loss': '0.6232', 'grad_norm': '0.3361', 'learning_rate': '7.735e-05', 'epoch': '1.32'}
+ 43%|████▎     | 9/21 [01:06<01:03,  5.31s/it] 48%|████▊     | 10/21 [01:13<01:04,  5.85s/it]                                               {'loss': '0.6183', 'grad_norm': '0.3151', 'learning_rate': '7.008e-05', 'epoch': '1.48'}
+ 48%|████▊     | 10/21 [01:13<01:04,  5.85s/it] 52%|█████▏    | 11/21 [01:19<00:58,  5.86s/it]                                               {'loss': '0.6485', 'grad_norm': '0.3137', 'learning_rate': '6.227e-05', 'epoch': '1.64'}
+ 52%|█████▏    | 11/21 [01:19<00:58,  5.86s/it] 57%|█████▋    | 12/21 [01:25<00:54,  6.03s/it]                                               {'loss': '0.5781', 'grad_norm': '0.3584', 'learning_rate': '5.413e-05', 'epoch': '1.8'}
+ 57%|█████▋    | 12/21 [01:25<00:54,  6.03s/it] 62%|██████▏   | 13/21 [01:31<00:48,  6.01s/it]                                               {'loss': '0.6401', 'grad_norm': '0.4347', 'learning_rate': '4.587e-05', 'epoch': '1.96'}
+ 62%|██████▏   | 13/21 [01:31<00:48,  6.01s/it] 67%|██████▋   | 14/21 [01:32<00:31,  4.50s/it]                                               {'loss': '0.584', 'grad_norm': '0.5683', 'learning_rate': '3.773e-05', 'epoch': '2'}
+ 67%|██████▋   | 14/21 [01:32<00:31,  4.50s/it] 71%|███████▏  | 15/21 [01:39<00:31,  5.26s/it]                                               {'loss': '0.6255', 'grad_norm': '0.3515', 'learning_rate': '2.992e-05', 'epoch': '2.16'}
+ 71%|███████▏  | 15/21 [01:39<00:31,  5.26s/it] 76%|███████▌  | 16/21 [01:44<00:25,  5.16s/it]                                               {'loss': '0.5644', 'grad_norm': '0.3818', 'learning_rate': '2.265e-05', 'epoch': '2.32'}
+ 76%|███████▌  | 16/21 [01:44<00:25,  5.16s/it] 81%|████████  | 17/21 [01:50<00:21,  5.49s/it]                                               {'loss': '0.4644', 'grad_norm': '0.3098', 'learning_rate': '1.614e-05', 'epoch': '2.48'}
+ 81%|████████  | 17/21 [01:50<00:21,  5.49s/it] 86%|████████▌ | 18/21 [01:56<00:17,  5.72s/it]                                               {'loss': '0.5561', 'grad_norm': '0.3664', 'learning_rate': '1.054e-05', 'epoch': '2.64'}
+ 86%|████████▌ | 18/21 [01:56<00:17,  5.72s/it] 90%|█████████ | 19/21 [02:02<00:11,  5.79s/it]                                               {'loss': '0.554', 'grad_norm': '0.3747', 'learning_rate': '6.026e-06', 'epoch': '2.8'}
+ 90%|█████████ | 19/21 [02:02<00:11,  5.79s/it] 95%|█████████▌| 20/21 [02:08<00:05,  5.77s/it]                                               {'loss': '0.5845', 'grad_norm': '0.3621', 'learning_rate': '2.709e-06', 'epoch': '2.96'}
+ 95%|█████████▌| 20/21 [02:08<00:05,  5.77s/it]100%|██████████| 21/21 [02:10<00:00,  4.52s/it]                                               {'loss': '0.6281', 'grad_norm': '0.5827', 'learning_rate': '6.819e-07', 'epoch': '3'}
+100%|██████████| 21/21 [02:10<00:00,  4.52s/it]                                               {'train_runtime': '130.3', 'train_samples_per_second': '1.151', 'train_steps_per_second': '0.161', 'train_loss': '0.647', 'epoch': '3'}
+100%|██████████| 21/21 [02:10<00:00,  4.52s/it]100%|██████████| 21/21 [02:10<00:00,  6.20s/it]

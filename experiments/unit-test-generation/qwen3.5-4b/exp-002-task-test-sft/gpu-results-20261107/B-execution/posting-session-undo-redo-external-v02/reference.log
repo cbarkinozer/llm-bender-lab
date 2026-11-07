@@ -1,0 +1,17 @@
+F                                                                        [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_set_reverts_and_undoes"], "reports": [{"nodeid": "test_generated.py::test_set_reverts_and_undoes", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_set_reverts_and_undoes", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_set_reverts_and_undoes", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+_________________________ test_set_reverts_and_undoes __________________________
+
+sv = <posting.session_variables.SessionVariables object at 0x71f372704830>
+
+    def test_set_reverts_and_undoes(sv):
+>       assert sv.get('x') == ''
+               ^^^^^^
+E       AttributeError: 'SessionVariables' object has no attribute 'get'. Did you mean: 'set'?
+
+test_generated.py:11: AttributeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_set_reverts_and_undoes - AttributeError: 'Sess...
+1 failed in 0.09s

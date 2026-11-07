@@ -1,0 +1,131 @@
+{
+  "order": [
+    "test_generated.py::test_retention_policy[50]",
+    "test_generated.py::test_direct_attribute_writes_do_not_add_history",
+    "test_generated.py::test_undo_stops_at_retained_boundary",
+    "test_generated.py::test_snapshot_of_non_string_types"
+  ],
+  "reports": [
+    {
+      "nodeid": "test_generated.py::test_retention_policy[50]",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_retention_policy[50]",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_retention_policy[50]",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_direct_attribute_writes_do_not_add_history",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_direct_attribute_writes_do_not_add_history",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_direct_attribute_writes_do_not_add_history",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_undo_stops_at_retained_boundary",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_undo_stops_at_retained_boundary",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_undo_stops_at_retained_boundary",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_snapshot_of_non_string_types",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_snapshot_of_non_string_types",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_snapshot_of_non_string_types",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1,
+  "returncode": 1,
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "tdd-demo-1c0d7cf25e7c40bc989878af9f33ce9f",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--user",
+    "65534:65534",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=64m",
+    "--mount",
+    "type=bind,src=C:\\Users\\barkin\\AppData\\Local\\Temp\\tdd-protected-h83_nq2q\\work,dst=/workspace,readonly",
+    "--workdir",
+    "/workspace",
+    "--env",
+    "PYTHONPATH=/workspace",
+    "--env",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "sha256:489e8b3d14d0379b3d2f248a239757bfa899fdbef596058e73da6c1b5f20718f",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "controlled_probe",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--override-ini",
+    "addopts=",
+    "test_generated.py"
+  ]
+}

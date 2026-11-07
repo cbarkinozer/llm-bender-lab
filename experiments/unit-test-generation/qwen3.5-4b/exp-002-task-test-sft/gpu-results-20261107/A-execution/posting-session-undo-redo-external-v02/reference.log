@@ -1,0 +1,18 @@
+F                                                                        [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_set_revert_and_edit"], "reports": [{"nodeid": "test_generated.py::test_set_revert_and_edit", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_set_revert_and_edit", "when": "call", "outcome": "failed", "assertion": true}, {"nodeid": "test_generated.py::test_set_revert_and_edit", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+___________________________ test_set_revert_and_edit ___________________________
+
+vars = <posting.session_variables.SessionVariables object at 0x7c66ea4ec830>
+
+    def test_set_revert_and_edit(vars):
+>       assert vars.set('x', 'a') == 'x'
+E       AssertionError: assert None == 'x'
+E        +  where None = set('x', 'a')
+E        +    where set = <posting.session_variables.SessionVariables object at 0x7c66ea4ec830>.set
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_set_revert_and_edit - AssertionError: assert N...
+1 failed in 0.17s

@@ -1,0 +1,17 @@
+F.                                                                       [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_extract_path_param_names", "test_generated.py::test_substitute_path_params"], "reports": [{"nodeid": "test_generated.py::test_extract_path_param_names", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_extract_path_param_names", "when": "call", "outcome": "failed", "assertion": true}, {"nodeid": "test_generated.py::test_extract_path_param_names", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_substitute_path_params", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_substitute_path_params", "when": "call", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_substitute_path_params", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+________________________ test_extract_path_param_names _________________________
+
+    def test_extract_path_param_names():
+>       assert extract_path_param_names('/api/:foo/bar') == [('foo', 'bar')]
+E       AssertionError: assert ['foo'] == [('foo', 'bar')]
+E         
+E         At index 0 diff: 'foo' != ('foo', 'bar')
+E         Use -v to get more diff
+
+test_generated.py:6: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_extract_path_param_names - AssertionError: ass...
+1 failed, 1 passed in 0.12s

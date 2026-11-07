@@ -1,0 +1,67 @@
+{
+  "image_id": "sha256:489e8b3d14d0379b3d2f248a239757bfa899fdbef596058e73da6c1b5f20718f",
+  "outputs_sha256": "4e47170765a0a68f31e33f13700ea769ddd932f7e5ea0cbdb8c057cbc515512a",
+  "records": [
+    {
+      "record_id": "posting-path-parameters-external-v02",
+      "status": "executed",
+      "reference_pass": false,
+      "kills": 0,
+      "faults": 2,
+      "fault_results": {
+        "omit-deduplication": false,
+        "replace-query-too": false
+      }
+    },
+    {
+      "record_id": "posting-query-pair-merge-external-v02",
+      "status": "executed",
+      "reference_pass": false,
+      "kills": 0,
+      "faults": 2,
+      "fault_results": {
+        "collapse-duplicates": false,
+        "enable-all-rows": false
+      }
+    },
+    {
+      "record_id": "posting-request-filenames-external-v02",
+      "status": "executed",
+      "reference_pass": false,
+      "kills": 0,
+      "faults": 2,
+      "fault_results": {
+        "accept-all-names": false,
+        "ignore-collisions": false
+      }
+    },
+    {
+      "record_id": "posting-session-undo-redo-external-v02",
+      "status": "executed",
+      "reference_pass": false,
+      "kills": 0,
+      "faults": 2,
+      "fault_results": {
+        "undo-no-op": false,
+        "retain-redo-on-edit": false
+      }
+    },
+    {
+      "record_id": "posting-session-history-limit-external-v02",
+      "status": "executed",
+      "reference_pass": false,
+      "kills": 0,
+      "faults": 2,
+      "fault_results": {
+        "unbounded-history": false,
+        "stringify-restored-values": false
+      }
+    }
+  ],
+  "tasks": 5,
+  "reference_passes": 0,
+  "useful_tasks": 0,
+  "kills": 0,
+  "faults": 10,
+  "limitations": "Curated faults are incomplete and correlated, not a universal quality metric. Containers bound resources/network but are not a proof against malicious test/report manipulation. Semantic anti-cheating review remains necessary. Counts are descriptive for one development family."
+}

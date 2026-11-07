@@ -1,0 +1,93 @@
+{
+  "order": [
+    "test_generated.py::test_revert_undo_redo_and_empty_history",
+    "test_generated.py::test_new_edit_invalidates_redo"
+  ],
+  "reports": [
+    {
+      "nodeid": "test_generated.py::test_revert_undo_redo_and_empty_history",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_revert_undo_redo_and_empty_history",
+      "when": "call",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_revert_undo_redo_and_empty_history",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_new_edit_invalidates_redo",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_new_edit_invalidates_redo",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "test_generated.py::test_new_edit_invalidates_redo",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1,
+  "returncode": 1,
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "tdd-demo-fb746b5d2e9f4c69915b4e7c0174b1b7",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--user",
+    "65534:65534",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=64m",
+    "--mount",
+    "type=bind,src=C:\\Users\\barkin\\AppData\\Local\\Temp\\tdd-protected-ip2vpcl8\\work,dst=/workspace,readonly",
+    "--workdir",
+    "/workspace",
+    "--env",
+    "PYTHONPATH=/workspace",
+    "--env",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "sha256:489e8b3d14d0379b3d2f248a239757bfa899fdbef596058e73da6c1b5f20718f",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "controlled_probe",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--override-ini",
+    "addopts=",
+    "test_generated.py"
+  ]
+}

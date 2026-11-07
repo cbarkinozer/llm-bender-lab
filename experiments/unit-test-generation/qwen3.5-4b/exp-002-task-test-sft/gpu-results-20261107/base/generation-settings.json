@@ -1,0 +1,45 @@
+{
+  "engine": {
+    "model": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "dtype": "bfloat16",
+    "max_model_len": 9216,
+    "gpu_memory_utilization": 0.8,
+    "max_num_seqs": 1,
+    "enable_lora": true,
+    "max_lora_rank": 16,
+    "seed": 3407,
+    "enable_chunked_prefill": true,
+    "language_model_only": true
+  },
+  "sampling": {
+    "backend": "vllm",
+    "dtype": "bfloat16",
+    "temperature": 0,
+    "max_tokens": 8192,
+    "seed": 3407,
+    "max_model_len": 9216,
+    "enable_thinking": true,
+    "repetition_penalty": 1.15,
+    "stop_token_ids": [
+      248046,
+      248044
+    ],
+    "max_num_seqs": 1,
+    "enable_chunked_prefill": true,
+    "runtime_lock_required": true,
+    "language_model_only": true
+  },
+  "verified_stop_token_ids": [
+    248046,
+    248044
+  ],
+  "runtime_lock_sha256": "8df26ddcf4bbc7c9d7cfc552d99c24b36f46fd119d3be01a580ff7567ba04d87",
+  "packages": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0",
+    "transformers": "5.18.0",
+    "tokenizers": "0.23.3"
+  },
+  "reproducibility": "Greedy is not a guarantee of bitwise determinism; compare under same frozen runtime and request order"
+}

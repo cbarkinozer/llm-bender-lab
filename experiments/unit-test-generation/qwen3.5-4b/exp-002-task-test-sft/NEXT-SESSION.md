@@ -1,5 +1,11 @@
 # Next GPU session: baseline first, then two controlled arms
 
+Completed update2026-11-07: both arms and all development inference are finished;
+all228 GPU artifact files have been downloaded and hash-verified. Start with
+GPU-RUN-20261107.md. Next action is independent local blind grading, then design
+Exp3/Exp4 from the evidence. Holdout stays unopened. Older setup notes below
+are historical, not instructions to rerun today's pair.
+
 Current implementation update: Arm B arrays, exact mask audit, shared-baseline/
 arm-specific gates and explicit token-normalized loss are now implemented.
 Start with PAIRED-GPU-RUN.md and paired-preflight-v01. The older pending-work

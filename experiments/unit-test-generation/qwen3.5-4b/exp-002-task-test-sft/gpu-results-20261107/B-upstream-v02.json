@@ -1,0 +1,49 @@
+{
+  "repository": "darrenburns/posting",
+  "revision": "32c45669032342cf9b95d5758af47a0d93de0ad7",
+  "upstream_test_files": 30,
+  "outputs_sha256": "690ed935f841bab20e5315fd6818d4b7a8a54a61d71c3374a6ee75d946df3777",
+  "reports": [
+    {
+      "record_id": "posting-path-parameters-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-query-pair-merge-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-request-filenames-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-session-undo-redo-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-session-history-limit-external-v02",
+      "status": "screened",
+      "matches": []
+    },
+    {
+      "record_id": "posting-backend-plan-planning-v04",
+      "status": "invalid_file_format",
+      "matches": []
+    },
+    {
+      "record_id": "posting-latency-reliability-v03",
+      "status": "invalid_file_format",
+      "matches": []
+    },
+    {
+      "record_id": "posting-query-order-reliability-v03",
+      "status": "invalid_file_format",
+      "matches": []
+    }
+  ],
+  "limitation": "Overlap flags require inspection: shared imports/contracts can overlap. No match does not establish absent pretraining exposure. No attribution to memorization from this screen alone. No source text sent to model."
+}

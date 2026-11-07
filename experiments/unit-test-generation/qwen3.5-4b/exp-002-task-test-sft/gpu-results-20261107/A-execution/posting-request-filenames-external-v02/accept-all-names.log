@@ -1,0 +1,51 @@
+FFFF                                                                     [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_is_valid_filename", "test_generated.py::test_get_unique_request_filename[base-]", "test_generated.py::test_get_unique_request_filename[base-/tmp]", "test_generated.py::test_get_unique_request_filename[base-subdir]"], "reports": [{"nodeid": "test_generated.py::test_is_valid_filename", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_is_valid_filename", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-]", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-]", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-]", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-/tmp]", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-/tmp]", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-/tmp]", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-subdir]", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-subdir]", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_get_unique_request_filename[base-subdir]", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+____________________________ test_is_valid_filename ____________________________
+
+    def test_is_valid_filename():
+>       assert posting.files.is_valid_filename('') == False
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:5: NameError
+___________________ test_get_unique_request_filename[base-] ____________________
+
+name = 'base', directory = ''
+
+    @pytest.mark.parametrize("name,directory", [('base', ''), ('base', '/tmp'), ('base', 'subdir')])
+    def test_get_unique_request_filename(name, directory):
+>       assert posting.files.get_unique_request_filename(name, directory) == f'{directory}{name}.posting.yaml'
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:18: NameError
+_________________ test_get_unique_request_filename[base-/tmp] __________________
+
+name = 'base', directory = '/tmp'
+
+    @pytest.mark.parametrize("name,directory", [('base', ''), ('base', '/tmp'), ('base', 'subdir')])
+    def test_get_unique_request_filename(name, directory):
+>       assert posting.files.get_unique_request_filename(name, directory) == f'{directory}{name}.posting.yaml'
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:18: NameError
+________________ test_get_unique_request_filename[base-subdir] _________________
+
+name = 'base', directory = 'subdir'
+
+    @pytest.mark.parametrize("name,directory", [('base', ''), ('base', '/tmp'), ('base', 'subdir')])
+    def test_get_unique_request_filename(name, directory):
+>       assert posting.files.get_unique_request_filename(name, directory) == f'{directory}{name}.posting.yaml'
+               ^^^^^^^
+E       NameError: name 'posting' is not defined
+
+test_generated.py:18: NameError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_is_valid_filename - NameError: name 'posting' ...
+FAILED test_generated.py::test_get_unique_request_filename[base-] - NameError...
+FAILED test_generated.py::test_get_unique_request_filename[base-/tmp] - NameE...
+FAILED test_generated.py::test_get_unique_request_filename[base-subdir] - Nam...
+4 failed in 0.08s

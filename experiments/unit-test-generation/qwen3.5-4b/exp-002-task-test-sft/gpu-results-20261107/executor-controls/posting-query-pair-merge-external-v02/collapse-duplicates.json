@@ -1,0 +1,93 @@
+{
+  "order": [
+    "test_generated.py::test_query_pairs_and_literal_dollars",
+    "test_generated.py::test_merge_by_occurrence_and_preserve_disabled_rows"
+  ],
+  "reports": [
+    {
+      "nodeid": "test_generated.py::test_query_pairs_and_literal_dollars",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_query_pairs_and_literal_dollars",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "test_generated.py::test_query_pairs_and_literal_dollars",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_merge_by_occurrence_and_preserve_disabled_rows",
+      "when": "setup",
+      "outcome": "passed",
+      "assertion": false
+    },
+    {
+      "nodeid": "test_generated.py::test_merge_by_occurrence_and_preserve_disabled_rows",
+      "when": "call",
+      "outcome": "failed",
+      "assertion": true
+    },
+    {
+      "nodeid": "test_generated.py::test_merge_by_occurrence_and_preserve_disabled_rows",
+      "when": "teardown",
+      "outcome": "passed",
+      "assertion": false
+    }
+  ],
+  "exitstatus": 1,
+  "returncode": 1,
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "tdd-demo-17d0b2958c8a465d8d9b127239ceb03b",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "64",
+    "--memory",
+    "512m",
+    "--cpus",
+    "1",
+    "--user",
+    "65534:65534",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=64m",
+    "--mount",
+    "type=bind,src=C:\\Users\\barkin\\AppData\\Local\\Temp\\tdd-protected-ip2vpcl8\\work,dst=/workspace,readonly",
+    "--workdir",
+    "/workspace",
+    "--env",
+    "PYTHONPATH=/workspace",
+    "--env",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "sha256:489e8b3d14d0379b3d2f248a239757bfa899fdbef596058e73da6c1b5f20718f",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "controlled_probe",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/tmp/pytest",
+    "--override-ini",
+    "addopts=",
+    "test_generated.py"
+  ]
+}

@@ -1,0 +1,13 @@
+
+TDD_EXECUTION_JSON={"order": [], "reports": [], "exitstatus": 2}
+
+==================================== ERRORS ====================================
+______________________ ERROR collecting test_generated.py ______________________
+test_generated.py::test_query_pair_merge: in "parametrize" the number of names (2):
+  ['url', 'params']
+must be equal to the number of values (3):
+  ('https://example.com?a=1&b=2&a=3', [('a', '1'), ('b', '2')], 'https://example.com?%7B%22a%22:%5B%221%22,%223%22%5D,%22b%22:%222%22}')
+=========================== short test summary info ============================
+ERROR test_generated.py - Failed: test_generated.py::test_query_pair_merge: i...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.15s

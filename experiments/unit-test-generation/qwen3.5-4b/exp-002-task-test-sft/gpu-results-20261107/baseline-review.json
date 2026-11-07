@@ -1,0 +1,11 @@
+{
+  "baseline_outputs_sha256": "aebcdda9afa00d674456e434433b3a3e3ef6dbcd29aa35085ab40444c7c5996e",
+  "outputs_inspected": true,
+  "proceed_with_diagnostic": true,
+  "execution_summary": "/workspace/tdd-pair-v01/base-execution/summary.json",
+  "reason": "Meaningful headroom:0/5 strict reference passes. Two invalid file formats, one cap-truncated suite, two executable suites contain contract/API errors. Run both predefined arms; do not change decoding.",
+  "headroom_notes": "Semantic defects beyond format: undo wrongly expected to clear redo; values dict called as function; history length confused with current values. No fault credit without reference pass.",
+  "truncation_analysis": "Query-pair merge reached8192 tokens while constructing a long test suite. Tail contains progressive additional cases, not a repeated-token/phrase loop. Keep budget fixed and retain incomplete in denominator.",
+  "reviewer": "Assistant inspection; dataset authoring agent, not independent/blinded. Final paired review must record its own reviewer and independence.",
+  "upstream_screen": "Two parseable baseline suites screened against30 pinned upstream test files; no flags. Other3 not screened because malformed/truncated. No pretraining-independence claim."
+}

@@ -1,6 +1,6 @@
 {
   "experiment_id": "exp-002-task-test-sft",
-  "status": "existing-repository-expansion",
+  "status": "paired-demo-completed-blind-review-pending",
   "executable": false,
   "training_enabled": false,
   "model": "Qwen/Qwen3.5-4B",
@@ -97,7 +97,7 @@
   ],
   "native_label_audit": "native-label-audit-v01/report.json",
   "native_label_audit_scope": "Verified native_tdd_labels.py preprocessing on the exact active 78 training-preview inputs; future trainer parity not yet verified.",
-  "trainer_label_parity_verified": false,
+  "trainer_label_parity_verified": true,
   "native_label_preprocessor": "scripts/evaluation/native_tdd_labels.py",
   "dataset_profile": "dataset-profile-v02/summary.json",
   "semantic_near_duplicate_review": "dataset-profile-v02/semantic-review.json",
@@ -107,5 +107,12 @@
   "demo_gpu_handoff": "PAIRED-GPU-RUN.md",
   "demo_recipe_status": "A/B masks and shared inference identity prepared; 1.15 repetition penalty frozen. Actual pod/Docker/loss-memory gates pending.",
   "next_session": "NEXT-SESSION.md",
-  "paired_demo_preflight": "paired-preflight-v02/summary.json"
+  "paired_demo_preflight": "paired-preflight-v02/summary.json",
+  "demo_results": "gpu-results-20261107/results-summary.json",
+  "demo_backup_verification": "gpu-results-20261107/backup-verification.json",
+  "demo_baseline_complete": true,
+  "demo_training_complete": true,
+  "demo_candidate_inference_complete": true,
+  "demo_blind_review_complete": false,
+  "trainer_label_parity_scope": "Both50-row A/B arms:300 actual microbatches verified; saved input exposure/order and token denominators independently audited. Does not cover future trainers or other tracks."
 }

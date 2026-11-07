@@ -1,0 +1,59 @@
+FFFF                                                                     [100%]
+TDD_EXECUTION_JSON={"order": ["test_generated.py::test_retains_last_50_editor_edits", "test_generated.py::test_direct_script_writes_bypass_history", "test_generated.py::test_non_string_types_snapshot_on_edit", "test_generated.py::test_undo_all_stops_at_boundary"], "reports": [{"nodeid": "test_generated.py::test_retains_last_50_editor_edits", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_retains_last_50_editor_edits", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_retains_last_50_editor_edits", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_direct_script_writes_bypass_history", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_direct_script_writes_bypass_history", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_direct_script_writes_bypass_history", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_non_string_types_snapshot_on_edit", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_non_string_types_snapshot_on_edit", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_non_string_types_snapshot_on_edit", "when": "teardown", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_undo_all_stops_at_boundary", "when": "setup", "outcome": "passed", "assertion": false}, {"nodeid": "test_generated.py::test_undo_all_stops_at_boundary", "when": "call", "outcome": "failed", "assertion": false}, {"nodeid": "test_generated.py::test_undo_all_stops_at_boundary", "when": "teardown", "outcome": "passed", "assertion": false}], "exitstatus": 1}
+
+=================================== FAILURES ===================================
+______________________ test_retains_last_50_editor_edits _______________________
+
+session_vars = <posting.session_variables.SessionVariables object at 0x7d575ee58ad0>
+
+    def test_retains_last_50_editor_edits(session_vars):
+        for i in range(60):
+            session_vars.set('var', f'value_{i}') if i % 2 == 0 else None
+>           assert len([v for v in session_vars.values()]) <= 50
+                                   ^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: 'dict' object is not callable
+
+test_generated.py:13: TypeError
+___________________ test_direct_script_writes_bypass_history ___________________
+
+session_vars = <posting.session_variables.SessionVariables object at 0x7d575ef2b610>
+
+    def test_direct_script_writes_bypass_history(session_vars):
+        session_vars.set('direct', 'initial')
+>       session_vars['script'] = 'assigned_via_bracket_notation'
+        ^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: 'SessionVariables' object does not support item assignment
+
+test_generated.py:18: TypeError
+____________________ test_non_string_types_snapshot_on_edit ____________________
+
+session_vars = <posting.session_variables.SessionVariables object at 0x7d575ee34050>
+
+    def test_non_string_types_snapshot_on_edit(session_vars):
+        session_vars.set('number', 42)
+        session_vars.set('list', [1, 2, 3])
+        session_vars.set('dict', {'key': 'value'})
+>       assert session_vars.values() == [42, [1, 2, 3], {'key': 'value'}]
+               ^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: 'dict' object is not callable
+
+test_generated.py:26: TypeError
+_______________________ test_undo_all_stops_at_boundary ________________________
+
+session_vars = <posting.session_variables.SessionVariables object at 0x7d575ef77490>
+
+    def test_undo_all_stops_at_boundary(session_vars):
+        for _ in range(70):
+            session_vars.set('edit', 'temp')
+        session_vars.undo() * 70
+>       assert len(list(session_vars.values())) == 50
+                        ^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: 'dict' object is not callable
+
+test_generated.py:33: TypeError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_retains_last_50_editor_edits - TypeError: 'dic...
+FAILED test_generated.py::test_direct_script_writes_bypass_history - TypeErro...
+FAILED test_generated.py::test_non_string_types_snapshot_on_edit - TypeError:...
+FAILED test_generated.py::test_undo_all_stops_at_boundary - TypeError: 'dict'...
+4 failed in 0.06s
