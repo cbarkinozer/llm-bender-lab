@@ -62,6 +62,12 @@ def causal_token_loss(outputs,labels,num_items_in_batch=None):
     return loss/denominator
 
 
+def trainer_backward_scale(trainer):
+    # Accelerate<=1.10 divides backward loss by its configured accumulation count.
+    # Newer Trainer versions configure that count as1; inspect the actual value.
+    return trainer.accelerator.gradient_accumulation_steps
+
+
 def generate(args, config):
     from vllm import LLM, SamplingParams
     from transformers import AutoTokenizer
@@ -187,7 +193,7 @@ def train(args, config):
             with (args.output/'exposure.jsonl').open('a',encoding='utf-8') as stream:
                 stream.write(json.dumps(dict(step=self.state.global_step,input_tokens=int(inputs['attention_mask'].sum()),
                                              supervised_tokens=int((inputs['labels']!=-100).sum())))+'\n')
-            return loss
+            return loss/trainer_backward_scale(self)
     ta=TrainingArguments(output_dir=str(args.output/'checkpoints'),per_device_train_batch_size=1,
         gradient_accumulation_steps=1 if args.mode=='tiny' else t['gradient_accumulation_steps'],
         num_train_epochs=t['epochs'],max_steps=3 if args.mode=='smoke' else 20 if args.mode=='tiny' else -1,
@@ -200,8 +206,10 @@ def train(args, config):
         if model.training:
             with (args.output/'loss-normalization.jsonl').open('a',encoding='utf-8') as stream:
                 stream.write(json.dumps(dict(microbatch_tokens=int((labels[...,1:]!=-100).sum()),
-                                             accumulation_group_tokens=int(num_items_in_batch)))+'\n')
-        return causal_token_loss(outputs,labels,num_items_in_batch)
+                                             accumulation_group_tokens=int(num_items_in_batch),
+                                             backward_scale=trainer_backward_scale(trainer)))+'\n')
+        loss=causal_token_loss(outputs,labels,num_items_in_batch)
+        return loss*trainer_backward_scale(trainer) if model.training else loss
     trainer=CheckedTrainer(model=model,args=ta,train_dataset=data,data_collator=collator,compute_loss_func=checked_loss)
     batch=next(iter(trainer.get_train_dataloader()))
     assert (batch['labels']!=-100).any()

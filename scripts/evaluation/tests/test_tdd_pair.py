@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from active_tdd_data import EXP,rows,read_json
 from prepare_tdd_pair import inference_identity
-from run_tdd_demo_gpu import verify_preflight,gate_identity_matches,causal_token_loss
+from run_tdd_demo_gpu import verify_preflight,gate_identity_matches,causal_token_loss,trainer_backward_scale
 from prepare_tdd_demo import digest
 
 
@@ -61,7 +61,7 @@ def test_actual_cpu_trainer_supplies_accumulation_group_count(tmp_path):
              dict(input_ids=[4,5,6],attention_mask=[1,1,1],labels=[-100,-100,6])]
     seen=[]
     def loss(outputs,labels,num_items_in_batch=None):
-        seen.append(int(num_items_in_batch));return causal_token_loss(outputs,labels,num_items_in_batch)
+        seen.append(int(num_items_in_batch));return causal_token_loss(outputs,labels,num_items_in_batch)*trainer_backward_scale(trainer)
     model=Tiny();expected=deepcopy(model)
     batch=torch.tensor([r['input_ids'] for r in dataset]);targets=torch.tensor([r['labels'] for r in dataset])
     causal_token_loss(expected(batch),targets).backward()
