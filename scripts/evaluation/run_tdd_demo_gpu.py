@@ -224,6 +224,7 @@ def train(args, config):
     after=trainer.evaluate(eval_dataset=data)['eval_loss'] if args.mode=='tiny' else None
     if not math.isfinite(result.training_loss):raise ValueError('Nonfinite loss')
     trainer.save_model(str(args.output/'adapter'));tokenizer.save_pretrained(args.output/'adapter')
+    trainer.state.save_to_json(str(args.output/'trainer-state.json'))
     save(args.output/'training-arguments.json',ta.to_dict())
     save(args.output/'result.json',dict(status='completed',stage=args.mode,recipe_sha256=digest(args.preflight/'recipe.json'),
         metrics=result.metrics,before=before,after=after,loss_decreased=after<before if before is not None else None,
