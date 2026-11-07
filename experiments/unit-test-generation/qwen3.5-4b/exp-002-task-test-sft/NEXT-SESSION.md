@@ -1,3 +1,20 @@
+# Current result: primary review complete, no demonstrated utility gain
+
+Update 2026-11-07: owner submitted all five primary comparisons. Results and
+algorithmic paper diagnostics are in [POST-REVIEW-RESULTS.md](POST-REVIEW-RESULTS.md).
+Base is preferred on four cases; A/B tie above base on one. Retain count is zero
+for all models. All three remain 0/5 protected reference passes, 0/10 fault credit.
+Do not select either adapter as an improvement. The owner waived manual 169-site
+and 15-file smell annotation for this demo; they are not completion blockers.
+Static predictions are unvalidated, not human labels. Supporting probes remain
+outside this completed primary review; holdout remains unopened.
+
+Next: audit training targets for requirement coverage/API fidelity/collection
+validity, resolve under-specified interfaces in a versioned protocol, then design
+the next controlled experiment pair. Preserve this baseline and review unchanged;
+changed prompts require a new common baseline before comparison. No GPU is needed
+for the immediate audit. Historical preparation notes follow.
+
 # Next GPU session: baseline first, then two controlled arms
 
 Completed update2026-11-07: both arms and all development inference are finished;
@@ -106,8 +123,8 @@ Read-only clone: `C:/Users/barkin/Desktop/slm_test_generation`.
 
 The launchers specify **8192 generated tokens**, and **16384 total context**:
 
-- `step3_modelling/run_experiments.py`: lines171–174 and189–192.
-- `step3_modelling/run_realworld_experiments_v2.py`: lines158–161 and178–181.
+- `step3_modelling/run_experiments.py`: lines171â€“174 and189â€“192.
+- `step3_modelling/run_realworld_experiments_v2.py`: lines158â€“161 and178â€“181.
 - `step3_modelling/run_real_world_experiments_inference.py`: lines115 and124;
   line29 lists Qwen3.5-4B with thinking enabled by default.
 
@@ -154,8 +171,8 @@ protocol/arms are fixed. Never use implementation source in model text.
 
 Unknown public-repository pretraining overlap, one development family and tiny
 sample sizes remain explicit limitations. Extra seeds cannot fix family coverage.
-Reserve at least a substantial session: the earlier45–90min single-arm cold-run
+Reserve at least a substantial session: the earlier45â€“90min single-arm cold-run
 allowance is no longer a two-arm completion estimate. Two training arms alone
-roughly20–40min using the prior rough estimate; setup, larger-budget generation,
+roughly20â€“40min using the prior rough estimate; setup, larger-budget generation,
 executor checks, model reloads and review add unknown time. Measure baseline and
 smoke throughput before promising a total. No GPU has been rented or run.

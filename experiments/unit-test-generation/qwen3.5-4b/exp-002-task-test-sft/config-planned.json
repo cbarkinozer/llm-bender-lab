@@ -1,6 +1,6 @@
 {
   "experiment_id": "exp-002-task-test-sft",
-  "status": "paired-demo-completed-blind-review-pending",
+  "status": "paired-demo-primary-reviewed-no-usefulness-gain",
   "executable": false,
   "training_enabled": false,
   "model": "Qwen/Qwen3.5-4B",
@@ -116,5 +116,11 @@
   "demo_blind_review_complete": false,
   "trainer_label_parity_scope": "Both50-row A/B arms:300 actual microbatches verified; saved input exposure/order and token denominators independently audited. Does not cover future trainers or other tracks.",
   "demo_argilla_review": "gpu-results-20261107/argilla-review-v02/receipt.json",
-  "demo_argilla_supporting_review": "gpu-results-20261107/argilla-review-v01/receipt.json"
+  "demo_argilla_supporting_review": "gpu-results-20261107/argilla-review-v01/receipt.json",
+  "demo_primary_review_complete": true,
+  "demo_static_diagnostics_complete": true,
+  "demo_review_results": "gpu-results-20261107/post-review-v01/summary.json",
+  "demo_manual_oracle_review": "waived by owner for demo; automatic unvalidated diagnostic only",
+  "demo_manual_smell_review": "waived by owner for demo; automatic unvalidated diagnostic only",
+  "demo_blind_review_remaining_scope": "Supporting probes not included in primary review summary; primary 5/5 complete."
 }

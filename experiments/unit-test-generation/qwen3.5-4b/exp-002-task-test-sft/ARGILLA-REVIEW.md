@@ -1,3 +1,19 @@
+# Demo protocol update: exhaustive annotation waived
+
+The owner waived the 169-site oracle review and manual smell checklist for this
+demo. All five primary comparisons are submitted and frozen outside Git before
+unblinding. Run `scripts/evaluation/summarize_tdd_demo_review.py --snapshot <export-folder>`
+with a new `--output` for a new report version; only complete PRIMARY reviews are
+required. Its automatic pass uses the requested local study checkout and imports
+measurement tooling only. See [POST-REVIEW-RESULTS.md](POST-REVIEW-RESULTS.md).
+
+The original strict `adjudicate` command below remains available for optional full
+validation; it is not a required demo gate. No manual labels or human validation
+are fabricated for skipped oracle/smell records. Supporting reviews are separate
+and remain pending. Current primary/UI records are preserved unchanged.
+
+Historical v02 full-validation instructions follow.
+
 # Local anonymous comparison UI - v02 taxonomy review
 
 Argilla: http://127.0.0.1:7900 ; workspace `tdd-blind-comparison`.

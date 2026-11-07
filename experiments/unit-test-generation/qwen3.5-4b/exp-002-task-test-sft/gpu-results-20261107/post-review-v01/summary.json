@@ -1,0 +1,203 @@
+{
+  "scope": "Five primary development tasks from one family; one user-submitted blind review",
+  "protocol_change": "User waived exhaustive manual oracle/smell annotation for demo. Primary labels frozen before analysis; automatic labels are unvalidated diagnostics.",
+  "human": {
+    "models": {
+      "base": {
+        "assessments": {
+          "repair": 3,
+          "reject": 2
+        },
+        "sole_best": 4,
+        "tied_best": 0
+      },
+      "arm_A": {
+        "assessments": {
+          "reject": 5
+        },
+        "sole_best": 0,
+        "tied_best": 1
+      },
+      "arm_B": {
+        "assessments": {
+          "reject": 4,
+          "repair": 1
+        },
+        "sole_best": 0,
+        "tied_best": 1
+      }
+    },
+    "pairwise": {
+      "base_vs_arm_A": {
+        "first_preferred": 4,
+        "tied": 0,
+        "second_preferred": 1
+      },
+      "base_vs_arm_B": {
+        "first_preferred": 4,
+        "tied": 0,
+        "second_preferred": 1
+      },
+      "arm_A_vs_arm_B": {
+        "first_preferred": 1,
+        "tied": 2,
+        "second_preferred": 2
+      }
+    }
+  },
+  "automatic": {
+    "base": {
+      "outputs": 5,
+      "unparseable": 1,
+      "parseable_without_test_functions": 0,
+      "files_with_recognized_test_functions": 4,
+      "static_test_functions": 48,
+      "flagged_files_by_smell": {
+        "assertion_roulette": 4,
+        "eager_test": 3,
+        "mystery_guest": 0,
+        "magic_number_test": 1,
+        "obscure_test": 0,
+        "general_fixture": 0,
+        "conditional_test_logic": 3,
+        "fragile_test": 1,
+        "unknown_test": 0,
+        "trivial_assertion": 2,
+        "duplicated_setup": 2
+      },
+      "files_with_any_flag": 4,
+      "oracle_site_classes": {
+        "TRIVIAL": 0,
+        "WEAK": 1,
+        "STRONG": 22,
+        "UNKNOWN": 70
+      },
+      "static_oracle_sites": 93,
+      "runtime_reached_oracles": "not_measured"
+    },
+    "arm_A": {
+      "outputs": 5,
+      "unparseable": 0,
+      "parseable_without_test_functions": 0,
+      "files_with_recognized_test_functions": 5,
+      "static_test_functions": 8,
+      "flagged_files_by_smell": {
+        "assertion_roulette": 4,
+        "eager_test": 4,
+        "mystery_guest": 0,
+        "magic_number_test": 2,
+        "obscure_test": 0,
+        "general_fixture": 0,
+        "conditional_test_logic": 1,
+        "fragile_test": 0,
+        "unknown_test": 0,
+        "trivial_assertion": 0,
+        "duplicated_setup": 0
+      },
+      "files_with_any_flag": 4,
+      "oracle_site_classes": {
+        "TRIVIAL": 0,
+        "WEAK": 0,
+        "STRONG": 5,
+        "UNKNOWN": 34
+      },
+      "static_oracle_sites": 39,
+      "runtime_reached_oracles": "not_measured"
+    },
+    "arm_B": {
+      "outputs": 5,
+      "unparseable": 0,
+      "parseable_without_test_functions": 1,
+      "files_with_recognized_test_functions": 4,
+      "static_test_functions": 15,
+      "flagged_files_by_smell": {
+        "assertion_roulette": 2,
+        "eager_test": 3,
+        "mystery_guest": 0,
+        "magic_number_test": 1,
+        "obscure_test": 1,
+        "general_fixture": 0,
+        "conditional_test_logic": 1,
+        "fragile_test": 1,
+        "unknown_test": 0,
+        "trivial_assertion": 0,
+        "duplicated_setup": 0
+      },
+      "files_with_any_flag": 3,
+      "oracle_site_classes": {
+        "TRIVIAL": 0,
+        "WEAK": 0,
+        "STRONG": 6,
+        "UNKNOWN": 30
+      },
+      "static_oracle_sites": 36,
+      "runtime_reached_oracles": "not_measured"
+    }
+  },
+  "execution_and_generation": {
+    "base": {
+      "requests": 9,
+      "primary_tasks": 5,
+      "normal_stops": 8,
+      "truncated": 1,
+      "output_tokens": 41724,
+      "primary_output_tokens": 30990,
+      "generation_seconds": 418.6175363439979,
+      "primary_static_format_passes": 2,
+      "primary_semantic_code_available": 4,
+      "correct_reference_passes": 0,
+      "targeted_faults_detected": 0,
+      "targeted_faults": 10
+    },
+    "experiment_1": {
+      "requests": 9,
+      "primary_tasks": 5,
+      "normal_stops": 9,
+      "truncated": 0,
+      "output_tokens": 5924,
+      "primary_output_tokens": 1282,
+      "generation_seconds": 68.20438595100131,
+      "primary_static_format_passes": 5,
+      "primary_semantic_code_available": 5,
+      "correct_reference_passes": 0,
+      "targeted_faults_detected": 0,
+      "targeted_faults": 10
+    },
+    "experiment_2": {
+      "requests": 9,
+      "primary_tasks": 5,
+      "normal_stops": 9,
+      "truncated": 0,
+      "output_tokens": 7182,
+      "primary_output_tokens": 2261,
+      "generation_seconds": 82.09317721299885,
+      "primary_static_format_passes": 4,
+      "primary_semantic_code_available": 5,
+      "correct_reference_passes": 0,
+      "targeted_faults_detected": 0,
+      "targeted_faults": 10
+    }
+  },
+  "interpretation": "Base preferred on four cases; adapters improve brevity/format but no useful-test or executable-correctness improvement demonstrated. No demonstrated benefit of rationale supervision.",
+  "supporting_review": "Not included; no supporting identities disclosed in this report.",
+  "holdout_opened": false,
+  "primary_manual_review_complete": true,
+  "exhaustive_oracle_review": "waived",
+  "manual_smell_review": "waived for this demo",
+  "automatic_labels_human_validated": false,
+  "provenance": {
+    "paper_tools": {
+      "repository": "C:\\Users\\barkin\\Documents\\GitHub\\slm_test_generation",
+      "commit": "380b7d362f49d43fd55af5b2f7e015d4fa651e97",
+      "source_sha256": "aaffc6d92547acce0647119c4b1edb19de17489ae624073dff0f8d8a2765be4b",
+      "normalized_source_sha256": "4aae64f5459aa826b034064fcd0e04a36f9f4290a1a1e09bf3971741af1431f1",
+      "executed_extraction_sha256": "852adbe8a8e2f8ac1a55db54c3ea96f1168c7ee03fadb42411f152d5b00c2914",
+      "scope": "Measurement tools only; AST definitions before corpus runner; plotting imports removed. No paper samples imported.",
+      "oracle_source_sha256": "f0127385089dfa4e2ff4ffbc2d7ae5ba76d8988f389c90f66d8ca25f20ebfbcd"
+    },
+    "snapshot_sha256": "4021ea5955f46a701a27365789ce58bf91ba367f9deefdeab1cfe5372f029ff0",
+    "receipt_sha256": "11d58102f9c343a288123323f845e6d9b0ad42e9017dc501153fcbd82af099ab",
+    "packet_sha256": "0c2b8aadbaa5c313eb4904463475dc697cd4964319a3d4bb04a77da2380e958b",
+    "mapping_sha256": "1f2885682879efec7e9c0cbc7da730cd616c69aacb84d42ebb3d1c24f0ea36df"
+  }
+}
