@@ -1,3 +1,7 @@
+> **Paused by owner, 2026-11-09.** Latest five-case review is complete; no demonstrated utility gain. No new runs or data changes planned while paused. Start with [PAUSED-20261109.md](PAUSED-20261109.md). Older status sections below are historical.
+
+> Latest completed work2026-11-07: Exp3/Exp4 directly supervise thinking+answer at1e-5/3e-5. All four models score0/5reference passes and0/10gated kills on clarified development. Backups verified; GPU SAFE TO CLOSE. New five-case four-way review is ready; local changes remain UNCOMMITTED by owner request. See [GPU-LR-PAIR-20261107.md](GPU-LR-PAIR-20261107.md). Older notes below are historical.
+
 [Original-source CC report](original-source-complexity-v02/REPORT.md): mean 5.44, population std 7.85 across 2412 original non-test functions. See [complexity correction](COMPLEXITY-CORRECTION.md) for the superseded class-method counting issue.
 
 ## Dataset details

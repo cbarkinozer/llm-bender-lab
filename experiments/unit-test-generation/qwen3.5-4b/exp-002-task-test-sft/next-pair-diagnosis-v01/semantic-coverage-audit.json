@@ -1,0 +1,2084 @@
+{
+  "title": "Semantic coverage audit of the 50 task-to-test training targets",
+  "date": "2026-11-07",
+  "scope": "All 50 trained task-to-test rows (identical record ids in both Exp1/Arm-A and Exp2/Arm-B encoded train sets). CPU static analysis only.",
+  "method": "AST parse of each authored target artifact for real-SUT import vs SUT-shadowing stubs, builder/fixture classification, parametrize arity, assert sites, and mock/monkeypatch target; plus the validation runs already recorded (reference + order-shuffle positive controls and named behavioral mutations as negative controls). No generated or target test code was executed on the host during this audit.",
+  "no_target_code_executed": true,
+  "source_file": "quality-audit-v01/current-test-candidates.jsonl",
+  "source_sha256": "9feec86f910e274f0a9d4703a512d2acce08b97e0a86b1e63cc7abc0f01020cd",
+  "trained_id_parity": "Confirmed: the 50 audited record ids equal the record ids in paired-preflight-v02/A/train-encoded.jsonl and paired-preflight-v02/B/train-encoded.jsonl.",
+  "rollup": {
+    "targets": 50,
+    "parse_ok": 50,
+    "imports_real_sut": 50,
+    "shadowing_sut_stubs": 0,
+    "reference_all_pass": 50,
+    "order_all_pass": 50,
+    "with_killed_mutation": 50,
+    "with_survived_mutation": 0,
+    "killed_1": 29,
+    "killed_2plus": 21,
+    "verdict_pass": 50,
+    "verdict_review": 0,
+    "task_to_tests_rows_with_structured_criteria": 38,
+    "task_test_rows_with_prompt_contract_only": 12
+  },
+  "gate_verdict": "PASS - no major training-target defect; no substantive data change required.",
+  "gate_consequence": "Exp3/Exp4 may reuse the same 50 audited rows unchanged; the historical Arm-B at 1e-4 therefore remains a clean learning-rate-only comparator because the training data is unchanged.",
+  "qualifications": [
+    "Negative-control depth varies: 29 targets kill exactly 1 named mutation and 21 kill 2. Several targets state more requirements (2-4) than they have dedicated adversarial mutations, so not every individual requirement has its own negative control; the passing reference oracles still assert those behaviors. This is a coverage-depth observation, not a correctness defect, and introducing a minimum mutation count would be a count substitute the plan warns against.",
+    "12 lean task-test rows (dbcli/litecli, tldr-pages/tldr-python-client) carry their requirements in the prompt's INTERFACE AND ACCEPTANCE CONTRACT paragraph rather than a structured acceptance_criteria array; they are among the best-controlled (2 killed mutations each). Normalizing them to the richer schema when versioning data for Exp3/Exp4 is a consistency improvement, not a correctness fix.",
+    "builder_helpers flagged by name (make_app, prices, mail, choice, model, config, rows, trainer) are Arrange-phase factories that construct inputs or inject fake dependencies; none redefines a SUT symbol (shadowing_sut_stubs is empty for all 50), in contrast to the development candidates where a model output redefined the SUT function locally.",
+    "Mocks/monkeypatch isolate dependencies or control environment/inputs (sys.argv, sys.stdin, sys.platform, XDG/HOME env, command registry) or isolate a sibling function in a multi-function module. No target mocks the exact function it asserts on."
+  ],
+  "per_target": [
+    {
+      "record_id": "language-basic-v02",
+      "record_type": "task-to-tests",
+      "source_group": "codelang-detect",
+      "target_file": "tests/test_detection_basics.py",
+      "implementation_module": [
+        "codelang_detect/__init__.py",
+        "codelang_detect/detector.py"
+      ],
+      "acceptance_criteria": [
+        "Empty, whitespace and ordinary prose return unknown.",
+        "Clear Python and JavaScript snippets return py and js respectively."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_unknown_without_code_evidence",
+        "test_clear_language_markers"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "empty-input-guesses-python",
+          "always-unknown"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "language-rules-v02",
+      "record_type": "task-to-tests",
+      "source_group": "codelang-detect",
+      "target_file": "tests/test_detection_rules.py",
+      "implementation_module": [
+        "codelang_detect/detector.py"
+      ],
+      "acceptance_criteria": [
+        "Weight 3 beats two matching weight-1 rules.",
+        "Equal scores choose declaration order, even when alphabetical order differs.",
+        "A single positive score qualifies; zero evidence remains unknown.",
+        "Replacing the public configuration between calls immediately changes the result."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_weighted_evidence_not_match_count",
+        "test_equal_scores_use_first_declared_label",
+        "test_rule_configuration_is_read_on_every_call",
+        "test_any_positive_rule_score_qualifies"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ignore-rule-weights",
+          "cache-initial-configuration"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "language-cli-success-v02",
+      "record_type": "task-to-tests",
+      "source_group": "codelang-detect",
+      "target_file": "tests/test_cli_success.py",
+      "implementation_module": [
+        "codelang_detect/cli.py"
+      ],
+      "acceptance_criteria": [
+        "A Python snippet inside a .txt file is identified from its contents.",
+        "Piped text is accepted when no file argument exists.",
+        "Successful output has exactly one label/newline and no stderr."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_cli_file_prints_one_label",
+        "test_cli_stdin_prints_one_label"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "extra-output",
+          "guess-file-suffix"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "language-cli-errors-v02",
+      "record_type": "task-to-tests",
+      "source_group": "codelang-detect",
+      "target_file": "tests/test_cli_errors.py",
+      "implementation_module": [
+        "codelang_detect/cli.py"
+      ],
+      "acceptance_criteria": [
+        "Missing files produce usage exit 2 with useful stderr and empty stdout.",
+        "Closed stdin and invalid UTF-8 produce processing exit 1.",
+        "Normal input errors do not print tracebacks."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_missing_file_exits_2_with_diagnostic",
+        "test_closed_stdin_exits_1_with_processing_error",
+        "test_invalid_utf8_file_exits_1_with_processing_error"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 10,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "swallow-input-errors",
+          "print-traceback"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "prices-returns-v02",
+      "record_type": "task-to-tests",
+      "source_group": "cryptocurrency-analyser",
+      "target_file": "tests/test_cumulative_returns.py",
+      "implementation_module": [
+        "coin_comparator.py"
+      ],
+      "acceptance_criteria": [
+        "100,150,75 yields 0,.5,-.25, not daily changes.",
+        "Different series can have different first-observed dates.",
+        "Missing observations and entirely missing columns stay missing.",
+        "Dates and input values are preserved; nonpositive baselines are rejected."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_returns_are_relative_to_first_price_not_daily_changes",
+        "test_returns_preserve_dates_and_input_prices",
+        "test_missing_price_remains_missing",
+        "test_first_observed_price_is_selected_independently_per_series",
+        "test_nonpositive_observed_baselines_are_rejected"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 0,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "daily-instead-of-cumulative",
+          "first-row-baseline"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "prices-charts-v02",
+      "record_type": "task-to-tests",
+      "source_group": "cryptocurrency-analyser",
+      "target_file": "tests/test_price_charts.py",
+      "implementation_module": [
+        "coin_comparator.py"
+      ],
+      "acceptance_criteria": [
+        "Oppositely moving series have Pearson correlation -1, with matching index/column order.",
+        "The Plotly figure contains a heatmap followed by named cumulative-return traces.",
+        "Three observations discriminate daily changes from cumulative returns."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_correlation_detects_opposite_price_movements",
+        "test_combined_plot_contains_correlation_and_each_return_series",
+        "test_plot_three_observations_uses_cumulative_not_daily_returns"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "zero-correlations",
+          "chart-uses-daily-returns"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "prices-fetch-v02",
+      "record_type": "task-to-tests",
+      "source_group": "cryptocurrency-analyser",
+      "target_file": "tests/test_price_fetch.py",
+      "implementation_module": [
+        "coin_comparator.py"
+      ],
+      "acceptance_criteria": [
+        "The injected download callable receives ticker names, datetime bounds and auto_adjust=False.",
+        "Only the Adj Close frame is returned.",
+        "All-missing tickers are removed; partially missing prices are preserved."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_fetch_drops_only_entirely_missing_tickers"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 0,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "drop-partial-series",
+          "wrong-adjustment-policy"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "prices-analysis-v02",
+      "record_type": "task-to-tests",
+      "source_group": "cryptocurrency-analyser",
+      "target_file": "tests/test_price_analysis.py",
+      "implementation_module": [
+        "price_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Normalize symbols and keep provider/CSV calculations equivalent.",
+        "Expose source labels, observed date bounds, correlation and omitted symbols.",
+        "First-observed baselines work when the first row is missing.",
+        "Malformed selections fail before I/O; provider errors and nonpositive baselines remain visible."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_saved_csv_matches_provider_calculation_and_declares_source",
+        "test_provider_failure_does_not_produce_zero_returns",
+        "test_bad_selection_fails_before_fetch",
+        "test_unusable_first_row_is_reported_not_filled",
+        "test_first_observed_baselines_and_omitted_series_are_reported"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "prices"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 7,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "csv-source-mislabeled",
+          "provider-gets-lowercase-symbols"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-store-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_store.py",
+      "implementation_module": [
+        "ghost_box/mail/store.py"
+      ],
+      "acceptance_criteria": [
+        "Repeated IDs do not duplicate messages.",
+        "Separate accounts and fresh stores remain isolated.",
+        "Clear removes messages and coverage."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_session_mail_is_not_restored_and_accounts_do_not_mix",
+        "test_clear_removes_mail_and_coverage"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "mail"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "clear-keeps-mail"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-search-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_search.py",
+      "implementation_module": [
+        "ghost_box/mail/search.py"
+      ],
+      "acceptance_criteria": [
+        "A known sender matches under the declared Turkish-aware fold.",
+        "Empty or absent queries produce no invented matches.",
+        "A sender-only filter never matches text found only in the body or subject."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_search_respects_the_explicit_downloaded_scope",
+        "test_literal_sender_filter_is_unicode_aware"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "mail"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "all-fields-always-match"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-splitting-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_splitting.py",
+      "implementation_module": [
+        "ghost_box/mail/tasks.py"
+      ],
+      "acceptance_criteria": [
+        "Concatenating all parts reproduces the exact Unicode body.",
+        "IDs remain unchanged and part numbers are consecutive.",
+        "Exceeding the maximum task count raises TaskError rather than dropping content."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_long_mail_splitting_preserves_exact_unicode_content",
+        "test_task_cap_does_not_silently_discard_selected_content"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "mail"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ignore-task-budget"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-quote-validation-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_quote_validation.py",
+      "implementation_module": [
+        "ghost_box/mail/summary.py"
+      ],
+      "acceptance_criteria": [
+        "An own-body quotation is accepted.",
+        "A fact borrowed from another email raises TaskError.",
+        "An unclear item may use the declared empty classification quote."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_summary_quote_cannot_be_borrowed_from_another_email"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "mail"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 1,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "reject-all-items"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-fetch-coverage-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_fetch_coverage.py",
+      "implementation_module": [
+        "mail_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Reading messages never initiates fetching.",
+        "Explicit fetch forwards account and timezone-aware dates and deduplicates IDs.",
+        "A narrower search retains the downloaded coverage range even when no results match."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_explicit_fetch_preserves_range_and_reports_coverage"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "make_app"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "fetch-wrong-account"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-selected-inference-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_selected_inference.py",
+      "implementation_module": [
+        "mail_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Date and sender filters both exclude downloaded rows.",
+        "Answer and summary receive only selected rows.",
+        "Empty, unknown or foreign-citation selections are rejected without extra model calls."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_combined_search_filters_and_selected_inference"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "make_app"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "send-entire-inbox-to-model"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-cancellation-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_cancellation.py",
+      "implementation_module": [
+        "mail_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "A cancelled callback cannot replace the current result.",
+        "A valid current callback is accepted.",
+        "Changing account clears results and rejects old-account callbacks."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_cancelled_or_previous_account_result_cannot_be_applied"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "make_app"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 6,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "apply-cancelled-result"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "mail-model-lifecycle-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ghost-box",
+      "target_file": "tests/test_mail_model_lifecycle.py",
+      "implementation_module": [
+        "mail_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Repeated loads reuse the same path.",
+        "Clear removes derived content.",
+        "299.99 seconds does not unload; 300 seconds does.",
+        "Active operations prevent idle unloading and completion resets the timer."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_clear_removes_derived_results_and_model_idle_boundary",
+        "test_idle_timer_resets_and_active_operations_prevent_unload"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "make_app"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 4,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "never-unload-idle-model"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "decision-requests-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ReflexModels",
+      "target_file": "tests/test_decision_requests.py",
+      "implementation_module": [
+        "reflexmodels/types.py",
+        "reflexmodels/protocol.py"
+      ],
+      "acceptance_criteria": [
+        "Preserve the original Unicode state and option identifiers.",
+        "Reject insufficient options, duplicate ordinal levels and empty questions."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_runtime_unicode_options_roundtrip",
+        "test_invalid_decision_requests_are_rejected"
+      ],
+      "fixtures": [
+        "choice"
+      ],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "request-loses-original-option-ids"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "decision-probabilities-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ReflexModels",
+      "target_file": "tests/test_decision_probabilities.py",
+      "implementation_module": [
+        "reflexmodels/scoring.py",
+        "reflexmodels/protocol.py",
+        "reflexmodels/routing.py"
+      ],
+      "acceptance_criteria": [
+        "Logits 2 and 0 map to approximately .880797 and .119203.",
+        "Selected identifiers and strict JSON serialization remain stable.",
+        "Margin and normalized entropy have concrete numeric values.",
+        "Reject negative, nonfinite, nonnormalized or mismatched probabilities."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_logits_map_to_original_option_ids",
+        "test_invalid_probabilities_are_rejected"
+      ],
+      "fixtures": [
+        "choice"
+      ],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "select-wrong-option"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "decision-shared-state-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ReflexModels",
+      "target_file": "tests/test_decision_shared_state.py",
+      "implementation_module": [
+        "reflexmodels/scoring.py",
+        "reflexmodels/types.py"
+      ],
+      "acceptance_criteria": [
+        "Keep choice and binary option identifiers separate.",
+        "Equal logits give .5/.5 independently for both questions."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_shared_state_keeps_question_results_separate"
+      ],
+      "fixtures": [
+        "choice"
+      ],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "mix-shared-question-options"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "decision-fallback-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ReflexModels",
+      "target_file": "tests/test_decision_fallback.py",
+      "implementation_module": [
+        "reflexmodels/routing.py"
+      ],
+      "acceptance_criteria": [
+        "Low margin, low confidence and insufficient answerability trigger their own reason codes.",
+        "A confident, answerable high-margin result requires no fallback and has no reasons."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_low_margin_requires_fallback",
+        "test_low_answerability_overrides_confident_choice",
+        "test_fallback_accepts_confident_answerable_choice_and_rejects_low_confidence"
+      ],
+      "fixtures": [
+        "choice"
+      ],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 9,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-fallback"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "decision-calibration-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ReflexModels",
+      "target_file": "tests/test_decision_calibration.py",
+      "implementation_module": [
+        "reflexmodels/metrics.py"
+      ],
+      "acceptance_criteria": [
+        "Macro-F1 includes the unpredicted class, yielding 1/3 in the provided two-label fixture.",
+        "For two correct .75-confidence predictions, NLL=-log(.75), Brier=.125 and ECE=.25.",
+        "Empty inputs and invalid bin counts raise ValueError."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_metrics_include_unpredicted_class",
+        "test_calibration_metrics_have_concrete_expected_values",
+        "test_undefined_metrics_reject_invalid_inputs"
+      ],
+      "fixtures": [
+        "choice"
+      ],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "f1-equals-accuracy"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "decision-ordinal-v02",
+      "record_type": "task-to-tests",
+      "source_group": "ReflexModels",
+      "target_file": "tests/test_decision_ordinal.py",
+      "implementation_module": [
+        "reflexmodels/scoring.py",
+        "reflexmodels/types.py"
+      ],
+      "acceptance_criteria": [
+        "Ordinal option IDs are the ordered level strings.",
+        "A uniquely highest medium score selects medium.",
+        "Tied nominal options choose zeta when it was declared before alpha."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_ordinal_scoring_and_declaration_order_ties"
+      ],
+      "fixtures": [
+        "choice"
+      ],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-first-level"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "experiment-preflight-quality-after-v01",
+      "record_type": "task-to-tests",
+      "source_group": "llm-bender-lab",
+      "target_file": "tests/test_experiment_preflight.py",
+      "implementation_module": [
+        "experiment_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Reject empty messages, wrong roles, unknown splits and normalized overlapping prompts.",
+        "The trainer is never invoked after invalid preflight.",
+        "Valid disjoint train/test rows pass preflight and reach the injected trainer; invalid inputs still fail before it."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_malformed_data_fails_before_backend",
+        "test_invalid_preflight_never_invokes_trainer",
+        "test_valid_preflight_reaches_backend"
+      ],
+      "fixtures": [
+        "experiment_config",
+        "experiment_rows"
+      ],
+      "builder_helpers": [
+        "config",
+        "rows"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "normalize-away-invalid-conversation",
+          "reject-every-input"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "experiment-matched-evaluation-v02",
+      "record_type": "task-to-tests",
+      "source_group": "llm-bender-lab",
+      "target_file": "tests/test_experiment_matched_evaluation.py",
+      "implementation_module": [
+        "experiment_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Trainer receives only training rows and evaluator only test rows.",
+        "Baseline identity is the model revision and candidate identity the adapter path.",
+        "Preserve resolved config, adapter and completed status.",
+        "Report real deltas and unavailable metrics without replacing missingness with zero."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_smoke_run_preserves_config_adapter_and_matched_evaluations"
+      ],
+      "fixtures": [
+        "experiment_config",
+        "experiment_rows"
+      ],
+      "builder_helpers": [
+        "config",
+        "rows",
+        "trainer"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 12,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "resolved-config-loses-seed"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "experiment-artifact-isolation-v02",
+      "record_type": "task-to-tests",
+      "source_group": "llm-bender-lab",
+      "target_file": "tests/test_experiment_artifact_isolation.py",
+      "implementation_module": [
+        "experiment_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Reject an existing run directory.",
+        "A distinct run succeeds without modifying any previous file bytes.",
+        "A real 0.0 metric remains before=after=delta=0.0."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_run_directories_are_distinct_and_never_overwritten"
+      ],
+      "fixtures": [
+        "experiment_config",
+        "experiment_rows"
+      ],
+      "builder_helpers": [
+        "config",
+        "rows",
+        "trainer"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "allow-overwrite"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "experiment-failure-reporting-v02",
+      "record_type": "task-to-tests",
+      "source_group": "llm-bender-lab",
+      "target_file": "tests/test_experiment_failure_reporting.py",
+      "implementation_module": [
+        "experiment_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Backend failure yields failed status, useful diagnostics and no success summary.",
+        "Configured secret values are absent from returned errors and every saved text artifact."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_failure_is_recorded_without_success_or_credential_leak"
+      ],
+      "fixtures": [
+        "experiment_config",
+        "experiment_rows"
+      ],
+      "builder_helpers": [
+        "config",
+        "rows"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 6,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "backend-failure-claims-success"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tensor-rms-normalization-v02",
+      "record_type": "task-to-tests",
+      "source_group": "miniature-llms",
+      "target_file": "tests/test_tensor_rms_normalization.py",
+      "implementation_module": [
+        "_7_RMSNorm/pytorch.py"
+      ],
+      "acceptance_criteria": [
+        "Normalize the last dimension by sqrt(mean(x squared)+epsilon), then learned scale.",
+        "Positive epsilon maps zero inputs to finite zeros.",
+        "Scale gradients agree with the explicit [3,4]/sqrt(12.5) fixture."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_rmsnorm_uses_last_dimension_and_learned_scale",
+        "test_rmsnorm_epsilon_keeps_zero_input_finite",
+        "test_rmsnorm_backpropagates_expected_scale_gradient"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 0,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "rmsnorm-ignores-learned-scale"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tensor-rotary-positions-v02",
+      "record_type": "task-to-tests",
+      "source_group": "miniature-llms",
+      "target_file": "tests/test_tensor_rotary_positions.py",
+      "implementation_module": [
+        "_4_RoPE/pytorch.py"
+      ],
+      "acceptance_criteria": [
+        "rotate_half negates the second half and concatenates the first.",
+        "Position zero is identity on every head.",
+        "Position one rotates along sequence rather than head axes.",
+        "Reject odd or mismatched head dimensions with the declared diagnostics."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_rotate_half_moves_and_negates_second_half",
+        "test_rope_position_zero_is_identity_for_every_head",
+        "test_rope_rotates_sequence_axis_not_head_axis",
+        "test_rope_rejects_odd_head_dimension",
+        "test_rope_rejects_mismatched_input_dimension"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 0,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "rotate-head-axis"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tensor-model-composition-v02",
+      "record_type": "task-to-tests",
+      "source_group": "miniature-llms",
+      "target_file": "tests/test_tensor_model_composition.py",
+      "implementation_module": [
+        "tiny_model.py"
+      ],
+      "acceptance_criteria": [
+        "Return [batch,sequence,vocab] logits.",
+        "All trainable parameters have finite gradients and some gradient is nonzero.",
+        "Reject indivisible hidden sizes and odd per-head dimensions."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_composed_model_shapes_gradients_and_invalid_dimensions"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "model"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "wrong-logit-vocabulary-dimension"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tensor-causal-independence-v02",
+      "record_type": "task-to-tests",
+      "source_group": "miniature-llms",
+      "target_file": "tests/test_tensor_causal_independence.py",
+      "implementation_module": [
+        "tiny_model.py"
+      ],
+      "acceptance_criteria": [
+        "Changing future tokens cannot alter earlier logits.",
+        "Later logits must still respond to changed input."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_causal_outputs_cannot_observe_future_tokens"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "model"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 1,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "remove-causal-mask"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tensor-checkpoint-roundtrip-v02",
+      "record_type": "task-to-tests",
+      "source_group": "miniature-llms",
+      "target_file": "tests/test_tensor_checkpoint_roundtrip.py",
+      "implementation_module": [
+        "tiny_model.py"
+      ],
+      "acceptance_criteria": [
+        "Saving and loading reconstructs the same CPU model configuration and weights.",
+        "Eval logits match exactly at the same runtime."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_checkpoint_roundtrip_preserves_all_logits"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "model"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 0,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "checkpoint-loses-weights"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tensor-training-generation-v02",
+      "record_type": "task-to-tests",
+      "source_group": "miniature-llms",
+      "target_file": "tests/test_tensor_training_generation.py",
+      "implementation_module": [
+        "tiny_model.py"
+      ],
+      "acceptance_criteria": [
+        "Repeat the same seed and fixture to get identical finite loss histories.",
+        "The bounded smoke loss improves; no claim of general language capability.",
+        "Use last-position logit maxima, preserve prompt, honor zero/positive budgets and reject negative budgets."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_deterministic_cpu_training_and_bounded_generation",
+        "test_greedy_generation_follows_unique_logit_maxima",
+        "test_negative_generation_budget_is_rejected"
+      ],
+      "fixtures": [],
+      "builder_helpers": [
+        "model"
+      ],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 8,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "constant-generated-tokens"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "snapshot-file-tree-v02",
+      "record_type": "task-to-tests",
+      "source_group": "repo-context",
+      "target_file": "tests/test_snapshot_file_tree.py",
+      "implementation_module": [
+        "repo_context/core.py"
+      ],
+      "acceptance_criteria": [
+        "Show selected .py files and the declared root label.",
+        "Exclude other extensions, node_modules and caller-ignored files.",
+        "An entirely ignored tree contains only the root line."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_tree_filters_extensions_and_ignored_directories",
+        "test_explicit_ignore_removes_matching_file"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ignore-caller-predicate"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "snapshot-dependencies-v02",
+      "record_type": "task-to-tests",
+      "source_group": "repo-context",
+      "target_file": "tests/test_snapshot_dependencies.py",
+      "implementation_module": [
+        "repo_context/core.py"
+      ],
+      "acceptance_criteria": [
+        "Recognize Python from requirements.txt and pyproject.toml.",
+        "Include the source filename and dependency entries.",
+        "Formatting whitespace is not part of the contract."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_requirements_are_included_in_dependency_context",
+        "test_pyproject_dependencies_are_listed"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 6,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "omit-dependency-summary"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "snapshot-url-routing-v02",
+      "record_type": "task-to-tests",
+      "source_group": "repo-context",
+      "target_file": "tests/test_snapshot_url_routing.py",
+      "implementation_module": [
+        "repo_context/core.py"
+      ],
+      "acceptance_criteria": [
+        "Normalize the repository to a canonical .git URL.",
+        "Preserve simple branch names and nested subfolder paths.",
+        "Do not guess slash-containing branch semantics."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 3,
+      "test_functions": [
+        "test_branch_and_subdirectory_are_separated",
+        "test_nondefault_branch_and_nested_directory"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ignore-requested-branch"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "snapshot-text-decoding-v02",
+      "record_type": "task-to-tests",
+      "source_group": "repo-context",
+      "target_file": "tests/test_snapshot_text_decoding.py",
+      "implementation_module": [
+        "repo_context/core.py"
+      ],
+      "acceptance_criteria": [
+        "Valid Turkish UTF-8 text is recognized.",
+        "Invalid UTF-8 bytes are rejected."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_utf8_file_is_recognized",
+        "test_invalid_utf8_is_rejected"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-text"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "snapshot-safe-context-v02",
+      "record_type": "task-to-tests",
+      "source_group": "repo-context",
+      "target_file": "tests/test_snapshot_safe_context.py",
+      "implementation_module": [
+        "context_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "Preserve branch/subfolder and honor the public clone injection contract.",
+        "Respect .gitignore, extension, symlink and dependency-directory exclusions.",
+        "Show truncation and deterministic multi-file order without leaking tokens.",
+        "Owned checkouts are deleted after successful snapshot creation."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 4,
+      "test_functions": [
+        "test_shared_operation_keeps_branch_subfolder_and_safe_file_scope",
+        "test_snapshot_sorts_files_and_excludes_binary_and_dependency_directories"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 7,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ignore-gitignore-policy"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "snapshot-controller-routing-v02",
+      "record_type": "task-to-tests",
+      "source_group": "repo-context",
+      "target_file": "tests/test_snapshot_controller_routing.py",
+      "implementation_module": [
+        "context_workflow.py"
+      ],
+      "acceptance_criteria": [
+        "CLI and UI wrappers invoke the same operation with identical arguments.",
+        "A non-HTTPS GitHub URL fails before clone is called."
+      ],
+      "acceptance_contract_text": null,
+      "n_requirements": 2,
+      "test_functions": [
+        "test_cli_and_ui_call_the_shared_operation",
+        "test_invalid_url_is_not_sent_to_clone"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 4,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ui-does-not-use-shared-operation"
+        ],
+        "n_killed": 1,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "litecli-sql-table-identifiers-external-v02",
+      "record_type": "task-test",
+      "source_group": "dbcli/litecli",
+      "target_file": "tests/test_sql_table_identifiers.py",
+      "implementation_module": [
+        "litecli.packages.parseutils"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "extract_tables(sql: str) returns (schema or None, table, alias or None) tuples in query order. Cover an empty query, schema-qualified JOINs and INSERT targets; do not treat selected or inserted columns as tables. INSERT alias values are unspecified. Nested subqueries are outside this task because the pinned upstream has a known limitation.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_empty_and_columns_only",
+        "test_qualified_join_and_aliases",
+        "test_insert_target_excludes_columns"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 4,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-empty",
+          "lose-schema"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "litecli-sql-destructive-detection-external-v02",
+      "record_type": "task-test",
+      "source_group": "dbcli/litecli",
+      "target_file": "tests/test_sql_destructive_detection.py",
+      "implementation_module": [
+        "litecli.packages.parseutils"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "is_destructive(sql: str) is true when any statement starts with DROP, SHUTDOWN, DELETE, TRUNCATE or ALTER, ignoring case and SQL comments. A SELECT mentioning those words inside a string is safe. Empty input is safe.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_safe_statements",
+        "test_destructive_statements"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-safe",
+          "first-statement-only"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "litecli-completion-last-word-external-v02",
+      "record_type": "task-test",
+      "source_group": "dbcli/litecli",
+      "target_file": "tests/test_completion_last_word.py",
+      "implementation_module": [
+        "litecli.packages.parseutils"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "last_word(text, include=\"alphanum_underscore\") returns the final completion token. Empty input or trailing whitespace returns an empty string. Default mode retains letters/digits/underscores; most_punctuations also retains dollar signs but splits on periods, commas, colons and parentheses.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_default_tokens",
+        "test_punctuation_mode"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 3,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "strip-whitespace",
+          "ignore-mode"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "litecli-path-completion-external-v02",
+      "record_type": "task-test",
+      "source_group": "dbcli/litecli",
+      "target_file": "tests/test_path_completion.py",
+      "implementation_module": [
+        "litecli.packages.filepaths"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "parse_path(path) returns (directory, final component, negative length of component or zero). complete_path(candidate, prefix) returns a matching candidate, None for a mismatch, or joins ~ with candidate when prefix is ~. suggest_path lists entries in an existing directory or the parent of a partial path. Use native os.path semantics and compare directory contents without ordering.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_path_parsing_and_matching",
+        "test_directory_and_partial_path"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 7,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "accept-mismatches",
+          "omit-parent-fallback"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "litecli-sqlite-query-execution-external-v02",
+      "record_type": "task-test",
+      "source_group": "dbcli/litecli",
+      "target_file": "tests/test_sqlite_query_execution.py",
+      "implementation_module": [
+        "litecli.sqlexecute"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "SQLExecute(database_path) connects to a temporary SQLite database. run(sql) yields (title, rows, headers, status) for each statement. SELECT preserves Unicode, column labels and row order specified by ORDER BY. Empty input yields one (None,None,None,None) tuple. Invalid SQL raises OperationalError. Use conn.execute(sql, parameters) for bound inserts; run accepts only a SQL string. Close conn in a finally block.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_bound_unicode_rows_and_headers",
+        "test_empty_and_invalid_sql"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "drop-result-rows",
+          "swallow-sql-errors"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "litecli-special-command-dispatch-external-v02",
+      "record_type": "task-test",
+      "source_group": "dbcli/litecli",
+      "target_file": "tests/test_special_command_dispatch.py",
+      "implementation_module": [
+        "litecli.packages.special.main"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "parse_special_command(sql) returns command stripped of + or -, Verbosity and stripped argument. A + suffix means VERBOSE, no suffix NORMAL, - SUCCINCT. execute(cursor,sql) routes a registered PARSED_QUERY handler using cur, arg, verbose keyword arguments, supports case-insensitive commands, and raises CommandNotFound for unknown commands. COMMANDS is the registry; isolate it with monkeypatch.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_parse_verbosity_and_argument",
+        "test_dispatch_and_unknown"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "never-dispatch",
+          "lose-verbosity"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tldr-python-client-language-selection-external-v02",
+      "record_type": "task-test",
+      "source_group": "tldr-pages/tldr-python-client",
+      "target_file": "tests/test_language_selection.py",
+      "implementation_module": [
+        "tldr"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "get_language_code strips encoding and region except pt_PT, pt_BR and zh_TW; pt maps to pt_PT. get_language_list uses TLDR_LANGUAGE first, then LANGUAGE entries, then LANG if absent, then English. C/POSIX LANG disables ordinary locale candidates but still permits an explicit TLDR_LANGUAGE. Isolate LANG, LANGUAGE and TLDR_LANGUAGE.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_language_codes",
+        "test_language_priority"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 4,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "english-only",
+          "erase-special-region"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tldr-python-client-cache-path-selection-external-v02",
+      "record_type": "task-test",
+      "source_group": "tldr-pages/tldr-python-client",
+      "target_file": "tests/test_cache_path_selection.py",
+      "implementation_module": [
+        "tldr"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "get_cache_dir prioritizes XDG_CACHE_HOME/tldr, then HOME/.cache/tldr, then Path.home()/.cache/tldr. get_cache_file_path(command,platform,language) appends pages/platform/command.md for None or en and pages.<language>/platform/command.md otherwise. All locations must be temporary.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_cache_root_precedence",
+        "test_language_paths"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 5,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "ignore-xdg",
+          "ignore-language"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tldr-python-client-cache-freshness-external-v02",
+      "record_type": "task-test",
+      "source_group": "tldr-pages/tldr-python-client",
+      "target_file": "tests/test_cache_freshness.py",
+      "implementation_module": [
+        "tldr"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "have_recent_cache(command,platform,language) is true for an existing cache with age in hours <= MAX_CACHE_AGE, and false for an older or missing file. Control tldr.datetime.now(), MAX_CACHE_AGE and the cache path; use local-naive datetime consistently and no sleeps.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_cache_age_boundary_and_missing"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-fresh",
+          "strict-expiry"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tldr-python-client-page-url-external-v02",
+      "record_type": "task-test",
+      "source_group": "tldr-pages/tldr-python-client",
+      "target_file": "tests/test_page_url.py",
+      "implementation_module": [
+        "tldr"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "get_page_url(command,platform,remote,language) builds remote[.language]/platform/quoted-command.md. None remote uses PAGES_SOURCE_LOCATION; en or None language adds no suffix. Supply roots without trailing slash. Spaces and non-ASCII command characters must be percent encoded.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_page_url_language",
+        "test_custom_root_and_unicode"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 2,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "no-encoding",
+          "english-suffix"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tldr-python-client-cache-network-routing-external-v02",
+      "record_type": "task-test",
+      "source_group": "tldr-pages/tldr-python-client",
+      "target_file": "tests/test_cache_network_routing.py",
+      "implementation_module": [
+        "tldr"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "get_page_for_platform(command,platform,remote,language,only_use_cache=False,system_cache=False) returns byte lines. With USE_CACHE=True a fresh cache avoids network. Otherwise a successful urlopen download uses timeout=10 and is cached; a failed download falls back to an available stale cache. A cache-only miss raises CacheNotExist without networking; a failed download with no cached page propagates the download error. Patch urlopen, cache readers/writers and freshness; do not contact a real server.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_fresh_cache_avoids_network",
+        "test_download_then_cache_and_failure_fallback",
+        "test_cache_only_miss"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 6,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "never-cache-download",
+          "ignore-cache-only"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    },
+    {
+      "record_id": "tldr-python-client-platform-priority-external-v02",
+      "record_type": "task-test",
+      "source_group": "tldr-pages/tldr-python-client",
+      "target_file": "tests/test_platform_priority.py",
+      "implementation_module": [
+        "tldr"
+      ],
+      "acceptance_criteria": [],
+      "acceptance_contract_text": "get_platform maps sys.platform prefixes: darwin to osx, win32 to windows, linux variants to linux, unknown platforms to linux. get_platform_list returns each supported platform once, with the current platform first and common included. The remaining order is unspecified.",
+      "n_requirements": null,
+      "test_functions": [
+        "test_platform_mapping",
+        "test_active_platform_first"
+      ],
+      "fixtures": [],
+      "builder_helpers": [],
+      "imports_real_sut": true,
+      "shadowing_sut_stubs": [],
+      "n_assert_sites": 4,
+      "positive_control": {
+        "reference_runs": 1,
+        "reference_all_pass": true,
+        "order_shuffle_runs": 3,
+        "order_all_pass": true
+      },
+      "negative_control": {
+        "mutations_killed": [
+          "always-linux",
+          "duplicate-active"
+        ],
+        "n_killed": 2,
+        "mutations_survived": [],
+        "n_survived": 0
+      },
+      "verdict": "pass"
+    }
+  ]
+}

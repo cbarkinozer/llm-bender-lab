@@ -1,5 +1,16 @@
 # Environment & Pod Setup Gotchas
 
+## Windows text-mode SSH stdin can corrupt a remote shell environment file
+
+During the thinking-SFT LR pair (2026-11-07), passing a shell environment line
+through `subprocess.run(..., input=text, text=True)` on Windows converted LF to
+CRLF. Bash retained the carriage return in the exported value, and W&B rejected
+the credential as ending in whitespace. Stripping the local parsed value alone
+did not fix the transport conversion. Passing UTF-8 **bytes** as stdin (without
+text mode) preserved LF and authentication succeeded. Keep credential files
+outside the repository/artifact tree, use restricted permissions, and never
+print values while diagnosing this. No model/data change was involved.
+
 ## Vast authentication: fresh instance-only key worked (2026-10-04)
 
 The subsequent CETVEL500 pod accepted the established local key immediately on

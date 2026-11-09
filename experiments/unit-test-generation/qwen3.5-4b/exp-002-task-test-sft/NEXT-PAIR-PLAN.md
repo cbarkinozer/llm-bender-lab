@@ -1,8 +1,20 @@
 # Next pair proposal after inspecting all five questions
 
-Status 2026-11-07: diagnosis and proposal only. Exp3/Exp4 manifests, new data,
-revised evaluation prompts and GPU runs have not been prepared. Current primary
-responses, requirements, reference tests and scores remain unchanged.
+> Execution update 2026-11-07: the owner clarified that directly fine-tuning
+> thinking is the research goal. Exp3/Exp4 therefore BOTH use **A-style rationale
+> plus answer supervision**, at 1e-5 and 3e-5. `lr-pair-preflight-v01` freezes
+> unchanged original-A training arrays and prospectively clarified development
+> interfaces. A fresh shared baseline is required and is running on the new pod.
+> Historical A at 1e-4 is the matching training-recipe comparator; old scores
+> cannot be compared directly with revised-prompt scores. See
+> `GPU-LR-PAIR-20261107.md`. The previous B-style proposal below is superseded.
+
+Status 2026-11-07: diagnosis and proposal. UPDATE (same day): the semantic
+coverage audit of the fifty training targets is now COMPLETE and PASSES with no
+substantive data change required - see `next-pair-diagnosis-v01/semantic-coverage-audit.json`
+and `SEMANTIC-COVERAGE-AUDIT.md`. Exp3/Exp4 manifests, revised evaluation prompts
+and GPU runs have still not been prepared. Current primary responses, requirements,
+reference tests and scores remain unchanged.
 
 ## Evidence and provenance
 
@@ -168,7 +180,7 @@ If the CPU audit passes without a substantive data change, use a learning-rate p
 |---|---|---|
 | Peak learning rate | 1e-5 | 3e-5 |
 | Starting checkpoint | Fresh pinned original base | Same |
-| Loss objective | B-style answer loss; rationale-text labels masked | Same |
+| Loss objective | A-style rationale plus answer loss (owner clarification) | Same |
 | Teacher-forced input | Original complete input, including rationale | Same |
 | Training rows | Same fifty audited rows | Same |
 | Epochs / updates | 3 / 21 | Same |
@@ -176,7 +188,7 @@ If the CPU audit passes without a substantive data change, use a learning-rate p
 | Batch / accumulation | 1 / 8 | Same |
 | Seed, scheduler, warmup, optimizer, inference | Frozen previous settings | Same |
 
-This tests gentler adaptation, not whether rationale-free training is better.
+This tests gentler adaptation while directly supervising thinking and answer.
 B's marginal review advantage does not establish that its objective is superior.
 Exact rates are engineering hypotheses, not known optimal settings.
 
@@ -202,7 +214,10 @@ still lose, stop the LR sweep and reconsider target/task design.
 
 ## Immediate remaining work
 
-1. Complete the semantic coverage audit of fifty training targets.
+1. DONE 2026-11-07. Semantic coverage audit of the fifty training targets complete;
+   gate passes 50/50 with no substantive data change required
+   (`next-pair-diagnosis-v01/semantic-coverage-audit.json`). Because the data is
+   unchanged, the historical Arm-B at 1e-4 stays a clean learning-rate-only comparator.
 2. Resolve and freeze the intended interface declarations for the next dev revision.
 3. Prepare separate versioned Exp3/Exp4 manifests, masks and runtime gates.
 4. Request/verify a GPU only after CPU gates; shared baseline first if prompts change.

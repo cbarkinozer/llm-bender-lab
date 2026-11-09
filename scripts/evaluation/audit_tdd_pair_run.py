@@ -6,14 +6,27 @@ from active_tdd_data import EXP,rows,read_json
 from prepare_tdd_demo import save,digest
 
 
-def audit(root,output):
+def verify_training_arguments(actual,recipe):
+    training=recipe['training']
+    mapping={'learning_rate':'learning_rate','num_train_epochs':'epochs',
+             'per_device_train_batch_size':'batch_size','gradient_accumulation_steps':'gradient_accumulation_steps',
+             'seed':'seed','data_seed':'seed','warmup_steps':'warmup_steps','weight_decay':'weight_decay',
+             'max_grad_norm':'max_grad_norm','optim':'optimizer','lr_scheduler_type':'scheduler'}
+    for key,source in mapping.items():
+        if actual[key]!=training[source]:raise ValueError('Actual training argument differs: '+key)
+    if not actual['bf16'] or actual['fp16']:raise ValueError('Actual training precision differs')
+
+
+def audit(root,output,preflight_root=None,arms=('A','B')):
     reports={};orders={}
-    for arm in ('A','B'):
-        preflight=EXP/'paired-preflight-v02'/arm
+    for arm in arms:
+        preflight=(preflight_root or EXP/'paired-preflight-v02')/arm
+        recipe=read_json(preflight/'recipe.json')
         records=rows(preflight/'train-encoded.jsonl')
         signatures={(len(r['input_ids']),sum(x!=-100 for x in r['labels'])):r['record_id'] for r in records}
         if len(signatures)!=50:raise ValueError('Exposure signatures are not unique; cannot infer order')
         run=root/(arm+'-full');exposure=rows(run/'exposure.jsonl');normalization=rows(run/'loss-normalization.jsonl')
+        verify_training_arguments(read_json(run/'training-arguments.json'),recipe)
         if len(exposure)!=150 or len(normalization)!=150:raise ValueError('Expected150 training microbatches')
         order=[signatures[(r['input_tokens'],r['supervised_tokens'])] for r in exposure]
         if Counter(order)!=Counter({r['record_id']:3 for r in records}):raise ValueError('Not exactly3 passes over all50 rows')
@@ -30,16 +43,19 @@ def audit(root,output):
                          supervised_tokens=sum(r['supervised_tokens'] for r in exposure),every_row_seen_three_times=True,
                          actual_token_denominators_verified=True,metrics=result['metrics'],
                          gpu_peak_allocated_bytes=result.get('gpu_peak_allocated_bytes'))
+        reports[arm]['actual_training_arguments_verified']=True
+        reports[arm]['actual_peak_learning_rate']=recipe['training']['learning_rate']
         orders[arm]=order
-    if orders['A']!=orders['B']:raise ValueError('Arms used different actual example orders')
-    if reports['A']['input_tokens']!=275574 or reports['A']['supervised_tokens']!=51798 or reports['B']['supervised_tokens']!=47541:
-        raise ValueError('Unexpected actual exposure totals')
+        if reports[arm]['input_tokens']!=3*sum(len(r['input_ids']) for r in records) or reports[arm]['supervised_tokens']!=3*recipe['supervised_tokens_per_epoch']:
+            raise ValueError('Unexpected actual exposure totals')
+    if any(orders[arm]!=orders[arms[0]] for arm in arms):raise ValueError('Arms used different actual example orders')
     save(output,dict(status='passed',arms=reports,actual_training_order_identical=True,
          order_recovery='Each arm has50 unique (input length, supervised count) signatures, mapped to record IDs; no ambiguous lookup',
-         actual_record_order=orders['A'],loss_normalization='Per optimizer-group nonignored shifted-token count verified on every microbatch',
-         limitation='Different rationale supervision/exposure remains intentional; these checks do not establish better test quality.'))
+         actual_record_order=orders[arms[0]],loss_normalization='Per optimizer-group nonignored shifted-token count verified on every microbatch',
+         limitation='Exposure verification does not establish better test quality; objectives and learning rates are recorded in the corresponding recipes.'))
 
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--run-root',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
-    a=p.parse_args();audit(a.run_root,a.output)
+    p.add_argument('--preflight-root',type=Path);p.add_argument('--arms',nargs=2,default=['A','B'])
+    a=p.parse_args();audit(a.run_root,a.output,a.preflight_root,tuple(a.arms))

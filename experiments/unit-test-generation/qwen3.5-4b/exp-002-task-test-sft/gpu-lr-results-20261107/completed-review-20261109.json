@@ -1,0 +1,56 @@
+{
+  "records": 5,
+  "submitted": 5,
+  "model_summary": {
+    "base": {
+      "first": 2,
+      "assessments": {
+        "repair": 3,
+        "reject": 2
+      }
+    },
+    "historical_A": {
+      "first": 0,
+      "assessments": {
+        "repair": 2,
+        "reject": 3
+      }
+    },
+    "Exp3": {
+      "first": 2,
+      "assessments": {
+        "reject": 3,
+        "repair": 2
+      }
+    },
+    "Exp4": {
+      "first": 1,
+      "assessments": {
+        "reject": 3,
+        "repair": 2
+      }
+    }
+  },
+  "paired_against_base": {
+    "historical_A": {
+      "wins": 0,
+      "ties": 1,
+      "losses": 4
+    },
+    "Exp3": {
+      "wins": 2,
+      "ties": 1,
+      "losses": 2
+    },
+    "Exp4": {
+      "wins": 2,
+      "ties": 0,
+      "losses": 3
+    }
+  },
+  "limitations": [
+    "Five adaptive development cases, one Argilla reviewer account; no statistical/generalization claim.",
+    "AI assistance/prior exposure not explicitly recorded in these evidence fields; provenance remains unconfirmed.",
+    "Preferences do not establish executable correctness: all models previously scored 0/5 complete reference passes and 0/10 gated fault kills."
+  ]
+}

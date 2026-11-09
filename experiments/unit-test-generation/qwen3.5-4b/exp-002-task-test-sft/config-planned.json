@@ -124,6 +124,22 @@
   "demo_manual_smell_review": "waived by owner for demo; automatic unvalidated diagnostic only",
   "demo_blind_review_remaining_scope": "Supporting probes not included in primary review summary; primary 5/5 complete.",
   "next_pair_proposal": "NEXT-PAIR-PLAN.md",
-  "next_pair_status": "CPU semantic audit and contract freeze pending; Exp3/Exp4 not prepared or run",
-  "demo_review_provenance": "User clarified primary detailed descriptions are LLM evaluations; user-submitted LLM-assisted judgments, not independent human validation"
+  "next_pair_semantic_audit": "next-pair-diagnosis-v01/semantic-coverage-audit.json",
+  "next_pair_semantic_audit_verdict": "PASS 50/50: real-SUT imports, no SUT-shadowing stubs, reference+order positive controls pass, >=1 killed mutation each, 0 survived; no substantive data change required",
+  "next_pair_status": "Exp3/Exp4 thinking+answer LR pair complete; all four revised-development models0/5reference,0/10gated kills; backups verified, GPU safe to close; anonymous review pending",
+  "demo_review_provenance": "User clarified primary detailed descriptions are LLM evaluations; user-submitted LLM-assisted judgments, not independent human validation",
+  "next_pair_preflight": "lr-pair-preflight-v01",
+  "next_pair_loss_policy": "rationale-supervised",
+  "next_pair_run_notes": "GPU-LR-PAIR-20261107.md",
+  "next_pair_results": "gpu-lr-results-20261107/summary.json",
+  "next_pair_primary_review_complete": false,
+  "next_pair_argilla_dataset": "b58d58a3-c200-428a-a117-eb8f374f9910",
+  "next_pair_backup_verified": true,
+  "owner_pause_20261109": {
+    "status": "paused",
+    "reason": "Owner moving to other work after completed five-case review",
+    "resume_note": "PAUSED-20261109.md",
+    "review_summary": "gpu-lr-results-20261107/completed-review-20261109.json",
+    "no_new_runs_until_owner_resumes": true
+  }
 }

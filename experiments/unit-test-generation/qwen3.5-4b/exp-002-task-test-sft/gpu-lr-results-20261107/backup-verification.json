@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "archive_bytes": 590930622,
+  "archive_sha256": "766e382350cbe4ce135b1f88770fd490c09cf05bd45b410d880c5ba0bdfe9a75",
+  "verified_regular_files": 344,
+  "skipped_convenience_symlinks": [
+    "tdd-lr-pair-v01/Exp3-full/wandb/debug-internal.log",
+    "tdd-lr-pair-v01/Exp3-full/wandb/debug.log",
+    "tdd-lr-pair-v01/Exp3-full/wandb/latest-run",
+    "tdd-lr-pair-v01/Exp3-full/wandb/run-20261107_150312-gxpa379x/logs/debug-core.log",
+    "tdd-lr-pair-v01/Exp4-full/wandb/debug-internal.log",
+    "tdd-lr-pair-v01/Exp4-full/wandb/debug.log",
+    "tdd-lr-pair-v01/Exp4-full/wandb/latest-run",
+    "tdd-lr-pair-v01/Exp4-full/wandb/run-20261107_150620-2py34p5k/logs/debug-core.log",
+    "tdd-lr-pair-v01/setup/wandb/debug-internal.log",
+    "tdd-lr-pair-v01/setup/wandb/debug.log",
+    "tdd-lr-pair-v01/setup/wandb/latest-run",
+    "tdd-lr-pair-v01/setup/wandb/run-20261107_144051-tdd-20261107-original-a/logs/debug-core.log",
+    "tdd-lr-pair-v01/setup/wandb/run-20261107_144057-tdd-20261107-original-b/logs/debug-core.log",
+    "tdd-lr-pair-v01/setup/wandb/run-20261107_153016-tdd-20261107-lr-v01-base/logs/debug-core.log"
+  ],
+  "adapters": {
+    "Exp3": {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-lr-pair-20261107\\gpu-artifacts\\tdd-lr-pair-v01\\Exp3-full\\adapter\\adapter_model.safetensors",
+      "bytes": 84972248,
+      "sha256": "e5b3aa62cef0aba71306c9a44ac5c9bbddd7ae222dd06d3c7dd171540f5ac07a",
+      "learning_rate": 1e-05
+    },
+    "Exp4": {
+      "path": "C:\\Users\\barkin\\Documents\\llm-bender-artifacts\\tdd-lr-pair-20261107\\gpu-artifacts\\tdd-lr-pair-v01\\Exp4-full\\adapter\\adapter_model.safetensors",
+      "bytes": 84972248,
+      "sha256": "2d77356a22185c39bddb674d076d51e99544288ad38dbcede8139b7861807ef0",
+      "learning_rate": 3e-05
+    }
+  },
+  "training_exposure_verified": true,
+  "all_four_inference_sets_verified": true,
+  "credential_scan_passed": true,
+  "safe_to_close_gpu": true,
+  "auxiliary_wandb_log_files_verified": 11,
+  "auxiliary_archive_sha256": "3421846cb0b0bedbd334aee084e75c5ffe8a5d29f66b546832e255290b321f5b",
+  "unmaterialized_directory_symlinks": [
+    "tdd-lr-pair-v01/Exp3-full/wandb/latest-run",
+    "tdd-lr-pair-v01/Exp4-full/wandb/latest-run",
+    "tdd-lr-pair-v01/setup/wandb/latest-run"
+  ]
+}

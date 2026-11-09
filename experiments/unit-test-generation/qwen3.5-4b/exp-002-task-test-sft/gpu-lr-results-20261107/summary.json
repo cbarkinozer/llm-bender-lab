@@ -1,0 +1,596 @@
+{
+  "models": {
+    "base": {
+      "responses": 9,
+      "total_output_tokens": 43116,
+      "primary_output_tokens": 31333,
+      "primary_format_status": {
+        "invalid_file_format": 2,
+        "truncated": 1,
+        "complete_parseable": 2
+      },
+      "reference_passes": 0,
+      "useful_tasks": 0,
+      "kills": 0,
+      "faults": 10,
+      "termination": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 4942,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "finish_reason": "length",
+          "stop_reason": null,
+          "tokens": 8192,
+          "thinking_closed": true,
+          "native_stop_verified": false,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 7463,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 4744,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 5992,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-backend-plan-planning-v04",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 3802,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-latency-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 1885,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-order-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 3630,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "lint-not-acceptance-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 2466,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        }
+      ],
+      "partial_reference_diagnostics": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "not_executed": "invalid_file_format"
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "not_executed": "truncated"
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "collected": 14,
+          "call_passes": 13,
+          "call_failures": 1,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "collected": 14,
+          "call_passes": 13,
+          "call_failures": 1,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "not_executed": "invalid_file_format"
+        }
+      ],
+      "partial_diagnostic_caveat": "Exploratory only; partial passes do not rescue a failing suite or earn mutant credit."
+    },
+    "Exp3": {
+      "responses": 9,
+      "total_output_tokens": 44326,
+      "primary_output_tokens": 32559,
+      "primary_format_status": {
+        "complete_parseable": 3,
+        "truncated": 1,
+        "invalid_file_format": 1
+      },
+      "reference_passes": 0,
+      "useful_tasks": 0,
+      "kills": 0,
+      "faults": 10,
+      "termination": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 3696,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "finish_reason": "length",
+          "stop_reason": null,
+          "tokens": 8192,
+          "thinking_closed": true,
+          "native_stop_verified": false,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 6260,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 6902,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 7509,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-backend-plan-planning-v04",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 3161,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-latency-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 2054,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-order-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 4099,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "lint-not-acceptance-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 2453,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        }
+      ],
+      "partial_reference_diagnostics": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "collected": 22,
+          "call_passes": 7,
+          "call_failures": 15,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "not_executed": "truncated"
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "collected": 20,
+          "call_passes": 0,
+          "call_failures": 19,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "collected": 8,
+          "call_passes": 7,
+          "call_failures": 1,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "not_executed": "invalid_file_format"
+        }
+      ],
+      "partial_diagnostic_caveat": "Exploratory only; partial passes do not rescue a failing suite or earn mutant credit."
+    },
+    "Exp4": {
+      "responses": 9,
+      "total_output_tokens": 24934,
+      "primary_output_tokens": 16215,
+      "primary_format_status": {
+        "complete_parseable": 5
+      },
+      "reference_passes": 0,
+      "useful_tasks": 0,
+      "kills": 0,
+      "faults": 10,
+      "termination": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 2144,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 2256,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 1798,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 4087,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 5930,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-backend-plan-planning-v04",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 2568,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-latency-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 1559,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-order-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 3713,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "lint-not-acceptance-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 879,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        }
+      ],
+      "partial_reference_diagnostics": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "collected": 38,
+          "call_passes": 29,
+          "call_failures": 9,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "collected": 20,
+          "call_passes": 10,
+          "call_failures": 10,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "collected": 55,
+          "call_passes": 31,
+          "call_failures": 24,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "collected": 10,
+          "call_passes": 9,
+          "call_failures": 1,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "collected": 4,
+          "call_passes": 0,
+          "call_failures": 4,
+          "returncode": 1,
+          "suite_pass": false
+        }
+      ],
+      "partial_diagnostic_caveat": "Exploratory only; partial passes do not rescue a failing suite or earn mutant credit."
+    },
+    "historical_A": {
+      "responses": 9,
+      "total_output_tokens": 14569,
+      "primary_output_tokens": 9131,
+      "primary_format_status": {
+        "complete_parseable": 3,
+        "syntax_error": 1,
+        "truncated": 1
+      },
+      "reference_passes": 0,
+      "useful_tasks": 0,
+      "kills": 0,
+      "faults": 10,
+      "termination": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 348,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 136,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 288,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 167,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "finish_reason": "length",
+          "stop_reason": null,
+          "tokens": 8192,
+          "thinking_closed": true,
+          "native_stop_verified": false,
+          "repeated_suffix_periods": [
+            8,
+            16,
+            24,
+            32,
+            40,
+            48,
+            56,
+            64,
+            72,
+            80,
+            88,
+            96,
+            104,
+            112,
+            120,
+            128
+          ],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-backend-plan-planning-v04",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 1077,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-latency-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 725,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "posting-query-order-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 3074,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        },
+        {
+          "record_id": "lint-not-acceptance-reliability-v03",
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "tokens": 562,
+          "thinking_closed": true,
+          "native_stop_verified": true,
+          "repeated_suffix_periods": [],
+          "heuristic_only": true
+        }
+      ],
+      "partial_reference_diagnostics": [
+        {
+          "record_id": "posting-path-parameters-external-v02",
+          "collected": 6,
+          "call_passes": 3,
+          "call_failures": 3,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-query-pair-merge-external-v02",
+          "not_executed": "syntax_error"
+        },
+        {
+          "record_id": "posting-request-filenames-external-v02",
+          "collected": 3,
+          "call_passes": 1,
+          "call_failures": 2,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-undo-redo-external-v02",
+          "collected": 1,
+          "call_passes": 0,
+          "call_failures": 1,
+          "returncode": 1,
+          "suite_pass": false
+        },
+        {
+          "record_id": "posting-session-history-limit-external-v02",
+          "not_executed": "truncated"
+        }
+      ],
+      "partial_diagnostic_caveat": "Exploratory only; partial passes do not rescue a failing suite or earn mutant credit."
+    }
+  },
+  "requests_sha256": "9ada21f628fcbb6d97dc61f573fdd0ffaf009cf5972f6a891a82199e93c46209",
+  "output_hashes": {
+    "base": "fb32642cf6fdf5948e8f64e126319ddaf012ed59f073d36bcf9f34cd54dd8c80",
+    "Exp3": "ae34201b9e795c51733e3c58ad6915d32bbff276c4334f6d05181a55e597196c",
+    "Exp4": "788a18c2f32e77d07f1a5e533400436468158211082394c033edecb34074971b",
+    "historical_A": "c56bff5631eee1680a086a6a09e09d06a0dddd82bde4e9366765f29fc79b12cb"
+  },
+  "review_submitted": false,
+  "scope": "Five adaptively clarified development tasks from one family; one seed. Counts descriptive, not population estimates. No holdout inference."
+}

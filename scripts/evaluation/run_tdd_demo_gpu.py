@@ -199,13 +199,22 @@ def train(args, config):
                 stream.write(json.dumps(dict(step=self.state.global_step,input_tokens=int(inputs['attention_mask'].sum()),
                                              supervised_tokens=int((inputs['labels']!=-100).sum())))+'\n')
             return loss/trainer_backward_scale(self)
+    tracking=None
+    if args.wandb_project and args.mode=='full':
+        import wandb
+        tracking=wandb.init(project=args.wandb_project,entity=args.wandb_entity,
+            name=config.get('experiment_id',config.get('arm','A'))+'-thinking-sft-lr-'+str(t['learning_rate']),
+            config=dict(recipe=config,recipe_sha256=digest(args.preflight/'recipe.json'),
+                        source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()),
+            dir=str(args.output),job_type='sft')
+        save(args.output/'wandb-run.json',dict(id=tracking.id,url=tracking.url,project=tracking.project,entity=tracking.entity))
     ta=TrainingArguments(output_dir=str(args.output/'checkpoints'),per_device_train_batch_size=1,per_device_eval_batch_size=1,
         gradient_accumulation_steps=1 if args.mode=='tiny' else t['gradient_accumulation_steps'],
         num_train_epochs=t['epochs'],max_steps=3 if args.mode=='smoke' else 20 if args.mode=='tiny' else -1,
         learning_rate=2e-4 if args.mode=='tiny' else t['learning_rate'],optim=t['optimizer'],
         lr_scheduler_type=t['scheduler'],warmup_steps=t['warmup_steps'],weight_decay=t['weight_decay'],max_grad_norm=t['max_grad_norm'],
         bf16=True,fp16=False,seed=t['seed'],data_seed=t['seed'],logging_steps=1,save_strategy='no',
-        report_to=[],remove_unused_columns=False,prediction_loss_only=True)
+        report_to=['wandb'] if tracking else [],remove_unused_columns=False,prediction_loss_only=True)
     def checked_loss(outputs,labels,num_items_in_batch=None):
         if model.training and num_items_in_batch is None:raise ValueError('Trainer omitted accumulation-group token count')
         if model.training:
@@ -230,12 +239,17 @@ def train(args, config):
         metrics=result.metrics,before=before,after=after,loss_decreased=after<before if before is not None else None,
         gpu_peak_allocated_bytes=torch.cuda.max_memory_allocated(),gpu_peak_reserved_bytes=torch.cuda.max_memory_reserved(),
         actual_batch_labels_verified=True,adapter_reload_verified=False))
+    if tracking:
+        tracking.summary.update(dict(completed=True,supervised_tokens_per_epoch=config['supervised_tokens_per_epoch'],
+                                     gpu_peak_allocated_bytes=torch.cuda.max_memory_allocated()))
+        tracking.finish()
 
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--mode',choices=['baseline','candidate','reload','smoke','tiny','full'],required=True)
     p.add_argument('--preflight',type=Path,default=EXP/'paired-preflight-v02/A');p.add_argument('--output',type=Path,required=True)
     for key in ('adapter','baseline','smoke','tiny','reload','runtime-lock','baseline-review','execution-preflight'):p.add_argument('--'+key,type=Path)
+    p.add_argument('--wandb-project');p.add_argument('--wandb-entity')
     args=p.parse_args();config=verify_preflight(args.preflight)
     if args.mode in ('candidate','reload') and args.adapter is None:raise ValueError('Candidate/reload requires adapter')
     if args.mode=='baseline' and args.adapter:raise ValueError('Baseline must be untouched base')
