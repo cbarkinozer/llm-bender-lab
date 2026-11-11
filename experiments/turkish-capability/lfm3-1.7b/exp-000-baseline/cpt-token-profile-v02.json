@@ -1,0 +1,39 @@
+{
+  "status": "active_hashes_ids_exact_document_and_long_paragraph_checks_passed",
+  "model_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "raw_tokens_no_eos": {
+    "wiki_eval": {
+      "count": 100,
+      "tokens": 59917,
+      "mean": 599.17,
+      "population_std": 448.87878218957957,
+      "min": 175,
+      "max": 2905
+    },
+    "wiki_dev": {
+      "count": 100,
+      "tokens": 65725,
+      "mean": 657.25,
+      "population_std": 694.0807211700956,
+      "min": 176,
+      "max": 4617
+    },
+    "wiki_train": {
+      "count": 3000,
+      "tokens": 2201862,
+      "mean": 733.954,
+      "population_std": 846.8979953634715,
+      "min": 135,
+      "max": 8661
+    },
+    "web_eval": {
+      "count": 100,
+      "tokens": 74018,
+      "mean": 740.18,
+      "population_std": 720.0862778861989,
+      "min": 139,
+      "max": 3602
+    }
+  },
+  "note": "Packed training adds document EOS; actual supervised tokens are measured by trainer, not inferred from row count"
+}

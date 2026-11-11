@@ -1,0 +1,57 @@
+{
+  "status": "cpu_checks_passed_not_gpu_validated",
+  "model_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "packages": {
+    "torch": "2.13.0+cpu",
+    "transformers": "5.20.2",
+    "tokenizers": "0.23.3",
+    "huggingface-hub": "2.4.0",
+    "sacrebleu": "2.5.1",
+    "rouge-score": "0.1.2"
+  },
+  "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+  "count": 500,
+  "max_input_tokens": 3490,
+  "mean_input_tokens": 250.084,
+  "population_std_input_tokens": 330.15279635950384,
+  "context_overflows": 0,
+  "tiny_random_model_forward_and_generation": true,
+  "scorer_controls": {
+    "gecturk": {
+      "metric": "exact_match_rate",
+      "correct_reference": 1.0,
+      "invalid_output": 0.0,
+      "count": 100
+    },
+    "tquad": {
+      "metric": "exact_match",
+      "correct_reference": 1.0,
+      "invalid_output": 0.0,
+      "count": 100
+    },
+    "xquad_tr": {
+      "metric": "exact_match",
+      "correct_reference": 1.0,
+      "invalid_output": 0.0,
+      "count": 100
+    },
+    "wmt_en_tr": {
+      "metric": "corpus_chrf",
+      "correct_reference": 100.0,
+      "invalid_output": 2.8774143755515835,
+      "count": 100
+    },
+    "mlsum_tr": {
+      "metric": "mean_rougeL",
+      "correct_reference": 1.0,
+      "invalid_output": 0.0,
+      "count": 100
+    }
+  },
+  "caveats": [
+    "Controls are not generated model results",
+    "Reference overlap is not semantic quality",
+    "Legacy SQuAD/ROUGE normalization retained for historical parity; not Turkish linguistic normalization",
+    "GPU BF16, cache, memory and throughput still require smoke validation"
+  ]
+}

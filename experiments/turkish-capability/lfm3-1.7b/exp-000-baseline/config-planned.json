@@ -1,0 +1,77 @@
+{
+  "status": "BASELINE_COMPLETE_LOCAL_BACKUP_VERIFIED_CPT_DEFERRED",
+  "model": {
+    "repo": "LiquidAI/LFM3-1.7B",
+    "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "quantization": null,
+    "precision_proposed": "bfloat16",
+    "thinking_proposed": false
+  },
+  "inspection_sources": [
+    {
+      "repo": "LiquidAI/structured-extraction",
+      "revision": "58f0d07d46cd58fcfedc836c0011653872eb10a9"
+    },
+    {
+      "repo": "LiquidAI/grounded-qa",
+      "revision": "0bc9291ce05399085ab4a3e20a9d3336f968dd1d"
+    },
+    {
+      "repo": "LiquidAI/phone-assistant-tools",
+      "revision": "5bf171ee0be2227fd1ddf3cfd3c33860b083c8ab"
+    },
+    {
+      "repo": "juletxara/turblimp",
+      "revision": "cce94ca73ac04a0fabd9fbd7a56068261e6348ad"
+    }
+  ],
+  "training_order": [
+    "cpt",
+    "sft",
+    "dpo",
+    "grpo"
+  ],
+  "independent_parent_for_each_arm": "original pinned post-trained checkpoint",
+  "benchmark_frozen": true,
+  "gpu_ready": true,
+  "pending": [
+    "future actual-model training smoke, labels and tiny-overfit",
+    "future original2.2M Wikipedia CPT and matched evaluation"
+  ],
+  "historical_comparison": {
+    "experiment": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500",
+    "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+    "count": 500,
+    "role": "previously inspected comparison cohort; not pristine final test",
+    "qwen_repo": "unsloth/Qwen3.5-4B",
+    "qwen_revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "restoration_verified": true
+  },
+  "active_cpt_manifest": "cpt-data-manifest-v02.json",
+  "active_cpt_data": "data-local/cpt-v02",
+  "turblimp_manifest": "turblimp-manifest-v01.json",
+  "runtime_requirements": "requirements-gpu.txt",
+  "gpu_ready_scope": "Ready to start setup/smoke; not cleared for full training",
+  "benchmark_frozen_scope": "CETVEL500, cleaned TurBLiMP1600, Wikipedia100 and FineWeb100 selected without new model scores; historical cohort is development/comparison evidence",
+  "tracking": {
+    "project": "lfm3-turkish-post-training",
+    "group": "lfm3-1.7b-turkish-wikipedia-cpt-v01",
+    "mode": "online",
+    "credential_source": "local .env; remote private file outside artifacts",
+    "evaluation_enabled": false,
+    "training_enabled": true
+  },
+  "inference_backend_candidate": {
+    "engine": "vllm",
+    "version": "0.34.0rc1.dev251+g7cc0a8a2b",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "max_num_seqs": 1,
+    "prefix_caching": false,
+    "gpu_memory_utilization": 0.75,
+    "context": 8192,
+    "comparison": "same engine/settings before and after; merged CPT adapter for vLLM",
+    "source_commit": "7cc0a8a2b1ef6888b44973933c8a208e91122229",
+    "wheel": "https://wheels.vllm.ai/7cc0a8a2b1ef6888b44973933c8a208e91122229/vllm-0.34.0rc1.dev251%2Bg7cc0a8a2b-cp38-abi3-manylinux_2_28_x86_64.whl"
+  }
+}

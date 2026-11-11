@@ -1,0 +1,361 @@
+{
+  "status": "BASELINE_COMPLETED_RECOVERED_NO_CPT",
+  "model": {
+    "repo": "LiquidAI/LFM3-1.7B",
+    "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "quantization": null,
+    "precision_proposed": "bfloat16",
+    "thinking_proposed": false
+  },
+  "cetvel": {
+    "status": "scored",
+    "diagnostic": false,
+    "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+    "results": {
+      "gecturk": {
+        "n_items": 100,
+        "exact_match_rate": 0.0,
+        "unchanged_from_source_rate": 0.0,
+        "empty_output_rate": 0.0,
+        "verbose_output_rate": 0.99,
+        "format_failure_candidate_rate": 0.99,
+        "truncation_rate": 0.02,
+        "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+        "manual_review_needed_indices": [
+          7239
+        ],
+        "stratified_sample": {
+          "lowest_score": [
+            229,
+            305,
+            400,
+            784,
+            981
+          ],
+          "highest_score": [
+            20455,
+            20494,
+            20538,
+            20699,
+            20740
+          ],
+          "truncated": [
+            2580,
+            7631
+          ],
+          "shortest_source": [
+            1720,
+            11783,
+            305,
+            15444,
+            6434
+          ],
+          "longest_source": [
+            19307,
+            3959,
+            11326,
+            3886,
+            14347
+          ]
+        }
+      },
+      "tquad": {
+        "n_items": 100,
+        "n_answerable": 100,
+        "n_unanswerable": 0,
+        "exact_match": 0.0,
+        "f1": 0.14155155217196944,
+        "answerability_accuracy": 1.0,
+        "exact_match_on_answerable": 0.0,
+        "f1_on_answerable": 0.14155155217196944,
+        "exact_match_on_unanswerable": null,
+        "truncation_rate": 0.0,
+        "low_em_high_f1_rate": 0.01,
+        "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+        "low_em_high_f1_indices": [
+          410
+        ],
+        "stratified_sample": {
+          "lowest_score": [
+            188,
+            300,
+            369,
+            590,
+            709
+          ],
+          "highest_score": [
+            766,
+            232,
+            520,
+            550,
+            410
+          ],
+          "truncated": [],
+          "shortest_source": [
+            325,
+            747,
+            460,
+            469,
+            484
+          ],
+          "longest_source": [
+            751,
+            439,
+            883,
+            212,
+            785
+          ]
+        }
+      },
+      "xquad_tr": {
+        "n_items": 100,
+        "n_answerable": 100,
+        "n_unanswerable": 0,
+        "exact_match": 0.0,
+        "f1": 0.0734174361419316,
+        "answerability_accuracy": 1.0,
+        "exact_match_on_answerable": 0.0,
+        "f1_on_answerable": 0.0734174361419316,
+        "exact_match_on_unanswerable": null,
+        "truncation_rate": 0.02,
+        "low_em_high_f1_rate": 0.02,
+        "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+        "low_em_high_f1_indices": [
+          499,
+          987
+        ],
+        "stratified_sample": {
+          "lowest_score": [
+            172,
+            187,
+            347,
+            503,
+            724
+          ],
+          "highest_score": [
+            1150,
+            1046,
+            266,
+            987,
+            499
+          ],
+          "truncated": [
+            523,
+            594
+          ],
+          "shortest_source": [
+            168,
+            172,
+            1000,
+            1188,
+            788
+          ],
+          "longest_source": [
+            987,
+            528,
+            1174,
+            849,
+            403
+          ]
+        }
+      },
+      "wmt_en_tr": {
+        "n_items": 100,
+        "corpus_bleu": 1.0480794230239756,
+        "corpus_chrf": 25.45859704820204,
+        "mean_sentence_bleu": 3.1053639108840354,
+        "mean_sentence_chrf": 31.694480010008657,
+        "truncation_rate": 0.0,
+        "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+        "stratified_sample": {
+          "lowest_score": [
+            814,
+            967,
+            615,
+            933,
+            786
+          ],
+          "highest_score": [
+            754,
+            802,
+            716,
+            427,
+            970
+          ],
+          "truncated": [],
+          "shortest_source": [
+            496,
+            617,
+            177,
+            555,
+            571
+          ],
+          "longest_source": [
+            813,
+            754,
+            397,
+            266,
+            834
+          ]
+        }
+      },
+      "mlsum_tr": {
+        "n_items": 100,
+        "mean_rouge1": 0.18915897746987517,
+        "mean_rouge2": 0.09423871103372372,
+        "mean_rougeL": 0.13660459385943724,
+        "mean_rougeLsum": 0.15029203451848847,
+        "truncation_rate": 0.0,
+        "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+        "stratified_sample": {
+          "lowest_score": [
+            8595,
+            6297,
+            9371,
+            11766,
+            9187
+          ],
+          "highest_score": [
+            4583,
+            8327,
+            7074,
+            5243,
+            10724
+          ],
+          "truncated": [],
+          "shortest_source": [
+            5062,
+            2420,
+            11766,
+            1623,
+            2314
+          ],
+          "longest_source": [
+            12733,
+            11674,
+            8238,
+            4583,
+            12163
+          ]
+        }
+      }
+    },
+    "termination": {
+      "eos": 496,
+      "length": 4
+    },
+    "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+  },
+  "turblimp": {
+    "model": {
+      "repo": "LiquidAI/LFM3-1.7B",
+      "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+      "quantization": null,
+      "precision_proposed": "bfloat16",
+      "thinking_proposed": false
+    },
+    "adapter": null,
+    "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+    "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+    "per_phenomenon": {
+      "anaphor_agreement": {
+        "count": 100,
+        "accuracy": 0.61,
+        "ties": 0
+      },
+      "argument_structure_ditransitive": {
+        "count": 100,
+        "accuracy": 0.61,
+        "ties": 0
+      },
+      "argument_structure_transitive": {
+        "count": 100,
+        "accuracy": 0.6,
+        "ties": 0
+      },
+      "binding": {
+        "count": 100,
+        "accuracy": 0.61,
+        "ties": 0
+      },
+      "determiners": {
+        "count": 100,
+        "accuracy": 0.6,
+        "ties": 0
+      },
+      "ellipsis": {
+        "count": 100,
+        "accuracy": 0.18,
+        "ties": 0
+      },
+      "irregular_forms": {
+        "count": 100,
+        "accuracy": 0.99,
+        "ties": 0
+      },
+      "island_effects": {
+        "count": 100,
+        "accuracy": 0.74,
+        "ties": 0
+      },
+      "nominalization": {
+        "count": 100,
+        "accuracy": 0.77,
+        "ties": 0
+      },
+      "npi_licensing": {
+        "count": 100,
+        "accuracy": 0.99,
+        "ties": 0
+      },
+      "passives": {
+        "count": 100,
+        "accuracy": 1.0,
+        "ties": 0
+      },
+      "quantifiers": {
+        "count": 100,
+        "accuracy": 0.96,
+        "ties": 0
+      },
+      "relative_clauses": {
+        "count": 100,
+        "accuracy": 0.61,
+        "ties": 0
+      },
+      "scrambling": {
+        "count": 100,
+        "accuracy": 0.93,
+        "ties": 0
+      },
+      "subject_agreement": {
+        "count": 100,
+        "accuracy": 0.62,
+        "ties": 0
+      },
+      "suspended_affixation": {
+        "count": 100,
+        "accuracy": 0.66,
+        "ties": 0
+      }
+    },
+    "macro_accuracy": 0.7175,
+    "official_full_benchmark": false
+  },
+  "text": {
+    "wiki_eval": {
+      "nll": 3.2619493737977985,
+      "perplexity": 26.10036695472442,
+      "scored_tokens": 59817,
+      "source_sha256": "81eec96c9e25ebfd0d8209c4ca8d67a62311e0368ceb34d5393b73052339b0ce"
+    },
+    "web_eval": {
+      "nll": 3.8894260118410133,
+      "perplexity": 48.882820309629565,
+      "scored_tokens": 73918,
+      "source_sha256": "3be2c2a9a8f7ae6295f15b41a5e2068f281ec4f252eab844ee6ac0be1ba97624"
+    }
+  },
+  "recovery": "baseline-local-recovery-v01.json",
+  "note": "Public comparison cohort; metrics are not pooled. Qwen raw outputs absent locally. W&B future inference disabled."
+}

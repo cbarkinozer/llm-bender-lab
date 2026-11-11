@@ -1,0 +1,30 @@
+{
+  "model_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "files": {
+    "chat_template.jinja": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+    "config.json": "8c6ae8b8f6d88c87cfb98cf4b5e34e943d0ee07e24215c4121b3159a46e1399d",
+    "configuration_lfm3.py": "176cced35657aedfea7d7002221360582d1c05fcaca882c21508bc3a73b282e5",
+    "generation_config.json": "0095ba7158e938b1e2d3082d412f00d8be85e42cbbd7608b63866f7a081cf270",
+    "lfm3_conv.py": "80d4a985382a22774212759248a6b4c737bfbf9c2a47b3dd7f797dda748e4bb4",
+    "modeling_lfm3.py": "e8cd5254ea99ce6bd731b57b10908c2e8b5010ce8315341f895a38484885eeab",
+    "README.md": "5a51f6967177a403e93aa606eeff6f34b64c0629f62aef0e2790803a1975e9a7",
+    "tokenizer_config.json": "bf028f813efc6137bc07ed045cafe71820df9a5e26a38e39954706ed1e30a457"
+  },
+  "scope": "Static dependency/sensitive-call inspection, native-template inspection, pinned CPU tiny-model forward/generation and TRL backward check; not a formal security or numerical correctness audit",
+  "findings": [
+    "Three model Python files use Torch/Transformers and optional Triton; no direct subprocess, OS command, filesystem read/write, exec/eval or network calls found by AST call inspection",
+    "Transformers kernel-hub decorators are present; optional dependency and GPU paths remain subject to Linux smoke validation",
+    "Transformers5.13.1 failed on missing use_kernel_func_from_hub_with_fallback;5.20.2 passed pinned CPU tiny-model forward/generation",
+    "Always pass revision and code_revision when loading custom models; a preliminary from_config call without code_revision fetched current model code and failed import. Successful checks explicitly pin code_revision",
+    "Model native EOS124900; native thinking-off prompt ends with <think></think>; card warns this mode may still emit reasoning"
+  ],
+  "source_licenses": {
+    "wikimedia/wikipedia": [
+      "cc-by-sa-3.0",
+      "gfdl"
+    ],
+    "HuggingFaceFW/fineweb-2": "odc-by",
+    "juletxara/turblimp": "cc-by-4.0"
+  },
+  "redistribution": "Source-bearing datasets stay Git-ignored; private transfer only. Preserve URLs, IDs and source revisions. No blanket public-redistribution clearance claimed."
+}

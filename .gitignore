@@ -264,6 +264,9 @@ datasets/adyghe/adiga-ai-ady-ru-en-v0.1/
 experiments/response-style-control/qwen3.5-4b/exp-009-minimal-edit/results/
 
 # External CETVEL source text and source-bearing generations stay in verified
+# LFM3 reuses the evaluation-only cohort locally; no third-party text in Git.
+experiments/turkish-capability/lfm3-1.7b/exp-000-baseline/data-local/
+experiments/turkish-capability/lfm3-1.7b/exp-000-baseline/results-local/
 # local recovery; source-specific redistribution rights were not cleared.
 # Builders, pins, metrics, hashes and human grade summaries remain versioned.
 experiments/turkish-capability/qwen3.5-4b/exp-00[23]-cetvel-*/data-v1/questions-*.jsonl

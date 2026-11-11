@@ -1,0 +1,58 @@
+{
+  "status": "aggregate_comparison_complete_paired_raw_qwen_unavailable",
+  "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+  "metrics": [
+    {
+      "metric": "GECTurk exact correction",
+      "qwen": 0.0,
+      "lfm": 0.0
+    },
+    {
+      "metric": "TQUAD F1",
+      "qwen": 20.064267824340575,
+      "lfm": 14.155155217196944
+    },
+    {
+      "metric": "XQuAD-TR F1",
+      "qwen": 13.679092933180371,
+      "lfm": 7.34174361419316
+    },
+    {
+      "metric": "EN→TR BLEU",
+      "qwen": 16.83791250095403,
+      "lfm": 1.0480794230239756
+    },
+    {
+      "metric": "EN→TR chrF",
+      "qwen": 52.16118760317086,
+      "lfm": 25.45859704820204
+    },
+    {
+      "metric": "MLSum ROUGE-L",
+      "qwen": 18.44654717484726,
+      "lfm": 13.660459385943724
+    }
+  ],
+  "seed": 3407,
+  "selected_ids": [
+    "gecturk-01174",
+    "tquad-00524",
+    "xquad_tr-00328",
+    "wmt_en_tr-00555",
+    "mlsum_tr-02793"
+  ],
+  "qwen_raw_available": false,
+  "caveats": [
+    "Aynı sabit500 soru; görev başına100. Qwen base, SFT/Occam/F adaptörü değil.",
+    "İki model de BF16, thinking kapalı, greedy, repetition penalty1.05,4096 çıktı/8192 bağlam.",
+    "Qwen4B, LFM1.7B; vLLM sürümleri, tokenizer/chat şablonları farklı. Qwen batch8, LFM sequential1; süreleri hız yarışı olarak yorumlamayın.",
+    "QA F1/ROUGE/GEC tam eşleşme, gereksiz açıklamalardan etkilenir; insan doğruluğu ile aynı şey değildir.",
+    "Qwen ham yanıtları bu makinede bulunamadı. Skor karşılaştırması geçerli; birebir yanıt karşılaştırması için eski yedek gerekir.",
+    "Rastgele seçim: Python Random(3407), görev başına1; sonuç kalitesine göre örnek seçilmedi. Tüm prompt ve yanıtlar kısaltılmadan verilmiştir."
+  ],
+  "lfm_turblimp": 71.75,
+  "source_sha256": {
+    "experiments\\turkish-capability\\lfm3-1.7b\\exp-000-baseline\\results-local\\base-v01\\cetvel\\scores.json": "b5fcf2a907ba9ad080c8ef744dbf8a0aa297b5459cdf269bfeda6d4573886acb",
+    "experiments\\turkish-capability\\qwen3.5-4b\\exp-003-cetvel-500\\results-v1\\comparison.json": "a677cecaa41d6eb4fdf212cee98d6318350a7339c842b2f1dcefb706bd1f8cdf"
+  }
+}
