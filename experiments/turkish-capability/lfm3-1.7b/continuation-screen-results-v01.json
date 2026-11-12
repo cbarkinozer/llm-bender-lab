@@ -1,0 +1,6271 @@
+{
+  "protocol": {
+    "name": "continuation-screen-official-general-v01",
+    "models": [
+      "exp-000-baseline",
+      "exp-002-mixed-cpt",
+      "exp-003-cpt-cont-50m",
+      "exp-004-cpt-cont-100m"
+    ],
+    "temperature": 0.1,
+    "top_k": 50,
+    "top_p": 1.0,
+    "repetition_penalty": 1.1,
+    "max_new_tokens": 4096,
+    "context": 8192,
+    "batch_size": 4,
+    "seed": 3407,
+    "selected_ids": [
+      "gecturk-01174",
+      "tquad-00468",
+      "xquad_tr-01000",
+      "wmt_en_tr-00496",
+      "mlsum_tr-06904",
+      "gecturk-10521",
+      "tquad-00321",
+      "xquad_tr-00528",
+      "wmt_en_tr-00632",
+      "mlsum_tr-01909",
+      "gecturk-02629",
+      "tquad-00474",
+      "xquad_tr-00987",
+      "wmt_en_tr-00264",
+      "mlsum_tr-02420",
+      "gecturk-07729",
+      "tquad-00618",
+      "xquad_tr-00333",
+      "wmt_en_tr-00111",
+      "mlsum_tr-04583",
+      "gecturk-05401",
+      "tquad-00843",
+      "xquad_tr-00449",
+      "wmt_en_tr-00216",
+      "mlsum_tr-05675",
+      "gecturk-09650",
+      "tquad-00236",
+      "xquad_tr-00874",
+      "wmt_en_tr-00879",
+      "mlsum_tr-01629",
+      "gecturk-07409",
+      "tquad-00239",
+      "xquad_tr-01018",
+      "wmt_en_tr-00172",
+      "mlsum_tr-09934",
+      "gecturk-15444",
+      "tquad-00708",
+      "xquad_tr-01154",
+      "wmt_en_tr-00541",
+      "mlsum_tr-09742",
+      "gecturk-08042",
+      "tquad-00742",
+      "xquad_tr-01017",
+      "wmt_en_tr-00335",
+      "mlsum_tr-02034",
+      "gecturk-06434",
+      "tquad-00352",
+      "xquad_tr-01008",
+      "wmt_en_tr-00348",
+      "mlsum_tr-12163",
+      "gecturk-20740",
+      "tquad-00479",
+      "xquad_tr-00841",
+      "wmt_en_tr-00825",
+      "mlsum_tr-04626",
+      "gecturk-12900",
+      "tquad-00167",
+      "xquad_tr-01101",
+      "wmt_en_tr-00476",
+      "mlsum_tr-01096",
+      "gecturk-19307",
+      "tquad-00451",
+      "xquad_tr-00168",
+      "wmt_en_tr-00999",
+      "mlsum_tr-11939",
+      "gecturk-13950",
+      "tquad-00604",
+      "xquad_tr-00718",
+      "wmt_en_tr-00502",
+      "mlsum_tr-01311",
+      "gecturk-10517",
+      "tquad-00179",
+      "xquad_tr-00849",
+      "wmt_en_tr-00716",
+      "mlsum_tr-01484",
+      "gecturk-18195",
+      "tquad-00826",
+      "xquad_tr-00499",
+      "wmt_en_tr-00167",
+      "mlsum_tr-05408",
+      "gecturk-06881",
+      "tquad-00292",
+      "xquad_tr-01094",
+      "wmt_en_tr-00220",
+      "mlsum_tr-07289",
+      "gecturk-07023",
+      "tquad-00610",
+      "xquad_tr-01161",
+      "wmt_en_tr-00774",
+      "mlsum_tr-01074",
+      "gecturk-05750",
+      "tquad-00384",
+      "xquad_tr-00621",
+      "wmt_en_tr-00994",
+      "mlsum_tr-00239",
+      "gecturk-02501",
+      "tquad-00553",
+      "xquad_tr-00260",
+      "wmt_en_tr-00212",
+      "mlsum_tr-01295"
+    ],
+    "scope": "Exploratory development screening; fixed seed does not guarantee bitwise reproducibility. Historical greedy outputs are not matched comparators."
+  },
+  "results": {
+    "exp-000-baseline": {
+      "scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 1.0,
+            "format_failure_candidate_rate": 1.0,
+            "truncation_rate": 0.0,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                10521,
+                1174,
+                7729,
+                5401,
+                2629
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                5750,
+                2501
+              ],
+              "truncated": [],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.1306355266577693,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.1306355266577693,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                843,
+                618,
+                451,
+                610,
+                321
+              ],
+              "highest_score": [
+                167,
+                384,
+                179,
+                468,
+                708
+              ],
+              "truncated": [],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.0890692766210429,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.0890692766210429,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1161,
+                260,
+                1017,
+                1101,
+                449
+              ],
+              "highest_score": [
+                874,
+                718,
+                499,
+                1000,
+                987
+              ],
+              "truncated": [],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 1.7295106895973886,
+            "corpus_chrf": 32.26539547894637,
+            "mean_sentence_bleu": 3.2320899404919645,
+            "mean_sentence_chrf": 33.66345667242568,
+            "truncation_rate": 0.0,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                825,
+                774,
+                994,
+                999,
+                348
+              ],
+              "highest_score": [
+                879,
+                220,
+                172,
+                167,
+                716
+              ],
+              "truncated": [],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.2060986110255037,
+            "mean_rouge2": 0.09682563557943566,
+            "mean_rougeL": 0.1431339539667768,
+            "mean_rougeLsum": 0.1572599412263806,
+            "truncation_rate": 0.0,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                12163,
+                1629,
+                5675,
+                1311,
+                2420
+              ],
+              "highest_score": [
+                1074,
+                1295,
+                5408,
+                7289,
+                4583
+              ],
+              "truncated": [],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "eos": 100
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "text": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": null,
+        "context": 2048,
+        "policy": "raw text; no BOS/EOS; first token/document not scored; 2047 new targets/window",
+        "results": {
+          "wiki_eval": {
+            "nll": 3.2619493737977985,
+            "perplexity": 26.10036695472442,
+            "scored_tokens": 59817,
+            "source_sha256": "81eec96c9e25ebfd0d8209c4ca8d67a62311e0368ceb34d5393b73052339b0ce",
+            "documents": [
+              {
+                "id": "wiki-519789",
+                "nll_sum": 994.6822507381439,
+                "scored_tokens": 327
+              },
+              {
+                "id": "wiki-2254891",
+                "nll_sum": 595.6794466972351,
+                "scored_tokens": 191
+              },
+              {
+                "id": "wiki-1767637",
+                "nll_sum": 1026.124855518341,
+                "scored_tokens": 458
+              },
+              {
+                "id": "wiki-358285",
+                "nll_sum": 2179.680908203125,
+                "scored_tokens": 576
+              },
+              {
+                "id": "wiki-3557761",
+                "nll_sum": 817.0456039905548,
+                "scored_tokens": 205
+              },
+              {
+                "id": "wiki-3299374",
+                "nll_sum": 1476.2400498390198,
+                "scored_tokens": 606
+              },
+              {
+                "id": "wiki-333826",
+                "nll_sum": 2907.835078239441,
+                "scored_tokens": 1050
+              },
+              {
+                "id": "wiki-2646668",
+                "nll_sum": 1094.3947677612305,
+                "scored_tokens": 252
+              },
+              {
+                "id": "wiki-1009774",
+                "nll_sum": 690.7982156276703,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2330643",
+                "nll_sum": 2580.140302658081,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-647879",
+                "nll_sum": 1157.5279512405396,
+                "scored_tokens": 333
+              },
+              {
+                "id": "wiki-1700580",
+                "nll_sum": 2240.660202026367,
+                "scored_tokens": 412
+              },
+              {
+                "id": "wiki-3593974",
+                "nll_sum": 631.5726280212402,
+                "scored_tokens": 200
+              },
+              {
+                "id": "wiki-2330096",
+                "nll_sum": 1129.0636894702911,
+                "scored_tokens": 347
+              },
+              {
+                "id": "wiki-1663044",
+                "nll_sum": 2322.990307331085,
+                "scored_tokens": 714
+              },
+              {
+                "id": "wiki-2320966",
+                "nll_sum": 674.3435275554657,
+                "scored_tokens": 215
+              },
+              {
+                "id": "wiki-2185944",
+                "nll_sum": 2644.036198616028,
+                "scored_tokens": 922
+              },
+              {
+                "id": "wiki-3502233",
+                "nll_sum": 1433.0044221878052,
+                "scored_tokens": 386
+              },
+              {
+                "id": "wiki-862342",
+                "nll_sum": 869.2156448364258,
+                "scored_tokens": 258
+              },
+              {
+                "id": "wiki-2105052",
+                "nll_sum": 5832.776291131973,
+                "scored_tokens": 1733
+              },
+              {
+                "id": "wiki-2224306",
+                "nll_sum": 1143.567885875702,
+                "scored_tokens": 427
+              },
+              {
+                "id": "wiki-3504810",
+                "nll_sum": 5070.420756340027,
+                "scored_tokens": 1610
+              },
+              {
+                "id": "wiki-2136219",
+                "nll_sum": 670.5220723152161,
+                "scored_tokens": 238
+              },
+              {
+                "id": "wiki-337838",
+                "nll_sum": 671.7037460803986,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-2200905",
+                "nll_sum": 1931.7737202644348,
+                "scored_tokens": 638
+              },
+              {
+                "id": "wiki-287184",
+                "nll_sum": 1071.4051494598389,
+                "scored_tokens": 357
+              },
+              {
+                "id": "wiki-3589916",
+                "nll_sum": 1301.6850395202637,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-190218",
+                "nll_sum": 1043.4967803955078,
+                "scored_tokens": 245
+              },
+              {
+                "id": "wiki-107666",
+                "nll_sum": 995.8756239414215,
+                "scored_tokens": 271
+              },
+              {
+                "id": "wiki-47734",
+                "nll_sum": 4492.020402669907,
+                "scored_tokens": 1433
+              },
+              {
+                "id": "wiki-2271395",
+                "nll_sum": 4414.9755210876465,
+                "scored_tokens": 1528
+              },
+              {
+                "id": "wiki-323257",
+                "nll_sum": 2882.138906478882,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-3084529",
+                "nll_sum": 834.2943170070648,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2955724",
+                "nll_sum": 11144.334617614746,
+                "scored_tokens": 2904
+              },
+              {
+                "id": "wiki-2888245",
+                "nll_sum": 1101.5263752937317,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-3557825",
+                "nll_sum": 2449.6758184432983,
+                "scored_tokens": 809
+              },
+              {
+                "id": "wiki-560409",
+                "nll_sum": 1929.775433063507,
+                "scored_tokens": 501
+              },
+              {
+                "id": "wiki-3584442",
+                "nll_sum": 3240.96418428421,
+                "scored_tokens": 1009
+              },
+              {
+                "id": "wiki-2011255",
+                "nll_sum": 886.3685150146484,
+                "scored_tokens": 446
+              },
+              {
+                "id": "wiki-477699",
+                "nll_sum": 2279.5316920280457,
+                "scored_tokens": 621
+              },
+              {
+                "id": "wiki-2085590",
+                "nll_sum": 1203.498267173767,
+                "scored_tokens": 346
+              },
+              {
+                "id": "wiki-1581745",
+                "nll_sum": 1503.860366821289,
+                "scored_tokens": 216
+              },
+              {
+                "id": "wiki-1702680",
+                "nll_sum": 3061.604766845703,
+                "scored_tokens": 920
+              },
+              {
+                "id": "wiki-144223",
+                "nll_sum": 3235.0333485603333,
+                "scored_tokens": 982
+              },
+              {
+                "id": "wiki-1889080",
+                "nll_sum": 1350.765408039093,
+                "scored_tokens": 558
+              },
+              {
+                "id": "wiki-153444",
+                "nll_sum": 1157.4167079925537,
+                "scored_tokens": 394
+              },
+              {
+                "id": "wiki-2192476",
+                "nll_sum": 1410.2182960510254,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-931978",
+                "nll_sum": 2219.174337863922,
+                "scored_tokens": 649
+              },
+              {
+                "id": "wiki-250541",
+                "nll_sum": 4362.170820236206,
+                "scored_tokens": 885
+              },
+              {
+                "id": "wiki-1923755",
+                "nll_sum": 2050.814959526062,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-2621592",
+                "nll_sum": 658.8347792625427,
+                "scored_tokens": 190
+              },
+              {
+                "id": "wiki-778851",
+                "nll_sum": 1123.0754010677338,
+                "scored_tokens": 373
+              },
+              {
+                "id": "wiki-892396",
+                "nll_sum": 667.3360824584961,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-567362",
+                "nll_sum": 1109.0344309806824,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-1958564",
+                "nll_sum": 2175.930262565613,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-907495",
+                "nll_sum": 1967.3424768447876,
+                "scored_tokens": 642
+              },
+              {
+                "id": "wiki-376391",
+                "nll_sum": 1489.4631271362305,
+                "scored_tokens": 296
+              },
+              {
+                "id": "wiki-227192",
+                "nll_sum": 628.4890830516815,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-1096418",
+                "nll_sum": 998.6791982650757,
+                "scored_tokens": 268
+              },
+              {
+                "id": "wiki-168385",
+                "nll_sum": 1613.878695487976,
+                "scored_tokens": 533
+              },
+              {
+                "id": "wiki-2360225",
+                "nll_sum": 2302.699380159378,
+                "scored_tokens": 827
+              },
+              {
+                "id": "wiki-3577898",
+                "nll_sum": 1660.4193658828735,
+                "scored_tokens": 242
+              },
+              {
+                "id": "wiki-235019",
+                "nll_sum": 2563.7453470230103,
+                "scored_tokens": 708
+              },
+              {
+                "id": "wiki-3468022",
+                "nll_sum": 1248.3924078941345,
+                "scored_tokens": 273
+              },
+              {
+                "id": "wiki-56723",
+                "nll_sum": 1049.2872171401978,
+                "scored_tokens": 284
+              },
+              {
+                "id": "wiki-1316627",
+                "nll_sum": 1299.2729516029358,
+                "scored_tokens": 442
+              },
+              {
+                "id": "wiki-916446",
+                "nll_sum": 3267.710494995117,
+                "scored_tokens": 1100
+              },
+              {
+                "id": "wiki-3056358",
+                "nll_sum": 1409.5424902439117,
+                "scored_tokens": 499
+              },
+              {
+                "id": "wiki-129251",
+                "nll_sum": 2304.6663150787354,
+                "scored_tokens": 1082
+              },
+              {
+                "id": "wiki-3371995",
+                "nll_sum": 4281.498595237732,
+                "scored_tokens": 1394
+              },
+              {
+                "id": "wiki-382888",
+                "nll_sum": 1254.1953382492065,
+                "scored_tokens": 214
+              },
+              {
+                "id": "wiki-2170807",
+                "nll_sum": 876.3427748680115,
+                "scored_tokens": 201
+              },
+              {
+                "id": "wiki-1196653",
+                "nll_sum": 4395.661940574646,
+                "scored_tokens": 1626
+              },
+              {
+                "id": "wiki-2042700",
+                "nll_sum": 1395.4144973754883,
+                "scored_tokens": 344
+              },
+              {
+                "id": "wiki-2841230",
+                "nll_sum": 2375.5009746551514,
+                "scored_tokens": 940
+              },
+              {
+                "id": "wiki-2095238",
+                "nll_sum": 608.6460466384888,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-3353479",
+                "nll_sum": 1263.6728515625,
+                "scored_tokens": 328
+              },
+              {
+                "id": "wiki-128155",
+                "nll_sum": 5563.928691148758,
+                "scored_tokens": 1619
+              },
+              {
+                "id": "wiki-2188565",
+                "nll_sum": 1152.3397550582886,
+                "scored_tokens": 354
+              },
+              {
+                "id": "wiki-2449887",
+                "nll_sum": 1283.5532054901123,
+                "scored_tokens": 363
+              },
+              {
+                "id": "wiki-677460",
+                "nll_sum": 856.8418130874634,
+                "scored_tokens": 311
+              },
+              {
+                "id": "wiki-287520",
+                "nll_sum": 712.5959520339966,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-2343281",
+                "nll_sum": 3695.881899833679,
+                "scored_tokens": 1316
+              },
+              {
+                "id": "wiki-2922843",
+                "nll_sum": 1980.9259033203125,
+                "scored_tokens": 664
+              },
+              {
+                "id": "wiki-1441370",
+                "nll_sum": 1365.9050340652466,
+                "scored_tokens": 518
+              },
+              {
+                "id": "wiki-2106478",
+                "nll_sum": 1365.942174911499,
+                "scored_tokens": 454
+              },
+              {
+                "id": "wiki-84841",
+                "nll_sum": 3264.06494140625,
+                "scored_tokens": 1024
+              },
+              {
+                "id": "wiki-2438451",
+                "nll_sum": 1888.9192035198212,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-3066329",
+                "nll_sum": 2800.1918063163757,
+                "scored_tokens": 858
+              },
+              {
+                "id": "wiki-1177870",
+                "nll_sum": 1393.5152220726013,
+                "scored_tokens": 470
+              },
+              {
+                "id": "wiki-1491075",
+                "nll_sum": 1190.4025468826294,
+                "scored_tokens": 174
+              },
+              {
+                "id": "wiki-2747210",
+                "nll_sum": 1663.601360321045,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-3325664",
+                "nll_sum": 1908.7987146377563,
+                "scored_tokens": 658
+              },
+              {
+                "id": "wiki-73455",
+                "nll_sum": 691.6813731193542,
+                "scored_tokens": 265
+              },
+              {
+                "id": "wiki-35924",
+                "nll_sum": 1451.4001188278198,
+                "scored_tokens": 547
+              },
+              {
+                "id": "wiki-2233462",
+                "nll_sum": 1295.5136346817017,
+                "scored_tokens": 330
+              },
+              {
+                "id": "wiki-1022598",
+                "nll_sum": 1744.4341297149658,
+                "scored_tokens": 418
+              },
+              {
+                "id": "wiki-2713139",
+                "nll_sum": 2736.788094997406,
+                "scored_tokens": 907
+              },
+              {
+                "id": "wiki-75272",
+                "nll_sum": 1442.3406267166138,
+                "scored_tokens": 314
+              },
+              {
+                "id": "wiki-3059110",
+                "nll_sum": 3273.3007860183716,
+                "scored_tokens": 1298
+              }
+            ]
+          },
+          "web_eval": {
+            "nll": 3.8894260118410133,
+            "perplexity": 48.882820309629565,
+            "scored_tokens": 73918,
+            "source_sha256": "3be2c2a9a8f7ae6295f15b41a5e2068f281ec4f252eab844ee6ac0be1ba97624",
+            "documents": [
+              {
+                "id": "fineweb-test-0",
+                "nll_sum": 1358.615023612976,
+                "scored_tokens": 372
+              },
+              {
+                "id": "fineweb-test-1",
+                "nll_sum": 1595.833414554596,
+                "scored_tokens": 313
+              },
+              {
+                "id": "fineweb-test-2",
+                "nll_sum": 805.3036098480225,
+                "scored_tokens": 268
+              },
+              {
+                "id": "fineweb-test-3",
+                "nll_sum": 1603.2840614318848,
+                "scored_tokens": 474
+              },
+              {
+                "id": "fineweb-test-4",
+                "nll_sum": 11489.714310884476,
+                "scored_tokens": 3197
+              },
+              {
+                "id": "fineweb-test-5",
+                "nll_sum": 832.234655380249,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-6",
+                "nll_sum": 742.4139785766602,
+                "scored_tokens": 176
+              },
+              {
+                "id": "fineweb-test-7",
+                "nll_sum": 957.5894737243652,
+                "scored_tokens": 210
+              },
+              {
+                "id": "fineweb-test-8",
+                "nll_sum": 1341.0041604042053,
+                "scored_tokens": 253
+              },
+              {
+                "id": "fineweb-test-9",
+                "nll_sum": 5238.186067581177,
+                "scored_tokens": 1576
+              },
+              {
+                "id": "fineweb-test-10",
+                "nll_sum": 4161.058588027954,
+                "scored_tokens": 1190
+              },
+              {
+                "id": "fineweb-test-11",
+                "nll_sum": 1438.8825917243958,
+                "scored_tokens": 383
+              },
+              {
+                "id": "fineweb-test-12",
+                "nll_sum": 3217.5569915771484,
+                "scored_tokens": 580
+              },
+              {
+                "id": "fineweb-test-13",
+                "nll_sum": 1268.87593460083,
+                "scored_tokens": 379
+              },
+              {
+                "id": "fineweb-test-14",
+                "nll_sum": 1761.481432914734,
+                "scored_tokens": 516
+              },
+              {
+                "id": "fineweb-test-15",
+                "nll_sum": 3676.5291833877563,
+                "scored_tokens": 1006
+              },
+              {
+                "id": "fineweb-test-16",
+                "nll_sum": 1409.2405180931091,
+                "scored_tokens": 446
+              },
+              {
+                "id": "fineweb-test-17",
+                "nll_sum": 1201.563949584961,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-18",
+                "nll_sum": 3483.998697280884,
+                "scored_tokens": 1154
+              },
+              {
+                "id": "fineweb-test-19",
+                "nll_sum": 1014.0370151996613,
+                "scored_tokens": 279
+              },
+              {
+                "id": "fineweb-test-20",
+                "nll_sum": 2172.0546169281006,
+                "scored_tokens": 606
+              },
+              {
+                "id": "fineweb-test-21",
+                "nll_sum": 1491.9943771362305,
+                "scored_tokens": 232
+              },
+              {
+                "id": "fineweb-test-24",
+                "nll_sum": 1116.7563037872314,
+                "scored_tokens": 226
+              },
+              {
+                "id": "fineweb-test-25",
+                "nll_sum": 3830.2644312381744,
+                "scored_tokens": 1025
+              },
+              {
+                "id": "fineweb-test-26",
+                "nll_sum": 775.2994618415833,
+                "scored_tokens": 206
+              },
+              {
+                "id": "fineweb-test-27",
+                "nll_sum": 4084.739577770233,
+                "scored_tokens": 795
+              },
+              {
+                "id": "fineweb-test-28",
+                "nll_sum": 5664.935517072678,
+                "scored_tokens": 1781
+              },
+              {
+                "id": "fineweb-test-29",
+                "nll_sum": 4412.579727172852,
+                "scored_tokens": 1200
+              },
+              {
+                "id": "fineweb-test-30",
+                "nll_sum": 2097.9130487442017,
+                "scored_tokens": 481
+              },
+              {
+                "id": "fineweb-test-31",
+                "nll_sum": 1665.1100158691406,
+                "scored_tokens": 400
+              },
+              {
+                "id": "fineweb-test-33",
+                "nll_sum": 2163.494565963745,
+                "scored_tokens": 724
+              },
+              {
+                "id": "fineweb-test-34",
+                "nll_sum": 1703.6271347999573,
+                "scored_tokens": 299
+              },
+              {
+                "id": "fineweb-test-35",
+                "nll_sum": 2311.4347813129425,
+                "scored_tokens": 643
+              },
+              {
+                "id": "fineweb-test-36",
+                "nll_sum": 4318.362732172012,
+                "scored_tokens": 1157
+              },
+              {
+                "id": "fineweb-test-37",
+                "nll_sum": 650.2901673316956,
+                "scored_tokens": 175
+              },
+              {
+                "id": "fineweb-test-38",
+                "nll_sum": 1685.3907465934753,
+                "scored_tokens": 510
+              },
+              {
+                "id": "fineweb-test-39",
+                "nll_sum": 671.2980308532715,
+                "scored_tokens": 167
+              },
+              {
+                "id": "fineweb-test-40",
+                "nll_sum": 13074.60795044899,
+                "scored_tokens": 3248
+              },
+              {
+                "id": "fineweb-test-41",
+                "nll_sum": 2568.315017223358,
+                "scored_tokens": 765
+              },
+              {
+                "id": "fineweb-test-42",
+                "nll_sum": 2673.8982610702515,
+                "scored_tokens": 827
+              },
+              {
+                "id": "fineweb-test-43",
+                "nll_sum": 838.9773588180542,
+                "scored_tokens": 162
+              },
+              {
+                "id": "fineweb-test-44",
+                "nll_sum": 1927.6564359664917,
+                "scored_tokens": 455
+              },
+              {
+                "id": "fineweb-test-45",
+                "nll_sum": 2017.8366708755493,
+                "scored_tokens": 442
+              },
+              {
+                "id": "fineweb-test-46",
+                "nll_sum": 1212.2892951965332,
+                "scored_tokens": 360
+              },
+              {
+                "id": "fineweb-test-47",
+                "nll_sum": 2992.35470867157,
+                "scored_tokens": 634
+              },
+              {
+                "id": "fineweb-test-48",
+                "nll_sum": 2534.131536960602,
+                "scored_tokens": 719
+              },
+              {
+                "id": "fineweb-test-50",
+                "nll_sum": 3865.994026184082,
+                "scored_tokens": 1004
+              },
+              {
+                "id": "fineweb-test-51",
+                "nll_sum": 2442.241424560547,
+                "scored_tokens": 861
+              },
+              {
+                "id": "fineweb-test-52",
+                "nll_sum": 1095.7788562774658,
+                "scored_tokens": 270
+              },
+              {
+                "id": "fineweb-test-53",
+                "nll_sum": 9192.778418540955,
+                "scored_tokens": 2196
+              },
+              {
+                "id": "fineweb-test-54",
+                "nll_sum": 3154.6796429157257,
+                "scored_tokens": 885
+              },
+              {
+                "id": "fineweb-test-55",
+                "nll_sum": 1038.0739884376526,
+                "scored_tokens": 257
+              },
+              {
+                "id": "fineweb-test-58",
+                "nll_sum": 1193.9626421928406,
+                "scored_tokens": 289
+              },
+              {
+                "id": "fineweb-test-59",
+                "nll_sum": 1275.6132788658142,
+                "scored_tokens": 366
+              },
+              {
+                "id": "fineweb-test-60",
+                "nll_sum": 709.0417177677155,
+                "scored_tokens": 267
+              },
+              {
+                "id": "fineweb-test-62",
+                "nll_sum": 4403.448390960693,
+                "scored_tokens": 1436
+              },
+              {
+                "id": "fineweb-test-63",
+                "nll_sum": 1236.2319548130035,
+                "scored_tokens": 353
+              },
+              {
+                "id": "fineweb-test-64",
+                "nll_sum": 862.37451171875,
+                "scored_tokens": 193
+              },
+              {
+                "id": "fineweb-test-65",
+                "nll_sum": 2076.769495010376,
+                "scored_tokens": 294
+              },
+              {
+                "id": "fineweb-test-66",
+                "nll_sum": 2200.7655692100525,
+                "scored_tokens": 415
+              },
+              {
+                "id": "fineweb-test-67",
+                "nll_sum": 546.2527527809143,
+                "scored_tokens": 138
+              },
+              {
+                "id": "fineweb-test-68",
+                "nll_sum": 3439.5003929138184,
+                "scored_tokens": 776
+              },
+              {
+                "id": "fineweb-test-69",
+                "nll_sum": 830.3539834022522,
+                "scored_tokens": 241
+              },
+              {
+                "id": "fineweb-test-70",
+                "nll_sum": 773.2233502864838,
+                "scored_tokens": 227
+              },
+              {
+                "id": "fineweb-test-71",
+                "nll_sum": 1159.603009223938,
+                "scored_tokens": 295
+              },
+              {
+                "id": "fineweb-test-73",
+                "nll_sum": 2131.1195340156555,
+                "scored_tokens": 483
+              },
+              {
+                "id": "fineweb-test-74",
+                "nll_sum": 2033.452709197998,
+                "scored_tokens": 469
+              },
+              {
+                "id": "fineweb-test-75",
+                "nll_sum": 1320.5654072761536,
+                "scored_tokens": 346
+              },
+              {
+                "id": "fineweb-test-76",
+                "nll_sum": 1502.3388442993164,
+                "scored_tokens": 212
+              },
+              {
+                "id": "fineweb-test-77",
+                "nll_sum": 1264.2758178710938,
+                "scored_tokens": 296
+              },
+              {
+                "id": "fineweb-test-78",
+                "nll_sum": 2056.4668428897858,
+                "scored_tokens": 669
+              },
+              {
+                "id": "fineweb-test-79",
+                "nll_sum": 6556.614771604538,
+                "scored_tokens": 2064
+              },
+              {
+                "id": "fineweb-test-80",
+                "nll_sum": 1264.1584167480469,
+                "scored_tokens": 352
+              },
+              {
+                "id": "fineweb-test-81",
+                "nll_sum": 1876.635039806366,
+                "scored_tokens": 493
+              },
+              {
+                "id": "fineweb-test-82",
+                "nll_sum": 1545.1017837524414,
+                "scored_tokens": 262
+              },
+              {
+                "id": "fineweb-test-83",
+                "nll_sum": 4400.022411346436,
+                "scored_tokens": 1160
+              },
+              {
+                "id": "fineweb-test-84",
+                "nll_sum": 8688.649734735489,
+                "scored_tokens": 2791
+              },
+              {
+                "id": "fineweb-test-85",
+                "nll_sum": 2278.2799446582794,
+                "scored_tokens": 755
+              },
+              {
+                "id": "fineweb-test-86",
+                "nll_sum": 2536.745349884033,
+                "scored_tokens": 784
+              },
+              {
+                "id": "fineweb-test-88",
+                "nll_sum": 1575.516513824463,
+                "scored_tokens": 449
+              },
+              {
+                "id": "fineweb-test-89",
+                "nll_sum": 7923.501377105713,
+                "scored_tokens": 1940
+              },
+              {
+                "id": "fineweb-test-90",
+                "nll_sum": 792.4290819168091,
+                "scored_tokens": 228
+              },
+              {
+                "id": "fineweb-test-91",
+                "nll_sum": 4068.9547605514526,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-92",
+                "nll_sum": 2612.3715448379517,
+                "scored_tokens": 390
+              },
+              {
+                "id": "fineweb-test-93",
+                "nll_sum": 18928.61127471924,
+                "scored_tokens": 3601
+              },
+              {
+                "id": "fineweb-test-94",
+                "nll_sum": 4932.428812980652,
+                "scored_tokens": 1155
+              },
+              {
+                "id": "fineweb-test-95",
+                "nll_sum": 4127.81443977356,
+                "scored_tokens": 1049
+              },
+              {
+                "id": "fineweb-test-96",
+                "nll_sum": 9466.770127773285,
+                "scored_tokens": 2354
+              },
+              {
+                "id": "fineweb-test-97",
+                "nll_sum": 4521.354332447052,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-98",
+                "nll_sum": 2157.3477127552032,
+                "scored_tokens": 551
+              },
+              {
+                "id": "fineweb-test-99",
+                "nll_sum": 821.8107147216797,
+                "scored_tokens": 173
+              },
+              {
+                "id": "fineweb-test-100",
+                "nll_sum": 10705.994055986404,
+                "scored_tokens": 2831
+              },
+              {
+                "id": "fineweb-test-101",
+                "nll_sum": 2329.3734526634216,
+                "scored_tokens": 722
+              },
+              {
+                "id": "fineweb-test-102",
+                "nll_sum": 2029.873616695404,
+                "scored_tokens": 361
+              },
+              {
+                "id": "fineweb-test-103",
+                "nll_sum": 2599.21683883667,
+                "scored_tokens": 688
+              },
+              {
+                "id": "fineweb-test-104",
+                "nll_sum": 2641.977519750595,
+                "scored_tokens": 723
+              },
+              {
+                "id": "fineweb-test-105",
+                "nll_sum": 1641.9165573120117,
+                "scored_tokens": 492
+              },
+              {
+                "id": "fineweb-test-106",
+                "nll_sum": 1832.4891300201416,
+                "scored_tokens": 538
+              },
+              {
+                "id": "fineweb-test-107",
+                "nll_sum": 1004.5289649963379,
+                "scored_tokens": 233
+              },
+              {
+                "id": "fineweb-test-108",
+                "nll_sum": 580.1809692382812,
+                "scored_tokens": 160
+              }
+            ]
+          }
+        }
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": null,
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.6,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.6,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.18,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.74,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.77,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 0.96,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 0.93,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.62,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.66,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.7175,
+        "official_full_benchmark": false
+      },
+      "manifest": {
+        "status": "completed",
+        "diagnostic": true,
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "protocol": "continuation-screen-official-general-v01",
+        "selected_ids": [
+          "gecturk-01174",
+          "tquad-00468",
+          "xquad_tr-01000",
+          "wmt_en_tr-00496",
+          "mlsum_tr-06904",
+          "gecturk-10521",
+          "tquad-00321",
+          "xquad_tr-00528",
+          "wmt_en_tr-00632",
+          "mlsum_tr-01909",
+          "gecturk-02629",
+          "tquad-00474",
+          "xquad_tr-00987",
+          "wmt_en_tr-00264",
+          "mlsum_tr-02420",
+          "gecturk-07729",
+          "tquad-00618",
+          "xquad_tr-00333",
+          "wmt_en_tr-00111",
+          "mlsum_tr-04583",
+          "gecturk-05401",
+          "tquad-00843",
+          "xquad_tr-00449",
+          "wmt_en_tr-00216",
+          "mlsum_tr-05675",
+          "gecturk-09650",
+          "tquad-00236",
+          "xquad_tr-00874",
+          "wmt_en_tr-00879",
+          "mlsum_tr-01629",
+          "gecturk-07409",
+          "tquad-00239",
+          "xquad_tr-01018",
+          "wmt_en_tr-00172",
+          "mlsum_tr-09934",
+          "gecturk-15444",
+          "tquad-00708",
+          "xquad_tr-01154",
+          "wmt_en_tr-00541",
+          "mlsum_tr-09742",
+          "gecturk-08042",
+          "tquad-00742",
+          "xquad_tr-01017",
+          "wmt_en_tr-00335",
+          "mlsum_tr-02034",
+          "gecturk-06434",
+          "tquad-00352",
+          "xquad_tr-01008",
+          "wmt_en_tr-00348",
+          "mlsum_tr-12163",
+          "gecturk-20740",
+          "tquad-00479",
+          "xquad_tr-00841",
+          "wmt_en_tr-00825",
+          "mlsum_tr-04626",
+          "gecturk-12900",
+          "tquad-00167",
+          "xquad_tr-01101",
+          "wmt_en_tr-00476",
+          "mlsum_tr-01096",
+          "gecturk-19307",
+          "tquad-00451",
+          "xquad_tr-00168",
+          "wmt_en_tr-00999",
+          "mlsum_tr-11939",
+          "gecturk-13950",
+          "tquad-00604",
+          "xquad_tr-00718",
+          "wmt_en_tr-00502",
+          "mlsum_tr-01311",
+          "gecturk-10517",
+          "tquad-00179",
+          "xquad_tr-00849",
+          "wmt_en_tr-00716",
+          "mlsum_tr-01484",
+          "gecturk-18195",
+          "tquad-00826",
+          "xquad_tr-00499",
+          "wmt_en_tr-00167",
+          "mlsum_tr-05408",
+          "gecturk-06881",
+          "tquad-00292",
+          "xquad_tr-01094",
+          "wmt_en_tr-00220",
+          "mlsum_tr-07289",
+          "gecturk-07023",
+          "tquad-00610",
+          "xquad_tr-01161",
+          "wmt_en_tr-00774",
+          "mlsum_tr-01074",
+          "gecturk-05750",
+          "tquad-00384",
+          "xquad_tr-00621",
+          "wmt_en_tr-00994",
+          "mlsum_tr-00239",
+          "gecturk-02501",
+          "tquad-00553",
+          "xquad_tr-00260",
+          "wmt_en_tr-00212",
+          "mlsum_tr-01295"
+        ],
+        "selection": "Random(3407) sample equally per task, round-robin submission; selected before generation",
+        "merged_model": null,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "expected_count": 100,
+        "count": 100,
+        "seed": 3407,
+        "engine_args": {
+          "model": "LiquidAI/LFM3-1.7B",
+          "tokenizer": "LiquidAI/LFM3-1.7B",
+          "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "dtype": "bfloat16",
+          "max_model_len": 8192,
+          "gpu_memory_utilization": 0.75,
+          "enforce_eager": true,
+          "max_num_seqs": 4,
+          "seed": 3407,
+          "trust_remote_code": true,
+          "generation_config": "vllm",
+          "enable_prefix_caching": false,
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "code_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
+        },
+        "eos_token_ids": [
+          124900
+        ],
+        "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+        "decoding": {
+          "temperature": 0.1,
+          "top_k": 50,
+          "top_p": 1.0,
+          "repetition_penalty": 1.1,
+          "max_new_tokens": 4096,
+          "context_budget": 8192,
+          "enable_thinking": false,
+          "ignore_eos": true,
+          "stop_token_ids": [
+            124900
+          ]
+        },
+        "packages": {
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+        },
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "wall_seconds": 47.03868996098754,
+        "timing_note": "Per-request generation_seconds overlap under batching; use wall_seconds for aggregate throughput."
+      },
+      "answers_sha256": "9ff6adbaea156adeaa4a9ba88cc2cb3697f49676dc5aa3662b0335a629232465"
+    },
+    "exp-002-mixed-cpt": {
+      "scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 1.0,
+            "format_failure_candidate_rate": 1.0,
+            "truncation_rate": 0.2,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1174,
+                10521,
+                2629,
+                7729,
+                5401
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                2501,
+                5750
+              ],
+              "truncated": [
+                7409,
+                20740,
+                19307,
+                5750
+              ],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.015679146332853246,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.015679146332853246,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.45,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                321,
+                474,
+                479,
+                451,
+                292
+              ],
+              "highest_score": [
+                843,
+                352,
+                384,
+                826,
+                468
+              ],
+              "truncated": [
+                321,
+                618,
+                239,
+                708,
+                742
+              ],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.013774004803254022,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.013774004803254022,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.75,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1000,
+                333,
+                449,
+                874,
+                1018
+              ],
+              "highest_score": [
+                499,
+                1008,
+                621,
+                1017,
+                987
+              ],
+              "truncated": [
+                1000,
+                528,
+                333,
+                449,
+                874
+              ],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 0.3946750565417165,
+            "corpus_chrf": 15.282344188705757,
+            "mean_sentence_bleu": 2.8973188764982947,
+            "mean_sentence_chrf": 32.05864178348456,
+            "truncation_rate": 0.05,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                825,
+                774,
+                335,
+                496,
+                994
+              ],
+              "highest_score": [
+                167,
+                716,
+                879,
+                220,
+                172
+              ],
+              "truncated": [
+                825
+              ],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.028147364007522917,
+            "mean_rouge2": 0.009097758726368749,
+            "mean_rougeL": 0.022625032571913707,
+            "mean_rougeLsum": 0.02156707439708193,
+            "truncation_rate": 0.75,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                12163,
+                1096,
+                4626,
+                1909,
+                1074
+              ],
+              "highest_score": [
+                5675,
+                4583,
+                1295,
+                6904,
+                11939
+              ],
+              "truncated": [
+                1909,
+                2420,
+                1629,
+                9934,
+                9742
+              ],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "eos": 53,
+          "length": 44,
+          "exact_loop": 3
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "text": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": "experiments/turkish-capability/lfm3-1.7b/exp-002-mixed-cpt/results-local/cpt-v01/adapter",
+        "context": 2048,
+        "policy": "raw text; no BOS/EOS; first token/document not scored; 2047 new targets/window",
+        "results": {
+          "wiki_eval": {
+            "nll": 2.3858540945374993,
+            "perplexity": 10.868341292873668,
+            "scored_tokens": 59817,
+            "source_sha256": "81eec96c9e25ebfd0d8209c4ca8d67a62311e0368ceb34d5393b73052339b0ce",
+            "documents": [
+              {
+                "id": "wiki-519789",
+                "nll_sum": 623.9474945068359,
+                "scored_tokens": 327
+              },
+              {
+                "id": "wiki-2254891",
+                "nll_sum": 374.43423414230347,
+                "scored_tokens": 191
+              },
+              {
+                "id": "wiki-1767637",
+                "nll_sum": 702.3797788619995,
+                "scored_tokens": 458
+              },
+              {
+                "id": "wiki-358285",
+                "nll_sum": 1793.119125366211,
+                "scored_tokens": 576
+              },
+              {
+                "id": "wiki-3557761",
+                "nll_sum": 584.4442617893219,
+                "scored_tokens": 205
+              },
+              {
+                "id": "wiki-3299374",
+                "nll_sum": 965.1716516017914,
+                "scored_tokens": 606
+              },
+              {
+                "id": "wiki-333826",
+                "nll_sum": 2079.142087697983,
+                "scored_tokens": 1050
+              },
+              {
+                "id": "wiki-2646668",
+                "nll_sum": 846.430380821228,
+                "scored_tokens": 252
+              },
+              {
+                "id": "wiki-1009774",
+                "nll_sum": 405.94946229457855,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2330643",
+                "nll_sum": 2098.7617893218994,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-647879",
+                "nll_sum": 822.1283655166626,
+                "scored_tokens": 333
+              },
+              {
+                "id": "wiki-1700580",
+                "nll_sum": 851.1763753890991,
+                "scored_tokens": 412
+              },
+              {
+                "id": "wiki-3593974",
+                "nll_sum": 486.6243362426758,
+                "scored_tokens": 200
+              },
+              {
+                "id": "wiki-2330096",
+                "nll_sum": 814.460832118988,
+                "scored_tokens": 347
+              },
+              {
+                "id": "wiki-1663044",
+                "nll_sum": 1844.049171924591,
+                "scored_tokens": 714
+              },
+              {
+                "id": "wiki-2320966",
+                "nll_sum": 366.5984606742859,
+                "scored_tokens": 215
+              },
+              {
+                "id": "wiki-2185944",
+                "nll_sum": 2158.0708022117615,
+                "scored_tokens": 922
+              },
+              {
+                "id": "wiki-3502233",
+                "nll_sum": 1053.648036956787,
+                "scored_tokens": 386
+              },
+              {
+                "id": "wiki-862342",
+                "nll_sum": 521.1254868507385,
+                "scored_tokens": 258
+              },
+              {
+                "id": "wiki-2105052",
+                "nll_sum": 4804.428136587143,
+                "scored_tokens": 1733
+              },
+              {
+                "id": "wiki-2224306",
+                "nll_sum": 902.3470678329468,
+                "scored_tokens": 427
+              },
+              {
+                "id": "wiki-3504810",
+                "nll_sum": 4366.101415157318,
+                "scored_tokens": 1610
+              },
+              {
+                "id": "wiki-2136219",
+                "nll_sum": 460.8203718662262,
+                "scored_tokens": 238
+              },
+              {
+                "id": "wiki-337838",
+                "nll_sum": 476.87758469581604,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-2200905",
+                "nll_sum": 1328.544177532196,
+                "scored_tokens": 638
+              },
+              {
+                "id": "wiki-287184",
+                "nll_sum": 681.1903839111328,
+                "scored_tokens": 357
+              },
+              {
+                "id": "wiki-3589916",
+                "nll_sum": 1002.8016200065613,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-190218",
+                "nll_sum": 471.4003920555115,
+                "scored_tokens": 245
+              },
+              {
+                "id": "wiki-107666",
+                "nll_sum": 699.2803208827972,
+                "scored_tokens": 271
+              },
+              {
+                "id": "wiki-47734",
+                "nll_sum": 3532.222564935684,
+                "scored_tokens": 1433
+              },
+              {
+                "id": "wiki-2271395",
+                "nll_sum": 3841.8961029052734,
+                "scored_tokens": 1528
+              },
+              {
+                "id": "wiki-323257",
+                "nll_sum": 2338.314013004303,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-3084529",
+                "nll_sum": 667.6042668819427,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2955724",
+                "nll_sum": 8025.197160959244,
+                "scored_tokens": 2904
+              },
+              {
+                "id": "wiki-2888245",
+                "nll_sum": 301.97545659542084,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-3557825",
+                "nll_sum": 1885.9227685928345,
+                "scored_tokens": 809
+              },
+              {
+                "id": "wiki-560409",
+                "nll_sum": 1507.8451573848724,
+                "scored_tokens": 501
+              },
+              {
+                "id": "wiki-3584442",
+                "nll_sum": 2758.7466974258423,
+                "scored_tokens": 1009
+              },
+              {
+                "id": "wiki-2011255",
+                "nll_sum": 503.4464635848999,
+                "scored_tokens": 446
+              },
+              {
+                "id": "wiki-477699",
+                "nll_sum": 1789.7942333221436,
+                "scored_tokens": 621
+              },
+              {
+                "id": "wiki-2085590",
+                "nll_sum": 791.8078255653381,
+                "scored_tokens": 346
+              },
+              {
+                "id": "wiki-1581745",
+                "nll_sum": 490.1166801452637,
+                "scored_tokens": 216
+              },
+              {
+                "id": "wiki-1702680",
+                "nll_sum": 2433.6664867401123,
+                "scored_tokens": 920
+              },
+              {
+                "id": "wiki-144223",
+                "nll_sum": 2728.8759636878967,
+                "scored_tokens": 982
+              },
+              {
+                "id": "wiki-1889080",
+                "nll_sum": 852.9673018455505,
+                "scored_tokens": 558
+              },
+              {
+                "id": "wiki-153444",
+                "nll_sum": 916.6529998779297,
+                "scored_tokens": 394
+              },
+              {
+                "id": "wiki-2192476",
+                "nll_sum": 970.5543279647827,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-931978",
+                "nll_sum": 1342.0932126045227,
+                "scored_tokens": 649
+              },
+              {
+                "id": "wiki-250541",
+                "nll_sum": 2421.8632900714874,
+                "scored_tokens": 885
+              },
+              {
+                "id": "wiki-1923755",
+                "nll_sum": 1695.4943177700043,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-2621592",
+                "nll_sum": 329.56536054611206,
+                "scored_tokens": 190
+              },
+              {
+                "id": "wiki-778851",
+                "nll_sum": 749.2692494392395,
+                "scored_tokens": 373
+              },
+              {
+                "id": "wiki-892396",
+                "nll_sum": 492.3448646068573,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-567362",
+                "nll_sum": 871.7442297935486,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-1958564",
+                "nll_sum": 1362.9883117675781,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-907495",
+                "nll_sum": 1403.5525832176208,
+                "scored_tokens": 642
+              },
+              {
+                "id": "wiki-376391",
+                "nll_sum": 723.1862449645996,
+                "scored_tokens": 296
+              },
+              {
+                "id": "wiki-227192",
+                "nll_sum": 436.4712109565735,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-1096418",
+                "nll_sum": 791.5017795562744,
+                "scored_tokens": 268
+              },
+              {
+                "id": "wiki-168385",
+                "nll_sum": 1144.3693387508392,
+                "scored_tokens": 533
+              },
+              {
+                "id": "wiki-2360225",
+                "nll_sum": 1979.5065977573395,
+                "scored_tokens": 827
+              },
+              {
+                "id": "wiki-3577898",
+                "nll_sum": 566.8268918991089,
+                "scored_tokens": 242
+              },
+              {
+                "id": "wiki-235019",
+                "nll_sum": 2205.149926185608,
+                "scored_tokens": 708
+              },
+              {
+                "id": "wiki-3468022",
+                "nll_sum": 800.076756477356,
+                "scored_tokens": 273
+              },
+              {
+                "id": "wiki-56723",
+                "nll_sum": 745.9433708190918,
+                "scored_tokens": 284
+              },
+              {
+                "id": "wiki-1316627",
+                "nll_sum": 962.3225402832031,
+                "scored_tokens": 442
+              },
+              {
+                "id": "wiki-916446",
+                "nll_sum": 2631.2201499938965,
+                "scored_tokens": 1100
+              },
+              {
+                "id": "wiki-3056358",
+                "nll_sum": 881.0598428249359,
+                "scored_tokens": 499
+              },
+              {
+                "id": "wiki-129251",
+                "nll_sum": 1953.3745822906494,
+                "scored_tokens": 1082
+              },
+              {
+                "id": "wiki-3371995",
+                "nll_sum": 3672.7163801193237,
+                "scored_tokens": 1394
+              },
+              {
+                "id": "wiki-382888",
+                "nll_sum": 667.1820559501648,
+                "scored_tokens": 214
+              },
+              {
+                "id": "wiki-2170807",
+                "nll_sum": 203.5194582939148,
+                "scored_tokens": 201
+              },
+              {
+                "id": "wiki-1196653",
+                "nll_sum": 3830.415521621704,
+                "scored_tokens": 1626
+              },
+              {
+                "id": "wiki-2042700",
+                "nll_sum": 575.6735639572144,
+                "scored_tokens": 344
+              },
+              {
+                "id": "wiki-2841230",
+                "nll_sum": 1806.041100025177,
+                "scored_tokens": 940
+              },
+              {
+                "id": "wiki-2095238",
+                "nll_sum": 207.22150039672852,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-3353479",
+                "nll_sum": 785.439172744751,
+                "scored_tokens": 328
+              },
+              {
+                "id": "wiki-128155",
+                "nll_sum": 4056.268754720688,
+                "scored_tokens": 1619
+              },
+              {
+                "id": "wiki-2188565",
+                "nll_sum": 873.6073265075684,
+                "scored_tokens": 354
+              },
+              {
+                "id": "wiki-2449887",
+                "nll_sum": 933.0086381435394,
+                "scored_tokens": 363
+              },
+              {
+                "id": "wiki-677460",
+                "nll_sum": 590.0009829998016,
+                "scored_tokens": 311
+              },
+              {
+                "id": "wiki-287520",
+                "nll_sum": 383.2220969200134,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-2343281",
+                "nll_sum": 2821.563998222351,
+                "scored_tokens": 1316
+              },
+              {
+                "id": "wiki-2922843",
+                "nll_sum": 1550.2807655334473,
+                "scored_tokens": 664
+              },
+              {
+                "id": "wiki-1441370",
+                "nll_sum": 788.3586795330048,
+                "scored_tokens": 518
+              },
+              {
+                "id": "wiki-2106478",
+                "nll_sum": 1007.3914084434509,
+                "scored_tokens": 454
+              },
+              {
+                "id": "wiki-84841",
+                "nll_sum": 2664.633056640625,
+                "scored_tokens": 1024
+              },
+              {
+                "id": "wiki-2438451",
+                "nll_sum": 1520.308031320572,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-3066329",
+                "nll_sum": 2381.9111194610596,
+                "scored_tokens": 858
+              },
+              {
+                "id": "wiki-1177870",
+                "nll_sum": 821.6310560703278,
+                "scored_tokens": 470
+              },
+              {
+                "id": "wiki-1491075",
+                "nll_sum": 371.34260272979736,
+                "scored_tokens": 174
+              },
+              {
+                "id": "wiki-2747210",
+                "nll_sum": 1367.133765220642,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-3325664",
+                "nll_sum": 1411.9327096939087,
+                "scored_tokens": 658
+              },
+              {
+                "id": "wiki-73455",
+                "nll_sum": 510.5541753768921,
+                "scored_tokens": 265
+              },
+              {
+                "id": "wiki-35924",
+                "nll_sum": 1160.7798945903778,
+                "scored_tokens": 547
+              },
+              {
+                "id": "wiki-2233462",
+                "nll_sum": 906.6599535942078,
+                "scored_tokens": 330
+              },
+              {
+                "id": "wiki-1022598",
+                "nll_sum": 1378.6501460075378,
+                "scored_tokens": 418
+              },
+              {
+                "id": "wiki-2713139",
+                "nll_sum": 2290.117132663727,
+                "scored_tokens": 907
+              },
+              {
+                "id": "wiki-75272",
+                "nll_sum": 1033.2961072921753,
+                "scored_tokens": 314
+              },
+              {
+                "id": "wiki-3059110",
+                "nll_sum": 2730.788489341736,
+                "scored_tokens": 1298
+              }
+            ]
+          },
+          "web_eval": {
+            "nll": 2.9849698729721377,
+            "perplexity": 19.78590613684556,
+            "scored_tokens": 73918,
+            "source_sha256": "3be2c2a9a8f7ae6295f15b41a5e2068f281ec4f252eab844ee6ac0be1ba97624",
+            "documents": [
+              {
+                "id": "fineweb-test-0",
+                "nll_sum": 1186.080554008484,
+                "scored_tokens": 372
+              },
+              {
+                "id": "fineweb-test-1",
+                "nll_sum": 997.110200881958,
+                "scored_tokens": 313
+              },
+              {
+                "id": "fineweb-test-2",
+                "nll_sum": 529.8679156303406,
+                "scored_tokens": 268
+              },
+              {
+                "id": "fineweb-test-3",
+                "nll_sum": 1342.856891155243,
+                "scored_tokens": 474
+              },
+              {
+                "id": "fineweb-test-4",
+                "nll_sum": 9919.161485910416,
+                "scored_tokens": 3197
+              },
+              {
+                "id": "fineweb-test-5",
+                "nll_sum": 637.1964063644409,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-6",
+                "nll_sum": 601.8381462097168,
+                "scored_tokens": 176
+              },
+              {
+                "id": "fineweb-test-7",
+                "nll_sum": 610.1358103752136,
+                "scored_tokens": 210
+              },
+              {
+                "id": "fineweb-test-8",
+                "nll_sum": 740.023238658905,
+                "scored_tokens": 253
+              },
+              {
+                "id": "fineweb-test-9",
+                "nll_sum": 4051.719554901123,
+                "scored_tokens": 1576
+              },
+              {
+                "id": "fineweb-test-10",
+                "nll_sum": 3318.4799242019653,
+                "scored_tokens": 1190
+              },
+              {
+                "id": "fineweb-test-11",
+                "nll_sum": 1102.1554820537567,
+                "scored_tokens": 383
+              },
+              {
+                "id": "fineweb-test-12",
+                "nll_sum": 1995.328221321106,
+                "scored_tokens": 580
+              },
+              {
+                "id": "fineweb-test-13",
+                "nll_sum": 1024.3330209255219,
+                "scored_tokens": 379
+              },
+              {
+                "id": "fineweb-test-14",
+                "nll_sum": 1371.040452003479,
+                "scored_tokens": 516
+              },
+              {
+                "id": "fineweb-test-15",
+                "nll_sum": 3022.2894611358643,
+                "scored_tokens": 1006
+              },
+              {
+                "id": "fineweb-test-16",
+                "nll_sum": 1088.3859167099,
+                "scored_tokens": 446
+              },
+              {
+                "id": "fineweb-test-17",
+                "nll_sum": 875.4989166259766,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-18",
+                "nll_sum": 2768.8476157188416,
+                "scored_tokens": 1154
+              },
+              {
+                "id": "fineweb-test-19",
+                "nll_sum": 764.7478294372559,
+                "scored_tokens": 279
+              },
+              {
+                "id": "fineweb-test-20",
+                "nll_sum": 1737.035656929016,
+                "scored_tokens": 606
+              },
+              {
+                "id": "fineweb-test-21",
+                "nll_sum": 704.0707912445068,
+                "scored_tokens": 232
+              },
+              {
+                "id": "fineweb-test-24",
+                "nll_sum": 687.9722681045532,
+                "scored_tokens": 226
+              },
+              {
+                "id": "fineweb-test-25",
+                "nll_sum": 3049.082136154175,
+                "scored_tokens": 1025
+              },
+              {
+                "id": "fineweb-test-26",
+                "nll_sum": 546.8826479911804,
+                "scored_tokens": 206
+              },
+              {
+                "id": "fineweb-test-27",
+                "nll_sum": 2430.86953997612,
+                "scored_tokens": 795
+              },
+              {
+                "id": "fineweb-test-28",
+                "nll_sum": 4718.847206830978,
+                "scored_tokens": 1781
+              },
+              {
+                "id": "fineweb-test-29",
+                "nll_sum": 3442.627716064453,
+                "scored_tokens": 1200
+              },
+              {
+                "id": "fineweb-test-30",
+                "nll_sum": 1546.87069439888,
+                "scored_tokens": 481
+              },
+              {
+                "id": "fineweb-test-31",
+                "nll_sum": 1335.4357719421387,
+                "scored_tokens": 400
+              },
+              {
+                "id": "fineweb-test-33",
+                "nll_sum": 1560.6860399246216,
+                "scored_tokens": 724
+              },
+              {
+                "id": "fineweb-test-34",
+                "nll_sum": 914.0954439640045,
+                "scored_tokens": 299
+              },
+              {
+                "id": "fineweb-test-35",
+                "nll_sum": 1869.6753616333008,
+                "scored_tokens": 643
+              },
+              {
+                "id": "fineweb-test-36",
+                "nll_sum": 3416.604528427124,
+                "scored_tokens": 1157
+              },
+              {
+                "id": "fineweb-test-37",
+                "nll_sum": 529.4851660728455,
+                "scored_tokens": 175
+              },
+              {
+                "id": "fineweb-test-38",
+                "nll_sum": 1383.888659477234,
+                "scored_tokens": 510
+              },
+              {
+                "id": "fineweb-test-39",
+                "nll_sum": 439.37163186073303,
+                "scored_tokens": 167
+              },
+              {
+                "id": "fineweb-test-40",
+                "nll_sum": 11079.75405550003,
+                "scored_tokens": 3248
+              },
+              {
+                "id": "fineweb-test-41",
+                "nll_sum": 2069.7807347774506,
+                "scored_tokens": 765
+              },
+              {
+                "id": "fineweb-test-42",
+                "nll_sum": 2176.202591896057,
+                "scored_tokens": 827
+              },
+              {
+                "id": "fineweb-test-43",
+                "nll_sum": 702.8628816604614,
+                "scored_tokens": 162
+              },
+              {
+                "id": "fineweb-test-44",
+                "nll_sum": 1625.850579738617,
+                "scored_tokens": 455
+              },
+              {
+                "id": "fineweb-test-45",
+                "nll_sum": 1720.7505264282227,
+                "scored_tokens": 442
+              },
+              {
+                "id": "fineweb-test-46",
+                "nll_sum": 994.8814487457275,
+                "scored_tokens": 360
+              },
+              {
+                "id": "fineweb-test-47",
+                "nll_sum": 2366.9316806793213,
+                "scored_tokens": 634
+              },
+              {
+                "id": "fineweb-test-48",
+                "nll_sum": 2086.4892802238464,
+                "scored_tokens": 719
+              },
+              {
+                "id": "fineweb-test-50",
+                "nll_sum": 3059.408871650696,
+                "scored_tokens": 1004
+              },
+              {
+                "id": "fineweb-test-51",
+                "nll_sum": 1947.8312802314758,
+                "scored_tokens": 861
+              },
+              {
+                "id": "fineweb-test-52",
+                "nll_sum": 781.6561102867126,
+                "scored_tokens": 270
+              },
+              {
+                "id": "fineweb-test-53",
+                "nll_sum": 5718.7606472969055,
+                "scored_tokens": 2196
+              },
+              {
+                "id": "fineweb-test-54",
+                "nll_sum": 2285.4550909996033,
+                "scored_tokens": 885
+              },
+              {
+                "id": "fineweb-test-55",
+                "nll_sum": 827.4949712753296,
+                "scored_tokens": 257
+              },
+              {
+                "id": "fineweb-test-58",
+                "nll_sum": 1004.748542547226,
+                "scored_tokens": 289
+              },
+              {
+                "id": "fineweb-test-59",
+                "nll_sum": 963.9742140769958,
+                "scored_tokens": 366
+              },
+              {
+                "id": "fineweb-test-60",
+                "nll_sum": 575.0420680046082,
+                "scored_tokens": 267
+              },
+              {
+                "id": "fineweb-test-62",
+                "nll_sum": 3733.795355796814,
+                "scored_tokens": 1436
+              },
+              {
+                "id": "fineweb-test-63",
+                "nll_sum": 829.5178165435791,
+                "scored_tokens": 353
+              },
+              {
+                "id": "fineweb-test-64",
+                "nll_sum": 533.0994689464569,
+                "scored_tokens": 193
+              },
+              {
+                "id": "fineweb-test-65",
+                "nll_sum": 784.4470195770264,
+                "scored_tokens": 294
+              },
+              {
+                "id": "fineweb-test-66",
+                "nll_sum": 1094.590322971344,
+                "scored_tokens": 415
+              },
+              {
+                "id": "fineweb-test-67",
+                "nll_sum": 408.36929082870483,
+                "scored_tokens": 138
+              },
+              {
+                "id": "fineweb-test-68",
+                "nll_sum": 2734.0718669891357,
+                "scored_tokens": 776
+              },
+              {
+                "id": "fineweb-test-69",
+                "nll_sum": 574.9662804603577,
+                "scored_tokens": 241
+              },
+              {
+                "id": "fineweb-test-70",
+                "nll_sum": 589.053370475769,
+                "scored_tokens": 227
+              },
+              {
+                "id": "fineweb-test-71",
+                "nll_sum": 923.0552661418915,
+                "scored_tokens": 295
+              },
+              {
+                "id": "fineweb-test-73",
+                "nll_sum": 1613.1596167087555,
+                "scored_tokens": 483
+              },
+              {
+                "id": "fineweb-test-74",
+                "nll_sum": 1541.697458744049,
+                "scored_tokens": 469
+              },
+              {
+                "id": "fineweb-test-75",
+                "nll_sum": 1095.3335056304932,
+                "scored_tokens": 346
+              },
+              {
+                "id": "fineweb-test-76",
+                "nll_sum": 710.3022317886353,
+                "scored_tokens": 212
+              },
+              {
+                "id": "fineweb-test-77",
+                "nll_sum": 897.1303806304932,
+                "scored_tokens": 296
+              },
+              {
+                "id": "fineweb-test-78",
+                "nll_sum": 1733.3833601474762,
+                "scored_tokens": 669
+              },
+              {
+                "id": "fineweb-test-79",
+                "nll_sum": 5521.110767841339,
+                "scored_tokens": 2064
+              },
+              {
+                "id": "fineweb-test-80",
+                "nll_sum": 1048.6209564208984,
+                "scored_tokens": 352
+              },
+              {
+                "id": "fineweb-test-81",
+                "nll_sum": 1449.4931383132935,
+                "scored_tokens": 493
+              },
+              {
+                "id": "fineweb-test-82",
+                "nll_sum": 832.4864501953125,
+                "scored_tokens": 262
+              },
+              {
+                "id": "fineweb-test-83",
+                "nll_sum": 3709.634313583374,
+                "scored_tokens": 1160
+              },
+              {
+                "id": "fineweb-test-84",
+                "nll_sum": 7241.823574304581,
+                "scored_tokens": 2791
+              },
+              {
+                "id": "fineweb-test-85",
+                "nll_sum": 1802.8210246562958,
+                "scored_tokens": 755
+              },
+              {
+                "id": "fineweb-test-86",
+                "nll_sum": 2006.6849937438965,
+                "scored_tokens": 784
+              },
+              {
+                "id": "fineweb-test-88",
+                "nll_sum": 1242.2155559062958,
+                "scored_tokens": 449
+              },
+              {
+                "id": "fineweb-test-89",
+                "nll_sum": 6664.470653533936,
+                "scored_tokens": 1940
+              },
+              {
+                "id": "fineweb-test-90",
+                "nll_sum": 674.6013622283936,
+                "scored_tokens": 228
+              },
+              {
+                "id": "fineweb-test-91",
+                "nll_sum": 2943.0445437431335,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-92",
+                "nll_sum": 1275.6274795532227,
+                "scored_tokens": 390
+              },
+              {
+                "id": "fineweb-test-93",
+                "nll_sum": 13162.195511341095,
+                "scored_tokens": 3601
+              },
+              {
+                "id": "fineweb-test-94",
+                "nll_sum": 3590.8456707000732,
+                "scored_tokens": 1155
+              },
+              {
+                "id": "fineweb-test-95",
+                "nll_sum": 3534.4093387126923,
+                "scored_tokens": 1049
+              },
+              {
+                "id": "fineweb-test-96",
+                "nll_sum": 8087.4058582782745,
+                "scored_tokens": 2354
+              },
+              {
+                "id": "fineweb-test-97",
+                "nll_sum": 3948.011703968048,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-98",
+                "nll_sum": 1688.7260949611664,
+                "scored_tokens": 551
+              },
+              {
+                "id": "fineweb-test-99",
+                "nll_sum": 580.6141822338104,
+                "scored_tokens": 173
+              },
+              {
+                "id": "fineweb-test-100",
+                "nll_sum": 8278.434743404388,
+                "scored_tokens": 2831
+              },
+              {
+                "id": "fineweb-test-101",
+                "nll_sum": 1830.698169708252,
+                "scored_tokens": 722
+              },
+              {
+                "id": "fineweb-test-102",
+                "nll_sum": 1091.746945142746,
+                "scored_tokens": 361
+              },
+              {
+                "id": "fineweb-test-103",
+                "nll_sum": 2138.01664352417,
+                "scored_tokens": 688
+              },
+              {
+                "id": "fineweb-test-104",
+                "nll_sum": 2144.11381316185,
+                "scored_tokens": 723
+              },
+              {
+                "id": "fineweb-test-105",
+                "nll_sum": 1353.900761604309,
+                "scored_tokens": 492
+              },
+              {
+                "id": "fineweb-test-106",
+                "nll_sum": 1489.6569962501526,
+                "scored_tokens": 538
+              },
+              {
+                "id": "fineweb-test-107",
+                "nll_sum": 826.9825565814972,
+                "scored_tokens": 233
+              },
+              {
+                "id": "fineweb-test-108",
+                "nll_sum": 440.1627731323242,
+                "scored_tokens": 160
+              }
+            ]
+          }
+        }
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": "experiments/turkish-capability/lfm3-1.7b/exp-002-mixed-cpt/results-local/cpt-v01/adapter",
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.8,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.84,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.72,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.84,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.69,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.14,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.82,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.8,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.98,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.68,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.71,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.83,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.803125,
+        "official_full_benchmark": false
+      },
+      "manifest": {
+        "status": "completed",
+        "diagnostic": true,
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "protocol": "continuation-screen-official-general-v01",
+        "selected_ids": [
+          "gecturk-01174",
+          "tquad-00468",
+          "xquad_tr-01000",
+          "wmt_en_tr-00496",
+          "mlsum_tr-06904",
+          "gecturk-10521",
+          "tquad-00321",
+          "xquad_tr-00528",
+          "wmt_en_tr-00632",
+          "mlsum_tr-01909",
+          "gecturk-02629",
+          "tquad-00474",
+          "xquad_tr-00987",
+          "wmt_en_tr-00264",
+          "mlsum_tr-02420",
+          "gecturk-07729",
+          "tquad-00618",
+          "xquad_tr-00333",
+          "wmt_en_tr-00111",
+          "mlsum_tr-04583",
+          "gecturk-05401",
+          "tquad-00843",
+          "xquad_tr-00449",
+          "wmt_en_tr-00216",
+          "mlsum_tr-05675",
+          "gecturk-09650",
+          "tquad-00236",
+          "xquad_tr-00874",
+          "wmt_en_tr-00879",
+          "mlsum_tr-01629",
+          "gecturk-07409",
+          "tquad-00239",
+          "xquad_tr-01018",
+          "wmt_en_tr-00172",
+          "mlsum_tr-09934",
+          "gecturk-15444",
+          "tquad-00708",
+          "xquad_tr-01154",
+          "wmt_en_tr-00541",
+          "mlsum_tr-09742",
+          "gecturk-08042",
+          "tquad-00742",
+          "xquad_tr-01017",
+          "wmt_en_tr-00335",
+          "mlsum_tr-02034",
+          "gecturk-06434",
+          "tquad-00352",
+          "xquad_tr-01008",
+          "wmt_en_tr-00348",
+          "mlsum_tr-12163",
+          "gecturk-20740",
+          "tquad-00479",
+          "xquad_tr-00841",
+          "wmt_en_tr-00825",
+          "mlsum_tr-04626",
+          "gecturk-12900",
+          "tquad-00167",
+          "xquad_tr-01101",
+          "wmt_en_tr-00476",
+          "mlsum_tr-01096",
+          "gecturk-19307",
+          "tquad-00451",
+          "xquad_tr-00168",
+          "wmt_en_tr-00999",
+          "mlsum_tr-11939",
+          "gecturk-13950",
+          "tquad-00604",
+          "xquad_tr-00718",
+          "wmt_en_tr-00502",
+          "mlsum_tr-01311",
+          "gecturk-10517",
+          "tquad-00179",
+          "xquad_tr-00849",
+          "wmt_en_tr-00716",
+          "mlsum_tr-01484",
+          "gecturk-18195",
+          "tquad-00826",
+          "xquad_tr-00499",
+          "wmt_en_tr-00167",
+          "mlsum_tr-05408",
+          "gecturk-06881",
+          "tquad-00292",
+          "xquad_tr-01094",
+          "wmt_en_tr-00220",
+          "mlsum_tr-07289",
+          "gecturk-07023",
+          "tquad-00610",
+          "xquad_tr-01161",
+          "wmt_en_tr-00774",
+          "mlsum_tr-01074",
+          "gecturk-05750",
+          "tquad-00384",
+          "xquad_tr-00621",
+          "wmt_en_tr-00994",
+          "mlsum_tr-00239",
+          "gecturk-02501",
+          "tquad-00553",
+          "xquad_tr-00260",
+          "wmt_en_tr-00212",
+          "mlsum_tr-01295"
+        ],
+        "selection": "Random(3407) sample equally per task, round-robin submission; selected before generation",
+        "merged_model": "experiments/turkish-capability/lfm3-1.7b/exp-002-mixed-cpt/results-local/cpt-v01/merged-model",
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "expected_count": 100,
+        "count": 100,
+        "seed": 3407,
+        "engine_args": {
+          "model": "experiments/turkish-capability/lfm3-1.7b/exp-002-mixed-cpt/results-local/cpt-v01/merged-model",
+          "tokenizer": "LiquidAI/LFM3-1.7B",
+          "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "dtype": "bfloat16",
+          "max_model_len": 8192,
+          "gpu_memory_utilization": 0.75,
+          "enforce_eager": true,
+          "max_num_seqs": 4,
+          "seed": 3407,
+          "trust_remote_code": true,
+          "generation_config": "vllm",
+          "enable_prefix_caching": false
+        },
+        "eos_token_ids": [
+          124900
+        ],
+        "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+        "decoding": {
+          "temperature": 0.1,
+          "top_k": 50,
+          "top_p": 1.0,
+          "repetition_penalty": 1.1,
+          "max_new_tokens": 4096,
+          "context_budget": 8192,
+          "enable_thinking": false,
+          "ignore_eos": true,
+          "stop_token_ids": [
+            124900
+          ]
+        },
+        "packages": {
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+        },
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "wall_seconds": 339.77300011500483,
+        "timing_note": "Per-request generation_seconds overlap under batching; use wall_seconds for aggregate throughput."
+      },
+      "answers_sha256": "2fbb4b2d6a60e0b6bf98b1c1296fe00506e8cbdefc9aba057c8a6ae47141c9b6"
+    },
+    "exp-003-cpt-cont-50m": {
+      "scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 0.95,
+            "format_failure_candidate_rate": 0.95,
+            "truncation_rate": 0.55,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [
+              7023
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                1174,
+                10521,
+                7729,
+                2629,
+                5401
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                5750,
+                2501
+              ],
+              "truncated": [
+                1174,
+                10521,
+                2629,
+                15444,
+                8042
+              ],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.0015766609742497478,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.0015766609742497478,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.75,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                321,
+                474,
+                618,
+                843,
+                236
+              ],
+              "highest_score": [
+                352,
+                239,
+                179,
+                468,
+                604
+              ],
+              "truncated": [
+                468,
+                321,
+                618,
+                843,
+                236
+              ],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.0019012362336980906,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.0019012362336980906,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.7,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1000,
+                528,
+                987,
+                874,
+                1018
+              ],
+              "highest_score": [
+                260,
+                333,
+                718,
+                449,
+                621
+              ],
+              "truncated": [
+                1000,
+                528,
+                333,
+                874,
+                1018
+              ],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 0.09587871598485194,
+            "corpus_chrf": 6.28997614109276,
+            "mean_sentence_bleu": 0.6904803034113963,
+            "mean_sentence_chrf": 15.695784691341583,
+            "truncation_rate": 0.15,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                994,
+                335,
+                999,
+                348,
+                825
+              ],
+              "highest_score": [
+                264,
+                541,
+                172,
+                220,
+                879
+              ],
+              "truncated": [
+                335,
+                348,
+                999
+              ],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.009028030436818695,
+            "mean_rouge2": 0.0007652420457713359,
+            "mean_rougeL": 0.007660129114078212,
+            "mean_rougeLsum": 0.007760776363391769,
+            "truncation_rate": 0.85,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                6904,
+                5675,
+                1074,
+                2034,
+                11939
+              ],
+              "highest_score": [
+                1484,
+                1909,
+                9742,
+                9934,
+                1311
+              ],
+              "truncated": [
+                6904,
+                2420,
+                4583,
+                5675,
+                1629
+              ],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "eos": 36,
+          "length": 60,
+          "exact_loop": 4
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "text": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": "experiments/turkish-capability/lfm3-1.7b/exp-003-cpt-cont-50m/results-local/cpt-v01/adapter",
+        "context": 2048,
+        "policy": "raw text; no BOS/EOS; first token/document not scored; 2047 new targets/window",
+        "results": {
+          "wiki_eval": {
+            "nll": 2.3583662244284596,
+            "perplexity": 10.57366234178045,
+            "scored_tokens": 59817,
+            "source_sha256": "81eec96c9e25ebfd0d8209c4ca8d67a62311e0368ceb34d5393b73052339b0ce",
+            "documents": [
+              {
+                "id": "wiki-519789",
+                "nll_sum": 659.4248127937317,
+                "scored_tokens": 327
+              },
+              {
+                "id": "wiki-2254891",
+                "nll_sum": 389.02955651283264,
+                "scored_tokens": 191
+              },
+              {
+                "id": "wiki-1767637",
+                "nll_sum": 706.3971436023712,
+                "scored_tokens": 458
+              },
+              {
+                "id": "wiki-358285",
+                "nll_sum": 1668.8089599609375,
+                "scored_tokens": 576
+              },
+              {
+                "id": "wiki-3557761",
+                "nll_sum": 599.3162906169891,
+                "scored_tokens": 205
+              },
+              {
+                "id": "wiki-3299374",
+                "nll_sum": 995.6733913421631,
+                "scored_tokens": 606
+              },
+              {
+                "id": "wiki-333826",
+                "nll_sum": 2117.082667350769,
+                "scored_tokens": 1050
+              },
+              {
+                "id": "wiki-2646668",
+                "nll_sum": 852.8683519363403,
+                "scored_tokens": 252
+              },
+              {
+                "id": "wiki-1009774",
+                "nll_sum": 430.3364907503128,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2330643",
+                "nll_sum": 2112.1947593688965,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-647879",
+                "nll_sum": 792.2219088077545,
+                "scored_tokens": 333
+              },
+              {
+                "id": "wiki-1700580",
+                "nll_sum": 873.4633312225342,
+                "scored_tokens": 412
+              },
+              {
+                "id": "wiki-3593974",
+                "nll_sum": 478.1968116760254,
+                "scored_tokens": 200
+              },
+              {
+                "id": "wiki-2330096",
+                "nll_sum": 829.1261038780212,
+                "scored_tokens": 347
+              },
+              {
+                "id": "wiki-1663044",
+                "nll_sum": 1841.9316701889038,
+                "scored_tokens": 714
+              },
+              {
+                "id": "wiki-2320966",
+                "nll_sum": 383.7705588340759,
+                "scored_tokens": 215
+              },
+              {
+                "id": "wiki-2185944",
+                "nll_sum": 2135.421449661255,
+                "scored_tokens": 922
+              },
+              {
+                "id": "wiki-3502233",
+                "nll_sum": 1049.0299010276794,
+                "scored_tokens": 386
+              },
+              {
+                "id": "wiki-862342",
+                "nll_sum": 546.1127042770386,
+                "scored_tokens": 258
+              },
+              {
+                "id": "wiki-2105052",
+                "nll_sum": 4623.508447408676,
+                "scored_tokens": 1733
+              },
+              {
+                "id": "wiki-2224306",
+                "nll_sum": 888.0017628669739,
+                "scored_tokens": 427
+              },
+              {
+                "id": "wiki-3504810",
+                "nll_sum": 4278.260669708252,
+                "scored_tokens": 1610
+              },
+              {
+                "id": "wiki-2136219",
+                "nll_sum": 471.1826651096344,
+                "scored_tokens": 238
+              },
+              {
+                "id": "wiki-337838",
+                "nll_sum": 469.293004989624,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-2200905",
+                "nll_sum": 1247.494160413742,
+                "scored_tokens": 638
+              },
+              {
+                "id": "wiki-287184",
+                "nll_sum": 716.6018936634064,
+                "scored_tokens": 357
+              },
+              {
+                "id": "wiki-3589916",
+                "nll_sum": 981.0927653312683,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-190218",
+                "nll_sum": 482.56475389003754,
+                "scored_tokens": 245
+              },
+              {
+                "id": "wiki-107666",
+                "nll_sum": 690.5941534042358,
+                "scored_tokens": 271
+              },
+              {
+                "id": "wiki-47734",
+                "nll_sum": 3361.327663898468,
+                "scored_tokens": 1433
+              },
+              {
+                "id": "wiki-2271395",
+                "nll_sum": 3829.79575920105,
+                "scored_tokens": 1528
+              },
+              {
+                "id": "wiki-323257",
+                "nll_sum": 2283.374486923218,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-3084529",
+                "nll_sum": 660.7035965919495,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2955724",
+                "nll_sum": 7947.768726348877,
+                "scored_tokens": 2904
+              },
+              {
+                "id": "wiki-2888245",
+                "nll_sum": 342.60285329818726,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-3557825",
+                "nll_sum": 1902.4275641441345,
+                "scored_tokens": 809
+              },
+              {
+                "id": "wiki-560409",
+                "nll_sum": 1453.6789662837982,
+                "scored_tokens": 501
+              },
+              {
+                "id": "wiki-3584442",
+                "nll_sum": 2650.0594851970673,
+                "scored_tokens": 1009
+              },
+              {
+                "id": "wiki-2011255",
+                "nll_sum": 514.0336766242981,
+                "scored_tokens": 446
+              },
+              {
+                "id": "wiki-477699",
+                "nll_sum": 1739.6421239376068,
+                "scored_tokens": 621
+              },
+              {
+                "id": "wiki-2085590",
+                "nll_sum": 825.4336347579956,
+                "scored_tokens": 346
+              },
+              {
+                "id": "wiki-1581745",
+                "nll_sum": 514.5285243988037,
+                "scored_tokens": 216
+              },
+              {
+                "id": "wiki-1702680",
+                "nll_sum": 2381.742238998413,
+                "scored_tokens": 920
+              },
+              {
+                "id": "wiki-144223",
+                "nll_sum": 2679.3925104141235,
+                "scored_tokens": 982
+              },
+              {
+                "id": "wiki-1889080",
+                "nll_sum": 879.9350810050964,
+                "scored_tokens": 558
+              },
+              {
+                "id": "wiki-153444",
+                "nll_sum": 893.7206492424011,
+                "scored_tokens": 394
+              },
+              {
+                "id": "wiki-2192476",
+                "nll_sum": 977.1294164657593,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-931978",
+                "nll_sum": 1351.952686548233,
+                "scored_tokens": 649
+              },
+              {
+                "id": "wiki-250541",
+                "nll_sum": 2363.8544154167175,
+                "scored_tokens": 885
+              },
+              {
+                "id": "wiki-1923755",
+                "nll_sum": 1684.1791982650757,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-2621592",
+                "nll_sum": 362.81426429748535,
+                "scored_tokens": 190
+              },
+              {
+                "id": "wiki-778851",
+                "nll_sum": 754.6308469772339,
+                "scored_tokens": 373
+              },
+              {
+                "id": "wiki-892396",
+                "nll_sum": 528.7729382514954,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-567362",
+                "nll_sum": 842.2729206085205,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-1958564",
+                "nll_sum": 1329.7597107887268,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-907495",
+                "nll_sum": 1401.4575862884521,
+                "scored_tokens": 642
+              },
+              {
+                "id": "wiki-376391",
+                "nll_sum": 732.7691326141357,
+                "scored_tokens": 296
+              },
+              {
+                "id": "wiki-227192",
+                "nll_sum": 432.49891662597656,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-1096418",
+                "nll_sum": 791.6450347900391,
+                "scored_tokens": 268
+              },
+              {
+                "id": "wiki-168385",
+                "nll_sum": 1102.80229139328,
+                "scored_tokens": 533
+              },
+              {
+                "id": "wiki-2360225",
+                "nll_sum": 1970.124948978424,
+                "scored_tokens": 827
+              },
+              {
+                "id": "wiki-3577898",
+                "nll_sum": 555.1082825660706,
+                "scored_tokens": 242
+              },
+              {
+                "id": "wiki-235019",
+                "nll_sum": 2165.4730653762817,
+                "scored_tokens": 708
+              },
+              {
+                "id": "wiki-3468022",
+                "nll_sum": 785.3153872489929,
+                "scored_tokens": 273
+              },
+              {
+                "id": "wiki-56723",
+                "nll_sum": 719.0924196243286,
+                "scored_tokens": 284
+              },
+              {
+                "id": "wiki-1316627",
+                "nll_sum": 968.1691842079163,
+                "scored_tokens": 442
+              },
+              {
+                "id": "wiki-916446",
+                "nll_sum": 2502.529215812683,
+                "scored_tokens": 1100
+              },
+              {
+                "id": "wiki-3056358",
+                "nll_sum": 893.0689409971237,
+                "scored_tokens": 499
+              },
+              {
+                "id": "wiki-129251",
+                "nll_sum": 1947.217509508133,
+                "scored_tokens": 1082
+              },
+              {
+                "id": "wiki-3371995",
+                "nll_sum": 3595.0395822525024,
+                "scored_tokens": 1394
+              },
+              {
+                "id": "wiki-382888",
+                "nll_sum": 639.1866703033447,
+                "scored_tokens": 214
+              },
+              {
+                "id": "wiki-2170807",
+                "nll_sum": 265.68000161647797,
+                "scored_tokens": 201
+              },
+              {
+                "id": "wiki-1196653",
+                "nll_sum": 3741.3591256141663,
+                "scored_tokens": 1626
+              },
+              {
+                "id": "wiki-2042700",
+                "nll_sum": 586.6231498718262,
+                "scored_tokens": 344
+              },
+              {
+                "id": "wiki-2841230",
+                "nll_sum": 1834.5021653175354,
+                "scored_tokens": 940
+              },
+              {
+                "id": "wiki-2095238",
+                "nll_sum": 284.4716782569885,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-3353479",
+                "nll_sum": 796.9839515686035,
+                "scored_tokens": 328
+              },
+              {
+                "id": "wiki-128155",
+                "nll_sum": 3928.1689710617065,
+                "scored_tokens": 1619
+              },
+              {
+                "id": "wiki-2188565",
+                "nll_sum": 889.4685673713684,
+                "scored_tokens": 354
+              },
+              {
+                "id": "wiki-2449887",
+                "nll_sum": 864.4038412570953,
+                "scored_tokens": 363
+              },
+              {
+                "id": "wiki-677460",
+                "nll_sum": 588.3110347986221,
+                "scored_tokens": 311
+              },
+              {
+                "id": "wiki-287520",
+                "nll_sum": 421.3258547782898,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-2343281",
+                "nll_sum": 2610.248824596405,
+                "scored_tokens": 1316
+              },
+              {
+                "id": "wiki-2922843",
+                "nll_sum": 1582.474199295044,
+                "scored_tokens": 664
+              },
+              {
+                "id": "wiki-1441370",
+                "nll_sum": 833.8300774097443,
+                "scored_tokens": 518
+              },
+              {
+                "id": "wiki-2106478",
+                "nll_sum": 984.0076651573181,
+                "scored_tokens": 454
+              },
+              {
+                "id": "wiki-84841",
+                "nll_sum": 2592.78125,
+                "scored_tokens": 1024
+              },
+              {
+                "id": "wiki-2438451",
+                "nll_sum": 1502.272348165512,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-3066329",
+                "nll_sum": 2357.7372794151306,
+                "scored_tokens": 858
+              },
+              {
+                "id": "wiki-1177870",
+                "nll_sum": 863.0717086791992,
+                "scored_tokens": 470
+              },
+              {
+                "id": "wiki-1491075",
+                "nll_sum": 359.10026264190674,
+                "scored_tokens": 174
+              },
+              {
+                "id": "wiki-2747210",
+                "nll_sum": 1425.2032947540283,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-3325664",
+                "nll_sum": 1377.7574682235718,
+                "scored_tokens": 658
+              },
+              {
+                "id": "wiki-73455",
+                "nll_sum": 507.39285469055176,
+                "scored_tokens": 265
+              },
+              {
+                "id": "wiki-35924",
+                "nll_sum": 1142.1885895729065,
+                "scored_tokens": 547
+              },
+              {
+                "id": "wiki-2233462",
+                "nll_sum": 914.6287894248962,
+                "scored_tokens": 330
+              },
+              {
+                "id": "wiki-1022598",
+                "nll_sum": 1355.710645198822,
+                "scored_tokens": 418
+              },
+              {
+                "id": "wiki-2713139",
+                "nll_sum": 2190.9985597133636,
+                "scored_tokens": 907
+              },
+              {
+                "id": "wiki-75272",
+                "nll_sum": 989.1808824539185,
+                "scored_tokens": 314
+              },
+              {
+                "id": "wiki-3059110",
+                "nll_sum": 2714.4761576652527,
+                "scored_tokens": 1298
+              }
+            ]
+          },
+          "web_eval": {
+            "nll": 2.7299112991539154,
+            "perplexity": 15.331527040172178,
+            "scored_tokens": 73918,
+            "source_sha256": "3be2c2a9a8f7ae6295f15b41a5e2068f281ec4f252eab844ee6ac0be1ba97624",
+            "documents": [
+              {
+                "id": "fineweb-test-0",
+                "nll_sum": 1107.2050638198853,
+                "scored_tokens": 372
+              },
+              {
+                "id": "fineweb-test-1",
+                "nll_sum": 937.8847291469574,
+                "scored_tokens": 313
+              },
+              {
+                "id": "fineweb-test-2",
+                "nll_sum": 453.7878532409668,
+                "scored_tokens": 268
+              },
+              {
+                "id": "fineweb-test-3",
+                "nll_sum": 1239.987021446228,
+                "scored_tokens": 474
+              },
+              {
+                "id": "fineweb-test-4",
+                "nll_sum": 9441.923659563065,
+                "scored_tokens": 3197
+              },
+              {
+                "id": "fineweb-test-5",
+                "nll_sum": 538.3159189224243,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-6",
+                "nll_sum": 555.64501953125,
+                "scored_tokens": 176
+              },
+              {
+                "id": "fineweb-test-7",
+                "nll_sum": 526.9181513786316,
+                "scored_tokens": 210
+              },
+              {
+                "id": "fineweb-test-8",
+                "nll_sum": 624.626925945282,
+                "scored_tokens": 253
+              },
+              {
+                "id": "fineweb-test-9",
+                "nll_sum": 3601.173662185669,
+                "scored_tokens": 1576
+              },
+              {
+                "id": "fineweb-test-10",
+                "nll_sum": 2805.9701132774353,
+                "scored_tokens": 1190
+              },
+              {
+                "id": "fineweb-test-11",
+                "nll_sum": 925.7526605129242,
+                "scored_tokens": 383
+              },
+              {
+                "id": "fineweb-test-12",
+                "nll_sum": 1783.3764028549194,
+                "scored_tokens": 580
+              },
+              {
+                "id": "fineweb-test-13",
+                "nll_sum": 930.851322889328,
+                "scored_tokens": 379
+              },
+              {
+                "id": "fineweb-test-14",
+                "nll_sum": 1172.3469944000244,
+                "scored_tokens": 516
+              },
+              {
+                "id": "fineweb-test-15",
+                "nll_sum": 2695.746437072754,
+                "scored_tokens": 1006
+              },
+              {
+                "id": "fineweb-test-16",
+                "nll_sum": 932.1343259811401,
+                "scored_tokens": 446
+              },
+              {
+                "id": "fineweb-test-17",
+                "nll_sum": 732.9246253967285,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-18",
+                "nll_sum": 2564.6220288276672,
+                "scored_tokens": 1154
+              },
+              {
+                "id": "fineweb-test-19",
+                "nll_sum": 634.138463973999,
+                "scored_tokens": 279
+              },
+              {
+                "id": "fineweb-test-20",
+                "nll_sum": 1604.0846457481384,
+                "scored_tokens": 606
+              },
+              {
+                "id": "fineweb-test-21",
+                "nll_sum": 644.3061370849609,
+                "scored_tokens": 232
+              },
+              {
+                "id": "fineweb-test-24",
+                "nll_sum": 609.2031826972961,
+                "scored_tokens": 226
+              },
+              {
+                "id": "fineweb-test-25",
+                "nll_sum": 2916.3031816482544,
+                "scored_tokens": 1025
+              },
+              {
+                "id": "fineweb-test-26",
+                "nll_sum": 495.2162981033325,
+                "scored_tokens": 206
+              },
+              {
+                "id": "fineweb-test-27",
+                "nll_sum": 2138.102535009384,
+                "scored_tokens": 795
+              },
+              {
+                "id": "fineweb-test-28",
+                "nll_sum": 4358.908312082291,
+                "scored_tokens": 1781
+              },
+              {
+                "id": "fineweb-test-29",
+                "nll_sum": 3013.1524085998535,
+                "scored_tokens": 1200
+              },
+              {
+                "id": "fineweb-test-30",
+                "nll_sum": 1390.0348896980286,
+                "scored_tokens": 481
+              },
+              {
+                "id": "fineweb-test-31",
+                "nll_sum": 1234.5227241516113,
+                "scored_tokens": 400
+              },
+              {
+                "id": "fineweb-test-33",
+                "nll_sum": 1403.721477508545,
+                "scored_tokens": 724
+              },
+              {
+                "id": "fineweb-test-34",
+                "nll_sum": 742.7520616054535,
+                "scored_tokens": 299
+              },
+              {
+                "id": "fineweb-test-35",
+                "nll_sum": 1755.7061233520508,
+                "scored_tokens": 643
+              },
+              {
+                "id": "fineweb-test-36",
+                "nll_sum": 2951.738299369812,
+                "scored_tokens": 1157
+              },
+              {
+                "id": "fineweb-test-37",
+                "nll_sum": 496.7846930027008,
+                "scored_tokens": 175
+              },
+              {
+                "id": "fineweb-test-38",
+                "nll_sum": 707.4239087104797,
+                "scored_tokens": 510
+              },
+              {
+                "id": "fineweb-test-39",
+                "nll_sum": 367.32885694503784,
+                "scored_tokens": 167
+              },
+              {
+                "id": "fineweb-test-40",
+                "nll_sum": 10302.067901611328,
+                "scored_tokens": 3248
+              },
+              {
+                "id": "fineweb-test-41",
+                "nll_sum": 1870.5405843257904,
+                "scored_tokens": 765
+              },
+              {
+                "id": "fineweb-test-42",
+                "nll_sum": 2021.3816277980804,
+                "scored_tokens": 827
+              },
+              {
+                "id": "fineweb-test-43",
+                "nll_sum": 635.2418217658997,
+                "scored_tokens": 162
+              },
+              {
+                "id": "fineweb-test-44",
+                "nll_sum": 1525.367522239685,
+                "scored_tokens": 455
+              },
+              {
+                "id": "fineweb-test-45",
+                "nll_sum": 1650.8371801376343,
+                "scored_tokens": 442
+              },
+              {
+                "id": "fineweb-test-46",
+                "nll_sum": 900.3678703308105,
+                "scored_tokens": 360
+              },
+              {
+                "id": "fineweb-test-47",
+                "nll_sum": 2180.3271403312683,
+                "scored_tokens": 634
+              },
+              {
+                "id": "fineweb-test-48",
+                "nll_sum": 1912.8582227230072,
+                "scored_tokens": 719
+              },
+              {
+                "id": "fineweb-test-50",
+                "nll_sum": 2778.8739261627197,
+                "scored_tokens": 1004
+              },
+              {
+                "id": "fineweb-test-51",
+                "nll_sum": 1760.6869719028473,
+                "scored_tokens": 861
+              },
+              {
+                "id": "fineweb-test-52",
+                "nll_sum": 723.3786392211914,
+                "scored_tokens": 270
+              },
+              {
+                "id": "fineweb-test-53",
+                "nll_sum": 5325.1237671375275,
+                "scored_tokens": 2196
+              },
+              {
+                "id": "fineweb-test-54",
+                "nll_sum": 1975.3291726112366,
+                "scored_tokens": 885
+              },
+              {
+                "id": "fineweb-test-55",
+                "nll_sum": 766.0082869529724,
+                "scored_tokens": 257
+              },
+              {
+                "id": "fineweb-test-58",
+                "nll_sum": 914.2878322601318,
+                "scored_tokens": 289
+              },
+              {
+                "id": "fineweb-test-59",
+                "nll_sum": 875.3693661689758,
+                "scored_tokens": 366
+              },
+              {
+                "id": "fineweb-test-60",
+                "nll_sum": 518.1785320043564,
+                "scored_tokens": 267
+              },
+              {
+                "id": "fineweb-test-62",
+                "nll_sum": 3476.7179460525513,
+                "scored_tokens": 1436
+              },
+              {
+                "id": "fineweb-test-63",
+                "nll_sum": 774.897340297699,
+                "scored_tokens": 353
+              },
+              {
+                "id": "fineweb-test-64",
+                "nll_sum": 432.15655732154846,
+                "scored_tokens": 193
+              },
+              {
+                "id": "fineweb-test-65",
+                "nll_sum": 693.8791522979736,
+                "scored_tokens": 294
+              },
+              {
+                "id": "fineweb-test-66",
+                "nll_sum": 1002.096951007843,
+                "scored_tokens": 415
+              },
+              {
+                "id": "fineweb-test-67",
+                "nll_sum": 371.2633066177368,
+                "scored_tokens": 138
+              },
+              {
+                "id": "fineweb-test-68",
+                "nll_sum": 2527.4706439971924,
+                "scored_tokens": 776
+              },
+              {
+                "id": "fineweb-test-69",
+                "nll_sum": 518.0467693805695,
+                "scored_tokens": 241
+              },
+              {
+                "id": "fineweb-test-70",
+                "nll_sum": 535.599719285965,
+                "scored_tokens": 227
+              },
+              {
+                "id": "fineweb-test-71",
+                "nll_sum": 791.3667249679565,
+                "scored_tokens": 295
+              },
+              {
+                "id": "fineweb-test-73",
+                "nll_sum": 1465.9329092502594,
+                "scored_tokens": 483
+              },
+              {
+                "id": "fineweb-test-74",
+                "nll_sum": 1328.682341337204,
+                "scored_tokens": 469
+              },
+              {
+                "id": "fineweb-test-75",
+                "nll_sum": 1044.7194533348083,
+                "scored_tokens": 346
+              },
+              {
+                "id": "fineweb-test-76",
+                "nll_sum": 655.1950721740723,
+                "scored_tokens": 212
+              },
+              {
+                "id": "fineweb-test-77",
+                "nll_sum": 801.0759563446045,
+                "scored_tokens": 296
+              },
+              {
+                "id": "fineweb-test-78",
+                "nll_sum": 1615.6352934837341,
+                "scored_tokens": 669
+              },
+              {
+                "id": "fineweb-test-79",
+                "nll_sum": 5186.384980916977,
+                "scored_tokens": 2064
+              },
+              {
+                "id": "fineweb-test-80",
+                "nll_sum": 982.8272399902344,
+                "scored_tokens": 352
+              },
+              {
+                "id": "fineweb-test-81",
+                "nll_sum": 1176.8354716300964,
+                "scored_tokens": 493
+              },
+              {
+                "id": "fineweb-test-82",
+                "nll_sum": 772.8433561325073,
+                "scored_tokens": 262
+              },
+              {
+                "id": "fineweb-test-83",
+                "nll_sum": 3355.0200271606445,
+                "scored_tokens": 1160
+              },
+              {
+                "id": "fineweb-test-84",
+                "nll_sum": 6859.323380231857,
+                "scored_tokens": 2791
+              },
+              {
+                "id": "fineweb-test-85",
+                "nll_sum": 1611.635183095932,
+                "scored_tokens": 755
+              },
+              {
+                "id": "fineweb-test-86",
+                "nll_sum": 1742.2178192138672,
+                "scored_tokens": 784
+              },
+              {
+                "id": "fineweb-test-88",
+                "nll_sum": 1135.087146282196,
+                "scored_tokens": 449
+              },
+              {
+                "id": "fineweb-test-89",
+                "nll_sum": 6232.8787660598755,
+                "scored_tokens": 1940
+              },
+              {
+                "id": "fineweb-test-90",
+                "nll_sum": 661.0464019775391,
+                "scored_tokens": 228
+              },
+              {
+                "id": "fineweb-test-91",
+                "nll_sum": 2742.1039299964905,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-92",
+                "nll_sum": 1203.341281414032,
+                "scored_tokens": 390
+              },
+              {
+                "id": "fineweb-test-93",
+                "nll_sum": 12300.620419025421,
+                "scored_tokens": 3601
+              },
+              {
+                "id": "fineweb-test-94",
+                "nll_sum": 3359.720320701599,
+                "scored_tokens": 1155
+              },
+              {
+                "id": "fineweb-test-95",
+                "nll_sum": 3358.841625213623,
+                "scored_tokens": 1049
+              },
+              {
+                "id": "fineweb-test-96",
+                "nll_sum": 7550.85898566246,
+                "scored_tokens": 2354
+              },
+              {
+                "id": "fineweb-test-97",
+                "nll_sum": 3722.7256274223328,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-98",
+                "nll_sum": 1485.100109577179,
+                "scored_tokens": 551
+              },
+              {
+                "id": "fineweb-test-99",
+                "nll_sum": 451.0805196762085,
+                "scored_tokens": 173
+              },
+              {
+                "id": "fineweb-test-100",
+                "nll_sum": 7922.0455956459045,
+                "scored_tokens": 2831
+              },
+              {
+                "id": "fineweb-test-101",
+                "nll_sum": 1653.7665948867798,
+                "scored_tokens": 722
+              },
+              {
+                "id": "fineweb-test-102",
+                "nll_sum": 974.2531464099884,
+                "scored_tokens": 361
+              },
+              {
+                "id": "fineweb-test-103",
+                "nll_sum": 1890.5899810791016,
+                "scored_tokens": 688
+              },
+              {
+                "id": "fineweb-test-104",
+                "nll_sum": 1991.980230331421,
+                "scored_tokens": 723
+              },
+              {
+                "id": "fineweb-test-105",
+                "nll_sum": 1233.393193244934,
+                "scored_tokens": 492
+              },
+              {
+                "id": "fineweb-test-106",
+                "nll_sum": 1355.668405532837,
+                "scored_tokens": 538
+              },
+              {
+                "id": "fineweb-test-107",
+                "nll_sum": 775.5000104904175,
+                "scored_tokens": 233
+              },
+              {
+                "id": "fineweb-test-108",
+                "nll_sum": 396.31004333496094,
+                "scored_tokens": 160
+              }
+            ]
+          }
+        }
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": "experiments/turkish-capability/lfm3-1.7b/exp-003-cpt-cont-50m/results-local/cpt-v01/adapter",
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.81,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.9,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.81,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.91,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.72,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.25,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.83,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.86,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.74,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.88,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.93,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.8512500000000001,
+        "official_full_benchmark": false
+      },
+      "manifest": {
+        "status": "completed",
+        "diagnostic": true,
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "protocol": "continuation-screen-official-general-v01",
+        "selected_ids": [
+          "gecturk-01174",
+          "tquad-00468",
+          "xquad_tr-01000",
+          "wmt_en_tr-00496",
+          "mlsum_tr-06904",
+          "gecturk-10521",
+          "tquad-00321",
+          "xquad_tr-00528",
+          "wmt_en_tr-00632",
+          "mlsum_tr-01909",
+          "gecturk-02629",
+          "tquad-00474",
+          "xquad_tr-00987",
+          "wmt_en_tr-00264",
+          "mlsum_tr-02420",
+          "gecturk-07729",
+          "tquad-00618",
+          "xquad_tr-00333",
+          "wmt_en_tr-00111",
+          "mlsum_tr-04583",
+          "gecturk-05401",
+          "tquad-00843",
+          "xquad_tr-00449",
+          "wmt_en_tr-00216",
+          "mlsum_tr-05675",
+          "gecturk-09650",
+          "tquad-00236",
+          "xquad_tr-00874",
+          "wmt_en_tr-00879",
+          "mlsum_tr-01629",
+          "gecturk-07409",
+          "tquad-00239",
+          "xquad_tr-01018",
+          "wmt_en_tr-00172",
+          "mlsum_tr-09934",
+          "gecturk-15444",
+          "tquad-00708",
+          "xquad_tr-01154",
+          "wmt_en_tr-00541",
+          "mlsum_tr-09742",
+          "gecturk-08042",
+          "tquad-00742",
+          "xquad_tr-01017",
+          "wmt_en_tr-00335",
+          "mlsum_tr-02034",
+          "gecturk-06434",
+          "tquad-00352",
+          "xquad_tr-01008",
+          "wmt_en_tr-00348",
+          "mlsum_tr-12163",
+          "gecturk-20740",
+          "tquad-00479",
+          "xquad_tr-00841",
+          "wmt_en_tr-00825",
+          "mlsum_tr-04626",
+          "gecturk-12900",
+          "tquad-00167",
+          "xquad_tr-01101",
+          "wmt_en_tr-00476",
+          "mlsum_tr-01096",
+          "gecturk-19307",
+          "tquad-00451",
+          "xquad_tr-00168",
+          "wmt_en_tr-00999",
+          "mlsum_tr-11939",
+          "gecturk-13950",
+          "tquad-00604",
+          "xquad_tr-00718",
+          "wmt_en_tr-00502",
+          "mlsum_tr-01311",
+          "gecturk-10517",
+          "tquad-00179",
+          "xquad_tr-00849",
+          "wmt_en_tr-00716",
+          "mlsum_tr-01484",
+          "gecturk-18195",
+          "tquad-00826",
+          "xquad_tr-00499",
+          "wmt_en_tr-00167",
+          "mlsum_tr-05408",
+          "gecturk-06881",
+          "tquad-00292",
+          "xquad_tr-01094",
+          "wmt_en_tr-00220",
+          "mlsum_tr-07289",
+          "gecturk-07023",
+          "tquad-00610",
+          "xquad_tr-01161",
+          "wmt_en_tr-00774",
+          "mlsum_tr-01074",
+          "gecturk-05750",
+          "tquad-00384",
+          "xquad_tr-00621",
+          "wmt_en_tr-00994",
+          "mlsum_tr-00239",
+          "gecturk-02501",
+          "tquad-00553",
+          "xquad_tr-00260",
+          "wmt_en_tr-00212",
+          "mlsum_tr-01295"
+        ],
+        "selection": "Random(3407) sample equally per task, round-robin submission; selected before generation",
+        "merged_model": "experiments/turkish-capability/lfm3-1.7b/exp-003-cpt-cont-50m/results-local/cpt-v01/merged-model",
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "expected_count": 100,
+        "count": 100,
+        "seed": 3407,
+        "engine_args": {
+          "model": "experiments/turkish-capability/lfm3-1.7b/exp-003-cpt-cont-50m/results-local/cpt-v01/merged-model",
+          "tokenizer": "LiquidAI/LFM3-1.7B",
+          "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "dtype": "bfloat16",
+          "max_model_len": 8192,
+          "gpu_memory_utilization": 0.75,
+          "enforce_eager": true,
+          "max_num_seqs": 4,
+          "seed": 3407,
+          "trust_remote_code": true,
+          "generation_config": "vllm",
+          "enable_prefix_caching": false
+        },
+        "eos_token_ids": [
+          124900
+        ],
+        "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+        "decoding": {
+          "temperature": 0.1,
+          "top_k": 50,
+          "top_p": 1.0,
+          "repetition_penalty": 1.1,
+          "max_new_tokens": 4096,
+          "context_budget": 8192,
+          "enable_thinking": false,
+          "ignore_eos": true,
+          "stop_token_ids": [
+            124900
+          ]
+        },
+        "packages": {
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+        },
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "wall_seconds": 455.5646393740026,
+        "timing_note": "Per-request generation_seconds overlap under batching; use wall_seconds for aggregate throughput."
+      },
+      "answers_sha256": "0329b73d40b1b2f4a5cf2ea85c22aad60af56db90e0ca0cf6481bb5287db6606"
+    },
+    "exp-004-cpt-cont-100m": {
+      "scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 0.95,
+            "format_failure_candidate_rate": 0.95,
+            "truncation_rate": 0.7,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [
+              2629
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                1174,
+                10521,
+                2629,
+                7729,
+                5401
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                2501,
+                5750
+              ],
+              "truncated": [
+                10521,
+                7729,
+                5401,
+                9650,
+                7409
+              ],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.005258817375254494,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.005258817375254494,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.65,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                321,
+                474,
+                618,
+                843,
+                236
+              ],
+              "highest_score": [
+                352,
+                239,
+                384,
+                179,
+                468
+              ],
+              "truncated": [
+                321,
+                474,
+                618,
+                843,
+                236
+              ],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.0034472086374304476,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.0034472086374304476,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.65,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1000,
+                987,
+                449,
+                874,
+                1018
+              ],
+              "highest_score": [
+                260,
+                1017,
+                528,
+                333,
+                718
+              ],
+              "truncated": [
+                528,
+                987,
+                874,
+                1154,
+                1017
+              ],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 0.03652708884117467,
+            "corpus_chrf": 2.688441194851171,
+            "mean_sentence_bleu": 0.6764842164026722,
+            "mean_sentence_chrf": 8.624385204148002,
+            "truncation_rate": 0.45,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                476,
+                212,
+                825,
+                632,
+                502
+              ],
+              "highest_score": [
+                716,
+                541,
+                167,
+                999,
+                220
+              ],
+              "truncated": [
+                632,
+                264,
+                111,
+                216,
+                879
+              ],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.01540827429635359,
+            "mean_rouge2": 0.0022695914492802476,
+            "mean_rougeL": 0.01306925005910349,
+            "mean_rougeLsum": 0.011107413693800744,
+            "truncation_rate": 0.8,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                1909,
+                5675,
+                1096,
+                11939,
+                2034
+              ],
+              "highest_score": [
+                4583,
+                1074,
+                1311,
+                239,
+                6904
+              ],
+              "truncated": [
+                1909,
+                2420,
+                4583,
+                5675,
+                1629
+              ],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "exact_loop": 9,
+          "eos": 26,
+          "length": 65
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "text": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": "experiments/turkish-capability/lfm3-1.7b/exp-004-cpt-cont-100m/results-local/cpt-v01/adapter",
+        "context": 2048,
+        "policy": "raw text; no BOS/EOS; first token/document not scored; 2047 new targets/window",
+        "results": {
+          "wiki_eval": {
+            "nll": 2.3366253662028065,
+            "perplexity": 10.346262736089892,
+            "scored_tokens": 59817,
+            "source_sha256": "81eec96c9e25ebfd0d8209c4ca8d67a62311e0368ceb34d5393b73052339b0ce",
+            "documents": [
+              {
+                "id": "wiki-519789",
+                "nll_sum": 668.087189912796,
+                "scored_tokens": 327
+              },
+              {
+                "id": "wiki-2254891",
+                "nll_sum": 388.5477194786072,
+                "scored_tokens": 191
+              },
+              {
+                "id": "wiki-1767637",
+                "nll_sum": 695.3682677745819,
+                "scored_tokens": 458
+              },
+              {
+                "id": "wiki-358285",
+                "nll_sum": 1617.522720336914,
+                "scored_tokens": 576
+              },
+              {
+                "id": "wiki-3557761",
+                "nll_sum": 593.4759736061096,
+                "scored_tokens": 205
+              },
+              {
+                "id": "wiki-3299374",
+                "nll_sum": 1023.2415754795074,
+                "scored_tokens": 606
+              },
+              {
+                "id": "wiki-333826",
+                "nll_sum": 2130.544173717499,
+                "scored_tokens": 1050
+              },
+              {
+                "id": "wiki-2646668",
+                "nll_sum": 857.1776962280273,
+                "scored_tokens": 252
+              },
+              {
+                "id": "wiki-1009774",
+                "nll_sum": 443.15581452846527,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2330643",
+                "nll_sum": 2101.9633207321167,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-647879",
+                "nll_sum": 789.9934952259064,
+                "scored_tokens": 333
+              },
+              {
+                "id": "wiki-1700580",
+                "nll_sum": 880.8431367874146,
+                "scored_tokens": 412
+              },
+              {
+                "id": "wiki-3593974",
+                "nll_sum": 477.1354675292969,
+                "scored_tokens": 200
+              },
+              {
+                "id": "wiki-2330096",
+                "nll_sum": 832.5949423313141,
+                "scored_tokens": 347
+              },
+              {
+                "id": "wiki-1663044",
+                "nll_sum": 1844.4706635475159,
+                "scored_tokens": 714
+              },
+              {
+                "id": "wiki-2320966",
+                "nll_sum": 404.14963603019714,
+                "scored_tokens": 215
+              },
+              {
+                "id": "wiki-2185944",
+                "nll_sum": 2134.144943714142,
+                "scored_tokens": 922
+              },
+              {
+                "id": "wiki-3502233",
+                "nll_sum": 1057.1239938735962,
+                "scored_tokens": 386
+              },
+              {
+                "id": "wiki-862342",
+                "nll_sum": 559.3388285636902,
+                "scored_tokens": 258
+              },
+              {
+                "id": "wiki-2105052",
+                "nll_sum": 4519.864874601364,
+                "scored_tokens": 1733
+              },
+              {
+                "id": "wiki-2224306",
+                "nll_sum": 886.6659829616547,
+                "scored_tokens": 427
+              },
+              {
+                "id": "wiki-3504810",
+                "nll_sum": 4226.330993175507,
+                "scored_tokens": 1610
+              },
+              {
+                "id": "wiki-2136219",
+                "nll_sum": 469.22106647491455,
+                "scored_tokens": 238
+              },
+              {
+                "id": "wiki-337838",
+                "nll_sum": 457.2346251010895,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-2200905",
+                "nll_sum": 1233.831393480301,
+                "scored_tokens": 638
+              },
+              {
+                "id": "wiki-287184",
+                "nll_sum": 742.2146594524384,
+                "scored_tokens": 357
+              },
+              {
+                "id": "wiki-3589916",
+                "nll_sum": 974.898030757904,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-190218",
+                "nll_sum": 472.7036052942276,
+                "scored_tokens": 245
+              },
+              {
+                "id": "wiki-107666",
+                "nll_sum": 674.4872980117798,
+                "scored_tokens": 271
+              },
+              {
+                "id": "wiki-47734",
+                "nll_sum": 3269.775030374527,
+                "scored_tokens": 1433
+              },
+              {
+                "id": "wiki-2271395",
+                "nll_sum": 3814.212308883667,
+                "scored_tokens": 1528
+              },
+              {
+                "id": "wiki-323257",
+                "nll_sum": 2246.833752632141,
+                "scored_tokens": 866
+              },
+              {
+                "id": "wiki-3084529",
+                "nll_sum": 655.9254114627838,
+                "scored_tokens": 259
+              },
+              {
+                "id": "wiki-2955724",
+                "nll_sum": 7838.896671772003,
+                "scored_tokens": 2904
+              },
+              {
+                "id": "wiki-2888245",
+                "nll_sum": 350.68938195705414,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-3557825",
+                "nll_sum": 1908.2664465904236,
+                "scored_tokens": 809
+              },
+              {
+                "id": "wiki-560409",
+                "nll_sum": 1415.6698694229126,
+                "scored_tokens": 501
+              },
+              {
+                "id": "wiki-3584442",
+                "nll_sum": 2562.3603093624115,
+                "scored_tokens": 1009
+              },
+              {
+                "id": "wiki-2011255",
+                "nll_sum": 517.6593172550201,
+                "scored_tokens": 446
+              },
+              {
+                "id": "wiki-477699",
+                "nll_sum": 1687.3137109279633,
+                "scored_tokens": 621
+              },
+              {
+                "id": "wiki-2085590",
+                "nll_sum": 851.6611571311951,
+                "scored_tokens": 346
+              },
+              {
+                "id": "wiki-1581745",
+                "nll_sum": 517.1561794281006,
+                "scored_tokens": 216
+              },
+              {
+                "id": "wiki-1702680",
+                "nll_sum": 2368.4771251678467,
+                "scored_tokens": 920
+              },
+              {
+                "id": "wiki-144223",
+                "nll_sum": 2635.292106151581,
+                "scored_tokens": 982
+              },
+              {
+                "id": "wiki-1889080",
+                "nll_sum": 881.6058332920074,
+                "scored_tokens": 558
+              },
+              {
+                "id": "wiki-153444",
+                "nll_sum": 878.0480256080627,
+                "scored_tokens": 394
+              },
+              {
+                "id": "wiki-2192476",
+                "nll_sum": 979.3594980239868,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-931978",
+                "nll_sum": 1356.8021941184998,
+                "scored_tokens": 649
+              },
+              {
+                "id": "wiki-250541",
+                "nll_sum": 2340.95939040184,
+                "scored_tokens": 885
+              },
+              {
+                "id": "wiki-1923755",
+                "nll_sum": 1680.4374945163727,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-2621592",
+                "nll_sum": 366.99341773986816,
+                "scored_tokens": 190
+              },
+              {
+                "id": "wiki-778851",
+                "nll_sum": 757.3429491519928,
+                "scored_tokens": 373
+              },
+              {
+                "id": "wiki-892396",
+                "nll_sum": 540.9437239170074,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-567362",
+                "nll_sum": 814.5613980293274,
+                "scored_tokens": 290
+              },
+              {
+                "id": "wiki-1958564",
+                "nll_sum": 1297.5459728240967,
+                "scored_tokens": 469
+              },
+              {
+                "id": "wiki-907495",
+                "nll_sum": 1390.4142723083496,
+                "scored_tokens": 642
+              },
+              {
+                "id": "wiki-376391",
+                "nll_sum": 743.3243598937988,
+                "scored_tokens": 296
+              },
+              {
+                "id": "wiki-227192",
+                "nll_sum": 446.03269600868225,
+                "scored_tokens": 177
+              },
+              {
+                "id": "wiki-1096418",
+                "nll_sum": 774.9219989776611,
+                "scored_tokens": 268
+              },
+              {
+                "id": "wiki-168385",
+                "nll_sum": 1095.1537747383118,
+                "scored_tokens": 533
+              },
+              {
+                "id": "wiki-2360225",
+                "nll_sum": 1973.7935342788696,
+                "scored_tokens": 827
+              },
+              {
+                "id": "wiki-3577898",
+                "nll_sum": 548.8353171348572,
+                "scored_tokens": 242
+              },
+              {
+                "id": "wiki-235019",
+                "nll_sum": 2151.348189353943,
+                "scored_tokens": 708
+              },
+              {
+                "id": "wiki-3468022",
+                "nll_sum": 773.4052748680115,
+                "scored_tokens": 273
+              },
+              {
+                "id": "wiki-56723",
+                "nll_sum": 707.3099822998047,
+                "scored_tokens": 284
+              },
+              {
+                "id": "wiki-1316627",
+                "nll_sum": 944.5568823814392,
+                "scored_tokens": 442
+              },
+              {
+                "id": "wiki-916446",
+                "nll_sum": 2436.3152742385864,
+                "scored_tokens": 1100
+              },
+              {
+                "id": "wiki-3056358",
+                "nll_sum": 888.6345397233963,
+                "scored_tokens": 499
+              },
+              {
+                "id": "wiki-129251",
+                "nll_sum": 1930.2205834388733,
+                "scored_tokens": 1082
+              },
+              {
+                "id": "wiki-3371995",
+                "nll_sum": 3509.633192539215,
+                "scored_tokens": 1394
+              },
+              {
+                "id": "wiki-382888",
+                "nll_sum": 632.5742230415344,
+                "scored_tokens": 214
+              },
+              {
+                "id": "wiki-2170807",
+                "nll_sum": 306.86907613277435,
+                "scored_tokens": 201
+              },
+              {
+                "id": "wiki-1196653",
+                "nll_sum": 3673.5376653671265,
+                "scored_tokens": 1626
+              },
+              {
+                "id": "wiki-2042700",
+                "nll_sum": 580.1087837219238,
+                "scored_tokens": 344
+              },
+              {
+                "id": "wiki-2841230",
+                "nll_sum": 1860.354437828064,
+                "scored_tokens": 940
+              },
+              {
+                "id": "wiki-2095238",
+                "nll_sum": 327.73850536346436,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-3353479",
+                "nll_sum": 806.7907848358154,
+                "scored_tokens": 328
+              },
+              {
+                "id": "wiki-128155",
+                "nll_sum": 3872.459567308426,
+                "scored_tokens": 1619
+              },
+              {
+                "id": "wiki-2188565",
+                "nll_sum": 901.2083787918091,
+                "scored_tokens": 354
+              },
+              {
+                "id": "wiki-2449887",
+                "nll_sum": 833.6986384391785,
+                "scored_tokens": 363
+              },
+              {
+                "id": "wiki-677460",
+                "nll_sum": 582.4747204780579,
+                "scored_tokens": 311
+              },
+              {
+                "id": "wiki-287520",
+                "nll_sum": 453.1713399887085,
+                "scored_tokens": 212
+              },
+              {
+                "id": "wiki-2343281",
+                "nll_sum": 2508.5020065307617,
+                "scored_tokens": 1316
+              },
+              {
+                "id": "wiki-2922843",
+                "nll_sum": 1582.571876525879,
+                "scored_tokens": 664
+              },
+              {
+                "id": "wiki-1441370",
+                "nll_sum": 847.4591343402863,
+                "scored_tokens": 518
+              },
+              {
+                "id": "wiki-2106478",
+                "nll_sum": 971.6613621711731,
+                "scored_tokens": 454
+              },
+              {
+                "id": "wiki-84841",
+                "nll_sum": 2510.95556640625,
+                "scored_tokens": 1024
+              },
+              {
+                "id": "wiki-2438451",
+                "nll_sum": 1481.0340566635132,
+                "scored_tokens": 667
+              },
+              {
+                "id": "wiki-3066329",
+                "nll_sum": 2353.984773159027,
+                "scored_tokens": 858
+              },
+              {
+                "id": "wiki-1177870",
+                "nll_sum": 877.5263547897339,
+                "scored_tokens": 470
+              },
+              {
+                "id": "wiki-1491075",
+                "nll_sum": 356.837513923645,
+                "scored_tokens": 174
+              },
+              {
+                "id": "wiki-2747210",
+                "nll_sum": 1435.1925992965698,
+                "scored_tokens": 460
+              },
+              {
+                "id": "wiki-3325664",
+                "nll_sum": 1349.1500344276428,
+                "scored_tokens": 658
+              },
+              {
+                "id": "wiki-73455",
+                "nll_sum": 504.16851103305817,
+                "scored_tokens": 265
+              },
+              {
+                "id": "wiki-35924",
+                "nll_sum": 1105.7630383968353,
+                "scored_tokens": 547
+              },
+              {
+                "id": "wiki-2233462",
+                "nll_sum": 902.9615306854248,
+                "scored_tokens": 330
+              },
+              {
+                "id": "wiki-1022598",
+                "nll_sum": 1339.5072932243347,
+                "scored_tokens": 418
+              },
+              {
+                "id": "wiki-2713139",
+                "nll_sum": 2146.2402510643005,
+                "scored_tokens": 907
+              },
+              {
+                "id": "wiki-75272",
+                "nll_sum": 959.3432374000549,
+                "scored_tokens": 314
+              },
+              {
+                "id": "wiki-3059110",
+                "nll_sum": 2701.0536317825317,
+                "scored_tokens": 1298
+              }
+            ]
+          },
+          "web_eval": {
+            "nll": 2.617838271765576,
+            "perplexity": 13.706062754461911,
+            "scored_tokens": 73918,
+            "source_sha256": "3be2c2a9a8f7ae6295f15b41a5e2068f281ec4f252eab844ee6ac0be1ba97624",
+            "documents": [
+              {
+                "id": "fineweb-test-0",
+                "nll_sum": 1063.6427993774414,
+                "scored_tokens": 372
+              },
+              {
+                "id": "fineweb-test-1",
+                "nll_sum": 905.3439688682556,
+                "scored_tokens": 313
+              },
+              {
+                "id": "fineweb-test-2",
+                "nll_sum": 420.99441719055176,
+                "scored_tokens": 268
+              },
+              {
+                "id": "fineweb-test-3",
+                "nll_sum": 1185.49995803833,
+                "scored_tokens": 474
+              },
+              {
+                "id": "fineweb-test-4",
+                "nll_sum": 9167.605795145035,
+                "scored_tokens": 3197
+              },
+              {
+                "id": "fineweb-test-5",
+                "nll_sum": 501.9677038192749,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-6",
+                "nll_sum": 542.5802116394043,
+                "scored_tokens": 176
+              },
+              {
+                "id": "fineweb-test-7",
+                "nll_sum": 483.795268535614,
+                "scored_tokens": 210
+              },
+              {
+                "id": "fineweb-test-8",
+                "nll_sum": 580.5563018321991,
+                "scored_tokens": 253
+              },
+              {
+                "id": "fineweb-test-9",
+                "nll_sum": 3441.4335536956787,
+                "scored_tokens": 1576
+              },
+              {
+                "id": "fineweb-test-10",
+                "nll_sum": 2611.0415863990784,
+                "scored_tokens": 1190
+              },
+              {
+                "id": "fineweb-test-11",
+                "nll_sum": 842.1095690727234,
+                "scored_tokens": 383
+              },
+              {
+                "id": "fineweb-test-12",
+                "nll_sum": 1723.3535194396973,
+                "scored_tokens": 580
+              },
+              {
+                "id": "fineweb-test-13",
+                "nll_sum": 880.2516226768494,
+                "scored_tokens": 379
+              },
+              {
+                "id": "fineweb-test-14",
+                "nll_sum": 1116.3849821090698,
+                "scored_tokens": 516
+              },
+              {
+                "id": "fineweb-test-15",
+                "nll_sum": 2582.5921120643616,
+                "scored_tokens": 1006
+              },
+              {
+                "id": "fineweb-test-16",
+                "nll_sum": 863.1793124675751,
+                "scored_tokens": 446
+              },
+              {
+                "id": "fineweb-test-17",
+                "nll_sum": 704.602108001709,
+                "scored_tokens": 196
+              },
+              {
+                "id": "fineweb-test-18",
+                "nll_sum": 2469.461347579956,
+                "scored_tokens": 1154
+              },
+              {
+                "id": "fineweb-test-19",
+                "nll_sum": 583.1732354164124,
+                "scored_tokens": 279
+              },
+              {
+                "id": "fineweb-test-20",
+                "nll_sum": 1559.7871470451355,
+                "scored_tokens": 606
+              },
+              {
+                "id": "fineweb-test-21",
+                "nll_sum": 602.0188217163086,
+                "scored_tokens": 232
+              },
+              {
+                "id": "fineweb-test-24",
+                "nll_sum": 580.9972047805786,
+                "scored_tokens": 226
+              },
+              {
+                "id": "fineweb-test-25",
+                "nll_sum": 2836.10115647316,
+                "scored_tokens": 1025
+              },
+              {
+                "id": "fineweb-test-26",
+                "nll_sum": 485.461377620697,
+                "scored_tokens": 206
+              },
+              {
+                "id": "fineweb-test-27",
+                "nll_sum": 2026.4099085330963,
+                "scored_tokens": 795
+              },
+              {
+                "id": "fineweb-test-28",
+                "nll_sum": 4169.182715415955,
+                "scored_tokens": 1781
+              },
+              {
+                "id": "fineweb-test-29",
+                "nll_sum": 2846.440887451172,
+                "scored_tokens": 1200
+              },
+              {
+                "id": "fineweb-test-30",
+                "nll_sum": 1336.7483332157135,
+                "scored_tokens": 481
+              },
+              {
+                "id": "fineweb-test-31",
+                "nll_sum": 1189.5986557006836,
+                "scored_tokens": 400
+              },
+              {
+                "id": "fineweb-test-33",
+                "nll_sum": 1346.2013955116272,
+                "scored_tokens": 724
+              },
+              {
+                "id": "fineweb-test-34",
+                "nll_sum": 686.7376804351807,
+                "scored_tokens": 299
+              },
+              {
+                "id": "fineweb-test-35",
+                "nll_sum": 1684.7841019630432,
+                "scored_tokens": 643
+              },
+              {
+                "id": "fineweb-test-36",
+                "nll_sum": 2785.9373755455017,
+                "scored_tokens": 1157
+              },
+              {
+                "id": "fineweb-test-37",
+                "nll_sum": 468.56016516685486,
+                "scored_tokens": 175
+              },
+              {
+                "id": "fineweb-test-38",
+                "nll_sum": 634.7430503368378,
+                "scored_tokens": 510
+              },
+              {
+                "id": "fineweb-test-39",
+                "nll_sum": 343.52241110801697,
+                "scored_tokens": 167
+              },
+              {
+                "id": "fineweb-test-40",
+                "nll_sum": 9891.969928979874,
+                "scored_tokens": 3248
+              },
+              {
+                "id": "fineweb-test-41",
+                "nll_sum": 1775.1514148712158,
+                "scored_tokens": 765
+              },
+              {
+                "id": "fineweb-test-42",
+                "nll_sum": 1927.3590950965881,
+                "scored_tokens": 827
+              },
+              {
+                "id": "fineweb-test-43",
+                "nll_sum": 602.7719821929932,
+                "scored_tokens": 162
+              },
+              {
+                "id": "fineweb-test-44",
+                "nll_sum": 1482.4518954753876,
+                "scored_tokens": 455
+              },
+              {
+                "id": "fineweb-test-45",
+                "nll_sum": 1625.8522906303406,
+                "scored_tokens": 442
+              },
+              {
+                "id": "fineweb-test-46",
+                "nll_sum": 854.036979675293,
+                "scored_tokens": 360
+              },
+              {
+                "id": "fineweb-test-47",
+                "nll_sum": 2098.1647911071777,
+                "scored_tokens": 634
+              },
+              {
+                "id": "fineweb-test-48",
+                "nll_sum": 1831.6198542118073,
+                "scored_tokens": 719
+              },
+              {
+                "id": "fineweb-test-50",
+                "nll_sum": 2664.775465965271,
+                "scored_tokens": 1004
+              },
+              {
+                "id": "fineweb-test-51",
+                "nll_sum": 1673.5875535011292,
+                "scored_tokens": 861
+              },
+              {
+                "id": "fineweb-test-52",
+                "nll_sum": 700.610933303833,
+                "scored_tokens": 270
+              },
+              {
+                "id": "fineweb-test-53",
+                "nll_sum": 5118.796901464462,
+                "scored_tokens": 2196
+              },
+              {
+                "id": "fineweb-test-54",
+                "nll_sum": 1907.4125611782074,
+                "scored_tokens": 885
+              },
+              {
+                "id": "fineweb-test-55",
+                "nll_sum": 747.078367471695,
+                "scored_tokens": 257
+              },
+              {
+                "id": "fineweb-test-58",
+                "nll_sum": 877.7635395526886,
+                "scored_tokens": 289
+              },
+              {
+                "id": "fineweb-test-59",
+                "nll_sum": 833.3571996688843,
+                "scored_tokens": 366
+              },
+              {
+                "id": "fineweb-test-60",
+                "nll_sum": 495.9119703769684,
+                "scored_tokens": 267
+              },
+              {
+                "id": "fineweb-test-62",
+                "nll_sum": 3372.0338068008423,
+                "scored_tokens": 1436
+              },
+              {
+                "id": "fineweb-test-63",
+                "nll_sum": 743.976646900177,
+                "scored_tokens": 353
+              },
+              {
+                "id": "fineweb-test-64",
+                "nll_sum": 402.0789465904236,
+                "scored_tokens": 193
+              },
+              {
+                "id": "fineweb-test-65",
+                "nll_sum": 649.8279805183411,
+                "scored_tokens": 294
+              },
+              {
+                "id": "fineweb-test-66",
+                "nll_sum": 978.6178064346313,
+                "scored_tokens": 415
+              },
+              {
+                "id": "fineweb-test-67",
+                "nll_sum": 353.14216661453247,
+                "scored_tokens": 138
+              },
+              {
+                "id": "fineweb-test-68",
+                "nll_sum": 2405.840072631836,
+                "scored_tokens": 776
+              },
+              {
+                "id": "fineweb-test-69",
+                "nll_sum": 493.81848669052124,
+                "scored_tokens": 241
+              },
+              {
+                "id": "fineweb-test-70",
+                "nll_sum": 515.9475119113922,
+                "scored_tokens": 227
+              },
+              {
+                "id": "fineweb-test-71",
+                "nll_sum": 717.8516387939453,
+                "scored_tokens": 295
+              },
+              {
+                "id": "fineweb-test-73",
+                "nll_sum": 1375.476352930069,
+                "scored_tokens": 483
+              },
+              {
+                "id": "fineweb-test-74",
+                "nll_sum": 1254.992954492569,
+                "scored_tokens": 469
+              },
+              {
+                "id": "fineweb-test-75",
+                "nll_sum": 1014.3895626068115,
+                "scored_tokens": 346
+              },
+              {
+                "id": "fineweb-test-76",
+                "nll_sum": 626.0919170379639,
+                "scored_tokens": 212
+              },
+              {
+                "id": "fineweb-test-77",
+                "nll_sum": 768.362211227417,
+                "scored_tokens": 296
+              },
+              {
+                "id": "fineweb-test-78",
+                "nll_sum": 1574.6975026130676,
+                "scored_tokens": 669
+              },
+              {
+                "id": "fineweb-test-79",
+                "nll_sum": 4985.237123250961,
+                "scored_tokens": 2064
+              },
+              {
+                "id": "fineweb-test-80",
+                "nll_sum": 946.9973449707031,
+                "scored_tokens": 352
+              },
+              {
+                "id": "fineweb-test-81",
+                "nll_sum": 1049.572526216507,
+                "scored_tokens": 493
+              },
+              {
+                "id": "fineweb-test-82",
+                "nll_sum": 752.1639094352722,
+                "scored_tokens": 262
+              },
+              {
+                "id": "fineweb-test-83",
+                "nll_sum": 3216.9175720214844,
+                "scored_tokens": 1160
+              },
+              {
+                "id": "fineweb-test-84",
+                "nll_sum": 6641.5455005168915,
+                "scored_tokens": 2791
+              },
+              {
+                "id": "fineweb-test-85",
+                "nll_sum": 1546.4058589935303,
+                "scored_tokens": 755
+              },
+              {
+                "id": "fineweb-test-86",
+                "nll_sum": 1624.1199760437012,
+                "scored_tokens": 784
+              },
+              {
+                "id": "fineweb-test-88",
+                "nll_sum": 1084.0352430343628,
+                "scored_tokens": 449
+              },
+              {
+                "id": "fineweb-test-89",
+                "nll_sum": 6017.024312019348,
+                "scored_tokens": 1940
+              },
+              {
+                "id": "fineweb-test-90",
+                "nll_sum": 648.7741069793701,
+                "scored_tokens": 228
+              },
+              {
+                "id": "fineweb-test-91",
+                "nll_sum": 2652.0553336143494,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-92",
+                "nll_sum": 1174.96484041214,
+                "scored_tokens": 390
+              },
+              {
+                "id": "fineweb-test-93",
+                "nll_sum": 11786.725467681885,
+                "scored_tokens": 3601
+              },
+              {
+                "id": "fineweb-test-94",
+                "nll_sum": 3219.0546011924744,
+                "scored_tokens": 1155
+              },
+              {
+                "id": "fineweb-test-95",
+                "nll_sum": 3278.5106558799744,
+                "scored_tokens": 1049
+              },
+              {
+                "id": "fineweb-test-96",
+                "nll_sum": 7299.444939374924,
+                "scored_tokens": 2354
+              },
+              {
+                "id": "fineweb-test-97",
+                "nll_sum": 3620.494160413742,
+                "scored_tokens": 989
+              },
+              {
+                "id": "fineweb-test-98",
+                "nll_sum": 1423.4796798229218,
+                "scored_tokens": 551
+              },
+              {
+                "id": "fineweb-test-99",
+                "nll_sum": 406.39964032173157,
+                "scored_tokens": 173
+              },
+              {
+                "id": "fineweb-test-100",
+                "nll_sum": 7737.239789962769,
+                "scored_tokens": 2831
+              },
+              {
+                "id": "fineweb-test-101",
+                "nll_sum": 1579.1591386795044,
+                "scored_tokens": 722
+              },
+              {
+                "id": "fineweb-test-102",
+                "nll_sum": 915.5939514636993,
+                "scored_tokens": 361
+              },
+              {
+                "id": "fineweb-test-103",
+                "nll_sum": 1802.2313652038574,
+                "scored_tokens": 688
+              },
+              {
+                "id": "fineweb-test-104",
+                "nll_sum": 1886.1754531860352,
+                "scored_tokens": 723
+              },
+              {
+                "id": "fineweb-test-105",
+                "nll_sum": 1189.5065488815308,
+                "scored_tokens": 492
+              },
+              {
+                "id": "fineweb-test-106",
+                "nll_sum": 1298.915186882019,
+                "scored_tokens": 538
+              },
+              {
+                "id": "fineweb-test-107",
+                "nll_sum": 731.1137833595276,
+                "scored_tokens": 233
+              },
+              {
+                "id": "fineweb-test-108",
+                "nll_sum": 382.8913116455078,
+                "scored_tokens": 160
+              }
+            ]
+          }
+        }
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": "experiments/turkish-capability/lfm3-1.7b/exp-004-cpt-cont-100m/results-local/cpt-v01/adapter",
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.87,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.91,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.86,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.92,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.77,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.33,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.7,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.91,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.77,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.89,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.97,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.868125,
+        "official_full_benchmark": false
+      },
+      "manifest": {
+        "status": "completed",
+        "diagnostic": true,
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "protocol": "continuation-screen-official-general-v01",
+        "selected_ids": [
+          "gecturk-01174",
+          "tquad-00468",
+          "xquad_tr-01000",
+          "wmt_en_tr-00496",
+          "mlsum_tr-06904",
+          "gecturk-10521",
+          "tquad-00321",
+          "xquad_tr-00528",
+          "wmt_en_tr-00632",
+          "mlsum_tr-01909",
+          "gecturk-02629",
+          "tquad-00474",
+          "xquad_tr-00987",
+          "wmt_en_tr-00264",
+          "mlsum_tr-02420",
+          "gecturk-07729",
+          "tquad-00618",
+          "xquad_tr-00333",
+          "wmt_en_tr-00111",
+          "mlsum_tr-04583",
+          "gecturk-05401",
+          "tquad-00843",
+          "xquad_tr-00449",
+          "wmt_en_tr-00216",
+          "mlsum_tr-05675",
+          "gecturk-09650",
+          "tquad-00236",
+          "xquad_tr-00874",
+          "wmt_en_tr-00879",
+          "mlsum_tr-01629",
+          "gecturk-07409",
+          "tquad-00239",
+          "xquad_tr-01018",
+          "wmt_en_tr-00172",
+          "mlsum_tr-09934",
+          "gecturk-15444",
+          "tquad-00708",
+          "xquad_tr-01154",
+          "wmt_en_tr-00541",
+          "mlsum_tr-09742",
+          "gecturk-08042",
+          "tquad-00742",
+          "xquad_tr-01017",
+          "wmt_en_tr-00335",
+          "mlsum_tr-02034",
+          "gecturk-06434",
+          "tquad-00352",
+          "xquad_tr-01008",
+          "wmt_en_tr-00348",
+          "mlsum_tr-12163",
+          "gecturk-20740",
+          "tquad-00479",
+          "xquad_tr-00841",
+          "wmt_en_tr-00825",
+          "mlsum_tr-04626",
+          "gecturk-12900",
+          "tquad-00167",
+          "xquad_tr-01101",
+          "wmt_en_tr-00476",
+          "mlsum_tr-01096",
+          "gecturk-19307",
+          "tquad-00451",
+          "xquad_tr-00168",
+          "wmt_en_tr-00999",
+          "mlsum_tr-11939",
+          "gecturk-13950",
+          "tquad-00604",
+          "xquad_tr-00718",
+          "wmt_en_tr-00502",
+          "mlsum_tr-01311",
+          "gecturk-10517",
+          "tquad-00179",
+          "xquad_tr-00849",
+          "wmt_en_tr-00716",
+          "mlsum_tr-01484",
+          "gecturk-18195",
+          "tquad-00826",
+          "xquad_tr-00499",
+          "wmt_en_tr-00167",
+          "mlsum_tr-05408",
+          "gecturk-06881",
+          "tquad-00292",
+          "xquad_tr-01094",
+          "wmt_en_tr-00220",
+          "mlsum_tr-07289",
+          "gecturk-07023",
+          "tquad-00610",
+          "xquad_tr-01161",
+          "wmt_en_tr-00774",
+          "mlsum_tr-01074",
+          "gecturk-05750",
+          "tquad-00384",
+          "xquad_tr-00621",
+          "wmt_en_tr-00994",
+          "mlsum_tr-00239",
+          "gecturk-02501",
+          "tquad-00553",
+          "xquad_tr-00260",
+          "wmt_en_tr-00212",
+          "mlsum_tr-01295"
+        ],
+        "selection": "Random(3407) sample equally per task, round-robin submission; selected before generation",
+        "merged_model": "experiments/turkish-capability/lfm3-1.7b/exp-004-cpt-cont-100m/results-local/cpt-v01/merged-model",
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "expected_count": 100,
+        "count": 100,
+        "seed": 3407,
+        "engine_args": {
+          "model": "experiments/turkish-capability/lfm3-1.7b/exp-004-cpt-cont-100m/results-local/cpt-v01/merged-model",
+          "tokenizer": "LiquidAI/LFM3-1.7B",
+          "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "dtype": "bfloat16",
+          "max_model_len": 8192,
+          "gpu_memory_utilization": 0.75,
+          "enforce_eager": true,
+          "max_num_seqs": 4,
+          "seed": 3407,
+          "trust_remote_code": true,
+          "generation_config": "vllm",
+          "enable_prefix_caching": false
+        },
+        "eos_token_ids": [
+          124900
+        ],
+        "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+        "decoding": {
+          "temperature": 0.1,
+          "top_k": 50,
+          "top_p": 1.0,
+          "repetition_penalty": 1.1,
+          "max_new_tokens": 4096,
+          "context_budget": 8192,
+          "enable_thinking": false,
+          "ignore_eos": true,
+          "stop_token_ids": [
+            124900
+          ]
+        },
+        "packages": {
+          "torch": "2.14.0",
+          "transformers": "5.20.2",
+          "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+        },
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "wall_seconds": 523.170654001995,
+        "timing_note": "Per-request generation_seconds overlap under batching; use wall_seconds for aggregate throughput."
+      },
+      "answers_sha256": "148664e5b0d1e10bb38eac412700dd11bdc9eb151d32b3b585819213c5e6f7f7"
+    }
+  }
+}

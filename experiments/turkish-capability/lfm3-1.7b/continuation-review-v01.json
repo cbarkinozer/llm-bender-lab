@@ -1,0 +1,89 @@
+{
+  "status": "accepted_for_exploratory_continuation",
+  "reviewer": "Codex agent; not independent human certification",
+  "manifest_sha256": "56a7ec2b8999ca1bb8c8e228549a439bced805d7ab160d83b9d5f65c3948f3b8",
+  "sample_sha256": "26f1d3110918e22657f03859834064aa06a2057e876a7c9bb2ff59bb9ac26ea9",
+  "scope": {
+    "seed": 3407,
+    "previews_read": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "preview_characters": 350,
+    "full_samples_read": [
+      10,
+      16
+    ]
+  },
+  "observations": [
+    "news, consumer complaints, technology tutorials, sports history, fiction and informal forum language",
+    "Residual product-description prose, navigation and forum typos remain; not a uniformly clean or factually certified corpus",
+    "Prior review-informed game-download, cheat, commercial-health and sexual-product exclusions applied before freezing",
+    "Intermediate v01-v04 selections were not used for training; UTF8 Turkish filter fidelity checked before final v05 selection"
+  ],
+  "limitations": [
+    "Bounded shuffled frame from four train shards; not representative of all FineWeb2",
+    "Cross-train near-duplicate search uses 12 bottom-hash anchors (>=2 shared) then exact five-word containment; approximate candidate recall, not exhaustive. Benchmark/eval and original Wiki use exhaustive five-word inverted-index checks",
+    "Prior CPT-B exact/paragraph/anchor-near duplicates excluded; additional tokens are fresh FineWeb prose, not replayed Wiki",
+    "Host cap is not a registrable-domain cap",
+    "No native topic labels; no claim of equal topic balance",
+    "Heuristic prose filtering biases against lists, short pages and some legitimate commerce; factual accuracy not certified",
+    "No guarantee of semantic or base-pretraining independence",
+    "Web evaluation is now same-source held-out; historical cohort previously inspected",
+    "Whole-document budget may slightly exceed 10M; trainer EOS/packing exposure measured separately"
+  ],
+  "raw_token_profile": {
+    "wikipedia": {
+      "count": 3000,
+      "tokens": 2201862,
+      "mean": 733.954,
+      "std_population": 846.8979953634715,
+      "min": 135,
+      "max": 8661,
+      "percentiles": {
+        "50": 426,
+        "90": 1607,
+        "95": 2425,
+        "99": 4596
+      }
+    },
+    "fineweb": {
+      "count": 88798,
+      "tokens": 90000063,
+      "mean": 1013.5370503840177,
+      "std_population": 962.4103665473176,
+      "min": 194,
+      "max": 7938,
+      "percentiles": {
+        "50": 665,
+        "90": 2116,
+        "95": 3041,
+        "99": 5153
+      }
+    },
+    "combined": {
+      "count": 91798,
+      "tokens": 92201925,
+      "mean": 1004.4001503300725,
+      "std_population": 960.1430209340468,
+      "min": 135,
+      "max": 8661,
+      "percentiles": {
+        "50": 658,
+        "90": 2103,
+        "95": 3026,
+        "99": 5146
+      }
+    }
+  }
+}

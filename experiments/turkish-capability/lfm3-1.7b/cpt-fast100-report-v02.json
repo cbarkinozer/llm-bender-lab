@@ -1,0 +1,159 @@
+{
+  "status": "completed_matched_fast100_report",
+  "metrics": [
+    {
+      "metric": "Wikipedia NLL (lower better)",
+      "values": [
+        3.2619493737977985,
+        2.49050720898233,
+        2.3858540945374993
+      ]
+    },
+    {
+      "metric": "Wikipedia perplexity (lower better)",
+      "values": [
+        26.10036695472442,
+        12.067395259741394,
+        10.868341292873668
+      ]
+    },
+    {
+      "metric": "FineWeb NLL (lower better)",
+      "values": [
+        3.8894260118410133,
+        3.3100576266191193,
+        2.9849698729721377
+      ]
+    },
+    {
+      "metric": "FineWeb perplexity (lower better)",
+      "values": [
+        48.882820309629565,
+        27.38670362956983,
+        19.78590613684556
+      ]
+    },
+    {
+      "metric": "TurBLiMP macro accuracy (%)",
+      "values": [
+        71.75,
+        73.1875,
+        80.3125
+      ]
+    },
+    {
+      "metric": "GEC exact correction (%)",
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "metric": "TQUAD F1 (%)",
+      "values": [
+        9.960465915835284,
+        2.4376589999349054,
+        0.7518497639891266
+      ]
+    },
+    {
+      "metric": "XQuAD F1 (%)",
+      "values": [
+        7.869839381648343,
+        0.7000763218849289,
+        0.24173845402632935
+      ]
+    },
+    {
+      "metric": "EN to TR BLEU",
+      "values": [
+        1.509907620553844,
+        0.380082201775415,
+        1.1642223251858481
+      ]
+    },
+    {
+      "metric": "EN to TR chrF",
+      "values": [
+        30.539591362091173,
+        15.15389174348632,
+        27.706198700879003
+      ]
+    },
+    {
+      "metric": "MLSum ROUGE-L (%)",
+      "values": [
+        12.224703491597863,
+        5.841784311316552,
+        3.8397251354463395
+      ]
+    },
+    {
+      "metric": "Mean generated tokens",
+      "values": [
+        301.94,
+        1337.06,
+        1835.33
+      ]
+    },
+    {
+      "metric": "Mean answer characters",
+      "values": [
+        906.92,
+        4388.9,
+        5726.56
+      ]
+    }
+  ],
+  "columns": [
+    "Original",
+    "Wiki 2.2M CPT",
+    "Wiki + FineWeb 10M CPT"
+  ],
+  "termination": {
+    "Original": {
+      "eos": 100
+    },
+    "Wiki 2.2M CPT": {
+      "eos": 58,
+      "exact_loop": 15,
+      "length": 27
+    },
+    "Wiki + FineWeb 10M CPT": {
+      "eos": 56,
+      "length": 40,
+      "exact_loop": 4
+    }
+  },
+  "selected_ids": [
+    "gecturk-10521",
+    "tquad-00604",
+    "xquad_tr-00449",
+    "wmt_en_tr-00825",
+    "mlsum_tr-09934"
+  ],
+  "caveats": [
+    "Exploratory, one seed. No pooled score or statistically established superiority.",
+    "The mixed recipe changes token count, web content and optimizer updates together.",
+    "Matched 100 items, 20 per task; all three models rerun on this pod with batch4, greedy, repetition penalty1.15. Do not mix these generation scores with earlier rp1.05 scores.",
+    "CETVEL was inspected historically and public pretraining contamination cannot be ruled out.",
+    "Overlap metrics reward answer format and length as well as content; shorter answers are not necessarily more correct.",
+    "No matched English retention evaluation. Web eval is now same-source held-out.",
+    "Examples use Random(3407), one per task, chosen from original IDs without looking at new answers. Full prompts and answers are shown."
+  ],
+  "source_sha256": {
+    "exp-000-baseline/results-local/fast100-v02/cetvel/answers.jsonl": "e2aae812455af1f118f5987fbfbd6ef44d77d267deb023c3f4d2d6d7a16f0e01",
+    "exp-000-baseline/results-local/fast100-v02/cetvel/scores.json": "68651e1c990cb422856bebfb24dcef87a7e62006e873626f0c331b61e1a07896",
+    "exp-000-baseline/results-local/base-v01/text/text-scores.json": "c8fb753d478eba60dde0b5a664e1534e1935fa51ffdeee7541dab24979ee3d70",
+    "exp-000-baseline/results-local/base-v01/turblimp/scores.json": "96aefa88ef7e35e2e76b042f464e75f32279197597cda998a9b6a6d3c0f2d183",
+    "exp-001-wiki-cpt/results-local/fast100-v02/cetvel/answers.jsonl": "a20d048f0aa448df2260f70da9ca446a520cb0bfa57809cfdcfe8f4e186e1563",
+    "exp-001-wiki-cpt/results-local/fast100-v02/cetvel/scores.json": "0eb33ee466e21febc061bfc188a6ebcecfbffb47bbd76fa4257bb604ee0182b2",
+    "exp-001-wiki-cpt/results-local/cpt-eval-v01/text/text-scores.json": "27f14350ab31419e32637dd1b4b0965f591f1816ee8eeee56c09fda648dd8cc1",
+    "exp-001-wiki-cpt/results-local/cpt-eval-v01/turblimp/scores.json": "486a324eb2436d85a7d2821df26549b80160b02b73859262daa6857509a59450",
+    "exp-002-mixed-cpt/results-local/fast100-v02/cetvel/answers.jsonl": "0b0365aa3b62d9e800775bb4d031f3f7e35c323dffc703ee92956a1eb0067233",
+    "exp-002-mixed-cpt/results-local/fast100-v02/cetvel/scores.json": "50920811c8bba9566f0eaf3f6061242419eba924ae2c74810882944c063ff8b2",
+    "exp-002-mixed-cpt/results-local/cpt-eval-v01/text/text-scores.json": "e77f757aa2cb17950408a7972edd72a763e3fa366cad596657910ab9f037884a",
+    "exp-002-mixed-cpt/results-local/cpt-eval-v01/turblimp/scores.json": "76ba1723545e5cc63e72684f5cc1d63b826a2a470fbc3a0a1e41d13ff63538d4"
+  }
+}

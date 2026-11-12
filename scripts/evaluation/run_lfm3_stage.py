@@ -48,12 +48,12 @@ def main():
         folder=root/('base-v01' if a.stage=='base' else 'cpt-eval-v01')
         adapter=root/'cpt-v01/adapter'
         merged=root/'cpt-v01/merged-model'
-        run([VLLM,'scripts/evaluation/evaluate_lfm3_vllm.py','--experiment-dir',experiment,
-            '--output-dir',folder/'cetvel']+(['--merged-model',merged] if a.stage=='after' else []),folder/'cetvel.log')
-        run([PY,'scripts/evaluation/score_lfm3_cetvel.py','--results-dir',folder/'cetvel'],folder/'scoring.log')
         for task in ('text','turblimp'):
             run([PY,f'scripts/evaluation/evaluate_lfm3_{task}.py','--experiment-dir',experiment,
                 '--output-dir',folder/task]+(['--adapter',adapter] if a.stage=='after' else []),folder/(task+'.log'))
+        run([VLLM,'scripts/evaluation/evaluate_lfm3_vllm.py','--experiment-dir',experiment,
+            '--output-dir',folder/'cetvel']+(['--merged-model',merged] if a.stage=='after' else []),folder/'cetvel.log')
+        run([PY,'scripts/evaluation/score_lfm3_cetvel.py','--results-dir',folder/'cetvel'],folder/'scoring.log')
     else:
         mode={'train-smoke':('cpt-smoke-v01',['--smoke']),
             'overfit':('cpt-overfit-v01',['--tiny-overfit']),'train':('cpt-v01',[])}[a.stage]

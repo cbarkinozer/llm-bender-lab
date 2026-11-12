@@ -1,0 +1,306 @@
+{
+  "status": "training_and_evaluation_recovered_locally",
+  "archives": [
+    {
+      "archive": "C:\\Users\\barkin\\Downloads\\lfm3-cpt-ab-trained-20261112.tar.gz",
+      "sha256": "58979c044534484e4de851b12588e2e5d7b4de23a5b8111939ced5be5148969d",
+      "bytes": 3805825737,
+      "members": 416
+    },
+    {
+      "archive": "C:\\Users\\barkin\\Downloads\\lfm3-fast100-results-20261112.tar.gz",
+      "sha256": "2c8e9833a65d494e1bd5c4c48aa061bce02df8899cec2e8d45430cd2b3a22add",
+      "bytes": 2097108,
+      "members": 126
+    },
+    {
+      "archive": "C:\\Users\\barkin\\Downloads\\lfm3-exp-003-cpt-cont-50m-20261112.tar.gz",
+      "sha256": "a6a9db86fa0815f20c8aeb2c1c1ee0737f5cea43369137cfc8f09c7d76d0c85f",
+      "bytes": 3633859386,
+      "members": 153
+    },
+    {
+      "archive": "C:\\Users\\barkin\\Downloads\\lfm3-exp-004-cpt-cont-100m-20261112.tar.gz",
+      "sha256": "0600a86472bf4e0ef373d3cf26c244d0bad28566a3d1e69106590e72a2693c99",
+      "bytes": 3648502861,
+      "members": 153
+    },
+    {
+      "archive": "C:\\Users\\barkin\\Downloads\\lfm3-continuation-screen-v01-20261112.tar.gz",
+      "sha256": "82c522d13f470a8e2351576db17c7e4f5909e667a1fd2256fce40039a4625ca2",
+      "bytes": 1992241,
+      "members": 66
+    }
+  ],
+  "final500": {
+    "status": "archive_hash_verified_and_500_unique_outputs_confirmed",
+    "sha256": "476e929379030d165faefb068ab0a11a38b34e8841ff82cbd59990f5b2f138de",
+    "count": 500,
+    "termination": {
+      "exact_loop": 24,
+      "eos": 136,
+      "length": 340
+    }
+  },
+  "final500_scores": {
+    "status": "scored",
+    "diagnostic": true,
+    "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+    "results": {
+      "gecturk": {
+        "n_items": 100,
+        "exact_match_rate": 0.0,
+        "unchanged_from_source_rate": 0.0,
+        "empty_output_rate": 0.0,
+        "verbose_output_rate": 0.99,
+        "format_failure_candidate_rate": 0.99,
+        "truncation_rate": 0.63,
+        "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+        "manual_review_needed_indices": [
+          2629
+        ],
+        "stratified_sample": {
+          "lowest_score": [
+            1174,
+            10521,
+            2629,
+            7729,
+            5401
+          ],
+          "highest_score": [
+            1313,
+            19313,
+            4467,
+            14347,
+            3969
+          ],
+          "truncated": [
+            10521,
+            7729,
+            5401,
+            7409,
+            15444
+          ],
+          "shortest_source": [
+            1720,
+            11783,
+            15444,
+            305,
+            6434
+          ],
+          "longest_source": [
+            19307,
+            3959,
+            11326,
+            3886,
+            14347
+          ]
+        }
+      },
+      "tquad": {
+        "n_items": 100,
+        "n_answerable": 100,
+        "n_unanswerable": 0,
+        "exact_match": 0.0,
+        "f1": 0.007047582796731182,
+        "answerability_accuracy": 1.0,
+        "exact_match_on_answerable": 0.0,
+        "f1_on_answerable": 0.007047582796731182,
+        "exact_match_on_unanswerable": null,
+        "truncation_rate": 0.73,
+        "low_em_high_f1_rate": 0.0,
+        "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+        "low_em_high_f1_indices": [],
+        "stratified_sample": {
+          "lowest_score": [
+            553,
+            304,
+            180,
+            517,
+            479
+          ],
+          "highest_score": [
+            468,
+            155,
+            523,
+            538,
+            718
+          ],
+          "truncated": [
+            553,
+            304,
+            819,
+            180,
+            594
+          ],
+          "shortest_source": [
+            325,
+            747,
+            460,
+            469,
+            484
+          ],
+          "longest_source": [
+            751,
+            439,
+            883,
+            212,
+            785
+          ]
+        }
+      },
+      "xquad_tr": {
+        "n_items": 100,
+        "n_answerable": 100,
+        "n_unanswerable": 0,
+        "exact_match": 0.0,
+        "f1": 0.0006499405467966905,
+        "answerability_accuracy": 1.0,
+        "exact_match_on_answerable": 0.0,
+        "f1_on_answerable": 0.0006499405467966905,
+        "exact_match_on_unanswerable": null,
+        "truncation_rate": 0.81,
+        "low_em_high_f1_rate": 0.0,
+        "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+        "low_em_high_f1_indices": [],
+        "stratified_sample": {
+          "lowest_score": [
+            350,
+            1161,
+            874,
+            1179,
+            307
+          ],
+          "highest_score": [
+            333,
+            718,
+            1113,
+            181,
+            1137
+          ],
+          "truncated": [
+            1161,
+            769,
+            874,
+            1179,
+            307
+          ],
+          "shortest_source": [
+            168,
+            172,
+            1000,
+            1188,
+            788
+          ],
+          "longest_source": [
+            987,
+            528,
+            1174,
+            849,
+            403
+          ]
+        }
+      },
+      "wmt_en_tr": {
+        "n_items": 100,
+        "corpus_bleu": 0.04834627294981085,
+        "corpus_chrf": 3.0096105107515743,
+        "mean_sentence_bleu": 0.7955914554235939,
+        "mean_sentence_chrf": 10.861651590007323,
+        "truncation_rate": 0.46,
+        "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+        "stratified_sample": {
+          "lowest_score": [
+            643,
+            687,
+            924,
+            875,
+            576
+          ],
+          "highest_score": [
+            338,
+            427,
+            525,
+            220,
+            240
+          ],
+          "truncated": [
+            942,
+            576,
+            587,
+            967,
+            825
+          ],
+          "shortest_source": [
+            617,
+            496,
+            177,
+            994,
+            555
+          ],
+          "longest_source": [
+            813,
+            754,
+            397,
+            266,
+            834
+          ]
+        }
+      },
+      "mlsum_tr": {
+        "n_items": 100,
+        "mean_rouge1": 0.01606519667606867,
+        "mean_rouge2": 0.0022078841775759555,
+        "mean_rougeL": 0.01276006172690935,
+        "mean_rougeLsum": 0.012469197700574787,
+        "truncation_rate": 0.77,
+        "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+        "stratified_sample": {
+          "lowest_score": [
+            3028,
+            9371,
+            11707,
+            12183,
+            10048
+          ],
+          "highest_score": [
+            239,
+            3374,
+            2314,
+            9652,
+            3264
+          ],
+          "truncated": [
+            1237,
+            6904,
+            7289,
+            8595,
+            6651
+          ],
+          "shortest_source": [
+            5062,
+            2420,
+            11766,
+            1623,
+            2314
+          ],
+          "longest_source": [
+            12733,
+            11674,
+            8238,
+            4583,
+            12163
+          ]
+        }
+      }
+    },
+    "termination": {
+      "exact_loop": 24,
+      "eos": 136,
+      "length": 340
+    },
+    "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+  },
+  "remaining": "SFT experiment design; no further GPU job required for this CPT phase",
+  "storage_warning": "Large artifacts are local backups, not stored in Git or automatically available on another machine."
+}

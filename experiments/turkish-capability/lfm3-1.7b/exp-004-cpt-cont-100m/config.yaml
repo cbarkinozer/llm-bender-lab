@@ -1,0 +1,146 @@
+{
+  "status": "GPU_DIAGNOSTICS_PENDING",
+  "model": {
+    "repo": "LiquidAI/LFM3-1.7B",
+    "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "quantization": null,
+    "precision_proposed": "bfloat16",
+    "thinking_proposed": false
+  },
+  "inspection_sources": [
+    {
+      "repo": "LiquidAI/structured-extraction",
+      "revision": "58f0d07d46cd58fcfedc836c0011653872eb10a9"
+    },
+    {
+      "repo": "LiquidAI/grounded-qa",
+      "revision": "0bc9291ce05399085ab4a3e20a9d3336f968dd1d"
+    },
+    {
+      "repo": "LiquidAI/phone-assistant-tools",
+      "revision": "5bf171ee0be2227fd1ddf3cfd3c33860b083c8ab"
+    },
+    {
+      "repo": "juletxara/turblimp",
+      "revision": "cce94ca73ac04a0fabd9fbd7a56068261e6348ad"
+    }
+  ],
+  "benchmark_frozen": true,
+  "gpu_ready": false,
+  "pending": [
+    "actual GPU smoke, actual labels and tiny-overfit",
+    "training and matched evaluation"
+  ],
+  "historical_comparison": {
+    "experiment": "experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500",
+    "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+    "count": 500,
+    "role": "previously inspected comparison cohort; not pristine final test",
+    "qwen_repo": "unsloth/Qwen3.5-4B",
+    "qwen_revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "restoration_verified": true
+  },
+  "active_cpt_manifest": "cpt-continuation-manifest-v01.json",
+  "active_cpt_data": "data-local/cpt-cont-v01",
+  "turblimp_manifest": "turblimp-manifest-v01.json",
+  "runtime_requirements": "requirements-gpu.txt",
+  "gpu_ready_scope": "CPU data/configs prepared; GPU diagnostics must pass separately for each manifest",
+  "benchmark_frozen_scope": "CETVEL500, cleaned TurBLiMP1600, Wikipedia100 and FineWeb100 selected without new model scores; historical cohort is development/comparison evidence",
+  "tracking": {
+    "project": "lfm3-turkish-post-training",
+    "group": "lfm3-turkish-cpt-continuation-50m-100m-v01",
+    "mode": "online",
+    "credential_source": "local .env; remote private file outside artifacts",
+    "evaluation_enabled": false,
+    "training_enabled": true
+  },
+  "inference_backend_candidate": {
+    "engine": "vllm",
+    "version": "0.34.0rc1.dev251+g7cc0a8a2b",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "max_num_seqs": 1,
+    "prefix_caching": false,
+    "gpu_memory_utilization": 0.75,
+    "context": 8192,
+    "comparison": "same engine/settings before and after; merged CPT adapter for vLLM",
+    "source_commit": "7cc0a8a2b1ef6888b44973933c8a208e91122229",
+    "wheel": "https://wheels.vllm.ai/7cc0a8a2b1ef6888b44973933c8a208e91122229/vllm-0.34.0rc1.dev251%2Bg7cc0a8a2b-cp38-abi3-manylinux_2_28_x86_64.whl"
+  },
+  "experiment_id": "exp-004-cpt-cont-100m",
+  "parent": "experiments/turkish-capability/lfm3-1.7b/exp-003-cpt-cont-50m",
+  "starting_checkpoint": "Saved cumulative parent LoRA adapter",
+  "training": {
+    "method": "lora-cpt",
+    "precision": "bfloat16",
+    "quantization": null,
+    "epochs": 1,
+    "micro_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0001,
+    "scheduler": "cosine",
+    "warmup_fraction": 0.05,
+    "max_length": 2048,
+    "packing": true,
+    "packing_strategy": "wrapped",
+    "loss": "all nonpadding text tokens; raw text, no chat template",
+    "lora_rank": 64,
+    "lora_alpha": 64,
+    "lora_dropout": 0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "in_proj",
+      "out_proj",
+      "w1",
+      "w2",
+      "w3"
+    ],
+    "embeddings_trainable": false,
+    "seed": 3407,
+    "checkpoint_selection": "last completed epoch; no benchmark selection",
+    "optimizer": "adamw_torch_fused",
+    "weight_decay": 0.0,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-08,
+    "max_grad_norm": 1.0,
+    "gradient_checkpointing": true,
+    "dataloader_num_workers": 0,
+    "save_steps": 200,
+    "save_total_limit": 2
+  },
+  "cpt_run_label": "lfm3-1.7b-cpt-cont-to100m-web-r64-lr1e-4-1ep-s3407",
+  "sample_review": "../cpt-pair-sample-review-v01.json",
+  "evaluation": {
+    "baseline_directory": "../exp-000-baseline",
+    "reuse_existing_baseline": true,
+    "primary": "held-out Wikipedia and FineWeb raw-text NLL, separately",
+    "supporting": [
+      "TurBLiMP1600",
+      "CETVEL500 task metrics",
+      "generation length and termination"
+    ],
+    "caveats": [
+      "single-seed exploratory",
+      "quantity and source mix change together",
+      "no English retention claim; no matched English baseline",
+      "CETVEL previously inspected comparison cohort"
+    ]
+  },
+  "cpt_train_split": "wiki_train",
+  "parent_adapter_sha256": "049f58a630759804a6cbb7c88d2df35e9930ee609236bdd2f04fb75888a53ba6",
+  "lineage": {
+    "parent_adapter": "experiments/turkish-capability/lfm3-1.7b/exp-003-cpt-cont-50m/results-local/cpt-v01/adapter",
+    "parent_raw_tokens": 49995738,
+    "added_raw_tokens": 49999647,
+    "cumulative_raw_tokens": 99995385,
+    "nominal_total_tokens": 100000000,
+    "optimizer": "fresh AdamW each continuation phase, not resuming the exhausted parent scheduler",
+    "schedule": "independent phase-local warmup5% + cosine decay, peak1e-4; not uninterrupted100M",
+    "data_mix": "new FineWeb prose only; cumulative Wiki share decreases",
+    "hard_training_time_limit": null
+  }
+}

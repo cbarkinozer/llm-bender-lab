@@ -1,7 +1,7 @@
 # Turkish CPT pair: preparation and GPU execution
 
 Owner-approved 2026-11-12. This supersedes the older Wikipedia-only deferral and
-70/30 mixture proposals. No training has happened. Do not reuse the old SSH pod.
+70/30 mixture proposals. Both CPT runs have now trained; the original sequential500 generation was stopped and replaced by owner-approved matched fast100 screening. Results and verified local recovery are complete: see CPT-FAST100-RESULTS.md. Do not reuse the old SSH pod.
 
 ## Questions and fixed decisions
 

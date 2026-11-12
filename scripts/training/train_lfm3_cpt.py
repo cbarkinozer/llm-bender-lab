@@ -22,7 +22,7 @@ def main():
     import torch
     from datasets import Dataset
     from peft import LoraConfig
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    from transformers import AutoModelForCausalLM, AutoTokenizer, TrainerCallback
     from trl import SFTConfig, SFTTrainer
     base = args.experiment_dir
     config = json.loads((base / 'config-planned.json').read_text())
@@ -93,6 +93,22 @@ def main():
             data_manifest_sha256=hashlib.sha256(manifest_file.read_bytes()).hexdigest()),
         dir=str(args.output_dir))
     (args.output_dir/'wandb-run.json').write_text(json.dumps(dict(id=tracking.id,url=tracking.url))+'\n')
+    class GradientAudit(TrainerCallback):
+        def on_pre_optimizer_step(self, args_, state, control, model=None, **kwargs):
+            path = args.output_dir / 'gradient-audit.json'
+            if path.exists():
+                return
+            gradients = [p.grad for p in model.parameters() if p.requires_grad and p.grad is not None]
+            finite = bool(gradients) and all(bool(torch.isfinite(g).all()) for g in gradients)
+            nonzero = any(bool(torch.count_nonzero(g)) for g in gradients)
+            report = dict(status='passed' if finite and nonzero else 'failed',
+                gradient_tensors=len(gradients), finite=finite, nonzero=nonzero,
+                input_embeddings_frozen=not model.get_input_embeddings().weight.requires_grad,
+                output_embeddings_frozen=not model.get_output_embeddings().weight.requires_grad)
+            path.write_text(json.dumps(report, indent=2)+'\n')
+            if report['status'] != 'passed' or not report['input_embeddings_frozen'] or not report['output_embeddings_frozen']:
+                raise ValueError('Actual LoRA gradient/frozen-embedding audit failed')
+
     class ExposureTrainer(SFTTrainer):
         def training_step(self, model, inputs, *positional, **kwargs):
             with (args.output_dir/'token-exposure.jsonl').open('a') as stream:
@@ -101,7 +117,8 @@ def main():
                     supervised_tokens=int((inputs['labels']!=-100).sum())))+'\n')
             return super().training_step(model, inputs, *positional, **kwargs)
     trainer = ExposureTrainer(model=model, args=SFTConfig(output_dir=str(args.output_dir), **settings),
-        train_dataset=train, eval_dataset=dev, processing_class=tokenizer, peft_config=lora)
+        train_dataset=train, eval_dataset=dev, processing_class=tokenizer, peft_config=lora,
+        callbacks=[GradientAudit()])
     trainer.model.print_trainable_parameters()
     if trainer.model.get_input_embeddings().weight.requires_grad or trainer.model.get_output_embeddings().weight.requires_grad:
         raise ValueError('Notebook-derived CPT recipe requires frozen embeddings/head')
