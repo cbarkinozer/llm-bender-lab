@@ -27,7 +27,9 @@ def main():
     historical=root/'experiments/turkish-capability/qwen3.5-4b/exp-003-cetvel-500'
     files += [historical/name for name in ('prepare.py','data-v1/manifest.json',
         'data-v1/tokenization-profile.json','results-v1/base/manifest.json','results-v1/comparison.json')]
-    files += [root/'AGENTS.md',root/'docs/environment-setup-gotchas.md']
+    files += [root/'AGENTS.md']
+    files += [root/'docs'/name for name in ('environment-setup-gotchas.md','finetuning-playbook.md',
+        'dataset-guide.md','evaluation-guide.md','reproducibility.md','experiment-guide.md')]
     files=sorted(set(p.absolute() for p in files if '__pycache__' not in p.parts))
     evidence={}
     output.parent.mkdir(parents=True,exist_ok=True)

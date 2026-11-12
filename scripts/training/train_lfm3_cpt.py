@@ -30,13 +30,21 @@ def main():
     data_root = base / config['active_cpt_data']
     data_manifest = json.loads(manifest_file.read_text())
     model_cfg = config['model']
+    # Reject absent/stale authorization evidence before loading weights or W&B.
+    if not args.smoke and not args.tiny_overfit:
+        gate_file = base / 'data-local/gpu-gate.json'
+        gate = json.loads(gate_file.read_text()) if gate_file.exists() else {}
+        if not all(gate.get(k) for k in ('baseline_completed','training_smoke_passed','labels_audited','tiny_overfit_passed')):
+            raise ValueError('Full CPT requires recorded baseline, smoke, label and tiny-overfit gates')
+        if gate.get('model_revision') != model_cfg['revision'] or gate.get('data_manifest_sha256') != hashlib.sha256(manifest_file.read_bytes()).hexdigest():
+            raise ValueError('GPU gate refers to another model/data revision')
     def load(name):
         file = data_root / (name + '.jsonl')
         if hashlib.sha256(file.read_bytes()).hexdigest() != data_manifest['splits'][name]['sha256']:
             raise ValueError('Frozen CPT input hash mismatch')
         rows = [json.loads(line) for line in file.read_text(encoding='utf-8').splitlines()]
         return Dataset.from_list([dict(text=r['text']) for r in rows])
-    train, dev = load('wiki_train'), load('wiki_dev')
+    train, dev = load(config.get('cpt_train_split','wiki_train')), load('wiki_dev')
     if args.smoke:
         train, dev = train.select(range(8)), dev.select(range(4))
     if args.tiny_overfit:
@@ -53,7 +61,24 @@ def main():
         learning_rate=2e-4, lr_scheduler_type='cosine', warmup_steps=0.05, max_length=2048,
         packing=True, packing_strategy='wrapped', dataset_text_field='text', completion_only_loss=False,
         logging_steps=1 if args.smoke else 10, eval_strategy='no', save_strategy='no',
-        bf16=True, fp16=False, report_to='wandb', seed=3407, data_seed=3407)
+        bf16=True, fp16=False, report_to='wandb', seed=3407, data_seed=3407,
+        optim='adamw_torch_fused',weight_decay=0.,adam_beta1=.9,adam_beta2=.999,
+        adam_epsilon=1e-8,max_grad_norm=1.,gradient_checkpointing=True,dataloader_num_workers=0)
+    if 'training' in config:
+        expected=config['training']
+        mapping=dict(epochs='num_train_epochs',micro_batch_size='per_device_train_batch_size',
+            gradient_accumulation_steps='gradient_accumulation_steps',learning_rate='learning_rate',
+            scheduler='lr_scheduler_type',warmup_fraction='warmup_steps',max_length='max_length',
+            packing='packing',packing_strategy='packing_strategy',seed='seed',optimizer='optim',
+            weight_decay='weight_decay',adam_beta1='adam_beta1',adam_beta2='adam_beta2',
+            adam_epsilon='adam_epsilon',max_grad_norm='max_grad_norm',
+            gradient_checkpointing='gradient_checkpointing',dataloader_num_workers='dataloader_num_workers')
+        for field,key in mapping.items():
+            if expected[field]!=settings[key]: raise ValueError('Config/runner disagreement: '+field)
+        if (expected['lora_rank'],expected['lora_alpha'],expected['lora_dropout'],expected['embeddings_trainable']) != (lora.r,lora.lora_alpha,lora.lora_dropout,False):
+            raise ValueError('Config/runner LoRA disagreement')
+        if set(expected['target_modules'])!=set(lora.target_modules):
+            raise ValueError('Config/runner target modules disagreement')
     if args.smoke:
         settings['max_steps'] = 2
     if args.tiny_overfit:
@@ -63,7 +88,7 @@ def main():
     run_label=config.get('cpt_run_label','lfm3-1.7b-cpt-wikipedia-2m2-lora-r64-lr2e-4-seed3407')
     tracking = wandb.init(project=args.wandb_project,
         name=f'{run_label}-{mode}',
-        group='lfm3-1.7b-turkish-wikipedia-cpt-v01', job_type='cpt-'+mode,
+        group=config.get('tracking',{}).get('group','lfm3-1.7b-turkish-wikipedia-cpt-v01'), job_type='cpt-'+mode,
         config=dict(model=model_cfg, settings=settings,
             data_manifest_sha256=hashlib.sha256(manifest_file.read_bytes()).hexdigest()),
         dir=str(args.output_dir))
@@ -78,6 +103,10 @@ def main():
     trainer = ExposureTrainer(model=model, args=SFTConfig(output_dir=str(args.output_dir), **settings),
         train_dataset=train, eval_dataset=dev, processing_class=tokenizer, peft_config=lora)
     trainer.model.print_trainable_parameters()
+    if trainer.model.get_input_embeddings().weight.requires_grad or trainer.model.get_output_embeddings().weight.requires_grad:
+        raise ValueError('Notebook-derived CPT recipe requires frozen embeddings/head')
+    if not any(p.requires_grad for p in trainer.model.parameters()):
+        raise ValueError('No trainable LoRA parameters')
     effective_args=trainer.args.to_dict()
     for secret_field in ('hub_token','push_to_hub_token','wandb_api_key'):
         effective_args.pop(secret_field,None)
@@ -95,15 +124,6 @@ def main():
         supervised_tokens=int((batch['labels']!=-100).sum()), padding_tokens=int((~active).sum())))+'\n')
     (args.output_dir/'representation-first-batch.json').write_text(json.dumps(
         {key:value.tolist() for key,value in batch.items() if isinstance(value,torch.Tensor)})+'\n')
-    # Full run gate is explicit: smoke results are never called a trained candidate.
-    if not args.smoke and not args.tiny_overfit:
-        gate_file = base / 'data-local/gpu-gate.json'
-        gate = json.loads(gate_file.read_text()) if gate_file.exists() else {}
-        if not all(gate.get(k) for k in ('baseline_completed','training_smoke_passed','labels_audited','tiny_overfit_passed')):
-            raise ValueError('Full CPT requires recorded baseline, smoke, label and tiny-overfit gates')
-        expected = hashlib.sha256(manifest_file.read_bytes()).hexdigest()
-        if gate.get('model_revision') != model_cfg['revision'] or gate.get('data_manifest_sha256') != expected:
-            raise ValueError('GPU gate refers to another model/data revision')
     initial_evaluation = trainer.evaluate() if args.tiny_overfit else None
     result = trainer.train()
     evaluation = trainer.evaluate()

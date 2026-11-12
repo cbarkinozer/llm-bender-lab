@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "checks": [
+    "all split hashes/counts/IDs",
+    "unique IDs/text hashes across active splits",
+    "recomputed normalized hashes and no shared long paragraphs",
+    "byte-identical evaluation copies",
+    "identical nested Wiki rows",
+    "web train-only pinned provenance",
+    "independent pinned-tokenizer recount",
+    "config YAML/JSON byte equality"
+  ],
+  "experiments": {
+    "exp-001-wiki-cpt": {
+      "documents": 3000,
+      "recomputed_raw_tokens": 2201862,
+      "manifest_sha256": "2f6d6be0fd59f51328a6c16519e454219f3b7ea3371b1fed199d27a76131cec8",
+      "source_documents": {
+        "wikimedia/wikipedia": 3000
+      },
+      "no_gpu_gate_exists": true
+    },
+    "exp-002-mixed-cpt": {
+      "documents": 9466,
+      "recomputed_raw_tokens": 9995322,
+      "manifest_sha256": "3f63bd677a8e6303172a9ec772bbbe020e4150db1719eaaec4c641212a775a2e",
+      "source_documents": {
+        "HuggingFaceFW/fineweb-2": 6466,
+        "wikimedia/wikipedia": 3000
+      },
+      "no_gpu_gate_exists": true
+    }
+  },
+  "limitations": [
+    "Near-duplicate exclusion is performed by builder; this audit does not independently rerun semantic matching",
+    "No claim that historical base pretraining excludes these evaluation texts"
+  ]
+}

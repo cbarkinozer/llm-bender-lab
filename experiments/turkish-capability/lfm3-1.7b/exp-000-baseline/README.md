@@ -1,4 +1,4 @@
-> Current status (2026-11-11): baseline complete and123-file recovery verified; no CPT has run. Training is deferred by the owner. Follow NEXT-SESSION.md and TODO-20261112.md. W&B is training-only; older preparation/off/evaluation-upload notes below are historical. The executed baseline uses pinned vLLM nightly, not the initial Transformers candidate.
+> Current status (2026-11-12): baseline complete and123-file recovery verified; no CPT has run. Owner approved preparation of two separate CPT experiments; follow ../CPT-PAIR-TODO-20261112.md. W&B is training-only; older preparation/off/evaluation-upload notes below are historical. The executed baseline uses pinned vLLM nightly, not the initial Transformers candidate.
 
 # exp-000-baseline
 
@@ -99,3 +99,10 @@ This section supersedes earlier pending-data notes. CPU preparation is complete 
 Raw token exposure and split integrity are in `cpt-token-profile-v02.json`. GPU gate flags must be written from observed results and bound to the active model/data manifest; do not prefill success. Training script supports separate smoke and tiny-overfit modes and starts each from the original checkpoint.
 
 Do not infer a Turkish gain from Wikipedia training loss alone. Compare Wikipedia/Web NLL, grammar preference and task metrics separately. Do not compare Qwen/LFM3 perplexity directly across tokenizers. Source-specific public publication remains separate from private experimental use.
+# Current training plan, 2026-11-12
+
+Baseline results above remain historical. Owner approved two NEW independent CPT
+experiments: exp-001-wiki-cpt (existing 2.202M Wikipedia) and exp-002-mixed-cpt
+(10M total, same Wiki plus official FineWeb2 train). Follow
+[the current pair checklist](../CPT-PAIR-TODO-20261112.md), not older training
+commands targeting this baseline directory. No CPT has run yet.

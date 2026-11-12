@@ -1,0 +1,64 @@
+{
+  "status": "CPU_PREPARATION_COMPLETE_GPU_GATES_PENDING",
+  "mixed_manifest_sha256": "3f63bd677a8e6303172a9ec772bbbe020e4150db1719eaaec4c641212a775a2e",
+  "experiments": [
+    "exp-001-wiki-cpt",
+    "exp-002-mixed-cpt"
+  ],
+  "raw_tokens": {
+    "wikipedia": {
+      "count": 3000,
+      "tokens": 2201862,
+      "mean": 733.954,
+      "std_population": 846.8979953634715,
+      "min": 135,
+      "max": 8661,
+      "percentiles": {
+        "50": 426,
+        "90": 1607,
+        "95": 2425,
+        "99": 4596
+      }
+    },
+    "fineweb": {
+      "count": 6466,
+      "tokens": 7793460,
+      "mean": 1205.2984843798329,
+      "std_population": 1127.594699371589,
+      "min": 235,
+      "max": 7298,
+      "percentiles": {
+        "50": 781,
+        "90": 2663,
+        "95": 3688,
+        "99": 5631
+      }
+    },
+    "combined": {
+      "count": 9466,
+      "tokens": 9995322,
+      "mean": 1055.9182336784281,
+      "std_population": 1069.539680673447,
+      "min": 135,
+      "max": 8661,
+      "percentiles": {
+        "50": 652,
+        "90": 2390,
+        "95": 3370,
+        "99": 5422
+      }
+    }
+  },
+  "sample_review": "cpt-pair-sample-review-v01.json",
+  "integrity_audit": "cpt-pair-integrity-v01.json",
+  "launch_checks": "cpt-pair-launch-check-v01.json",
+  "private_transfer_archive": "C:/Users/barkin/Downloads/lfm3-cpt-pair-ready-20261112.tar.gz",
+  "training_library_probe": {
+    "warmup_steps_fraction": 0.05,
+    "warmup_at_100_steps": 5,
+    "optimizer": "adamw_torch_fused",
+    "packing": true,
+    "gradient_checkpointing": true
+  },
+  "note": "No GPU training or full-run gate exists. Archive integrity receipt is adjacent to private archive."
+}

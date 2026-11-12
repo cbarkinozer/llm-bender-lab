@@ -15,7 +15,9 @@ VLLM='/workspace/.venvs/lfm3-vllm/bin/python'
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('stage',choices=['smoke','base','train-smoke','overfit','train','after'])
+    p.add_argument('--experiment-dir',type=Path,default=EXP)
     a=p.parse_args()
+    experiment=a.experiment_dir
     os.environ.update(HF_HOME='/workspace/.cache/huggingface',
         PYTHONUNBUFFERED='1',WANDB_PROJECT='lfm3-turkish-post-training')
     if a.stage in ('train-smoke','overfit','train'):
@@ -23,7 +25,7 @@ def main():
     for k in list(os.environ):
         if k.startswith('WANDB_SERVICE'):
             del os.environ[k]
-    root=EXP/'results-local'
+    root=experiment/'results-local'
     control=root/'control';control.mkdir(parents=True,exist_ok=True)
     record=control/(a.stage+'-commands.jsonl')
     if record.exists():
@@ -40,22 +42,22 @@ def main():
         if code:
             raise RuntimeError(f'Command failed ({code}), see {log}')
     if a.stage=='smoke':
-        run([VLLM,'scripts/evaluation/evaluate_lfm3_vllm.py','--experiment-dir',EXP,
+        run([VLLM,'scripts/evaluation/evaluate_lfm3_vllm.py','--experiment-dir',experiment,
             '--output-dir',root/'engineering-smoke-v01','--limit','5'],root/'engineering-smoke-v01.log')
     elif a.stage in ('base','after'):
         folder=root/('base-v01' if a.stage=='base' else 'cpt-eval-v01')
         adapter=root/'cpt-v01/adapter'
         merged=root/'cpt-v01/merged-model'
-        run([VLLM,'scripts/evaluation/evaluate_lfm3_vllm.py','--experiment-dir',EXP,
+        run([VLLM,'scripts/evaluation/evaluate_lfm3_vllm.py','--experiment-dir',experiment,
             '--output-dir',folder/'cetvel']+(['--merged-model',merged] if a.stage=='after' else []),folder/'cetvel.log')
         run([PY,'scripts/evaluation/score_lfm3_cetvel.py','--results-dir',folder/'cetvel'],folder/'scoring.log')
         for task in ('text','turblimp'):
-            run([PY,f'scripts/evaluation/evaluate_lfm3_{task}.py','--experiment-dir',EXP,
+            run([PY,f'scripts/evaluation/evaluate_lfm3_{task}.py','--experiment-dir',experiment,
                 '--output-dir',folder/task]+(['--adapter',adapter] if a.stage=='after' else []),folder/(task+'.log'))
     else:
         mode={'train-smoke':('cpt-smoke-v01',['--smoke']),
             'overfit':('cpt-overfit-v01',['--tiny-overfit']),'train':('cpt-v01',[])}[a.stage]
-        run([PY,'scripts/training/train_lfm3_cpt.py','--experiment-dir',EXP,
+        run([PY,'scripts/training/train_lfm3_cpt.py','--experiment-dir',experiment,
             '--output-dir',root/mode[0]]+mode[1],root/(mode[0]+'.log'))
     print(a.stage+' completed',flush=True)
 

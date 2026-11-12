@@ -1,6 +1,6 @@
 # LFM3-1.7B Turkish post-training study
 
-Status: baseline completed and local recovery verified, 2026-11-11. No CPT training yet; owner deferred training until next session.
+Status: baseline completed and local recovery verified. On 2026-11-12 owner approved preparation of two independent CPT runs: 2.202M Wikipedia and 10M Wikipedia/FineWeb. No CPT training yet. Current checklist: [CPT pair](CPT-PAIR-TODO-20261112.md).
 
 Owner-approved question: how do four practical post-training recipes change Turkish language and task performance, and at what compute cost?
 
@@ -10,4 +10,17 @@ All checkpoints receive the same frozen multi-capability evaluation. Report gram
 
 The earlier thinking-SFT/TDD study remains paused. Its data and results are not inputs to this study.
 
-Next action: follow exp-000-baseline/TODO-20261112.md; reuse the completed baseline under its fixed protocol, validate GPU training, then run the notebook-derived CPT pilot. Turkish extraction/tool/preference data remain future-arm decisions, not blockers for this baseline. See `exp-000-baseline/README.md`.
+| Experiment | Status | Change |
+|---|---|---|
+| exp-000-baseline | completed | Original LFM; recovered results |
+| exp-001-wiki-cpt | planned | 2.202M Wikipedia tokens, LoRA CPT |
+| exp-002-mixed-cpt | planned | Same Wiki plus about 7.798M FineWeb train tokens |
+
+Both CPT adapters start independently from the original pinned checkpoint. A later
+CPT -> Occam SFT branch for concise, correct responses was explicitly requested;
+it is separate from the original independent-method comparison above. Audit Occam
+provenance, targets and overlap before any SFT. No Occam ingestion into CPT.
+
+Next action: finish CPU pair preparation, then request fresh GPU SSH details and
+run real-model smoke/label/tiny-overfit gates before training each adapter. Reuse
+the completed baseline under its fixed protocol. See the current CPT pair checklist.

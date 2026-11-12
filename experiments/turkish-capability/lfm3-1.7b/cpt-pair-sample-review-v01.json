@@ -1,0 +1,252 @@
+{
+  "status": "accepted_for_exploratory_pilot",
+  "reviewer": "Codex agent; not independent human certification",
+  "sample_sha256": "d41bc6116bdf7ab1a92262fcc5afb152c45b31645eb5bd3cf0d1efb08af1c989",
+  "scope": {
+    "seed": 3407,
+    "previews_read": 30,
+    "preview_characters": 550,
+    "full_text_read_indices": [
+      0,
+      1,
+      3,
+      5,
+      12,
+      22
+    ],
+    "additional_tail_read_indices": [
+      13
+    ]
+  },
+  "excluded_ids": [
+    "fineweb-train-<urn:uuid:3cca6eb3-988f-4313-ae75-ff374ab6fa85>",
+    "fineweb-train-<urn:uuid:6b96f39c-4ddc-4d0a-b3bb-b8ff0fa50c00>",
+    "fineweb-train-<urn:uuid:248ce000-c12b-4120-a8a2-d2dacc652293>",
+    "fineweb-train-<urn:uuid:0850e6b6-0e01-4f96-b7d2-532eae381afd>"
+  ],
+  "per_sample": [
+    {
+      "index": 0,
+      "id": "fineweb-train-<urn:uuid:989f9b47-aa89-4cd0-9c75-88f92b9c2c6c>",
+      "inferred_topic_style": "literary_relationships",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 1,
+      "id": "fineweb-train-<urn:uuid:720e417f-6476-4dd9-b929-008747534b79>",
+      "inferred_topic_style": "software_description",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 2,
+      "id": "fineweb-train-<urn:uuid:a5624bcc-e2a7-4c8a-b278-021eb78ba487>",
+      "inferred_topic_style": "gaming_community",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 3,
+      "id": "fineweb-train-<urn:uuid:c35749fd-87b2-44e9-a56c-f2c1a8499732>",
+      "inferred_topic_style": "craft_tutorial",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 4,
+      "id": "fineweb-train-<urn:uuid:3cca6eb3-988f-4313-ae75-ff374ab6fa85>",
+      "inferred_topic_style": "download_promotion",
+      "decision": "exclude",
+      "reason": "Game-download promotion, weak prose quality"
+    },
+    {
+      "index": 5,
+      "id": "fineweb-train-<urn:uuid:daf957b1-eeaf-45e6-aeb9-bba4a24a31f5>",
+      "inferred_topic_style": "entertainment_news",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 6,
+      "id": "fineweb-train-<urn:uuid:d117792d-64eb-4552-a433-540df69ee10c>",
+      "inferred_topic_style": "book_self_help",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 7,
+      "id": "fineweb-train-<urn:uuid:423b3d5a-63df-4bd9-8644-de5daf39ccce>",
+      "inferred_topic_style": "food_health_blog",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 8,
+      "id": "fineweb-train-<urn:uuid:6b96f39c-4ddc-4d0a-b3bb-b8ff0fa50c00>",
+      "inferred_topic_style": "product_catalog",
+      "decision": "exclude",
+      "reason": "Product catalog template"
+    },
+    {
+      "index": 9,
+      "id": "fineweb-train-<urn:uuid:409f64c5-0add-49fb-a51b-8614bbff0420>",
+      "inferred_topic_style": "religion_literature",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 10,
+      "id": "fineweb-train-<urn:uuid:473453c1-9c81-4c4d-a93c-104dcb44e32d>",
+      "inferred_topic_style": "utilities_explainer",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 11,
+      "id": "fineweb-train-<urn:uuid:f32bd75a-418b-4fe1-92f6-0de5019ed92d>",
+      "inferred_topic_style": "conflict_news",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 12,
+      "id": "fineweb-train-<urn:uuid:ea9da780-0286-4cfc-9d5d-7ed5798697cc>",
+      "inferred_topic_style": "institution_history",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 13,
+      "id": "fineweb-train-<urn:uuid:248ce000-c12b-4120-a8a2-d2dacc652293>",
+      "inferred_topic_style": "mixed_language_art_portfolio",
+      "decision": "exclude",
+      "reason": "Mixed English/Turkish portfolio with extensive link boilerplate"
+    },
+    {
+      "index": 14,
+      "id": "fineweb-train-<urn:uuid:b4104cba-d7d2-48fa-8709-87e1d47d8d45>",
+      "inferred_topic_style": "tv_synopsis",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 15,
+      "id": "fineweb-train-<urn:uuid:5dbc74f9-a7e4-496a-a1a7-5f2295b9f3a4>",
+      "inferred_topic_style": "health_forum",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 16,
+      "id": "fineweb-train-<urn:uuid:e3a6679f-f588-44d8-b835-a53ffd552580>",
+      "inferred_topic_style": "energy_business",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 17,
+      "id": "fineweb-train-<urn:uuid:33258806-c8e0-4a6a-ad03-46a617284cd4>",
+      "inferred_topic_style": "political_news",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 18,
+      "id": "fineweb-train-<urn:uuid:da6d428f-dc27-48c8-8d24-ab3e20304e1f>",
+      "inferred_topic_style": "sports_news",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 19,
+      "id": "fineweb-train-<urn:uuid:f6db08b8-1748-405c-bcdb-f202e4082c60>",
+      "inferred_topic_style": "education_news",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 20,
+      "id": "fineweb-train-<urn:uuid:943f4aa7-b8b8-4816-b5c0-e83eab4f3ee6>",
+      "inferred_topic_style": "fashion_blog",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 21,
+      "id": "fineweb-train-<urn:uuid:fa6a9714-4d88-49b5-8b63-2c0806f6f6a9>",
+      "inferred_topic_style": "tv_synopsis",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 22,
+      "id": "fineweb-train-<urn:uuid:a41264aa-8838-45b8-9c8c-f0e88832b771>",
+      "inferred_topic_style": "psychology_explainer",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 23,
+      "id": "fineweb-train-<urn:uuid:2b5a9d1d-1b3e-481c-b2d3-f46a0157b77a>",
+      "inferred_topic_style": "education_exam_news",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 24,
+      "id": "fineweb-train-<urn:uuid:0850e6b6-0e01-4f96-b7d2-532eae381afd>",
+      "inferred_topic_style": "download_instructions",
+      "decision": "exclude",
+      "reason": "Download instructions advise disabling antivirus; poor technical example"
+    },
+    {
+      "index": 25,
+      "id": "fineweb-train-<urn:uuid:1dcef97b-9ca2-4e26-bceb-3281c9018985>",
+      "inferred_topic_style": "food_travel",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 26,
+      "id": "fineweb-train-<urn:uuid:d607eadd-567f-479d-b45a-bf0c496104fc>",
+      "inferred_topic_style": "actor_biography",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 27,
+      "id": "fineweb-train-<urn:uuid:32fb54cc-c25e-4654-99c6-95269a3d9335>",
+      "inferred_topic_style": "personal_technology_blog",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 28,
+      "id": "fineweb-train-<urn:uuid:7448c65f-7d7d-403b-b6a1-7572b21dd960>",
+      "inferred_topic_style": "historical_biography",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    },
+    {
+      "index": 29,
+      "id": "fineweb-train-<urn:uuid:52204680-4df7-47b5-9043-9b3987661f64>",
+      "inferred_topic_style": "privacy_policy",
+      "decision": "retain_for_pilot",
+      "reason": "No exclusion based on preview; not a factual correctness certification"
+    }
+  ],
+  "observations": [
+    "Broad observed topic/style coverage; sample labels are inferred and do not establish whole-corpus proportions",
+    "Historical 2013-2014 crawl frame, residual SEO/navigation, typos and commercial writing remain",
+    "Health/forum assertions and historical claims not independently fact-checked",
+    "Language score is not quality; mixed-language false positives occur",
+    "No equal-topic-balance, semantic leakage absence or high-quality-every-row claim"
+  ],
+  "previous_candidate_findings": [
+    "v01: Wikimedia recrawls and adult advertising",
+    "v02: translated hotel templates and gambling/download walls",
+    "v03: short low-information templates and navigation",
+    "v04: added minimum prose thresholds; four review exclusions applied in v05"
+  ]
+}

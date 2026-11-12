@@ -3,16 +3,19 @@ import argparse
 from collections import Counter
 import json
 from pathlib import Path
+import statistics
 
 
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--experiment-dir',type=Path,required=True)
+    p.add_argument('--baseline-dir',type=Path)
     a=p.parse_args()
     root=a.experiment_dir/'results-local'
     def read(path):
         return json.loads(path.read_text())
-    b=root/'base-v01';c=root/'cpt-eval-v01'
+    b=(a.baseline_dir/'results-local/base-v01') if a.baseline_dir else root/'base-v01'
+    c=root/'cpt-eval-v01'
     bm=read(b/'cetvel/manifest.json');cm=read(c/'cetvel/manifest.json')
     for key in ('model','questions_sha256','decoding','packages','chat_template_sha256','eos_token_ids','seed'):
         assert bm[key]==cm[key], 'Protocol mismatch: '+key
@@ -42,6 +45,9 @@ def main():
         per_phenomenon=delta(bg['per_phenomenon'],cg['per_phenomenon']))
     def health(rows):
         return dict(termination=dict(Counter(r['finish_reason'] for r in rows)),
+            mean_generated_tokens=statistics.mean(r['generated_tokens'] for r in rows),
+            std_generated_tokens=statistics.pstdev(r['generated_tokens'] for r in rows),
+            mean_answer_characters=statistics.mean(len(r['prediction']) for r in rows),
             total_generated_tokens=sum(r['generated_tokens'] for r in rows),
             total_generation_seconds=sum(r['generation_seconds'] for r in rows))
     report=dict(status='matched_comparison_completed',model=bm['model'],
