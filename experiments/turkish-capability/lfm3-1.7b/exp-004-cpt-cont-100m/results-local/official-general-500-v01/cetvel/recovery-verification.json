@@ -1,0 +1,39 @@
+{
+  "verified_on": "2026-11-14",
+  "source_directories": [
+    "C:\\Users\\barkin\\Downloads\\lfm3-cpt-cetvel-500-eval",
+    "C:\\Users\\barkin\\Downloads\\lfm3-100m-final500-20261112\\experiments\\turkish-capability\\lfm3-1.7b\\exp-004-cpt-cont-100m\\results-local\\official-general-500-v01\\cetvel"
+  ],
+  "row_count": 500,
+  "unique_ids": 500,
+  "task_counts": {
+    "gecturk": 100,
+    "wmt_en_tr": 100,
+    "mlsum_tr": 100,
+    "xquad_tr": 100,
+    "tquad": 100
+  },
+  "selected_id_set_matches_manifest": true,
+  "answer_and_scored_row_order_matches": true,
+  "row_order_note": "Original output order differs from manifest selection/submission order; join by id.",
+  "scored_rows_preserve_all_answer_fields": true,
+  "source_copies_byte_identical": true,
+  "files": {
+    "answers.jsonl": {
+      "bytes": 22435758,
+      "sha256": "8cb1455dd509c14b8c1083d861ccbc52d8c46c51e4562bcff5f02b09fdced885"
+    },
+    "scored-samples.jsonl": {
+      "bytes": 22495482,
+      "sha256": "0abe42c892374d79a907554189345c8ba41848ea1c93c008e64e9c6dec0ab595"
+    },
+    "manifest.json": {
+      "bytes": 12614,
+      "sha256": "e4cc3d5a5d494f08406796012604e063b04f030c5781c666052f9a11bfc71418"
+    },
+    "scores.json": {
+      "bytes": 6158,
+      "sha256": "5d5d41fd2029b697306a1c167f17fc49d69e99206a7c5566b2f089e398b2fc32"
+    }
+  }
+}
