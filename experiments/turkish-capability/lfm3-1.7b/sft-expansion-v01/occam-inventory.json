@@ -1,0 +1,145 @@
+{
+  "source_repo": "cbarkinozer/Occam-Turkish-Response-SFT",
+  "revision": "947850d484c71f657dbec2bb7e3d356cb5fb23e3",
+  "declared_license": "apache-2.0",
+  "historical_provenance_review": "incomplete; see original dataset card",
+  "tokenizer_repo": "LiquidAI/LFM3-1.7B",
+  "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "tokenizer_sha256": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+  "token_count_scope": "Raw concatenated input content and target separately, add_special_tokens=False; not serialized training/masked-loss exposure.",
+  "splits": {
+    "train": {
+      "rows": 104,
+      "local_sha256": "fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950",
+      "published_file_sha256": "f12ff921b84b76478cef4127f65b7be44a621defddbd831e018ceae28c315426",
+      "published_prompt_target_identity": "all rows exact and same order",
+      "categories": {
+        "grammar_correction": 10,
+        "turkish_lexical_precision": 10,
+        "answer_extraction": 6,
+        "grounded_completion": 11,
+        "numeric_entity_precision": 6,
+        "useful_explanation": 13,
+        "faithful_summary": 10,
+        "consistency_integrity": 10,
+        "selective_clarification": 16,
+        "non_anthropomorphic_interaction": 12
+      },
+      "origins": {
+        "new-project-agent-authored": 36,
+        "historical-verbatim": 58,
+        "historical-prompt-with-authored-instruction": 1,
+        "historical-prompt-with-authored-context": 2,
+        "new-agent-authored": 3,
+        "historical-reselected": 4
+      },
+      "provenance_review_states": {
+        "human-reviewed": 43,
+        "human-reviewed-with-user-authorized-qa": 2,
+        "qa-corrected-user-authorized": 59
+      },
+      "raw_input_tokens": {
+        "count": 104,
+        "mean": 45.67307692307692,
+        "std_population": 20.88496068562823,
+        "min": 11,
+        "max": 105
+      },
+      "raw_answer_tokens": {
+        "count": 104,
+        "mean": 62.92307692307692,
+        "std_population": 76.49392790226659,
+        "min": 1,
+        "max": 470
+      },
+      "replacement_characters": 0,
+      "duplicate_normalized_prompts": 0,
+      "summary_ids": [
+        "me-031",
+        "me-032",
+        "me-035",
+        "me-036",
+        "me-037",
+        "me-038",
+        "ef-new-013",
+        "ef-new-014",
+        "ef-new-015",
+        "ef-new-016"
+      ],
+      "summary_answer_characters": {
+        "count": 10,
+        "mean": 140.7,
+        "std_population": 26.34406954135978,
+        "min": 97,
+        "max": 185
+      }
+    },
+    "validation": {
+      "rows": 20,
+      "local_sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+      "published_file_sha256": "12c8fc64870a45facd23d3eff3a33552d33a0d37dc996dbf1812f3ae24a3e995",
+      "published_prompt_target_identity": "all rows exact and same order",
+      "categories": {
+        "grammar_correction": 2,
+        "answer_extraction": 2,
+        "numeric_entity_precision": 2,
+        "faithful_summary": 2,
+        "useful_explanation": 2,
+        "selective_clarification": 2,
+        "grounded_completion": 2,
+        "turkish_lexical_precision": 2,
+        "non_anthropomorphic_interaction": 2,
+        "consistency_integrity": 2
+      },
+      "origins": {
+        "historical-verbatim": 17,
+        "historical-prompt-with-authored-context": 1,
+        "new-agent-authored": 1,
+        "historical-prompt-with-authored-instruction": 1
+      },
+      "provenance_review_states": {
+        "qa-corrected-user-authorized": 20
+      },
+      "raw_input_tokens": {
+        "count": 20,
+        "mean": 45.85,
+        "std_population": 23.467584025629908,
+        "min": 13,
+        "max": 102
+      },
+      "raw_answer_tokens": {
+        "count": 20,
+        "mean": 59.65,
+        "std_population": 97.7493094604765,
+        "min": 4,
+        "max": 403
+      },
+      "replacement_characters": 0,
+      "duplicate_normalized_prompts": 0,
+      "summary_ids": [
+        "me-039",
+        "me-040"
+      ],
+      "summary_answer_characters": {
+        "count": 2,
+        "mean": 121.5,
+        "std_population": 27.5,
+        "min": 94,
+        "max": 149
+      }
+    }
+  },
+  "limitations": [
+    "Static inspection only, no new human target adjudication.",
+    "Exact overlap checks do not establish absence of semantic near-duplicates or pretraining contamination.",
+    "Published license declaration is not proof that all historical provider terms were reviewed."
+  ],
+  "train_validation_exact_prompt_overlap": 0,
+  "train_validation_scenario_group_overlap": [],
+  "cetvel500_questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+  "exact_prompt_matches_to_cetvel500": {
+    "train": 0,
+    "validation": 0
+  },
+  "training_readiness": "not_ready: semantic overlap review, historical provenance disposition, target review and LFM native loss-mask/token audits still required"
+}

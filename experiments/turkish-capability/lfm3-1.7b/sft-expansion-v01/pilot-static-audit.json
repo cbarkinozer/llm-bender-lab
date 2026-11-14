@@ -1,0 +1,789 @@
+{
+  "status": "STATIC_CHECKS_PASS; independent semantic/human review pending; not training-ready",
+  "dataset_sha256": "3fe974c15a754f4ff7ebf220eb5e96ba741b7ad541310b045fa0161efdeb42ac",
+  "rows": 40,
+  "capabilities": {
+    "faithful_summary": 20,
+    "grounded_qa": 8,
+    "translation": 6,
+    "instruction_control": 4,
+    "minimal_correction": 2
+  },
+  "domains": {
+    "public_services": 1,
+    "education": 2,
+    "research": 2,
+    "workplace": 2,
+    "infrastructure": 1,
+    "culture": 1,
+    "commerce": 1,
+    "environment": 1,
+    "transport": 1,
+    "technology": 2,
+    "sports": 1,
+    "agriculture": 1,
+    "logistics": 1,
+    "community": 1,
+    "finance": 1,
+    "accessibility": 1,
+    "energy": 1,
+    "arts": 1,
+    "repair": 1,
+    "inventory": 1,
+    "schedule": 1,
+    "library": 1,
+    "manufacturing": 1,
+    "volunteering": 1,
+    "delivery": 1,
+    "museum": 1,
+    "recycling": 1,
+    "everyday": 4,
+    "travel": 1,
+    "events": 1,
+    "organization": 1,
+    "learning": 1,
+    "planning": 1
+  },
+  "tokenizer_sha256": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+  "token_scope": "Raw content only, add_special_tokens=False; not native chat serialization or actual loss labels.",
+  "raw_input_tokens": {
+    "count": 40,
+    "mean": 75.15,
+    "std_population": 33.2697685594595,
+    "min": 27,
+    "max": 207,
+    "total": 3006
+  },
+  "raw_target_tokens": {
+    "count": 40,
+    "mean": 43.9,
+    "std_population": 30.439119566768024,
+    "min": 3,
+    "max": 151,
+    "total": 1756
+  },
+  "by_capability": {
+    "faithful_summary": {
+      "raw_input_tokens": {
+        "count": 20,
+        "mean": 99.95,
+        "std_population": 26.729150753437715,
+        "min": 75,
+        "max": 207,
+        "total": 1999
+      },
+      "raw_target_tokens": {
+        "count": 20,
+        "mean": 63.9,
+        "std_population": 22.25286498408688,
+        "min": 43,
+        "max": 151,
+        "total": 1278
+      }
+    },
+    "grounded_qa": {
+      "raw_input_tokens": {
+        "count": 8,
+        "mean": 63.375,
+        "std_population": 9.668731819633845,
+        "min": 49,
+        "max": 78,
+        "total": 507
+      },
+      "raw_target_tokens": {
+        "count": 8,
+        "mean": 15,
+        "std_population": 10.344080432788601,
+        "min": 3,
+        "max": 35,
+        "total": 120
+      }
+    },
+    "instruction_control": {
+      "raw_input_tokens": {
+        "count": 4,
+        "mean": 56.75,
+        "std_population": 13.386093530227555,
+        "min": 38,
+        "max": 75,
+        "total": 227
+      },
+      "raw_target_tokens": {
+        "count": 4,
+        "mean": 45.25,
+        "std_population": 42.34014052881733,
+        "min": 13,
+        "max": 118,
+        "total": 181
+      }
+    },
+    "minimal_correction": {
+      "raw_input_tokens": {
+        "count": 2,
+        "mean": 36.5,
+        "std_population": 4.5,
+        "min": 32,
+        "max": 41,
+        "total": 73
+      },
+      "raw_target_tokens": {
+        "count": 2,
+        "mean": 11,
+        "std_population": 1.0,
+        "min": 10,
+        "max": 12,
+        "total": 22
+      }
+    },
+    "translation": {
+      "raw_input_tokens": {
+        "count": 6,
+        "mean": 33.333333333333336,
+        "std_population": 6.289320754704402,
+        "min": 27,
+        "max": 46,
+        "total": 200
+      },
+      "raw_target_tokens": {
+        "count": 6,
+        "mean": 25.833333333333332,
+        "std_population": 7.2667431188638805,
+        "min": 17,
+        "max": 39,
+        "total": 155
+      }
+    }
+  },
+  "protected_comparisons": {
+    "occam_train": {
+      "reference_rows": 104,
+      "sha256": "fe8ff4c9ff74a8618754bd2f5c25d1794bad9263cbc5fa3a436d593599085950",
+      "exact_prompt_matches": [],
+      "lexical_metric": "normalized whitespace-word set Jaccard",
+      "lexical_nearest": [
+        {
+          "pilot_id": "tr-sft-pilot-035",
+          "reference_id": "me-014",
+          "ratio": 0.10638297872340426
+        },
+        {
+          "pilot_id": "tr-sft-pilot-011",
+          "reference_id": "ef-new-013",
+          "ratio": 0.10416666666666667
+        },
+        {
+          "pilot_id": "tr-sft-pilot-037",
+          "reference_id": "me-045",
+          "ratio": 0.1
+        },
+        {
+          "pilot_id": "tr-sft-pilot-039",
+          "reference_id": "ef-new-002",
+          "ratio": 0.1
+        },
+        {
+          "pilot_id": "tr-sft-pilot-021",
+          "reference_id": "tc-003",
+          "ratio": 0.0975609756097561
+        },
+        {
+          "pilot_id": "tr-sft-pilot-024",
+          "reference_id": "me-098",
+          "ratio": 0.0975609756097561
+        },
+        {
+          "pilot_id": "tr-sft-pilot-020",
+          "reference_id": "tc-011",
+          "ratio": 0.0967741935483871
+        },
+        {
+          "pilot_id": "tr-sft-pilot-026",
+          "reference_id": "ef-new-013",
+          "ratio": 0.09302325581395349
+        },
+        {
+          "pilot_id": "tr-sft-pilot-022",
+          "reference_id": "me-098",
+          "ratio": 0.08823529411764706
+        },
+        {
+          "pilot_id": "tr-sft-pilot-009",
+          "reference_id": "tc-011",
+          "ratio": 0.08620689655172414
+        },
+        {
+          "pilot_id": "tr-sft-pilot-006",
+          "reference_id": "ef-new-013",
+          "ratio": 0.08333333333333333
+        },
+        {
+          "pilot_id": "tr-sft-pilot-018",
+          "reference_id": "tc-012",
+          "ratio": 0.08333333333333333
+        },
+        {
+          "pilot_id": "tr-sft-pilot-008",
+          "reference_id": "ef-new-019",
+          "ratio": 0.0821917808219178
+        },
+        {
+          "pilot_id": "tr-sft-pilot-004",
+          "reference_id": "ef-new-013",
+          "ratio": 0.08
+        },
+        {
+          "pilot_id": "tr-sft-pilot-012",
+          "reference_id": "tc-008",
+          "ratio": 0.07894736842105263
+        },
+        {
+          "pilot_id": "tr-sft-pilot-025",
+          "reference_id": "me-098",
+          "ratio": 0.07894736842105263
+        },
+        {
+          "pilot_id": "tr-sft-pilot-014",
+          "reference_id": "me-044",
+          "ratio": 0.0784313725490196
+        },
+        {
+          "pilot_id": "tr-sft-pilot-002",
+          "reference_id": "ef-new-013",
+          "ratio": 0.07692307692307693
+        },
+        {
+          "pilot_id": "tr-sft-pilot-017",
+          "reference_id": "tc-008",
+          "ratio": 0.07575757575757576
+        },
+        {
+          "pilot_id": "tr-sft-pilot-003",
+          "reference_id": "me-045",
+          "ratio": 0.07407407407407407
+        },
+        {
+          "pilot_id": "tr-sft-pilot-040",
+          "reference_id": "me-073",
+          "ratio": 0.07407407407407407
+        },
+        {
+          "pilot_id": "tr-sft-pilot-028",
+          "reference_id": "tc-009",
+          "ratio": 0.07317073170731707
+        },
+        {
+          "pilot_id": "tr-sft-pilot-001",
+          "reference_id": "me-097",
+          "ratio": 0.07142857142857142
+        },
+        {
+          "pilot_id": "tr-sft-pilot-036",
+          "reference_id": "me-014",
+          "ratio": 0.07142857142857142
+        },
+        {
+          "pilot_id": "tr-sft-pilot-029",
+          "reference_id": "tc-009",
+          "ratio": 0.06666666666666667
+        },
+        {
+          "pilot_id": "tr-sft-pilot-007",
+          "reference_id": "tc-011",
+          "ratio": 0.06451612903225806
+        },
+        {
+          "pilot_id": "tr-sft-pilot-013",
+          "reference_id": "tc-011",
+          "ratio": 0.06349206349206349
+        },
+        {
+          "pilot_id": "tr-sft-pilot-005",
+          "reference_id": "me-032",
+          "ratio": 0.06153846153846154
+        },
+        {
+          "pilot_id": "tr-sft-pilot-023",
+          "reference_id": "me-086",
+          "ratio": 0.06060606060606061
+        },
+        {
+          "pilot_id": "tr-sft-pilot-027",
+          "reference_id": "me-028",
+          "ratio": 0.058823529411764705
+        },
+        {
+          "pilot_id": "tr-sft-pilot-031",
+          "reference_id": "tc-004",
+          "ratio": 0.058823529411764705
+        },
+        {
+          "pilot_id": "tr-sft-pilot-030",
+          "reference_id": "tc-001",
+          "ratio": 0.05405405405405406
+        },
+        {
+          "pilot_id": "tr-sft-pilot-016",
+          "reference_id": "tc-006",
+          "ratio": 0.05357142857142857
+        },
+        {
+          "pilot_id": "tr-sft-pilot-015",
+          "reference_id": "tc-009",
+          "ratio": 0.05263157894736842
+        },
+        {
+          "pilot_id": "tr-sft-pilot-033",
+          "reference_id": "me-081",
+          "ratio": 0.05263157894736842
+        },
+        {
+          "pilot_id": "tr-sft-pilot-019",
+          "reference_id": "me-081",
+          "ratio": 0.04395604395604396
+        },
+        {
+          "pilot_id": "tr-sft-pilot-038",
+          "reference_id": "tc-003",
+          "ratio": 0.043478260869565216
+        },
+        {
+          "pilot_id": "tr-sft-pilot-010",
+          "reference_id": "me-041",
+          "ratio": 0.041666666666666664
+        },
+        {
+          "pilot_id": "tr-sft-pilot-032",
+          "reference_id": "ef-new-016",
+          "ratio": 0.02631578947368421
+        },
+        {
+          "pilot_id": "tr-sft-pilot-034",
+          "reference_id": "me-005",
+          "ratio": 0.021739130434782608
+        }
+      ]
+    },
+    "occam_validation": {
+      "reference_rows": 20,
+      "sha256": "43e10beed85aa6fbbda768a124c7a2e6feb3743ddc79c2e38098c7982cfad429",
+      "exact_prompt_matches": [],
+      "lexical_metric": "normalized whitespace-word set Jaccard",
+      "lexical_nearest": [
+        {
+          "pilot_id": "tr-sft-pilot-023",
+          "reference_id": "me-100",
+          "ratio": 0.08333333333333333
+        },
+        {
+          "pilot_id": "tr-sft-pilot-030",
+          "reference_id": "me-100",
+          "ratio": 0.08108108108108109
+        },
+        {
+          "pilot_id": "tr-sft-pilot-037",
+          "reference_id": "me-050",
+          "ratio": 0.07894736842105263
+        },
+        {
+          "pilot_id": "tr-sft-pilot-004",
+          "reference_id": "me-050",
+          "ratio": 0.07272727272727272
+        },
+        {
+          "pilot_id": "tr-sft-pilot-021",
+          "reference_id": "me-050",
+          "ratio": 0.06666666666666667
+        },
+        {
+          "pilot_id": "tr-sft-pilot-002",
+          "reference_id": "me-069",
+          "ratio": 0.06521739130434782
+        },
+        {
+          "pilot_id": "tr-sft-pilot-035",
+          "reference_id": "me-100",
+          "ratio": 0.0625
+        },
+        {
+          "pilot_id": "tr-sft-pilot-006",
+          "reference_id": "me-100",
+          "ratio": 0.06
+        },
+        {
+          "pilot_id": "tr-sft-pilot-015",
+          "reference_id": "me-050",
+          "ratio": 0.05970149253731343
+        },
+        {
+          "pilot_id": "tr-sft-pilot-040",
+          "reference_id": "me-100",
+          "ratio": 0.05714285714285714
+        },
+        {
+          "pilot_id": "tr-sft-pilot-020",
+          "reference_id": "me-100",
+          "ratio": 0.05263157894736842
+        },
+        {
+          "pilot_id": "tr-sft-pilot-025",
+          "reference_id": "me-069",
+          "ratio": 0.05263157894736842
+        },
+        {
+          "pilot_id": "tr-sft-pilot-024",
+          "reference_id": "me-059",
+          "ratio": 0.05172413793103448
+        },
+        {
+          "pilot_id": "tr-sft-pilot-036",
+          "reference_id": "me-040",
+          "ratio": 0.05128205128205128
+        },
+        {
+          "pilot_id": "tr-sft-pilot-039",
+          "reference_id": "me-010",
+          "ratio": 0.05
+        },
+        {
+          "pilot_id": "tr-sft-pilot-008",
+          "reference_id": "me-100",
+          "ratio": 0.04838709677419355
+        },
+        {
+          "pilot_id": "tr-sft-pilot-003",
+          "reference_id": "me-050",
+          "ratio": 0.047619047619047616
+        },
+        {
+          "pilot_id": "tr-sft-pilot-011",
+          "reference_id": "me-070",
+          "ratio": 0.047619047619047616
+        },
+        {
+          "pilot_id": "tr-sft-pilot-022",
+          "reference_id": "me-100",
+          "ratio": 0.047619047619047616
+        },
+        {
+          "pilot_id": "tr-sft-pilot-018",
+          "reference_id": "me-089",
+          "ratio": 0.043478260869565216
+        },
+        {
+          "pilot_id": "tr-sft-pilot-012",
+          "reference_id": "me-010",
+          "ratio": 0.04081632653061224
+        },
+        {
+          "pilot_id": "tr-sft-pilot-029",
+          "reference_id": "me-030",
+          "ratio": 0.04081632653061224
+        },
+        {
+          "pilot_id": "tr-sft-pilot-014",
+          "reference_id": "me-069",
+          "ratio": 0.04
+        },
+        {
+          "pilot_id": "tr-sft-pilot-001",
+          "reference_id": "me-039",
+          "ratio": 0.0392156862745098
+        },
+        {
+          "pilot_id": "tr-sft-pilot-017",
+          "reference_id": "me-100",
+          "ratio": 0.0392156862745098
+        },
+        {
+          "pilot_id": "tr-sft-pilot-009",
+          "reference_id": "me-100",
+          "ratio": 0.03773584905660377
+        },
+        {
+          "pilot_id": "tr-sft-pilot-027",
+          "reference_id": "me-030",
+          "ratio": 0.037037037037037035
+        },
+        {
+          "pilot_id": "tr-sft-pilot-016",
+          "reference_id": "me-050",
+          "ratio": 0.03389830508474576
+        },
+        {
+          "pilot_id": "tr-sft-pilot-033",
+          "reference_id": "me-010",
+          "ratio": 0.03125
+        },
+        {
+          "pilot_id": "tr-sft-pilot-010",
+          "reference_id": "me-030",
+          "ratio": 0.03076923076923077
+        },
+        {
+          "pilot_id": "tr-sft-pilot-019",
+          "reference_id": "me-100",
+          "ratio": 0.030612244897959183
+        },
+        {
+          "pilot_id": "tr-sft-pilot-038",
+          "reference_id": "me-010",
+          "ratio": 0.030303030303030304
+        },
+        {
+          "pilot_id": "tr-sft-pilot-026",
+          "reference_id": "me-010",
+          "ratio": 0.029411764705882353
+        },
+        {
+          "pilot_id": "tr-sft-pilot-005",
+          "reference_id": "me-029",
+          "ratio": 0.028169014084507043
+        },
+        {
+          "pilot_id": "tr-sft-pilot-028",
+          "reference_id": "me-010",
+          "ratio": 0.02702702702702703
+        },
+        {
+          "pilot_id": "tr-sft-pilot-007",
+          "reference_id": "me-079",
+          "ratio": 0.021739130434782608
+        },
+        {
+          "pilot_id": "tr-sft-pilot-013",
+          "reference_id": "me-070",
+          "ratio": 0.020833333333333332
+        },
+        {
+          "pilot_id": "tr-sft-pilot-032",
+          "reference_id": "me-029",
+          "ratio": 0.02040816326530612
+        },
+        {
+          "pilot_id": "tr-sft-pilot-031",
+          "reference_id": "me-030",
+          "ratio": 0.02
+        },
+        {
+          "pilot_id": "tr-sft-pilot-034",
+          "reference_id": "me-009",
+          "ratio": 0.0
+        }
+      ]
+    },
+    "cetvel500": {
+      "reference_rows": 500,
+      "sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+      "exact_prompt_matches": [],
+      "lexical_metric": "normalized whitespace-word set Jaccard",
+      "lexical_nearest": [
+        {
+          "pilot_id": "tr-sft-pilot-034",
+          "reference_id": "wmt_en_tr-00549",
+          "ratio": 0.13953488372093023
+        },
+        {
+          "pilot_id": "tr-sft-pilot-029",
+          "reference_id": "wmt_en_tr-00632",
+          "ratio": 0.0967741935483871
+        },
+        {
+          "pilot_id": "tr-sft-pilot-033",
+          "reference_id": "wmt_en_tr-00769",
+          "ratio": 0.09090909090909091
+        },
+        {
+          "pilot_id": "tr-sft-pilot-039",
+          "reference_id": "gecturk-19960",
+          "ratio": 0.09090909090909091
+        },
+        {
+          "pilot_id": "tr-sft-pilot-030",
+          "reference_id": "wmt_en_tr-00587",
+          "ratio": 0.07692307692307693
+        },
+        {
+          "pilot_id": "tr-sft-pilot-031",
+          "reference_id": "wmt_en_tr-00645",
+          "ratio": 0.07142857142857142
+        },
+        {
+          "pilot_id": "tr-sft-pilot-024",
+          "reference_id": "gecturk-02614",
+          "ratio": 0.07017543859649122
+        },
+        {
+          "pilot_id": "tr-sft-pilot-040",
+          "reference_id": "gecturk-16319",
+          "ratio": 0.06896551724137931
+        },
+        {
+          "pilot_id": "tr-sft-pilot-025",
+          "reference_id": "tquad-00538",
+          "ratio": 0.06666666666666667
+        },
+        {
+          "pilot_id": "tr-sft-pilot-032",
+          "reference_id": "wmt_en_tr-00580",
+          "ratio": 0.06521739130434782
+        },
+        {
+          "pilot_id": "tr-sft-pilot-021",
+          "reference_id": "tquad-00180",
+          "ratio": 0.06382978723404255
+        },
+        {
+          "pilot_id": "tr-sft-pilot-006",
+          "reference_id": "gecturk-09650",
+          "ratio": 0.0625
+        },
+        {
+          "pilot_id": "tr-sft-pilot-022",
+          "reference_id": "mlsum_tr-05675",
+          "ratio": 0.06172839506172839
+        },
+        {
+          "pilot_id": "tr-sft-pilot-036",
+          "reference_id": "gecturk-13950",
+          "ratio": 0.058823529411764705
+        },
+        {
+          "pilot_id": "tr-sft-pilot-015",
+          "reference_id": "tquad-00180",
+          "ratio": 0.057971014492753624
+        },
+        {
+          "pilot_id": "tr-sft-pilot-023",
+          "reference_id": "tquad-00877",
+          "ratio": 0.05660377358490566
+        },
+        {
+          "pilot_id": "tr-sft-pilot-035",
+          "reference_id": "tquad-00531",
+          "ratio": 0.05555555555555555
+        },
+        {
+          "pilot_id": "tr-sft-pilot-009",
+          "reference_id": "tquad-00264",
+          "ratio": 0.05454545454545454
+        },
+        {
+          "pilot_id": "tr-sft-pilot-012",
+          "reference_id": "xquad_tr-00718",
+          "ratio": 0.05454545454545454
+        },
+        {
+          "pilot_id": "tr-sft-pilot-017",
+          "reference_id": "xquad_tr-01113",
+          "ratio": 0.05319148936170213
+        },
+        {
+          "pilot_id": "tr-sft-pilot-003",
+          "reference_id": "gecturk-09650",
+          "ratio": 0.05263157894736842
+        },
+        {
+          "pilot_id": "tr-sft-pilot-008",
+          "reference_id": "tquad-00248",
+          "ratio": 0.05263157894736842
+        },
+        {
+          "pilot_id": "tr-sft-pilot-014",
+          "reference_id": "gecturk-18411",
+          "ratio": 0.05084745762711865
+        },
+        {
+          "pilot_id": "tr-sft-pilot-004",
+          "reference_id": "mlsum_tr-12418",
+          "ratio": 0.05
+        },
+        {
+          "pilot_id": "tr-sft-pilot-019",
+          "reference_id": "mlsum_tr-02640",
+          "ratio": 0.04516129032258064
+        },
+        {
+          "pilot_id": "tr-sft-pilot-011",
+          "reference_id": "mlsum_tr-02314",
+          "ratio": 0.0449438202247191
+        },
+        {
+          "pilot_id": "tr-sft-pilot-028",
+          "reference_id": "tquad-00469",
+          "ratio": 0.044444444444444446
+        },
+        {
+          "pilot_id": "tr-sft-pilot-020",
+          "reference_id": "gecturk-08949",
+          "ratio": 0.04225352112676056
+        },
+        {
+          "pilot_id": "tr-sft-pilot-005",
+          "reference_id": "mlsum_tr-02640",
+          "ratio": 0.041666666666666664
+        },
+        {
+          "pilot_id": "tr-sft-pilot-002",
+          "reference_id": "tquad-00323",
+          "ratio": 0.0410958904109589
+        },
+        {
+          "pilot_id": "tr-sft-pilot-037",
+          "reference_id": "mlsum_tr-02314",
+          "ratio": 0.0410958904109589
+        },
+        {
+          "pilot_id": "tr-sft-pilot-013",
+          "reference_id": "gecturk-16319",
+          "ratio": 0.0392156862745098
+        },
+        {
+          "pilot_id": "tr-sft-pilot-016",
+          "reference_id": "gecturk-09650",
+          "ratio": 0.03773584905660377
+        },
+        {
+          "pilot_id": "tr-sft-pilot-027",
+          "reference_id": "gecturk-18258",
+          "ratio": 0.03636363636363636
+        },
+        {
+          "pilot_id": "tr-sft-pilot-018",
+          "reference_id": "tquad-00300",
+          "ratio": 0.034482758620689655
+        },
+        {
+          "pilot_id": "tr-sft-pilot-007",
+          "reference_id": "mlsum_tr-03264",
+          "ratio": 0.03278688524590164
+        },
+        {
+          "pilot_id": "tr-sft-pilot-001",
+          "reference_id": "mlsum_tr-05675",
+          "ratio": 0.03260869565217391
+        },
+        {
+          "pilot_id": "tr-sft-pilot-010",
+          "reference_id": "xquad_tr-01113",
+          "ratio": 0.030612244897959183
+        },
+        {
+          "pilot_id": "tr-sft-pilot-038",
+          "reference_id": "gecturk-19960",
+          "ratio": 0.027777777777777776
+        },
+        {
+          "pilot_id": "tr-sft-pilot-026",
+          "reference_id": "gecturk-02012",
+          "ratio": 0.025
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Lexical screening does not rule out semantic near-duplicates or pretraining contamination.",
+    "Same author drafted contexts, targets and rubrics; this is not independent adjudication.",
+    "No dev/final holdout examples generated; training-only pilot families must never cross splits.",
+    "No native label masking, EOS or truncation audit yet."
+  ]
+}
