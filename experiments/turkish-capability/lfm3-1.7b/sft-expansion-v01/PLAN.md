@@ -1,5 +1,12 @@
 # Occam + Turkish task recovery: expansion v01
 
+2026-11-14 scope update: the owner prioritizes a broadly reusable, reviewed
+Turkish core before training, then a separately versioned LFM3-specific
+selection. The current design is in `docs/turkish-sft-corpus-design-v01.md` at
+the repository root. The counts and next-action sequence below remain the
+historical targeted-repair proposal, not the current general-corpus allocation.
+Keep the existing 40 drafts for review; do not scale this narrow mixture blindly.
+
 Status: inventory complete; 40 training-only pilot drafts and a full review TXT
 are built. Independent content review and LFM native training packets are still
 pending. No GPU or paid external teacher service is needed for this step.

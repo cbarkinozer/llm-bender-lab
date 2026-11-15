@@ -1,0 +1,142 @@
+{
+  "status": "diagnostic-not-human-approval",
+  "n": 500,
+  "tasks": {
+    "gecturk": {
+      "n": 100,
+      "termination": {
+        "exact_loop": 6,
+        "length": 63,
+        "eos": 31
+      },
+      "median_generated_tokens": 4096.0,
+      "total_generated_tokens": 281195,
+      "counts": {
+        "evaluation_only": 100,
+        "repeated_long_line": 21,
+        "repeated_8gram_5plus": 75,
+        "replacement_character_prompt": 0,
+        "replacement_character_output": 0,
+        "human_reviewed": 0,
+        "source_equals_target": 47,
+        "first_nonempty_line_equals_target": 10,
+        "output_starts_with_target": 12,
+        "full_output_equals_target": 0
+      }
+    },
+    "mlsum_tr": {
+      "n": 100,
+      "termination": {
+        "exact_loop": 8,
+        "length": 77,
+        "eos": 15
+      },
+      "median_generated_tokens": 4096.0,
+      "total_generated_tokens": 326114,
+      "counts": {
+        "evaluation_only": 100,
+        "repeated_long_line": 33,
+        "repeated_8gram_5plus": 79,
+        "replacement_character_prompt": 0,
+        "replacement_character_output": 0,
+        "human_reviewed": 0
+      }
+    },
+    "tquad": {
+      "n": 100,
+      "termination": {
+        "length": 73,
+        "eos": 21,
+        "exact_loop": 6
+      },
+      "median_generated_tokens": 4096.0,
+      "total_generated_tokens": 314057,
+      "counts": {
+        "evaluation_only": 100,
+        "repeated_long_line": 20,
+        "repeated_8gram_5plus": 81,
+        "replacement_character_prompt": 0,
+        "replacement_character_output": 0,
+        "human_reviewed": 0,
+        "reference_span_anywhere": 16,
+        "reference_span_first_300_chars": 13,
+        "reference_span_first_line": 11
+      }
+    },
+    "wmt_en_tr": {
+      "n": 100,
+      "termination": {
+        "eos": 53,
+        "length": 46,
+        "exact_loop": 1
+      },
+      "median_generated_tokens": 807.5,
+      "total_generated_tokens": 205964,
+      "counts": {
+        "evaluation_only": 100,
+        "repeated_long_line": 19,
+        "repeated_8gram_5plus": 58,
+        "replacement_character_prompt": 0,
+        "replacement_character_output": 0,
+        "human_reviewed": 0
+      }
+    },
+    "xquad_tr": {
+      "n": 100,
+      "termination": {
+        "eos": 16,
+        "length": 81,
+        "exact_loop": 3
+      },
+      "median_generated_tokens": 4096.0,
+      "total_generated_tokens": 344252,
+      "counts": {
+        "evaluation_only": 100,
+        "repeated_long_line": 46,
+        "repeated_8gram_5plus": 91,
+        "replacement_character_prompt": 0,
+        "replacement_character_output": 0,
+        "human_reviewed": 0,
+        "reference_span_anywhere": 5,
+        "reference_span_first_300_chars": 3,
+        "reference_span_first_line": 3
+      }
+    }
+  },
+  "source_git_commit": "09390ad20175b4ac548129723119ae1cd52e944c",
+  "analysis_provenance": {
+    "script_sha256": "169b6e8960b82372f7af51a019c6b26bfb0f8531a343586cb6a8d9a59a362836",
+    "invocation": [
+      "C:\\Users\\cbark\\miniconda3\\python.exe",
+      "scripts/evaluation/analyze_lfm3_final500.py",
+      "--join-agent-reviews"
+    ],
+    "source_directory": "C:\\Repos\\llm-bender-lab\\experiments\\turkish-capability\\lfm3-1.7b\\exp-004-cpt-cont-100m\\results-local\\official-general-500-v01\\cetvel",
+    "working_tree_status": [
+      " M experiments/turkish-capability/lfm3-1.7b/sft-expansion-v01/PLAN.md",
+      "?? docs/turkish-posttraining-roadmap.md",
+      "?? docs/turkish-sft-corpus-design-v01.md",
+      "?? experiments/turkish-capability/lfm3-1.7b/response-analysis-v01/",
+      "?? scripts/evaluation/analyze_lfm3_final500.py"
+    ],
+    "note": "Git HEAD identifies the checkout, not uncommitted analysis code; script hash identifies this analyzer."
+  },
+  "input_sha256": {
+    "answers.jsonl": "8cb1455dd509c14b8c1083d861ccbc52d8c46c51e4562bcff5f02b09fdced885",
+    "scored-samples.jsonl": "0abe42c892374d79a907554189345c8ba41848ea1c93c008e64e9c6dec0ab595",
+    "manifest.json": "e4cc3d5a5d494f08406796012604e063b04f030c5781c666052f9a11bfc71418",
+    "scores.json": "5d5d41fd2029b697306a1c167f17fc49d69e99206a7c5566b2f089e398b2fc32"
+  },
+  "definitions": {
+    "repeated_long_line": "A stripped nonempty line >=20 characters occurs >=3 times.",
+    "repeated_8gram_5plus": "A normalized eight-word sequence occurs >=5 times.",
+    "reference_span": "Normalized contiguous whole-word match; not correctness or grounding.",
+    "prefix": "Exact stored target prefix; not proof of correction ability when source=target."
+  },
+  "limitations": [
+    "No semantic accuracy from these proxies.",
+    "EOS does not imply a correct or complete answer.",
+    "Full500 has no newly matched original-model full500 comparator.",
+    "Historical inspected cohort is development evidence; exclude all item-derived training material."
+  ]
+}

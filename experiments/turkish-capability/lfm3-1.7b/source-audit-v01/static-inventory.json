@@ -1,0 +1,246 @@
+{
+  "sources": {
+    "occam": {
+      "rows": 124,
+      "input_characters": {
+        "n": 124,
+        "min": 29,
+        "median": 136.0,
+        "mean": 138.0241935483871,
+        "p90": 218,
+        "max": 314
+      },
+      "answer_characters": {
+        "n": 124,
+        "min": 3,
+        "median": 128.5,
+        "mean": 202.46774193548387,
+        "p90": 446,
+        "max": 1407
+      },
+      "role_sequences": {
+        "user,assistant": 119,
+        "user,assistant,user,assistant": 5
+      },
+      "unique_system_prompts": 0,
+      "top_system_prompt_sha256": [],
+      "metadata": {
+        "category": {
+          "grammar_correction": 12,
+          "turkish_lexical_precision": 12,
+          "answer_extraction": 8,
+          "grounded_completion": 13,
+          "numeric_entity_precision": 8,
+          "useful_explanation": 15,
+          "faithful_summary": 12,
+          "consistency_integrity": 12,
+          "selective_clarification": 18,
+          "non_anthropomorphic_interaction": 14
+        },
+        "origin": {
+          "new-project-agent-authored": 36,
+          "historical-verbatim": 75,
+          "historical-prompt-with-authored-instruction": 2,
+          "historical-prompt-with-authored-context": 3,
+          "new-agent-authored": 4,
+          "historical-reselected": 4
+        }
+      },
+      "flags": {
+        "multiple_user_turns": 5
+      },
+      "duplicate_prompt_excess": 0,
+      "duplicate_pair_excess": 0,
+      "sampled_rows": 42,
+      "sampling": "seed3407 random16 + adjacent answer-length quantiles + first declared category/domain representatives; purposive, not an error-rate estimate"
+    },
+    "sft": {
+      "rows": 5579,
+      "input_characters": {
+        "n": 5579,
+        "min": 13,
+        "median": 96,
+        "mean": 105.12511202724502,
+        "p90": 184,
+        "max": 572
+      },
+      "answer_characters": {
+        "n": 5579,
+        "min": 3,
+        "median": 6950,
+        "mean": 6575.680767162574,
+        "p90": 9683,
+        "max": 15696
+      },
+      "role_sequences": {
+        "system,user,assistant": 5579
+      },
+      "unique_system_prompts": 1,
+      "top_system_prompt_sha256": [
+        {
+          "sha256": "14969a7c02587d6edc1972fb4384f192a513dc3c08e817a6b10ac4604bd1cacc",
+          "count": 5579
+        }
+      ],
+      "metadata": {},
+      "flags": {
+        "repeated_answer_line": 264,
+        "replacement_character": 1
+      },
+      "duplicate_prompt_excess": 9,
+      "duplicate_pair_excess": 0,
+      "sampled_rows": 36,
+      "sampling": "seed3407 random16 + adjacent answer-length quantiles + first declared category/domain representatives; purposive, not an error-rate estimate"
+    },
+    "atlas": {
+      "rows": 336146,
+      "input_characters": {
+        "n": 336146,
+        "min": 7,
+        "median": 258.0,
+        "mean": 290.3015356422507,
+        "p90": 466,
+        "max": 2986
+      },
+      "answer_characters": {
+        "n": 336146,
+        "min": 2,
+        "median": 280.0,
+        "mean": 334.03516626703873,
+        "p90": 636,
+        "max": 2000
+      },
+      "role_sequences": {
+        "system,user,assistant": 336146
+      },
+      "unique_system_prompts": 1,
+      "top_system_prompt_sha256": [
+        {
+          "sha256": "0679b5813618bd4507473e6ad511f79b4aa1cde55500d7d57fcd06089a738ae1",
+          "count": 336146
+        }
+      ],
+      "metadata": {},
+      "flags": {
+        "repeated_answer_line": 88
+      },
+      "duplicate_prompt_excess": 1022,
+      "duplicate_pair_excess": 0,
+      "sampled_rows": 37,
+      "sampling": "seed3407 random16 + adjacent answer-length quantiles + first declared category/domain representatives; purposive, not an error-rate estimate"
+    },
+    "cot": {
+      "rows": 4868,
+      "input_characters": {
+        "n": 4868,
+        "min": 60,
+        "median": 286.5,
+        "mean": 317.18405916187345,
+        "p90": 519,
+        "max": 1376
+      },
+      "answer_characters": {
+        "n": 4868,
+        "min": 114,
+        "median": 2719.0,
+        "mean": 3918.088742810189,
+        "p90": 8587,
+        "max": 38096
+      },
+      "role_sequences": {
+        "system,user,assistant": 4868
+      },
+      "unique_system_prompts": 1,
+      "top_system_prompt_sha256": [
+        {
+          "sha256": "241448130f4be89b724fd3e2b17eb66c03a8f3dad4ce685ce734ae35ed06bfda",
+          "count": 4868
+        }
+      ],
+      "metadata": {
+        "alan": {
+          "finans_ekonomi": 372,
+          "oyun_strateji": 338,
+          "programlama_algoritma": 329,
+          "etik_deger": 361,
+          "genel_muhakeme": 372,
+          "saglik_beslenme": 323,
+          "sosyal_bilimler": 372,
+          "fen_bilimleri": 344,
+          "uzamsal_gorsel": 340,
+          "gunluk_yasam": 337,
+          "dil_anlam": 352,
+          "matematik": 329,
+          "mantik_bulmaca": 324,
+          "nedensellik_yontem": 375
+        },
+        "alan_ad": {
+          "Finans ve Ekonomi": 372,
+          "Oyun Teorisi ve Strateji": 338,
+          "Programlama ve Algoritma": 329,
+          "Etik ve Değer Muhakemesi": 361,
+          "Genel Kültür ve Muhakeme": 372,
+          "Sağlık ve Beslenme (pratik/eğitsel)": 323,
+          "Sosyal Bilimler": 372,
+          "Fen Bilimleri": 344,
+          "Uzamsal ve Görsel Akıl Yürütme": 340,
+          "Günlük Yaşam ve Pratik Akıl Yürütme": 337,
+          "Dil ve Anlam (Türkçe)": 352,
+          "Matematik": 329,
+          "Mantık ve Bulmaca": 324,
+          "Nedensellik ve Bilimsel Yöntem": 375
+        },
+        "akil_yurutme": {
+          "aritmetik": 609,
+          "kisit_tatmini": 313,
+          "zamansal": 270,
+          "nedensel": 724,
+          "tumdengelim": 627,
+          "abduksiyon": 213,
+          "analojik": 274,
+          "optimizasyon": 413,
+          "elestirel": 568,
+          "tumevarim": 167,
+          "karsi_olgusal": 315,
+          "uzamsal": 128,
+          "olasiliksal": 247
+        },
+        "zorluk": {
+          "kolay": 857,
+          "orta": 2035,
+          "zor": 1644,
+          "uzman": 332
+        },
+        "format": {
+          "kelime_problemi": 626,
+          "kisa_acik": 1567,
+          "coktan_secmeli": 602,
+          "senaryo_vaka": 578,
+          "sayisal": 730,
+          "ispat_gosterim": 93,
+          "neden_nasil": 472,
+          "dogru_yanlis": 200
+        }
+      },
+      "flags": {
+        "reasoning_tag": 4868,
+        "repeated_answer_line": 206,
+        "reasoning_tag_unbalanced": 5
+      },
+      "duplicate_prompt_excess": 0,
+      "duplicate_pair_excess": 0,
+      "sampled_rows": 51,
+      "sampling": "seed3407 random16 + adjacent answer-length quantiles + first declared category/domain representatives; purposive, not an error-rate estimate"
+    }
+  },
+  "cross_source_exact_prompt_groups": 0,
+  "protected_cohort_sha256": "0abe42c892374d79a907554189345c8ba41848ea1c93c008e64e9c6dec0ab595",
+  "analyzer_sha256": "38e5aebc25b05300d6b7e5974232344bb7851bf02bde52fa52f4b1ad853f0aba",
+  "normalization": "NFC + casefold + whitespace collapse; hashes of user content only, system excluded",
+  "limitations": [
+    "Static flags and metadata do not establish semantic quality or absence of leakage.",
+    "Protected checks cover exact entire user messages/prompt vs 500 known prompts/questions/source documents; no fuzzy or cross-lingual clearance.",
+    "Lengths are Unicode characters, not model tokens or training exposure.",
+    "Source validation rows are not training candidates; all samples remain unapproved."
+  ]
+}

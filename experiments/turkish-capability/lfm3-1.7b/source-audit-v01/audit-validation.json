@@ -1,0 +1,26 @@
+{
+  "status": "passed-static-and-Argilla-readback",
+  "source_rows_scanned": 346717,
+  "semantic_rows_reviewed": 142,
+  "calibration_rows": 60,
+  "source_validation_candidates": 0,
+  "analyzer_hash_checks": {
+    "audit_turkish_sources.py": true,
+    "audit_turkish_source_overlap.py": true,
+    "measure_turkish_source_tokens.py": true,
+    "prepare_turkish_source_calibration.py": true
+  },
+  "calibration_packet_sha256": "5ec7299c0612e30b6e916f8a2c339effe6586f317c401ce648057895b7954d90",
+  "cot_calibration_domains": 13,
+  "python": "3.12.3",
+  "packages": {
+    "requests": "2.34.2",
+    "tokenizers": "0.23.1",
+    "argilla": "2.8.0"
+  },
+  "git_head": "09390ad20175b4ac548129723119ae1cd52e944c",
+  "limitations": [
+    "142 purposive agent reviews, not a representative error-rate estimate or human approval.",
+    "Argilla readback confirms60 unique records; source-bearing review packet remains ignored local."
+  ]
+}

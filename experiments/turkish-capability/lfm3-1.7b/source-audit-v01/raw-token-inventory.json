@@ -1,0 +1,146 @@
+{
+  "tokenizer_repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "tokenizer_url": "https://huggingface.co/LiquidAI/LFM3-1.7B/resolve/0dc4268b561499c648c7ba7c9466bf3d8d01517a/tokenizer.json",
+  "tokenizer_sha256": "7e226e34bface23ccf6e495d157bf77186c1c30a7659880e1a8994db528c3701",
+  "analyzer_sha256": "d9fa4fe874ffa93449f0fa5e5b10792303b672282bb88b8f87bec7b18b5a9700",
+  "sources": {
+    "occam": {
+      "user_content_tokens": {
+        "n": 124,
+        "total": 5571,
+        "min": 11,
+        "median": 41.0,
+        "p90": 72,
+        "p95": 84,
+        "p99": 92,
+        "max": 102
+      },
+      "assistant_content_tokens": {
+        "n": 124,
+        "total": 7833,
+        "min": 1,
+        "median": 37.5,
+        "p90": 131,
+        "p95": 206,
+        "p99": 391,
+        "max": 470
+      },
+      "system_content_tokens": {
+        "n": 124,
+        "total": 0,
+        "min": 0,
+        "median": 0.0,
+        "p90": 0,
+        "p95": 0,
+        "p99": 0,
+        "max": 0
+      },
+      "rows_above_4096_raw_content": 0,
+      "rows_above_8192_raw_content": 0
+    },
+    "sft": {
+      "user_content_tokens": {
+        "n": 5579,
+        "total": 186446,
+        "min": 4,
+        "median": 30,
+        "p90": 58,
+        "p95": 69,
+        "p99": 85,
+        "max": 191
+      },
+      "assistant_content_tokens": {
+        "n": 5579,
+        "total": 12723353,
+        "min": 1,
+        "median": 2401,
+        "p90": 3407,
+        "p95": 3688,
+        "p99": 4228,
+        "max": 5242
+      },
+      "system_content_tokens": {
+        "n": 5579,
+        "total": 2226021,
+        "min": 399,
+        "median": 399,
+        "p90": 399,
+        "p95": 399,
+        "p99": 399,
+        "max": 399
+      },
+      "rows_above_4096_raw_content": 298,
+      "rows_above_8192_raw_content": 0
+    },
+    "atlas": {
+      "user_content_tokens": {
+        "n": 336146,
+        "total": 32372297,
+        "min": 2,
+        "median": 88.0,
+        "p90": 157,
+        "p95": 224,
+        "p99": 322,
+        "max": 892
+      },
+      "assistant_content_tokens": {
+        "n": 336146,
+        "total": 36623390,
+        "min": 2,
+        "median": 93.0,
+        "p90": 198,
+        "p95": 268,
+        "p99": 374,
+        "max": 632
+      },
+      "system_content_tokens": {
+        "n": 336146,
+        "total": 72943682,
+        "min": 217,
+        "median": 217.0,
+        "p90": 217,
+        "p95": 217,
+        "p99": 217,
+        "max": 217
+      },
+      "rows_above_4096_raw_content": 0,
+      "rows_above_8192_raw_content": 0
+    },
+    "cot": {
+      "user_content_tokens": {
+        "n": 4868,
+        "total": 534454,
+        "min": 21,
+        "median": 99.0,
+        "p90": 182,
+        "p95": 210,
+        "p99": 295,
+        "max": 528
+      },
+      "assistant_content_tokens": {
+        "n": 4868,
+        "total": 7047091,
+        "min": 49,
+        "median": 1021.5,
+        "p90": 3039,
+        "p95": 3995,
+        "p99": 6538,
+        "max": 13802
+      },
+      "system_content_tokens": {
+        "n": 4868,
+        "total": 1017412,
+        "min": 209,
+        "median": 209.0,
+        "p90": 209,
+        "p95": 209,
+        "p99": 209,
+        "max": 209
+      },
+      "rows_above_4096_raw_content": 293,
+      "rows_above_8192_raw_content": 29
+    }
+  },
+  "scope": "All rows, user/assistant/system contents separately concatenated by role, add_special_tokens=False. Not native chat serialization, truncation or supervised labels. Occam includes its 20 validation rows in descriptive totals only."
+}

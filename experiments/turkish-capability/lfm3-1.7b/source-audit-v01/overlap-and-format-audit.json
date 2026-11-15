@@ -1,0 +1,80 @@
+{
+  "sources": {
+    "occam": {
+      "duplicate_prompt_groups": 0,
+      "groups_with_distinct_answers": 0,
+      "max_group_rows": 1,
+      "task_wording_signals": {
+        "editing": 15,
+        "summary": 13,
+        "grounded_context": 12,
+        "requested_detail": 1,
+        "translation": 2
+      },
+      "reasoning_format_flags": {},
+      "protected_phrase_candidates": []
+    },
+    "sft": {
+      "duplicate_prompt_groups": 6,
+      "groups_with_distinct_answers": 6,
+      "max_group_rows": 4,
+      "task_wording_signals": {
+        "clarification": 77,
+        "summary": 92,
+        "requested_detail": 63,
+        "translation": 66,
+        "editing": 126,
+        "code": 3,
+        "grounded_context": 7,
+        "json": 4
+      },
+      "reasoning_format_flags": {},
+      "protected_phrase_candidates": []
+    },
+    "atlas": {
+      "duplicate_prompt_groups": 700,
+      "groups_with_distinct_answers": 700,
+      "max_group_rows": 11,
+      "task_wording_signals": {
+        "summary": 31097,
+        "grounded_context": 38011,
+        "json": 17980,
+        "editing": 6393,
+        "translation": 4082,
+        "requested_detail": 7886,
+        "code": 3237,
+        "clarification": 4655
+      },
+      "reasoning_format_flags": {},
+      "protected_phrase_candidates": []
+    },
+    "cot": {
+      "duplicate_prompt_groups": 0,
+      "groups_with_distinct_answers": 0,
+      "max_group_rows": 1,
+      "task_wording_signals": {
+        "requested_detail": 176,
+        "editing": 26,
+        "translation": 41,
+        "summary": 12,
+        "clarification": 25,
+        "code": 34,
+        "grounded_context": 2
+      },
+      "reasoning_format_flags": {
+        "english_reasoning_phrase_signal": 183
+      },
+      "protected_phrase_candidates": []
+    }
+  },
+  "analyzer_sha256": "20055af2d59abae536c4e7cd0fc64cd53de5f96141ef04f6dc0efd70e911e5bf",
+  "protected_cohort_sha256": "0abe42c892374d79a907554189345c8ba41848ea1c93c008e64e9c6dec0ab595",
+  "occam_validation_sha256": "12c8fc64870a45facd23d3eff3a33552d33a0d37dc996dbf1812f3ae24a3e995",
+  "phrase_method": "Any normalized contiguous 12-word prompt overlap with known CETVEL500 prompts/documents or Occam validation user turns; triage, not proof.",
+  "limitations": [
+    "No semantic/cross-lingual benchmark clearance; no full public benchmark corpus scan.",
+    "Task wording signals overlap and omit implicit tasks; not capability labels or quality estimates.",
+    "Same prompt with different answers is not necessarily contradiction; compare the answers before disposition.",
+    "English phrase signal is not a reliable language detector or a rejection verdict."
+  ]
+}
