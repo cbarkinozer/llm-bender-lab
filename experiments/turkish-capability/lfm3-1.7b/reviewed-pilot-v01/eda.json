@@ -1,0 +1,1424 @@
+{
+  "exported_at_utc": "2026-11-16T08:08:58.080080+00:00",
+  "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "tokenizer_sha256": "7e226e34bface23ccf6e495d157bf77186c1c30a7659880e1a8994db528c3701",
+  "scope": "Raw semantic content, no chat template or special tokens. Final target only; earlier assistant turns are context. Quantiles use lower order statistic; median uses midpoint.",
+  "groups": {
+    "train/all": {
+      "rows": 80,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 80,
+          "total": 6123,
+          "min": 12,
+          "median": 62.0,
+          "mean": 76.54,
+          "p90": 133,
+          "p95": 190,
+          "max": 269
+        },
+        "context_tokens": {
+          "n": 80,
+          "total": 6123,
+          "min": 12,
+          "median": 62.0,
+          "mean": 76.54,
+          "p90": 133,
+          "p95": 190,
+          "max": 269
+        },
+        "system_tokens": {
+          "n": 80,
+          "total": 16500,
+          "min": 0,
+          "median": 213.0,
+          "mean": 206.25,
+          "p90": 399,
+          "p95": 399,
+          "max": 399
+        },
+        "final_tokens": {
+          "n": 80,
+          "total": 22284,
+          "min": 1,
+          "median": 200.0,
+          "mean": 278.55,
+          "p90": 632,
+          "p95": 677,
+          "max": 1339
+        },
+        "reasoning_tokens": {
+          "n": 80,
+          "total": 3221,
+          "min": 0,
+          "median": 0.0,
+          "mean": 40.26,
+          "p90": 164,
+          "p95": 215,
+          "max": 378
+        },
+        "target_tokens": {
+          "n": 80,
+          "total": 25505,
+          "min": 1,
+          "median": 243.0,
+          "mean": 318.81,
+          "p90": 677,
+          "p95": 737,
+          "max": 1339
+        },
+        "original_target_tokens": {
+          "n": 80,
+          "total": 76675,
+          "min": 1,
+          "median": 197.0,
+          "mean": 958.44,
+          "p90": 2696,
+          "p95": 3192,
+          "max": 7800
+        },
+        "final_words": {
+          "n": 80,
+          "total": 9241,
+          "min": 1,
+          "median": 87.0,
+          "mean": 115.51,
+          "p90": 249,
+          "p95": 293,
+          "max": 590
+        },
+        "final_characters": {
+          "n": 80,
+          "total": 68018,
+          "min": 3,
+          "median": 596.5,
+          "mean": 850.23,
+          "p90": 1929,
+          "p95": 2233,
+          "max": 4262
+        }
+      },
+      "decisions": {
+        "keep": 18,
+        "edit": 62
+      },
+      "prompt_edits": 54,
+      "reasoning_rows": 19,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "0-64": 18,
+        "65-256": 27,
+        "257-512": 21,
+        "513+": 14
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 10,
+        "code_fence": 0,
+        "json_object": 1,
+        "table": 3,
+        "question_in_answer": 11
+      },
+      "source_categories": {
+        "grammar_correction": 3,
+        "turkish_lexical_precision": 2,
+        "answer_extraction": 1,
+        "grounded_completion": 1,
+        "numeric_entity_precision": 2,
+        "useful_explanation": 4,
+        "faithful_summary": 1,
+        "consistency_integrity": 3,
+        "selective_clarification": 1,
+        "non_anthropomorphic_interaction": 2,
+        "None": 40,
+        "finans_ekonomi": 1,
+        "programlama_algoritma": 1,
+        "etik_deger": 2,
+        "sosyal_bilimler": 1,
+        "fen_bilimleri": 1,
+        "uzamsal_gorsel": 2,
+        "gunluk_yasam": 1,
+        "dil_anlam": 3,
+        "matematik": 1,
+        "mantik_bulmaca": 1,
+        "oyun_strateji": 2,
+        "saglik_beslenme": 3,
+        "nedensellik_yontem": 1
+      },
+      "primary_capabilities": {
+        "grammar_and_morphology": 9,
+        "structured_extraction": 9,
+        "clarification_and_uncertainty": 4,
+        "planning_and_advice": 18,
+        "rewriting_and_summary": 4,
+        "assistant_identity": 2,
+        "technical_method_and_analysis": 4,
+        "conceptual_explanation": 8,
+        "legal_explanation": 2,
+        "arithmetic_and_constraints": 12,
+        "authorization_and_privacy": 1,
+        "grounded_comprehension": 1,
+        "logic_and_critical_reasoning": 6
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "train/occam": {
+      "rows": 20,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 20,
+          "total": 1014,
+          "min": 12,
+          "median": 49.0,
+          "mean": 50.7,
+          "p90": 73,
+          "p95": 84,
+          "max": 89
+        },
+        "context_tokens": {
+          "n": 20,
+          "total": 1014,
+          "min": 12,
+          "median": 49.0,
+          "mean": 50.7,
+          "p90": 73,
+          "p95": 84,
+          "max": 89
+        },
+        "system_tokens": {
+          "n": 20,
+          "total": 0,
+          "min": 0,
+          "median": 0.0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "final_tokens": {
+          "n": 20,
+          "total": 1194,
+          "min": 1,
+          "median": 37.5,
+          "mean": 59.7,
+          "p90": 151,
+          "p95": 178,
+          "max": 182
+        },
+        "reasoning_tokens": {
+          "n": 20,
+          "total": 0,
+          "min": 0,
+          "median": 0.0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "target_tokens": {
+          "n": 20,
+          "total": 1194,
+          "min": 1,
+          "median": 37.5,
+          "mean": 59.7,
+          "p90": 151,
+          "p95": 178,
+          "max": 182
+        },
+        "original_target_tokens": {
+          "n": 20,
+          "total": 1216,
+          "min": 1,
+          "median": 40.0,
+          "mean": 60.8,
+          "p90": 151,
+          "p95": 178,
+          "max": 182
+        },
+        "final_words": {
+          "n": 20,
+          "total": 520,
+          "min": 1,
+          "median": 15.5,
+          "mean": 26,
+          "p90": 63,
+          "p95": 81,
+          "max": 85
+        },
+        "final_characters": {
+          "n": 20,
+          "total": 3946,
+          "min": 3,
+          "median": 120.5,
+          "mean": 197.3,
+          "p90": 522,
+          "p95": 588,
+          "max": 636
+        }
+      },
+      "decisions": {
+        "keep": 18,
+        "edit": 2
+      },
+      "prompt_edits": 0,
+      "reasoning_rows": 0,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "0-64": 14,
+        "65-256": 6
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 0,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 1
+      },
+      "source_categories": {
+        "grammar_correction": 3,
+        "turkish_lexical_precision": 2,
+        "answer_extraction": 1,
+        "grounded_completion": 1,
+        "numeric_entity_precision": 2,
+        "useful_explanation": 4,
+        "faithful_summary": 1,
+        "consistency_integrity": 3,
+        "selective_clarification": 1,
+        "non_anthropomorphic_interaction": 2
+      },
+      "primary_capabilities": {
+        "grammar_and_morphology": 4,
+        "structured_extraction": 5,
+        "clarification_and_uncertainty": 2,
+        "planning_and_advice": 6,
+        "rewriting_and_summary": 2,
+        "assistant_identity": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "train/sft": {
+      "rows": 20,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 20,
+          "total": 824,
+          "min": 16,
+          "median": 32.5,
+          "mean": 41.2,
+          "p90": 62,
+          "p95": 64,
+          "max": 138
+        },
+        "context_tokens": {
+          "n": 20,
+          "total": 824,
+          "min": 16,
+          "median": 32.5,
+          "mean": 41.2,
+          "p90": 62,
+          "p95": 64,
+          "max": 138
+        },
+        "system_tokens": {
+          "n": 20,
+          "total": 7980,
+          "min": 399,
+          "median": 399.0,
+          "mean": 399,
+          "p90": 399,
+          "p95": 399,
+          "max": 399
+        },
+        "final_tokens": {
+          "n": 20,
+          "total": 11360,
+          "min": 74,
+          "median": 531.5,
+          "mean": 568,
+          "p90": 748,
+          "p95": 823,
+          "max": 1339
+        },
+        "reasoning_tokens": {
+          "n": 20,
+          "total": 0,
+          "min": 0,
+          "median": 0.0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "target_tokens": {
+          "n": 20,
+          "total": 11360,
+          "min": 74,
+          "median": 531.5,
+          "mean": 568,
+          "p90": 748,
+          "p95": 823,
+          "max": 1339
+        },
+        "original_target_tokens": {
+          "n": 20,
+          "total": 45634,
+          "min": 1,
+          "median": 2390.5,
+          "mean": 2281.7,
+          "p90": 3290,
+          "p95": 3331,
+          "max": 5096
+        },
+        "final_words": {
+          "n": 20,
+          "total": 4729,
+          "min": 33,
+          "median": 228.5,
+          "mean": 236.45,
+          "p90": 302,
+          "p95": 327,
+          "max": 590
+        },
+        "final_characters": {
+          "n": 20,
+          "total": 35926,
+          "min": 232,
+          "median": 1713.0,
+          "mean": 1796.3,
+          "p90": 2337,
+          "p95": 2601,
+          "max": 4262
+        }
+      },
+      "decisions": {
+        "edit": 20
+      },
+      "prompt_edits": 17,
+      "reasoning_rows": 0,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "257-512": 8,
+        "513+": 11,
+        "65-256": 1
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 6,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 7
+      },
+      "source_categories": {
+        "None": 20
+      },
+      "primary_capabilities": {
+        "technical_method_and_analysis": 4,
+        "conceptual_explanation": 5,
+        "legal_explanation": 2,
+        "planning_and_advice": 7,
+        "assistant_identity": 1,
+        "clarification_and_uncertainty": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "train/atlas": {
+      "rows": 20,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 20,
+          "total": 1728,
+          "min": 20,
+          "median": 78.5,
+          "mean": 86.4,
+          "p90": 131,
+          "p95": 178,
+          "max": 230
+        },
+        "context_tokens": {
+          "n": 20,
+          "total": 1728,
+          "min": 20,
+          "median": 78.5,
+          "mean": 86.4,
+          "p90": 131,
+          "p95": 178,
+          "max": 230
+        },
+        "system_tokens": {
+          "n": 20,
+          "total": 4340,
+          "min": 217,
+          "median": 217.0,
+          "mean": 217,
+          "p90": 217,
+          "p95": 217,
+          "max": 217
+        },
+        "final_tokens": {
+          "n": 20,
+          "total": 4307,
+          "min": 32,
+          "median": 198.0,
+          "mean": 215.35,
+          "p90": 413,
+          "p95": 441,
+          "max": 483
+        },
+        "reasoning_tokens": {
+          "n": 20,
+          "total": 130,
+          "min": 0,
+          "median": 0.0,
+          "mean": 6.5,
+          "p90": 0,
+          "p95": 0,
+          "max": 130
+        },
+        "target_tokens": {
+          "n": 20,
+          "total": 4437,
+          "min": 32,
+          "median": 209.0,
+          "mean": 221.85,
+          "p90": 413,
+          "p95": 441,
+          "max": 483
+        },
+        "original_target_tokens": {
+          "n": 20,
+          "total": 2695,
+          "min": 2,
+          "median": 90.5,
+          "mean": 134.75,
+          "p90": 199,
+          "p95": 280,
+          "max": 618
+        },
+        "final_words": {
+          "n": 20,
+          "total": 1733,
+          "min": 1,
+          "median": 77.5,
+          "mean": 86.65,
+          "p90": 174,
+          "p95": 179,
+          "max": 194
+        },
+        "final_characters": {
+          "n": 20,
+          "total": 12679,
+          "min": 90,
+          "median": 496.5,
+          "mean": 633.95,
+          "p90": 1263,
+          "p95": 1335,
+          "max": 1529
+        }
+      },
+      "decisions": {
+        "edit": 20
+      },
+      "prompt_edits": 17,
+      "reasoning_rows": 1,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "65-256": 11,
+        "0-64": 3,
+        "257-512": 6
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 2,
+        "code_fence": 0,
+        "json_object": 1,
+        "table": 3,
+        "question_in_answer": 1
+      },
+      "source_categories": {
+        "None": 20
+      },
+      "primary_capabilities": {
+        "rewriting_and_summary": 2,
+        "structured_extraction": 4,
+        "arithmetic_and_constraints": 2,
+        "grammar_and_morphology": 5,
+        "authorization_and_privacy": 1,
+        "planning_and_advice": 5,
+        "grounded_comprehension": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "train/cot": {
+      "rows": 20,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 20,
+          "total": 2557,
+          "min": 47,
+          "median": 117.5,
+          "mean": 127.85,
+          "p90": 194,
+          "p95": 246,
+          "max": 269
+        },
+        "context_tokens": {
+          "n": 20,
+          "total": 2557,
+          "min": 47,
+          "median": 117.5,
+          "mean": 127.85,
+          "p90": 194,
+          "p95": 246,
+          "max": 269
+        },
+        "system_tokens": {
+          "n": 20,
+          "total": 4180,
+          "min": 209,
+          "median": 209.0,
+          "mean": 209,
+          "p90": 209,
+          "p95": 209,
+          "max": 209
+        },
+        "final_tokens": {
+          "n": 20,
+          "total": 5423,
+          "min": 55,
+          "median": 271.5,
+          "mean": 271.15,
+          "p90": 527,
+          "p95": 632,
+          "max": 670
+        },
+        "reasoning_tokens": {
+          "n": 20,
+          "total": 3091,
+          "min": 0,
+          "median": 159.5,
+          "mean": 154.55,
+          "p90": 270,
+          "p95": 338,
+          "max": 378
+        },
+        "target_tokens": {
+          "n": 20,
+          "total": 8514,
+          "min": 119,
+          "median": 405.5,
+          "mean": 425.7,
+          "p90": 721,
+          "p95": 725,
+          "max": 793
+        },
+        "original_target_tokens": {
+          "n": 20,
+          "total": 27130,
+          "min": 157,
+          "median": 870.0,
+          "mean": 1356.5,
+          "p90": 2651,
+          "p95": 2696,
+          "max": 7800
+        },
+        "final_words": {
+          "n": 20,
+          "total": 2259,
+          "min": 22,
+          "median": 117.0,
+          "mean": 112.95,
+          "p90": 224,
+          "p95": 257,
+          "max": 268
+        },
+        "final_characters": {
+          "n": 20,
+          "total": 15467,
+          "min": 118,
+          "median": 658.0,
+          "mean": 773.35,
+          "p90": 1688,
+          "p95": 1991,
+          "max": 2055
+        }
+      },
+      "decisions": {
+        "edit": 20
+      },
+      "prompt_edits": 20,
+      "reasoning_rows": 18,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "65-256": 9,
+        "0-64": 1,
+        "513+": 3,
+        "257-512": 7
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 2,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 2
+      },
+      "source_categories": {
+        "finans_ekonomi": 1,
+        "programlama_algoritma": 1,
+        "etik_deger": 2,
+        "sosyal_bilimler": 1,
+        "fen_bilimleri": 1,
+        "uzamsal_gorsel": 2,
+        "gunluk_yasam": 1,
+        "dil_anlam": 3,
+        "matematik": 1,
+        "mantik_bulmaca": 1,
+        "oyun_strateji": 2,
+        "saglik_beslenme": 3,
+        "nedensellik_yontem": 1
+      },
+      "primary_capabilities": {
+        "arithmetic_and_constraints": 10,
+        "conceptual_explanation": 3,
+        "logic_and_critical_reasoning": 6,
+        "clarification_and_uncertainty": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "test/all": {
+      "rows": 20,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 20,
+          "total": 1566,
+          "min": 30,
+          "median": 72.0,
+          "mean": 78.3,
+          "p90": 149,
+          "p95": 156,
+          "max": 184
+        },
+        "context_tokens": {
+          "n": 20,
+          "total": 1566,
+          "min": 30,
+          "median": 72.0,
+          "mean": 78.3,
+          "p90": 149,
+          "p95": 156,
+          "max": 184
+        },
+        "system_tokens": {
+          "n": 20,
+          "total": 4125,
+          "min": 0,
+          "median": 213.0,
+          "mean": 206.25,
+          "p90": 399,
+          "p95": 399,
+          "max": 399
+        },
+        "final_tokens": {
+          "n": 20,
+          "total": 6309,
+          "min": 14,
+          "median": 150.0,
+          "mean": 315.45,
+          "p90": 670,
+          "p95": 698,
+          "max": 982
+        },
+        "reasoning_tokens": {
+          "n": 20,
+          "total": 1060,
+          "min": 0,
+          "median": 0.0,
+          "mean": 53,
+          "p90": 235,
+          "p95": 297,
+          "max": 386
+        },
+        "target_tokens": {
+          "n": 20,
+          "total": 7369,
+          "min": 14,
+          "median": 221.0,
+          "mean": 368.45,
+          "p90": 757,
+          "p95": 982,
+          "max": 1056
+        },
+        "original_target_tokens": {
+          "n": 20,
+          "total": 17946,
+          "min": 14,
+          "median": 233.0,
+          "mean": 897.3,
+          "p90": 2504,
+          "p95": 2782,
+          "max": 3234
+        },
+        "final_words": {
+          "n": 20,
+          "total": 2594,
+          "min": 5,
+          "median": 70.5,
+          "mean": 129.7,
+          "p90": 269,
+          "p95": 270,
+          "max": 386
+        },
+        "final_characters": {
+          "n": 20,
+          "total": 19011,
+          "min": 33,
+          "median": 462.5,
+          "mean": 950.55,
+          "p90": 2046,
+          "p95": 2126,
+          "max": 2695
+        }
+      },
+      "decisions": {
+        "keep": 5,
+        "edit": 15
+      },
+      "prompt_edits": 12,
+      "reasoning_rows": 4,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "0-64": 7,
+        "65-256": 4,
+        "513+": 6,
+        "257-512": 3
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 7,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 4
+      },
+      "source_categories": {
+        "grammar_correction": 2,
+        "grounded_completion": 1,
+        "non_anthropomorphic_interaction": 1,
+        "selective_clarification": 1,
+        "None": 10,
+        "saglik_beslenme": 2,
+        "dil_anlam": 1,
+        "fen_bilimleri": 1,
+        "etik_deger": 1
+      },
+      "primary_capabilities": {
+        "grammar_and_morphology": 3,
+        "grounded_comprehension": 2,
+        "planning_and_advice": 4,
+        "conceptual_explanation": 3,
+        "technical_method_and_analysis": 1,
+        "legal_explanation": 1,
+        "rewriting_and_summary": 2,
+        "clarification_and_uncertainty": 1,
+        "arithmetic_and_constraints": 2,
+        "logic_and_critical_reasoning": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "test/occam": {
+      "rows": 5,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 5,
+          "total": 302,
+          "min": 33,
+          "median": 66,
+          "mean": 60.4,
+          "p90": 72,
+          "p95": 72,
+          "max": 77
+        },
+        "context_tokens": {
+          "n": 5,
+          "total": 302,
+          "min": 33,
+          "median": 66,
+          "mean": 60.4,
+          "p90": 72,
+          "p95": 72,
+          "max": 77
+        },
+        "system_tokens": {
+          "n": 5,
+          "total": 0,
+          "min": 0,
+          "median": 0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "final_tokens": {
+          "n": 5,
+          "total": 286,
+          "min": 14,
+          "median": 46,
+          "mean": 57.2,
+          "p90": 61,
+          "p95": 61,
+          "max": 133
+        },
+        "reasoning_tokens": {
+          "n": 5,
+          "total": 0,
+          "min": 0,
+          "median": 0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "target_tokens": {
+          "n": 5,
+          "total": 286,
+          "min": 14,
+          "median": 46,
+          "mean": 57.2,
+          "p90": 61,
+          "p95": 61,
+          "max": 133
+        },
+        "original_target_tokens": {
+          "n": 5,
+          "total": 286,
+          "min": 14,
+          "median": 46,
+          "mean": 57.2,
+          "p90": 61,
+          "p95": 61,
+          "max": 133
+        },
+        "final_words": {
+          "n": 5,
+          "total": 125,
+          "min": 5,
+          "median": 17,
+          "mean": 25,
+          "p90": 28,
+          "p95": 28,
+          "max": 62
+        },
+        "final_characters": {
+          "n": 5,
+          "total": 939,
+          "min": 33,
+          "median": 142,
+          "mean": 187.8,
+          "p90": 211,
+          "p95": 211,
+          "max": 458
+        }
+      },
+      "decisions": {
+        "keep": 5
+      },
+      "prompt_edits": 0,
+      "reasoning_rows": 0,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "0-64": 4,
+        "65-256": 1
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 0,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 0
+      },
+      "source_categories": {
+        "grammar_correction": 2,
+        "grounded_completion": 1,
+        "non_anthropomorphic_interaction": 1,
+        "selective_clarification": 1
+      },
+      "primary_capabilities": {
+        "grammar_and_morphology": 2,
+        "grounded_comprehension": 1,
+        "planning_and_advice": 2
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "test/sft": {
+      "rows": 5,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 5,
+          "total": 188,
+          "min": 30,
+          "median": 34,
+          "mean": 37.6,
+          "p90": 36,
+          "p95": 36,
+          "max": 58
+        },
+        "context_tokens": {
+          "n": 5,
+          "total": 188,
+          "min": 30,
+          "median": 34,
+          "mean": 37.6,
+          "p90": 36,
+          "p95": 36,
+          "max": 58
+        },
+        "system_tokens": {
+          "n": 5,
+          "total": 1995,
+          "min": 399,
+          "median": 399,
+          "mean": 399,
+          "p90": 399,
+          "p95": 399,
+          "max": 399
+        },
+        "final_tokens": {
+          "n": 5,
+          "total": 3600,
+          "min": 637,
+          "median": 642,
+          "mean": 720,
+          "p90": 698,
+          "p95": 698,
+          "max": 982
+        },
+        "reasoning_tokens": {
+          "n": 5,
+          "total": 0,
+          "min": 0,
+          "median": 0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "target_tokens": {
+          "n": 5,
+          "total": 3600,
+          "min": 637,
+          "median": 642,
+          "mean": 720,
+          "p90": 698,
+          "p95": 698,
+          "max": 982
+        },
+        "original_target_tokens": {
+          "n": 5,
+          "total": 11339,
+          "min": 918,
+          "median": 2473,
+          "mean": 2267.8,
+          "p90": 2782,
+          "p95": 2782,
+          "max": 3234
+        },
+        "final_words": {
+          "n": 5,
+          "total": 1452,
+          "min": 262,
+          "median": 269,
+          "mean": 290.4,
+          "p90": 270,
+          "p95": 270,
+          "max": 386
+        },
+        "final_characters": {
+          "n": 5,
+          "total": 10749,
+          "min": 1968,
+          "median": 2032,
+          "mean": 2149.8,
+          "p90": 2046,
+          "p95": 2046,
+          "max": 2695
+        }
+      },
+      "decisions": {
+        "edit": 5
+      },
+      "prompt_edits": 4,
+      "reasoning_rows": 0,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "513+": 5
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 4,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 2
+      },
+      "source_categories": {
+        "None": 5
+      },
+      "primary_capabilities": {
+        "conceptual_explanation": 1,
+        "technical_method_and_analysis": 1,
+        "planning_and_advice": 2,
+        "legal_explanation": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "test/atlas": {
+      "rows": 5,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 5,
+          "total": 509,
+          "min": 51,
+          "median": 81,
+          "mean": 101.8,
+          "p90": 149,
+          "p95": 149,
+          "max": 156
+        },
+        "context_tokens": {
+          "n": 5,
+          "total": 509,
+          "min": 51,
+          "median": 81,
+          "mean": 101.8,
+          "p90": 149,
+          "p95": 149,
+          "max": 156
+        },
+        "system_tokens": {
+          "n": 5,
+          "total": 1085,
+          "min": 217,
+          "median": 217,
+          "mean": 217,
+          "p90": 217,
+          "p95": 217,
+          "max": 217
+        },
+        "final_tokens": {
+          "n": 5,
+          "total": 418,
+          "min": 40,
+          "median": 53,
+          "mean": 83.6,
+          "p90": 132,
+          "p95": 132,
+          "max": 143
+        },
+        "reasoning_tokens": {
+          "n": 5,
+          "total": 0,
+          "min": 0,
+          "median": 0,
+          "mean": 0,
+          "p90": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "target_tokens": {
+          "n": 5,
+          "total": 418,
+          "min": 40,
+          "median": 53,
+          "mean": 83.6,
+          "p90": 132,
+          "p95": 132,
+          "max": 143
+        },
+        "original_target_tokens": {
+          "n": 5,
+          "total": 520,
+          "min": 40,
+          "median": 86,
+          "mean": 104,
+          "p90": 141,
+          "p95": 141,
+          "max": 192
+        },
+        "final_words": {
+          "n": 5,
+          "total": 176,
+          "min": 16,
+          "median": 21,
+          "mean": 35.2,
+          "p90": 57,
+          "p95": 57,
+          "max": 62
+        },
+        "final_characters": {
+          "n": 5,
+          "total": 1329,
+          "min": 125,
+          "median": 166,
+          "mean": 265.8,
+          "p90": 415,
+          "p95": 415,
+          "max": 467
+        }
+      },
+      "decisions": {
+        "edit": 5
+      },
+      "prompt_edits": 4,
+      "reasoning_rows": 0,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "0-64": 3,
+        "65-256": 2
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 1,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 1
+      },
+      "source_categories": {
+        "None": 5
+      },
+      "primary_capabilities": {
+        "grammar_and_morphology": 1,
+        "grounded_comprehension": 1,
+        "rewriting_and_summary": 2,
+        "clarification_and_uncertainty": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    },
+    "test/cot": {
+      "rows": 5,
+      "lengths": {
+        "prompt_tokens": {
+          "n": 5,
+          "total": 567,
+          "min": 88,
+          "median": 103,
+          "mean": 113.4,
+          "p90": 104,
+          "p95": 104,
+          "max": 184
+        },
+        "context_tokens": {
+          "n": 5,
+          "total": 567,
+          "min": 88,
+          "median": 103,
+          "mean": 113.4,
+          "p90": 104,
+          "p95": 104,
+          "max": 184
+        },
+        "system_tokens": {
+          "n": 5,
+          "total": 1045,
+          "min": 209,
+          "median": 209,
+          "mean": 209,
+          "p90": 209,
+          "p95": 209,
+          "max": 209
+        },
+        "final_tokens": {
+          "n": 5,
+          "total": 2005,
+          "min": 157,
+          "median": 395,
+          "mean": 401,
+          "p90": 460,
+          "p95": 460,
+          "max": 670
+        },
+        "reasoning_tokens": {
+          "n": 5,
+          "total": 1060,
+          "min": 0,
+          "median": 235,
+          "mean": 212,
+          "p90": 297,
+          "p95": 297,
+          "max": 386
+        },
+        "target_tokens": {
+          "n": 5,
+          "total": 3065,
+          "min": 299,
+          "median": 558,
+          "mean": 613,
+          "p90": 757,
+          "p95": 757,
+          "max": 1056
+        },
+        "original_target_tokens": {
+          "n": 5,
+          "total": 5801,
+          "min": 274,
+          "median": 932,
+          "mean": 1160.2,
+          "p90": 1619,
+          "p95": 1619,
+          "max": 2504
+        },
+        "final_words": {
+          "n": 5,
+          "total": 841,
+          "min": 79,
+          "median": 186,
+          "mean": 168.2,
+          "p90": 191,
+          "p95": 191,
+          "max": 263
+        },
+        "final_characters": {
+          "n": 5,
+          "total": 5994,
+          "min": 361,
+          "median": 1088,
+          "mean": 1198.8,
+          "p90": 1457,
+          "p95": 1457,
+          "max": 2126
+        }
+      },
+      "decisions": {
+        "edit": 5
+      },
+      "prompt_edits": 4,
+      "reasoning_rows": 4,
+      "multi_turn_rows": 0,
+      "final_length_bins": {
+        "65-256": 1,
+        "257-512": 3,
+        "513+": 1
+      },
+      "format_indicators": {
+        "markdown_heading": 0,
+        "list_format": 2,
+        "code_fence": 0,
+        "json_object": 0,
+        "table": 0,
+        "question_in_answer": 1
+      },
+      "source_categories": {
+        "saglik_beslenme": 2,
+        "dil_anlam": 1,
+        "fen_bilimleri": 1,
+        "etik_deger": 1
+      },
+      "primary_capabilities": {
+        "arithmetic_and_constraints": 2,
+        "conceptual_explanation": 2,
+        "logic_and_critical_reasoning": 1
+      },
+      "above_raw_4096": 0,
+      "above_raw_8192": 0
+    }
+  },
+  "exact_prompt_duplicates": [],
+  "exact_final_duplicates": [],
+  "cross_split_fivegram_candidates": [],
+  "protected_input_12gram_hits": [],
+  "excluded": [],
+  "longest_targets": [
+    {
+      "id": "sft:TR-part1-261025_v1-fixed.jsonl:2002",
+      "split": "train",
+      "source": "sft",
+      "final_tokens": 1339,
+      "reasoning_tokens": 0,
+      "target_tokens": 1339
+    },
+    {
+      "id": "cot:train.jsonl:3572",
+      "split": "test",
+      "source": "cot",
+      "final_tokens": 670,
+      "reasoning_tokens": 386,
+      "target_tokens": 1056
+    },
+    {
+      "id": "sft:TR-part1-261025_v1-fixed.jsonl:2008",
+      "split": "test",
+      "source": "sft",
+      "final_tokens": 982,
+      "reasoning_tokens": 0,
+      "target_tokens": 982
+    },
+    {
+      "id": "sft:TR-part1-261025_v1-fixed.jsonl:423",
+      "split": "train",
+      "source": "sft",
+      "final_tokens": 823,
+      "reasoning_tokens": 0,
+      "target_tokens": 823
+    },
+    {
+      "id": "cot:train.jsonl:173",
+      "split": "train",
+      "source": "cot",
+      "final_tokens": 455,
+      "reasoning_tokens": 338,
+      "target_tokens": 793
+    },
+    {
+      "id": "cot:train.jsonl:963",
+      "split": "test",
+      "source": "cot",
+      "final_tokens": 460,
+      "reasoning_tokens": 297,
+      "target_tokens": 757
+    },
+    {
+      "id": "sft:TR-part1-261025_v1-fixed.jsonl:1018",
+      "split": "train",
+      "source": "sft",
+      "final_tokens": 748,
+      "reasoning_tokens": 0,
+      "target_tokens": 748
+    },
+    {
+      "id": "sft:TR-part1-261025_v1-fixed.jsonl:227",
+      "split": "train",
+      "source": "sft",
+      "final_tokens": 737,
+      "reasoning_tokens": 0,
+      "target_tokens": 737
+    },
+    {
+      "id": "cot:train.jsonl:2144",
+      "split": "train",
+      "source": "cot",
+      "final_tokens": 527,
+      "reasoning_tokens": 198,
+      "target_tokens": 725
+    },
+    {
+      "id": "cot:train.jsonl:466",
+      "split": "train",
+      "source": "cot",
+      "final_tokens": 343,
+      "reasoning_tokens": 378,
+      "target_tokens": 721
+    }
+  ]
+}

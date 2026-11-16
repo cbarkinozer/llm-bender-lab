@@ -1,5 +1,13 @@
 # Turkish SFT source audit v01
 
+**2026-11-16 review export:** all 100 pilot records have submitted owner reviews.
+The corrected 80 training candidates and 20 protected test records, frozen Argilla
+snapshot, capability inventory and length/exposure analysis are committed in
+[`../reviewed-pilot-v01/`](../reviewed-pilot-v01/README.md). This supersedes pending
+review status for those selected records only; the source-wide audit below is
+historical. Owner edits and intentional direct answers are preserved. Targeted
+content concerns and system/objective alignment remain documented before training.
+
 2026-11-14. **Audit complete for this bounded intake phase; no source or row is
 accepted for training by this report.** All four datasets were downloaded at
 immutable revisions, checked for file integrity and scanned structurally.
