@@ -1,0 +1,108 @@
+{
+  "status": "semantic-frozen-not-training-ready",
+  "dataset_id": "2622bd70-e5e5-48af-8905-91a4ea47032f",
+  "snapshot_sha256": "a166bbec380b33f4326dcbb114f254dc866a970dc00ae8cf6653a1cc614a6422",
+  "packet_sha256": "078a89e43e6a03d8329829e2a0b1f8023678653ae958b159ebf77ffdcc925312",
+  "builder_sha256": "8e4d4d85d68cab4b788dfe4aff077db2c6771f7445834e5683a328d8d8f0b480",
+  "old_train_sha256": "42c9d741f1dacfb77cb63a1a912a5a20700566fe58d99b2f3972a210bdafa56b",
+  "counts": {
+    "train": 160,
+    "new_train": 80,
+    "test": 20
+  },
+  "submitted_responses": 80,
+  "source_counts": {
+    "atlas": 40,
+    "cot": 40,
+    "occam": 40,
+    "sft": 40
+  },
+  "statistics": {
+    "new80": {
+      "occam": {
+        "rows": 20,
+        "reasoning_rows": 0,
+        "target_tokens": 1509,
+        "min": 7,
+        "median": 51.0,
+        "max": 470
+      },
+      "sft": {
+        "rows": 20,
+        "reasoning_rows": 1,
+        "target_tokens": 8229,
+        "min": 72,
+        "median": 405.0,
+        "max": 892
+      },
+      "atlas": {
+        "rows": 20,
+        "reasoning_rows": 0,
+        "target_tokens": 3126,
+        "min": 11,
+        "median": 127.0,
+        "max": 528
+      },
+      "cot": {
+        "rows": 20,
+        "reasoning_rows": 10,
+        "target_tokens": 7277,
+        "min": 30,
+        "median": 233.5,
+        "max": 2098
+      }
+    },
+    "combined160": {
+      "occam": {
+        "rows": 40,
+        "reasoning_rows": 0,
+        "target_tokens": 2703,
+        "min": 1,
+        "median": 40.0,
+        "max": 470
+      },
+      "sft": {
+        "rows": 40,
+        "reasoning_rows": 1,
+        "target_tokens": 19589,
+        "min": 72,
+        "median": 486.0,
+        "max": 1339
+      },
+      "atlas": {
+        "rows": 40,
+        "reasoning_rows": 1,
+        "target_tokens": 7549,
+        "min": 11,
+        "median": 144.0,
+        "max": 528
+      },
+      "cot": {
+        "rows": 40,
+        "reasoning_rows": 28,
+        "target_tokens": 15596,
+        "min": 30,
+        "median": 287.0,
+        "max": 2098
+      }
+    }
+  },
+  "checks": {
+    "unique_train_ids": true,
+    "unique_normalized_train_prompts": true,
+    "test_bytes_unchanged": true,
+    "new80_protected_12gram_matches": [],
+    "new80_holdout_5gram_containment_matches": []
+  },
+  "limitations": [
+    "Selection was source/length stratified, not weakness-quota targeted.",
+    "Lexical checks do not establish semantic or cross-lingual independence.",
+    "Native rendered length, labels, EOS, smoke/tiny-overfit and separate development set remain launch gates.",
+    "Old20 is diagnostic/selection-used, not pristine final test."
+  ],
+  "files": {
+    "batch02-train.jsonl": "41ec51af3e048a1005f6441468647138a831f9bf6373e1144136854ee04f7337",
+    "train.jsonl": "e8bd148d2a3947dd7870ab404e3a4b402c792c7b0983b7ed8f8731325d5747b9",
+    "test.jsonl": "fab18f50f82c0fb4cf841a8ba2319e28dd7e13c3bd36c057cd95ebd2433fa85a"
+  }
+}

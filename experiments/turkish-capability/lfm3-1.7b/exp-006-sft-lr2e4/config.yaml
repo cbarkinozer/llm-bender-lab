@@ -1,0 +1,142 @@
+{
+  "status": "planned",
+  "model": {
+    "repo": "cbarkinozer/LFM3-1.7B-Turkish-CPT",
+    "revision": "6f213ec25a944dab2fbdeb6d337deb0e0442e638",
+    "parent_repo": "LiquidAI/LFM3-1.7B",
+    "parent_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "load_policy": "Merge pinned CPT adapter into pinned BF16 parent; initialize fresh SFT LoRA independently for each run",
+    "quantization": null
+  },
+  "dataset": {
+    "reviewed_directory": "experiments/turkish-capability/lfm3-1.7b/reviewed-pilot-v01",
+    "train_rows": 80,
+    "test_rows": 20,
+    "reviewed_train_sha256": "f57267de32ac2df3c7f0f197528125258f227cf4f9ac7067f1a77df1f5f10b3c",
+    "reviewed_test_sha256": "f94007181003a6d9bb80d03f6b25e7e803f0308090fa2f0464ecd51b4e8f9c57",
+    "training_ready_manifest": null,
+    "system_policy": "Versioned shared Turkish assistant instruction replacing inherited style/mandatory-reasoning systems; preserve originals in lineage",
+    "target_policy": "Final assistant turn only, including optional owner-approved worked_solution serialized once using verified native reasoning format; include end-of-turn in labels; direct answers remain direct",
+    "pending_content_review": [],
+    "test_policy": "Never train, tune, early-stop or choose checkpoints using these 20; evaluate both predeclared final checkpoints once",
+    "semantic_prepared_directory": "experiments/turkish-capability/lfm3-1.7b/sft-pilot80-v01",
+    "semantic_manifest_sha256": "4e59a62fb2cd15e975ab48b6722c2b9693a77d6c8032f6bef844370e8f6a02c1",
+    "content_review_status": "Three owner-approved repairs applied in semantic copy; native serialization and semantic leakage checks remain pending"
+  },
+  "training": {
+    "framework": "transformers.Trainer+peft; explicit native-template tokenization and labels",
+    "method": "lora-sft",
+    "precision": "bfloat16",
+    "learning_rate": 0.0002,
+    "epochs": 5,
+    "micro_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "gpu_count": 1,
+    "effective_batch_size": 8,
+    "expected_optimizer_steps": 50,
+    "warmup_steps": 3,
+    "scheduler": "cosine",
+    "max_length": 4096,
+    "truncation_policy": "Fail if any rendered training sample exceeds limit",
+    "packing": false,
+    "loss": "assistant target and end-of-turn only; mask system/user/context and padding",
+    "lora_rank": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "in_proj",
+      "out_proj",
+      "w1",
+      "w2",
+      "w3"
+    ],
+    "embeddings_trainable": false,
+    "optimizer": "adamw_torch_fused",
+    "weight_decay": 0.0,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-08,
+    "max_grad_norm": 1.0,
+    "gradient_checkpointing": true,
+    "seed": 3407,
+    "data_seed": 3407,
+    "dataloader_num_workers": 0,
+    "checkpoint_selection": "Predeclared final step 50; no held-out test selection",
+    "evaluation_during_training": false
+  },
+  "evaluation": {
+    "baseline": "Same pinned CPT, before SFT",
+    "cohorts": [
+      "protected reviewed 20, final reporting only",
+      "fixed stratified CETVEL100 from frozen CETVEL500, development only",
+      "frozen TurBLiMP1600 grammar regression cohort"
+    ],
+    "primary_metric": "Blind human instruction-following/correctness pass count on 20; report paired item outcomes, no generalization claim",
+    "supporting_metrics": [
+      "EOS/length/loop termination counts",
+      "answer length and repetition",
+      "Turkish fluency and requested format",
+      "CETVEL task-specific metrics",
+      "TurBLiMP accuracy"
+    ],
+    "selection_policy": "No production winner solely from this small test; future tuning requires separate dev data",
+    "vllm_version": "0.34.0rc1.dev251+g7cc0a8a2b",
+    "dtype": "bfloat16",
+    "batch_size": 4,
+    "enforce_eager": true,
+    "prefix_caching": false,
+    "gpu_memory_utilization": 0.75,
+    "max_model_len": 8192,
+    "temperature": 0.1,
+    "top_k": 50,
+    "top_p": 1.0,
+    "repetition_penalty": 1.1,
+    "max_new_tokens": 4096,
+    "seed": 3407,
+    "enable_thinking": false,
+    "ignore_eos": true,
+    "stop_token_ids": [
+      124900
+    ],
+    "termination_policy": "Reuse exact historical explicit stop-ID and exact-loop guard implementation; record raw output/token IDs and actual stop reason",
+    "reasoning_note": "Historical matched evaluation uses enable_thinking=false; any reasoning-enabled comparison must be separately frozen and run on all three models, never mixed into matched scores",
+    "scope_note": "Pilot scope narrowed from full CETVEL500 to fixed100 for all three models to bound decoding cost; generation settings unchanged. Full500 historical CPT remains context only."
+  },
+  "preflight": {
+    "required": [
+      "content issues resolved and documented",
+      "semantic leakage review of all 80 against protected cohorts",
+      "normalized data manifest frozen with hashes",
+      "native chat template and reasoning serialization inspected",
+      "all 80 sequence lengths and assistant/EOT labels audited",
+      "CPT merge reload/parity check",
+      "untouched CPT baseline generated before SFT",
+      "finite-loss smoke with save/reload/generation",
+      "tiny overfit on train-only subset with demonstrated learning",
+      "exact runtime versions and hardware recorded"
+    ],
+    "runtime_reference": "experiments/turkish-capability/lfm3-1.7b/exp-000-baseline/requirements-gpu.txt",
+    "runtime_note": "Prior recipe is a candidate; capture resolved GPU runtime rather than assuming local compatibility"
+  },
+  "tracking": {
+    "project": "lfm3-turkish-post-training",
+    "group": "lfm3-turkish-sft-pilot80-lr-pair-v01",
+    "run_name": "exp006-sft-lr2e-4-80rows-5ep-r32",
+    "credentials": "Outside repository and artifact archives"
+  },
+  "operations": {
+    "pod_plan": "One GPU pod, shared persistent download caches and separate training/vLLM environments; sequential runs, release training VRAM before inference",
+    "artifacts": "Save adapters, tokenizer, exact code/config/data manifests, loss diagnostics and raw predictions; large weights/log archives outside Git",
+    "hardware_target": "Single RTX4090-class 24GB GPU; confirm BF16 and architecture support before launch"
+  },
+  "experiment": {
+    "id": "exp-006-sft-lr2e4",
+    "parent": "exp-005-sft-lr1e4",
+    "comparison_variable": "learning_rate",
+    "initialization": "Independent fresh SFT adapter on identical pinned CPT; B does not resume A"
+  }
+}

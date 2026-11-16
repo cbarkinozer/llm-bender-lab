@@ -1,0 +1,105 @@
+{
+  "seed": 3410,
+  "packet_sha256": "078a89e43e6a03d8329829e2a0b1f8023678653ae958b159ebf77ffdcc925312",
+  "builder_sha256": "8a9d74175468a99427647b4addf4c37a0633e8f3086dcd7f98c35bd7b5961c51",
+  "tokenizer_sha256": "7e226e34bface23ccf6e495d157bf77186c1c30a7659880e1a8994db528c3701",
+  "source_pins": {
+    "occam": {
+      "repo": "cbarkinozer/Occam-Turkish-Response-SFT",
+      "revision": "947850d484c71f657dbec2bb7e3d356cb5fb23e3"
+    },
+    "sft": {
+      "repo": "AlicanKiraz0/Turkish-SFT-Dataset-v1.0",
+      "revision": "5a5a852ab9067866d72ed92381205518feaae5fb"
+    },
+    "atlas": {
+      "repo": "AlicanKiraz0/Turkce-Atlas-Instruct",
+      "revision": "c387738c5deacbb35667ab4057930adc34e647e8"
+    },
+    "cot": {
+      "repo": "AlicanKiraz0/Turkish-CoT-Instruct-Dataset",
+      "revision": "3473e6c6350564d5a7000faf3ff140e9c4b9d1f2"
+    }
+  },
+  "source_statistics": {
+    "occam": {
+      "n": 20,
+      "answer_tokens_total": 1509,
+      "answer_tokens_min": 7,
+      "answer_tokens_median": 51.0,
+      "answer_tokens_max": 470,
+      "category_counts": {
+        "consistency_integrity": 3,
+        "useful_explanation": 3,
+        "turkish_lexical_precision": 2,
+        "grounded_completion": 3,
+        "non_anthropomorphic_interaction": 2,
+        "faithful_summary": 2,
+        "grammar_correction": 1,
+        "numeric_entity_precision": 1,
+        "selective_clarification": 3
+      }
+    },
+    "sft": {
+      "n": 20,
+      "answer_tokens_total": 36190,
+      "answer_tokens_min": 93,
+      "answer_tokens_median": 1987.0,
+      "answer_tokens_max": 2718,
+      "category_counts": {
+        "unspecified": 20
+      }
+    },
+    "atlas": {
+      "n": 20,
+      "answer_tokens_total": 2309,
+      "answer_tokens_min": 34,
+      "answer_tokens_median": 99.5,
+      "answer_tokens_max": 328,
+      "category_counts": {
+        "unspecified": 20
+      }
+    },
+    "cot": {
+      "n": 20,
+      "answer_tokens_total": 21095,
+      "answer_tokens_min": 211,
+      "answer_tokens_median": 896.0,
+      "answer_tokens_max": 2460,
+      "category_counts": {
+        "uzamsal_gorsel": 1,
+        "matematik": 1,
+        "etik_deger": 2,
+        "gunluk_yasam": 2,
+        "sosyal_bilimler": 2,
+        "genel_muhakeme": 1,
+        "dil_anlam": 1,
+        "saglik_beslenme": 2,
+        "finans_ekonomi": 1,
+        "mantik_bulmaca": 2,
+        "fen_bilimleri": 2,
+        "oyun_strateji": 1,
+        "nedensellik_yontem": 1,
+        "programlama_algoritma": 1
+      }
+    }
+  },
+  "excluded": {
+    "near_prompt_family": 1
+  },
+  "records": 80,
+  "owner_prior_approved_occam": 20,
+  "new_owner_reviews_required": 60,
+  "protected_cohort_sha256": "0abe42c892374d79a907554189345c8ba41848ea1c93c008e64e9c6dec0ab595",
+  "old_packet_sha256": {
+    "train": "16ad5790152e3e5c15f58de49c24f1dbe3befa9937511c697328aed2c614ddd0",
+    "test": "38b42f6c157bb5922245987fcf86a9c4553e464f2fd72382533ca5b67d75fc56"
+  },
+  "selection": "20/source; 5 per eligible answer-character quartile; prefer underrepresented source categories; no raw target rewriting",
+  "limitations": [
+    "Raw token counts exclude chat template; re-audit after owner edits.",
+    "Count balance is not token balance; no semantic/cross-lingual contamination clearance claimed.",
+    "No training export until review, deduplication and native-template gates pass.",
+    "Original systems retained for review; shared versioned training system applied only at export."
+  ]
+}

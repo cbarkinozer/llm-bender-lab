@@ -11,6 +11,8 @@ def main():
     parser.add_argument('--experiment-dir', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--adapter', type=Path)
+    parser.add_argument('--merged-model', type=Path,
+                        help='Complete merged BF16 model for a matched pilot comparison')
     args = parser.parse_args()
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -20,8 +22,14 @@ def main():
     if hashlib.sha256(packet.read_bytes()).hexdigest() != receipt['sha256']:
         raise ValueError('TurBLiMP packet checksum mismatch')
     tokenizer = AutoTokenizer.from_pretrained(cfg['repo'],revision=cfg['revision'])
-    model = AutoModelForCausalLM.from_pretrained(cfg['repo'],revision=cfg['revision'],code_revision=cfg['revision'],
-        trust_remote_code=True,dtype=torch.bfloat16).to('cuda').eval()
+    if args.merged_model:
+        if args.adapter:
+            parser.error('--adapter and --merged-model are mutually exclusive')
+        model = AutoModelForCausalLM.from_pretrained(args.merged_model,
+            trust_remote_code=True,dtype=torch.bfloat16).to('cuda').eval()
+    else:
+        model = AutoModelForCausalLM.from_pretrained(cfg['repo'],revision=cfg['revision'],code_revision=cfg['revision'],
+            trust_remote_code=True,dtype=torch.bfloat16).to('cuda').eval()
     if args.adapter:
         from peft import PeftModel
         model=PeftModel.from_pretrained(model,str(args.adapter)).eval()
@@ -44,7 +52,8 @@ def main():
             groups[result['phenomenon']].append(result)
             stream.write(json.dumps(result)+'\n'); stream.flush()
     metrics={k:dict(count=len(v),accuracy=sum(r['win'] for r in v)/len(v),ties=sum(r['tie'] for r in v)) for k,v in groups.items()}
-    report=dict(model=cfg,adapter=str(args.adapter) if args.adapter else None,packet_sha256=receipt['sha256'],
+    report=dict(model=cfg,adapter=str(args.adapter) if args.adapter else None,
+        merged_model=str(args.merged_model) if args.merged_model else None,packet_sha256=receipt['sha256'],
         policy='BOS + raw sentence, no EOS, summed log probabilities; ties are not wins',per_phenomenon=metrics,
         macro_accuracy=sum(v['accuracy'] for v in metrics.values())/len(metrics),official_full_benchmark=False)
     (args.output_dir/'scores.json').write_text(json.dumps(report,indent=2)+'\n')

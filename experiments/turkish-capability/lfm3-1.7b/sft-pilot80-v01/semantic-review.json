@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "scope": "Pilot eligibility review, not proof of globally uncontaminated evaluation",
+  "semantic_manifest_sha256": "4e59a62fb2cd15e975ab48b6722c2b9693a77d6c8032f6bef844370e8f6a02c1",
+  "reviewed_training_rows": 80,
+  "protected_reviewed_test_rows": 20,
+  "cpt_cohort_rows": 500,
+  "method": [
+    "Read all 80 owner-corrected user prompts",
+    "Inspect nearest protected prompt by IDF-weighted word overlap for every train row",
+    "Review candidates above 0.13; three are shared formatting/grammar task families, not reused problem instances",
+    "Retain prior exact and protected-12-gram checks; no claimed semantic/cross-lingual guarantee"
+  ],
+  "nearest_neighbor_audit_sha256": "aca3286825df2b4d0ea45e59616831cd6402c0b839f5417b4143b20dfd346940",
+  "findings": [
+    {
+      "train_id": "atlas:train.chat.jsonl:137185",
+      "test_id": "atlas:train.chat.jsonl:255615",
+      "assessment": "Same table-extraction instruction format; distinct IDS packet event versus camp reservation entities and source text."
+    },
+    {
+      "train_id": "occam:data/train.jsonl:6",
+      "test_id": "occam:data/train.jsonl:5",
+      "assessment": "Same spelling-correction template; distinct race/building sentence versus chemistry report sentence."
+    },
+    {
+      "train_id": "occam:data/train.jsonl:7",
+      "test_id": "occam:data/train.jsonl:5",
+      "assessment": "Related second-attempt wording and spelling-correction family; distinct aviation versus chemistry sentences. Not a pristine family-disjoint evaluation."
+    }
+  ],
+  "limitations": [
+    "The 20 pilot test rows share task families with training; interpret as held-out instances, not novel-family evidence.",
+    "CETVEL500 is repeatedly inspected development evidence.",
+    "TurBLiMP is a frozen grammar regression cohort; sentence-overlap checks run on the restored packet before the GPU gate."
+  ]
+}

@@ -1,5 +1,9 @@
 # Turkish post-training and Reflex roadmap
 
+## Latest handoff: reviewed160 frozen
+
+All80 new Argilla text reviews are submitted and exported. The combined160 training rows and unchanged protected20 are versioned in [pilot160](../experiments/turkish-capability/lfm3-1.7b/sft-pilot160-v01/README.md). Owner requested training tomorrow; no training launched. Next: separate dev packet,160-compatible recipe and real-model preflight, then the planned LR1e-4/2e-4 pair with epoch3/5 checkpoints. This update supersedes earlier pending-review counts.
+
 Requested: 2026-11-14. Status: plan; no new training or data generation launched.
 
 ## Direction
@@ -220,12 +224,62 @@ research direction, return to Reflex after the dense-model SFT/DPO work.
 
 ## Immediate next work
 
-1. Owner reviews the 60-source calibration in local Argilla; no labels are prefilled.
-2. Export submitted decisions and edits; reconcile rubric disagreements and defects.
-3. Address source eligibility and remaining contamination/family checks before accepting data.
-4. Select complementary examples and author independent coverage gaps in reviewed batches;
-   freeze the reusable v01 dataset before LoRA.
-5. Evaluate LFM3 SFT, then separately version model-specific curation and DPO.
+Owner decisions, 2026-11-16 (supersede older comparison plans below):
+
+- Completed20 owner comparisons: working pilot winner exp-006, LR2e-4
+  (10 wins,6 losses,4 ties versus1e-4). Preferences are not production acceptance.
+  See [final review](../experiments/turkish-capability/lfm3-1.7b/PILOT80-OWNER-REVIEW-FINAL.md).
+- [Batch02 text editor](http://127.0.0.1:6900/dataset/2622bd70-e5e5-48af-8905-91a4ea47032f/annotation-mode)
+  has exactly Input / optional Thinking / Output textboxes, prefilled; no ratings.
+  Migration retained20 Occam approvals and14 owner edits;46 remain drafts. Submit
+  final text only; blank Thinking means none and must not restore source reasoning.
+- Two-job design: LR1e-4 vs2e-4, epoch3/5 checkpoints in each (four candidates).
+  See [pilot160 plan](../experiments/turkish-capability/lfm3-1.7b/PILOT160-PAIR-PLAN.md).
+  Freeze reviewed160 and separate development data first. No new training launched.
+
+- Use the untouched, pinned LiquidAI/LFM3-1.7B as the primary baseline for future
+  comparisons, replacing CPT as the primary comparator. Preserve historical CPT
+  results. This changes evaluation, not the training parent; no switch away from
+  CPT-initialized SFT has been authorized or tested by this decision.
+- Next intake is 80 NEW training candidates from the same four pinned sources:
+  public cbarkinozer/Occam-Turkish-Response-SFT and the three AlicanKiraz datasets.
+  Aim for 20 per source where eligible diverse examples exist, with capability
+  and token-length balance checked separately. Owner edits/reviews AlicanKiraz
+  candidates; retain the standing owner acceptance of public Occam records.
+  Preserve original targets and provenance alongside edits. Do not duplicate the
+  existing80 or import any held-out/benchmark items or their rewrites.
+- Target160 accepted training examples, pending review. Prioritize natural Turkish,
+  meaning-preserving correction, grounded explanations, clarification and exact
+  constraints. Reasoning remains optional for tasks that warrant it; do not add
+  empty or artificial reasoning to simple questions. Establish separate development
+  examples before another training comparison; keep the existing20 evaluation-only.
+- Owner need not finish the remaining blind comparisons. Export the submitted
+  subset and notes as partial diagnostic evidence; no forced additional annotation.
+  See the dated [partial review report](../experiments/turkish-capability/lfm3-1.7b/PILOT80-OWNER-REVIEW.md).
+
+Completed pilot milestones (2026-11-16): all100 owner reviews exported with edits,
+80/20 split frozen, three authorized training corrections applied, native assistant
+labels and optional reasoning verified, smoke/tiny-overfit passed, two independent
+50-update SFT runs completed (only LR1e-4 vs2e-4 differs), and matched CPT/SFT
+inference completed on holdout20, CETVEL100 and TurBLiMP1600.
+See [pilot results](../experiments/turkish-capability/lfm3-1.7b/PILOT80-RESULTS.md).
+This80-row pilot is not the final reusable general-coverage dataset or a release.
+
+1. Owner grades the20 blind comparisons using correctness and instruction-following
+   rubric; preserve both checkpoints and report paired outcomes. Automatic metrics
+   show stopping recovery, while inspected answers still contain material errors.
+2. Expand the reusable corpus in manageable reviewed batches targeting faithful
+   edits/extraction, missing-context clarification, exact constraints, grounded
+   explanations, and the previously missing coding/translation/multiturn coverage.
+   Keep source provenance and resolve publication eligibility; no benchmark answers
+   or test-derived rewrites enter training.
+3. Establish a separate development set before more tuning; retain a fresh final
+   test for the larger dataset. The existing20 must not become training data.
+4. Freeze the broader reviewed dataset, then run the larger LFM3 SFT comparison.
+   Evaluate a separately frozen thinking-enabled protocol; current inference
+   disabled thinking and cannot answer whether it improves accuracy.
+5. After stable SFT quality, collect DPO preferences. Keep MoE/text-diffusion pilots
+   bounded, then prioritize Reflex-1 local decision models as planned.
 
 ## Sources checked for this plan
 

@@ -1,0 +1,40 @@
+{
+  "status": "passed_safe_to_close_pod",
+  "archive_sha256": "253bbd5711433b0bd1426cc8d1c5406dda812a45207ad82124bd1f4f79ee2b81",
+  "archive_bytes": 490009340,
+  "verified_files": 352,
+  "adapters_saved": [
+    {
+      "experiment": "exp-005-sft-lr1e4",
+      "sha256": "e5d1edc6375d272bea38cb11557492ab30056d49fefbd7873eaba97e158dc1b2",
+      "bytes": 128881784
+    },
+    {
+      "experiment": "exp-006-sft-lr2e4",
+      "sha256": "ab8b1568fffaa230c94d98a43e02e9e1bf9c9246a95b9bc2bb3a61e90ab87b53",
+      "bytes": 128881784
+    }
+  ],
+  "merged_weights": "Intentionally excluded at owner request. Both SFT adapters, tokenizers and reproduction metadata preserved.",
+  "credentials_included": false,
+  "external_wandb_logs": "Four absolute symlink targets saved separately under preparation-local/backup-symlink-targets, each matched to original file-manifest SHA256.",
+  "verified_at_utc": "2026-11-16T10:26:42.348792+00:00",
+  "remote_files_rechecked": 352,
+  "closure_supplement": {
+    "path": "experiments/turkish-capability/lfm3-1.7b/preparation-local/pilot80-closure-supplement-local.tar.gz",
+    "bytes": 825001,
+    "sha256": "5a0eafa513751889bcb560fe98ab73efef13eb70e3e8436256b66bfbef8b6488",
+    "verified_files": 52
+  },
+  "preserved": [
+    "Both final SFT adapters and tokenizers",
+    "All CPT/SFT holdout20, CETVEL100 and grammar1600 outputs and scores",
+    "SFT/smoke/tiny-overfit logs, trainer states, effective arguments and W&B logs",
+    "Pod installation, preparation, launcher and pair logs; hardware and package inventories",
+    "Frozen source snapshot, configs, reviewed data, labels and semantic audits",
+    "Exact CETVEL500 and TurBLiMP1600 packets",
+    "Blind review page and rubric"
+  ],
+  "resume_limit": "No optimizer/scheduler state was saved by the completed recipe; exact mid-training resume is unavailable. Final adapters are usable for inference and subsequent training.",
+  "pod_stopped_by_agent": false
+}

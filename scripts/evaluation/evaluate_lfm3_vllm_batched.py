@@ -19,19 +19,29 @@ def main():
     p.add_argument('--top-k', type=int, default=-1)
     p.add_argument('--protocol-name', default='cetvel-stratified100-batched-rp115-v02')
     p.add_argument('--merged-model', type=Path)
+    p.add_argument('--packet-path', type=Path,
+                   help='Explicit frozen evaluation packet; requires --packet-sha256')
+    p.add_argument('--packet-sha256')
+    p.add_argument('--all-rows', action='store_true',
+                   help='Evaluate all rows in packet order without stratified resampling')
     a = p.parse_args()
     from transformers import AutoTokenizer, GenerationConfig
     from vllm import EngineArgs, LLMEngine, SamplingParams
     import torch
     cfg = json.loads((a.experiment_dir/'config-planned.json').read_text())
     model = cfg['model']
-    packet = (a.experiment_dir/'data-local/questions-500.jsonl').read_bytes()
+    if bool(a.packet_path) != bool(a.packet_sha256):
+        p.error('--packet-path and --packet-sha256 must be supplied together')
+    packet = (a.packet_path or a.experiment_dir/'data-local/questions-500.jsonl').read_bytes()
     digest = hashlib.sha256(packet).hexdigest()
-    assert digest == cfg['historical_comparison']['questions_sha256']
+    assert digest == (a.packet_sha256 or cfg['historical_comparison']['questions_sha256'])
     rows = [json.loads(s) for s in packet.decode().splitlines()]
-    assert len(rows) == 500 and 0 < a.limit <= 500 and a.limit % 5 == 0
+    if a.all_rows:
+        assert len(rows) > 0 and len({r['id'] for r in rows}) == len(rows)
+    else:
+        assert len(rows) == 500 and 0 < a.limit <= 500 and a.limit % 5 == 0
     assert 1 <= a.batch_size <= 8 and a.repetition_penalty >= 1
-    if a.limit:
+    if not a.all_rows and a.limit:
         tasks = list(dict.fromkeys(r['task'] for r in rows))
         rng = random.Random(3407)
         groups = [rng.sample([r for r in rows if r['task'] == t], a.limit//5) for t in tasks]
@@ -50,7 +60,8 @@ def main():
     a.output_dir.mkdir(parents=True,exist_ok=False)
     manifest = dict(status='initializing',diagnostic=True,model=model,
         protocol=a.protocol_name, selected_ids=[r['id'] for r in rows],
-        selection='Random(3407) sample equally per task, round-robin submission; selected before generation',
+        selection=('All frozen packet rows in original packet order' if a.all_rows else
+                   'Random(3407) sample equally per task, round-robin submission; selected before generation'),
         merged_model=str(a.merged_model) if a.merged_model else None,
         questions_sha256=digest,expected_count=len(rows),count=0,seed=3407,
         engine_args=engine_args,eos_token_ids=eos,

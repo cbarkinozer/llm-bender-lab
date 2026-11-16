@@ -1,0 +1,268 @@
+{
+  "status": "training_and_automatic_evaluation_completed",
+  "human_review": "pending",
+  "dataset": {
+    "train": 80,
+    "holdout": 20,
+    "cetvel_development": 100,
+    "grammar_pairs": 1600
+  },
+  "comparison": "learning_rate_only",
+  "models": {
+    "cpt": {
+      "holdout": {
+        "count": 20,
+        "termination": {
+          "eos": 3,
+          "length": 16,
+          "exact_loop": 1
+        },
+        "generated_tokens": 66753,
+        "median_tokens": 4096.0,
+        "max_tokens": 4096,
+        "exact_reference_matches": 0,
+        "note": "Exact match is descriptive only; semantic correctness requires manual grading."
+      },
+      "cetvel_termination": {
+        "exact_loop": 12,
+        "eos": 22,
+        "length": 66
+      },
+      "grammar_accuracy": 0.869375,
+      "cetvel": {
+        "gecturk": {
+          "n_items": 20,
+          "exact_match_rate": 0.0,
+          "unchanged_from_source_rate": 0.0,
+          "empty_output_rate": 0.0,
+          "verbose_output_rate": 0.95,
+          "format_failure_candidate_rate": 0.95,
+          "truncation_rate": 0.7
+        },
+        "tquad": {
+          "n_items": 20,
+          "n_answerable": 20,
+          "n_unanswerable": 0,
+          "exact_match": 0.0,
+          "f1": 0.003980303762303795,
+          "answerability_accuracy": 1.0,
+          "exact_match_on_answerable": 0.0,
+          "f1_on_answerable": 0.003980303762303795,
+          "exact_match_on_unanswerable": null,
+          "truncation_rate": 0.75,
+          "low_em_high_f1_rate": 0.0
+        },
+        "xquad_tr": {
+          "n_items": 20,
+          "n_answerable": 20,
+          "n_unanswerable": 0,
+          "exact_match": 0.0,
+          "f1": 0.0005788564535099762,
+          "answerability_accuracy": 1.0,
+          "exact_match_on_answerable": 0.0,
+          "f1_on_answerable": 0.0005788564535099762,
+          "exact_match_on_unanswerable": null,
+          "truncation_rate": 0.75,
+          "low_em_high_f1_rate": 0.0
+        },
+        "wmt_en_tr": {
+          "n_items": 20,
+          "corpus_bleu": 0.041545546032315264,
+          "corpus_chrf": 2.792000117279865,
+          "mean_sentence_bleu": 0.6478163296781505,
+          "mean_sentence_chrf": 8.492099880216582,
+          "truncation_rate": 0.4
+        },
+        "mlsum_tr": {
+          "n_items": 20,
+          "mean_rouge1": 0.021804876783912477,
+          "mean_rouge2": 0.002278703705481271,
+          "mean_rougeL": 0.01822372599577722,
+          "mean_rougeLsum": 0.01653550300724299,
+          "truncation_rate": 0.7
+        }
+      }
+    },
+    "exp-005-sft-lr1e4": {
+      "holdout": {
+        "count": 20,
+        "termination": {
+          "eos": 20
+        },
+        "generated_tokens": 5116,
+        "median_tokens": 176.0,
+        "max_tokens": 851,
+        "exact_reference_matches": 0,
+        "note": "Exact match is descriptive only; semantic correctness requires manual grading."
+      },
+      "cetvel_termination": {
+        "eos": 100
+      },
+      "grammar_accuracy": 0.870625,
+      "cetvel": {
+        "gecturk": {
+          "n_items": 20,
+          "exact_match_rate": 0.0,
+          "unchanged_from_source_rate": 0.0,
+          "empty_output_rate": 0.0,
+          "verbose_output_rate": 0.0,
+          "format_failure_candidate_rate": 0.0,
+          "truncation_rate": 0.0
+        },
+        "tquad": {
+          "n_items": 20,
+          "n_answerable": 20,
+          "n_unanswerable": 0,
+          "exact_match": 0.0,
+          "f1": 0.20193177851975777,
+          "answerability_accuracy": 1.0,
+          "exact_match_on_answerable": 0.0,
+          "f1_on_answerable": 0.20193177851975777,
+          "exact_match_on_unanswerable": null,
+          "truncation_rate": 0.0,
+          "low_em_high_f1_rate": 0.1
+        },
+        "xquad_tr": {
+          "n_items": 20,
+          "n_answerable": 20,
+          "n_unanswerable": 0,
+          "exact_match": 0.0,
+          "f1": 0.247930602465163,
+          "answerability_accuracy": 1.0,
+          "exact_match_on_answerable": 0.0,
+          "f1_on_answerable": 0.247930602465163,
+          "exact_match_on_unanswerable": null,
+          "truncation_rate": 0.0,
+          "low_em_high_f1_rate": 0.3
+        },
+        "wmt_en_tr": {
+          "n_items": 20,
+          "corpus_bleu": 4.360325534883711,
+          "corpus_chrf": 41.81671284551452,
+          "mean_sentence_bleu": 5.954491153200183,
+          "mean_sentence_chrf": 40.85964088841894,
+          "truncation_rate": 0.0
+        },
+        "mlsum_tr": {
+          "n_items": 20,
+          "mean_rouge1": 0.24050374492136511,
+          "mean_rouge2": 0.1364314870752879,
+          "mean_rougeL": 0.18466605335232675,
+          "mean_rougeLsum": 0.1921220769922932,
+          "truncation_rate": 0.0
+        }
+      },
+      "training": {
+        "optimizer_steps": 50,
+        "training": {
+          "train_runtime": 61.6415,
+          "train_samples_per_second": 6.489,
+          "train_steps_per_second": 0.811,
+          "total_flos": 2241000232765440.0,
+          "train_loss": 1.8160631036758423,
+          "epoch": 5.0
+        },
+        "wall_seconds": 68.06776199303567,
+        "trainable_parameters": 32210944,
+        "total_parameters": 1761012480,
+        "merge_reload_exact": true,
+        "max_abs_merge_difference": 0.25,
+        "wandb_url": "https://wandb.ai/c-barkinozer/lfm3-turkish-post-training/runs/svtga9iu",
+        "tokenized_sha256": "0c30a41639edbb0c3187e1c7720d6c3dd3e66629c45c6f06205b7840cd78a677",
+        "semantic_manifest_sha256": "4e59a62fb2cd15e975ab48b6722c2b9693a77d6c8032f6bef844370e8f6a02c1",
+        "source_sha256": "31be3b9ec93393b09296e49160505325030affa1cc8a717d45d65df48657aa05"
+      }
+    },
+    "exp-006-sft-lr2e4": {
+      "holdout": {
+        "count": 20,
+        "termination": {
+          "eos": 19,
+          "length": 1
+        },
+        "generated_tokens": 8842,
+        "median_tokens": 229.5,
+        "max_tokens": 4096,
+        "exact_reference_matches": 0,
+        "note": "Exact match is descriptive only; semantic correctness requires manual grading."
+      },
+      "cetvel_termination": {
+        "eos": 100
+      },
+      "grammar_accuracy": 0.86625,
+      "cetvel": {
+        "gecturk": {
+          "n_items": 20,
+          "exact_match_rate": 0.0,
+          "unchanged_from_source_rate": 0.0,
+          "empty_output_rate": 0.0,
+          "verbose_output_rate": 0.0,
+          "format_failure_candidate_rate": 0.0,
+          "truncation_rate": 0.0
+        },
+        "tquad": {
+          "n_items": 20,
+          "n_answerable": 20,
+          "n_unanswerable": 0,
+          "exact_match": 0.0,
+          "f1": 0.23502936413764086,
+          "answerability_accuracy": 1.0,
+          "exact_match_on_answerable": 0.0,
+          "f1_on_answerable": 0.23502936413764086,
+          "exact_match_on_unanswerable": null,
+          "truncation_rate": 0.0,
+          "low_em_high_f1_rate": 0.2
+        },
+        "xquad_tr": {
+          "n_items": 20,
+          "n_answerable": 20,
+          "n_unanswerable": 0,
+          "exact_match": 0.0,
+          "f1": 0.2615166083916084,
+          "answerability_accuracy": 1.0,
+          "exact_match_on_answerable": 0.0,
+          "f1_on_answerable": 0.2615166083916084,
+          "exact_match_on_unanswerable": null,
+          "truncation_rate": 0.0,
+          "low_em_high_f1_rate": 0.3
+        },
+        "wmt_en_tr": {
+          "n_items": 20,
+          "corpus_bleu": 3.9709770424986086,
+          "corpus_chrf": 41.36256966859027,
+          "mean_sentence_bleu": 5.456773997073734,
+          "mean_sentence_chrf": 40.22979936914895,
+          "truncation_rate": 0.0
+        },
+        "mlsum_tr": {
+          "n_items": 20,
+          "mean_rouge1": 0.22237483439930492,
+          "mean_rouge2": 0.13005053105203832,
+          "mean_rougeL": 0.17362147972774392,
+          "mean_rougeLsum": 0.17860474089812287,
+          "truncation_rate": 0.0
+        }
+      },
+      "training": {
+        "optimizer_steps": 50,
+        "training": {
+          "train_runtime": 63.1457,
+          "train_samples_per_second": 6.335,
+          "train_steps_per_second": 0.792,
+          "total_flos": 2241000232765440.0,
+          "train_loss": 1.5714668834209442,
+          "epoch": 5.0
+        },
+        "wall_seconds": 69.79449315927923,
+        "trainable_parameters": 32210944,
+        "total_parameters": 1761012480,
+        "merge_reload_exact": true,
+        "max_abs_merge_difference": 0.5703125,
+        "wandb_url": "https://wandb.ai/c-barkinozer/lfm3-turkish-post-training/runs/47mlr39k",
+        "tokenized_sha256": "0c30a41639edbb0c3187e1c7720d6c3dd3e66629c45c6f06205b7840cd78a677",
+        "semantic_manifest_sha256": "4e59a62fb2cd15e975ab48b6722c2b9693a77d6c8032f6bef844370e8f6a02c1",
+        "source_sha256": "31be3b9ec93393b09296e49160505325030affa1cc8a717d45d65df48657aa05"
+      }
+    }
+  }
+}

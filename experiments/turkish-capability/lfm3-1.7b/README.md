@@ -1,5 +1,9 @@
 # LFM3-1.7B Turkish post-training study
 
+## Current SFT branch
+
+Pilot80 training, inference and owner review are complete; exp-006 (2e-4) is the working winner. All80 additional reviews are exported in [pilot160](sft-pilot160-v01/README.md). The [next pair](PILOT160-PAIR-PLAN.md) is planned; training is deferred to the next session. Evaluation baseline is untouched LiquidAI/LFM3-1.7B; initialization remains fresh LoRA on the pinned CPT-merged parent.
+
 Status: both independent CPT runs trained on 2026-11-12 and synced to W&B.
 The slow sequential CETVEL pass was stopped by the owner; partial outputs are
 preserved. A new matched 100-item batched screening protocol (rp1.15) is complete.
