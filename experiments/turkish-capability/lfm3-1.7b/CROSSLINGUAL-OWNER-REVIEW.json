@@ -1,0 +1,206 @@
+{
+  "submitted_records": 15,
+  "valid_rankings": 15,
+  "total_records": 15,
+  "snapshot_sha256": "5dfd4aefc9c45ed1e9b8b98aeb76f23283bbf08bb528639d29f21210a68df1c5",
+  "private_key_sha256": "c29eeb3daed9fe5c9a80d1dfa11b49a1eb01b792b6aa6cd380e6e7b0ddb78292",
+  "pairwise_first_model": {
+    "base vs base-sft": {
+      "loss": 8,
+      "tie": 1,
+      "win": 6
+    },
+    "base vs cpt": {
+      "win": 13,
+      "loss": 2
+    },
+    "base vs cpt-sft": {
+      "loss": 10,
+      "win": 4,
+      "tie": 1
+    },
+    "base-sft vs cpt": {
+      "win": 10,
+      "tie": 2,
+      "loss": 3
+    },
+    "base-sft vs cpt-sft": {
+      "win": 4,
+      "tie": 4,
+      "loss": 7
+    },
+    "cpt vs cpt-sft": {
+      "loss": 12,
+      "win": 3
+    }
+  },
+  "invalid_rankings": [],
+  "policy": "Preserve notes and ordering verbatim. Dense ranks start at1; equal positions are ties. No correctness/pass scores inferred. These15 are development only.",
+  "records": [
+    {
+      "dev_id": "xling-v01-en-tr-delivery",
+      "raw_ranking": "C > A > D > B",
+      "ranks": {
+        "base-sft": 1,
+        "cpt-sft": 2,
+        "base": 3,
+        "cpt": 4
+      },
+      "notes": "A good answer would be one natural Turkish sentence that keeps the three facts and adds nothing. For example: “Kargo dün değil bugün geldi; alıcı evde olmadığından bina görevlisine bırakıldı.” A stricter version that adds no cause at all: “…bugün geldi, alıcı yoktu ve kargo kapıcıya bırakıldı.”\n\nNone of the answers is good. All four leave “Parcel” in English instead of using kargo/paket, and A, C and D all mistranslate “yesterday.”\n\n1. C\nWhat it keeps: It’s one sentence with all three facts, and the parcel is correctly left with the caretaker (the passive “bırakıldı”).\nErrors:\n“yarı önceki gün” is garbled. It should be dün (yesterday).\nWrong cause: “bu yüzden teslim edilecek kişi bulunamadı” says the recipient couldn’t be found because the parcel came today. The notes don’t say that.\n“bina bakanına” means the building’s minister. It should be görevlisine or kapıcısına.\n“parçayı… bırakıldı” mixes an object with a passive verb, which is ungrammatical. “Parça” also means a part, not a parcel.\nWhy it ranks first: It has the fewest changes to what actually happened.\n2. A\nFormat: It’s one sentence.\nErrors:\n“yedinci gün değil” means not the seventh day. It should be “not yesterday.”\nWrong cause: “alıcı bu nedenle uzaktaydı” says the recipient was away because the parcel came today.\nWrong person: “parçayı… bıraktı” makes the recipient the one who left the parcel, “together with” the caretaker (“birlikte”). That changes what happened.\nWhy it ranks below C: It has more factual distortions, especially about who did what.\n3. D\nErrors:\nIt has the same garbled “yarı önceki gün” as C.\nAdded information: It says “kurucu yerliydi” (the founder was local), which makes no sense and isn’t in the notes.\nIt includes a wrong cause (“bu nedenle”).\nFalse self-check: It adds a note in brackets claiming it added no information, which is untrue.\nWhy it ranks below A: It invents new content and says it didn’t, which directly breaks “without adding information.”\n4. B (worst)\nNot one sentence: It’s several.\nContradicts itself: “bugün geldi, yinede gelmedi” means it came today, yet it didn’t come.\nBroken output: It turns into made-up questions (“Bu parça nereden geldi?”, where did this part come from?) repeated over and over, and is cut off.\n"
+    },
+    {
+      "dev_id": "xling-v01-tr-tr-delivery",
+      "raw_ranking": "A = D > C > B",
+      "ranks": {
+        "base-sft": 1,
+        "cpt-sft": 1,
+        "base": 2,
+        "cpt": 3
+      },
+      "notes": "A good answer is “Paket dün değil, bugün geldi; alıcı evde yoktu ve paket apartman görevlisine bırakıldı.” The key detail is “görevlisine”: the parcel was left with the caretaker. “Görevlisi tarafından” would mean it was left by the caretaker.\n\n1 (tie). A and D\nA: It’s natural and keeps the first two facts exactly. But “apartman görevlisi tarafından bırakıldı” says the parcel was left by the caretaker, as if the caretaker dropped it off. That changes the third fact.\nD: It gets the third fact right (“görevlisine bırakıldığı”). But it adds “an duyuldu” (“the moment was heard”). That’s new information, it makes no sense, and it breaks “bilgi eklemeden” (without adding information).\nWhy a tie: Each has one serious error. A is more natural but changes a fact. D keeps the facts but adds an invented, awkward phrase. You could rank D higher if keeping the facts matters most to you, or A higher if you value natural wording.\n3. C\nSame mistake as A: It also says the parcel was left by the caretaker (“tarafından”).\nGrammar error: “paketi… bırakıldı” uses the object form “paketi” with a passive verb. It should be “paket… bırakıldı.”\nWhy it ranks below A: It has A’s error plus a grammar mistake.\n4. B (worst)\nOff topic: It never touches the notes. It writes about “starting a new job.”\nBroken output: It repeats “İşe başlama anını nasıl yaşayacağız?” (how will we experience the moment of starting work?) hundreds of times and is cut off mid-word.\n"
+    },
+    {
+      "dev_id": "xling-v01-tr-tr-repair",
+      "raw_ranking": "C > B > D > A",
+      "ranks": {
+        "base-sft": 1,
+        "cpt-sft": 2,
+        "base": 3,
+        "cpt": 4
+      },
+      "notes": "As before, the correct answer is no. The battery hasn’t been checked, so the note gives no information about its condition. The answer had to be in Turkish, in at most two sentences, with the reason.\n\n1. C\nRight verdict and reason: It opens with “Hayır” (no), and its second sentence gives exactly the right reason: since “Pil henüz kontrol edilmedi” (the battery hasn’t been checked), there’s no evidence about whether it works.\nContradiction: The first sentence ends with “pilin değiştirilmesi gerekir” (“the battery needs replacing”), which goes against its own “no.” It also calls the situation “bir ihtimal” (a possibility), suggesting the note hints at a problem, which it doesn’t.\nLanguage: It has a small slip (“bu nota yalnızca…”).\nWhy it ranks first: Despite the contradiction, it’s the only answer that gives the correct reasoning within the limit.\n2. B\nVerdict and length: It says “Hayır” and keeps to two sentences.\nWrong reasoning: Both of its reasons are off:\nIt says the note “gives a hint” (bir ipucu verir), but it gives none about the battery.\nThe second sentence misreads “Salı” (Tuesday) as something that works (“salının çalıştığı”). It then says this points to an earlier problem being fixed, which makes no sense.\n3. D\nMixed verdict: It concludes a battery change “doğrudan çıkarılmaz” (can’t be concluded directly), which is roughly right. But it also says the unchecked battery “may indicate it needs replacing,” and ends by suggesting replacing it would be “more logical.” That leans the wrong way.\nLength: It uses three sentences, over the limit.\nLanguage: It has typos and odd insertions: “Notada,” “(Yardim) haplarlık” instead of hoparlör, and “kontrol edilmemişliğinden.”\n4. A (worst)\nOff topic: It talks about a computer being shut down.\nBroken output: It repeats one sentence hundreds of times and is cut off. It never addresses the battery question.\n"
+    },
+    {
+      "dev_id": "xling-v01-tr-tr-purchase",
+      "raw_ranking": "B > C > A > D",
+      "ranks": {
+        "cpt-sft": 1,
+        "base-sft": 2,
+        "base": 3,
+        "cpt": 4
+      },
+      "notes": "As before, the correct answer is 48 lira. This time the prompt asks for Turkish.\n\n1. B\nCorrect and short: 150 − 18 × 3 = 96, and 96 / 2 = 48 lira.\nLanguage: It’s almost all numbers and symbols, which works fine for a Turkish answer.\nSmall gap: It doesn’t spell out that 48 is the amount left. That doesn’t matter here, because spending half leaves the other half.\n2. C\nWrong: It computes 54 correctly, then uses 100 instead of 150 and gets 23 lira.\nWhy it ranks above A: It’s short and in Turkish, and it makes one error rather than misreading the whole problem.\n3. A\nMisreads the problem: It decides that “150 liran var” (you have 150 lira) means each notebook costs 150 lira. It even adds a note confidently explaining this wrong reading.\nWrong result: It adds 3 × 150 = 450 and ends with 225 lira.\nContradicts its own data: It computes 3 × 18 = 54 correctly at first, then ignores it.\nNot short: It’s long, with headings and LaTeX blocks, despite “kısa.”\n4. D (worst)\nWrong from the start: It computes 54 correctly, then gets “27 lira spent on the bag” and divides again.\nBroken output: It turns into a long chain of nonsense notebook calculations that runs into thousands of lira and gets cut off.\nNo answer: It never gives a coherent result.\n"
+    },
+    {
+      "dev_id": "xling-v01-tr-en-repair",
+      "raw_ranking": "B > C > D > A",
+      "ranks": {
+        "base-sft": 1,
+        "base": 2,
+        "cpt-sft": 3,
+        "cpt": 4
+      },
+      "notes": "As before, the correct answer is no: the battery hasn’t been checked, so its condition is unknown. The prompt asks for English (“İngilizce yanıt ver”), and none of the four answers is in English.\n\n1. B\nRight reason: The second sentence gives exactly the right reason: “Pil henüz kontrol edilmedi,” so the battery’s condition is unknown.\nContradiction: After “Hayır,” the first sentence ends with “pilin değiştirilmesi gerekir” (“the battery needs replacing”), which goes against its own answer.\nRules: It keeps to two sentences, but it’s in Turkish, not English.\nWhy it ranks first: Despite the contradiction and the wrong language, it’s the only answer with the correct core reasoning, kept short.\n2. C\nFinal conclusion, mostly right: It ends up saying the note doesn’t support replacing the battery. But it overstates this as “the battery doesn’t need replacing,” when the honest answer is that we can’t tell.\nOpens with the wrong answer: It starts with “Evet” (yes).\nMisreads the note: It says the speaker “stopped and started working” and calls it “hava sinyalleri” (air signals). It also makes vague claims about power-supply problems.\nRules: It’s long, far over two sentences, and in Turkish.\n3. D\nWrong conclusion: It says “Hayır,” then argues the battery does need replacing because it wasn’t checked. That’s backwards: not checking something isn’t evidence that it’s faulty.\nMisreads the note: It treats “salı” (Tuesday) as something that works.\nRules: It keeps to two sentences, but it’s in Turkish.\n4. A (worst)\nNo real answer: It’s in Turkish and says “Hayır, bu notun doğruluğu yoktur” (“no, this note isn’t accurate”), which isn’t an answer to the question.\nBroken output: It repeats one meaningless sentence hundreds of times and is cut off.\n"
+    },
+    {
+      "dev_id": "xling-v01-en-en-repair",
+      "raw_ranking": "A = C > D > B",
+      "ranks": {
+        "base-sft": 1,
+        "cpt-sft": 1,
+        "base": 2,
+        "cpt": 3
+      },
+      "notes": "The correct answer is no. The note only says the battery hasn’t been checked, so there’s no information about its condition. The answer had to be in English, in at most two sentences, with an explanation.\n\n1 (tie). A and C\nCorrect and within the rules: Both are exactly two sentences, give the right answer, and explain why.\nA: It says plainly that the note gives no information about the battery’s condition, so replacing it would be “an assumption rather than a conclusion.” That’s a precise way to put the logic.\nC: It’s a bit tighter. It says a replacement would need “a test result confirming failure,” which is a concrete, sensible way to show what’s missing.\nWhy a tie: Both are accurate, short and well reasoned. The difference is only in wording.\n3. D\nCorrect: The reasoning is right, and it’s very close to A in content.\nOne sentence over: It uses three sentences, breaking the two-sentence limit. The third (“Therefore, there is insufficient evidence…”) only repeats the second.\n4. B (worst)\nFar too long: It runs to about six sentences over two paragraphs, three times the limit.\nGets the note wrong: It says there’s “no mention of… its testing status.” But the note explicitly says the battery hasn’t been checked, and that’s the key fact.\nGoes beyond the note: The second paragraph adds general facts about when batteries get replaced, which goes beyond “based only on this note.”\n"
+    },
+    {
+      "dev_id": "xling-v01-symbolic-3",
+      "raw_ranking": "B > A = D > C",
+      "ranks": {
+        "cpt-sft": 1,
+        "base": 2,
+        "base-sft": 2,
+        "cpt": 3
+      },
+      "notes": "All four reach the correct answer, 575 (125 × 4 = 500, then 500 + 75 = 575). So the ranking comes down to how closely each follows “Output only the number.”\n\n1. B\nPerfect: It’s just “575.” Correct, with no extra text.\n2 (tie). A and D\nCorrect, but with working: Both show some working, which goes against the “only the number” rule.\nA: It shows a working line, then gives the number alone on the last line. That’s easy to pick out.\nD: It’s a single short line, “500 + 75 = 575.” It’s shorter than A, but the bare number never appears on its own.\nWhy a tie: Each breaks the format a little, in different ways that weigh about the same.\n4. C (worst)\nToo much extra text: It’s correct, but it includes three lines of working and a Turkish sentence.\nOdd remark: It says “Yapılan işlemleri doğru olarak yapmışsınız” (“you have done the operations correctly”), as if grading the user.\nInvented source: It cites kodadam.com for a basic sum.\nLanguage: It has a small grammar error: “575'dir” should be 575'tir.\n"
+    },
+    {
+      "dev_id": "xling-v01-tr-en-purchase",
+      "raw_ranking": "A > C > B = D",
+      "ranks": {
+        "cpt-sft": 1,
+        "base": 2,
+        "base-sft": 3,
+        "cpt": 3
+      },
+      "notes": "The correct answer is 48 lira: 150 − (3 × 18) = 96, then half of that goes on the bag, leaving 48. The prompt asks for the answer in English (“İngilizce yanıt ver”), and none of the four is in English.\n\n1. A\nCorrect: 150 − 18 × 3 = 96, and 96 / 2 = 48 lira.\nShort: It fits the “kısa” (short) request perfectly.\nLanguage: It’s almost entirely numbers and symbols, so it barely breaks the English requirement. “Lira” is just the currency name. It doesn’t really answer in English either, but it comes closest.\nSmall gap: It writes “96 / 2 = 48” without saying 48 is what’s left. That’s fine here, because spending half leaves the other half.\n2. C\nCorrect: The steps and result (48 lira) are right.\nIgnores the language request: Everything is in Turkish.\nNot short: It’s long, with headings and LaTeX blocks that may show as raw code.\nOdd wording: For example, “Tanesi (Tanesi) para.”\n3 (tie). B and D\n\nBoth are wrong, both are in Turkish, and both have other problems.\n\nB: It computes 54 correctly, then uses 100 instead of 150 and gets 23 lira. The line is also repeated. It’s short, but the answer is wrong.\nD: It’s a long, rambling text with a wrong step (150 ÷ 3 = 50). It ends with 96 lira, which is the money left before buying the bag. It completely ignores “kısa.”\nWhy a tie: D at least gets the intermediate numbers right, while B makes up a starting amount. But D is far too long and ends on the wrong number, so neither comes out ahead.\n"
+    },
+    {
+      "dev_id": "xling-v01-en-tr-repair",
+      "raw_ranking": "B > D > C > A",
+      "ranks": {
+        "cpt-sft": 1,
+        "base-sft": 2,
+        "base": 3,
+        "cpt": 4
+      },
+      "notes": "The correct answer is no. The note says the battery hasn’t been checked yet, so it gives no information about the battery’s condition. A good answer says this in Turkish, in two sentences at most, and adds nothing beyond the note.\n\n1. B\nCorrect: It says “Hayır” with the right reason: the battery hasn’t been checked.\nRules followed: It’s one clean sentence in Turkish, with no errors and nothing added.\nWeakness: The explanation is minimal. It doesn’t spell out “so there’s no information about its condition.” The reason is still clear, though.\n2. D\nCorrect: It says “Hayır” with the right reasoning: the note gives no evidence the battery needs replacing.\nRules followed: It’s one sentence.\nLanguage errors: It has “bateriyi” (should be bataryayı), “zorundayacağına” (not a word), and “kesin kanıtta bulunmamaktadır” (awkward).\nWhy it ranks below B: Its explanation is slightly fuller, but its Turkish is noticeably worse.\n3. C\nStrong first sentence: It’s correct and explains the point best: the battery wasn’t tested, so we can’t say for sure it needs replacing.\nWrong second sentence: “Sadece ‘yetişilmemiş’ demek, mevcut durumda iyiyse veya başka sorunların olmadığını gösterir” makes little sense. It also suggests the battery may be fine, which the note doesn’t support either. That breaks “based only on this note.”\nLanguage: It has errors: “bateri,” and “söylenmiştir” used with “olduğunu.”\n4. A (worst)\nToo long: It runs to about seven sentences, far over the two-sentence limit.\nContradicts the note: It talks about the phone’s speaker not working. The note says the speaker was tested and working.\nUnsupported advice: It ends by recommending the battery be checked and replaced, which goes beyond the note.\nOff topic: It addresses the reader as a phone owner (“telefonunuz”) instead of answering the question about the note.\n"
+    },
+    {
+      "dev_id": "xling-v01-symbolic-1",
+      "raw_ranking": "B > A > C = D",
+      "ranks": {
+        "cpt": 1,
+        "base": 2,
+        "cpt-sft": 3,
+        "base-sft": 3
+      },
+      "notes": "The correct answer is 104. Multiplication comes first, so 8 × 9 = 72, and then 176 − 72 = 104. The prompt asks for only the number.\n\n1. B\nCorrect: It ends with a clear “Sonuç: 104.”\nIgnores the format: It shows its working and adds a pointless closing note (“Bu soru… basit işlemdir. Çözümünde herhangi bir hata yoktur,” this is a simple operation and there’s no mistake in the solution). That goes against “Yalnızca sayıyı yaz” (write only the number).\nLanguage: It has a small error: “104'dır” should be 104'tür.\n2. A\nCorrect: The working arrives at 104.\nIgnores the format: It also shows the steps, in English.\nGarbled ending: The answer runs straight into an extra copy of the number (“…the result is 104.104”). That reads like 104.104, which is ambiguous.\nWhy it ranks below B: B’s final answer is unambiguous, while A’s is easy to misread.\n3 (tie). C and D\nFormat: Both follow it perfectly, with just a number.\nCorrectness: Both are wrong: 128 isn’t the answer. (It isn’t (176 − 8) × 9 either, which would be 1,512.)\nWhy a tie: They’re identical.\nWhy they rank below A and B: A tidy wrong answer is worse than a messy right one, because the user has no way of knowing it’s wrong.\n"
+    },
+    {
+      "dev_id": "xling-v01-en-en-delivery",
+      "raw_ranking": "A > B > C > D",
+      "ranks": {
+        "cpt": 1,
+        "base": 2,
+        "cpt-sft": 3,
+        "base-sft": 4
+      },
+      "notes": "A good answer would be: “The parcel arrived today, not yesterday; the recipient was away, so it was left with the building caretaker.” (Using “and” instead of “so” works too.) The notes don’t say why the parcel came today instead of yesterday, so adding any reason for the timing counts as adding information.\n\n1. A\nFaithful core sentence: It keeps all three facts, links them correctly, and adds no false cause. It’s the only answer that gets the content right.\nProblems:\nIt’s missing “The” at the start.\nIt adds a second sentence in Turkish (“By the way, there’s no information about why this part arrived”). That breaks the one-sentence rule, the English-only rule and the no-added-content rule all at once.\nWhy it ranks first: The extra line is plainly a separate remark that’s easy to drop. The core sentence is the best of the four.\n2. B\nFluent and complete: It’s one natural English sentence with all three facts.\nInvented cause: It says the parcel arrived today rather than yesterday “because the recipient was away and it was left with the caretaker.” The notes never say why the timing changed, and this reason doesn’t make sense anyway, since being away doesn’t delay a delivery.\n3. C\nSame invented cause: It says the parcel arrived today because it was left with the caretaker, which makes even less sense.\nVague wording: It replaces “the recipient” with an unclear “they,” so it’s less clear who was away.\n4. D (worst)\nRepeated output: The sentence appears twice, run together.\nVersion 1 drops “not yesterday” completely.\nBoth versions add the same false “because…” cause as B and C.\n"
+    },
+    {
+      "dev_id": "xling-v01-en-tr-purchase",
+      "raw_ranking": "A = B > C > D",
+      "ranks": {
+        "cpt-sft": 1,
+        "base": 1,
+        "base-sft": 2,
+        "cpt": 3
+      },
+      "notes": "The correct answer is 48 lira. The notebooks cost 3 × 18 = 54, leaving 150 − 54 = 96. The bag takes half of that (96 ÷ 2 = 48), so 96 − 48 = 48 is left. All four answers reach 48, so the ranking comes down to clarity, word choice, brevity and errors.\n\n1 (tie). A and B\nCorrect and clear: Both lay out the four steps cleanly and end with a clear result.\nA: It’s short, as requested. But it mislabels both items: “Notu” (“note,” instead of defter, notebook) and “Boya” (paint, instead of çanta, bag).\nB: It’s well organized, with numbered steps and a clear “Sonuç: 48 lira kalır.” But it leaves the English word “notebooks” in the Turkish, and writes “Bağ” (a tie or vineyard) instead of çanta. Its LaTeX formatting (\\(3 \\times 18\\)) may show as raw code in some interfaces. It’s also a little less brief.\nWhy a tie: Both have the same kind of word errors. A is shorter, while B is easier to scan.\n3. C\nCorrect math: The calculation is right.\nRepeated output: The whole answer appears twice.\nWrong words: “kitap” (book) instead of notebook, and “Bakkalden yarıya giderilen” (going halfway from the grocery store), which doesn’t make sense.\n4. D (worst)\nContradicts itself: First it says the bag costs 50 lira, leaving 46. Then it redoes the problem and gets 48. A reader can’t tell which answer to trust.\nWrong words: “kitap” (book) and “bagaj” (luggage, or a car boot).\nInvented claim: It closes by saying this is a 5th-grade math problem.\nNot brief: The prompt asked for a brief calculation, and D isn’t one.\n"
+    },
+    {
+      "dev_id": "xling-v01-symbolic-2",
+      "raw_ranking": "B > A = C > D",
+      "ranks": {
+        "base": 1,
+        "base-sft": 2,
+        "cpt": 2,
+        "cpt-sft": 3
+      },
+      "notes": "The correct answer is 15: 63 + 27 = 90, and 90 ÷ 6 = 15. The prompt asks for only the number.\n\n1. B\nCorrect: It ends with “15.”\nSmall format break: It shows one line of working before the answer, which goes against “only the number.” The working is brief and correct, and the final line is just the number.\nWhy it ranks first: It’s the only answer that’s both correct and clean.\n2 (tie). A and C\nA: It follows the format, with just a number, but it’s wrong: 12 instead of 15.\nC: It reaches the right answer (“Sonuç: 15”), but the answer around it is broken:\nIts first line says “= 30.”\nIt then claims, over and over, that “63 + 27 = 90” is a mistake, while also using it. It contradicts itself in every line.\nThat self-contradicting paragraph repeats dozens of times, and the answer is cut off.\nWhy a tie: In earlier rounds I ranked a messy right answer above a neat wrong one. Here C’s mess is so bad that a reader can’t trust its 15: it opens with 30 and keeps calling the correct step wrong. A is clear and wrong, while C is right but unreliable, so neither is better.\n4. D (worst)\nWrong in two ways: It uses the wrong sum (81 instead of 90) and gets 13.5.\nBreaks the format: It shows working instead of only the number.\nWhy it ranks last: It’s wrong and doesn’t follow the format.\n"
+    },
+    {
+      "dev_id": "xling-v01-tr-en-delivery",
+      "raw_ranking": "A = B > D > C",
+      "ranks": {
+        "cpt-sft": 1,
+        "base-sft": 1,
+        "base": 2,
+        "cpt": 3
+      },
+      "notes": "The prompt asks for English. A good answer is “The package arrived today, not yesterday; the recipient wasn’t home, so it was left with the building caretaker.”\n\n1 (tie). A and B\n\nEach gets one major thing badly wrong.\n\nA: It’s in English, as requested, and is one sentence. But it says “the recipient was at home,” which is the opposite of the note (“Alıcı evde yoktu,” the recipient wasn’t home). “Left to the apartment staff” should also be with.\nB: The content is mostly faithful, but it’s in Turkish, so it ignores “İngilizce yanıt ver” (answer in English) entirely. It also says the package was left by the caretaker (“görevlisi tarafından”), not with them.\nWhy a tie: A follows the language rule but reverses a key fact. B keeps the facts (mostly) but ignores the language rule. Which is worse depends on whether you weight following the instruction or keeping the facts. Both are serious failures.\n3. D\nRight language: It’s in English, and it correctly keeps “not yesterday” and “no one home.”\nInvented content: It adds a courier, a first-person narrator (“so I had to leave it”), and a claim that the courier left it at the recipient’s house. That contradicts its own ending, where the package goes to the staff.\nWhy it ranks below A and B: It invents several new details and contradicts itself, which breaks “bilgi eklemeden” (without adding information) more seriously.\n4. C (worst)\nOff topic: It never touches the notes. It writes about “programmes” starting and ending at various times.\nBroken output: It’s in Turkish, loops endlessly, and is cut off.\n"
+    },
+    {
+      "dev_id": "xling-v01-en-en-purchase",
+      "raw_ranking": "C > B > D > A",
+      "ranks": {
+        "cpt-sft": 1,
+        "base": 2,
+        "cpt": 3,
+        "base-sft": 4
+      },
+      "notes": "All four answers are correct (48 lira) and in English, as requested. So the ranking comes down to how well each follows “brief calculation” and how clean the output is.\n\n1. C\nBrief and complete: Each step is on one line, with the full working and a clear “Result: 48 lira.”\nNo problems: There’s no filler, no odd formatting and no errors. This is exactly what was asked for.\n2. B\nCorrect and clear: It uses numbered steps and gives the result in bold.\nWeaknesses:\nIt’s a little longer than needed.\nIt uses LaTeX (\\(3 \\times 18\\), \\frac{96}{2}), which shows as raw code in interfaces that don’t support it.\n3. D\nCorrect, but too long: It restates the whole problem, breaks every step into sub-bullets, and gives the answer twice (“Result” and “Answer”).\nWhy it ranks here: The answer is clean and readable, but it goes clearly against “brief.”\n4. A (worst)\nRepeated output: The whole answer appears twice. The second copy is attached straight onto the first (“…48 lira left.We start with 150 lira.”).\nWhy it ranks last: Each copy alone is fine, but it’s also the longest answer, so the repetition is the most visible flaw of the four.\n"
+    }
+  ]
+}
