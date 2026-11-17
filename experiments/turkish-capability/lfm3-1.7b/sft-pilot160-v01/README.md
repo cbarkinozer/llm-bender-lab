@@ -23,3 +23,5 @@ Counts exclude native template tokens; reasoning and output are tokenized togeth
 Selection was stratified by source and answer length with category diversity where metadata existed; it was not a systematic model-weakness quota sample. Owner revision improves targets but does not establish complete general coverage. Keep that limitation explicit.
 
 Before tomorrow's GPU launch: prepare160-compatible configs/entrypoint, establish a separate frozen development packet and selection rubric, rerun native labels/lengths and actual-model smoke/tiny-overfit gates. Preserve optimizer/scheduler/RNG state and epoch3/5 checkpoints. See [pair plan](../PILOT160-PAIR-PLAN.md). No training was launched by this export.
+
+Local native-template/label audit now passed:160 rows,30 reasoning traces, longest2289 tokens, no truncation or zero-target rows. See `preflight-local.json`. Separate dev20/rubric and160-compatible runners/configs are prepared; new-pod GPU gates remain.

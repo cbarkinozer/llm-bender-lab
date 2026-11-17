@@ -1,6 +1,10 @@
+# Completion update
+
+Both planned runs and all inference completed on2026-11-17. See [results](PILOT160-RESULTS.md). The plan below records the predeclared recipe; dev grading and training-backup recovery remain pending.
+
 # Planned160-row SFT pair
 
-Status: design only; no GPU job launched. All80 new records are submitted; [pilot160 export](sft-pilot160-v01/README.md) is frozen. Real-model launch gates remain. Current
+Status: runnable local preparation complete; no GPU job launched. See [pod handoff](SFT160-POD-HANDOFF.md). All80 new records are submitted; [pilot160 export](sft-pilot160-v01/README.md) is frozen. Real-model launch gates remain. Current
 80-row working winner is exp-006 (2e-4), based on10/6/4 owner preferences.
 
 ## Two hyperparameters, two jobs
@@ -49,14 +53,15 @@ their corrected/paraphrased variants. Raw batch count balance is not token balan
 Turkish-SFT contributes36,190/61,103 target tokens (59.2%), CoT21,095 (34.5%).
 Final160 target token shares are Occam5.9%, Turkish-SFT43.1%, Atlas16.6%, CoT34.3%; see the frozen manifest. Do not silently truncate or duplicate short rows.
 
-Create a separate frozen development set before running, covering natural Turkish,
+A separate authored20-row development set and selection rubric are now frozen in
+`sft160-dev-v01/`, covering natural Turkish,
 faithful edits, grounded answers/clarification, exact constraints and verified
 reasoning. Separate source/document/template families where feasible. Existing20
 stay diagnostic evaluation-only; reserve a fresh final test before release claims.
 Re-run real-model smoke/tiny-overfit checks; old80-row gates do not validate edits.
 
 The existing run_lfm3_sft_pilot.py hardcodes80 rows and old paths: it must NOT be
-launched unchanged for160. Prepare a versioned entrypoint/configs supporting160,
+launched unchanged for160. Versioned `run_lfm3_sft160.py` and `run_lfm3_sft160_pair.py` now support160,
 isolated exp007/008 artifacts and intermediate saves. Save adapters/tokenizers,
 optimizer/scheduler/RNG states, training logs and provenance for both checkpoints.
 The old pilot did not retain optimizer-resume state.
@@ -81,3 +86,5 @@ Freeze a separate thinking-on/off development comparison on verified reasoning
 questions at matched budgets before claiming a benefit; inspect rationale and
 final answer. That is an inference comparison, not another training recipe.
 No training or pod provisioning is launched by this plan.
+
+Local preflight (2026-11-17): native rendering, explicit masking and EOT labels passed for160 rows;30 nonempty reasoning traces, longest2289 tokens, zero truncation/zero-target rows. See `sft-pilot160-v01/preflight-local.json`. Real-model gates remain mandatory on the new GPU.

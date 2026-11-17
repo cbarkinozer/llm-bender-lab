@@ -1,0 +1,179 @@
+CLAUDE CODE HANDOFF — Turkish language-transfer diagnosis
+Prepared 2026-11-17. Workspace: C:\Repos\llm-bender-lab
+
+PURPOSE AND CURRENT STATE
+The owner wants to find whether this model's existing English skills can be
+accessed through Turkish, and whether CPT/SFT damaged arithmetic or English.
+Do not assume English retention: we have not measured it on matched English tasks.
+Current relative winner is exp007 LR1e-4 step60 (CPT -> SFT). New four-way owner
+review: it beats exp009 direct-base SFT 12-3 with 5 ties, and untouched base 16-4.
+Raw CPT is badly affected by repetition/stopping. Winning does not mean correct
+or production-ready. All 20 owner reviews and reasoning were exported unchanged.
+
+START BY READING
+AGENTS.md and relevant docs: evaluation-guide, dataset-guide, reproducibility,
+experiment-guide, finetuning-playbook, environment-setup-gotchas.
+Under experiments/turkish-capability/lfm3-1.7b (called B below):
+BASE-SFT160-OWNER-REVIEW.md/.json; BASE-SFT160-ABLATION.md;
+BASE-SFT160-INFERENCE-RESULTS.md; BASE-SFT160-BACKUP.json;
+PILOT160-OWNER-REVIEW.md; exp007/008/009 README/config;
+crosslingual-holdout-v01/README.md and manifest.json.
+Read scripts before reusing them; do not blindly rerun old training orchestrators.
+
+1. VERIFY LOCAL ARTIFACTS; PREPARE SSH
+All six LoRAs and required training/inference logs were hash-verified locally.
+The old pod may already be closed. Do not assume its address is usable.
+Inspect B/BASE-SFT160-BACKUP.json and ignored results-local directories.
+Create a dedicated Ed25519 SSH key, outside the repo, for this diagnostic if one
+does not exist. Never overwrite an existing key. Show the owner only the .pub
+contents so they can provision a GPU pod. Wait for the owner to provide its SSH
+connection. Do not provision paid infrastructure on their behalf.
+Never print secrets from repo .env, existing credential files or private keys.
+
+2. FOUR EXACT MODEL PATHS
+Pinned original post-trained model, not LiquidAI/LFM3-1.7B-Base:
+LiquidAI/LFM3-1.7B revision 0dc4268b561499c648c7ba7c9466bf3d8d01517a
+CPT: cbarkinozer/LFM3-1.7B-Turkish-CPT
+revision 6f213ec25a944dab2fbdeb6d337deb0e0442e638
+exp007 CPT -> SFT: B/exp-007-sft160-lr1e4/results-local/sft/checkpoint-60
+adapter_model.safetensors SHA256:
+00836cefaa21f586bea82588d155b9aa3218a8699aa59df5154d12cbfe222626
+exp009 original -> SFT: B/exp-009-base-sft160-lr1e4/results-local/sft/checkpoint-60
+adapter SHA256:
+788d3d9b443bd2fdbcbb32bad07f97728be3b8d78865656e0937a499f969d90a
+Load exp007 on its CPT-merged parent; exp009 on untouched original. Do not load
+exp007 directly on original or stack cumulative CPT checkpoints. Use the existing
+merge scripts and manifests to reproduce lineage, then verify save/reload parity.
+Step60 is from a 100-step cosine run, not a separate shortened 60-step schedule.
+Full weights may be downloaded/merged ON THE POD as necessary for inference;
+the owner's recovery policy is adapters/small artifacts only, not full weights
+downloaded to the laptop. Do not train during this diagnostic phase.
+
+3. FROZEN PACKET AND INFERENCE
+Run python scripts/datasets/prepare_lfm3_crosslingual_diagnostic.py locally to
+verify immutable files. It contains 3 matched cases x 4 language directions = 12
+prompts, plus 3 distinct symbolic controls. Thus 15 per model, 60 primary answers.
+Cases: sequential spending, evidence/unknown battery condition, faithful parcel
+summary. Three cases cannot establish broad language competence or scaling laws.
+The twelve variants are correlated. Never train on any variant/reference or close
+derivative. Once it informs decisions, call this diagnostic development data.
+
+Use scripts/evaluation/evaluate_lfm3_vllm_batched.py. Its --packet-path requires
+--packet-sha256; --all-rows avoids old CETVEL sampling. It loads config-planned.json
+from --experiment-dir: inspect prior ablation driver for the proper pinned parent
+configuration (new exp config.yaml alone does not satisfy this CLI).
+Use two packet runs per model, or create a versioned combined packet and hash it.
+Do not change the frozen input files. Never pass target/rubric into the template.
+Canonical flags include --all-rows --batch-size 4 --temperature 0.1 --top-k 50
+--repetition-penalty 1.1, unique --output-dir, and an explicit protocol name.
+Other frozen settings: vLLM BF16/eager, max_model_len8192, max_new_tokens4096,
+top_p1, seed3407, prefix caching off, native chat template, thinking disabled,
+explicit EOT124900 and unchanged historical exact-loop guard. Verify effective
+settings rather than assuming defaults. The historical runner uses ignore_eos
+with explicit native stop IDs: preserve and log that policy for comparability.
+Each request is an independent conversation. Use the same order/batching for all
+models. Record resolved software, CUDA/GPU, model/adapter/source/packet hashes,
+raw prediction/token IDs, stop reason, timing and request IDs. Run one smoke
+request before the full packet. Optional thinking-on runs are a separate protocol
+for the four purchase variants and controls, matched across all four models.
+
+4. SCORING AND ARGILLA
+Check numeric controls: 104,15,575; purchase result48 (intermediates54,96).
+Separate numerical correctness from working consistency, output language,
+naturalness, exact constraints and termination. Unknown battery condition must
+not become a confirmed fault. Parcel summaries must retain today-not-yesterday,
+absent recipient and caretaker handover, without changing roles.
+References are examples, not exclusive accepted strings. Never exact-match prose.
+
+Adapt scripts/evaluation/publish_lfm3_initialization_argilla.py into a NEW publisher
+and queue (suggest turkish-crosslingual-holdout-v01), not the existing dataset.
+Local Argilla is http://127.0.0.1:6900; load credentials privately from the existing
+Argilla .env path used by that script. Do not put credentials in logs/handoff.
+Display prompt and four anonymous answers, with only ranking and reasoning text
+fields required. No good/bad selections or extra annotation burden. Allow ties.
+Balance A-D positions (3 or4 appearances/model/position across15), deterministic
+seed, private mapping in ignored runtime. Verify all60 displayed answers exactly
+match predictions. Do not upload reference answers, model IDs or metrics.
+Preserve old datasets/annotations. Send the owner the queue URL and wait for
+their review; no early model identity reveal. Export immutable raw reviews,
+validate all four letters exactly once, preserve notes verbatim and flag invalid
+orders rather than guessing. Adapt the existing exporter into a separate script.
+
+5. DIAGNOSE AFTER OWNER REVIEW
+Report four-arm results separately for each language condition and each case.
+Inspect whether EN->EN and symbolic arithmetic regress after CPT/SFT; TR->EN
+versus EN->EN probes Turkish input handling; EN->TR probes Turkish expression;
+TR->TR measures the full path. These are imperfect mechanism probes, not proof
+of a single cause. Use raw correctness plus owner reasoning, not just preferences.
+Do not report 12 variants as12 independent tasks or convert rankings to accuracy.
+The owner can decide to stop here if the evidence does not justify more effort.
+
+6. CONDITIONAL BILINGUAL TRAINING PILOT — AFTER DIAGNOSIS
+Do not launch training before the diagnostic review and owner decision.
+If evidence supports language transfer, propose a controlled pair of NEW runs:
+Turkish-only instruction data versus bilingual task-aligned instruction data.
+Use the SAME starting model, freshly initialized LoRA in each arm, learning rate,
+rank, seed, optimizer, scheduler, update count and supervised-token budget within
+a documented tolerance. Choose initialization based on diagnosis, freeze it for
+both arms. Do not compare continued selected-adapter training to a fresh LoRA.
+Token budgets, not row counts alone, must be comparable; publish effective counts.
+
+Candidate pilot size roughly500-1000 instruction rows per arm, not a promise that
+this amount suffices. Both arms should cover the same independently sourced task
+families, with a shared Turkish core. Candidate bilingual mix by supervised tokens:
+50% TR->TR,20% EN->EN replay,15% EN->TR,15% TR->EN. These are provisional starting
+ratios, to revise and freeze BEFORE results according to the diagnosis. Construct
+from parallel task families, not unrelated English and Turkish pools. Document
+that fixed budget means bilingual exposure replaces some Turkish-only exposure.
+Include faithful paraphrase, Turkish orthography/morphology, grounded extraction,
+ambiguity/uncertainty, exact constraints, arithmetic and short verified solutions.
+Translation-only pairs may be included, but must not replace actual task-solving
+supervision. Keep rationale length appropriate and intentional blank thinking
+unchanged. Do not force reasoning into simple responses.
+
+Generate/translate candidates and filter automatically: symbolic solutions,
+numeric checks, JSON/schema/length checks, role/entity/negation preservation,
+deduplication, language checks, source/license/provenance and overlap audits.
+Use a capable teacher and independent checks; agreement alone is not correctness.
+Owner audits a small stratified sample and flagged examples; do not ask them to
+manually rewrite 2000 rows. Occam has standing owner approval, but still verify
+candidate suitability, provenance and leakage. Preserve existing reviewed160.
+Reject or repair defective examples before freezing. Split parallel/near-duplicate
+families together; no train/dev leakage. Create separate pilot development data.
+
+Read finetuning playbook; native-label/EOT/length audit, finite-loss smoke,
+save/reload/generation parity and train-only tiny-overfit must pass before training.
+Use existing LR1e-4/r32/alpha64/batch8 recipe as a candidate, not an instruction to
+copy the old100-step horizon regardless of new dataset size. Freeze actual token
+budget, epochs/updates, warmup and schedule before either run. No LR/rank sweep.
+English replay is a testable retention intervention, not a guaranteed fix.
+
+7. RE-EVALUATE; SCALE OR STOP
+Repeat this packet with identical inference for the two pilot candidates and
+original/selected references; reuse earlier outputs only if protocol/hash parity
+is verified. New anonymous queue, same ranking+reasoning workflow. Record changes
+by condition, numerical correctness, language quality and stopping; retain raw data.
+Freeze success criteria before training: aim for improvement on Turkish cases
+without losing previously correct English/symbolic cases or introducing stopping
+regressions. On this tiny set one changed case is inspection evidence, not a
+significant gain. Use a broader independent validation set to decide scaling.
+If useful transfer and retention are reproducible, scale data with automatic
+verification and sample audits. Before a release claim, use a fresh independent
+final holdout. If no useful gains, stop blind data scaling and consider starting
+model suitability, CPT corpus/objective, LoRA capacity or embedding/tokenization
+constraints. Do not change all at once. It is acceptable to end this experiment
+and document the limit; no obligation to spend on DPO/MoE/diffusion next.
+
+8. ARTIFACT RECOVERY / PERMISSIONS
+Before the owner closes a GPU pod, download and hash-verify LoRAs, tokenizer/config,
+exact manifests/source, training histories/logs, raw inference and scoring/review
+artifacts. No full/merged weights or optimizer states unless separately requested.
+Tell the owner explicitly when recovery is complete. Do not shut down the pod,
+publish models/datasets, push Git or start later conditional training without the
+corresponding instruction. Do the local preparation and diagnostic inference/UI
+once a pod is provided; do not ask the owner to approve routine reversible work.
+
+BACKGROUND (evidence, not a guarantee for this1.7B model)
+https://aclanthology.org/2024.mrl-1.1/ — SambaLingo, includes Turkish;7B/70B.
+https://aclanthology.org/2025.acl-long.1121/ — cross-lingual instruction tuning;7B.
+https://aclanthology.org/2024.mrl-1.21/ — Turkish adaptation/scaling/forgetting.

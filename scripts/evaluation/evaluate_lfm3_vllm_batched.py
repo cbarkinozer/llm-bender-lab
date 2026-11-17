@@ -24,6 +24,8 @@ def main():
     p.add_argument('--packet-sha256')
     p.add_argument('--all-rows', action='store_true',
                    help='Evaluate all rows in packet order without stratified resampling')
+    p.add_argument('--enable-thinking', action='store_true',
+                   help='Separate reasoning probe; default primary protocol remains thinking disabled')
     a = p.parse_args()
     from transformers import AutoTokenizer, GenerationConfig
     from vllm import EngineArgs, LLMEngine, SamplingParams
@@ -67,7 +69,7 @@ def main():
         engine_args=engine_args,eos_token_ids=eos,
         chat_template_sha256=hashlib.sha256(tokenizer.chat_template.encode()).hexdigest(),
         decoding=dict(temperature=a.temperature,top_k=a.top_k,top_p=1.0,repetition_penalty=a.repetition_penalty,max_new_tokens=4096,
-            context_budget=8192,enable_thinking=False,ignore_eos=True,stop_token_ids=eos),
+            context_budget=8192,enable_thinking=a.enable_thinking,ignore_eos=True,stop_token_ids=eos),
         packages={n:importlib.metadata.version(n) for n in ('torch','transformers','vllm')},
         gpu=torch.cuda.get_device_name())
     def save():
@@ -91,7 +93,7 @@ def main():
                         exhausted = True
                         break
                     prompt = tokenizer.apply_chat_template(row['messages'],tokenize=False,
-                        add_generation_prompt=True,enable_thinking=False)
+                        add_generation_prompt=True,enable_thinking=a.enable_thinking)
                     ids = tokenizer(prompt,add_special_tokens=False)['input_ids']
                     assert len(ids)+4096 <= 8192
                     rid = str(row['id'])

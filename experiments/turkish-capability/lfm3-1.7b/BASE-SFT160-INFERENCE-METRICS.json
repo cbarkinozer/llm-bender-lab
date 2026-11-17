@@ -1,0 +1,1744 @@
+{
+  "status": "matched-inference-completed",
+  "models": {
+    "base": {
+      "dev20": {
+        "count": 20,
+        "termination": {
+          "eos": 20
+        },
+        "total_generated_tokens": 5891,
+        "median_generated_tokens": 205.5,
+        "max_generated_tokens": 1826,
+        "wall_seconds": 14.830601709982147
+      },
+      "cetvel100": {
+        "count": 100,
+        "termination": {
+          "eos": 100
+        },
+        "total_generated_tokens": 26695,
+        "median_generated_tokens": 189.0,
+        "max_generated_tokens": 1573,
+        "wall_seconds": 44.69437416101573
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": null,
+        "merged_model": null,
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.6,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.6,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.18,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.74,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.77,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 0.96,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.61,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 0.93,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.62,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.66,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.7175,
+        "official_full_benchmark": false
+      },
+      "cetvel_scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 1.0,
+            "format_failure_candidate_rate": 1.0,
+            "truncation_rate": 0.0,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                10521,
+                1174,
+                7729,
+                5401,
+                2629
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                5750,
+                2501
+              ],
+              "truncated": [],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.1306355266577693,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.1306355266577693,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                843,
+                618,
+                451,
+                610,
+                321
+              ],
+              "highest_score": [
+                167,
+                384,
+                179,
+                468,
+                708
+              ],
+              "truncated": [],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.0890692766210429,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.0890692766210429,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1161,
+                260,
+                1017,
+                1101,
+                449
+              ],
+              "highest_score": [
+                874,
+                718,
+                499,
+                1000,
+                987
+              ],
+              "truncated": [],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 1.7295106895973886,
+            "corpus_chrf": 32.26539547894637,
+            "mean_sentence_bleu": 3.2320899404919645,
+            "mean_sentence_chrf": 33.66345667242568,
+            "truncation_rate": 0.0,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                825,
+                774,
+                994,
+                999,
+                348
+              ],
+              "highest_score": [
+                879,
+                220,
+                172,
+                167,
+                716
+              ],
+              "truncated": [],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.2060986110255037,
+            "mean_rouge2": 0.09682563557943566,
+            "mean_rougeL": 0.1431339539667768,
+            "mean_rougeLsum": 0.1572599412263806,
+            "truncation_rate": 0.0,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                12163,
+                1629,
+                5675,
+                1311,
+                2420
+              ],
+              "highest_score": [
+                1074,
+                1295,
+                5408,
+                7289,
+                4583
+              ],
+              "truncated": [],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "eos": 100
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "reasoning4": {
+        "termination": {
+          "eos": 4
+        },
+        "total_generated_tokens": 972,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "reasoning4-thinking": {
+        "termination": {
+          "eos": 3,
+          "length": 1
+        },
+        "total_generated_tokens": 5352,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "regression_flags_vs_base": {
+        "dev_stopping": false,
+        "grammar_macro": false,
+        "grammar_phenomena": []
+      }
+    },
+    "cpt": {
+      "dev20": {
+        "count": 20,
+        "termination": {
+          "eos": 8,
+          "length": 12
+        },
+        "total_generated_tokens": 51573,
+        "median_generated_tokens": 4096.0,
+        "max_generated_tokens": 4096,
+        "wall_seconds": 83.15780782897491
+      },
+      "cetvel100": {
+        "count": 100,
+        "termination": {
+          "exact_loop": 9,
+          "eos": 26,
+          "length": 65
+        },
+        "total_generated_tokens": 282465,
+        "median_generated_tokens": 4096.0,
+        "max_generated_tokens": 4096,
+        "wall_seconds": 505.83170884102583
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": null,
+        "merged_model": "/workspace/repos/llm-bender-lab/experiments/turkish-capability/lfm3-1.7b/pilot160-runtime-local/cpt-merged",
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.87,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.91,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.88,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.92,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.78,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.33,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.72,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.9,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.75,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.89,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.96,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.869375,
+        "official_full_benchmark": false
+      },
+      "cetvel_scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 0.95,
+            "format_failure_candidate_rate": 0.95,
+            "truncation_rate": 0.7,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [
+              2629
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                1174,
+                10521,
+                2629,
+                7729,
+                5401
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                2501,
+                5750
+              ],
+              "truncated": [
+                10521,
+                7729,
+                5401,
+                9650,
+                7409
+              ],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.005258817375254494,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.005258817375254494,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.65,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                321,
+                474,
+                618,
+                843,
+                236
+              ],
+              "highest_score": [
+                352,
+                239,
+                384,
+                179,
+                468
+              ],
+              "truncated": [
+                321,
+                474,
+                618,
+                843,
+                236
+              ],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.0034472086374304476,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.0034472086374304476,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.65,
+            "low_em_high_f1_rate": 0.0,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [],
+            "stratified_sample": {
+              "lowest_score": [
+                1000,
+                987,
+                449,
+                874,
+                1018
+              ],
+              "highest_score": [
+                260,
+                1017,
+                528,
+                333,
+                718
+              ],
+              "truncated": [
+                528,
+                987,
+                874,
+                1154,
+                1017
+              ],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 0.03652708884117467,
+            "corpus_chrf": 2.688441194851171,
+            "mean_sentence_bleu": 0.6764842164026722,
+            "mean_sentence_chrf": 8.624385204148002,
+            "truncation_rate": 0.45,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                476,
+                212,
+                825,
+                632,
+                502
+              ],
+              "highest_score": [
+                716,
+                541,
+                167,
+                999,
+                220
+              ],
+              "truncated": [
+                632,
+                264,
+                111,
+                216,
+                879
+              ],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.01540827429635359,
+            "mean_rouge2": 0.0022695914492802476,
+            "mean_rougeL": 0.01306925005910349,
+            "mean_rougeLsum": 0.011107413693800744,
+            "truncation_rate": 0.8,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                1909,
+                5675,
+                1096,
+                11939,
+                2034
+              ],
+              "highest_score": [
+                4583,
+                1074,
+                1311,
+                239,
+                6904
+              ],
+              "truncated": [
+                1909,
+                2420,
+                4583,
+                5675,
+                1629
+              ],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "exact_loop": 9,
+          "eos": 26,
+          "length": 65
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "reasoning4": {
+        "termination": {
+          "eos": 1,
+          "exact_loop": 1,
+          "length": 2
+        },
+        "total_generated_tokens": 8830,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "reasoning4-thinking": {
+        "termination": {
+          "eos": 1,
+          "length": 3
+        },
+        "total_generated_tokens": 12595,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "regression_flags_vs_base": {
+        "dev_stopping": true,
+        "grammar_macro": false,
+        "grammar_phenomena": []
+      }
+    },
+    "base_sft": {
+      "dev20": {
+        "count": 20,
+        "termination": {
+          "eos": 20
+        },
+        "total_generated_tokens": 1097,
+        "median_generated_tokens": 42.5,
+        "max_generated_tokens": 217,
+        "wall_seconds": 2.12611106201075
+      },
+      "cetvel100": {
+        "count": 100,
+        "termination": {
+          "eos": 100
+        },
+        "total_generated_tokens": 6926,
+        "median_generated_tokens": 35.0,
+        "max_generated_tokens": 644,
+        "wall_seconds": 14.016172486997675
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": null,
+        "merged_model": "/workspace/repos/llm-bender-lab/experiments/turkish-capability/lfm3-1.7b/exp-009-base-sft160-lr1e4/results-local/merged-step60",
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.68,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.59,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.54,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.65,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.55,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.23,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.7,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.72,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 0.98,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.62,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 0.96,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.65,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.67,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.719375,
+        "official_full_benchmark": false
+      },
+      "cetvel_scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 0.0,
+            "format_failure_candidate_rate": 0.0,
+            "truncation_rate": 0.0,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [
+              1174,
+              10521,
+              2629,
+              7729,
+              5401,
+              9650,
+              7409,
+              15444,
+              8042,
+              6434,
+              20740,
+              12900,
+              19307,
+              13950,
+              10517,
+              18195,
+              6881,
+              7023,
+              5750,
+              2501
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                1174,
+                10521,
+                2629,
+                7729,
+                5401
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                5750,
+                2501
+              ],
+              "truncated": [],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.352233696055264,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.352233696055264,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.25,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [
+              468,
+              742,
+              179,
+              384,
+              553
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                321,
+                479,
+                604,
+                618,
+                292
+              ],
+              "highest_score": [
+                384,
+                553,
+                468,
+                742,
+                179
+              ],
+              "truncated": [],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.3116635566193198,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.3116635566193198,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.3,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [
+              1000,
+              987,
+              1008,
+              841,
+              718,
+              499
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                874,
+                168,
+                1161,
+                621,
+                260
+              ],
+              "highest_score": [
+                1000,
+                1008,
+                499,
+                718,
+                987
+              ],
+              "truncated": [],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 3.872284234698366,
+            "corpus_chrf": 45.08754373287458,
+            "mean_sentence_bleu": 5.424358747293498,
+            "mean_sentence_chrf": 44.12585447430415,
+            "truncation_rate": 0.0,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                541,
+                264,
+                502,
+                774,
+                111
+              ],
+              "highest_score": [
+                879,
+                999,
+                220,
+                167,
+                172
+              ],
+              "truncated": [],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.26971058856588165,
+            "mean_rouge2": 0.13561856674343858,
+            "mean_rougeL": 0.18618592778364101,
+            "mean_rougeLsum": 0.1875845291822424,
+            "truncation_rate": 0.0,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                2420,
+                5675,
+                1909,
+                1629,
+                11939
+              ],
+              "highest_score": [
+                9742,
+                1484,
+                1096,
+                4583,
+                7289
+              ],
+              "truncated": [],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "eos": 100
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "reasoning4": {
+        "termination": {
+          "eos": 4
+        },
+        "total_generated_tokens": 322,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "reasoning4-thinking": {
+        "termination": {
+          "eos": 4
+        },
+        "total_generated_tokens": 351,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "regression_flags_vs_base": {
+        "dev_stopping": false,
+        "grammar_macro": false,
+        "grammar_phenomena": [
+          "argument_structure_transitive"
+        ]
+      }
+    },
+    "cpt_sft": {
+      "dev20": {
+        "count": 20,
+        "termination": {
+          "eos": 20
+        },
+        "total_generated_tokens": 979,
+        "median_generated_tokens": 24.5,
+        "max_generated_tokens": 202,
+        "wall_seconds": 5.228257145994576
+      },
+      "cetvel100": {
+        "count": 100,
+        "termination": {
+          "eos": 100
+        },
+        "total_generated_tokens": 5672,
+        "median_generated_tokens": 28.5,
+        "max_generated_tokens": 634,
+        "wall_seconds": 16.351552178006386
+      },
+      "grammar": {
+        "model": {
+          "repo": "LiquidAI/LFM3-1.7B",
+          "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+          "quantization": null,
+          "precision_proposed": "bfloat16",
+          "thinking_proposed": false
+        },
+        "adapter": null,
+        "merged_model": "/workspace/repos/llm-bender-lab/experiments/turkish-capability/lfm3-1.7b/exp-007-sft160-lr1e4/results-local/merged-step60",
+        "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+        "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+        "per_phenomenon": {
+          "anaphor_agreement": {
+            "count": 100,
+            "accuracy": 0.89,
+            "ties": 0
+          },
+          "argument_structure_ditransitive": {
+            "count": 100,
+            "accuracy": 0.92,
+            "ties": 0
+          },
+          "argument_structure_transitive": {
+            "count": 100,
+            "accuracy": 0.79,
+            "ties": 0
+          },
+          "binding": {
+            "count": 100,
+            "accuracy": 0.92,
+            "ties": 0
+          },
+          "determiners": {
+            "count": 100,
+            "accuracy": 0.79,
+            "ties": 0
+          },
+          "ellipsis": {
+            "count": 100,
+            "accuracy": 0.43,
+            "ties": 0
+          },
+          "irregular_forms": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "island_effects": {
+            "count": 100,
+            "accuracy": 0.67,
+            "ties": 0
+          },
+          "nominalization": {
+            "count": 100,
+            "accuracy": 0.93,
+            "ties": 0
+          },
+          "npi_licensing": {
+            "count": 100,
+            "accuracy": 0.99,
+            "ties": 0
+          },
+          "passives": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "quantifiers": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "relative_clauses": {
+            "count": 100,
+            "accuracy": 0.72,
+            "ties": 0
+          },
+          "scrambling": {
+            "count": 100,
+            "accuracy": 1.0,
+            "ties": 0
+          },
+          "subject_agreement": {
+            "count": 100,
+            "accuracy": 0.86,
+            "ties": 0
+          },
+          "suspended_affixation": {
+            "count": 100,
+            "accuracy": 0.96,
+            "ties": 0
+          }
+        },
+        "macro_accuracy": 0.86625,
+        "official_full_benchmark": false
+      },
+      "cetvel_scores": {
+        "status": "scored",
+        "diagnostic": true,
+        "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+        "results": {
+          "gecturk": {
+            "n_items": 20,
+            "exact_match_rate": 0.0,
+            "unchanged_from_source_rate": 0.0,
+            "empty_output_rate": 0.0,
+            "verbose_output_rate": 0.0,
+            "format_failure_candidate_rate": 0.0,
+            "truncation_rate": 0.0,
+            "note": "exact_match alone understates valid alternative corrections -- every wrong-and-not-format-failure item needs the manual four-way taxonomy pass (correct-but-different / over-correction / under-correction / meaning-changed)",
+            "manual_review_needed_indices": [
+              1174,
+              10521,
+              2629,
+              7729,
+              5401,
+              9650,
+              7409,
+              15444,
+              8042,
+              6434,
+              20740,
+              12900,
+              19307,
+              13950,
+              10517,
+              18195,
+              6881,
+              7023,
+              5750,
+              2501
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                1174,
+                10521,
+                2629,
+                7729,
+                5401
+              ],
+              "highest_score": [
+                18195,
+                6881,
+                7023,
+                5750,
+                2501
+              ],
+              "truncated": [],
+              "shortest_source": [
+                15444,
+                6434,
+                1174,
+                13950,
+                7409
+              ],
+              "longest_source": [
+                2629,
+                18195,
+                5750,
+                7023,
+                19307
+              ]
+            }
+          },
+          "tquad": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.2417894070079425,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.2417894070079425,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.2,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [
+              468,
+              474,
+              352,
+              384
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                321,
+                843,
+                479,
+                604,
+                618
+              ],
+              "highest_score": [
+                742,
+                474,
+                352,
+                468,
+                384
+              ],
+              "truncated": [],
+              "shortest_source": [
+                843,
+                708,
+                479,
+                239,
+                384
+              ],
+              "longest_source": [
+                474,
+                167,
+                742,
+                352,
+                451
+              ]
+            }
+          },
+          "xquad_tr": {
+            "n_items": 20,
+            "n_answerable": 20,
+            "n_unanswerable": 0,
+            "exact_match": 0.0,
+            "f1": 0.2834208686142969,
+            "answerability_accuracy": 1.0,
+            "exact_match_on_answerable": 0.0,
+            "f1_on_answerable": 0.2834208686142969,
+            "exact_match_on_unanswerable": null,
+            "truncation_rate": 0.0,
+            "low_em_high_f1_rate": 0.35,
+            "note": "low_em_high_f1 items usually indicate boundary/normalization mismatch (extra/missing words around a correct span), not a comprehension failure -- inspect these separately from genuine wrong answers",
+            "low_em_high_f1_indices": [
+              1000,
+              987,
+              1008,
+              841,
+              168,
+              718,
+              499
+            ],
+            "stratified_sample": {
+              "lowest_score": [
+                333,
+                449,
+                874,
+                1161,
+                621
+              ],
+              "highest_score": [
+                499,
+                168,
+                1008,
+                718,
+                987
+              ],
+              "truncated": [],
+              "shortest_source": [
+                168,
+                1000,
+                1154,
+                1094,
+                1008
+              ],
+              "longest_source": [
+                499,
+                874,
+                987,
+                528,
+                849
+              ]
+            }
+          },
+          "wmt_en_tr": {
+            "n_items": 20,
+            "corpus_bleu": 4.703867785268857,
+            "corpus_chrf": 42.06918792021486,
+            "mean_sentence_bleu": 6.281152147125857,
+            "mean_sentence_chrf": 42.33647983645754,
+            "truncation_rate": 0.0,
+            "note": "this is the EN->TR direction (CETVEL's task is misleadingly named wmt-tr-en-prompt) -- a direct test of Turkish generation quality, not a TR comprehension check",
+            "stratified_sample": {
+              "lowest_score": [
+                348,
+                111,
+                825,
+                502,
+                774
+              ],
+              "highest_score": [
+                496,
+                264,
+                999,
+                172,
+                167
+              ],
+              "truncated": [],
+              "shortest_source": [
+                496,
+                999,
+                994,
+                476,
+                825
+              ],
+              "longest_source": [
+                167,
+                216,
+                348,
+                541,
+                111
+              ]
+            }
+          },
+          "mlsum_tr": {
+            "n_items": 20,
+            "mean_rouge1": 0.19340391993195963,
+            "mean_rouge2": 0.11711514805105958,
+            "mean_rougeL": 0.16124142637767644,
+            "mean_rougeLsum": 0.16124142637767644,
+            "truncation_rate": 0.0,
+            "note": "ROUGE is a reference-overlap signal, not a faithfulness measure -- manually inspect the stratified sample below (high/low ROUGE, truncations, longest/shortest source) before concluding anything about summary quality",
+            "stratified_sample": {
+              "lowest_score": [
+                4583,
+                1629,
+                12163,
+                1311,
+                7289
+              ],
+              "highest_score": [
+                1484,
+                1096,
+                9934,
+                1074,
+                4626
+              ],
+              "truncated": [],
+              "shortest_source": [
+                2420,
+                5675,
+                2034,
+                5408,
+                1484
+              ],
+              "longest_source": [
+                1629,
+                4626,
+                239,
+                4583,
+                12163
+              ]
+            }
+          }
+        },
+        "termination": {
+          "eos": 100
+        },
+        "note": "Reference-overlap metrics; no pooled accuracy. Incomplete generations retained, not dropped."
+      },
+      "reasoning4": {
+        "termination": {
+          "eos": 4
+        },
+        "total_generated_tokens": 389,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "reasoning4-thinking": {
+        "termination": {
+          "eos": 4
+        },
+        "total_generated_tokens": 364,
+        "correctness": "Not inferred from termination; requires separate grading"
+      },
+      "regression_flags_vs_base": {
+        "dev_stopping": false,
+        "grammar_macro": false,
+        "grammar_phenomena": [
+          "island_effects"
+        ]
+      }
+    }
+  },
+  "source_sha256": {
+    "experiments\\turkish-capability\\lfm3-1.7b\\pilot160-runtime-local\\inference\\base\\dev20\\answers.jsonl": "8c7b240f8d006e6c41c961e38d56c9096b53b21749fcaa387161e94442e70a69",
+    "experiments\\turkish-capability\\lfm3-1.7b\\pilot160-runtime-local\\inference\\base\\cetvel100\\answers.jsonl": "2271b2f5989b84a4b16b30b5e52de08fb99a094e65b4a020def73cd45381474d",
+    "experiments\\turkish-capability\\lfm3-1.7b\\base-sft160-runtime-local\\inference\\cpt-only\\dev20\\answers.jsonl": "dc4b4a501378d89f2518736cd3a4301af1c5636a6e2a48d8743eac08989859bf",
+    "experiments\\turkish-capability\\lfm3-1.7b\\base-sft160-runtime-local\\inference\\cpt-only\\cetvel100\\answers.jsonl": "4be107d51026475583d941b3abbd435f2f139c02195ce423a3da1e2511f5bfbc",
+    "experiments\\turkish-capability\\lfm3-1.7b\\base-sft160-runtime-local\\inference\\exp-009-base-sft160-lr1e4-step60\\dev20\\answers.jsonl": "c5c6d7a90d34f589fd08f720066a7c4cc3819588385f4f10904b9c0634c7afbe",
+    "experiments\\turkish-capability\\lfm3-1.7b\\base-sft160-runtime-local\\inference\\exp-009-base-sft160-lr1e4-step60\\cetvel100\\answers.jsonl": "62c864b790bfe8fdd63f16c523145ba8a4f2fa8ae1fadd987aa9ba130092522b",
+    "experiments\\turkish-capability\\lfm3-1.7b\\pilot160-runtime-local\\inference\\exp-007-sft160-lr1e4-step60\\dev20\\answers.jsonl": "7d2559d0d0f724b0c098ea51801d10ec944a5f7278bdbdede769d7ab7af6ed2a",
+    "experiments\\turkish-capability\\lfm3-1.7b\\pilot160-runtime-local\\inference\\exp-007-sft160-lr1e4-step60\\cetvel100\\answers.jsonl": "aafac1cfa1e28e66f2a3cac7bf65b30d35b617e2b6a38965d60be80921eada95"
+  },
+  "protocols": {
+    "dev20": {
+      "questions_sha256": "d574354b425c240f06c50c987be9f475eda1c909dfe7227bd6914d1356a863cd",
+      "selected_ids": [
+        "sft160-dev-01",
+        "sft160-dev-02",
+        "sft160-dev-03",
+        "sft160-dev-04",
+        "sft160-dev-05",
+        "sft160-dev-06",
+        "sft160-dev-07",
+        "sft160-dev-08",
+        "sft160-dev-09",
+        "sft160-dev-10",
+        "sft160-dev-11",
+        "sft160-dev-12",
+        "sft160-dev-13",
+        "sft160-dev-14",
+        "sft160-dev-15",
+        "sft160-dev-16",
+        "sft160-dev-17",
+        "sft160-dev-18",
+        "sft160-dev-19",
+        "sft160-dev-20"
+      ],
+      "decoding": {
+        "temperature": 0.1,
+        "top_k": 50,
+        "top_p": 1.0,
+        "repetition_penalty": 1.1,
+        "max_new_tokens": 4096,
+        "context_budget": 8192,
+        "enable_thinking": false,
+        "ignore_eos": true,
+        "stop_token_ids": [
+          124900
+        ]
+      },
+      "seed": 3407,
+      "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+    },
+    "cetvel100": {
+      "questions_sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93",
+      "selected_ids": [
+        "gecturk-01174",
+        "tquad-00468",
+        "xquad_tr-01000",
+        "wmt_en_tr-00496",
+        "mlsum_tr-06904",
+        "gecturk-10521",
+        "tquad-00321",
+        "xquad_tr-00528",
+        "wmt_en_tr-00632",
+        "mlsum_tr-01909",
+        "gecturk-02629",
+        "tquad-00474",
+        "xquad_tr-00987",
+        "wmt_en_tr-00264",
+        "mlsum_tr-02420",
+        "gecturk-07729",
+        "tquad-00618",
+        "xquad_tr-00333",
+        "wmt_en_tr-00111",
+        "mlsum_tr-04583",
+        "gecturk-05401",
+        "tquad-00843",
+        "xquad_tr-00449",
+        "wmt_en_tr-00216",
+        "mlsum_tr-05675",
+        "gecturk-09650",
+        "tquad-00236",
+        "xquad_tr-00874",
+        "wmt_en_tr-00879",
+        "mlsum_tr-01629",
+        "gecturk-07409",
+        "tquad-00239",
+        "xquad_tr-01018",
+        "wmt_en_tr-00172",
+        "mlsum_tr-09934",
+        "gecturk-15444",
+        "tquad-00708",
+        "xquad_tr-01154",
+        "wmt_en_tr-00541",
+        "mlsum_tr-09742",
+        "gecturk-08042",
+        "tquad-00742",
+        "xquad_tr-01017",
+        "wmt_en_tr-00335",
+        "mlsum_tr-02034",
+        "gecturk-06434",
+        "tquad-00352",
+        "xquad_tr-01008",
+        "wmt_en_tr-00348",
+        "mlsum_tr-12163",
+        "gecturk-20740",
+        "tquad-00479",
+        "xquad_tr-00841",
+        "wmt_en_tr-00825",
+        "mlsum_tr-04626",
+        "gecturk-12900",
+        "tquad-00167",
+        "xquad_tr-01101",
+        "wmt_en_tr-00476",
+        "mlsum_tr-01096",
+        "gecturk-19307",
+        "tquad-00451",
+        "xquad_tr-00168",
+        "wmt_en_tr-00999",
+        "mlsum_tr-11939",
+        "gecturk-13950",
+        "tquad-00604",
+        "xquad_tr-00718",
+        "wmt_en_tr-00502",
+        "mlsum_tr-01311",
+        "gecturk-10517",
+        "tquad-00179",
+        "xquad_tr-00849",
+        "wmt_en_tr-00716",
+        "mlsum_tr-01484",
+        "gecturk-18195",
+        "tquad-00826",
+        "xquad_tr-00499",
+        "wmt_en_tr-00167",
+        "mlsum_tr-05408",
+        "gecturk-06881",
+        "tquad-00292",
+        "xquad_tr-01094",
+        "wmt_en_tr-00220",
+        "mlsum_tr-07289",
+        "gecturk-07023",
+        "tquad-00610",
+        "xquad_tr-01161",
+        "wmt_en_tr-00774",
+        "mlsum_tr-01074",
+        "gecturk-05750",
+        "tquad-00384",
+        "xquad_tr-00621",
+        "wmt_en_tr-00994",
+        "mlsum_tr-00239",
+        "gecturk-02501",
+        "tquad-00553",
+        "xquad_tr-00260",
+        "wmt_en_tr-00212",
+        "mlsum_tr-01295"
+      ],
+      "decoding": {
+        "temperature": 0.1,
+        "top_k": 50,
+        "top_p": 1.0,
+        "repetition_penalty": 1.1,
+        "max_new_tokens": 4096,
+        "context_budget": 8192,
+        "enable_thinking": false,
+        "ignore_eos": true,
+        "stop_token_ids": [
+          124900
+        ]
+      },
+      "seed": 3407,
+      "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+    }
+  },
+  "preselected_checkpoint": "exp-009-base-sft160-lr1e4-step60",
+  "interpretation": "Development diagnostic only. Recognition, stopping and overlap metrics do not establish naturalness or absolute correctness. No overall quality winner inferred."
+}

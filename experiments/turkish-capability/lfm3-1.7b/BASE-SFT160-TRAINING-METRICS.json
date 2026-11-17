@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "mode": "sft",
+  "optimizer_steps": 100,
+  "training": {
+    "train_runtime": 76.0236,
+    "train_samples_per_second": 10.523,
+    "train_steps_per_second": 1.315,
+    "total_flos": 4248878453099520.0,
+    "train_loss": 1.9094101452827454,
+    "epoch": 5.0
+  },
+  "initial_train_nll": null,
+  "final_train_nll": null,
+  "merge_reload_exact": true,
+  "max_abs_merge_difference": 0.568359375,
+  "trainable_parameters": 32210944,
+  "total_parameters": 1761012480,
+  "wall_seconds": 89.64656171901152,
+  "max_gpu_allocated_bytes": 11535135744,
+  "packages": {
+    "torch": "2.14.1",
+    "transformers": "5.20.2",
+    "trl": "1.16.0",
+    "peft": "0.21.2",
+    "datasets": "5.1.0",
+    "wandb": "0.30.0"
+  },
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "tokenized_sha256": "2fde7eb9c25d0dc8e411d7a830694996ba8b0a5abe63e14acbc3fe4b638cae8a",
+  "semantic_manifest_sha256": "ccd36156c7a2a6adfd6b90938a56819566593353e007b5074b57eeaf026ff603",
+  "source_sha256": "80f55aab3a90e111876b6f98f7e6149ea3bf804b9ffcffe83d9f2863507e6539",
+  "wandb_url": "https://wandb.ai/c-barkinozer/lfm3-turkish-post-training/runs/386gmtef",
+  "preselected_checkpoint": "exp-009-base-sft160-lr1e4-step60",
+  "first_batch_sha256": "2d71b2c44b407c79cfc8a9b3aaad165c533efd9042de134bc990fc652fdd82a3",
+  "verified_remote_first_batch_exact_vs_exp007": true,
+  "effective_args_differences_vs_exp007": [
+    "output_dir"
+  ],
+  "scope": "Training diagnostics only; not quality selection.",
+  "matched_all100_optimizer_step_learning_rates": true,
+  "tokenized_sha256_matches_exp007": true
+}

@@ -1,0 +1,20 @@
+{
+  "status": "passed_safe_to_close_pod_adapter_only_scope",
+  "all_six_adapters_local_verified": true,
+  "checkpoints": {
+    "exp-007-sft160-lr1e4-step60": "00836cefaa21f586bea82588d155b9aa3218a8699aa59df5154d12cbfe222626",
+    "exp-007-sft160-lr1e4-step100": "af6d331e9c6f714536ccd8c9541340ce69c546b5e89b5af64c8f3650545457b3",
+    "exp-008-sft160-lr2e4-step60": "f569d8bde9c4cd708daf947bd765aaae502c65c1969a887413d5d93d3ea4f797",
+    "exp-008-sft160-lr2e4-step100": "a8cb94d700c68b4f19ce671abb2662143a2dca2aab279adb97bfe7a2287002e0",
+    "exp-009-base-sft160-lr1e4-step60": "788d3d9b443bd2fdbcbb32bad07f97728be3b8d78865656e0937a499f969d90a",
+    "exp-009-base-sft160-lr1e4-step100": "c3fb3f2e4889583da329de73e4235368812cbed42917d7a9affbafe739db3858"
+  },
+  "new_results_files_verified": 82,
+  "new_results_archive_sha256": "192950190138f08d521583832eaf74a0e65c532c29cf3c1f283c34a57379ad33",
+  "original_inference_members_previously_verified": 161,
+  "training_and_inference_logs_local": true,
+  "parent_operation_logs_local": true,
+  "temporary_transfer_service_stopped": true,
+  "pod_shutdown_by_agent": false,
+  "scope": "Six LoRA adapters/tokenizers/configuration, small training metadata, exact launch sources and full inference/log results; no full/merged model weights or complete optimizer/resume states downloaded."
+}

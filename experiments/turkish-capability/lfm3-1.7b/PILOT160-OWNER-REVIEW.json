@@ -1,0 +1,359 @@
+{
+  "submitted_records": 20,
+  "valid_rankings": 20,
+  "total_records": 20,
+  "snapshot": "owner-responses-20261117T180332Z-abef2f.json",
+  "snapshot_sha256": "1db980c1875e201e8877bfb456dc5f7545c7bc4010a968fd9e7aa8438954038a",
+  "private_key_sha256": "27d5df03e04dce398e6697c2bbe6dd91619211d938eeb5e8fec806c4c3a6f4cc",
+  "pairwise_first_model": {
+    "base vs exp-007-sft160-lr1e4-step100": {
+      "win": 7,
+      "loss": 13
+    },
+    "base vs exp-007-sft160-lr1e4-step60": {
+      "loss": 16,
+      "win": 4
+    },
+    "base vs exp-008-sft160-lr2e4-step100": {
+      "loss": 14,
+      "win": 6
+    },
+    "base vs exp-008-sft160-lr2e4-step60": {
+      "loss": 15,
+      "win": 4,
+      "tie": 1
+    },
+    "exp-007-sft160-lr1e4-step100 vs exp-007-sft160-lr1e4-step60": {
+      "loss": 9,
+      "win": 1,
+      "tie": 10
+    },
+    "exp-007-sft160-lr1e4-step100 vs exp-008-sft160-lr2e4-step100": {
+      "loss": 11,
+      "win": 4,
+      "tie": 5
+    },
+    "exp-007-sft160-lr1e4-step100 vs exp-008-sft160-lr2e4-step60": {
+      "loss": 9,
+      "win": 6,
+      "tie": 5
+    },
+    "exp-007-sft160-lr1e4-step60 vs exp-008-sft160-lr2e4-step100": {
+      "loss": 5,
+      "win": 10,
+      "tie": 5
+    },
+    "exp-007-sft160-lr1e4-step60 vs exp-008-sft160-lr2e4-step60": {
+      "loss": 5,
+      "win": 7,
+      "tie": 8
+    },
+    "exp-008-sft160-lr2e4-step100 vs exp-008-sft160-lr2e4-step60": {
+      "loss": 8,
+      "win": 4,
+      "tie": 8
+    }
+  },
+  "selected_checkpoint": "exp-007-sft160-lr1e4-step60",
+  "selection_basis": "Owner blind relative preferences on authored dev20; wins head-to-head against every candidate. Not absolute correctness or production readiness.",
+  "models": [
+    {
+      "model": "base",
+      "pairwise_wins": 21,
+      "pairwise_losses": 58,
+      "pairwise_ties": 1,
+      "top_group_prompts": 4
+    },
+    {
+      "model": "exp-007-sft160-lr1e4-step100",
+      "pairwise_wins": 24,
+      "pairwise_losses": 36,
+      "pairwise_ties": 20,
+      "top_group_prompts": 8
+    },
+    {
+      "model": "exp-007-sft160-lr1e4-step60",
+      "pairwise_wins": 42,
+      "pairwise_losses": 15,
+      "pairwise_ties": 23,
+      "top_group_prompts": 12
+    },
+    {
+      "model": "exp-008-sft160-lr2e4-step100",
+      "pairwise_wins": 34,
+      "pairwise_losses": 28,
+      "pairwise_ties": 18,
+      "top_group_prompts": 6
+    },
+    {
+      "model": "exp-008-sft160-lr2e4-step60",
+      "pairwise_wins": 37,
+      "pairwise_losses": 21,
+      "pairwise_ties": 22,
+      "top_group_prompts": 9
+    }
+  ],
+  "records": [
+    {
+      "dev_id": "sft160-dev-19",
+      "response_id": "70206ac9-baf2-4e52-bcbe-950a33056f4b",
+      "raw_ranking": "D > A > B > C > E",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-007-sft160-lr1e4-step60": 3,
+        "base": 4,
+        "exp-007-sft160-lr1e4-step100": 5
+      },
+      "notes": "No answer gets the meaning clearly right. Here “ince” means considerate, tactful, kind (düşünceli, nazik, incelikli). The person noticed the speaker was hurt and quietly changed the subject to spare their feelings. A good one-sentence answer would be: “Burada ‘ince’, karşısındakinin duygularını gözeten, düşünceli ve nazik anlamındadır.”\n\n1. D\nClosest to the meaning: It’s the only answer that links “ince” to being “çok dikkatli” (very attentive/careful) and treats it as describing the manner of the act. That’s close to “tactful.”\nDoesn’t contradict itself: Unlike A, it never denies that the behavior was “ince.”\nWeaknesses:\nIt never states the meaning clearly.\nThe rewritten sentence is clumsy (“…gösterdiğini göstermektedir,” “shows that it shows”).\nIt breaks the “bir cümleyle” (in one sentence) rule.\nThe final line (“not just a quality but an impression”) adds nothing.\n2. A\nPartly right definition: It opens with “İnce = çok dikkatli,” which is in the right direction.\nContradicts itself: It then concludes the behavior is “ince değil, dışlanıklı” (“not ince, but excluding”). That goes against both its own definition and the sentence it’s explaining.\nRule broken: It uses more than one sentence.\nWhy it ranks below D: A has the better opening definition, but its self-contradiction is a bigger problem than D’s vagueness.\n3. B\nWrong meaning: It defines “ince” as making a behavior’s results “less visible.” That’s not a meaning of the word.\nMisreads the sentence: It says the person changed the subject “without seeing” the hurt, when the sentence says “fark edip” (having noticed it).\nWhy it ranks above C: It’s at least short.\n4. C\nWrong meaning: It treats “ince” as a slight or brief change (“1–2 seconds, a few words”). That confuses it with “thin/slight.”\nMisreads the sentence: It reads “kırıldığımı” (that I was hurt) as something literally breaking (“bir soru, bir metin”).\nRule broken: It goes far over the one-sentence limit, with headings, a quote and bullet points.\n5. E (worst)\nNo meaning given: It never says what “ince” means.\nMade-up term: It invents a linguistics term (“anlamsız ince (unmarked fine-grained)”). That directly breaks the “eksik bilgiyi uydurma” (don’t invent information) rule.\nHard to follow: The rest is confused text (“anlama yetmez,” “anlaşılmasız”), and it’s several sentences long.\n"
+    },
+    {
+      "dev_id": "sft160-dev-02",
+      "response_id": "6618a002-e73b-439f-8f3a-f666a24cffdd",
+      "raw_ranking": "A > E > C > D > B",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-007-sft160-lr1e4-step100": 3,
+        "exp-008-sft160-lr2e4-step60": 4,
+        "base": 5
+      },
+      "notes": "A good rewrite would be: “Deney tekrarlandığında ölçümün hatalı olmadığı görüldü.” It keeps three parts of the meaning: the experiment was repeated, the measurement turned out not to be wrong, and this was observed (“görüldü”).\n\n1. A\nNatural Turkish: “Deney sonrası ölçüm yanlış çıkmadı” is short, natural Turkish.\nMeaning kept: The core meaning (the measurement wasn’t wrong) is there, and the simple past matches “görüldü” well.\nWhat’s lost: It drops “bir daha” (the experiment being repeated). That’s a real loss of meaning, because the repeat is why the measurement was confirmed.\n2. E\nNatural Turkish, but the same loss: Like A, it’s fluent and drops the repetition.\nWhy it ranks below A: The -mış ending (“bulunmamış”) marks the information as reported or second-hand (“apparently it wasn’t found faulty”). The original “görüldü” states it as directly observed. That’s a small extra change in meaning that A avoids.\n3. C\nNo rewrite: It copies the original sentence word for word. The task is not done at all.\nWhy it ranks above D: The meaning is at least kept exactly, and it says nothing false.\n4. D\nInvented cause: It adds “sonuçların farklı çıkması nedeniyle” (“because the results came out differently”). That’s not in the original, and it contradicts the point. If the results differed, that would suggest an error, not rule one out.\nRepetition dropped: Like A and E, it loses “bir daha.”\nClunky wording: “ölçüm hatalı olduğu görülmedi” is awkward (it should be ölçümün), and “görülmedi” turns a positive observation into a lack of one.\nWhy it ranks below C: It tries to rewrite, but the result is less natural and distorts the meaning. That’s arguably worse than not changing anything. You could argue for swapping C and D, since C doesn’t attempt the task at all.\n5. B (worst)\nToo long: It repeats the original and adds a long, confused explanation.\nWrong reading: It misreads the sentence, talking about a person’s belief or thought.\nBroken rewrites: Both rewrites it offers are ungrammatical and change the meaning:\n“Deneyin… görmediğini biliyor” (“Try… knows they didn’t see”)\n“Yeni bir kez denildiğinde… düşünmezdi” (“When it was said once again… wouldn’t think”)\nFalse claim: It ends by saying the rewrite keeps the same meaning, which isn’t true.\n"
+    },
+    {
+      "dev_id": "sft160-dev-16",
+      "response_id": "d5506f41-b17a-4470-8eeb-ac8c275e1a69",
+      "raw_ranking": "A > E > C > D > B",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-008-sft160-lr2e4-step60": 2,
+        "exp-007-sft160-lr1e4-step60": 3,
+        "base": 4,
+        "exp-008-sft160-lr2e4-step100": 5
+      },
+      "notes": "The correct answer is 6 packages. The working is 5 + 2n ≤ 18, so 2n ≤ 13 and n ≤ 6.5. Since n must be a whole number, n = 6. As a check, 6 packages give 5 + 12 = 17 kg, while 7 would give 19 kg, which is too much.\n\n1. A\nCorrectness: It sets up the inequality correctly (5 + 2n ≤ 18), solves it, and rounds down for the right reason: “Paket sayısı tam sayı olmalı” (the number of packages must be a whole number).\nLength: It’s short, rigorous and complete, which fits a simple question.\n2. E\nCorrectness: The math and setup are identical to A.\nWhy it ranks below A: The only difference is one awkward phrase: “tam sayıya kadar olmalı” (“must be up to a whole number”). It’s slightly unclear Turkish. This is close to a tie, and only that small wording issue separates them.\n3. C\nCorrectness: The answer is right.\nSetup: It uses an equation (2n = 13) instead of an inequality. That treats the box as if it must be filled exactly. It then gets 6.5 and rounds down, which works but is less sound than A and E’s approach.\nLanguage: It has the same awkward “tam sayıya kadar” phrasing as E.\n4. D\nCorrectness: The final answer is right, and it does a useful check: 6 packages give 17 kg, 7 give 19 kg.\nToo long: It reaches the same conclusion about three times, which is far more detail than the question needs.\nErrors along the way:\nIt says 19 kg > 18 kg, “bu yüzden geçerlidir” (“so it is valid”). It should say geçersiz (invalid), so it contradicts its own point.\nIt brings in a confusing, made-up “23 kg” scenario.\nIt has nonsense steps like “5 kg (ciz) + 2 kg (paket) = 7 kg,” including a typo.\nWhy it ranks here: It’s right in the end, but the self-contradiction and padding make it less reliable than C.\n5. B (worst)\nWrong answer: It concludes 1 package.\nGarbled setup: It writes “18 − 5 − (paket sayısına × 2) = 2” without explaining it. The variable shows up inside the expression, but the result is somehow already fixed.\nLanguage: The final sentence (“kapasiteden tamamen kaldırılır,” “it is completely removed from the capacity”) doesn’t make sense.\n"
+    },
+    {
+      "dev_id": "sft160-dev-03",
+      "response_id": "6c09b1aa-fdce-435e-84b8-13e7f2cd94b8",
+      "raw_ranking": "A = C > D > B > E",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-007-sft160-lr1e4-step60": 1,
+        "base": 2,
+        "exp-008-sft160-lr2e4-step60": 3,
+        "exp-008-sft160-lr2e4-step100": 4
+      },
+      "notes": "A good answer is “Sensörün pili değiştirildikten sonra kayıt yeniden başlatıldı.” Other correct versions are “…değiştirilip ardından kayıt yeniden başlatıldı” or “…değiştirildi, ardından kayıt yeniden başlatıldı.” Any of these keeps the order (battery first, then recording) and the meaning in one plain sentence.\n\n1 (tie). A and C\nCorrect: They’re identical and fully correct. “-dikten sonra” keeps the order clearly, the grammar is natural, and nothing is added or lost.\n3. D\nMeaning: It keeps the order and meaning.\nGrammar mistake: “pilinin değiştirilmesi ardından” needs the genitive: değiştirilmesinin ardından. As written, it reads as broken Turkish.\nWhy it ranks below A and C: It’s an acceptable merge with one clear grammar error.\n4. B\nNot a merged sentence: Instead of joining the two sentences, it turns them into a statement about the sentences: “…başlatılması, olayın önceki cümlesinde belirtilen sırayla gerçekleştiğini gösterir” (“…shows that the event happened in the order stated in the previous sentence”).\nChanged meaning: The output is no longer a report that two things happened. It’s a comment on the order.\nWhy it ranks above E: It’s shorter and a little easier to follow.\n5. E (worst)\nSame failure as B: It also comments on the sentences instead of merging them.\nEven harder to read: The wording is more tangled (“…olayın aynı anda değil önce pil değişikliğinin ardından kayıt yeniden başlatılmasından oluştuğunu gösterir”).\nAdds an idea: It brings in “not at the same time,” which isn’t in the original. Of the five, it’s the furthest from a natural single sentence.\n"
+    },
+    {
+      "dev_id": "sft160-dev-15",
+      "response_id": "9f93ed62-8c0a-4691-a373-dd45989e7370",
+      "raw_ranking": "A > E > B = D > C",
+      "ranks": {
+        "base": 1,
+        "exp-007-sft160-lr1e4-step60": 2,
+        "exp-008-sft160-lr2e4-step100": 3,
+        "exp-008-sft160-lr2e4-step60": 3,
+        "exp-007-sft160-lr1e4-step100": 4
+      },
+      "notes": "The correct answer is no, the order of Cem and Deniz is not certain.\n\nThe clues give three facts: Bora finishes before Cem, Bora finishes before Deniz, and Deniz finishes before Ada. Bora must be first, but nothing links Cem to Deniz. Three orders fit all the clues:\n\nBora → Cem → Deniz → Ada (Cem before Deniz)\nBora → Deniz → Cem → Ada (Deniz before Cem)\nBora → Deniz → Ada → Cem (Deniz before Cem)\n\nSince Cem can come either before or after Deniz, their order can’t be determined. A good answer says “no,” lays out the three relations, and gives two valid orders as a counterexample.\n\n1. A\nCorrect conclusion: It ends at the right answer: “Cem ile Deniz’in sırası kesin olarak bilinmedi… Cem → Deniz veya Deniz → Cem olabilir.”\nSome sound reasoning: It correctly says the given clues can’t place Cem relative to Deniz.\nProblems:\nIt opens with “Evet” and confidently gives Bora → Cem → Deniz → Ada, then reverses itself. Someone skimming would read the wrong answer first.\nIt has leftover contradictions: it lists “Deniz > Cem” as a known fact, and puts Deniz “Cem’in öncesine” (before Cem) while also saying Cem’s position is unknown.\nIt suggests the missing clue would be “Cem, Bora’dan sonra koşuyor,” which is already given.\nWhy it ranks first: It’s messy and contradicts itself, but it’s the only answer whose final conclusion and core reasoning are correct.\n2. E\nVerdict: “Hayır, kesin değildir” is correct, and the answer never contradicts it. It ends by saying more information is needed.\nBroken reasoning:\nIts main order, Cem < Bora < Deniz < Ada, breaks the first clue (Bora finishes before Cem).\nIts counterexample is self-contradictory: it says “Cem < Deniz < Bora” leads to “Cem < Bora < Deniz.”\nThe “extra information” it says is needed (“Deniz, Bora’dan sonra bitiriyor”) is already in the question.\nWhy it ranks second: The verdict is right and consistent, but the justification is wrong throughout. The question asks for “Gerekçelendir” (justify it), so that’s a serious failure.\n3 (tie). B and D\n\nBoth start with “Hayır, kesin değil,” then argue the opposite.\n\nB: It claims Bora < Cem < Deniz follows because “the two conditions point the same way.” That’s a logical error. Knowing that both Cem and Deniz come after Bora says nothing about the order between Cem and Deniz. The body says the order is determined, which contradicts B’s own first line.\nD: It makes the same false claim (Bora < Cem < Deniz) and then literally ends with “evet,” directly contradicting its first line.\nWhy a tie: B states its error more clearly. D ends on an outright wrong answer. Both are effectively saying “yes, it’s certain,” which is wrong.\n5. C (worst)\n“No,” then “yes”: It opens with “Hayır,” then concludes the Cem–Deniz relation “kesinleşmiş sayılabilir” (can be considered determined). That’s a contradiction and the wrong answer.\nOff topic: Most of the answer is about Bora’s and Ada’s positions, which wasn’t asked.\nContradicts the clues: It suggests “Bora could finish after Deniz,” which breaks the clue that Deniz finishes after Bora.\nNonsense statements: It says things like “Bora ile Deniz arasında Bora yer alıyor” (Bora is located between Bora and Deniz).\nWhy it ranks last: It’s wrong like B and D, and also the hardest to follow.\n"
+    },
+    {
+      "dev_id": "sft160-dev-04",
+      "response_id": "8aef0735-0ee9-4466-9e49-c1fb8a7c41c0",
+      "raw_ranking": "A = B > D > C > E",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "base": 3,
+        "exp-007-sft160-lr1e4-step100": 4
+      },
+      "notes": "None of the answers handles the actual ambiguity. In “Ece, Duru’ya onun çizimini beğendiğini söyledi,” the word onun (“her”) could refer to three people:\n\nEce’s own drawing\nDuru’s drawing\na third person’s drawing\n\nThe user asked for a clearer sentence without guessing which one is meant. A good answer would either lay out the readings or rewrite while flagging that the owner is unclear. For example:\n\nBu cümlede “onun” belirsiz. Olası açık hâlleri:\n\nEce, Duru’ya kendi çizimini beğendiğini söyledi. (Ece’nin çizimi)\nEce, Duru’ya Duru’nun çizimini beğendiğini söyledi.\nEce, Duru’ya başka birinin çizimini beğendiğini söyledi.\n\nHangisinin kastedildiği metinden anlaşılmıyor.\n\n1 (tie). A and B\nSame output: They’re identical: “Ece, Duru’nun çizimini beğendiğini söyledi.”\nStrength: It’s fluent, grammatical Turkish.\nProblem 1, a guess: It assumes the drawing is Duru’s, which breaks the “tahmin etme” (don’t guess) rule.\nProblem 2, a lost detail: It drops “Duru’ya.” The sentence no longer says Ece was talking to Duru, so it loses part of the meaning.\nWhy they still rank first: They’re the closest to a usable sentence, and they change the meaning less than the others.\n3. D\nSame guess: It also assumes the drawing is Duru’s.\nMore changes:\nIt drops the act of telling (“söyledi”) entirely.\nIt turns a stated fact into a guess (“beğenmiş olabilir,” she may have liked it).\nIt swaps “çizim” (drawing) for “resim” (picture).\nWhy it ranks below A and B: It’s a clean sentence, but it moves even further from the original.\n4. C\nBroken rewrite: “Ece, Duru’nun ondan çizimini beğendiğini söylüyor” doesn’t make sense. It also changes the tense from past to present.\nWrong idea of the problem: It treats the uncertainty as who the people are (a friend, a sister, an animal), not whose drawing “onun” refers to.\nLanguage: The commentary has grammar errors (“Ece’in,” “beğendisi”).\nWhy it ranks above E: It at least attempts a rewrite and mentions being unsure.\n5. E (worst)\nNo rewrite: It doesn’t give a clearer sentence at all.\nSame misreading as C: It treats the task as being about Ece’s or Duru’s identity.\nHard to follow: The text is tangled and doesn’t touch the real ambiguity.\n"
+    },
+    {
+      "dev_id": "sft160-dev-09",
+      "response_id": "a9a8ac4e-8ce9-4dc1-b03a-4924ed3632aa",
+      "raw_ranking": "A = E > B = D > C",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step100": 1,
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-007-sft160-lr1e4-step60": 2,
+        "exp-007-sft160-lr1e4-step100": 2,
+        "base": 3
+      },
+      "notes": "The correct output is {\"urun\": \"defter\", \"adet\": 7, \"teslim\": false}, with nothing else. In the user’s data, “ürün” is the field label and “defter” (notebook) is the value. “Teslim edilmedi” (not delivered) maps to false.\n\n1 (tie). A and E\nFully correct: Both are valid JSON that matches the schema. The values are right (\"defter\", 7 as an integer, false as a boolean), and there’s no extra text.\nWhy a tie: The only difference is spacing after the colons, which doesn’t matter in JSON.\n3 (tie). B and D\nValid JSON: It’s correctly typed, and adet and teslim are right.\nOne mistake: They put the label into the value: \"urun\": \"ürün defter\". The product is “defter,” so anything reading this output would get the wrong product name.\nWhy a tie: B and D are character-for-character identical.\n5. C (worst)\nNot valid JSON: The output starts with { \"urun\": \"yeni bir gün\" and then pours out several paragraphs of English reasoning, so no parser could read it. That breaks the one firm rule: “Yalnızca geçerli JSON yaz” (write only valid JSON).\nMisreads the data: It decides the product name is missing, even though “defter” is given clearly. It spends the answer wondering whether “urun” means “morning” or “running.”\nWrong final value: The JSON it finally lands on uses \"urun\": \"bilgi eksik\" (“information missing”). That’s wrong, since the information was there.\nWhy it ranks last: Its reasoning leaks into the output, the JSON is broken, and the key value is wrong.\n"
+    },
+    {
+      "dev_id": "sft160-dev-12",
+      "response_id": "90b3f03a-33d3-4b1d-94dd-f4d38b444b73",
+      "raw_ranking": "A = B = C = D > E",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step100": 1,
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-007-sft160-lr1e4-step60": 1,
+        "base": 2
+      },
+      "notes": "The correct output is “Mert | 16.45” on a single line, with nothing else. The day (“cuma”) should be left out, since only the name and time were asked for.\n\n1 (tie). A, B, C and D\nExtraction: They pull out the right name and time and correctly leave out “cuma günü.”\nFormat: They use exactly the requested “Ad | Saat” format on one line, with no extra text.\nWhy a tie: All four are character-for-character identical and fully correct.\n5. E\nContent: The extracted information is correct.\nFormat: It breaks the “tek satır yaz” (“write a single line”) rule. It adds bold formatting, a paragraph of explanation, a bulleted breakdown, repeats the source sentence, and closes by saying it has met the request. In a strict-format extraction task, all of that is exactly what the user asked to avoid. If this output went into a parser or spreadsheet, it would break.\nWhy it ranks last: The data is right, but it doesn’t follow the instructions.\n"
+    },
+    {
+      "dev_id": "sft160-dev-11",
+      "response_id": "a80e5e5c-f3b1-42db-941f-4af18a1428d1",
+      "raw_ranking": "D > C = E > B > A",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step100": 1,
+        "exp-008-sft160-lr2e4-step60": 2,
+        "exp-007-sft160-lr1e4-step60": 2,
+        "exp-007-sft160-lr1e4-step100": 3,
+        "base": 4
+      },
+      "notes": "None of the answers meets every constraint. C, D and E’s second bullets each have 6 words, one over the 5-word limit. The prompt sets three rules: exactly two bullets, each starting with “- “, each with at most five words.\n\nAnswer\tBullets\tWords per bullet\tConstraint violations\nA\t2\t~15, ~16\tWord limit, far over\nB\t3\t5, 4, 5\tBullet count\nC\t2\t5, 6\tWord limit, by 1\nD\t2\t5, 6\tWord limit, by 1\nE\t2\t5, 6\tWord limit, by 1\n\nThe second bullets break down like this:\n\nC: Dosyanın / yerini / ve / boyutunu / kontrol / etmek (6 words)\nD: İstersen / dosyanın / yerini / değiştirip / yeniden / kaydetmek (6 words)\nE: Yönetici / izniyle / dosyalardan / silme / işlemleri / yapın (6 words)\n\nC, D and E share the same first bullet. It’s within the limit, but vague: sorting file names “with organizer programs.”\n\n1. D\nConstraints: Two bullets, one word over the limit in the second.\nContent: Moving files and saving them in a new place is the most relevant of the three to organizing files.\nWeakness: The extra word is filler: “İstersen” (“if you want”). Dropping it would have met the limit.\n2 (tie). C and E\nConstraints: Same as D: two bullets, one word over the limit in the second.\nC’s weakness: “Checking the file’s location and size” is passive. It’s checking rather than organizing.\nE’s weakness: Deleting is a sensible part of cleaning up, but saying it needs administrator permission is unnecessary and misleading for ordinary files.\nWhy a tie: Each second bullet is weaker than D’s, in different ways that weigh about the same.\n4. B\nConstraints: Every bullet stays within 5 words. But it writes three bullets, which breaks the “Yalnızca iki madde” (“only two items”) rule. That’s the stressed main rule.\nWhy it ranks below C, D and E: Adding a whole extra item is a bigger structural break than going one word over.\nContent problems:\n“Yönergeleri” (instructions/guidelines) is probably a mistake for “dizinleri” (directories).\n“Güncel olanları güncelleyin” (“update the current ones”) goes in a circle.\n5. A (worst)\nConstraints: It has the right number of bullets, but each runs to about 15 words, three times the limit. It ignores the brevity rule entirely.\nLanguage: It contains errors: “fileleri” mixes English and Turkish, and “sıralamak için almanız” doesn’t make sense.\n"
+    },
+    {
+      "dev_id": "sft160-dev-13",
+      "response_id": "50e1ff6c-f019-40a9-a022-aed32b407368",
+      "raw_ranking": "D > C > A > B > E",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-007-sft160-lr1e4-step100": 3,
+        "exp-008-sft160-lr2e4-step60": 4,
+        "base": 5
+      },
+      "notes": "Every answer is wrong. The correct answer is 18:\n\nDefective: 36 × 1/4 = 9\nGood: 36 − 9 = 27\nSold: 27 × 1/3 = 9\nRemaining good products: 27 − 9 = 18\n\nSo the ranking is about how bad the errors are. A, C and D all make the same single mistake: they compute the defective products as 3/4 instead of 1/4 (27 instead of 9). Everything after that follows correctly from the wrong number. B and E make more than one mistake.\n\n1. D\nError: One mistake: defective = 36 × 3/4 = 27. That swaps which group is a quarter.\nStrengths: Every later step is consistent with that number (good 9, sold 3, remaining 6). It’s clearly labeled, short as requested, and ends with a clear final answer.\nWhy it ranks first: It’s the cleanest version of the most common error.\n2. C\nError: The same 3/4 mistake, so it also ends at 6.\nExtra problem: It labels the good products (9) as “Satılmış” (sold), which is wrong and confusing. The calculation still treats them as the good stock.\n3. A\nError: The same 3/4 mistake, with steps otherwise like D’s.\nExtra problem: The final result is garbled as “6.6”, which reads like a decimal. It also has no clear “Sonuç” (result) line.\nWhy it ranks below C: A garbled final result is worse than a wrong label partway through.\n4. B\nTwo errors:\nThe same 3/4 mistake (defective = 27).\nIt then takes one-third of the defective products as “sold good products” (27 × 1/3 = 9). It subtracts both the defective and sold counts from 36 and gets 0.\nNo sanity check: The answer is “nothing is left,” and it doesn’t question that.\n5. E (worst)\nMany errors:\nIt reads “dörtte biri” (a quarter) as 4 items, not 36 ÷ 4 = 9.\nIt calls one-third “%3” (3%).\nIt gets a non-integer (10.67 products) and rounds it down to 10 instead of seeing that this signals a mistake.\nBreaks the “don’t invent” rule: Rounding makes up a number, which the system prompt forbids. The closing note blames the user for not specifying.\nBreaks the “short” rule: It asked for a short solution, and E is long.\n"
+    },
+    {
+      "dev_id": "sft160-dev-07",
+      "response_id": "150b2198-7086-4744-b0cf-906c0e72dde3",
+      "raw_ranking": "D > A > B > C > E",
+      "ranks": {
+        "base": 1,
+        "exp-008-sft160-lr2e4-step60": 2,
+        "exp-008-sft160-lr2e4-step100": 3,
+        "exp-007-sft160-lr1e4-step60": 4,
+        "exp-007-sft160-lr1e4-step100": 5
+      },
+      "notes": "A good answer would say that it can’t judge the contract without seeing it and ask the user to share the text or key terms. It might suggest checking with a lawyer if the stakes are high. It should be short and avoid any yes/no verdict, since there’s nothing to base one on.\n\n1. D\nHandles the uncertainty correctly: It says plainly that it can’t assess the contract without the text, and it doesn’t give a verdict.\nUseful next steps: It asks the user to share the full text or the key clauses, and says what it would look at (parties’ rights, durations, terms).\nWeaknesses:\nIt’s longer than “kısa yanıt” (a short answer) calls for, though the short answer does come first.\nThe opening line restates the question awkwardly (“…imzaladığınızı mantıklı mı?”).\nThe last sentence is muddled.\nWhy it ranks first: It’s the most correct and most useful answer.\n2. A\nCorrect core point: Legal advice needs the text and terms. It’s short, as requested.\nWeaknesses: The “Mantık değil hukuk soruyor” (“it’s not logic, it’s law that asks”) framing is odd and repetitive, and a bit dismissive. It doesn’t ask the user to share the contract or suggest any next step.\nWhy it ranks below D: It’s right but less helpful.\n3. B\nSome good points: It’s short, and it asks the user to share the text.\nPremature verdict: It opens with “Hayır, mantıklı olmaz” (“No, it wouldn’t be sensible”) with nothing to base that on. Its justification (“signing without seeing the contents isn’t sensible”) misreads the situation. The user has the contract and can read it; it’s the assistant who hasn’t seen it.\nLanguage: “İmzalanmış… izne koymak” is garbled.\n4. C\nWrong verdict and reasoning: It says signing “wouldn’t be sensible because legal obligations arise.” By that logic no contract would ever be worth signing.\nWeaknesses: It’s longer and repetitive. It does ask for more information, but its second paragraph is confused.\n5. E (worst)\nToo long: It’s four paragraphs, which ignores “kısa yanıt” (short answer).\nContradicts itself: It says signing “wouldn’t be sensible, and saying it could be sensible would also be wrong.”\nIrrelevant or wrong legal claims: It talks about expired contracts, termination conditions, and “a signature being a condition rather than proof.” All of this is off topic or incorrect for someone deciding whether to sign.\nLanguage: It has odd phrasing and repetition throughout.\n"
+    },
+    {
+      "dev_id": "sft160-dev-06",
+      "response_id": "7a84296e-4caf-4067-a8e0-de7afd123325",
+      "raw_ranking": "B > A = C = D = E",
+      "ranks": {
+        "base": 1,
+        "exp-007-sft160-lr1e4-step60": 2,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-007-sft160-lr1e4-step100": 2,
+        "exp-008-sft160-lr2e4-step60": 2
+      },
+      "notes": "The correct answer is 7 minutes. The fan stopped at 14.18 and the lid was opened at 14.25, which is 7 minutes apart.\n\n1. B (the only correct answer, but badly presented)\nCorrectness: Its final answer, “7 dakika,” is right, and that’s what ranks it first. Getting the result right matters most in a calculation question.\nProblems:\nIt breaks the “Yalnızca sonucu yaz” (“write only the result”) rule badly. Instead of the result alone, it shows a long block of its own working.\nIt opens with a wrong answer (“60 dakika”) and only corrects it partway through. Someone skimming would see 60 first.\nThe working is in English (“wait, let me recalculate…”) inside what should be a Turkish answer.\nIt mistranslates kapak (lid) as “kitchen.”\nThe ending runs together (“7 minutes.7 dakika.”).\nVerdict: Badly formatted and confusing, but it’s the only answer that gives the user the right number.\n2 (tie). A, C, D and E\nFormat: All four give the same short answer, which follows the format rule.\nCorrectness: 13 minutes is wrong. It doesn’t match any sensible reading of the times. 14.25 − 14.10 would be 15, and 14.18 − 14.10 would be 8. So it isn’t even the result of picking the wrong pair of times.\nWhy a tie: All four are word-for-word identical.\nWhy they rank below B: A neat but wrong answer is worse than a messy right one, because the user can’t tell it’s wrong and may rely on it.\n"
+    },
+    {
+      "dev_id": "sft160-dev-20",
+      "response_id": "3d060eaf-34e6-4a64-abc1-6891e2b52196",
+      "raw_ranking": "A = B = C = E > D",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step100": 1,
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-007-sft160-lr1e4-step60": 1,
+        "base": 2
+      },
+      "notes": "A good answer would explain both parts in a short, natural sentence or two. For example: “Koşul, işlerin düzelmesi; eylem ise konuşanın karşı tarafa haber vermesidir.” That gives the condition (things getting back on track) and the action (the speaker letting the other person know).\n\n1 (tie). A, B, C and E\nCorrect: All four pick out the condition (“İşler yoluna girince”) and the action correctly, and they’re short.\nShared weakness: They label the parts rather than explain them. They mostly copy phrases from the sentence, which isn’t quite the “natural explanation” the user asked for.\nSmall differences:\nA describes the action as “Haber vermek” (to let someone know). That’s a slightly better explanation than quoting “haber veririm” (I’ll let you know).\nA and C use “Koşul,” the question’s own word. B and E use the synonym “Şart.”\nB and E are identical. C is the same apart from that one word and a blank line.\nWhy a tie: None of these differences affects quality much. If you want them separated, A has a slight edge.\n5. D (worst)\nWrong meaning: It reads “işler yoluna girince” as entering working life or getting into business. The idiom actually means “once things get back on track / settle down.”\nInvented actions: It makes up things the sentence never says: “bringing news into business life,” “giving guidance about transitioning into the business world.”\nNot short: The user asked for a short explanation. D is long and repetitive, with headings and bullet points.\n"
+    },
+    {
+      "dev_id": "sft160-dev-14",
+      "response_id": "09cd3917-f5ae-4654-bdbc-819cc5ffd325",
+      "raw_ranking": "C = E > B > A = D",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step60": 1,
+        "base": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-007-sft160-lr1e4-step60": 3,
+        "exp-007-sft160-lr1e4-step100": 3
+      },
+      "notes": "The correct answer is 48 litres: 3 + 4 = 7 parts, so the larger container gets 4/7 × 84 = 48 L and the smaller gets 3/7 × 84 = 36 L.\n\n1 (tie). C and E\n\nBoth get 48 litres with the right method.\n\nC: It goes straight to 4/7 × 84 = 48. That’s short and fits a simple question. It has small language slips: “kaban” should be kabın, and “4/7'ünde” should be 4/7'sinde.\nE: It shows the full working (3/(3+4), and both parts 36 and 48). It also states the final answer clearly. It has more language problems: “Deponada” should be Depoda, it uses “Kaba 1/2” as labels, and the closing “(düzenli kaba)” (“regular container”) doesn’t make sense.\nWhy a tie: E’s clearer derivation and C’s tighter, cleaner wording roughly balance out.\n3. B\nMethod: It splits by the ratio correctly and computes both 36 and 48.\nWrong labels: It calls 36 L the “large” container and 48 L the “small” one. So its answer to the actual question is wrong (36).\nLanguage: It uses “kabak” (zucchini) instead of kap/kabın.\nWhy it ranks above A and D: The right number is on the page, and the error is a label mix-up rather than a misunderstanding of ratios.\n4 (tie). A and D\n\nBoth misunderstand the ratio entirely. They treat “4” from 3:4 as a percentage, and both end with 33.6 L. Each also makes a second mistake:\n\nA: It says “%4” but multiplies by 0.4, which is 40%. The multiplication 84 × 0.4 = 33.6 is correct in itself, but it doesn’t match the method A states.\nD: It says “%4” and multiplies by 0.04, which matches what it says. But 0.04 × 84 = 3.36, not 33.6, so the arithmetic is wrong.\nWhy a tie: Each has a concept error plus one internal mistake. You could argue for A, since its multiplication is at least correct, but neither is meaningfully better.\n"
+    },
+    {
+      "dev_id": "sft160-dev-10",
+      "response_id": "2f41dd90-d1b8-434e-a148-0324fc2feef6",
+      "raw_ranking": "A = B = C = D > E",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-008-sft160-lr2e4-step100": 1,
+        "exp-007-sft160-lr1e4-step60": 1,
+        "base": 2
+      },
+      "notes": "No answer is correct. The right output is one word per line, with no heading:\n\nayva\nçilek\nincir\nüzüm\n\nIn the Turkish alphabet, Ç comes right after C, and İ comes after I (ı). So the order is a → ç → i → ü.\n\n1 (tie). A, B, C and D\nSame output: All four are identical: “Üzüm, incir, çilek, ayva.”\nWrong order: It’s the exact reverse of the right one, so no word is in its correct position.\nWrong format: All four words are on one line separated by commas, which breaks “her satıra bir kelime” (one word per line).\nWhat they do right: They add no heading, keep the words spelled as given, and say nothing false.\n5. E (worst)\nWrong final answer: It ends with Ayva, İcir, Çilek, Üzüm. Only the first and last positions are right.\nThrew away the right order: Partway through, it actually lists the correct order (Ayva, Çilek, İcir, Üzüm). Then it “corrects” itself into a wrong one.\nFalse facts about the alphabet: It claims the Turkish alphabet goes “A, İ, B, C…”, which is false. It also leaves out letters like Ç, Ğ, I, Ö, Ş and Ü from its own list. It confuses U with Ü, and C with Ç.\nChanged a word: It misspells incir as “İcir” every time.\nBreaks the format: It adds a heading (“Doğru sıralama:”), bold text and long explanations, despite “Başlık ekleme” (don’t add a heading).\n\nWhy E ranks below A–D, even though its final order is closer: E presents made-up alphabet facts with confidence and changes a word the user gave. That’s worse than A–D’s mistake, which is wrong but plain and not misleading. If you only count correct positions in the final order, you could argue E ranks higher. But its false teaching and broken constraints outweigh that.\n"
+    },
+    {
+      "dev_id": "sft160-dev-17",
+      "response_id": "9c589f4e-b746-43e5-afa6-884099c3ee27",
+      "raw_ranking": "B = C = E > D > A",
+      "ranks": {
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "base": 3
+      },
+      "notes": "The prompt asks for three things: keep the meaning, sound natural and polite to a customer, and don’t invent a result or a date. A good answer would read something like: “Konuyla ilgili değerlendirmemiz sürüyor; henüz kesin bir sonuca ulaşamadık. Gelişme olduğunda sizi bilgilendireceğiz.” None of the five reaches that level.\n\n1 (tie). B, C and E\nSame output: All three give the identical sentence: “Bu konuda henüz kesin bir sonuç alamadık.”\nMeaning: It’s kept exactly.\nFabrication: It makes nothing up.\nPolite tone: This is where they fall short. The only change is ulaşamadık → alamadık, so the sentence is really just the original. There’s no softening, no reassurance that work is ongoing, and no promise to follow up. It isn’t rude, but the “make it polite for a customer” part is barely done.\nWhy they still rank first: They don’t get anything wrong. Only the tone falls short.\n4. D\nPolite tone: This is the only answer that attempts a customer-facing tone (“çalışmalar devam ediyor,” the work is continuing). That part is good.\nProblem 1, a shifted meaning: The original says no conclusion has been reached. D’s main claim becomes no date could be set for reaching one. That’s a different statement.\nProblem 2, unsupported claims: “Work is ongoing” and “no specific date was set” are both new claims that aren’t in the original. The second also brings up the date topic the user wanted kept out.\nLanguage: The wording is clunky (“…elde edilebilmesi için belirli bir tarih belirlenemedi”).\nWhy it ranks below B/C/E: A better tone doesn’t make up for changing the meaning and adding claims. Keeping the meaning and not making things up were the firmer constraints.\n5. A (worst)\nWrong reading of the sentence: It flips who the sentence is about. “Ulaşmadığınız için” says the customer hasn’t reached a conclusion.\nChanged purpose: It turns a status update into a demand that the customer share details, which isn’t in the original at all.\nTone: It’s pushy (“bilgi almanız gerekmektedir,” you need to get more information), not polite.\nLanguage and length: It has grammar errors (“adımları hakkında,” “paylaşmanızı sağlayın”) and is far longer than a one-sentence rewrite.\n"
+    },
+    {
+      "dev_id": "sft160-dev-01",
+      "response_id": "ec67bcb4-3097-4770-9a13-f58a6dd6b3b2",
+      "raw_ranking": "B = E > C = D > A",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-008-sft160-lr2e4-step60": 2,
+        "base": 3
+      },
+      "notes": "The fully correct output is: “Yarın öğleden sonra kütüphaneye gideceğim ancak kartımı evde unuttum.” That takes five fixes: Yarın, öğleden, kütüphaneye, gideceğim, kartımı. A comma before ancak is optional.\n\n1 (tie). B and E\nSame output: Both give exactly the same sentence: “Yarın oğleden sonra kutuphaneye gideceğim ancak kartımı evde unuttum.”\nWhat they fix: Both get 3 of the 5 fixes right: Yarın, gideceğim, kartımı.\nWhat they miss: Both leave oğleden (should be öğleden) and kutuphaneye (should be kütüphaneye). The ö→o slip in “oğleden” is half a fix, so the result is still misspelled.\nConstraints: Both keep the words unchanged and stay short. This is the only partly successful pair.\nWhy a tie: The only difference is the intro phrase (“düzeltilmiş” vs. “düzelteyim”), and neither version affects quality.\n3 (tie). C and D\nNo correction: Neither fixes anything. Every original error is still there.\nC adds a stray “Yalnızca yazım:” in front of the sentence, so the text it returns is worse than the input.\nD just repeats the whole user prompt, instruction included, as if it were the corrected sentence.\nWhy a tie: Both fail completely, and neither one changes the meaning of the sentence.\n5. A (worst)\nBreaks the main rule: It openly changes words: gidecegim → gidecek / gidecektir, kartimi → kartını, unuttum → unuttu. This moves the sentence from 1st person to 3rd person and changes its meaning.\nMisses the actual errors: It leaves Yarin, ogleden and kutuphaneye unfixed.\nAdds new mistakes: It invents forms like “gidişken” and the ungrammatical “gideceğini ama kartını evde unuttu.”\nGives wrong explanations: It claims “gidecektir” is “more correct” and talks confusingly about where the full stop goes.\nWhy it ranks below C and D: It is long and confidently wrong. It does active harm, while C and D just fail to do anything useful.\n"
+    },
+    {
+      "dev_id": "sft160-dev-08",
+      "response_id": "236e0d4a-dad2-40fb-a98d-bc5a4ba2e4c5",
+      "raw_ranking": "C = E > D > A > B",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-008-sft160-lr2e4-step60": 1,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "exp-007-sft160-lr1e4-step100": 3,
+        "base": 4
+      },
+      "notes": "The correct answer is no. The text only says the bus was late and that there was fog the same morning. Two things happening at the same time doesn’t show that one caused the other, and the text doesn’t name a cause. The answer also had to be at most two sentences.\n\n1 (tie). C and E\nCorrect answer: Both say “Hayır” for the right reason.\nLength: Both stay within two sentences.\nC: It’s short and direct: the text doesn’t say the delay was because of the fog. There’s one typo: “geceği” should be geciktiği. Since gece means “night,” a reader could stumble on it.\nE: Its reasoning is better. Its second sentence names the key point, that the text only says the fog happened the same morning. But the first sentence uses the wrong word: “kanıtlayacak bir şüphe yoktur” (“there is no doubt that would prove it”). It should say bilgi or kanıt (information or evidence), and “no doubt” can read as the opposite of what’s meant.\nWhy a tie: E explains more, while C is cleaner. Each has one wording slip of about the same weight.\n3. D\nVerdict: “Hayır” is correct, and it stays within the limit.\nWrong reasoning: It claims the text contains “information that doesn’t show the delay was due to fog.” That’s a muddled way to describe the text, and it isn’t really what the text says.\nLanguage: It has a typo (“geciştiğini”) and an unclear final clause.\n4. A\nVerdict: “Hayır” is correct.\nMade-up content: It says the text states the bus was not delayed by fog. The text says nothing like that. This breaks the “don’t invent information” rule.\nLength: It uses three sentences, over the two-sentence limit.\nWhy it ranks below D: It invents something more concrete and also breaks the length rule.\n5. B (worst)\nWrong answer: It says “Evet.” That treats two things happening together as proof of cause, which is exactly the mistake the question is testing.\nLength: It goes far over the two-sentence limit. It even writes “En fazla iki cümle:” and then repeats itself.\nIrrelevant ending: The closing line (“daha detaylı bilgi alabilirsiniz,” you can get more detailed information) doesn’t belong in the answer.\n"
+    },
+    {
+      "dev_id": "sft160-dev-18",
+      "response_id": "c831851a-a3b9-442d-9c21-5bf091146a68",
+      "raw_ranking": "D > A = E > C > B",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-008-sft160-lr2e4-step60": 2,
+        "exp-008-sft160-lr2e4-step100": 2,
+        "base": 3,
+        "exp-007-sft160-lr1e4-step100": 4
+      },
+      "notes": "None of the five answers is good. All are written in broken, partly nonsensical Turkish, and none does the whole task well. Each answer is judged against what the prompt asks for:\n\nSupport without blaming.\nExactly two short sentences.\nA concrete next step.\nSpeak to the friend, or about the friend, in a way that makes sense.\n1. D (best of a weak set)\nBlame: It says outright that missing the deadline “doesn’t show any fault” (“bu bir suçu göstermez”). This is the clearest non-blaming stance of the five.\nFormat: It is two sentences.\nNext step: The step is garbled, but its core is to ask the friend what happened and look at the presentation together. That is relevant and somewhat concrete.\nWeaknesses: The first clause, “yetiştirmeden şüphelenmeyin” (“don’t be suspicious of not finishing”), is awkward. The step is phrased confusingly. It also gives very little warmth or support.\n2 (tie). A\nBlame: It doesn’t blame the friend. It says the failure isn’t about their skill.\nFormat: It is roughly two sentences.\nWeaknesses: It’s incoherent. It turns the situation around: “this means you should improve your presentation.” The next step (listen to your presentation, then share it among themselves) has nothing to do with helping a friend who missed a deadline.\n2 (tie). E\nBlame: It says outright that it’s not their fault (“suçu değil”).\nFormat: It is two sentences.\nWeaknesses: The explanation (“they finished their work and moved somewhere else”) is nonsense. The next step is to not talk to them until the work is done. That isn’t concrete help, and it’s arguably the opposite of support.\n\nA and E tie because each has one fatal flaw of similar weight. A’s step is irrelevant and E’s step is counterproductive, but both avoid blaming the friend and both mostly keep to two sentences.\n\n4. C\nFormat: It breaks the format clearly: a numbered list plus a separate bolded section, much longer than two short sentences.\nBlame: It implies blame by telling someone to “accept that it may fail and take responsibility” (“sorumluluğunuzu üstlenmenizi”). That goes against the “without blaming” rule.\nStrength: It has the most concrete action (re-plan and do a mock run). That’s why it ranks above B.\nWeaknesses: “A test run with 5–10 people” is excessive for someone who just missed a deadline. The grammar is also poor (“iş arkasından bir izni alarak”).\n5. B (worst)\nBlame: It says the opposite of what was asked: missing the deadline “is enough to show fault” (“suçu göstermeye yeter”). That’s an explicit accusation.\nNext step: Meeting the person within 24 hours and “telling them what to do” is controlling, not supportive.\nFormat: It is two sentences, but that doesn’t make up for breaking the main rule.\n"
+    },
+    {
+      "dev_id": "sft160-dev-05",
+      "response_id": "a422b9d0-c18d-4e9c-af52-94b3a76db1c4",
+      "raw_ranking": "A = D = E > C > B",
+      "ranks": {
+        "exp-007-sft160-lr1e4-step60": 1,
+        "exp-007-sft160-lr1e4-step100": 1,
+        "exp-008-sft160-lr2e4-step100": 1,
+        "exp-008-sft160-lr2e4-step60": 2,
+        "base": 3
+      },
+      "notes": "A good answer is one sentence that keeps all three facts from the notes: registration opens Wednesday, there are 18 places, and the venue hasn’t been chosen yet. It shouldn’t add anything that isn’t in the notes.\n\n1 (tie). A, D and E\nFully correct: Each is a single sentence that covers all three facts and adds nothing.\nA and D: These are identical: “…kontenjan 18 kişidir ve salon henüz belirlenmedi.”\nE: It uses “etkinlik salonu” (event venue), which keeps the event a little more explicit. Its wording is also slightly more even (“18 kişi” with no “-dir”).\nWhy a tie: The difference is only style, and none of them has an error. Some might rank E a hair ahead.\n4. C\nFormat: It’s one sentence and accurate as far as it goes.\nMissing a fact: It leaves out the venue. That’s one of only three facts, and the most important open question in the notes. The system prompt also says to make uncertainty clear, which makes this gap matter more.\n5. B (worst)\nWrong format: It’s a three-item bullet list, not a single sentence. That breaks the one explicit format rule.\nChanged tense: “Açılacak” (will open) becomes “açılır” (opens, in general).\nGrammar error: The third bullet is ungrammatical: “Etkinlik hala salon seçilmemiştir.”\nWhy it ranks below C: B keeps all three facts, but it breaks the format and has language errors. You could reasonably swap B and C if you think a missing fact is worse than the wrong format.\n"
+    }
+  ],
+  "invalid_rankings": []
+}

@@ -1,0 +1,29 @@
+{
+  "status": "frozen-before-inference",
+  "files": {
+    "questions.jsonl": {
+      "rows": 12,
+      "sha256": "d4af91f10c59f5c739df4346e011f7bf638f360879b5c8522a4ba72f0e83b6e5"
+    },
+    "symbolic-controls.jsonl": {
+      "rows": 3,
+      "sha256": "73b44d76c767d66cd9a802f227b0e5ea3fc747a0a5ed575f28432cb2b26eed38"
+    }
+  },
+  "underlying_matched_cases": 3,
+  "conditions": [
+    "en-en",
+    "tr-en",
+    "en-tr",
+    "tr-tr"
+  ],
+  "training_allowed": false,
+  "reference_policy": "Illustrative wording; accept semantically equivalent correct answers.",
+  "overlap_check": "Normalized exact user-prompt exclusion against train160, old20 and dev20 passed. No formal semantic/translation independence guarantee.",
+  "protected_files_sha256": {
+    "experiments/turkish-capability/lfm3-1.7b/sft-pilot160-v01/train.jsonl": "e8bd148d2a3947dd7870ab404e3a4b402c792c7b0983b7ed8f8731325d5747b9",
+    "experiments/turkish-capability/lfm3-1.7b/sft-pilot160-v01/test.jsonl": "fab18f50f82c0fb4cf841a8ba2319e28dd7e13c3bd36c057cd95ebd2433fa85a",
+    "experiments/turkish-capability/lfm3-1.7b/sft160-dev-v01/questions.jsonl": "d574354b425c240f06c50c987be9f475eda1c909dfe7227bd6914d1356a863cd"
+  },
+  "limitations": "Tiny diagnostic, not a broad benchmark. Only three independent matched cases, not twelve independent tasks. Reuse for training decisions makes this development data; fresh final test required."
+}
