@@ -1,0 +1,32 @@
+{
+  "experiment": "exp-010-tr-only-sft160",
+  "masking_policy": {
+    "masked": "BOS, system turn, user turn (incl. language instruction), and the assistant header up to and including \"<|im_start|>assistant\n\" (exp-007 parity)",
+    "supervised": "<think>...</think> (blank for direct answers; reasoning only where the row has it) + final answer + <|im_end|> + trailing newline",
+    "extra_masking": "none (empty-think prefix is NOT masked unless --mask-empty-think)",
+    "sample_last_masked_token": "'\\n'",
+    "sample_first_supervised_token": "'<think>'"
+  },
+  "status": "passed",
+  "rows": 160,
+  "order_rows": 800,
+  "mask_empty_think": false,
+  "supervised_tokens_exposed": 208665,
+  "supervised_tokens_planned": 208665,
+  "tallies": {
+    "direct_rows": 130,
+    "empty_think_prefix_tokens_supervised": 260,
+    "reasoning_rows": 30
+  },
+  "empty_think_token_ids": [
+    124901,
+    124902
+  ],
+  "findings": [],
+  "finding_count": 0,
+  "thinking_format_note": "At thinking-disabled inference the template prompt already ends with \"<think></think>\", while direct-answer training targets also START with \"<think></think>\" and supervise it; the model may therefore be trained to emit a second empty think block / stray \"</think>\". Candidate cause of the </think> leakage seen in CROSSLINGUAL-DIAGNOSIS; masking those tokens is an opt-in recipe change (--mask-empty-think), not enabled by default.",
+  "train_file_sha256": "a6798055ef7e3a20c957425fd2641813b1679089bb22384a8da89c6d82775c69",
+  "tokenizer_sha256": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+  "runner_sha256": "ae28ff5ef27bb2ea1d3ff6995a2afc2b5860544b34801ca1ac7d393c9f42768e",
+  "tokenized_sha256": "a0182d993af19953e6f216285ca48a38e7766145c847d8e184819c57fbba70f3"
+}

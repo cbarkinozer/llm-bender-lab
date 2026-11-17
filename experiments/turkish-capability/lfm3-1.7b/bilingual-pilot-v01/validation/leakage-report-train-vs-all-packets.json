@@ -1,0 +1,2058 @@
+{
+  "set": "train",
+  "candidates": 640,
+  "protected_items": 887,
+  "packets_checked": [
+    {
+      "packet": "old20-test",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\sft-pilot160-v01\\test.jsonl",
+      "rows": 20,
+      "sha256": "fab18f50f82c0fb4cf841a8ba2319e28dd7e13c3bd36c057cd95ebd2433fa85a"
+    },
+    {
+      "packet": "pilot80-test",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\sft-pilot80-v01\\test.jsonl",
+      "rows": 20,
+      "sha256": "fab18f50f82c0fb4cf841a8ba2319e28dd7e13c3bd36c057cd95ebd2433fa85a"
+    },
+    {
+      "packet": "reviewed-pilot-test",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\reviewed-pilot-v01\\test.jsonl",
+      "rows": 20,
+      "sha256": "f94007181003a6d9bb80d03f6b25e7e803f0308090fa2f0464ecd51b4e8f9c57"
+    },
+    {
+      "packet": "dev20",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\sft160-dev-v01\\questions.jsonl",
+      "rows": 20,
+      "sha256": "d574354b425c240f06c50c987be9f475eda1c909dfe7227bd6914d1356a863cd"
+    },
+    {
+      "packet": "xling-v01",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\crosslingual-holdout-v01\\questions.jsonl",
+      "rows": 12,
+      "sha256": "d4af91f10c59f5c739df4346e011f7bf638f360879b5c8522a4ba72f0e83b6e5"
+    },
+    {
+      "packet": "xling-v01-symbolic",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\crosslingual-holdout-v01\\symbolic-controls.jsonl",
+      "rows": 3,
+      "sha256": "73b44d76c767d66cd9a802f227b0e5ea3fc747a0a5ed575f28432cb2b26eed38"
+    },
+    {
+      "packet": "reasoning4",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\pilot160-runtime-local\\reasoning4.jsonl",
+      "rows": 4,
+      "sha256": "01b6f256ac1b3ff4a0e44cb60645aaf0880ab6f5248af05cb57014f973aa47d0"
+    },
+    {
+      "packet": "cetvel500-audit",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\preparation-local\\questions-500.jsonl",
+      "rows": 500,
+      "sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93"
+    }
+  ],
+  "packets_missing_locally": [],
+  "method": {
+    "ngram": 5,
+    "ngram_containment_threshold": 0.15,
+    "numeric_jaccard_threshold": 0.5,
+    "note": "candidates for manual review only; not proof of independence"
+  },
+  "exact_overlap": [],
+  "flagged_count": 188,
+  "flagged_group_pairs": 83,
+  "flagged_group_pair_list": [
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "old20-test:cot:train.jsonl:3572",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "pilot80-test:cot:train.jsonl:3572",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3572",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00236",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00248",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00292",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00323",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00369",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'hava', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00384",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'hava', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00439",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00477",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00479",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['600']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00516",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00526",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00562",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00567",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00579",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['15', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00738",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00742",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00780",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00785",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'diğer', 'hesap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00819",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00823",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12', '17', '93']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00826",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00868",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00883",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00333",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00449",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00485",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00503",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00554",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17']/['büyük', 'cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00612",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00821",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['93']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00868",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00964",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01010",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['98']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01049",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['98']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01082",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01128",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01137",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01167",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['18']/['büyük', 'cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g047",
+      "protected": "cetvel500-audit:mlsum_tr-01096",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g047",
+      "protected": "cetvel500-audit:mlsum_tr-01293",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g047",
+      "protected": "cetvel500-audit:mlsum_tr-07860",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g066",
+      "protected": "cetvel500-audit:tquad-00742",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['10']/['kanun', 'türkiye']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g066",
+      "protected": "cetvel500-audit:mlsum_tr-03972",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['10', '17']/['hakları', 'i̇nsan', 'türkiye']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g066",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['10']/['kanun', 'türkiye']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g067",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['50']/['kanun', 'kanunu', 'türk']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g075",
+      "protected": "dev20:sft160-dev-13",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g075",
+      "protected": "reasoning4:sft160-dev-13",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g077",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['50']/['genel', 'müdürlüğü']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g102",
+      "protected": "dev20:sft160-dev-13",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g102",
+      "protected": "reasoning4:sft160-dev-13",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g104",
+      "protected": "cetvel500-audit:xquad_tr-00987",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['2000']/['değerlendirme', 'yıllık']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g104",
+      "protected": "cetvel500-audit:mlsum_tr-09371",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['10']/['değerlendirme', 'etki']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:tquad-00439",
+      "variants_flagged": 3,
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ağustos', 'ekim', 'haziran']",
+        "numbers+entities=['30']/['aralık', 'ağustos']",
+        "numbers+entities=['30']/['ekim', 'haziran']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:tquad-00808",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-04583",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers+entities=['30']/['ağustos', 'eylül', 'kemal', 'mustafa']",
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-05822",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ağustos', 'eylül', 'temmuz']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-06651",
+      "variants_flagged": 1,
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ekim']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-08238",
+      "variants_flagged": 3,
+      "reasons": [
+        "numbers+entities=['30']/['anadolu', 'milli', 'mustafa', 'temmuz']",
+        "numbers+entities=['30']/['anadolu', 'milli', 'mustafa']",
+        "numbers+entities=['30']/['mustafa', 'temmuz']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-06233",
+      "variants_flagged": 1,
+      "reasons": [
+        "numbers+entities=['19']/['august', 'haziran']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00468",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['16']/['avrupa', 'müslüman', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00562",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers+entities=['16', '17', '1727', '1729']/['arap', 'müteferrika', 'osmanlı']",
+        "numbers+entities=['16', '17', '1727', '1729']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00571",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers+entities=['16']/['avrupa', 'müteferrika', 'osmanlı']",
+        "numbers+entities=['16']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00579",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers+entities=['15', '18']/['avrupa', 'i̇mparatorluğu', 'müteferrika', 'osmanlı']",
+        "numbers+entities=['15', '18']/['i̇brahim', 'i̇mparatorluğu', 'müteferrika']",
+        "numbers+entities=['15', '18']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00738",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['15']/['i̇mparatorluğu', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00785",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['19']/['arap', 'müslüman']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:mlsum_tr-11674",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['15']/['arap', 'avrupa']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00567",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['17', '1729']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g115",
+      "protected": "old20-test:atlas:train.chat.jsonl:281286",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g115",
+      "protected": "pilot80-test:atlas:train.chat.jsonl:281286",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g115",
+      "protected": "reviewed-pilot-test:atlas:train.chat.jsonl:281286",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g116",
+      "protected": "dev20:sft160-dev-14",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g116",
+      "protected": "reasoning4:sft160-dev-14",
+      "variants_flagged": 4,
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g139",
+      "protected": "cetvel500-audit:mlsum_tr-03809",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['11']/['devlet', 'ekonomik', 'sosyal']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "old20-test:cot:train.jsonl:3933",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "old20-test:cot:train.jsonl:535",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "pilot80-test:cot:train.jsonl:3933",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "pilot80-test:cot:train.jsonl:535",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3933",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:535",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "cetvel500-audit:tquad-00823",
+      "variants_flagged": 2,
+      "reasons": [
+        "numbers+entities=['12', '30']/['ankara', 'toplam']"
+      ]
+    }
+  ],
+  "flagged_pairs": [
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "old20-test:cot:train.jsonl:3572",
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "pilot80-test:cot:train.jsonl:3572",
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3572",
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00236",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00248",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00292",
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00323",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00369",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'hava', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00384",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'hava', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00439",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00477",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00479",
+      "reasons": [
+        "numbers+entities=['600']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00516",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00526",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00562",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00567",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00579",
+      "reasons": [
+        "numbers+entities=['15', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00738",
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00742",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00780",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00785",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'diğer', 'hesap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00819",
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00823",
+      "reasons": [
+        "numbers+entities=['12', '17', '93']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00826",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00868",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:tquad-00883",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00333",
+      "reasons": [
+        "numbers+entities=['12', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00449",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00485",
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00503",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00554",
+      "reasons": [
+        "numbers+entities=['17']/['büyük', 'cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00612",
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00821",
+      "reasons": [
+        "numbers+entities=['93']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00868",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00964",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-01010",
+      "reasons": [
+        "numbers+entities=['98']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-01049",
+      "reasons": [
+        "numbers+entities=['98']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-01082",
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-01128",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-01137",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-01167",
+      "reasons": [
+        "numbers+entities=['18']/['büyük', 'cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "old20-test:cot:train.jsonl:3572",
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "pilot80-test:cot:train.jsonl:3572",
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3572",
+      "reasons": [
+        "numbers+entities=['17']/['diğer', 'sonuç']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00236",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00248",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00292",
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00323",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00369",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'hava', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00384",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'hava', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00439",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00477",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00479",
+      "reasons": [
+        "numbers+entities=['600']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00516",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00526",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00562",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00567",
+      "reasons": [
+        "numbers+entities=['17']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00579",
+      "reasons": [
+        "numbers+entities=['15', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00738",
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00742",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00780",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00785",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'diğer', 'hesap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00819",
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00823",
+      "reasons": [
+        "numbers+entities=['12', '17', '93']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00826",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00868",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:tquad-00883",
+      "reasons": [
+        "numbers+entities=['12']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00333",
+      "reasons": [
+        "numbers+entities=['12', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00449",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00485",
+      "reasons": [
+        "numbers+entities=['15']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00503",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00554",
+      "reasons": [
+        "numbers+entities=['17']/['büyük', 'cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00612",
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00821",
+      "reasons": [
+        "numbers+entities=['93']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00868",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00964",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-01010",
+      "reasons": [
+        "numbers+entities=['98']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-01049",
+      "reasons": [
+        "numbers+entities=['98']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-01082",
+      "reasons": [
+        "numbers+entities=['17', '18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-01128",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-01137",
+      "reasons": [
+        "numbers+entities=['18']/['cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g023-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-01167",
+      "reasons": [
+        "numbers+entities=['18']/['büyük', 'cevap', 'soru']"
+      ]
+    },
+    {
+      "candidate": "bp01-g047-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-01096",
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate": "bp01-g047-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-01293",
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate": "bp01-g047-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-07860",
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate": "bp01-g047-tr-en",
+      "protected": "cetvel500-audit:mlsum_tr-01096",
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate": "bp01-g047-tr-en",
+      "protected": "cetvel500-audit:mlsum_tr-01293",
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate": "bp01-g047-tr-en",
+      "protected": "cetvel500-audit:mlsum_tr-07860",
+      "reasons": [
+        "numbers+entities=['67']/['metin', 'özet']"
+      ]
+    },
+    {
+      "candidate": "bp01-g066-tr-tr",
+      "protected": "cetvel500-audit:tquad-00742",
+      "reasons": [
+        "numbers+entities=['10']/['kanun', 'türkiye']"
+      ]
+    },
+    {
+      "candidate": "bp01-g066-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-03972",
+      "reasons": [
+        "numbers+entities=['10', '17']/['hakları', 'i̇nsan', 'türkiye']"
+      ]
+    },
+    {
+      "candidate": "bp01-g066-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "reasons": [
+        "numbers+entities=['10']/['kanun', 'türkiye']"
+      ]
+    },
+    {
+      "candidate": "bp01-g066-en-tr",
+      "protected": "cetvel500-audit:tquad-00742",
+      "reasons": [
+        "numbers+entities=['10']/['kanun', 'türkiye']"
+      ]
+    },
+    {
+      "candidate": "bp01-g066-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-03972",
+      "reasons": [
+        "numbers+entities=['10', '17']/['hakları', 'i̇nsan', 'türkiye']"
+      ]
+    },
+    {
+      "candidate": "bp01-g066-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "reasons": [
+        "numbers+entities=['10']/['kanun', 'türkiye']"
+      ]
+    },
+    {
+      "candidate": "bp01-g067-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "reasons": [
+        "numbers+entities=['50']/['kanun', 'kanunu', 'türk']"
+      ]
+    },
+    {
+      "candidate": "bp01-g067-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "reasons": [
+        "numbers+entities=['50']/['kanun', 'kanunu', 'türk']"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-tr-tr",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-tr-tr",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-en-tr",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-en-tr",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-tr-en",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-tr-en",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-en-en",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g075-en-en",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['18', '36'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g077-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "reasons": [
+        "numbers+entities=['50']/['genel', 'müdürlüğü']"
+      ]
+    },
+    {
+      "candidate": "bp01-g077-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "reasons": [
+        "numbers+entities=['50']/['genel', 'müdürlüğü']"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-tr-tr",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-tr-tr",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-en-tr",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-en-tr",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-tr-en",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-tr-en",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-en-en",
+      "protected": "dev20:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g102-en-en",
+      "protected": "reasoning4:sft160-dev-13",
+      "reasons": [
+        "numbers=['27', '36'] jaccard=0.67"
+      ]
+    },
+    {
+      "candidate": "bp01-g104-tr-tr",
+      "protected": "cetvel500-audit:xquad_tr-00987",
+      "reasons": [
+        "numbers+entities=['2000']/['değerlendirme', 'yıllık']"
+      ]
+    },
+    {
+      "candidate": "bp01-g104-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-09371",
+      "reasons": [
+        "numbers+entities=['10']/['değerlendirme', 'etki']"
+      ]
+    },
+    {
+      "candidate": "bp01-g104-en-tr",
+      "protected": "cetvel500-audit:xquad_tr-00987",
+      "reasons": [
+        "numbers+entities=['2000']/['değerlendirme', 'yıllık']"
+      ]
+    },
+    {
+      "candidate": "bp01-g104-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-09371",
+      "reasons": [
+        "numbers+entities=['10']/['değerlendirme', 'etki']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-tr",
+      "protected": "cetvel500-audit:tquad-00439",
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ağustos', 'ekim', 'haziran']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-tr",
+      "protected": "cetvel500-audit:tquad-00808",
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-04583",
+      "reasons": [
+        "numbers+entities=['30']/['ağustos', 'eylül', 'kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-05822",
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ağustos', 'eylül', 'temmuz']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-06651",
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ekim']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-08238",
+      "reasons": [
+        "numbers+entities=['30']/['anadolu', 'milli', 'mustafa', 'temmuz']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-tr",
+      "protected": "cetvel500-audit:tquad-00439",
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ağustos']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-tr",
+      "protected": "cetvel500-audit:tquad-00808",
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-04583",
+      "reasons": [
+        "numbers+entities=['30']/['ağustos', 'eylül', 'kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-05822",
+      "reasons": [
+        "numbers+entities=['30']/['aralık', 'ağustos', 'eylül', 'temmuz']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-08238",
+      "reasons": [
+        "numbers+entities=['30']/['mustafa', 'temmuz']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-en",
+      "protected": "cetvel500-audit:tquad-00439",
+      "reasons": [
+        "numbers+entities=['30']/['ekim', 'haziran']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-en",
+      "protected": "cetvel500-audit:tquad-00808",
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-en",
+      "protected": "cetvel500-audit:mlsum_tr-04583",
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-en",
+      "protected": "cetvel500-audit:mlsum_tr-06233",
+      "reasons": [
+        "numbers+entities=['19']/['august', 'haziran']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-tr-en",
+      "protected": "cetvel500-audit:mlsum_tr-08238",
+      "reasons": [
+        "numbers+entities=['30']/['anadolu', 'milli', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-en",
+      "protected": "cetvel500-audit:tquad-00808",
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g105-en-en",
+      "protected": "cetvel500-audit:mlsum_tr-04583",
+      "reasons": [
+        "numbers+entities=['30']/['kemal', 'mustafa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:tquad-00468",
+      "reasons": [
+        "numbers+entities=['16']/['avrupa', 'müslüman', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:tquad-00562",
+      "reasons": [
+        "numbers+entities=['16', '17', '1727', '1729']/['arap', 'müteferrika', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:tquad-00571",
+      "reasons": [
+        "numbers+entities=['16']/['avrupa', 'müteferrika', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:tquad-00579",
+      "reasons": [
+        "numbers+entities=['15', '18']/['avrupa', 'i̇mparatorluğu', 'müteferrika', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:tquad-00738",
+      "reasons": [
+        "numbers+entities=['15']/['i̇mparatorluğu', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:tquad-00785",
+      "reasons": [
+        "numbers+entities=['19']/['arap', 'müslüman']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-11674",
+      "reasons": [
+        "numbers+entities=['15']/['arap', 'avrupa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:tquad-00468",
+      "reasons": [
+        "numbers+entities=['16']/['avrupa', 'müslüman', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:tquad-00562",
+      "reasons": [
+        "numbers+entities=['16', '17', '1727', '1729']/['arap', 'müteferrika', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:tquad-00571",
+      "reasons": [
+        "numbers+entities=['16']/['avrupa', 'müteferrika', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:tquad-00579",
+      "reasons": [
+        "numbers+entities=['15', '18']/['avrupa', 'i̇mparatorluğu', 'müteferrika', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:tquad-00738",
+      "reasons": [
+        "numbers+entities=['15']/['i̇mparatorluğu', 'osmanlı']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:tquad-00785",
+      "reasons": [
+        "numbers+entities=['19']/['arap', 'müslüman']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-11674",
+      "reasons": [
+        "numbers+entities=['15']/['arap', 'avrupa']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-en",
+      "protected": "cetvel500-audit:tquad-00562",
+      "reasons": [
+        "numbers+entities=['16', '17', '1727', '1729']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-en",
+      "protected": "cetvel500-audit:tquad-00567",
+      "reasons": [
+        "numbers+entities=['17', '1729']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-en",
+      "protected": "cetvel500-audit:tquad-00571",
+      "reasons": [
+        "numbers+entities=['16']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-tr-en",
+      "protected": "cetvel500-audit:tquad-00579",
+      "reasons": [
+        "numbers+entities=['15', '18']/['i̇brahim', 'i̇mparatorluğu', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-en",
+      "protected": "cetvel500-audit:tquad-00562",
+      "reasons": [
+        "numbers+entities=['16', '17', '1727', '1729']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-en",
+      "protected": "cetvel500-audit:tquad-00567",
+      "reasons": [
+        "numbers+entities=['17', '1729']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-en",
+      "protected": "cetvel500-audit:tquad-00571",
+      "reasons": [
+        "numbers+entities=['16']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g111-en-en",
+      "protected": "cetvel500-audit:tquad-00579",
+      "reasons": [
+        "numbers+entities=['15', '18']/['i̇brahim', 'müteferrika']"
+      ]
+    },
+    {
+      "candidate": "bp01-g115-tr-tr",
+      "protected": "old20-test:atlas:train.chat.jsonl:281286",
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate": "bp01-g115-tr-tr",
+      "protected": "pilot80-test:atlas:train.chat.jsonl:281286",
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate": "bp01-g115-tr-tr",
+      "protected": "reviewed-pilot-test:atlas:train.chat.jsonl:281286",
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate": "bp01-g115-tr-en",
+      "protected": "old20-test:atlas:train.chat.jsonl:281286",
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate": "bp01-g115-tr-en",
+      "protected": "pilot80-test:atlas:train.chat.jsonl:281286",
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate": "bp01-g115-tr-en",
+      "protected": "reviewed-pilot-test:atlas:train.chat.jsonl:281286",
+      "reasons": [
+        "numbers+entities=['120']/['veri', 'veriler']"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-tr-tr",
+      "protected": "dev20:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-tr-tr",
+      "protected": "reasoning4:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-en-tr",
+      "protected": "dev20:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-en-tr",
+      "protected": "reasoning4:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-tr-en",
+      "protected": "dev20:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-tr-en",
+      "protected": "reasoning4:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-en-en",
+      "protected": "dev20:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g116-en-en",
+      "protected": "reasoning4:sft160-dev-14",
+      "reasons": [
+        "numbers=['12', '48'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bp01-g139-tr-tr",
+      "protected": "cetvel500-audit:mlsum_tr-03809",
+      "reasons": [
+        "numbers+entities=['11']/['devlet', 'ekonomik', 'sosyal']"
+      ]
+    },
+    {
+      "candidate": "bp01-g139-en-tr",
+      "protected": "cetvel500-audit:mlsum_tr-03809",
+      "reasons": [
+        "numbers+entities=['11']/['devlet', 'ekonomik', 'sosyal']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "old20-test:cot:train.jsonl:3933",
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "old20-test:cot:train.jsonl:535",
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "pilot80-test:cot:train.jsonl:3933",
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "pilot80-test:cot:train.jsonl:535",
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3933",
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:535",
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-tr-tr",
+      "protected": "cetvel500-audit:tquad-00823",
+      "reasons": [
+        "numbers+entities=['12', '30']/['ankara', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "old20-test:cot:train.jsonl:3933",
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "old20-test:cot:train.jsonl:535",
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "pilot80-test:cot:train.jsonl:3933",
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "pilot80-test:cot:train.jsonl:535",
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3933",
+      "reasons": [
+        "numbers+entities=['30']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:535",
+      "reasons": [
+        "numbers+entities=['20']/['kontrol', 'toplam']"
+      ]
+    },
+    {
+      "candidate": "bp01-g151-en-tr",
+      "protected": "cetvel500-audit:tquad-00823",
+      "reasons": [
+        "numbers+entities=['12', '30']/['ankara', 'toplam']"
+      ]
+    }
+  ]
+}

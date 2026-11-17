@@ -1,0 +1,374 @@
+=== g021
+@@SOURCE_ID cot:train.jsonl:1
+@@USER
+Mrs. Ayşe deposited 8,000 TL in the bank. Given that the annual simple interest rate is 10%, how many TL will the principal and the interest total after 3 years?
+@@ASSISTANT
+After 3 years the total will be 10,400 TL. In simple interest, interest is calculated each year only on the principal: the annual interest is 8,000 × 0.10 = 800 TL, and over three years 800 × 3 = 2,400 TL. Together with the principal, this comes to 8,000 + 2,400 = 10,400 TL.
+@@REASONING
+Simple interest (not compound): interest is calculated each year only on the principal.
+Annual interest: 8,000 × 0.10 = 800. For three years: 800 × 3 = 2,400.
+Total: 8,000 + 2,400 = 10,400.
+@@FLAGS
+info | localization | Arithmetic verified (8000*0.1*3=2400; total 10400). Number format localized. "Ayşe Hanım" -> "Mrs. Ayşe".
+
+=== g022
+@@SOURCE_ID cot:train.jsonl:148
+@@USER
+You are given the following premises: (1) The Janissary Corps was abolished, (2) after this, military reform became necessary, (3) a new army (Asakir-i Mansure-i Muhammediye) was established, (4) the Tanzimat Edict is the civilian extension of this process. Based solely on these premises, can the conclusion “In the Ottoman Empire, civilian modernization reforms began as a natural extension of military reforms” be drawn with certainty? State your reasoning.
+@@ASSISTANT
+No; this conclusion cannot be derived with certainty as a valid inference from the given premises, because there are two separate flaws.
+
+The first is circularity. The desired conclusion, that civilian reforms are the natural extension of military reform, is already given in the fourth premise as “the Tanzimat is the civilian extension of this process.” Because the conclusion was put into the premise from the start, “deriving” it produces no new information; it merely repeats what was assumed. This is the fallacy of begging the question (petitio principii), a vicious circle.
+
+The second is post hoc. The first three premises establish only a temporal order: first the Corps was abolished, then the new army was established, then the Tanzimat was proclaimed. One event following another does not prove that it is its “natural” or “necessary” extension; sequence is not causation.
+
+Therefore the strongest thing that can be said is this: if you accept the fourth premise as true, the conclusion follows; but this is not a proof, it is assuming the conclusion from the start. It is therefore wrong to say that it “can be said with certainty.”
+@@REASONING
+The question says “based solely on these premises”; it is a question of formal inference.
+Note: the 4th premise already says “the Tanzimat is the civilian extension of this process”; that is also the desired conclusion. The conclusion is inside the premise → circular (petitio principii), not a new inference.
+Premises 1-3 only establish a temporal order; “happened before” ≠ “is its natural extension” (post hoc).
+So “can be reached with certainty” is wrong. At most: if you accept the 4th premise, the conclusion follows, but this is an assumption, not a proof.
+@@FLAGS
+low | language_intrinsic | Historical proper names (Yeniçeri Ocağı -> Janissary Corps; Tanzimat Fermanı -> Tanzimat Edict) kept recognisable. Original answer mixes formal user prompt ("belirtin") with informal 2nd person ("kabul edersen"); preserved as "you".
+
+=== g023
+@@SOURCE_ID cot:train.jsonl:173
+@@USER
+At a construction site, a crane is carrying a 600 kg iron beam horizontally over a distance of 12 m when the rope suddenly snaps. The beam falls to the ground in 1.8 seconds, and a witness at the scene says that the sound the beam made when it hit the ground was “heavier” than that of a normal fall. Which of the following is the most likely physical explanation for this observation?
+A) The beam heating up from air friction and softening
+B) Because of the beam's large mass and speed, a large amount of kinetic energy being converted into sound, vibration and deformation in a short time at the moment of impact
+C) The beam generating a magnetic field during the fall
+D) The beam not being in free fall, with gravity being stronger in that area
+E) The witness exaggerating the event psychologically, with no real physical difference
+@@ASSISTANT
+The question asks why a 600 kg beam falling from a crane makes a “heavy” sound when it hits the ground. Ignoring air resistance and the initial vertical velocity, we can calculate the impact speed and energy:
+
+- Fall height: h = ½gt² = ½ · 9.8 · 1.8² ≈ 15.9 m
+- Vertical speed at impact: v = gt = 9.8 · 1.8 ≈ 17.6 m/s
+- Vertical kinetic energy: E = ½mv² = ½ · 600 · 17.6² ≈ 93 kJ
+
+If the beam also has horizontal speed, its total kinetic energy will be higher. However, since the horizontal speed is not given, 93 kJ is a lower bound on the total impact energy under these assumptions.
+
+During the impact, part of the kinetic energy is converted into deformation of the beam and the ground, vibration, heat and sound. A large mass and high impact energy support the production of a strong sound. Whether the sound is heard as “heavy” or low-frequency depends not only on the mass but also on the dimensions and material of the beam, the manner of impact and the properties of the ground.
+
+Answer: B.
+
+The other options are not suitable: air friction cannot heat iron enough to soften it in 1.8 seconds (A); there is no magnetic effect that explains the impact (C); regional differences in gravitational acceleration cannot explain this sound (D); and there is no reason to assume that the witness exaggerated (E).
+@@REASONING
+To explain why the 600 kg beam makes a “heavy” sound when it hits the ground, I need to evaluate the physical assumptions and the options.
+
+I ignore air resistance, the initial vertical velocity and the rotation of the beam. The given 12 m horizontal distance does not affect the vertical-motion calculation. Since the horizontal speed is unknown, the calculated energy is only the kinetic energy of the vertical motion.
+
+Calculation:
+
+- Height: \(h=\frac12gt^2\approx15.9\text{ m}\)
+- Vertical speed: \(v=gt\approx17.6\text{ m/s}\)
+- Energy: \(E=\frac12mv^2\approx93\text{ kJ}\)
+
+Options:
+
+- A: Heating from air friction is negligible.
+- B: A large mass and high impact energy support the production of strong sound and vibration. The frequency of the sound depends on the impact conditions.
+- C: There is no magnetic effect that would explain the production of the sound.
+- D: The regional difference in gravitational acceleration is very small.
+- E: There is no physical reason to assume the witness exaggerated.
+
+Result: B is the most suitable option.
+@@FLAGS
+info | localization | Arithmetic verified: h=0.5*9.8*1.8^2=15.876; v=17.64; E=0.5*600*17.64^2~93.3 kJ. Decimal commas localized in prose and LaTeX.
+
+=== g024
+@@SOURCE_ID cot:train.jsonl:198
+@@USER
+In a carpet pattern, a geometric transformation equivalent to the square of the 90° clockwise rotation matrix is applied. Determine what this equivalent transformation is, and find which point the corner of the pattern at the point (3, 7) moves to under this transformation.
+@@ASSISTANT
+The 90° clockwise rotation matrix is R = [[0, 1], [−1, 0]]. Its square is R² = [[−1, 0], [0, −1]] = −I, which corresponds to a 180° rotation about the origin; that is, it carries a point (x, y) to the point (−x, −y). Accordingly, the corner (3, 7) of the pattern moves to the point (−3, −7) under this equivalent transformation.
+@@REASONING
+The 90° clockwise rotation matrix: R = [[0, 1], [−1, 0]].
+What is asked is the transformation equivalent to R².
+R² = [[0,1],[−1,0]] · [[0,1],[−1,0]] = [[−1, 0], [0, −1]] = −I.
+This is a 180° rotation about the origin: (x, y) → (−x, −y).
+(3, 7) → (−3, −7).
+@@FLAGS
+info | verification | R^2=-I verified by matrix multiplication; (3,7)->(-3,-7).
+
+=== g025
+@@SOURCE_ID cot:train.jsonl:1989
+@@USER
+For a 72-year-old female patient diagnosed with osteoporosis, a physiotherapist has recommended a resistance exercise program 3 days a week. In the program, each exercise day involves 4 different movements, each movement is performed as 3 sets, and each set consists of 12 repetitions. Each repetition takes an average of 5.4 seconds and there is a 90-second rest between sets. Exactly how many minutes is the total active working time (excluding rest periods) to be done in one week?
+@@ASSISTANT
+The total weekly active working time is 38.88 minutes (about 38 minutes 53 seconds). The calculation goes as follows: 3 × 4 × 3 × 12 = 432 repetitions; 432 × 5.4 = 2332.8 seconds; 2332.8 ÷ 60 = 38.88 minutes. The 90-second rest between sets was not counted, as stated in the question.
+@@REASONING
+It says “excluding rest”, so only the duration of the repetitions is counted; the 90-second rest is a distractor.
+Total number of repetitions: 3 days × 4 movements × 3 sets × 12 repetitions = 432.
+Active time: 432 × 5.4 s = 2332.8 s.
+Convert to minutes: 2332.8 ÷ 60 = 38.88 minutes.
+@@FLAGS
+info | verification | Arithmetic verified: 432 reps; 2332.8 s; 38.88 min = 38 min 52.8 s ~ 38 min 53 s. Decimal commas localized.
+
+=== g026
+@@SOURCE_ID cot:train.jsonl:2002
+@@USER
+A CrossFit coach has prepared a WOD of 5 movements (thruster, burpee, kettlebell swing, box jump, pull-up) for their 32-year-old athlete. Each movement is 5 sets, and each set is 10 repetitions. Each repetition takes an average of 4.2 seconds; there is 60 seconds of rest between sets and a 90-second transition between movements. Exactly how many minutes is the total duration of this WOD?
+@@ASSISTANT
+The total duration of the WOD is 43.5 minutes (43 minutes 30 seconds). The calculation goes as follows: each movement has 5 sets × 10 repetitions = 50 repetitions; 50 × 4.2 = 210 seconds of work. Since there are 4 rests between 5 sets, 4 × 60 = 240 seconds of rest are added, and one movement takes 210 + 240 = 450 seconds. Five movements come to 5 × 450 = 2250 seconds. Since there are 4 transitions between five movements, 4 × 90 = 360 seconds of transition are added. The total is 2250 + 360 = 2610 seconds, that is, 2610 / 60 = 43.5 minutes.
+@@REASONING
+Each movement: 5 sets × 10 = 50 repetitions; 50 × 4.2 = 210 s of work.
+Rest between sets: 5 sets → 4 intervals; 4 × 60 = 240 s.
+One movement: 210 + 240 = 450 s. Five movements: 5 × 450 = 2250 s.
+Movement transitions: 5 movements → 4 transitions; 4 × 90 = 360 s.
+Total: 2250 + 360 = 2610 s = 2610 / 60 = 43.5 min.
+Note: the numbers of rests and transitions are one less than the number of sets/movements (4 and 4).
+@@FLAGS
+info | verification | Arithmetic verified: 2610 s = 43.5 min. "kendi sporcusu" rendered "their athlete" (no gender stated).
+
+=== g027
+@@SOURCE_ID cot:train.jsonl:2144
+@@USER
+In a region, it has been observed that average blood pressure falls as the number of newly opened gyms increases, and it is said that “opening gyms lowers blood pressure.” Is this correlation alone enough to distinguish the counterfactual “if no gyms had been opened at all and only diet counseling had become widespread, would blood pressure still have fallen?” Is the proposition true or false?
+@@ASSISTANT
+There are two separate questions here, and they need to be kept apart.
+
+The first is the counterfactual distinction. No, this correlation alone is not enough. The observed association only says that “the number of gyms and blood pressure change together”; it does not measure “the effect of opening gyms.” A confounder such as dietary habits, income, education or health awareness may be producing both more gyms and lower blood pressure at the same time; in that case the real cause may be diet, and the gym may be only a proxy for it. Reverse causation (healthy regions with already low blood pressure turning to sport) and selection bias (regions where gyms open being different from the start) cannot be ruled out with the same data either. This is exactly the point of your counterfactual: mere correlation cannot distinguish the effect of the “only diet instead of sport” scenario, because it cannot compare that scenario with what actually happened.
+
+The second is whether the proposition is true or false. Care is needed here: this correlation does not prove the proposition, but it does not refute it either. The correct answer is not “false” but “cannot be determined from this evidence.” Absence of evidence is not evidence of absence; deriving “gyms lower blood pressure” from the correlation is just as wrong as looking at the same correlation and saying “they do not.” Whether the proposition is really true remains open with this data.
+
+What is needed to make the distinction is not observation but intervention: a randomized controlled trial or, where that is not possible, causal inference methods (natural experiments, instrumental variables, regression discontinuity, difference-in-differences, matching). In Pearl's terms, correlation gives P(Y | X), whereas what we are looking for is P(Y | do(X)), that is, the effect of the intervention; in the presence of a confounder the two diverge.
+@@REASONING
+There are two parts.
+(1) Is correlation enough to distinguish the counterfactual “if it were diet instead of sport”? No: correlation gives P(Y|X), not P(Y|do(X)). Diet/income/health awareness may be confounders; reverse causation and selection bias cannot be ruled out either.
+(2) Is the proposition true or false? Note: “false” is also an overreach. Correlation does not prove but does not refute either. The correct answer: it cannot be determined from this evidence. (Also, it is known from separate evidence that exercise lowers blood pressure; saying “false” would also be factually wrong.)
+Needed: an RCT or causal inference methods.
+@@FLAGS
+low | register | Original answer addresses the user informally ("Senin karşı-olgusalının") while the prompt is impersonal; preserved as "your counterfactual". Prompt wording "önerme" rendered "proposition".
+
+=== g028
+@@SOURCE_ID cot:train.jsonl:223
+@@USER
+A salesman starting from Ankara will finish in Mersin; the route is Ankara → Konya (260 km) → Antalya (300 km) → Mersin (480 km). The vehicle's tank is 50 litres (it starts full), consumption is a constant 6 litres/100 km, and fuel is 45 TL/litre. At the station in Konya there is a 10-minute queue and a 4% discount; in Antalya there is a 25-minute queue and an 8% discount. The salesman wants to wait in queues as little as possible. Determine in which cities and how much he should refuel, subject to the total travel time (driving + queueing) being the shortest and the total fuel cost not exceeding 1100 TL.
+@@ASSISTANT
+The salesman should refuel only in Konya, 12.4 litres. The total distance is 1040 km and consumption is 62.4 litres; since the tank starts full at 50 litres, at least 12.4 litres of refuelling is necessary, and this refuelling can only be done en route so that there is room in the tank, that is, in Konya or Antalya, not in Ankara. Since driving time is constant, the shortest total time means the least queueing: Konya 10 minutes, Antalya 25 minutes. If 12.4 litres are taken in Konya, the tank rises to 46.8 litres; this is enough for the Antalya and Mersin legs, so there is no need to stop in Antalya as well. The cost is 12.4 × 43.2 = 535.68 TL, which is below the 1100 TL limit. Although Antalya is slightly cheaper at 513.36 TL, it is not preferred because 15 more minutes of queueing defeats the purpose.
+@@REASONING
+Total fuel: 1040 × 0.06 = 62.4 L. Tank full at 50 L → at least 12.4 L of refuelling is necessary.
+In Ankara the tank is already full and more would not fit; refuelling can only be done en route as fuel is burned → the refuelling places are only Konya and Antalya.
+Driving time is constant; the aim = minimize queueing (queueing, not the discount, is the deciding factor).
+Refuelling in Konya: on arrival the tank has 50 − 15.6 = 34.4 L; for what follows 18 + 28.8 = 46.8 L is needed → take 12.4 L (46.8 ≤ 50, it fits). Queue 10 min, cost 12.4 × 43.2 = 535.68 TL.
+Refuelling in Antalya: 12.4 L, queue 25 min, 513.36 TL. At both: 35 min (worse).
+Shortest time → Konya (10 < 25). 535.68 ≤ 1100 ✓.
+@@FLAGS
+medium | ambiguity | The 1100 TL "total fuel cost" constraint is interpreted by the original as the cost of fuel PURCHASED en route (535.68 TL); the initial full tank is not priced. If the whole 62.4 L trip were costed (~2,808 TL at 45 TL/L) the constraint would be infeasible. The prompt does not state which is meant. Also arrival in Mersin with 0 L reserve is accepted. Arithmetic otherwise verified (1040 km; 62.4 L; 43.2 and 41.4 TL/L; 535.68 and 513.36 TL).
+
+=== g029
+@@SOURCE_ID cot:train.jsonl:247
+@@USER
+A newspaper headline says “The Ministry of Finance plans to add new tax items to close the budget deficit”; however, the continuation of the same story includes the statement “a tax cut will be made to protect citizens' purchasing power.” When these two statements are evaluated without adding any other context, which of the following logical fallacies do they clearly contain? A) Fallacy of composition — a property that is valid for the whole is attributed to the part. B) Contradiction (inconsistency) — both a tax increase and a tax cut are foreseen at the same time for the same subject. C) Circular reasoning — a tax increase is defended on the grounds of protecting purchasing power. D) Fallacy of ambiguity — the terms “tax item” and “tax cut” are used as synonyms. E) Causal fallacy — the budget deficit is presented as a sufficient reason for a tax cut.
+@@ASSISTANT
+With the information given, none of the options is necessarily correct. While new tax items are being added, reductions can be made in different taxes; these two policies can be implemented at the same time. To be able to claim the contradiction in option B, it would have to be stated that the same tax, for the same group of taxpayers and the same period, would be both raised and reduced under the same conditions. Because the text does not say this, B cannot be the definitive answer; the question is flawed as it stands.
+@@FLAGS
+low | ambiguity | Original rejects all five options as the answer (flawed question); translation preserves this. Fallacy names rendered with standard English equivalents.
+
+=== g030
+@@SOURCE_ID cot:train.jsonl:2583
+@@USER
+A municipality's sanitation department awarded the garbage collection tender to the firm that gave the lowest bid but did not check whether the firm complied with environmental regulations. The firm illegally dumped waste into a stream and environmental pollution occurred. A municipal official said “we only ran the tender.” Why does the duty of oversight invalidate this defense?
+@@ASSISTANT
+The invalidity of the defense stems from a single wrong premise: saying “the tender was held” does not mean that responsibility passed entirely to the firm. A tender is not a handover that ends the administration's duty, but a stage that starts its duty of oversight.
+
+First, performance of the contract is also within the administration's area of oversight. The Public Procurement Contracts Law No. 4735 gives the administration the authority of control and oversight while the contract is being carried out. The work does not leave the administration's hands once the contract is signed; it is the administration's duty to monitor whether the contractor performs its obligation in accordance with the legislation.
+
+Second, in environmental protection this duty is active, not passive. Article 56 of the Constitution treats preventing environmental pollution directly as a duty of the state; the oversight provisions of Environmental Law No. 2872 and Article 14 of Municipal Law No. 5393 oblige the municipality, in solid waste and environmental health services, not merely to set rules but to oversee their implementation. Oversight is the way this duty is carried out.
+
+Third, failing to oversee is in itself a service fault. In the case law of the Council of State, service fault is defined as a malfunction in the establishment, operation or oversight of a public service, and a tendered service that is never overseen is a typical example. Moreover, there is an adequate causal link between the lack of oversight and the pollution: regular inspection of the vehicles and the dumping points would very probably have revealed and prevented the illegal dumping.
+
+Fourth, the contractor's fault does not erase the administration's fault. The firm is responsible in its own right for polluting (the polluter-pays principle), but this does not remove the administration's separate responsibility arising from not performing its own oversight duty; both can be responsible together. The administration's never having used the powers to stop activity and impose administrative fines that the Environmental Law grants also reinforces this passivity.
+
+In short, the defense “we only ran the tender” is invalid because it reduces oversight from an ongoing duty after the tender to a single act. The duty of oversight closes exactly this gap and makes the administration responsible for the process even after the signature.
+@@FLAGS
+medium | mistake_suspected | Legal citations (Law 4735, Const. Art. 56, Law 2872, Law 5393 Art. 14, Council of State doctrine) were NOT independently verified here. Constitution Art. 56 is described as making pollution prevention "directly a duty of the state"; the article text assigns the duty to "the state and citizens", so the original is partly imprecise. Left unchanged; owner may want legal re-review. Translation preserves all citations verbatim.
+
+=== g031
+@@SOURCE_ID cot:train.jsonl:269
+@@USER
+At a grocery store, apples cost x TL per kilogram and pears cost y TL per kilogram. Ali bought 3 kg of apples and 2 kg of pears and paid 50 TL, while Ayşe bought 2 kg of apples and 4 kg of pears and paid 70 TL. To find x and y, set up the system of equations with two unknowns and solve it step by step using the substitution method to find the per-kilogram prices of apples and pears.
+@@ASSISTANT
+The system of equations is set up as follows:
+3x + 2y = 50 (Ali's purchase)
+2x + 4y = 70 (Ayşe's purchase)
+
+Let us solve by the substitution method. From the first equation, y is isolated: y = (50 − 3x) / 2. This expression is substituted into the second equation: 2x + 4·(50 − 3x)/2 = 70, that is, 2x + 2(50 − 3x) = 70. Expanding the parentheses and simplifying gives 2x + 100 − 6x = 70, from which −4x = −30 and x = 7.5. When this value is substituted into the expression for y, y = (50 − 22.5)/2 = 13.75.
+
+Check: for Ali, 3·7.5 + 2·13.75 = 22.5 + 27.5 = 50 ✓; for Ayşe, 2·7.5 + 4·13.75 = 15 + 55 = 70 ✓.
+
+Result: apples cost 7.5 TL per kilogram and pears cost 13.75 TL per kilogram.
+@@REASONING
+Equations: 3x + 2y = 50 (Ali), 2x + 4y = 70 (Ayşe).
+Substitution: from the 1st equation y = (50 − 3x) / 2.
+Put into the 2nd equation: 2x + 4·(50 − 3x)/2 = 70 → 2x + 2(50 − 3x) = 70 → 2x + 100 − 6x = 70 → −4x = −30 → x = 7.5.
+y = (50 − 22.5)/2 = 13.75.
+Check: Ali 22.5 + 27.5 = 50 ✓, Ayşe 15 + 55 = 70 ✓.
+@@FLAGS
+info | verification | Solution verified: x=7.5, y=13.75.
+
+=== g032
+@@SOURCE_ID cot:train.jsonl:294
+@@USER
+In a school club, 5 students (Ayşe, Berk, Ceren, Doruk, Elif) will be matched one-to-one with 5 different book genres (novel, poetry, science, history, biography). Which of the following clues gives no new information because it is always true by the very nature of one-to-one matching? I. Ayşe chose novel or poetry. II. Berk did not choose science. III. Ceren chose a genre different from the one Doruk chose. IV. Elif chose biography. V. The person who chose poetry is not Ayşe. A) Only I B) Only II C) Only III D) Only IV E) Only V
+@@ASSISTANT
+Answer: C) Only III. In a one-to-one matching each student already chooses a genre different from the others, so the statement “Ceren chose a genre different from the one Doruk chose” is always true without needing any additional condition; therefore it adds no new information or constraint to the matching. Each of the other four clues, on the other hand, defines a real restriction on the matching.
+@@REASONING
+In a one-to-one matching every student gets a different genre. I will check whether each clue introduces a real constraint or is already always true.
+I: Ayşe ∈ {novel, poetry} → a constraint, carries information.
+II: Berk ≠ science → a constraint, carries information.
+III: Ceren's genre ≠ Doruk's genre → already always true in a one-to-one matching; no new information.
+IV: Elif = biography → a constraint, carries information.
+V: The one who chose poetry ≠ Ayşe → a constraint, carries information.
+Only III is automatically true regardless of the condition → the redundant clue is III.
+
+=== g033
+@@SOURCE_ID cot:train.jsonl:2987
+@@USER
+You are given the following premises: (1) All inverted sentences differ in word order. (2) Some sentences that are not inverted sentences also differ in word order. (3) No question sentence is an inverted sentence. (4) “Neden bu kadar geç kaldın?” is a question sentence. Write down all the certain conclusions that can be deduced from these four premises; also state those that cannot be deduced, with reasons.
+@@ASSISTANT
+The only certain conclusion that can genuinely be derived as new from the premises is this:
+
+¬D(a): “Neden bu kadar geç kaldın?” is not an inverted sentence. (According to Premise 3, no question sentence is inverted; according to Premise 4, this is a question sentence.)
+
+In addition, Premise 3 can be rewritten as “No sentence can be both a question and inverted” (∀x ¬(S(x) ∧ D(x))); however, this is not a new inference but an equivalent of Premise 3, and it does not use Premise 1.
+
+Those that cannot be derived from the premises:
+
+“Neden bu kadar geç kaldın?” differs in word order → cannot be derived; since a is not inverted, the rule “all inverted sentences differ” says nothing about it.
+“Some inverted sentences differ” → invalid; one cannot move from the universal to the particular.
+“All non-inverted sentences differ” → invalid; Premise 2 says only “some.”
+“Some/all question sentences differ” → invalid; the premises do not support it.
+@@REASONING
+D(x): inverted, F(x): word-order difference, S(x): question; a = “Neden bu kadar geç kaldın?”.
+1: ∀x(D→F), 2: ∃x(¬D∧F), 3: ∀x(S→¬D), 4: S(a).
+New inference: 3 + 4 → ¬D(a).
+“No sentence can be both a question and inverted” ∀x¬(S∧D): this is equivalent to 3 (S→¬D ≡ ¬(S∧D)), not a new conclusion; Premise 1 is not used.
+F(a) is undetermined: since ¬D(a), 1 (D→F) says nothing about a (denying the antecedent).
+Attempts to move from universal to particular and to turn 2 into a universal are invalid.
+@@FLAGS
+low | language_intrinsic | The quoted Turkish question "Neden bu kadar geç kaldın?" ("Why are you so late?") is the object sentence of the task; kept verbatim in Turkish inside EN variants (a Turkish word order point is part of the premises). "devrik cümle" rendered "inverted sentence".
+
+=== g034
+@@SOURCE_ID cot:train.jsonl:3336
+@@USER
+Rule: "Conjunctions that join two independent judgments (and, but, however, because) form a conjoined sentence." If two judgments in a sentence are joined with the conjunction "because", what is the sentence type according to this rule?
+@@ASSISTANT
+According to this rule, the sentence is a conjoined sentence. "Because" is a conjunction that joins two independent judgments. For example, in the sentence "He could not go to school, because he had fallen ill," each of the judgments "He could not go to school" and "he had fallen ill" can be a sentence on its own, and the two are joined to each other with the conjunction "because."
+@@REASONING
+The user wants me to apply a given grammar rule. According to the rule, conjunctions that join two independent judgments form a conjoined sentence, and "because" is listed among these conjunctions. This rule is also consistent with established grammar. So a sentence in which two judgments are joined with "because" is a conjoined sentence. Let me show it with a short example.
+@@FLAGS
+low | language_intrinsic | Turkish grammar term "bağlı cümle" rendered "conjoined sentence"; Turkish conjunction list (ve, ama, fakat, çünkü) rendered with English equivalents. The rule is stipulated by the prompt.
+
+=== g035
+@@SOURCE_ID cot:train.jsonl:3510
+@@USER
+In a workshop, 6 workers (Ali, Veli, Hüseyin, Ayşe, Fatma, Zeynep) will be assigned to 3 shifts (day, evening, night). Each shift will have at least 1 and at most 3 workers; Ali and Veli cannot work in the same shift; Fatma can work only in the day shift; the total employee-hours must not exceed 24. Create a shift plan that satisfies all the constraints.
+@@ASSISTANT
+First a critical gap needs to be pointed out: the shift length is not given, yet the constraint “employee-hours must not exceed 24” can only be applied if the length is known. This is what determines the result.
+
+The natural reading is that all six workers will work; that is, all six must be assigned to the shifts. In this case there are six assignments in total, and the 24-hour limit requires each shift to last at most 4 hours (6 × 4 = 24). With four-hour shifts the following plan satisfies all constraints:
+
+Day: Fatma, Ali
+Evening: Veli, Ayşe
+Night: Hüseyin, Zeynep
+
+Check: each shift has 2 workers (between 1 and 3), Ali and Veli are in separate shifts, Fatma is in the day shift, the total duration is 6 × 4 = 24 hours, and all six workers are in the plan.
+
+If the shifts are taken to be 8 hours, the problem cannot be solved as it stands: with each of the six workers working, the total comes to 48 hours, twice the limit. Under that assumption only three workers can be assigned and the other three are left idle; this contradicts the statement “six workers will work.” Therefore taking the duration as 4 hours is the consistent reading that satisfies both the employee-hours constraint and the expectation that everyone works.
+@@REASONING
+The shift length is not given; “employee-hours ≤ 24” can only be calculated if a length is assumed. This is the key ambiguity.
+“6 workers will work” → natural reading: all six will be assigned, so 6 assignments in total.
+6 assignments and ≤ 24 hours → each shift at most 24 / 6 = 4 hours. With 4 hours, 6 × 4 = 24, exactly the limit.
+(If 8 hours is assumed, 6 × 8 = 48 > 24; six workers is impossible, and 3 people are necessarily left idle, which contradicts “everyone will work.” So 4 hours is consistent.)
+Distribution: 6 workers, 1-3 per shift → 2-2-2 is suitable. Fatma in the day; Ali and Veli separate.
+Day: Fatma, Ali / Evening: Veli, Ayşe / Night: Hüseyin, Zeynep. All are satisfied.
+@@FLAGS
+medium | ambiguity | The prompt omits shift length; the reviewed answer resolves this by assuming 4-hour shifts and that all six workers must be assigned. The assumption is stated in the answer, but one specific resolution is imposed. Plan verified: shifts 2/2/2, Ali/Veli separate, Fatma on day, 6*4=24. "çalışan-saat" rendered "employee-hours".
+
+=== g036
+@@SOURCE_ID cot:train.jsonl:4348
+@@USER
+In a family health center, the weight gain of 90 children followed for 6 months was recorded. 30% of the children had weight gain above the expected level, and 50% had weight gain within the expected range. Accordingly, how many children had weight gain below the expected level?
+@@ASSISTANT
+The number of children with weight gain below the expected level is 18. Those above the expected level (30%) and within the expected range (50%) total 80%; 20% remains. 20% of 90 is 0.20 × 90 = 18 children.
+@@REASONING
+Above and within range: 30% + 50% = 80%.
+Below: 100% − 80% = 20%.
+0.20 × 90 = 18.
+@@FLAGS
+info | verification | Arithmetic verified: 90*0.2=18.
+
+=== g037
+@@SOURCE_ID cot:train.jsonl:466
+@@USER
+If you had been dealt a flush (5 cards of the same suit) instead of two pairs in a poker hand, by how many percent would your chance of winning have increased? Compare the probabilities of both hands in a standard 52-card deck.
+@@ASSISTANT
+The question confuses two different probabilities, so they need to be separated first: the probability of being dealt a hand and the probability of winning with that hand are not the same thing.
+
+The probabilities of being dealt each hand in a standard deck are as follows. For two pairs, C(13,2)·C(4,2)²·C(11,1)·C(4,1) / C(52,5) = 123,552 / 2,598,960 ≈ 4.75%. For a flush (5 cards of the same suit), C(13,5)·4 / C(52,5) = 5,148 / 2,598,960 ≈ 0.198%. That is, a flush is dealt about 24 times less often than two pairs.
+
+The ranking of poker hands rests on exactly this rarity: a flush beats two pairs because it is harder to get. Therefore, if you had a flush instead of two pairs, your chance of winning would increase; the direction of the question is right.
+
+However, it is not possible to express this increase as a single percentage. The probability of winning depends not only on your hand but also on the number of players at the table and their hands. The difference between 4.75% and 0.198% is the difference in how often the two hands are dealt, not an increase in the probability of winning.
+@@REASONING
+The question asks for a single percentage for “how much the probability of winning increases.” First a distinction is needed: the probability of being dealt a hand and the probability of winning with it are not the same thing. I can calculate the probabilities of being dealt.
+
+Two pairs: C(13,2)·C(4,2)²·C(11,1)·C(4,1) / C(52,5) = 78·6·6·11·4 / 2,598,960 = 123,552 / 2,598,960 ≈ 4.75%.
+
+Flush (5 cards of the same suit, including straight/royal flush): C(13,5)·C(4,1) / C(52,5) = 1287·4 / 2,598,960 = 5,148 / 2,598,960 ≈ 0.198%.
+
+Ratio: 4.75 / 0.198 ≈ 24. A flush is dealt about 24 times less often.
+
+Note: A flush being rare makes it not weaker but stronger; the hand ranking is based on rarity anyway, and a flush beats two pairs. So flush instead of two pairs → the chance of winning increases, the direction of the question is right. But I cannot give this increase as a single percentage; the probability of winning depends on the number of players at the table and the opposing hands. Subtracting the two dealing probabilities (≈ 4.56%) would be a meaningless number, and I should not present it as the result.
+@@FLAGS
+low | mistake_suspected | The flush count 5,148 includes straight/royal flushes (stated only in the reasoning); the standard "flush" excluding straight flushes is 5,108 (≈0.1965%). The answer text defines flush only as "5 cards of the same suit" so 0.198% is consistent with its own definition. Combinatorics otherwise verified (123,552; 5,148; 2,598,960; ratio ~24). Left unchanged.
+
+=== g038
+@@SOURCE_ID cot:train.jsonl:48
+@@USER
+A sorting algorithm sorts an array of 1000 elements in 0.012 seconds. If, when the number of elements increases 8 times, the time increases roughly 64 times for the same algorithm, about how many seconds will it take to sort an array of 8000 elements? A) 0.096 B) 0.192 C) 0.768 D) 1.024 E) 1.536
+@@ASSISTANT
+Answer: C) 0.768 seconds. Since 8000 elements is exactly 8 times 1000 elements, the time increases 64 times: 0.012 × 64 = 0.768 seconds.
+@@REASONING
+8000 is exactly 8 times 1000; so there is a single “8 times” step. For every 8 times, the time increases 64 times. Therefore it is multiplied by 64, not by 8 (multiplying by 8 is the distractor in option A).
+0.012 × 64 = 0.768.
+@@FLAGS
+info | verification | 0.012*64=0.768. Option letters/values unchanged apart from decimal point.
+
+=== g039
+@@SOURCE_ID cot:train.jsonl:677
+@@USER
+A carpet seller in Konya says that one side of a rectangular carpet is twice as long as the other. When the carpet is folded parallel to its horizontal midline, its two halves coincide. Can it be deduced that the carpet will also coincide when folded parallel to its vertical midline? Explain in one sentence.
+@@ASSISTANT
+Yes; because the right angles of a rectangle make both of its midlines axes of symmetry, the two halves coincide when folded parallel to either the horizontal or the vertical midline, whatever the side ratio (one side being twice the other).
+@@REASONING
+“The two halves coincide” means the fold line is an axis of symmetry.
+In a rectangle both the horizontal and the vertical midlines are axes of symmetry thanks to the right angles; so, independently of the side ratio (2a, a), the halves coincide in both folds.
+Note: the justification cannot be “opposite sides are equal”; in a parallelogram opposite sides are also equal, but when it is folded along a midline the halves do not coincide. The correct justification is that the midlines are axes of symmetry.
+The side ratio is a distractor.
+
+=== g040
+@@SOURCE_ID cot:train.jsonl:73
+@@USER
+Elif, who works as a cashier at a bookstore in Istanbul, notices that a customer has handed over too much money and returns it; her employer scolds her, saying “You're driving customers away.” What causal contribution does Elif's honesty make to the business's reputation in the long run? Analyze the measurable outcomes of this contribution through customer loyalty, repeat-visit rate and new customer acquisition via referrals, using a 6-step chain.
+@@ASSISTANT
+Elif's behavior on its own is a small incident; its real contribution to reputation emerges when this attitude becomes a daily, repeated habit of the business. The chain works as follows:
+
+1. Honesty → trust: A customer who sees that the money they overpaid has been returned gets concrete evidence that they will not be cheated at this bookstore. Measurement: the score given in short customer surveys to a statement such as “I trust this bookstore.”
+
+2. Trust → satisfaction: The customer not only gets the correct change but also feels respected; this raises the overall evaluation of the shopping experience. Measurement: customer satisfaction score (CSAT).
+
+3. Satisfaction → repeat visit: A satisfied and trusting customer thinks of this shop first when they want to buy a book. Measurement: the share of customers who return in a given period; it can be tracked through loyalty cards, memberships or sales records.
+
+4. Repeat visit → loyalty: A regular customer does not easily give up in the face of rival campaigns; they join events and enlarge their basket. Measurement: customer retention rate, annual spend per customer and customer lifetime value (CLV).
+
+5. Loyalty → referral: A loyal customer recommends the shop to those around them; a concrete story like honesty is especially suited to spreading by word of mouth. Measurement: Net Promoter Score (NPS) and the number of positive online reviews.
+
+6. Referral → new customers and reputation: A customer who comes through a recommendation arrives at the shop with trust from the start and joins the same chain; in this way reputation feeds itself. Measurement: the referral share from asking new customers “How did you hear about us?” and customer acquisition cost (CAC).
+
+The relationships between these steps are generally supported in marketing research, but the size of the effect varies from business to business; to see the real contribution, these metrics need to be monitored at regular intervals. The employer's reaction “You're driving customers away,” on the other hand, puts short-term gain ahead of long-term trust: keeping the extra money earns a few lira, but when noticed it reverses exactly this chain.
+@@REASONING
+For each step I should state which metric to use and how to measure it; since I have no data, I should not make up figures. I will describe the effect of a continuing attitude of honesty, not of a single incident.

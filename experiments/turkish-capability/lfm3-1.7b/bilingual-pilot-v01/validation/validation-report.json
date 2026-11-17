@@ -1,0 +1,189 @@
+{
+  "inputs": {
+    "train.jsonl": "ad04a971b2a189e067a234d9f1e722960d93ffcfd8e726c11c5c2c6f033861e8",
+    "source-originals.jsonl": "d044d680291a0b0aeab7099a9f41a8135893473483aafe52c93a065adc49c35f"
+  },
+  "counts": {
+    "rows": 640,
+    "groups": 160,
+    "per_direction": {
+      "tr-tr": 160,
+      "en-tr": 160,
+      "tr-en": 160,
+      "en-en": 160
+    },
+    "schema_problem_rows": 0
+  },
+  "tr_tr_traceability": {
+    "checked": 160,
+    "identical": 160
+  },
+  "duplicates": {
+    "duplicate_normalized_user_prompts": 0,
+    "duplicate_assistant_text_sets": 311,
+    "by_design_same_group_sets": 311,
+    "unexpected_sets": 0,
+    "note": "By design the two input languages of a group share the same output-language target text.",
+    "en_user_identical_to_tr_user_groups": []
+  },
+  "cross_direction_consistency_groups_ok": 160,
+  "en_output_language_effect": {
+    "full": 290,
+    "preserve_turkish_object": 24,
+    "neutral_content": 6
+  },
+  "en_output_language_effect_neutral_groups": [
+    "bp01-g010",
+    "bp01-g044",
+    "bp01-g058"
+  ],
+  "en_output_language_effect_preserve_groups": [
+    "bp01-g004",
+    "bp01-g007",
+    "bp01-g012",
+    "bp01-g015",
+    "bp01-g019",
+    "bp01-g041",
+    "bp01-g051",
+    "bp01-g052",
+    "bp01-g055",
+    "bp01-g123",
+    "bp01-g130",
+    "bp01-g135"
+  ],
+  "reasoning_separation": {
+    "reasoning_rows_per_direction": {
+      "tr-tr": 30,
+      "en-tr": 30,
+      "tr-en": 30,
+      "en-en": 30
+    },
+    "reasoning_equals_final": 0,
+    "final_contains_reasoning": 0,
+    "reasoning_without_source": 0,
+    "source_reasoning_missing": 0
+  },
+  "number_parity_mismatches": 9,
+  "number_parity_unreviewed": 0,
+  "structural_parity_mismatches": 3,
+  "structural_parity_unreviewed": 0,
+  "constraint_checks": [
+    {
+      "check": "g103 50-80 words (tr)",
+      "passed": true,
+      "detail": 56
+    },
+    {
+      "check": "g115 <=120 words, no question mark (tr)",
+      "passed": true,
+      "detail": 43
+    },
+    {
+      "check": "g121 <=150 words, exactly 3 bullets (tr)",
+      "passed": true,
+      "detail": [
+        57,
+        3
+      ]
+    },
+    {
+      "check": "g020 <=3 sentences (tr)",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "check": "g001 exactly 3 bullets (tr)",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "check": "g100 starts with prefix, one paragraph (tr)",
+      "passed": true,
+      "detail": "Kısaca: Ürünü teslim"
+    },
+    {
+      "check": "g048 single sentence (tr)",
+      "passed": true,
+      "detail": "rak onaylanırsa ödünç verecek."
+    },
+    {
+      "check": "g043 number+unit only (tr)",
+      "passed": true,
+      "detail": "55 dakika"
+    },
+    {
+      "check": "g010 JSON valid (tr)",
+      "passed": true,
+      "detail": "json.loads ok"
+    },
+    {
+      "check": "g103 50-80 words (en)",
+      "passed": true,
+      "detail": 77
+    },
+    {
+      "check": "g115 <=120 words, no question mark (en)",
+      "passed": true,
+      "detail": 65
+    },
+    {
+      "check": "g121 <=150 words, exactly 3 bullets (en)",
+      "passed": true,
+      "detail": [
+        73,
+        3
+      ]
+    },
+    {
+      "check": "g020 <=3 sentences (en)",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "check": "g001 exactly 3 bullets (en)",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "check": "g100 starts with prefix, one paragraph (en)",
+      "passed": true,
+      "detail": "In short: You can re"
+    },
+    {
+      "check": "g048 single sentence (en)",
+      "passed": true,
+      "detail": " date is confirmed in writing."
+    },
+    {
+      "check": "g043 number+unit only (en)",
+      "passed": true,
+      "detail": "55 minutes"
+    },
+    {
+      "check": "g010 JSON valid (en)",
+      "passed": true,
+      "detail": "json.loads ok"
+    }
+  ],
+  "arithmetic_groups_verified": 32,
+  "arithmetic_notes": [
+    "g153 prompt is internally inconsistent (stated vs implied mean density); recorded as a translation-issue flag, not an error."
+  ],
+  "language_heuristic_flags": 8,
+  "language_heuristic_unreviewed": 0,
+  "token_summary": {
+    "supervised_totals_by_direction": {
+      "tr-tr": 46088,
+      "en-tr": 46088,
+      "tr-en": 35010,
+      "en-en": 35010
+    },
+    "supervised_total_all": 162196,
+    "max_total_length": 2297,
+    "truncated_rows": 0
+  },
+  "status": "passed",
+  "errors": [],
+  "warnings": [],
+  "generated_by": "scripts/datasets/validate_lfm3_bilingual_pilot.py"
+}

@@ -1,0 +1,94 @@
+{
+  "status": "built; see validation/ for reports (release-manifest.json is written after validation)",
+  "dataset": "bilingual-pilot-v01",
+  "built_on": "2026-11-17",
+  "builder": "scripts/datasets/build_lfm3_bilingual_pilot.py",
+  "common": "scripts/datasets/bilingual_pilot_common.py",
+  "task_groups": 160,
+  "rows": 640,
+  "per_direction": {
+    "tr-tr": 160,
+    "en-tr": 160,
+    "tr-en": 160,
+    "en-en": 160
+  },
+  "directions": [
+    "tr-tr",
+    "en-tr",
+    "tr-en",
+    "en-en"
+  ],
+  "source": {
+    "file": "experiments/turkish-capability/lfm3-1.7b/sft-pilot160-v01/train.jsonl",
+    "sha256": "e8bd148d2a3947dd7870ab404e3a4b402c792c7b0983b7ed8f8731325d5747b9",
+    "note": "frozen reviewed pilot160 train set; old20 test/dev20/xling packets never used as source"
+  },
+  "translation": {
+    "translator": "claude-sonnet-5-5 (Claude Code session; direct translation, no external API or service called)",
+    "external_services_called": false,
+    "files": {
+      "part-001.txt": "4180f8c5278bdf63cdccf6dec2b8870a2a85fc246e7f31df2e738053c0ed1b90",
+      "part-002.txt": "6cbfc44147a2ce36078c020897e10ccf65a23d0e9dc0a3cd12c25bb0e781acb0",
+      "part-003.txt": "3a4d85c8560807e4c1a635570f8cedf9c47a7a771fd45d5ef869e8cd11a3928f",
+      "part-004.txt": "bf7e7e9a6933d05e7323e11a24856aefecc9dfcfa8b9d365ba3c349d5ba91999",
+      "part-005.txt": "23e75cd3801a9f6eaaed3b90d7d46df24068b46093c632af7280ee0f6dfcb7c9",
+      "part-006.txt": "230af0fc5bb0627e5f4f031fd0704a8d70554a97f469a0f299743d1d6964b625",
+      "part-007.txt": "b85ce583c627fb27eccdadf8d827d41755579794da9da9b9be468d8d297e9a88",
+      "part-008.txt": "b7a9d19c10c968bca3ad13ebd1e52d32305cd1b1b0e6207b8fc4fc96bb2dcec1"
+    },
+    "flags_total": 108
+  },
+  "seeds": {
+    "builder": "none (deterministic; no randomness)"
+  },
+  "language_instruction": {
+    "tr-tr": "Yanıtını Türkçe ver.",
+    "tr-en": "Yanıtını İngilizce ver.",
+    "en-tr": "Answer in Turkish.",
+    "en-en": "Answer in English."
+  },
+  "system_prompts": {
+    "tr": "reviewed original (unchanged)",
+    "en": "You are an accurate, helpful and reliable assistant. Follow the format and constraints the user requests. Adjust the level of detail to what the question requires. State uncertainty; do not invent missing information."
+  },
+  "files": {
+    "train.jsonl": {
+      "sha256": "ad04a971b2a189e067a234d9f1e722960d93ffcfd8e726c11c5c2c6f033861e8",
+      "bytes": 2550326
+    },
+    "source-originals.jsonl": {
+      "sha256": "d044d680291a0b0aeab7099a9f41a8135893473483aafe52c93a065adc49c35f",
+      "bytes": 482537
+    },
+    "train-arm-a-tr-only.jsonl": {
+      "sha256": "132f633d2f741b731fe817bb78510255131f8be03af39f307a833e297364a057",
+      "bytes": 590051
+    },
+    "translation-flags.jsonl": {
+      "sha256": "0701024f7bad5c7b14d412d8e94b937ba03d873585c8e4b71e8c3daac41933b5",
+      "bytes": 32846
+    }
+  },
+  "split": "all 640 rows are split=train; all four directions of a task share group_id/split (no row-level splitting)",
+  "schema_notes": "messages = system/user/assistant; reasoning in worked_solution (same field as pilot160), null for direct answers; no <think>/<thinking> tags in semantic fields; native template applied only at preprocessing.",
+  "license_and_terms": {
+    "source_licenses": {
+      "occam": "Apache-2.0 (cbarkinozer/Occam-Turkish-Response-SFT@947850d4)",
+      "sft": "MIT declared (AlicanKiraz0/Turkish-SFT-Dataset-v1.0@5a5a852a)",
+      "atlas": "MIT declared, qualified (AlicanKiraz0/Turkce-Atlas-Instruct@c387738c)",
+      "cot": "Apache-2.0 declared (AlicanKiraz0/Turkish-CoT-Instruct-Dataset@3473e6c6)"
+    },
+    "source_status": "Inherited from sft-pilot160-v01 / source-audit-v01: documentary review found no prohibited use but did NOT clear training/release eligibility; unresolved.",
+    "translation_provider": "Anthropic model claude-sonnet-5-5 via Claude Code, on 2026-11-17; no external paid API called.",
+    "provider_terms_checked_2026_11_18": {
+      "commercial_terms (effective 2025-06-17) D.4": "Customer may not use the Services \"to build a competing product or service, including to train competing AI models\".",
+      "consumer_terms (effective 2025-10-08) s.3": "Prohibits using the Services \"to develop any products or services that compete with our Services\" and \"to develop or train any artificial intelligence or machine learning algorithms or models\"."
+    },
+    "terms_conclusion": "RESTRICTED_PENDING_CLARIFICATION (account type: Free/Pro/Max/Ultra => Consumer Terms s.3 item 2; see TERMS-RESTRICTION.md). UNRESOLVED: whether fine-tuning LiquidAI LFM3 on these translations is permitted under the applicable Anthropic terms (account type unknown to the agent). Owner must confirm before training or publishing. See UNRESOLVED-DECISIONS.md #1."
+  },
+  "limitations": [
+    "Translations are agent-authored and not owner-reviewed.",
+    "12 groups use a preserve-Turkish-text instruction variant for EN output; 3 groups have language-neutral answers (JSON/names).",
+    "EN system prompt drops the word \"Turkish\"; see unresolved decisions."
+  ]
+}

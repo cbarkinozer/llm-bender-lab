@@ -1,0 +1,60 @@
+{
+  "status": "frozen-before-training-translation",
+  "frozen_at_utc": "2026-11-17T20:44:26Z",
+  "underlying_task_groups": 35,
+  "prompts": 140,
+  "per_direction": 35,
+  "directions": [
+    "tr-tr",
+    "en-tr",
+    "tr-en",
+    "en-en"
+  ],
+  "categories": {
+    "arithmetic": 8,
+    "turkish_comprehension": 6,
+    "negation": 6,
+    "semantic_roles": 5,
+    "faithful_rewriting": 5,
+    "output_language_control": 5
+  },
+  "symbolic_controls": 8,
+  "training_allowed": false,
+  "generation_demonstration_allowed": false,
+  "prompt_files_without_references": [
+    "eval-prompts.jsonl",
+    "symbolic-controls-prompts.jsonl"
+  ],
+  "reference_files": [
+    "eval-references.jsonl",
+    "symbolic-controls-references.jsonl"
+  ],
+  "reference_policy": "Keep reference files out of annotation displays and model inputs. Illustrative wording only.",
+  "files": {
+    "eval-prompts.jsonl": {
+      "sha256": "e96c38ef9100d1c71b8437beed5759b723722a7f5a8114001d6e7bbb4d8f3396",
+      "bytes": 135232
+    },
+    "eval-references.jsonl": {
+      "sha256": "d6ed7878ae8c37379f4c9d31522fc5689a5b7eac598f2e7267c71609df29d285",
+      "bytes": 86018
+    },
+    "symbolic-controls-prompts.jsonl": {
+      "sha256": "642c6e118b7ed6a4b1dc817107c9c52cbbda1a671cd18eb985110dcb6e08e6b7",
+      "bytes": 2076
+    },
+    "symbolic-controls-references.jsonl": {
+      "sha256": "85333f6bf555ec4f5fca7ae1fa5b9cb9d816ed387513b19d1955cfa400fca83b",
+      "bytes": 908
+    }
+  },
+  "builder": "scripts/datasets/prepare_lfm3_bilingual_pilot_eval.py",
+  "language_instruction": "Appended to the user turn in the input language; identical wording to training rows (bilingual_pilot_common.INSTRUCTION)",
+  "system_prompt": "Language-matched system prompt identical to the matching training rows (bilingual_pilot_common.SYSTEM)",
+  "regression_sets": "Previous 20 (old20/dev20) and 15 (crosslingual) records remain development/regression checks, not a fresh final test.",
+  "limitations": [
+    "35 underlying tasks are a diagnostic, not a benchmark; four directions per task are correlated, not 140 independent trials.",
+    "Authored by one agent; Turkish naturalness not owner-reviewed.",
+    "Once used to choose checkpoints this becomes development data; a new final test is required for promotion."
+  ]
+}

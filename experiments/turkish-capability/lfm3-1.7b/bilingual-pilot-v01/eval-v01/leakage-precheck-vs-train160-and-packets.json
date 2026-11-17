@@ -1,0 +1,346 @@
+{
+  "set": "eval",
+  "candidates": 288,
+  "protected_items": 759,
+  "packets_checked": [
+    {
+      "packet": "old20-test",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\sft-pilot160-v01\\test.jsonl",
+      "rows": 20,
+      "sha256": "fab18f50f82c0fb4cf841a8ba2319e28dd7e13c3bd36c057cd95ebd2433fa85a"
+    },
+    {
+      "packet": "pilot80-test",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\sft-pilot80-v01\\test.jsonl",
+      "rows": 20,
+      "sha256": "fab18f50f82c0fb4cf841a8ba2319e28dd7e13c3bd36c057cd95ebd2433fa85a"
+    },
+    {
+      "packet": "reviewed-pilot-test",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\reviewed-pilot-v01\\test.jsonl",
+      "rows": 20,
+      "sha256": "f94007181003a6d9bb80d03f6b25e7e803f0308090fa2f0464ecd51b4e8f9c57"
+    },
+    {
+      "packet": "dev20",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\sft160-dev-v01\\questions.jsonl",
+      "rows": 20,
+      "sha256": "d574354b425c240f06c50c987be9f475eda1c909dfe7227bd6914d1356a863cd"
+    },
+    {
+      "packet": "xling-v01",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\crosslingual-holdout-v01\\questions.jsonl",
+      "rows": 12,
+      "sha256": "d4af91f10c59f5c739df4346e011f7bf638f360879b5c8522a4ba72f0e83b6e5"
+    },
+    {
+      "packet": "xling-v01-symbolic",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\crosslingual-holdout-v01\\symbolic-controls.jsonl",
+      "rows": 3,
+      "sha256": "73b44d76c767d66cd9a802f227b0e5ea3fc747a0a5ed575f28432cb2b26eed38"
+    },
+    {
+      "packet": "reasoning4",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\pilot160-runtime-local\\reasoning4.jsonl",
+      "rows": 4,
+      "sha256": "01b6f256ac1b3ff4a0e44cb60645aaf0880ab6f5248af05cb57014f973aa47d0"
+    },
+    {
+      "packet": "cetvel500-audit",
+      "path": "experiments\\turkish-capability\\lfm3-1.7b\\preparation-local\\questions-500.jsonl",
+      "rows": 500,
+      "sha256": "2ccd068e8f95259083f0f5c30853d414801b9e06e9790bcf936b471467c46b93"
+    }
+  ],
+  "packets_missing_locally": [],
+  "method": {
+    "ngram": 5,
+    "ngram_containment_threshold": 0.15,
+    "numeric_jaccard_threshold": 0.5,
+    "note": "candidates for manual review only; not proof of independence"
+  },
+  "exact_overlap": [],
+  "flagged_pairs": [
+    {
+      "candidate": "bpe01-ar01-ticket-change-en-tr",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.17"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar01-ticket-change-en-tr",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.19"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar01-ticket-change-en-en",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.19"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar01-ticket-change-en-en",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.17"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar02-sequential-discount-en-tr",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.15"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar02-sequential-discount-en-en",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.15"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar03-session-end-time-en-tr",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.16"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar03-session-end-time-en-en",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.16"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar04-ratio-share-en-tr",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.15"
+      ]
+    },
+    {
+      "candidate": "bpe01-ar04-ratio-share-en-en",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.15"
+      ]
+    },
+    {
+      "candidate": "bpe01-ne04-upper-bound-en-tr",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.18"
+      ]
+    },
+    {
+      "candidate": "bpe01-ne04-upper-bound-en-tr",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.21"
+      ]
+    },
+    {
+      "candidate": "bpe01-ne04-upper-bound-en-en",
+      "protected": "xling-v01:xling-v01-en-en-purchase",
+      "reasons": [
+        "ngram_containment=0.21"
+      ]
+    },
+    {
+      "candidate": "bpe01-ne04-upper-bound-en-en",
+      "protected": "xling-v01:xling-v01-en-tr-purchase",
+      "reasons": [
+        "ngram_containment=0.18"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-01",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-01",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-01",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-02",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.50"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-02",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.50"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-02",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.50"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-03",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-03",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-03",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-04",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-04",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-04",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-05",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-05",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-05",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-05",
+      "protected": "train160-original:sft:TR-part1-261025_v1-fixed.jsonl:1881",
+      "reasons": [
+        "numbers=['5', '6', '7', '8', '9'] jaccard=0.62"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-06",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-06",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-06",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-07",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-07",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-07",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-07",
+      "protected": "train160-original:cot:train.jsonl:3900",
+      "reasons": [
+        "numbers=['12', '4', '5'] jaccard=0.50"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-08",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-1",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-08",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-2",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    },
+    {
+      "candidate": "bpe01-symbolic-08",
+      "protected": "xling-v01-symbolic:xling-v01-symbolic-3",
+      "reasons": [
+        "ngram_containment=0.43"
+      ]
+    }
+  ],
+  "flagged_count": 40
+}

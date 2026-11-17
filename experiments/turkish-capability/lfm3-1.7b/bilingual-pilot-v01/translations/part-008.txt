@@ -1,0 +1,280 @@
+=== g141
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1881
+@@USER
+Could you write 10 example rules for building a morning routine by combining implementation intentions (“if-then” plans) with habit stacking?
+@@ASSISTANT
+The pattern of each rule is this: If [current habit], then [new habit].
+
+1. If I have turned off the alarm, then I drink a glass of water right away.
+2. If I have put down the water glass, then I make my bed.
+3. If I have brushed my teeth, then I do a 1-minute deep breathing exercise.
+4. If I have come out of the shower, then I do 5 minutes of stretching.
+5. If I have started the coffee machine, then while the coffee brews I write the 3 most important tasks of the day in my notebook.
+6. If I have got my coffee, then I read 10 pages of a book before looking at my phone.
+7. If I have sat down at the breakfast table, then I add a portion of fruit to my plate.
+8. If I have finished breakfast, then I wash my plate right away.
+9. If I have put on my shoes, then I put my water bottle in my bag.
+10. If I have locked the door, then on the way to work I say the day's goal to myself once.
+
+Tip: Start with 2-3 rules first. Once these have settled in, add new ones.
+
+=== g142
+@@SOURCE_ID cot:train.jsonl:3647
+@@USER
+Her mother is advising Elif with “Never tell a lie.” Elif replies: “Mom, I didn't listen to what you just said.” Why does Elif's reply refute itself? Explain.
+@@ASSISTANT
+Elif's sentence refutes its own content through the way it is said.
+
+1. Performative contradiction: Elif gives a direct and fitting reply to her mother's words. To be able to reply to a statement, one must have noticed it and turned toward it. That is, replying actually demonstrates the opposite of the claim “I didn't listen.” Such statements are not logically impossible, but the manner in which they are uttered voids their content. Saying “I am not speaking right now” is the same.
+
+2. Connection with the advice: The sentence is most likely false. If Elif listened, she is lying. In this way she breaks the advice “Never tell a lie” at the very moment she tries to get out of it. Even if the sentence is true, it cannot be explained how she could respond so accurately to something she did not listen to. In both cases the objection harms its own purpose.
+
+Note: This is not a Liar Paradox. Elif's sentence is about her mother's words, not about itself, and it does not flip between true and false; it is only very likely to be false. The structure is not a semantic paradox but a pragmatic (performative) self-refutation.
+@@REASONING
+Elif's sentence is a direct reply to her mother's words. To be able to reply, she must have noticed that something was said and be reacting to it. That much weakens the claim “I didn't listen.” The matter is not the fine difference between listening and hearing; it is that the reply itself is evidence of having listened. This is not a semantic paradox: the sentence does not flip between true and false, it is just most likely false. If false, Elif is lying, that is, she breaks the advice “don't lie” at the very moment she opposes it. If true, it cannot be explained how she answered so aptly a statement she did not listen to. In both cases the reply defeats its own purpose. Type: performative self-refutation (like “I am not speaking right now”).
+
+=== g143
+@@SOURCE_ID occam:data/train.jsonl:19
+@@USER
+Source: The Science High School Directorate launched a new scholarship program in İzmir. The University Registrar's Office, meanwhile, expanded its distance education infrastructure during the same period. The information was shared at the parents' meeting.
+
+Question: According to the following text, which institution carried out the action 'launched a new scholarship program'?
+
+Answer:
+@@ASSISTANT
+The Science High School Directorate
+@@FLAGS
+low | entity_translation | Institution names are descriptive and were translated ("Fen Lisesi Müdürlüğü" -> "The Science High School Directorate"). Original wording "Aşağıdaki metne göre" ("according to the following text") points to text that appears above; preserved literally.
+
+=== g144
+@@SOURCE_ID cot:train.jsonl:4251
+@@USER
+A Turkish e-commerce site reports that the likelihood of purchase also increases as the time users spend on the page increases, and comments that “staying long on the page causes sales.” Which direction of causality has been overlooked in this comment? How do users with high purchase intent staying longer on the page create a confounder in this relationship?
+@@ASSISTANT
+The overlooked direction of causality: The company sets up the relationship in one direction: time → sales. The omitted possibility is that the relationship may work in reverse or may arise from a common cause. The possibility that “a user who intends to buy stays long anyway” has not been taken into account. In this case the long time is not the cause of the sale but a sign of high intent. Reading correlation as causation is the mistake here.
+
+Why purchase intent is a confounder: A confounder is a third variable that affects both the independent variable and the dependent variable. Purchase intent is exactly that: a user with high intent both stays longer on the page (examines the product, compares, adds to the cart) and buys more. Thus part or all of the apparent relationship between time and sales actually comes from intent; time and sales may not be directly each other's cause.
+
+Practical consequence: Artificially keeping the user longer on the page (for example with waiting screens) does not increase sales, and may even drive away users with low intent. To see the real causality, one must run an A/B test that randomly varies the time, or include intent in the model as a control variable in the analysis.
+@@REASONING
+Two separate things are asked. The first is the missing direction: the company says time → sales, but it skips the reverse direction, that is, high purchase intent may be increasing both time and sales. The second is the confounder: since purchase intent affects both the independent variable (time) and the dependent variable (sales), it is a common cause; part or all of the observed correlation comes from it. Artificially lengthening the time does not increase sales; only an experiment that randomly changes the time can tell these apart.
+
+=== g145
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2775
+@@USER
+Reframe the following customer announcement in a way that reduces reputational risk:
+
+“Due to a problem in our system, orders will be delayed by 3 days. This is not caused by us.”
+@@ASSISTANT
+“Dear customers, due to a technical problem in our system, the delivery of your orders will be delayed by approximately 3 days. We apologize for the inconvenience we have caused. Our team is working to resolve the problem; we will share developments by email. You can always reach our customer service with any questions.”
+
+Changes made:
+* The sentence disclaiming responsibility was removed; defensive language damages trust.
+* An apology and empathy were added.
+* The step taken to resolve the problem was stated.
+* A communication channel through which the customer can get information was offered.
+
+=== g146
+@@SOURCE_ID occam:data/train.jsonl:32
+@@USER
+Title: Weather
+
+Text: Schools in Adana were closed for a day because of dense fog that lasted throughout the day. Officials warned citizens to be cautious.
+
+Summary:
+@@ASSISTANT
+Schools in Adana were closed for a day because of dense fog; officials warned citizens to be cautious.
+
+=== g147
+@@SOURCE_ID atlas:train.chat.jsonl:29661
+@@USER
+Answer the question based on the following passage. Do not add information that is not in the passage.
+
+Passage: Exam process: 1. Registration, 2. Preparation week, 3. Administration, 4. Evaluation. The chronology was followed. The analysis report confirms this order.
+
+Question: State the chronology of the exam process.
+@@ASSISTANT
+The exam process proceeds in this order: 1. Registration, 2. Preparation week, 3. Administration, 4. Evaluation.
+
+=== g148
+@@SOURCE_ID atlas:train.chat.jsonl:227972
+@@USER
+Compare the following two environmental reports. State the similarities, differences and any inconsistencies in a plain paragraph. Do not add comments that are not in the text.
+
+Source A: Forest fires in the Mediterranean destroyed an area of 50 thousand hectares in 2023. The main cause is human error.
+
+Source B: The 2023 Mediterranean fires caused damage over 45 thousand hectares; climate change is responsible at a rate of 60%.
+@@ASSISTANT
+Both sources are about the forest fires that broke out in the Mediterranean in 2023 and the loss of area they caused. They give different area figures for the same event: Source A says 50 thousand hectares, Source B says 45 thousand hectares; this 5 thousand hectare difference is a numerical inconsistency. They also contradict each other on the causes. Source A names human error as the main cause. Source B, on the other hand, holds climate change responsible for 60% of the fires, which makes climate change the main cause.
+@@FLAGS
+low | mistake_suspected | The original answer says climate change being "responsible at a rate of 60%" makes it "the main cause", an inference beyond the text (the prompt forbids adding comments); it also rephrases the 60% as "60% of the fires". Left unchanged. Arithmetic verified: 50-45=5.
+
+=== g149
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1828
+@@USER
+Could you compare the boundary violations caused by misunderstanding empathy when supporting someone in a crisis with healthy boundary-setting statements?
+@@ASSISTANT
+Empathy is understanding the other person's feelings; it is not taking on their responsibility or erasing your own boundaries. When these two are confused in a crisis, boundaries are harmed. The common misunderstandings and the healthy boundary statement corresponding to each are as follows:
+
+* “I must meet every need immediately.” This thought drains your own time and energy. The healthy version: “I care about you; I can set aside half an hour right now, and we can talk again afterwards.”
+* “I must be reachable at all times.” You lose rest and private time. The healthy version: “I can't reply late at night; I'll get back to you first thing in the morning.”
+* “I have to solve their problem.” This leads you to take over their responsibility and leave them passive. The healthy version: “I'm with you, but this decision has to be yours. What would you like to do?”
+* “Empathy means agreeing with everything.” In this way you suppress your own concerns and views. The healthy version: “I understand that you're upset; still, this course of events worries me.”
+* “I must listen and share without limit.” This leads you to exceed your own emotional capacity. The healthy version: “This topic is heavy for me too; shall we take a short break and continue tomorrow?”
+
+The two separate situations should not be confused. The above are cases where the person giving support misunderstands empathy. There is also the other side turning empathy into a tool of pressure (“If you love me, you'll do this”). The boundary statement against this could be: “I care about you, but I can't accept this request.”
+
+Summary principle: Empathy is understanding, not taking over responsibility.
+
+=== g150
+@@SOURCE_ID cot:train.jsonl:2027
+@@USER
+A university's student database contains 4,096 sorted records. How many comparisons are made in the worst case to find a particular student using binary search?
+A) 10 B) 11 C) 12 D) 13 E) 14
+@@ASSISTANT
+The number of comparisons in the worst case is found by the formula ⌊log₂ n⌋ + 1.
+
+Since n = 4096 = 2¹², ⌊log₂ 4096⌋ + 1 = 12 + 1 = 13.
+
+With each comparison the larger half in which the search continues shrinks: 2048 → 1024 → … → 2 → 1. Until a single element remains, 12 comparisons are made, and 1 more comparison is needed to check the last element.
+
+Answer: D) 13
+@@REASONING
+The number of comparisons in the worst case is ⌊log₂ n⌋ + 1, not ⌈log₂ n⌉. The two give different results when n is an exact power of 2. For n = 4096 = 2¹², the first comparison is made with the middle element. 2047 elements remain on one side and 2048 on the other; in the worst case the search continues on the larger side. The number of comparisons and remaining elements: after the 1st comparison 2048, after the 2nd 1024, after the 3rd 512, after the 4th 256, after the 5th 128, after the 6th 64, after the 7th 32, after the 8th 16, after the 9th 8, after the 10th 4, after the 11th 2, after the 12th 1. A comparison with the last remaining element is also needed. Total 13. Here 12 is the number of times the range is halved; the number of comparisons is one more than that.
+@@FLAGS
+info | verification | Verified: floor(log2 4096)+1 = 13.
+
+=== g151
+@@SOURCE_ID cot:train.jsonl:3493
+@@USER
+A diplomat will fly from Ankara to Cairo, Riyadh and Tehran in that order. The flight times are 2 h 30 min, 3 h 15 min and 2 h 45 min respectively. The diplomat departs from Ankara at 07:00 local time and stays 6 hours at each of the intermediate stops (Cairo and Riyadh). Time zones: Ankara UTC+3, Cairo UTC+2, Riyadh UTC+3, Tehran UTC+3:30. At what local time does the diplomat arrive in Tehran?
+@@ASSISTANT
+The time differences of the intermediate stops do not affect the result, because each stop is both arrived at and departed from. It is enough to find the total duration and add the time difference between the start and the end.
+
+Total duration: 2:30 + 6:00 + 3:15 + 6:00 + 2:45 = 20 h 30 min
+
+Arrival in Ankara time: 07:00 + 20:30 = 03:30 the next day
+
+Conversion to Tehran time: Tehran is 30 min ahead of Ankara (the difference between UTC+3:30 and UTC+3), so 03:30 + 0:30 = 04:00
+
+Check (via UTC): Departure 04:00 UTC. Arrival in Cairo at 06:30, departure at 12:30. Arrival in Riyadh at 15:45, departure at 21:45. Arrival in Tehran at 00:30 UTC the next day, that is, 04:00 local time.
+
+The diplomat arrives in Tehran at 04:00 local time the next day.
+@@FLAGS
+info | verification | Arithmetic verified: 20:30 total; 04:00 UTC departure; 00:30 UTC arrival; 04:00 Tehran time next day.
+
+=== g152
+@@SOURCE_ID occam:data/train.jsonl:45
+@@USER
+Which of two job offers should I choose? I know their salaries but have not yet found out the working conditions.
+@@ASSISTANT
+It would not be right to recommend one by looking only at the salary without knowing the working conditions. You need to find out the working hours of the two jobs, whether the work is in the office or remote, the leave entitlement and the fringe benefits. Which is the most important to you when deciding: salary, free time, or a career opportunity?
+
+=== g153
+@@SOURCE_ID cot:train.jsonl:4066
+@@USER
+The densities of water samples taken from two separate layers (surface and bottom) of Lake Van are 1.012 g/cm³ and 1.025 g/cm³. The volume-weighted average density of the total mass in both layers is 1.007 times the density of the surface layer. Given that the total water volume is 607 km³ and the volume of the bottom layer is 1.4 times the volume of the surface layer, find the volumes of the two layers separately by setting up an analogical ratio, and calculate the volume of the bottom layer in km³.
+@@ASSISTANT
+- Surface layer: 607 ÷ 2.4 ≈ 252.92 km³
+- Bottom layer: 607 × 1.4 ÷ 2.4 ≈ 354.08 km³
+@@REASONING
+The volumes can be calculated directly from the 1:1.4 ratio. Since the total is 2.4 parts, the surface volume is 607/2.4 ≈ 252.92 km³ and the bottom volume is 607×1.4/2.4 ≈ 354.08 km³. However, the density condition also needs to be verified. While the given average density is 1.012×1.007 = 1.019084 g/cm³, the value calculated from the volume ratio is (1.012+1.4×1.025)/2.4 ≈ 1.019583 g/cm³. The conditions contradict each other. In the answer I should give the result according to the volume ratio and briefly note the inconsistency.
+@@FLAGS
+medium | mistake_suspected | The prompt is internally inconsistent (stated average density 1.012*1.007=1.019084 vs 1.019583 implied by the 1:1.4 volume ratio). The reasoning says the inconsistency should be noted in the answer, but the reviewed assistant message gives only the two volumes and does NOT mention it; it also uses no sentence form. Left unchanged; owner may want to re-review. Volumes verified: 252.92 and 354.08.
+
+=== g154
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1078
+@@USER
+Explain the socialist realist elements in Nazım Hikmet's poems, with correctly cited examples of poems.
+@@ASSISTANT
+Socialist realism assigns art a social function: it places the lives of workers and the oppressed, class struggle and the hope for change at its center. Nazım Hikmet is the pioneer of this approach in Turkish poetry and made a revolution not only in theme but also in form. Under the influence of Mayakovsky and Russian futurism, he left aruz and syllabic meter for free verse and broke his lines in a stair-step shape.
+
+The main elements and correctly cited examples:
+
+Realistic depiction of the oppressed people: “Açların Gözbebekleri” portrays starving masses, and “Salkımsöğüt” tells of a Red cavalryman who is shot and falls into the water. Individual suffering is presented as a social drama.
+Common ownership of the homeland: The poem “Davet” regards the country as the common property of the people; the idea the poem returns to again and again is “bu memleket bizim” (“this country is ours”).
+Epic and the collective hero: “Kuvâyi Milliye” tells the War of Independence not through pashas but through peasants, workers and women. The line “Onlar ki toprakta karınca, suda balık, havada kuş kadar çokturlar” (“They are as numerous as ants on the earth, fish in the water, birds in the air”) exalts the working masses.
+Anti-war stance and peace: “Kız Çocuğu” asks for peace from the world in the voice of a child who died in Hiroshima.
+Joy of living and hope for the future: “Yaşamaya Dair” expresses taking life seriously and living for others as a responsibility.
+
+These examples tie Nazım's poetry to the two basic principles of socialist realism: the bare depiction of social reality and faith in change.
+@@FLAGS
+medium | mistake_suspected | The prompt asks for "doğru künyeli" (correctly cited) examples, but poem attributions and descriptions ("Açların Gözbebekleri", the quoted Kuvâyi Milliye line, etc.) were not independently verified and may be unreliable; hallucination risk in a bibliographic task. Titles/quotes kept in Turkish verbatim with English glosses. Owner may want literary re-review.
+
+=== g155
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:5100
+@@USER
+Why is salt put into a dishwasher?
+@@ASSISTANT
+Salt is put in not to clean the dishes but to keep the water softener in the machine working.
+
+The problem is hard water: calcium and magnesium ions in tap water leave limescale when heated. This scale forms white spots on glasses and deposits on the heating element and hoses, and also reduces the effect of the detergent.
+What the softener does: Inside the machine there is an ion-exchange resin. The resin captures the calcium and magnesium in the water and releases sodium in their place.
+The job of the salt: The resin fills up over time. Salt water (NaCl solution) strips calcium and magnesium from the resin and sends them to the drain, refilling the resin with sodium. When the salt runs out, this regeneration stops and the machine starts washing with hard water.
+
+Practical notes:
+Use coarse-grained dishwasher salt, not table salt. Fine salt and the additives in it can clog the reservoir.
+Put the salt only into the salt reservoir, not into the detergent compartment.
+Set the machine's hardness setting according to the water hardness in your area. If your water is very soft, salt may not be needed.
+
+=== g156
+@@SOURCE_ID cot:train.jsonl:3928
+@@USER
+An amateur football team trains 3 times a week. Each training session includes running, passing and shooting practice. The coach wants to allocate at least 20 minutes to running, at least 15 to passing and at least 10 to shooting in each session. The training lasts 60 minutes, and the coach wants to share the time left after the lower limits equally among the three activities. What is the time distribution in each session and the weekly totals?
+@@ASSISTANT
+In each session, 25 minutes of running, 20 minutes of passing and 15 minutes of shooting practice should be done.
+
+The lower limits take 45 minutes (20 + 15 + 10). When the remaining 15 minutes are shared equally among the three activities as 5 minutes each, the session comes to exactly 60 minutes.
+
+With 3 sessions a week, the team will have done a total of 75 minutes of running, 60 minutes of passing and 45 minutes of shooting practice.
+@@REASONING
+Sum of the lower limits: 20 + 15 + 10 = 45 min. Remaining time: 60 − 45 = 15 min, 15 ÷ 3 = 5 min per activity.
+Per session: Running 25 min, passing 20 min, shooting 15 min (total 60 min)
+Weekly (3 sessions): Running 75 min, passing 60 min, shooting 45 min (total 180 min)
+@@FLAGS
+info | verification | Arithmetic verified: 45; 15; 5 each; 25/20/15; weekly 75/60/45.
+
+=== g157
+@@SOURCE_ID occam:data/train.jsonl:86
+@@USER
+I want to buy cheap thread, but my machine's manual says not to use this thickness. The compatible thread is a bit more expensive; I will be sewing by machine. Should I choose the cheap one?
+@@ASSISTANT
+No, choose the compatible thread; your machine's manual says not to use the cheap thread's thickness, and you will be sewing by machine.
+
+=== g158
+@@SOURCE_ID occam:data/train.jsonl:42
+@@USER
+Do you think I should buy new headphones?
+@@ASSISTANT
+That depends on your current headphones: what is missing in them, or what bothers you?
+
+=== g159
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2194
+@@USER
+Is it legitimate for a criminal judge to fill in vague norms that violate the principle of legality in crimes and punishments?
+@@ASSISTANT
+In short: No, it is not legitimate for a judge to “fill in” a criminal norm that is vague to an extent that violates the specificity dimension of the principle of legality. However, the distinction between interpretation and creating a norm needs to be drawn well here.
+
+Basis: The principle of legality in crimes and punishments is regulated in Article 38 of the Constitution and Article 2 of the Turkish Criminal Code (TCK); Article 7 of the ECHR gives the same guarantee. The principle has four dimensions: regulation by law (lex scripta), being specific and clear (lex certa), non-retroactivity (lex praevia) and the prohibition of analogy (lex stricta). TCK Art. 2/3 states explicitly that penal provisions cannot be interpreted broadly in a way that leads to analogy.
+
+Interpretation is free, creating norms is forbidden: The judge interprets the existing norm with literal, systematic and purposive methods; it is legitimate for the judge to concretize general but determinable concepts such as “insult” or “obscene.” The ECtHR also accepts that every law needs interpretation; the criterion is that the result be foreseeable for the citizen (for example the Kokkinakis v. Greece judgment). However, if the judge “fills in” the norm by adding an element of a crime or a punishment that is not in the law, or by using analogy, the judge usurps legislative power and violates the principle of legality.
+
+The solution for a truly vague norm: If the norm is so vague that it does not ensure foreseeability, the judge's legitimate course is not to close this gap with a definition of an offense of their own making. The judge either prefers the narrow interpretation in favor of the defendant or considers the provision contrary to the Constitution and brings it before the Constitutional Court through concrete norm review (Constitution Art. 152). The authority to fill the gap belongs to the legislative organ.
+
+In summary: concretizing a general concept within foreseeable limits is legitimate interpretation, whereas a judge's filling in a norm that is vague to an extent violating the principle of legality by adding content is not legitimate.
+@@FLAGS
+medium | mistake_suspected | Legal citations (Const. Arts. 38, 152; TCK Art. 2 and 2/3; ECHR Art. 7; Kokkinakis v. Greece) not independently verified; preserved verbatim. Owner may want legal re-review.
+
+=== g160
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1801
+@@USER
+How do you manage conflicts between publishing and personal-brand goals and team performance goals?
+@@ASSISTANT
+First I make a principle clear: the team's shared goals and the deliverables I have committed to come first; personal-brand work cannot replace them. I manage the conflict on this basis:
+
+* Alignment: As far as possible I make the personal content overlap with the team's work. Posting in my area of expertise strengthens both me and the team's visibility; in this way the conflict often turns into synergy.
+* Transparency: I openly tell my manager and the team my publishing plan. I do not share confidential project information, customer data or content that conflicts with the company's tone; if I am in doubt, I get approval first.
+* Time separation: I put personal brand work into separate time blocks or outside working hours, in a way that does not put team deliverables at risk. If there is a critical deliverable, personal content waits.
+* If the conflict continues: I talk about priorities with my manager and we set a balance together. If a choice is needed between team success and personal visibility, I prioritize the team for that period.
+
+In summary, my approach is to align the two as far as possible instead of setting them against each other, and at the point where they cannot be aligned, to put the team goal first and manage this transparently.

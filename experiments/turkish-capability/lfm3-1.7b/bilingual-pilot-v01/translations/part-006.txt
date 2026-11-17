@@ -1,0 +1,379 @@
+=== g101
+@@SOURCE_ID atlas:train.chat.jsonl:315935
+@@USER
+As a new employee, I need information about the academic integrity policy. The text of the policy is as follows: “The academic integrity policy requires the application of institutional ethical standards and compliance with citation rules in order to protect intellectual property rights and prevent attempts at plagiarism.” Please explain this in simple, short sentences and in bullet points.
+@@ASSISTANT
+* Purpose: To protect other people's ideas and work, and to prevent plagiarism.
+* Plagiarism is prohibited: You cannot present someone else's idea, text or work as your own.
+* Citation is mandatory: When you make use of a source, you must always state the source.
+* Ethical rules: You must comply with the ethical standards set by the institution.
+
+=== g102
+@@SOURCE_ID cot:train.jsonl:4314
+@@USER
+A labor court decided a lawsuit filed on a mobbing allegation without hearing witnesses and dismissed the case. How does this deficiency in the proceedings shake trust in justice, and how will it affect similar cases in the future?
+@@ASSISTANT
+Mobbing is often a hidden pattern of behavior carried out in front of witnesses but without documents; for this reason witness testimony is often the strongest, even the only, evidence in proving it. The court's dismissing the case without hearing witnesses makes the plaintiff's right to prove their claim and right to be heard (Code of Civil Procedure (HMK) Art. 27) practically impossible to exercise; this is incompatible with the right to a fair trial under Constitution Art. 36 and ECHR Art. 6. In the practice of the Court of Cassation (Yargıtay), such incomplete examination is also a ground for reversal.
+
+How it shakes trust in justice:
+* The plaintiff becomes alienated from the judiciary with the feeling “the court did not listen to me”; before the correctness of the decision, the perception that the process was not fair takes root.
+* Mobbing victims hesitate to file suit with the thought “I won't be heard anyway, I can't prove it.”
+* Deterrence weakens from the employer's point of view; the protective function of the judiciary erodes.
+
+How it affects similar cases:
+* If the decision is reversed by the Court of Cassation, a retrial is needed; time is lost, there is wear and tear, and evidence is lost, such as witnesses being unable to remember with the passage of time.
+* Decisions of this kind create a perception: both the victims' expectation that “the result won't change” and the impression that procedure is not taken seriously grow stronger.
+* The decline in trust pushes people toward alternative routes such as the ECtHR or the Ombudsman Institution, or toward not filing suit at all.
+
+In essence, this is not a simple procedural error; in a matter like mobbing, whose visibility depends on witnesses, the process not being conducted fairly also makes the material correctness of the decision doubtful.
+@@FLAGS
+medium | mistake_suspected | Legal citations (HMK Art. 27, Const. Art. 36, ECHR Art. 6, Court of Cassation practice) not independently verified; preserved verbatim.
+
+=== g103
+@@SOURCE_ID atlas:train.chat.jsonl:51813
+@@USER
+Using the exchange rate impact report data below, write a single-paragraph text in a formal tone. The text must be 50-80 words and must contain exactly 2 risks and 2 actions. Do not use vague expressions.
+
+Factor: Depreciation of the lira (TL)
+Risks: Increase in import costs, narrowing of profit margin
+Actions: Taking a hedge position, renegotiating supplier contracts
+@@ASSISTANT
+The depreciation of the Turkish lira poses two main risks for our company. First, import costs are rising because purchases are made in foreign currency. Second, the inability to fully pass the increased costs on to sales prices is narrowing profit margins. Two actions will be taken against these risks. A hedge position will be taken for foreign currency liabilities through forward contracts, and the price and payment terms of existing contracts with suppliers will be renegotiated.
+@@FLAGS
+info | length_constraint | The prompt demands 50-80 words and the EN answer is 76 words (checked by the validator); the TR original is checked separately.
+
+=== g104
+@@SOURCE_ID cot:train.jsonl:1406
+@@USER
+A teenager spends 40% of their monthly allowance on music, video and gaming subscriptions. They think that if they cancel all their subscriptions they will save 7,200 TL a year, but that they may lose part of their fun and their connection with their friends. Evaluate the effect of the subscription spending on their budget not only in terms of cost but also in terms of quality of life.
+@@ASSISTANT
+# The Causal Effect of Subscription Spending on the Budget: An Integrated Assessment with Cost and Quality-of-Life Dimensions
+
+## 1. Verifying the Numerical Framework
+
+The two figures given in the question are consistent with each other:
+
+- Annual saving: **7,200 TL** → Monthly saving: **600 TL**
+- This amount equals **40%** of the allowance → Monthly allowance: **600 ÷ 0.40 = 1,500 TL**
+- Annual allowance: **18,000 TL**; the share going to subscriptions each year: **7,200 TL**
+
+This amount is an "outflow item" that comes close to half of the teenager's total income; therefore its causal effect should be treated not merely as an "expense" but as a **structural component of the budget**.
+
+---
+
+## 2. The Two Layers of the Causal Effect
+
+### A. The Pure Cost Layer (Direct Effect)
+- Cause: The existence of the subscriptions → an automatic, recurring outflow of 600 TL per month.
+- Result: If the expense is cancelled, the budget gains **a net +600 TL/month** of liquidity; the possibility of **+7,200 TL per year** of savings/transfer.
+- This layer is **positive, measurable and certain**.
+
+### B. The Quality-of-Life Layer (Indirect Effect)
+Here causality runs in both directions; subscriptions produce both **benefit** and **cost**:
+
+| Dimension | Possible Positive Effects | Possible Negative Effects |
+|---|---|---|
+| **Psychological** | Stress reduction through music, mood regulation, "flow" experience through games | Risk of addiction, FOMO, getting used to instant gratification |
+| **Social** | Online communities, shared-interest networks, friendships | Weakening of face-to-face relationships, loneliness |
+| **Cognitive / Human Capital** | Problem solving and strategy in games; knowledge accumulation from documentaries/videos | Distraction, disrupted sleep patterns |
+| **Cultural** | Aesthetic development through art/music consumption | Reinforcement of the habit of passive consumption |
+| **Behavioral** | Planned, regular access | Loss of awareness through the psychology of "automatic payment" |
+
+> **Critical point:** The same spending item, while producing **subjective well-being** on one hand, creates **opportunity cost** on the other. That is, 7,200 TL is not only "money going out" but **the price of unused alternatives**.
+
+---
+
+## 3. Opportunity Cost Analysis: What Can Be Done with 7,200 TL?
+
+This amount is a resource that could also raise the teenager's quality of life through other channels:
+
+- **Human capital:** Online courses, certificate programs, language education (~2,000–4,000 TL)
+- **Physical health:** Gym membership, dance/music lessons (~3,000–5,000 TL)
+- **Experience:** Concerts, theater, travel, social events
+- **Financial security:** Emergency fund, small savings (compound interest effect)
+
+These alternatives can produce some of the benefits the subscriptions provide (social connection, entertainment, learning) in a **more lasting and concrete** way.
+
+---
+
+## 4. An Integrated Causal Model
+
+The **real causal effect** of subscriptions on the budget can be thought of with the following formula:
+
+> **Net Effect = (Measurable Cost) – (Contribution to Quality of Life) + (Opportunity Cost)**
+
+- If the contribution to quality of life is **greater than** the opportunity cost → subscriptions are not an "expense" but a **subjective investment**.
+- If the opportunity cost is **greater than** the contribution to quality of life → subscriptions are **consumption that needs to be rationalized**.
+- If the two are **close to each other** → **partial optimization** (e.g. cancel the one with the lowest benefit/cost ratio) gives a Pareto improvement.
+
+---
+
+## 5. Decision Recommendations (Actionable)
+
+1. **Experimental reduction instead of full cancellation:** First cancel the subscriptions that produce the least value for 1–2 months; observe the change in quality of life.
+2. **Benefit–cost separation:** For each subscription, score the "monthly happiness/social connection it provides" and its "cost" from 1 to 10; prune those with low scores.
+3. **Make the opportunity cost visible:** Tie the 7,200 TL to a "goal" (e.g. a computer, a course, a trip); this breaks the **awareness blindness** created by automatic payment.
+4. **Behavioral design:** Stopping automatic payments and switching to annual up-front payment reduces the "loss aversion" bias.
+5. **Preserve social connection:** If the social connection is the real value, rebuild the same connection through **lower-cost channels** (local communities, clubs).
+
+---
+
+## 6. Conclusion
+
+The causal effect of subscription spending on the budget remains incomplete when read **only as an outflow of 7,200 TL**. This spending:
+
+- **Directly** reduces the allowance (measurable cost),
+- **Indirectly** affects quality of life, social capital and mood (hard to observe but a real benefit),
+- And also carries the opportunity cost, which is **the price of unused alternatives**.
+
+Therefore the rational decision is not **"cancel or don't cancel"** but to seek the answer to the question **"which subscription answers which need, and how effectively?"** The quality-of-life dimension forms **a complement to, not a cancellation of**, the cost analysis; but this complementarity must be balanced together with opportunity cost and behavioral risks.
+@@REASONING
+Cost: 7,200 TL a year comes to 600 TL a month. Since this amount is 40% of the allowance, the monthly allowance is 600 ÷ 0.40 = 1,500 TL. After the subscriptions are paid, 900 TL a month remains. Such a large share leaves very little room for savings and unexpected expenses. Moreover, because it is paid automatically, it goes on without being noticed.
+
+Quality of life: Subscriptions also provide real value: music improves mood, video offers entertainment and information, games create a shared space with the circle of friends. On the other hand, there are risks such as excessive screen time, disrupted sleep and passive consumption. The real question is whether the benefit each subscription provides is worth it compared with the alternatives that could be done with the same money (savings, courses, sports, face-to-face activities).
+
+Assessment: Cancelling everything zeroes out the cost but also takes away the social and emotional benefit. A more balanced route could be:
+
+Ranking each subscription by how much it is used and how much it is valued.
+Cancelling the least used one, moving to family or student plans.
+Trying for a month and seeing what is really missed.
+
+In this way they can reduce a significant part of their spending while keeping their connection with friends.
+@@FLAGS
+low | mistake_suspected | Answer quality issues in the reviewed original: the "Net Effect" formula double-counts (opportunity cost is the flip side of the saving) and its signs are confusing; the answer's headline says "causal effect" though the prompt does not; "annual up-front payment reduces loss aversion" is an unsupported behavioral claim; 7,200/18,000 = 40% is described as "close to half". Arithmetic verified (600/month; 1,500 allowance; 18,000/year; 900 left). Left unchanged.
+
+=== g105
+@@SOURCE_ID cot:train.jsonl:166
+@@USER
+You are given the following premises: the signing of the Armistice of Mudros (30 October 1918), the Allied Powers' beginning the occupation of Anatolia, Mustafa Kemal's landing at Samsun on 19 May 1919, and the Amasya Circular (22 June 1919). Does the conclusion “The beginning of the National Struggle should be accepted as 19 May” follow necessarily by deduction from these premises? Does this inference refute or support the view that the Erzurum and Sivas congresses can also be counted as the beginning?
+@@ASSISTANT
+1. Does the conclusion follow necessarily? No, the inference is invalid.
+
+All of the premises report facts and chronology. “Should be accepted” is a norm. Without a premise providing a criterion for what counts as the “beginning,” such a conclusion cannot be drawn from facts.
+The premises do not point to a single date. The Mudros Armistice and the occupations took place before 19 May, and local resistance against them had also begun earlier (Dörtyol, 19 December 1918; the Defense of Rights societies). The Amasya Circular, on the other hand, came after 19 May. The premises are also compatible with different starting dates.
+
+2. Does it refute or support the view of the Erzurum and Sivas congresses? It does neither.
+
+An invalid inference cannot refute another view. Nor is there anything in the premises that excludes the congresses.
+It cannot be said to support it either, because the premises do not mention the congresses at all.
+Which date counts as the beginning depends on the criterion chosen: 19 May if the criterion of personal initiative is taken, the Erzurum (July-August 1919) and Sivas (September 1919) congresses if the criterion of organized national representation is taken, and the end of 1918 if the criterion of first armed resistance is taken.
+@@REASONING
+All four premises report facts and chronology. The conclusion, however, is a norm (“should be accepted”) and requires a criterion for what counts as the “beginning.” This criterion is not in the premises, so the inference is invalid. In fact the premises include events before 19 May: the occupations and local resistance against them (Dörtyol, 19 December 1918). So an earlier beginning can also be defended. The second question: an invalid inference cannot refute another view. Since the premises do not mention the congresses at all, they do not support that view either. The result is neutral: the matter depends on which criterion is chosen. If the criterion of personal initiative is taken the beginning is 19 May, if the criterion of organized national representation is taken it is the Erzurum and Sivas congresses, if the criterion of first armed resistance is taken it is the end of 1918. The established acceptance of 19 May rests on a convention in historiography (Nutuk). It is not a logical necessity.
+@@FLAGS
+low | verification | Historical dates (30 Oct 1918, 19 May 1919, 22 Jun 1919, Dörtyol 19 Dec 1918, Erzurum Jul-Aug 1919, Sivas Sep 1919) consistent with standard accounts; not independently source-checked. "Milli Mücadele" rendered "the National Struggle".
+
+=== g106
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:4645
+@@USER
+What is the current salary range of a cybersecurity specialist at a private bank in Istanbul?
+@@ASSISTANT
+Because cybersecurity salaries change rapidly with inflation and market conditions, the exact figure needs to be verified from current sources. Still, the range is determined by the following factors:
+
+* Role: SOC analyst, penetration tester (pentester), security engineer and GRC/compliance are paid differently.
+* Seniority: There is a large difference between the entry, mid, senior and executive (CISO) levels.
+* Certifications: Certifications such as CISSP and OSCP push the salary up.
+* Institution and city: A bank and Istanbul generally pay above the market average.
+
+You can work out the current range from these sources: kariyer.net, yenibiris, Glassdoor, levels.fyi and the banks' current job postings; if possible, recruitment consultants. Also take into account that net salary will be roughly 30-40% below gross.
+@@FLAGS
+low | time_sensitive | The answer avoids giving figures (good) but states net pay is "about 30-40% below gross"; this tax-dependent claim is unverified. Turkish job-site names kept (kariyer.net, yenibiris).
+
+=== g107
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1045
+@@USER
+Discuss the validity of the proverb “Ağaç yaşken eğilir” (“A tree bends while it is young”) in light of neuropsychological findings.
+@@ASSISTANT
+The proverb says that character and habits are shaped at an early age and that it is hard to change them later. Neuropsychology partly confirms and partly limits this intuition.
+
+Supporting findings: There are “sensitive periods” in brain development; functions such as language, vision and hearing are established much more easily and lastingly in early childhood. In this period synaptic connections intensify, then the unnecessary ones are pruned and the remaining ones are strengthened by myelination. For example, the ability to speak a language without an accent, like a native speaker, is largely limited to early ages. The long-term effects of early negative experiences (neglect, chronic stress) on stress systems and emotion regulation also support the proverb.
+
+Limiting findings: The brain is plastic throughout life. Adults can also learn a new language, instrument or skill; new learning has been shown to create structural changes in the brain. Psychotherapy (for example cognitive behavioral therapy) can change deep-rooted patterns of behavior and emotion. That is, change is not impossible in adulthood, it merely proceeds more slowly and requires more effort. Genetic and environmental differences also mean that not everyone has the same capacity to “bend.”
+
+Conclusion: “Ağaç yaşken eğilir” is not an absolute rule but an emphasis on the privileged importance of the early period. The early years are shaped more easily, but the old “tree” does not lose its flexibility entirely either. For this reason the saying falls short to the extent that, while expressing the value of early education, it ignores the possibility of lifelong learning and change.
+@@FLAGS
+info | gloss | Turkish proverb kept verbatim with a literal English gloss in the prompt; EN answer keeps the proverb in Turkish in the final paragraph.
+
+=== g108
+@@SOURCE_ID atlas:train.chat.jsonl:137979
+@@USER
+We are buying 20 laptops at 15,000 TL each for the security department. The seller applies a 10% discount on the total amount. Calculate the total amount to be paid excluding VAT.
+@@ASSISTANT
+Amount without discount: 20 × 15,000 = 300,000 TL
+10% discount: 300,000 × 0.10 = 30,000 TL
+Amount to be paid excluding VAT: 300,000 − 30,000 = 270,000 TL
+@@FLAGS
+info | verification | Arithmetic verified: 270,000.
+
+=== g109
+@@SOURCE_ID atlas:train.chat.jsonl:209762
+@@USER
+A coffee chain wants to create a 100 kg blend with an average value of 180 TL/kg by mixing Arabica beans at 200 TL/kg with Robusta beans at 150 TL/kg. How many kg of Arabica and Robusta should be used for this blend?
+@@ASSISTANT
+Let the amount of Arabica be A and the amount of Robusta be R.
+A + R = 100 and 200A + 150R = 180 × 100 = 18,000
+Substituting R = 100 − A: 200A + 150(100 − A) = 18,000 → 50A = 3,000 → A = 60
+60 kg Arabica, 40 kg Robusta. (Check: 200·60 + 150·40 = 18,000 ✓)
+@@FLAGS
+info | verification | Arithmetic verified: A=60, R=40.
+
+=== g110
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:21
+@@USER
+How do deontological prohibitions respond to the “moral demandingness” objection? Where should the line be drawn when obligations become too burdensome?
+@@ASSISTANT
+1. Prohibitions by their structure demand little. The demandingness objection is mainly directed at consequentialism, because the duty to maximize the good has no limit. Deontological prohibitions (not killing, not lying), on the other hand, are negative duties: they can always be complied with by doing nothing, and all of them can be complied with at the same time. The positive duty of aid is also, in Kant, a wide duty; to whom, when and how much to give aid is left to the person's discretion. Scheffler's “agent-centered options” likewise permit the person to pursue their own projects. Sacrifice beyond this limit is supererogatory, that is, praiseworthy but not obligatory.
+
+2. The problem comes back from the other direction. The cost of complying with a prohibition is sometimes very heavy. For example, in cases such as “if you do not kill an innocent person you will be killed” or “if you comply with the prohibition a catastrophe will occur,” deontology begins to look excessively demanding.
+
+3. In such cases there are three stances on the limit:
+
+Absolutism (Kant, Anscombe): The prohibition cannot be crossed at any cost. A similar intuition exists in Islamic law: even under ikrah (coercion), killing an innocent person is not considered permissible.
+Threshold deontology (Moore, Alexander): The prohibition may be crossed when the consequences reach catastrophic proportions. Its most criticized aspect is that where the threshold lies remains unclear.
+The distinction between justification and excuse: Violating the prohibition under severe pressure remains wrong, but the person is not blamed or is blamed less.
+
+Conclusion: For positive duties, the limit is drawn by the sphere of discretion that protects the person's basic interests and projects; beyond that is supererogatory. For prohibitions, the limit becomes open to debate only when loss of life or catastrophe is at stake. Absolutists still recognize no limit, while threshold theorists accept a catastrophe threshold. An intermediate solution is to regard the act as wrong while excusing the agent. In the literature there is no definitive numerical criterion for this limit.
+@@REASONING
+The demandingness objection is really directed at consequentialism, because the duty to maximize the good has no limit. Deontology's first answer is this: prohibitions are negative duties. They can be complied with by doing nothing, all of them can be complied with at the same time, and therefore they are generally cheap. The duty of aid is, in Kant, a wide (imperfect) duty and leaves a margin of discretion. Scheffler's “agent-centered options” also allow the person to pursue their own projects. Sacrifice beyond these is supererogatory, that is, praiseworthy but not obligatory. But the problem comes back from the other direction: the cost of complying with a prohibition may be one's own life or a catastrophe. At this point there are three stances: absolutism (Kant, Anscombe; in Islamic law too, killing an innocent person under ikrah is not permissible), threshold deontology (Moore, Alexander; the criticism that the threshold is arbitrary), and the distinction between justification and excuse. There is no definitive numerical threshold, and one should not be made up.
+
+=== g111
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1241
+@@USER
+Analyze from multiple perspectives the cultural and economic effects of the late spread of the printing press in Turkish-language publishing among Muslims in the Ottoman Empire.
+@@ASSISTANT
+The late spread of the printing press in Turkish-language publishing among Muslims in the Ottoman Empire had various effects on knowledge production, education, culture and the economy. In explaining this process, economic conditions, the manuscript tradition, the size of the readership and institutional preferences must be considered together.
+
+The printing press did not arrive in Ottoman lands for the first time in the 18th century. Jewish communities had been printing in their own languages and alphabets since the late 15th century, Armenians since the 16th century, and Greeks since the 17th century. The significance of the press for which İbrahim Müteferrika obtained permission in 1727 and with which he printed his first book in 1729 was that it was one of the first sustained attempts at printing works in Ottoman Turkish in Arabic script. The historical question is therefore not that the printing press was entirely unknown, but that Turkish printed book production remained limited in Muslim society.
+
+Among the causes of this delay were the economic interests of established professions such as calligraphers and copyists, the cultural value placed on manuscripts, and the limited demand for printed books. Technical difficulties in adapting Arabic letters to typesetting also raised costs. Religious sensitivities were particularly influential in the printing of religious works, but they were not the single cause explaining the whole process. Indeed, Müteferrika's first publications focused mainly on fields such as history, geography and language.
+
+Culturally, the limited use of the printing press did not remove the expense and time-consuming nature of reproducing books. This made it harder for works to reach wider readerships. Nevertheless, it should not be forgotten that manuscript books circulated in the Ottoman Empire, that libraries existed and that scientific knowledge was transmitted through different channels. Attributing the slowness of scientific development solely to the lack of a printing press would be reductionist.
+
+Economically, the limited printed production slowed the growth of the book market and the development of professions related to publishing. The printing press had the potential to produce many copies of the same work at a lower unit cost. However, the realization of this advantage depended on sufficient demand, capital and distribution networks. Although Müteferrika's undertaking was important, reliable comparative data are needed to say that it lowered book prices by a certain rate or directly increased literacy.
+
+The expansion of printing activity in the 19th century contributed to the development of journalism, publishing and public debate. Especially in the Tanzimat period, printed publications facilitated the circulation of new ideas and the discussion of state reforms. However, this transformation did not result solely from the spread of the printing press; educational reforms, bureaucratic changes, commercial relations and increasing interaction with Europe were also decisive.
+@@FLAGS
+low | verification | Historical claims (Jewish/Armenian/Greek printing dates; Müteferrika 1727/1729) not independently verified; preserved verbatim.
+
+=== g112
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2244
+@@USER
+How is the duty of loyalty of company managers tested in cross-guarantee practices?
+@@ASSISTANT
+The “testing” here describes by which criteria it is reviewed whether a cross-guarantee decision made by a manager complies with the duty of loyalty. The basic obligation is regulated in TTK Art. 369: board members are obliged to carry out their duties with the care of a prudent manager and to look after the company's interests in compliance with the rules of good faith.
+
+A cross-guarantee strains this duty, because the company puts its own assets at risk for the debt of another (often intra-group) company; that is, it carries a structural conflict of interest. The duty of loyalty is tested by the following criteria:
+
+The company's own interest: Is the guarantor company obtaining real corporate benefit or consideration from this transaction, or is its interest being sacrificed for the benefit of the group or the parent company? A guarantee without consideration that serves only someone else is the strongest indicator of a breach.
+Conflict of interest and procedure (TTK Art. 393): A board member whose personal or group interest conflicts is obliged to disclose this and not to take part in the relevant deliberation. Was the decision taken by informed members without a conflict and on arm's-length terms?
+The group-of-companies rule (TTK Art. 202): If the guarantee is given under the direction of the controlling company, the loss suffered by the subsidiary must be offset within the same financial year or an equivalent claim right must be granted; otherwise the controlling company and the managers are liable.
+Protection of capital and creditors: It is examined whether the guarantee damages the company's financial structure, its capital and the rights of creditors, and whether it turns into a disguised transfer of assets.
+
+When these criteria are not met, the duty of loyalty is deemed breached, and the managers may be held liable under TTK Art. 553 for the damage of the company, the shareholders and the creditors.
+
+This is a general legal framework, not legal advice.
+@@FLAGS
+medium | mistake_suspected | Legal citations (TTK Arts. 369, 393, 202, 553) not independently verified; preserved verbatim. Owner may want legal re-review.
+
+=== g113
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:5074
+@@USER
+How can you increase your follower count on Instagram?
+@@ASSISTANT
+The essence of growing followers is producing consistent, shareable content that reaches the right audience. The main steps that work:
+
+* Pick a niche: Instead of trying to appeal to everyone, focus on a specific topic. What the account is about should be clear at first glance.
+* Set up your profile: Add a clear profile photo, a bio that says in one sentence what you do, and a link if you have one.
+* Post regularly, especially Reels: Instagram favors short video; Reels is the fastest way to reach people who do not follow you yet. Grab attention in the first few seconds.
+* Engage: Reply to comments and messages and leave genuine comments on the content of similar accounts. This both builds a loyal audience and gives the algorithm a positive signal.
+* Collaborate: Joint content or mutual sharing with accounts of similar size opens the two audiences to each other.
+Use a few well-chosen hashtags and current trends: Tags suited to your topic and local audience increase your discoverability; piling up irrelevant tags does not work.
+* Follow Insights: See which content works; do more of what works and drop what doesn't.
+
+Avoid buying followers and using bots: even if the number rises, your engagement rate drops, which causes the algorithm to show your content to fewer people. Real growth comes with consistency and time.
+@@FLAGS
+low | formatting | The original answer's bullet "Birkaç isabetli hashtag ve güncel trend kullan:" has no bullet marker (formatting glitch); the EN variant reproduces the same glitch so the four variants stay structurally parallel.
+
+=== g114
+@@SOURCE_ID occam:data/train.jsonl:35
+@@USER
+My pieces at the ceramics course are not turning out the way I want. Could you explain why changing only one variable in each attempt might be more effective?
+@@ASSISTANT
+Factors such as the moisture of the clay, the thickness of the piece, the drying time and the kiln temperature together determine the result. If you change several of them at the same time, you cannot tell which one the resulting difference comes from. When you change a single variable and keep the others constant, you can associate the difference with that variable. For example, if your pieces are cracking, lengthen only the drying time with the same clay and thickness. If the cracking decreases, you have obtained a sign that drying is effective; if no difference appears, this does not show that drying is ineffective under all conditions. Since a single attempt does not give a definitive result, note down the conditions and results and repeat the attempt several times.
+
+=== g115
+@@SOURCE_ID atlas:train.chat.jsonl:274051
+@@USER
+As a student, write the thesis progress report in a formal tone as a plain paragraph. It should be at most 120 words, contain exactly 3 items, and not use question sentences.
+
+Data:
+* The literature review was completed.
+* The methodology section passed the committee approval.
+* The data collection process was started.
+@@ASSISTANT
+Three important stages of my thesis work have been completed to date. First, a comprehensive literature review on the topic has been finished and the theoretical framework has been established. Second, the methodology section of the study has been reviewed by the relevant committee and has received its formal approval. Finally, the planned data collection process has been started and the fieldwork phase has begun.
+@@FLAGS
+low | mistake_suspected | The reviewed answer adds details not in the data ("theoretical framework has been established", "fieldwork phase has begun") although the prompt supplies only three facts. Left unchanged. Length constraint (<=120 words) is checked by the validator.
+
+=== g116
+@@SOURCE_ID cot:train.jsonl:1647
+@@USER
+A bakery cuts each cake into 12 equal slices. 8 cakes are ordered for a wedding and each guest is given 2 slices. For at most how many guests are these cakes enough?
+@@ASSISTANT
+Total slices: 8 × 12 = 96
+Number of guests: 96 ÷ 2 = 48
+@@FLAGS
+info | verification | Arithmetic verified: 96/2=48.
+
+=== g117
+@@SOURCE_ID occam:data/train.jsonl:96
+@@USER
+Shorten this message without changing its meaning: Ceramic orders will be shipped on Friday, but only the pieces that pass the final quality check will be packed. Those that do not pass the check will be remade.
+@@ASSISTANT
+Of the ceramic orders, only the pieces that pass the final quality check will be shipped on Friday; those that do not pass will be remade.
+
+=== g118
+@@SOURCE_ID cot:train.jsonl:3627
+@@USER
+A worker works 8 hours a day and is paid 175 TL per hour. They work 5 days a week and 4 weeks a month. They set aside 15% of their monthly earnings for transportation and 10% for food. After these expenses, how many TL does the worker have left per month? (Ignore taxes and deductions.)
+@@ASSISTANT
+Monthly earnings: 8 × 175 × 5 × 4 = 28,000 TL
+
+Share going to transportation and food: 15% + 10% = 25%. The remaining share is 75%.
+
+Remaining: 28,000 × 0.75 = 21,000 TL
+@@FLAGS
+info | verification | Arithmetic verified: 28,000 and 21,000.
+
+=== g119
+@@SOURCE_ID cot:train.jsonl:4768
+@@USER
+In which of the following sentences is the word “mind” used figuratively?
+A) A human thinks and makes decisions with their mind.
+B) He was a person of sound mind and balance.
+C) The mind behind this project is that young engineer.
+D) The child's mind cannot yet grasp abstract concepts.
+E) Medical science is investigating the workings of the mind.
+@@ASSISTANT
+Answer: C
+
+In “The mind behind this project is that young engineer.” the word “mind” is used not in the sense of the faculty of thinking but in the sense of the person who plans and runs the project (the “brain”); this is the figurative meaning. In the other options the word is used in its literal sense (the faculty of thinking and reasoning, mental health).
+@@REASONING
+Literal meaning: mind = the faculty of thinking and reasoning. Let us look at the options. In A, thinking with the faculty; in B, mental health; in D, the child's faculty of comprehension; in E, the workings of the mind; all four are the literal meaning. In C it says “the mind behind the project is that engineer”; here mind is not a faculty but the person who plans and runs the work, that is, the “brain.” This is the figurative one. Answer C.
+@@FLAGS
+low | language_intrinsic | The task is about the figurative sense of Turkish "akıl" (reason/mind/brain). The EN variant recreates it with English "mind" ("the mind behind this project"); the exact sense mapping (akıl sağlığı = mental health, "sound mind") is only approximate. TR rows keep the original word and options.
+
+=== g120
+@@SOURCE_ID cot:train.jsonl:2918
+@@USER
+An office worker wants a filling lunch of at most 600 kcal containing at least 20 g of protein. The options are: lentil soup (portion: 180 kcal, 12 g protein), tuna salad (portion: 250 kcal, 28 g protein) and whole-wheat bread (slice: 70 kcal, 3 g protein). At most one portion each of soup and salad can be taken, and any desired number of slices of bread. Find the combination that gives the highest protein without exceeding the 600 kcal limit.
+@@ASSISTANT
+The combination that gives the highest protein: tuna salad + lentil soup + 2 slices of whole-wheat bread.
+
+* Calories: 250 + 180 + 2×70 = 570 kcal (≤ 600 ✓)
+* Protein: 28 + 12 + 2×3 = 46 g (≥ 20 ✓)
+
+Taking the two protein sources together gives 40 g of protein for 430 kcal; only 2 slices of bread fit into the remaining 170 kcal (a 3rd slice would exceed the limit at 640 kcal) and they add 6 g of protein. Thanks to the liquid of the soup and the fiber of the lentils and bread, it is also highly filling.
+@@REASONING
+Protein densities: salad 28/250 ≈ 0.112, soup 12/180 ≈ 0.067, bread 3/70 ≈ 0.043 g/kcal. The most efficient is the salad, then the soup; take both: 430 kcal, 40 g protein. Bread for the remaining 170 kcal: 170/70 ≈ 2.4, that is, 2 slices (140 kcal) fit; a 3rd slice would bring the total to 640 kcal and exceed the limit. Since even filling the remaining budget with the lowest-density bread adds protein, 2 slices is optimal. Result: 570 kcal, 46 g.
+@@FLAGS
+info | verification | Optimality verified by enumeration: salad+soup+2 bread = 46 g protein at 570 kcal is the maximum under 600 kcal.

@@ -1,0 +1,237 @@
+=== g121
+@@SOURCE_ID atlas:train.chat.jsonl:54523
+@@USER
+For a cost optimization proposal, use the following data: smart lighting, HVAC sensors, 12% savings potential. As an engineer, prepare 3 items in a formal tone containing at most 150 words.
+@@ASSISTANT
+* In order to increase energy efficiency across the facility, it is planned to modernize the existing lighting fixtures with motion-sensing smart lighting systems.
+* To optimize air-conditioning expenses, high-sensitivity HVAC sensors will be integrated into the work areas, enabling dynamic control of the heating and cooling systems according to occupancy.
+* It has been calculated that these technical improvements will create a savings potential of 12% on an annual basis in total operational energy costs.
+@@FLAGS
+low | mistake_suspected | The reviewed answer adds details not in the data ("motion-sensing", "annual basis", "total operational energy costs"). Left unchanged. Length constraint (<=150 words) checked by the validator.
+
+=== g122
+@@SOURCE_ID occam:data/train.jsonl:38
+@@USER
+The internet at home is weak in some rooms. Where would it make the most sense to start when fixing this?
+@@ASSISTANT
+First tell apart whether the problem is in the home's internet connection itself or in the Wi-Fi signal reaching the rooms. To do this, run a speed test with the same device next to the modem and in the room with the weak signal, and compare the results.
+
+=== g123
+@@SOURCE_ID atlas:train.chat.jsonl:67148
+@@USER
+Correct the spelling and punctuation mistakes in the following text:
+Finansal raporlarin analizi tamamlandi. avrupa birliği vergi düzenlemeleri doğrultusunda, tüm ödemeler banka hesabina yatirilmali.
+@@ASSISTANT
+Finansal raporların analizi tamamlandı. Avrupa Birliği vergi düzenlemeleri doğrultusunda tüm ödemeler banka hesabına yatırılmalı.
+@@FLAGS
+low | language_bound_output | Turkish spelling/punctuation correction (diacritics, capitalization, comma). Turkish text verbatim; assistant text identical for TR and EN output directions (output_language_effect=none).
+
+=== g124
+@@SOURCE_ID atlas:train.chat.jsonl:81416
+@@USER
+As a customer representative, I want to compare the three investment applications we will recommend to our customers in terms of risk, security, performance and ease of use. What framework should I use?
+@@ASSISTANT
+I cannot make up values such as risk or security without seeing the real data of the applications, but I can give you a framework for you to fill in the comparison. For each criterion, look at the following:
+
+* Risk: The type of products offered (deposits, funds, leveraged trading or crypto) and the protection status of customer money.
+* Security: Capital Markets Board (SPK) / Banking Regulation and Supervision Agency (BDDK) licensing, two-factor authentication, encryption and keeping customer assets in separate accounts.
+* Performance: Transaction speed, downtime rate and order execution time.
+* Ease of use: Simplicity of the interface, Turkish language support and the initial setup steps.
+
+If you share the names of the three applications and their properties under these headings, let's fill in the table together.
+
+Note: The “best” application varies by customer. Different options may suit customers with different risk tolerance, goals and experience; make your recommendations according to your institution's suitability rules.
+@@FLAGS
+info | gloss | SPK/BDDK expanded as "Capital Markets Board (SPK) / Banking Regulation and Supervision Agency (BDDK)".
+
+=== g125
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2785
+@@USER
+Clarify the scope of the statement “All birds can fly.” with a counterexample.
+@@ASSISTANT
+Counterexample: A penguin and an ostrich are birds but cannot fly. Therefore, as written, the statement is false.
+
+Clarified statement: “Most birds can fly.” or a true property covering all birds can be used: “All birds have feathers.”
+
+=== g126
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:4203
+@@USER
+Write a guide that explains, step by step, what to do to reduce the risk of fraud when your card gets stuck in a bank ATM.
+@@ASSISTANT
+1. Do not leave the ATM. Fraudsters can install a device that traps the card and take it when you walk away.
+2. Do not accept help from strangers. Suggestions such as "It happened to me too, enter the PIN and press cancel" are a known method used to see your PIN.
+3. Do not enter your PIN again and do not tell it to anyone. Nobody, including bank staff, asks for your PIN.
+4. Have the card blocked immediately. Block the card from your bank's mobile app or call your bank. Get the number from the app or from the bank's official website; do not use numbers on labels stuck to the ATM, because they may be fake.
+5. Check the ATM. If you see an extra part, tape or hidden camera on the card slot, keypad or top section, do not touch it; report it to the bank and the police (155).
+6. Monitor your account activity. Check your account in the following days. If you see a transaction you do not recognize, object to your bank immediately.
+7. Request a new card and set a new PIN. Do not use guessable codes such as your date of birth.
+@@FLAGS
+info | localization | Turkey-specific police number 155 retained.
+
+=== g127
+@@SOURCE_ID cot:train.jsonl:8
+@@USER
+Aunt Fatma deposits her 4,000 TL in the bank for 3 years at 10% annual simple interest. What percentage of the principal is the interest she earns at the end of the 3 years?
+@@ASSISTANT
+Interest: 4,000 × 0.10 × 3 = 1,200 TL
+Ratio to the principal: 1,200 ÷ 4,000 = 30%
+In simple interest, this ratio can also be found directly as 10% × 3 = 30%; the principal does not affect the result.
+@@FLAGS
+info | verification | Arithmetic verified: 1200; 30%. "Fatma Teyze" -> "Aunt Fatma" (honorific).
+
+=== g128
+@@SOURCE_ID atlas:train.chat.jsonl:35632
+@@USER
+Answer the question based on the following passage. Do not add information that is not in the passage.
+
+Passage: In the history of classical music, Beethoven was a pioneer of the transition from the classical period to romanticism. Mozart was a child prodigy and composed more than 600 works. Bach is the master of the baroque period. Vienna became the capital of music. Piano sonatas are popular. In the 19th century orchestras grew. Opera acquired its Italian character with Verdi. Jazz was born in the 20th century and classical music was also influenced by jazz. Concert halls are designed according to acoustics.
+
+Question: According to the passage, write the main developments in the history of classical music in 3 items, as a short summary to be presented to a manager.
+@@ASSISTANT
+* Periods and pioneers: Bach is the master of the baroque period. Mozart composed more than 600 works. Beethoven was a pioneer of the transition to romanticism.
+* Growth and centers: Vienna became the capital of music, orchestras grew in the 19th century, and opera acquired its Italian character with Verdi.
+* Current influences: Jazz, born in the 20th century, influenced classical music. Piano sonatas remain popular, and concert halls are designed according to acoustics.
+
+=== g129
+@@SOURCE_ID cot:train.jsonl:2497
+@@USER
+In a geometric sequence whose first term is 1 and common ratio is 4, which term has the value 1024?
+@@ASSISTANT
+Since aₙ = a₁ · rⁿ⁻¹, we have 4ⁿ⁻¹ = 1024.
+
+Since 1024 = 4⁵, n − 1 = 5, that is, n = 6.
+
+The term with the value 1024 is the 6th term.
+@@FLAGS
+info | verification | 4^5=1024 so n=6.
+
+=== g130
+@@SOURCE_ID atlas:train.chat.jsonl:260020
+@@USER
+Do the morphological analysis of the word “Durdurulamadı”.
+@@ASSISTANT
+dur + dur + ul + a + ma + dı + Ø
+
+dur-: verb root
+-dur (-DIr): causative suffix → durdur-
+-ul (-Il): passive suffix → durdurul-
+-a (-(y)A): ability suffix; in the negative ability form “-bil” drops → durdurula-
+-ma (-mA): negation suffix → durdurulama-
+-dı (-DI): witnessed past tense suffix
+Ø: 3rd person singular (zero morpheme)
+
+Meaning: (It) could not be stopped; the attempt to stop it failed.
+
+Note: Some grammars show “-a” and “-ma” as a single negative ability suffix (“-(y)AmA”).
+@@FLAGS
+low | language_intrinsic | Turkish word analysed: morphemes kept in Turkish, glosses translated.
+
+=== g131
+@@SOURCE_ID atlas:train.chat.jsonl:275119
+@@USER
+A logistics company's delivery vehicle travels at an average speed of 60 km per hour to a distribution center 240 km away. How many hours does this journey take?
+@@ASSISTANT
+Time = Distance ÷ Speed = 240 km ÷ 60 km/h = 4 hours
+@@FLAGS
+low | noise_lost | TR source prompt is ASCII-folded Turkish (no diacritics); not reproducible in the EN input variant. Arithmetic verified: 240/60=4.
+
+=== g132
+@@SOURCE_ID cot:train.jsonl:858
+@@USER
+The formation of the fairy chimneys in Cappadocia is sometimes likened to a cake whose outside hardens while its inside stays soft as it bakes in the oven. Starting from this analogy, explain why a fairy chimney with a hard rock block (cap) on top can remain standing for a long time despite the erosion of the soft tuff below, while a fairy chimney without a cap disappears quickly. Also state at what point the analogy falls short.
+@@ASSISTANT
+Fairy chimney with a cap: The hard rock on top (ignimbrite, a basalt block, etc.) protects the soft part, like the crust of a cake. It prevents raindrops and surface water from striking the tuff below directly. For this reason, while the surrounding tuff erodes quickly, the part under the cap is protected and rises as a column. This differential erosion allows the fairy chimney to remain standing for a long time. However, the tuff continues to erode from the sides. When the neck becomes thin enough, the cap falls and the fairy chimney is left unprotected.
+
+Fairy chimney without a cap: Like a dough with no crust, the soft and porous tuff is directly exposed to rain, wind and flood waters. It erodes quickly from all directions, first turning into a pointed cone and then disappearing completely.
+
+Limit of the analogy: The crust of a cake forms from the baking of the same dough and surrounds the cake on all sides. The cap of a fairy chimney, on the other hand, is a different rock and is found only on top. The similarity is limited to the idea that “the hard part protects the soft part from erosion.”
+@@REASONING
+The mechanism is differential erosion: the hard rock on top (ignimbrite, a basalt block, etc.) erodes slowly, the tuff below erodes quickly. The cap prevents raindrops and surface runoff from striking the tuff directly, so the tuff below is protected and becomes a column as its surroundings erode. If there is no cap, the tuff erodes from all directions, thins like a cone and disappears in a short time. A capped fairy chimney does not stand forever either: as the neck thins, the cap falls, then the same fast erosion begins. Limit of the analogy: the crust of a cake forms from the baking of the same dough and surrounds the cake on all sides. The cap of a fairy chimney, on the other hand, is a separate, different rock and is only on top. That is, the similarity is limited to the idea that “the hard part protects the soft part.”
+
+=== g133
+@@SOURCE_ID occam:data/train.jsonl:69
+@@USER
+I finally finished a task today. I did not tell anyone, but I wanted to share this.
+@@ASSISTANT
+Congratulations, well done.
+@@FLAGS
+low | language_intrinsic | Turkish idiom "elinize sağlık" (lit. "health to your hands", praise for completed work) rendered "well done"; the Turkish answer also uses the formal "siz" form.
+
+=== g134
+@@SOURCE_ID occam:data/train.jsonl:74
+@@USER
+It was said that it is not true that nobody came. Did at least one person come?
+@@ASSISTANT
+Yes. Saying "it is not true that nobody came" means that at least one person came.
+
+=== g135
+@@SOURCE_ID occam:data/train.jsonl:83
+@@USER
+Correct only the spelling: Bu çekmecede aradığım hiçbirşey yok.
+@@ASSISTANT
+Bu çekmecede aradığım hiçbir şey yok.
+@@FLAGS
+low | language_bound_output | Turkish spelling correction ("hiçbirşey" -> "hiçbir şey"); the Turkish sentence is quoted verbatim in the EN prompt and the answer is the corrected Turkish sentence, identical for TR and EN output directions (output_language_effect=none).
+
+=== g136
+@@SOURCE_ID cot:train.jsonl:4129
+@@USER
+Esra and Ferhat are sharing a cake worth 120 TL equally. If Esra had made the offer first and set aside 80 TL for herself and 40 TL for Ferhat, and Ferhat had been forced to accept because he would get nothing if he refused, how many TL more would Esra have earned compared with the equal split?
+@@ASSISTANT
+In the equal split Esra gets 120 / 2 = 60 TL. In her offer she sets aside 80 TL for herself.
+
+She would have earned 80 − 60 = 20 TL more.
+@@FLAGS
+info | verification | Arithmetic verified: 80-60=20. (Original answer contains a trailing space after "alıyor." which is preserved in the TR text; EN keeps the same line structure.)
+
+=== g137
+@@SOURCE_ID atlas:train.chat.jsonl:246858
+@@USER
+We are choosing an e-learning platform for our school. Would a free, open-source system or a paid platform with professional support be more suitable for us?
+@@ASSISTANT
+The real issue is not “free or paid” but “who will take on the setup and maintenance.” Open-source systems (for example Moodle) have no license fee, but they have hidden costs: server hosting, updates, security, and a technical person to manage them. With paid platforms you pay a subscription; in return, hosting, support, updates and training are generally included in the package.
+
+When deciding, look at the following:
+* Does the school have technical staff to set up and maintain the system?
+* Does your budget suit a one-time expense or a regular subscription?
+* How many students and teachers will use it, and how much will it grow in the future?
+* How will the security of student data and compliance with the Turkish data protection law (KVKK) be ensured?
+
+If you have technical capacity and want to keep control, open source; if you have no technical staff and want to start quickly without the trouble of setup and maintenance, a paid platform makes more sense.
+@@FLAGS
+info | gloss | "KVKK" expanded as "the Turkish data protection law (KVKK)".
+
+=== g138
+@@SOURCE_ID cot:train.jsonl:3900
+@@USER
+A shuttle driver will place the bags of four passengers in the trunk. At most 12 bags fit in the trunk. The rule is this: one passenger's number of bags cannot be more than 3 greater than another passenger's. The first three passengers have 4, 2 and 3 bags. What is the maximum number of bags the fourth passenger can load?
+@@ASSISTANT
+The fourth passenger can load at most 3 bags.
+
+Since the first three passengers have a total of 9 bags, there is room for 12 − 9 = 3 bags in the trunk. The rule alone would allow up to 5 bags (the passenger with the fewest bags has 2, and 2 + 3 = 5), but the capacity is more restrictive. The resulting distribution is 4, 2, 3, 3: the difference between any two passengers is at most 2, and the total is exactly 12.
+@@FLAGS
+info | verification | Verified: capacity bound 3 < rule bound 5; distribution 4,2,3,3 satisfies the rule.
+
+=== g139
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2118
+@@USER
+What concrete duties does the principle of the social state impose on the state in housing-right crises?
+@@ASSISTANT
+In Türkiye, the principle of the social state is found in Article 2 of the Constitution; the right to housing is regulated in Article 57: “The State shall take measures to meet the need for housing and shall also support mass housing initiatives.” Article 11 of the International Covenant on Economic, Social and Cultural Rights, to which Türkiye is a party, also recognizes “the right to adequate housing.” Within this framework, the state's duties are gathered under three headings:
+
+* Respect: Not evicting people from their homes arbitrarily and unlawfully. Evictions may be carried out only on the basis of a legal ground, a court decision and procedural safeguards; according to the UN's interpretation, mass forced evictions are as a rule a violation of the right.
+* Protect: Protecting the tenant, the weaker party in the housing relationship, against third parties; regulating rent and eviction law in a balancing way, and providing legal aid in disputes.
+* Fulfil: Offering social and affordable housing (for example TOKİ) and rent assistance to low-income people; providing emergency shelter to those left homeless in cases of disaster, epidemic or economic crisis; and giving priority to resettling those displaced in urban transformation.
+
+These duties also have a constitutional limit: according to Article 65, the state fulfils its social and economic duties “to the extent of the adequacy of its financial resources.” That is, the right to housing is not a right by which everyone can directly demand “give me a home” from the state, but a principle that imposes on the state an obligation to take measures and carry out policy.
+@@FLAGS
+medium | mistake_suspected | Constitutional/treaty citations (Const. Arts. 2, 57, 65; ICESCR Art. 11; UN interpretation) not independently verified; the quoted Art. 57 text is the original's paraphrase of the official wording (ellipsis "Devlet ... konut ihtiyacını"). Preserved verbatim. TOKİ (Mass Housing Administration) kept as an acronym.
+
+=== g140
+@@SOURCE_ID atlas:train.chat.jsonl:62684
+@@USER
+Last month 2000 customers filled out a survey on an e-commerce site. 40% of these customers stated that they were very satisfied with the support service. How many customers were satisfied with the support service?
+@@ASSISTANT
+2000 × 0.40 = 800 customers
+@@FLAGS
+low | mistake_suspected | Arithmetic verified: 800. Note the prompt says 40% were "very satisfied" while the question asks how many were "satisfied" (conflates very satisfied with satisfied); original answer treats them as the same. Left unchanged.

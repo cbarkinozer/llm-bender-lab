@@ -1,0 +1,25 @@
+{
+  "experiment": "exp-011-bilingual-sft640",
+  "status": "passed",
+  "rows": 640,
+  "order_rows": 896,
+  "mask_empty_think": true,
+  "supervised_tokens_exposed": 228183,
+  "supervised_tokens_planned": 229643,
+  "tallies": {
+    "direct_rows": 520,
+    "empty_think_prefix_tokens_masked": 1040,
+    "reasoning_rows": 120
+  },
+  "empty_think_token_ids": [
+    124901,
+    124902
+  ],
+  "findings": [],
+  "finding_count": 0,
+  "thinking_format_note": "At thinking-disabled inference the template prompt already ends with \"<think></think>\", while direct-answer training targets also START with \"<think></think>\" and supervise it; the model may therefore be trained to emit a second empty think block / stray \"</think>\". Candidate cause of the </think> leakage seen in CROSSLINGUAL-DIAGNOSIS; masking those tokens is an opt-in recipe change (--mask-empty-think), not enabled by default.",
+  "train_file_sha256": "ad04a971b2a189e067a234d9f1e722960d93ffcfd8e726c11c5c2c6f033861e8",
+  "tokenizer_sha256": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+  "runner_sha256": "bfdbb3ed8402b42828d9e18ba298a84671888ebe54da0751b05a6903f861af68",
+  "tokenized_sha256": "56d75ecbb36fcebdb19321c03861aefb8771717431d4badb2e1de03e2a9bf58d"
+}

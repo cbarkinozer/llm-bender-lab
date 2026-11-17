@@ -1,0 +1,29 @@
+{
+  "note": "Hand-reviewed explanations for automatic-check candidates (2026-11-18). Every candidate not listed here fails validation.",
+  "number_parity": [
+    {"group": "bp01-g006", "field": "user", "reason": "False positive: dotted IP address 10.0.0.50 mis-parsed by the TR decimal-comma regex; identical in both languages."},
+    {"group": "bp01-g010", "field": "user", "reason": "False positive: IP address and hexadecimal hash mis-parsed; identical in both languages."},
+    {"group": "bp01-g010", "field": "assistant", "reason": "False positive: IP address and hexadecimal hash inside identical JSON."},
+    {"group": "bp01-g016", "field": "user", "reason": "Numeral '2 usta' rendered 'Two workers' at sentence start; value preserved."},
+    {"group": "bp01-g023", "field": "reasoning", "reason": "False positive: LaTeX decimal commas {,} in TR (15{,}9, 17{,}6) vs decimal points in EN; values identical (15.9, 17.6)."},
+    {"group": "bp01-g024", "field": "reasoning", "reason": "False positive: matrix entries [[0,1],[-1,0]] parsed as decimals by the TR regex; matrices identical."},
+    {"group": "bp01-g037", "field": "assistant", "reason": "False positive: binomial arguments C(13,2) etc. parsed as decimal commas in TR; combinatorial values 123,552 / 5,148 / 2,598,960 / 4.75% / 0.198% match."},
+    {"group": "bp01-g037", "field": "reasoning", "reason": "Same as assistant: binomial arguments mis-parsed; values match."},
+    {"group": "bp01-g084", "field": "user", "reason": "Numerals '3 katı' / '2 katının' rendered 'Three times' / 'twice'; values preserved."}
+  ],
+  "structural_parity": [
+    {"group": "bp01-g031", "field": "reasoning", "reason": "False positive: TR line starts with ordinal '1. denklemden' (first equation) counted as a numbered list item."},
+    {"group": "bp01-g085", "field": "assistant", "reason": "False positive: TR lines '1. hafta' / '2. hafta' (week 1/2) are ordinals, not list numbering."},
+    {"group": "bp01-g111", "field": "assistant", "reason": "False positive: TR line starting '19. yüzyılda' (19th century) counted as numbered item."}
+  ],
+  "language_heuristic": [
+    {"id": "bp01-g052-tr-en", "field": "assistant", "reason": "Language-bound Turkish spelling correction; Turkish answer expected (output_language_effect=none)."},
+    {"id": "bp01-g052-en-en", "field": "assistant", "reason": "Same."},
+    {"id": "bp01-g055-tr-en", "field": "assistant", "reason": "Language-bound Turkish spelling correction (output_language_effect=none)."},
+    {"id": "bp01-g055-en-en", "field": "assistant", "reason": "Same."},
+    {"id": "bp01-g109-tr-tr", "field": "assistant", "reason": "Algebra-heavy text with single-letter variables (A, R, a) inflates the English stopword score; text is Turkish."},
+    {"id": "bp01-g109-en-tr", "field": "assistant", "reason": "Same."},
+    {"id": "bp01-g154-tr-tr", "field": "user", "reason": "Short Turkish prompt without common stopwords; text is Turkish."},
+    {"id": "bp01-g154-tr-en", "field": "user", "reason": "Same."}
+  ]
+}

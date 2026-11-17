@@ -1,0 +1,1366 @@
+{
+  "counts": {
+    "superficial: generic tokens/numbers": 70,
+    "superficial: shared numbers only": 6,
+    "topical overlap only (shared subject facts); different task": 4,
+    "template family only": 3
+  },
+  "flags": [
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "old20-test:cot:train.jsonl:3572",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "diğer",
+        "sonuç"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kamu ihalesinde değerlendirme komisyonu üyesi olan bir kişi, kardeşinin ortak olduğu firmayı \"ailevi ilişki resmî bir karar sürecini etkilemez\" diyerek değerlen",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kamu ihalesinde değerlendirme komisyonu üyesi olan bir kişi,'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "pilot80-test:cot:train.jsonl:3572",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "diğer",
+        "sonuç"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kamu ihalesinde değerlendirme komisyonu üyesi olan bir kişi, kardeşinin ortak olduğu firmayı \"ailevi ilişki resmî bir karar sürecini etkilemez\" diyerek değerlen",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kamu ihalesinde değerlendirme komisyonu üyesi olan bir kişi,'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3572",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "diğer",
+        "sonuç"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kamu ihalesinde değerlendirme komisyonu üyesi olan bir kişi, kardeşinin ortak olduğu firmayı \"ailevi ilişki resmî bir karar sürecini etkilemez\" diyerek değerlen",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kamu ihalesinde değerlendirme komisyonu üyesi olan bir kişi,'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00236",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: TOBB Ekonomi ve Teknoloji Üniversitesi, üniversiteleri akademik başarıları bakımından değerlendirerek tüm dünya üniversiteleri içinde bir sıralamaya tâb",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: TOBB Ekonomi ve Teknoloji Üniversitesi, üniversitele'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00248",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: T-155 Panter, Türkiye'nin geliştirdiği seri üretimine 2000 yılında başlanan Makina ve Kimya Endüstrisi Kurumu tarafından üretilen 155mm namlusu kendinde",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: T-155 Panter, Türkiye'nin geliştirdiği seri üretimin\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00292",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17",
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: İnsanlık tarihinin başlangıcından bugüne kadar sahasında yazılan en kapsamlı eser olan Arap-İslam Bilim Tarihi'nin ilk cildini, 1967'de tamamlayan Sezgi",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: İnsanlık tarihinin başlangıcından bugüne kadar sahas'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00323",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: ...esgen ve Cannina isimleri altında er-Rāzī’nin Kitāb Sırr el-Esrār’ının Latince versiyonunun araçlar tablosunda süblimasyon için geniş boğazlı iki kap",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: ...esgen ve Cannina isimleri altında er-Rāzī’nin Kit'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00369",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "cevap",
+        "hava",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Bayraktar Taktik İHA Sistemi, 17 Aralık 2015 tarihinde 2 adet Roketsan MAM-L güdümlü füzesi yüklü şekilde yapılan atış testinde %100 isabet ile hedefler",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Bayraktar Taktik İHA Sistemi, 17 Aralık 2015 tarihin'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00384",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "hava",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: 2010 Ocak ayında gerçekleştirilen Savunma Sanayi İcra Kurulu'nda 2 Adet Taktik İHA Sistemi (12 Uçak) için sözleşme görüşmelerine başlanmasına karar veri",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: 2010 Ocak ayında gerçekleştirilen Savunma Sanayi İcr'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00439",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Türkiye'nin ilk kadın profesörlerinden olan Fahire Hanım, 1902'de İstanbul'da doğmuştur. Müşir Akif Paşa ve Dr. Müşir Ömer Paşa’nın torunu; Adli Tıbbın ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Türkiye'nin ilk kadın profesörlerinden olan Fahire H\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00477",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Prof. Kahle; harita ile ilgili inceleme sonuçlarını 1931 yılında 18. Doğubilimleri Kongresi'nde sundu. Haritanın üzerindeki notları, Hasan Fehmi Bey; la",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Prof. Kahle; harita ile ilgili inceleme sonuçlarını '"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00479",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "600"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Harita; ceylan derisi üzerine çizilmiş olup 900x600 mm boyutlarındadır. Ortaçağ haritalarından -sıkça rastlanan- portolan tarzında yapılmıştır; yani enl",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Harita; ceylan derisi üzerine çizilmiş olup 900x600 '"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00516",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Farsça, Arapça, İngilizce, Almanca ve Fransızca öğrenen Mustafa Behçet Efendi, 18. yüzyılın ünlü bilim adamlarından Comte de Buffon’un “Genel ve Özel Ta",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Farsça, Arapça, İngilizce, Almanca ve Fransızca öğre'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00526",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Bu ansiklopedik, Mahmud Gazan'dan, Moğollar ve onların hanedanlığını, sonraları Âdem'den Reşideddin Fazlullah'ın yaşadığı döneme kadar olan tüm tarihi k",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Bu ansiklopedik, Mahmud Gazan'dan, Moğollar ve onlar\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00562",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Nevşehirli Damat İbrahim Paşa tarafından 1720 yılında Paris'e elçi olarak gönderilen Yirmisekiz Mehmed Çelebi yanında oğlu Mehmed Said Efendi'yi de götü",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Nevşehirli Damat İbrahim Paşa tarafından 1720 yılınd'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00567",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: İbrahim Müteferrika kurduğu matbaasında ömrü boyunca toplam 17 ayrı kitap basmıştır:\r\nKitab-ı Lügat-ı Vankulu (Sihah El-Cevheri), 2 cilt halinde, 1729\r\n",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: İbrahim Müteferrika kurduğu matbaasında ömrü boyunca'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00579",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15",
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Matbaanın Osmanlı İmparatorluğu'na geç gelmesinin nedenleri olarak, günah olduğu, İstanbul'daki 90.000 hattatın buna engel olduğu gibi nedenler öne sürü",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Matbaanın Osmanlı İmparatorluğu'na geç gelmesinin ne\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00738",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Değişik unvan ve statüler altında 15. yüzyıl Osmanlı İmparatorluğu dönemine kadar inebilen tarihi bir geçmişe sahip olan kurumun temelleri Fatih Sultan ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Değişik unvan ve statüler altında 15. yüzyıl Osmanlı'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00742",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Uzun bir süre yürürlükte kalan bu kanun, 1983 tarihli ve 105 sayılı Makina ve Kimya Endüstrisi Kurumu Kuruluşu Hakkında Kanun Hükmünde Kararname ile yür",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Uzun bir süre yürürlükte kalan bu kanun, 1983 tarihl'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00780",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: ==Çalışmaları ==\r\nEl-Harezmī'nin matematik, coğrafya, astronomi ve haritacılığa katkısı, cebir ve trigonometride yeniliğin temelini oluşturdu. Doğrusal ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: ==Çalışmaları ==\\r\\nEl-Harezmī'nin matematik, coğrafya\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00785",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "diğer",
+        "hesap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: == Cebir alanındaki çalışmaları ==\r\nTamamlama ve Dengeleme ile Hesaplama Üzerine Özlü Kitap (Arapça: الكتاب المختصر في حساب الجبر والمقابلة al-Kitāb al-",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: == Cebir alanındaki çalışmaları ==\\r\\nTamamlama ve Den'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00819",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: 2010 Eylül ayında Altay projesinin 1. aşaması olan Kavramsal Tasarım Fazı Savunma Sanayi Müsteşarlığı tarafından onaylanarak tamamlandı. Böylece projede",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: 2010 Eylül ayında Altay projesinin 1. aşaması olan K'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00823",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12",
+        "17",
+        "93"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: 2013 Ankara Şereflikoçhisar'da atış testleri yapıldı. Sarıkamış'ta kış testleri tamamlandı.\r\n12 Ağustos 2014 tarihinde Tümosan Motor ve Traktör Sanayi A",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: 2013 Ankara Şereflikoçhisar'da atış testleri yapıldı\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00826",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Üretilecek Altay Tankı Güç Grubunun;\r\nV-12 yapısında ve ~26 litre hacminde,\r\nTransmisyon ile birlikte toplam 5,5 metreküplük hacim,\r\n2 adet yüksek basın",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Üretilecek Altay Tankı Güç Grubunun;\\r\\nV-12 yapısında'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00868",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Her iki  saatin  yapılışının  ve  kullanımının  koşulu  bir  çizelgedir.  Bu  çizelge üzerinde  burç  sembollerinin  başında  gündüz  ve  gece  saatleri",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Her iki  saatin  yapılışının  ve  kullanımının  koşu'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:tquad-00883",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Sencer Divitçioğlu, 14 Şubat 1927'de İstanbul’da doğdu. 1950 yılında İstanbul Üniversitesi İktisat Fakültesi'ni bitirdi. Doktora eğitimini Paris Ünivers",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Sencer Divitçioğlu, 14 Şubat 1927'de İstanbul’da doğ\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00333",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12",
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Paleoklimatologlar, iklimin milyonlarca yıl önce nasıl olduğunu belirlemek için deniz organizmalarının kabukları ve iskeletlerindeki oksijen-18 ve oksij",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Paleoklimatologlar, iklimin milyonlarca yıl önce nas'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00449",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Soya çiftçilerinin ihtiyaçları, şu anda Amazon'da geliştirilmekte olan birçok tartışmalı ulaşım projesini gerekçelendirmek için kullanılmıştır. İlk iki ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Soya çiftçilerinin ihtiyaçları, şu anda Amazon'da ge\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00485",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: 1 milimetreden (0,039 in) 1,5 metreye (4,9 ft) kadar değişen boyutlarıyla taraklılar, ana hareket yöntemi olarak siliya (\"kıl\") kullanan en büyük kolony",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: 1 milimetreden (0,039 in) 1,5 metreye (4,9 ft) kadar'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00503",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Toplamda 158.349 hane bulunmaktadır, bunların 68.511'inde (%43,3) 18 yaşın altında çocuklar yaşamaktadır, 69.284'ü (%43,8) birlikte yaşayan karşı cinste",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Toplamda 158.349 hane bulunmaktadır, bunların 68.511'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00554",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17"
+      ],
+      "shared_entities": [
+        "büyük",
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: 1466 yılında, belki de 40.000 kişi Paris'teki vebadan öldü. 16. ve 17. yüzyıllarda veba, Paris'te zamanın yaklaşık yüzde 30'unda boy gösterdi. Kara Ölüm",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: 1466 yılında, belki de 40.000 kişi Paris'teki vebada\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00612",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17",
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Uzakdoğu koleksiyonları, Doğu Asya ülkelerinden 70.000'den fazla sanat eserini içerir: Çin, Japonya ve Kore. Çin sanatından T. T. Tsui Galerisi 1991 yıl",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Uzakdoğu koleksiyonları, Doğu Asya ülkelerinden 70.0'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00821",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "93"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Harvard'a lisans kabulü, Carnegie Vakfı tarafından \"daha seçici, daha düşük geçiş\" olarak tanımlanır. Harvard Koleji 2019 sınıfı için başvuranların %5,3",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Harvard\\'a lisans kabulü, Carnegie Vakfı tarafından \"'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00868",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: 1970'lerde geliştirilen bazı teoriler, hangi eşitsizliğin ekonomik kalkınma üzerinde olumlu bir etkisi olabileceği hakkında olası yollar oluşturdu. Bir ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: 1970'lerde geliştirilen bazı teoriler, hangi eşitsiz\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-00964",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Çocuk işçiliği Kenya'da yaygın. Çalışan çocukların çoğu tarım alanında aktif. UNICEF'in 2016 tahminlerine göre, Malindi, Mombasa, Kilifi ve Diani kıyı b",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Çocuk işçiliği Kenya'da yaygın. Çalışan çocukların ç\""
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01010",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "98"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Dış ve iç kloroplast zarları ile ilgili bazı yaygın yanlış kanılar bulunmaktadır. Kloroplastların çift bir zarla çevrelendiği gerçeği sıklıkla onların e",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Dış ve iç kloroplast zarları ile ilgili bazı yaygın '"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01049",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "98"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Son buzul devri ~74.000 yıl (GÖ = Günümüzden Önce) zamanından, Pleistosen Çağı’nın sonuna kadar (~11.600 yıl GÖ) sürmüştür. Bu buzul devri, Kuzeybatı Av",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Son buzul devri ~74.000 yıl (GÖ = Günümüzden Önce) z'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01082",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17",
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Avamlar Kamarası’nda olduğu gibi, İskoç Parlamentosu üyeliği için bir dizi şartlar uygulanır. Bu şartlar, 1975 Avam Kamarası Diskalifiye Yasası ve 1981 ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Avamlar Kamarası’nda olduğu gibi, İskoç Parlamentosu'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01128",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Kapitalizm, aristokrasi ve emperyalizm arasındaki ilişki, tarihçiler ve politik teorisyenler arasında uzun süredir tartışılmaktadır. Tartışmaların çoğu ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Kapitalizm, aristokrasi ve emperyalizm arasındaki il'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01137",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Birleşik Metodist Kilisesi olacak hareket 18. yüzyılın ortalarında İngiltere Kilisesi içinde başladı. Oxford Üniversitesi kampüsünde John Wesley, Charle",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: 'Kaynak: Birleşik Metodist Kilisesi olacak hareket 18. yüzyıl'"
+    },
+    {
+      "candidate_group": "bp01-g023",
+      "protected": "cetvel500-audit:xquad_tr-01167",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18"
+      ],
+      "shared_entities": [
+        "büyük",
+        "cevap",
+        "soru"
+      ],
+      "train_prompt": "Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay olarak 12 m uzağa taşırken ip aniden kopuyor. Kiriş 1,8 saniyede yere düşüyor ve olay yerindeki bir",
+      "protected_prompt": "Kaynak: Newcastle onu Ocak 1756'da ikinci amir olarak Büyük General James Abercrombie ile, Lord Loudon'la değiştirdi. Bu adamların hiçbiri Fransa'nın Kuzey Amer",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir inşaat sahasında vinç, 600 kg'lık bir demir kirişi yatay\" vs protected: \"Kaynak: Newcastle onu Ocak 1756'da ikinci amir olarak Büyük \""
+    },
+    {
+      "candidate_group": "bp01-g047",
+      "protected": "cetvel500-audit:mlsum_tr-01096",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "67"
+      ],
+      "shared_entities": [
+        "metin",
+        "özet"
+      ],
+      "train_prompt": "Başlık: Maç sonucu\n\nMetin: Akınspor, Erzurum'da oynanan deplasman maçında Kuzey Birlik'i 4-2 yendi. Maçın 67. dakikasında atılan gol sonucu belirledi. Bu galibi",
+      "protected_prompt": "Başlık: 2019'da en çok indirilen mobil uygulama belli oldu\n\nMetin: 2019 yılının ilk çeyreğinde yapılan araştırmaya göre Appstore ve Andorid Playstore platformla",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Başlık: Maç sonucu\\n\\nMetin: Akınspor, Erzurum'da oynanan depl\" vs protected: \"Başlık: 2019'da en çok indirilen mobil uygulama belli oldu\\n\\n\""
+    },
+    {
+      "candidate_group": "bp01-g047",
+      "protected": "cetvel500-audit:mlsum_tr-01293",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "67"
+      ],
+      "shared_entities": [
+        "metin",
+        "özet"
+      ],
+      "train_prompt": "Başlık: Maç sonucu\n\nMetin: Akınspor, Erzurum'da oynanan deplasman maçında Kuzey Birlik'i 4-2 yendi. Maçın 67. dakikasında atılan gol sonucu belirledi. Bu galibi",
+      "protected_prompt": "Başlık: Emekli maaşı ne kadar oldu en düşük emekli maaşı kaç lira\n\nMetin: Memur ve emeklinin yeni zamlı maaşı haziran ayı enflasyon rakamlarının TÜİK tarafından",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Başlık: Maç sonucu\\n\\nMetin: Akınspor, Erzurum'da oynanan depl\" vs protected: 'Başlık: Emekli maaşı ne kadar oldu en düşük emekli maaşı kaç'"
+    },
+    {
+      "candidate_group": "bp01-g047",
+      "protected": "cetvel500-audit:mlsum_tr-07860",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "67"
+      ],
+      "shared_entities": [
+        "metin",
+        "özet"
+      ],
+      "train_prompt": "Başlık: Maç sonucu\n\nMetin: Akınspor, Erzurum'da oynanan deplasman maçında Kuzey Birlik'i 4-2 yendi. Maçın 67. dakikasında atılan gol sonucu belirledi. Bu galibi",
+      "protected_prompt": "Başlık: Eski sevgilisi sandı yanlış kadını vurdu\n\nMetin: Olay, saat 09.00 sıralarında, Cumhuriyet Mahallesi 1891 Sokak'ta meydana geldi. Torunlarına bakmak için",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Başlık: Maç sonucu\\n\\nMetin: Akınspor, Erzurum'da oynanan depl\" vs protected: 'Başlık: Eski sevgilisi sandı yanlış kadını vurdu\\n\\nMetin: Ola'"
+    },
+    {
+      "candidate_group": "bp01-g066",
+      "protected": "cetvel500-audit:tquad-00742",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "10"
+      ],
+      "shared_entities": [
+        "kanun",
+        "türkiye"
+      ],
+      "train_prompt": "Şahsın korunmasına ilişkin tedbir kararlarında basın özgürlüğüyle denge nasıl kurulmalıdır?",
+      "protected_prompt": "Kaynak: Uzun bir süre yürürlükte kalan bu kanun, 1983 tarihli ve 105 sayılı Makina ve Kimya Endüstrisi Kurumu Kuruluşu Hakkında Kanun Hükmünde Kararname ile yür",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şahsın korunmasına ilişkin tedbir kararlarında basın özgürlü' vs protected: 'Kaynak: Uzun bir süre yürürlükte kalan bu kanun, 1983 tarihl'"
+    },
+    {
+      "candidate_group": "bp01-g066",
+      "protected": "cetvel500-audit:mlsum_tr-03972",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "10",
+        "17"
+      ],
+      "shared_entities": [
+        "hakları",
+        "i̇nsan",
+        "türkiye"
+      ],
+      "train_prompt": "Şahsın korunmasına ilişkin tedbir kararlarında basın özgürlüğüyle denge nasıl kurulmalıdır?",
+      "protected_prompt": "Başlık: Suriye rejimi İdlib'te yine katliam yaptı\n\nMetin: Beşşar Esad rejimi ve destekçisi Rusya'ya ait savaş uçaklarının, İdlib Gerginliği Azaltma Bölgesi sını",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şahsın korunmasına ilişkin tedbir kararlarında basın özgürlü' vs protected: \"Başlık: Suriye rejimi İdlib'te yine katliam yaptı\\n\\nMetin: Be\""
+    },
+    {
+      "candidate_group": "bp01-g066",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "10"
+      ],
+      "shared_entities": [
+        "kanun",
+        "türkiye"
+      ],
+      "train_prompt": "Şahsın korunmasına ilişkin tedbir kararlarında basın özgürlüğüyle denge nasıl kurulmalıdır?",
+      "protected_prompt": "Başlık: Terör örgütü yöneticilerini ihbar edene 10 milyon liraya kadar ödül\n\nMetin: Terörle Mücadele Kanunu kapsamına giren suçların ortaya çıkarılmasına veya d",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şahsın korunmasına ilişkin tedbir kararlarında basın özgürlü' vs protected: 'Başlık: Terör örgütü yöneticilerini ihbar edene 10 milyon li'"
+    },
+    {
+      "candidate_group": "bp01-g067",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "50"
+      ],
+      "shared_entities": [
+        "kanun",
+        "kanunu",
+        "türk"
+      ],
+      "train_prompt": "Anonim şirkette yönetim kurulu üyelerinin özen borcunu ihlal etmesi durumunda tazminat nasıl hesaplanır?",
+      "protected_prompt": "Başlık: Terör örgütü yöneticilerini ihbar edene 10 milyon liraya kadar ödül\n\nMetin: Terörle Mücadele Kanunu kapsamına giren suçların ortaya çıkarılmasına veya d",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Anonim şirkette yönetim kurulu üyelerinin özen borcunu ihlal' vs protected: 'Başlık: Terör örgütü yöneticilerini ihbar edene 10 milyon li'"
+    },
+    {
+      "candidate_group": "bp01-g075",
+      "protected": "dev20:sft160-dev-13",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18",
+        "36"
+      ],
+      "shared_entities": [],
+      "train_prompt": "Evde kendi akıllı ev sistemimi kurmak istiyorum (örneğin ışıkları ve prizleri sesle kontrol etmek). Apple HomeKit, Google Home ve Amazon Alexa ekosistemlerinin ",
+      "protected_prompt": "Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri satılıyor. Geriye kaç sağlam ürün kalır? Kısa çözüm ve sonuç yaz.",
+      "verdict": "superficial: shared numbers only",
+      "evidence": "different problem structures; train: 'Evde kendi akıllı ev sistemimi kurmak istiyorum (örneğin ışıkları ve p' vs 'Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri'"
+    },
+    {
+      "candidate_group": "bp01-g075",
+      "protected": "reasoning4:sft160-dev-13",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "18",
+        "36"
+      ],
+      "shared_entities": [],
+      "train_prompt": "Evde kendi akıllı ev sistemimi kurmak istiyorum (örneğin ışıkları ve prizleri sesle kontrol etmek). Apple HomeKit, Google Home ve Amazon Alexa ekosistemlerinin ",
+      "protected_prompt": "Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri satılıyor. Geriye kaç sağlam ürün kalır? Kısa çözüm ve sonuç yaz.",
+      "verdict": "superficial: shared numbers only",
+      "evidence": "different problem structures; train: 'Evde kendi akıllı ev sistemimi kurmak istiyorum (örneğin ışıkları ve p' vs 'Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri'"
+    },
+    {
+      "candidate_group": "bp01-g077",
+      "protected": "cetvel500-audit:mlsum_tr-12163",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "50"
+      ],
+      "shared_entities": [
+        "genel",
+        "müdürlüğü"
+      ],
+      "train_prompt": "Akarsu morfolojisinde sediman açığının baraj sonrası etkilerini saha ölçümleriyle nasıl belgelersin?",
+      "protected_prompt": "Başlık: Terör örgütü yöneticilerini ihbar edene 10 milyon liraya kadar ödül\n\nMetin: Terörle Mücadele Kanunu kapsamına giren suçların ortaya çıkarılmasına veya d",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Akarsu morfolojisinde sediman açığının baraj sonrası etkiler' vs protected: 'Başlık: Terör örgütü yöneticilerini ihbar edene 10 milyon li'"
+    },
+    {
+      "candidate_group": "bp01-g102",
+      "protected": "dev20:sft160-dev-13",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "27",
+        "36"
+      ],
+      "shared_entities": [],
+      "train_prompt": "İş mahkemesi, mobbing iddiasıyla açılan davada tanık dinlemeden karar vermiş ve davayı reddetmiştir. Bu yargılama eksikliği, adalete duyulan güveni nasıl sarsar",
+      "protected_prompt": "Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri satılıyor. Geriye kaç sağlam ürün kalır? Kısa çözüm ve sonuç yaz.",
+      "verdict": "superficial: shared numbers only",
+      "evidence": "different problem structures; train: 'İş mahkemesi, mobbing iddiasıyla açılan davada tanık dinlemeden karar ' vs 'Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri'"
+    },
+    {
+      "candidate_group": "bp01-g102",
+      "protected": "reasoning4:sft160-dev-13",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "27",
+        "36"
+      ],
+      "shared_entities": [],
+      "train_prompt": "İş mahkemesi, mobbing iddiasıyla açılan davada tanık dinlemeden karar vermiş ve davayı reddetmiştir. Bu yargılama eksikliği, adalete duyulan güveni nasıl sarsar",
+      "protected_prompt": "Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri satılıyor. Geriye kaç sağlam ürün kalır? Kısa çözüm ve sonuç yaz.",
+      "verdict": "superficial: shared numbers only",
+      "evidence": "different problem structures; train: 'İş mahkemesi, mobbing iddiasıyla açılan davada tanık dinlemeden karar ' vs 'Bir atölyede 36 ürünün dörtte biri kusurlu. Sağlam ürünlerin üçte biri'"
+    },
+    {
+      "candidate_group": "bp01-g104",
+      "protected": "cetvel500-audit:xquad_tr-00987",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "2000"
+      ],
+      "shared_entities": [
+        "değerlendirme",
+        "yıllık"
+      ],
+      "train_prompt": "Bir genç, aylık harçlığının %40'ını müzik, video ve oyun aboneliklerine harcıyor. Bütün aboneliklerini iptal ederse yılda 7.200 TL tasarruf edeceğini, ama eğlen",
+      "protected_prompt": "Kaynak: Üçüncü değerlendirme raporu (ÜDR), dikkat çekici bir şekilde, \"Bin Yıllık Kuzey Yarımküre sıcaklık rekonstrüksiyonu\" etiketli, Michael E. Mann, Raymond ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir genç, aylık harçlığının %40'ını müzik, video ve oyun abo\" vs protected: 'Kaynak: Üçüncü değerlendirme raporu (ÜDR), dikkat çekici bir'"
+    },
+    {
+      "candidate_group": "bp01-g104",
+      "protected": "cetvel500-audit:mlsum_tr-09371",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "10"
+      ],
+      "shared_entities": [
+        "değerlendirme",
+        "etki"
+      ],
+      "train_prompt": "Bir genç, aylık harçlığının %40'ını müzik, video ve oyun aboneliklerine harcıyor. Bütün aboneliklerini iptal ederse yılda 7.200 TL tasarruf edeceğini, ama eğlen",
+      "protected_prompt": "Başlık: Kanal İstanbul projesi kaç yılda kaç paraya bitirilecek?\n\nMetin: Son zamanlarda yeniden gündeme gelen Kanal İstanbul projesi ile ilgili ÇED raporunun il",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: \"Bir genç, aylık harçlığının %40'ını müzik, video ve oyun abo\" vs protected: 'Başlık: Kanal İstanbul projesi kaç yılda kaç paraya bitirile'"
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:tquad-00439",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "aralık",
+        "ağustos",
+        "ekim",
+        "haziran"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Kaynak: Türkiye'nin ilk kadın profesörlerinden olan Fahire Hanım, 1902'de İstanbul'da doğmuştur. Müşir Akif Paşa ve Dr. Müşir Ömer Paşa’nın torunu; Adli Tıbbın ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: \"Kaynak: Türkiye'nin ilk kadın profesörlerinden olan Fahire H\""
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:tquad-00808",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "kemal",
+        "mustafa"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Kaynak: Altay, Türkiye'nin geliştirdiği 3+ nesil ana muharebe tankıdır. Şu anda detaylı tasarım aşamasındadır. Milli Tank Üretim Projesi (MİTÜP) çerçevesinde 30",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: \"Kaynak: Altay, Türkiye'nin geliştirdiği 3+ nesil ana muhareb\""
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-04583",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "ağustos",
+        "eylül",
+        "kemal",
+        "mustafa"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Başlık: Kargo şubeleri yarın açık mı 30 Ağustos kargo çalışma saatleri\n\nMetin: Yarın yani 30 Ağustos cuma günü kargo şubeleri açık mı, bankalar saat kaça kadar ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: 'Başlık: Kargo şubeleri yarın açık mı 30 Ağustos kargo çalışm'"
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-05822",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "aralık",
+        "ağustos",
+        "eylül",
+        "temmuz"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Başlık: AÖL başvuru ücreti kaç para oldu Açık lise başvurusu hangi bankaya yapılacak\n\nMetin: Açık lise kayıt yenileme işlemleri bugün başlıyor. Açık Öğretim Lis",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: 'Başlık: AÖL başvuru ücreti kaç para oldu Açık lise başvurusu'"
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-06651",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "aralık",
+        "ekim"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Başlık: İçişleri Bakanlığı sözleşmeli bilişim personeli alacak! İşte şartları\n\nMetin: Resmi Gazete'de yayımlanan ilana göre, Nüfus ve Vatandaşlık İşleri Genel M",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: 'Başlık: İçişleri Bakanlığı sözleşmeli bilişim personeli alac'"
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-08238",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "anadolu",
+        "milli",
+        "mustafa",
+        "temmuz"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Başlık: Yerli köstebek banttan indi! Bakan Mustafa Varank: Sadece 8 ülkede var\n\nMetin: Türkiye yüksek teknoloji ve mühendislik gerektiren bir makinenin daha üre",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: 'Başlık: Yerli köstebek banttan indi! Bakan Mustafa Varank: S'"
+    },
+    {
+      "candidate_group": "bp01-g105",
+      "protected": "cetvel500-audit:mlsum_tr-06233",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "19"
+      ],
+      "shared_entities": [
+        "august",
+        "haziran"
+      ],
+      "train_prompt": "Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (30 Ekim 1918), İtilaf Devletleri’nin Anadolu’yu işgale başlaması, Mustafa Kemal’in 19 Mayıs 1919'da S",
+      "protected_prompt": "Başlık: Fatih Portakal Öcalan dedi Abdullah Ağar 'buna izin verilmez' yazdı\n\nMetin: İçişleri Bakanlığı'nın Diyarbakır Büyükşehir Belediye Başkanı Adnan Selçuk M",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Şu öncüller veriliyor: Mondros Mütarekesi’nin imzalanması (3' vs protected: \"Başlık: Fatih Portakal Öcalan dedi Abdullah Ağar 'buna izin \""
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00468",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "16"
+      ],
+      "shared_entities": [
+        "avrupa",
+        "müslüman",
+        "osmanlı"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: Pîrî Reis Haritası günümüze kalan, Avustralya kıtasını gösteren en eski haritalardan biridir. Osmanlı Kaptan-ı Derya'sı (Amiral) Pîrî Reis tarafından 15",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Tür' vs protected: 'Kaynak: Pîrî Reis Haritası günümüze kalan, Avustralya kıtası'"
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00562",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "16",
+        "17",
+        "1727",
+        "1729"
+      ],
+      "shared_entities": [
+        "arap",
+        "i̇brahim",
+        "müteferrika",
+        "osmanlı"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: Nevşehirli Damat İbrahim Paşa tarafından 1720 yılında Paris'e elçi olarak gönderilen Yirmisekiz Mehmed Çelebi yanında oğlu Mehmed Said Efendi'yi de götü",
+      "verdict": "topical overlap only (shared subject facts); different task",
+      "evidence": "TQuAD passage on Müteferrika's press vs open-ended analysis; reference answer 'Sadrazam Nevşehirli Damat İbrahim Paşa S' appears in training text: False"
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00571",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "16"
+      ],
+      "shared_entities": [
+        "avrupa",
+        "i̇brahim",
+        "müteferrika",
+        "osmanlı"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: Bu kitaplardan Tarih-i Çelebizade 'nin pek çok nüshası Tarih-i Raşid 'in üçüncü ve son cildinin arkasına eklenip ciltlenerek beraber satıldığı için, baz",
+      "verdict": "topical overlap only (shared subject facts); different task",
+      "evidence": "TQuAD passage on Müteferrika's press vs open-ended analysis; reference answer ' Kethüda, Mektupçu, Çavuşbaşı gibi Osman' appears in training text: False"
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00579",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15",
+        "18"
+      ],
+      "shared_entities": [
+        "avrupa",
+        "i̇brahim",
+        "i̇mparatorluğu",
+        "müteferrika",
+        "osmanlı"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: Matbaanın Osmanlı İmparatorluğu'na geç gelmesinin nedenleri olarak, günah olduğu, İstanbul'daki 90.000 hattatın buna engel olduğu gibi nedenler öne sürü",
+      "verdict": "topical overlap only (shared subject facts); different task",
+      "evidence": "TQuAD passage on Müteferrika's press vs open-ended analysis; reference answer '10.000 10.000 10.000' appears in training text: False"
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00738",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15"
+      ],
+      "shared_entities": [
+        "i̇mparatorluğu",
+        "osmanlı"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: Değişik unvan ve statüler altında 15. yüzyıl Osmanlı İmparatorluğu dönemine kadar inebilen tarihi bir geçmişe sahip olan kurumun temelleri Fatih Sultan ",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Tür' vs protected: 'Kaynak: Değişik unvan ve statüler altında 15. yüzyıl Osmanlı'"
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00785",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "19"
+      ],
+      "shared_entities": [
+        "arabic",
+        "arap",
+        "müslüman"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: == Cebir alanındaki çalışmaları ==\r\nTamamlama ve Dengeleme ile Hesaplama Üzerine Özlü Kitap (Arapça: الكتاب المختصر في حساب الجبر والمقابلة al-Kitāb al-",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Tür' vs protected: 'Kaynak: == Cebir alanındaki çalışmaları ==\\r\\nTamamlama ve Den'"
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:mlsum_tr-11674",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "15"
+      ],
+      "shared_entities": [
+        "arap",
+        "avrupa"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Başlık: Cumhurbaşkanı Erdoğan: Bağdadi'nin yakını 13 kişiyi yakaladık\n\nMetin: Cumhurbaşkanı Erdoğan, Yüksek Düzeyli Stratejik İş Düzeyi Toplantısı’na katılmak i",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Tür' vs protected: \"Başlık: Cumhurbaşkanı Erdoğan: Bağdadi'nin yakını 13 kişiyi \""
+    },
+    {
+      "candidate_group": "bp01-g111",
+      "protected": "cetvel500-audit:tquad-00567",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "17",
+        "1729"
+      ],
+      "shared_entities": [
+        "i̇brahim",
+        "müteferrika"
+      ],
+      "train_prompt": "Osmanlı İmparatorluğu’nda matbaanın Müslümanlar arasında Türkçe yayıncılıkta geç yaygınlaşmasının kültürel ve ekonomik etkilerini çok yönlü analiz edin.",
+      "protected_prompt": "Kaynak: İbrahim Müteferrika kurduğu matbaasında ömrü boyunca toplam 17 ayrı kitap basmıştır:\r\nKitab-ı Lügat-ı Vankulu (Sihah El-Cevheri), 2 cilt halinde, 1729\r\n",
+      "verdict": "topical overlap only (shared subject facts); different task",
+      "evidence": "TQuAD passage on Müteferrika's press vs open-ended analysis; reference answer '17 17 17' appears in training text: False"
+    },
+    {
+      "candidate_group": "bp01-g115",
+      "protected": "old20-test:atlas:train.chat.jsonl:281286",
+      "max_5gram_containment": 0.012,
+      "shared_numbers": [
+        "120"
+      ],
+      "shared_entities": [
+        "veri",
+        "veriler"
+      ],
+      "train_prompt": "Tez ilerleme raporunu bir öğrenci olarak resmi bir tonda düz paragraf olarak yaz. En fazla 120 kelime olsun, tam olarak 3 madde içersin ve soru cümlesi kullanma",
+      "protected_prompt": "Bir öğrencinin gözünden, müşteri şikâyeti sınıflandırma raporunu teknik ama samimi bir tonla özetleyen tek bir paragraf yaz. En fazla 120 kelime kullan; paragra",
+      "verdict": "template family only",
+      "evidence": "same Atlas instruction template (exactly 2 risks and 2 actions); different content/data; inherited from pilot160"
+    },
+    {
+      "candidate_group": "bp01-g115",
+      "protected": "pilot80-test:atlas:train.chat.jsonl:281286",
+      "max_5gram_containment": 0.012,
+      "shared_numbers": [
+        "120"
+      ],
+      "shared_entities": [
+        "veri",
+        "veriler"
+      ],
+      "train_prompt": "Tez ilerleme raporunu bir öğrenci olarak resmi bir tonda düz paragraf olarak yaz. En fazla 120 kelime olsun, tam olarak 3 madde içersin ve soru cümlesi kullanma",
+      "protected_prompt": "Bir öğrencinin gözünden, müşteri şikâyeti sınıflandırma raporunu teknik ama samimi bir tonla özetleyen tek bir paragraf yaz. En fazla 120 kelime kullan; paragra",
+      "verdict": "template family only",
+      "evidence": "same Atlas instruction template (exactly 2 risks and 2 actions); different content/data; inherited from pilot160"
+    },
+    {
+      "candidate_group": "bp01-g115",
+      "protected": "reviewed-pilot-test:atlas:train.chat.jsonl:281286",
+      "max_5gram_containment": 0.012,
+      "shared_numbers": [
+        "120"
+      ],
+      "shared_entities": [
+        "veri",
+        "veriler"
+      ],
+      "train_prompt": "Tez ilerleme raporunu bir öğrenci olarak resmi bir tonda düz paragraf olarak yaz. En fazla 120 kelime olsun, tam olarak 3 madde içersin ve soru cümlesi kullanma",
+      "protected_prompt": "Bir öğrencinin gözünden, müşteri şikâyeti sınıflandırma raporunu teknik ama samimi bir tonla özetleyen tek bir paragraf yaz. En fazla 120 kelime kullan; paragra",
+      "verdict": "template family only",
+      "evidence": "same Atlas instruction template (exactly 2 risks and 2 actions); different content/data; inherited from pilot160"
+    },
+    {
+      "candidate_group": "bp01-g116",
+      "protected": "dev20:sft160-dev-14",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12",
+        "48"
+      ],
+      "shared_entities": [],
+      "train_prompt": "Bir pastane her pastayı 12 eşit dilime ayırıyor. Bir düğün için 8 pasta sipariş ediliyor ve her davetliye 2 dilim veriliyor. Bu pastalar en fazla kaç davetliye ",
+      "protected_prompt": "Bir depodaki 84 litrelik sıvı, hacimleri 3:4 oranında olan iki kaba tamamen paylaştırılıyor. Büyük kapta kaç litre olur?",
+      "verdict": "superficial: shared numbers only",
+      "evidence": "different problem structures; train: 'Bir pastane her pastayı 12 eşit dilime ayırıyor. Bir düğün için 8 past' vs 'Bir depodaki 84 litrelik sıvı, hacimleri 3:4 oranında olan iki kaba ta'"
+    },
+    {
+      "candidate_group": "bp01-g116",
+      "protected": "reasoning4:sft160-dev-14",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12",
+        "48"
+      ],
+      "shared_entities": [],
+      "train_prompt": "Bir pastane her pastayı 12 eşit dilime ayırıyor. Bir düğün için 8 pasta sipariş ediliyor ve her davetliye 2 dilim veriliyor. Bu pastalar en fazla kaç davetliye ",
+      "protected_prompt": "Bir depodaki 84 litrelik sıvı, hacimleri 3:4 oranında olan iki kaba tamamen paylaştırılıyor. Büyük kapta kaç litre olur?",
+      "verdict": "superficial: shared numbers only",
+      "evidence": "different problem structures; train: 'Bir pastane her pastayı 12 eşit dilime ayırıyor. Bir düğün için 8 past' vs 'Bir depodaki 84 litrelik sıvı, hacimleri 3:4 oranında olan iki kaba ta'"
+    },
+    {
+      "candidate_group": "bp01-g139",
+      "protected": "cetvel500-audit:mlsum_tr-03809",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "11"
+      ],
+      "shared_entities": [
+        "devlet",
+        "ekonomik",
+        "sosyal"
+      ],
+      "train_prompt": "Sosyal devlet ilkesi, barınma hakkı krizlerinde devlete hangi somut ödevleri yükler?",
+      "protected_prompt": "Başlık: ESKİ Devlet Bakanı Süleyman Arif Emre İstanbul'da son yolculuğuna uğurlandı.\n\nMetin: Törene TBMM Başkanı Mustafa Şentop, Hazine ve Maliye Bakanı Berat A",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Sosyal devlet ilkesi, barınma hakkı krizlerinde devlete hang' vs protected: \"Başlık: ESKİ Devlet Bakanı Süleyman Arif Emre İstanbul'da so\""
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "old20-test:cot:train.jsonl:3933",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "kontrol",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Bir koşu grubu haftada 4 gün bir araya geliyor ve her antrenman 60 dakika sürüyor. Antrenör, haftada en az 90 dakika yavaş tempolu, en az 60 dakika orta tempolu",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: 'Bir koşu grubu haftada 4 gün bir araya geliyor ve her antren'"
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "old20-test:cot:train.jsonl:535",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "20"
+      ],
+      "shared_entities": [
+        "kontrol",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Bir market, tam buğday ekmeğini 22 TL, beyaz ekmeği ise 18 TL'den satmaktadır. Bir aile haftada 6 ekmek tüketmekte ve sağlıklı beslenme planına göre bunun yarıs",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: 'Bir market, tam buğday ekmeğini 22 TL, beyaz ekmeği ise 18 T'"
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "pilot80-test:cot:train.jsonl:3933",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "kontrol",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Bir koşu grubu haftada 4 gün bir araya geliyor ve her antrenman 60 dakika sürüyor. Antrenör, haftada en az 90 dakika yavaş tempolu, en az 60 dakika orta tempolu",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: 'Bir koşu grubu haftada 4 gün bir araya geliyor ve her antren'"
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "pilot80-test:cot:train.jsonl:535",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "20"
+      ],
+      "shared_entities": [
+        "kontrol",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Bir market, tam buğday ekmeğini 22 TL, beyaz ekmeği ise 18 TL'den satmaktadır. Bir aile haftada 6 ekmek tüketmekte ve sağlıklı beslenme planına göre bunun yarıs",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: 'Bir market, tam buğday ekmeğini 22 TL, beyaz ekmeği ise 18 T'"
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:3933",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "30"
+      ],
+      "shared_entities": [
+        "kontrol",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Bir koşu grubu haftada 4 gün bir araya geliyor ve her antrenman 60 dakika sürüyor. Antrenör, haftada en az 90 dakika yavaş tempolu, en az 60 dakika orta tempolu",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: 'Bir koşu grubu haftada 4 gün bir araya geliyor ve her antren'"
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "reviewed-pilot-test:cot:train.jsonl:535",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "20"
+      ],
+      "shared_entities": [
+        "kontrol",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Bir market, tam buğday ekmeğini 22 TL, beyaz ekmeği ise 18 TL'den satmaktadır. Bir aile haftada 6 ekmek tüketmekte ve sağlıklı beslenme planına göre bunun yarıs",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: 'Bir market, tam buğday ekmeğini 22 TL, beyaz ekmeği ise 18 T'"
+    },
+    {
+      "candidate_group": "bp01-g151",
+      "protected": "cetvel500-audit:tquad-00823",
+      "max_5gram_containment": 0,
+      "shared_numbers": [
+        "12",
+        "30"
+      ],
+      "shared_entities": [
+        "ankara",
+        "toplam"
+      ],
+      "train_prompt": "Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a uçacak. Uçuş süreleri sırasıyla 2 sa 30 dk, 3 sa 15 dk ve 2 sa 45 dk. Diplomat Ankara’dan yerel saat",
+      "protected_prompt": "Kaynak: 2013 Ankara Şereflikoçhisar'da atış testleri yapıldı. Sarıkamış'ta kış testleri tamamlandı.\r\n12 Ağustos 2014 tarihinde Tümosan Motor ve Traktör Sanayi A",
+      "verdict": "superficial: generic tokens/numbers",
+      "evidence": "train: 'Bir diplomat Ankara’dan sırasıyla Kahire, Riyad ve Tahran’a ' vs protected: \"Kaynak: 2013 Ankara Şereflikoçhisar'da atış testleri yapıldı\""
+    }
+  ]
+}

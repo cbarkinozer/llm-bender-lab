@@ -1,0 +1,271 @@
+=== g041
+@@SOURCE_ID occam:data/train.jsonl:1
+@@USER
+I addressed someone formally with “siz” and wrote “Siz bu tekniği nerede öğrendim?” Write only the corrected question.
+@@ASSISTANT
+Siz bu tekniği nerede öğrendiniz?
+@@FLAGS
+low | language_bound_output | The task corrects a Turkish sentence (person agreement "öğrendim" -> "öğrendiniz"); the only possible answer is Turkish text. Assistant content is identical for TR and EN output directions, so the "answer in English" instruction has no effect (output_language_effect=none).
+
+=== g042
+@@SOURCE_ID occam:data/train.jsonl:13
+@@USER
+The projector is not displaying an image. Can we say for certain that changing the cable would fix the problem? We have not yet tried another cable or computer; the device's light is on.
+@@ASSISTANT
+We cannot say for certain. The light being on only shows that the projector is receiving power, not that a video signal is reaching it; the problem could be in the cable, in the input selection, in the computer's video output, or in the projector itself. First check that the correct input is selected on the projector. If no image appears, try a cable known to work; if an image appears, the old cable or its connection becomes a strong suspect. If there is still no image, you can connect a different computer to tell whether the problem is in the computer or in the projector.
+
+=== g043
+@@SOURCE_ID occam:data/train.jsonl:17
+@@USER
+The rental camera's main battery lasts 85 minutes and its spare battery lasts 55 minutes. The card in the bag has 120 minutes of recording space. State the spare battery's runtime using only the number and unit.
+@@ASSISTANT
+55 minutes
+
+=== g044
+@@SOURCE_ID occam:data/train.jsonl:2
+@@USER
+Derya applied to a PhD program, while Kerem started working as a doctor. In this sentence, who is applying for graduate education?
+@@ASSISTANT
+Derya.
+@@FLAGS
+low | language_intrinsic | Turkish "doktora" (PhD) vs "doktor" (physician) contrast rendered "PhD program" vs "doctor"; the distraction partly relies on the Turkish word similarity and is weaker in English.
+
+=== g045
+@@SOURCE_ID occam:data/train.jsonl:22
+@@USER
+In our translation team, the person editing the text saves the new file, but the translators keep working from the old copy they downloaded to their desktops. As a result we end up translating different versions of the same paragraph. Why would moving everyone to a shared master file help rather than buying everyone a faster computer, and how should we implement it?
+@@ASSISTANT
+The problem is not the speed of the computers but that everyone is working from a different version of the text; a faster computer only opens the old copy faster. A shared master file, on the other hand, keeps the current version in one place: the editor saves changes there, and the translators always see the same text. To implement it, move the current text to a shared location, give everyone the same link, and make it a rule that translations are done directly in this file. For this method to work, working from old copies on desktops must be abandoned completely; what has to change is not only the location of the file but the team's working habits.
+
+=== g046
+@@SOURCE_ID occam:data/train.jsonl:23
+@@USER
+The report says '2027 sales forecast is 90 thousand units, and management's recommendation is to keep production at 75 thousand units.' How many units of production does management recommend?
+@@ASSISTANT
+Management recommends keeping production at 75 thousand units.
+
+=== g047
+@@SOURCE_ID occam:data/train.jsonl:25
+@@USER
+Title: Match result
+
+Text: Akınspor beat Kuzey Birlik 4-2 in an away match played in Erzurum. The goal scored in the 67th minute of the match decided the result. With this win, Akınspor moved up to second place in the standings.
+
+Summary:
+@@ASSISTANT
+Akınspor moved up to second place in the standings by beating Kuzey Birlik 4-2 away in Erzurum.
+
+=== g048
+@@SOURCE_ID occam:data/train.jsonl:27
+@@USER
+Shorten this note into one sentence; keep both conditions: The gallery will lend the painting only if the insurance document is delivered and the transport date is confirmed in writing. If either of these two steps is missing, the painting will not be sent.
+@@ASSISTANT
+The gallery will lend the painting only if the insurance document is delivered and the transport date is confirmed in writing.
+
+=== g049
+@@SOURCE_ID occam:data/train.jsonl:40
+@@USER
+I keep searching for small items at home. What can I do to solve this in a more sustainable way?
+@@ASSISTANT
+Start with the 2-3 items you search for most and set a fixed place for each. Choose this place near the spot where you use the item or usually put it down; for example, you could put a bowl by the door for your keys. That way you will not need to search for the item, because you already know where it is. The only rule is to always put it back in the same place after using it. If an item keeps ending up somewhere else anyway, do not insist on its old place; move its place to the spot where it ends up on its own. Tidying up for a few minutes in the evening also makes it easier to put back whatever has been left out during the day.
+
+=== g050
+@@SOURCE_ID occam:data/train.jsonl:41
+@@USER
+Should I have the parcel sent to my home or to my workplace? Nobody is home during the day; the reception at my workplace is open until the evening.
+@@ASSISTANT
+Have it sent to your workplace. Since nobody is home during the day, the parcel may not be delivered, whereas at your workplace the reception is open until the evening, so there will be someone to receive the package.
+
+=== g051
+@@SOURCE_ID occam:data/train.jsonl:59
+@@USER
+The list says 'kır: open countryside' and 'kir: a stain that needs to be cleaned'. Write exactly the word used for the stain.
+@@ASSISTANT
+kir
+@@FLAGS
+low | language_bound_output | The task selects a Turkish lexical item (kır vs kir). The Turkish words stay verbatim in the EN prompt; answer "kir" is identical for TR and EN output directions (output_language_effect=none). Glosses of the two words were translated.
+
+=== g052
+@@SOURCE_ID occam:data/train.jsonl:6
+@@USER
+Correct the spelling mistakes in the given sentence.
+Incorrect sentence: Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanan zeminin yeniden temizlenmesini istedi, çalışanlar bina dan erken ayrıldı.
+Corrected version:
+@@ASSISTANT
+Plan yeniden gözden geçirildikten sonra, yarış direktörü ıslanan zeminin yeniden temizlenmesini istedi; çalışanlar binadan erken ayrıldı.
+@@FLAGS
+low | language_bound_output | Turkish spelling correction; Turkish sentence verbatim in prompt and answer; identical answer for TR and EN output directions (output_language_effect=none).
+low | mistake_suspected | The original answer also changes a comma to a semicolon, a punctuation change beyond the requested "spelling" correction (only "bina dan" -> "binadan" is a spelling error). Left unchanged.
+
+=== g053
+@@SOURCE_ID occam:data/train.jsonl:65
+@@USER
+Based on your own personal taste, which style of poetry do you find more beautiful? I am not asking for a general recommendation, I am asking about your own preference.
+@@ASSISTANT
+Since I have no personal taste, I cannot say that I find one style of poetry more beautiful than another. I can compare styles by criteria such as imagery, meter or language, but that would not be a personal preference.
+
+=== g054
+@@SOURCE_ID occam:data/train.jsonl:66
+@@USER
+Do you remember what we talked about yesterday?
+@@ASSISTANT
+Yesterday's conversation does not appear in this context. If you briefly remind me of the topic, we can continue from there.
+
+=== g055
+@@SOURCE_ID occam:data/train.jsonl:7
+@@USER
+Correct the spelling mistakes in the given sentence.
+Incorrect sentence: Hava yolu temsilcisi kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlamıyınca işlem özeti oluşturuldu.
+Corrected version:
+@@ASSISTANT
+Hava yolu temsilcisi kaçırılan uçuş için yeni bir bilet düzenledi; ikinci denemede sorun tekrarlamayınca işlem özeti oluşturuldu.
+@@FLAGS
+low | language_bound_output | Turkish spelling correction ("tekrarlamıyınca" -> "tekrarlamayınca"); Turkish sentence verbatim; identical answer for TR and EN output directions (output_language_effect=none).
+
+=== g056
+@@SOURCE_ID occam:data/train.jsonl:77
+@@USER
+My online order is cheap, but with the shipping fee it comes out more expensive than in the store. Is it still advantageous to buy online?
+@@ASSISTANT
+In terms of price, no. If the total including shipping is higher than in the store, buying online costs more. Buying online can be advantageous only if going to the store is a hassle for you and you consider the difference worth it.
+
+=== g057
+@@SOURCE_ID occam:data/train.jsonl:79
+@@USER
+I wrote to my friend both that I gave you the book and that I still have the book. I haven't given it yet; can you correct it in one sentence?
+@@ASSISTANT
+I haven't given you the book yet; I still have it.
+@@FLAGS
+low | translation_choice | The user's flawed message is not quoted in the source, so the corrected message is simply the target-language equivalent (EN: "I haven't given you the book yet; I still have it."). The TR answer "Kitabı sana henüz vermedim, hâlâ bende." is unchanged.
+
+=== g058
+@@SOURCE_ID occam:data/train.jsonl:9
+@@USER
+In the ceramic workshop's catalog, Kül Grisi is described as matte, Deniz Mavisi as glossy and Kum Beji as semi-matte. Write the name of the glaze that is glossy; do not add an explanation.
+@@ASSISTANT
+Deniz Mavisi
+@@FLAGS
+low | entity_preserved | Catalog product names (Kül Grisi, Deniz Mavisi, Kum Beji) kept verbatim as entity names rather than translated to Ash Grey / Sea Blue / Sand Beige; answer identical for TR and EN output directions (output_language_effect=none).
+
+=== g059
+@@SOURCE_ID occam:data/train.jsonl:90
+@@USER
+In the pastry shop we search for the ingredients one by one before preparing orders. They are all available but on different shelves and their locations are not fixed. Would buying a faster mixer reduce this waiting, and what should we change first?
+@@ASSISTANT
+No, a faster mixer will not reduce this waiting; the waiting you describe occurs not during mixing but while searching for ingredients. First set a fixed place for each ingredient: place the frequently used ones on shelves close to the preparation area and label them, and make it a rule that everything is put back in the same place after each use. If, after the searching time has gone down, mixing still slows the work, you can consider buying a faster mixer separately.
+
+=== g060
+@@SOURCE_ID occam:data/train.jsonl:91
+@@USER
+In the choir we know the notes but we miss our entrances. The conductor said that some people cannot see their cue. Instead of mostly singing the piece through from beginning to end, what change should we try, and why?
+@@ASSISTANT
+First change the choir's seating so that everyone can see the conductor comfortably; then work on the missed entrances in short sections. Knowing the notes does not show when an entrance is due; the conductor's cue shows that, and those who cannot see the cue can only catch the entrance by guessing. Singing through from beginning to end reinforces the piece but does not make the cue visible. If some entrances are still missed after the seating changes, check whether there is another difficulty at those points.
+@@FLAGS
+low | ambiguity | Original source sentence "Şefin işaretini bazı kişiler göremediğini söyledi" has no explicit subject for "söyledi" (who said); rendered "The conductor said" as the most natural reading, matching the answer's use of the conductor's cue.
+
+=== g061
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1018
+@@USER
+How can noise, safety and accessibility be optimized together in siting a vertiport for flying taxis (eVTOL)?
+@@ASSISTANT
+The key to optimizing these three criteria “together” is to see that they actually conflict with each other, because they pull in geographically opposite directions. Accessibility pulls the vertiport toward the center, where people and public transport are concentrated. Noise and safety, on the contrary, push it away from the center, so that few people are affected and there is a sufficient buffer. As a result, there is often no single point that maximizes all three at once; the aim is to find the best trade-off point, that is, the Pareto-efficient location.
+
+Quantification begins by converting each criterion into a comparable spatial layer. Noise is measured not by the raw dB value but by the population exposed to sound above a threshold; in this way the question “how many people will be disturbed” enters the score directly. Safety is quantified by the ground risk beneath the flight corridor (population density, sensitive uses such as schools or hospitals) and by the response time of emergency services. Accessibility is measured by the population and employment reached within a given walking and transfer distance and by public transport connections. All three become layers normalized between 0 and 1 on the same geographic grid.
+
+These layers are combined in a multi-criteria framework. The weights, for example the highest share for safety, are set by stakeholders, namely the aviation authority, the municipality and the affected neighborhood, and are tested with a sensitivity analysis: one looks at which locations stand out consistently when the weights are varied within a reasonable range. Trust is placed not in a single set of weights but in these stable candidates.
+
+The real solution is to look for locations that break the trade-off. The conflict is resolved in places that are already noisy but well connected: railway and highway junctions, ports and waterfronts, industrial areas to be converted. In these places the marginal effect of added noise is low because the environment is already noisy; the safety buffer is provided by open space; and these points are often existing transport nodes, so accessibility is high. In the Turkish context, the sensible first candidates are existing transfer hubs and coastal transport lines rather than opening new parcels from scratch.
+
+Finally, thresholds and weights are not made up. Noise limits, buffer distances and airspace constraints are taken from the regulations of the Directorate General of Civil Aviation (SHGM) on urban air mobility and from the local noise regulation. Until these values are entered, the model is a decision framework; the concrete numbers are filled in by legislation and field data.
+@@FLAGS
+info | gloss | "SHGM" expanded as "the Directorate General of Civil Aviation (SHGM)". The answer asserts that SHGM has urban-air-mobility regulations and local noise regulation exists; these regulatory claims were not verified.
+
+=== g062
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1062
+@@USER
+Interpret the proverb “Rüzgâr eken fırtına biçer” (“Those who sow the wind reap the storm”) in the context of chaos theory.
+@@ASSISTANT
+The proverb “Rüzgâr eken fırtına biçer” (“Those who sow the wind reap the storm”) says that a person who engages in malice or provocative behavior will in the end face something much greater than what they started. The point where the proverb meets chaos theory is the idea that a small beginning can turn into a large result.
+
+Chaos theory studies systems that are entirely governed by rules (deterministic) yet unpredictable in the long term. The basic feature of these systems is sensitive dependence on initial conditions: a very small difference at the start can grow over time through nonlinear interactions and lead to completely different outcomes. This phenomenon, noticed by the meteorologist Edward Lorenz in his weather models, is known as the “butterfly effect.” The wind turning into a storm in the proverb captures this growth intuitively well.
+
+However, the similarity is limited. The proverb is a moral judgment and treats the outcome as certain and predictable: whoever sows the wind will reap the storm, and this storm returns to the one who sowed it. Chaos theory, by contrast, emphasizes unpredictability. A small effect may grow, die out, or reappear in some other form in an unexpected place; there is no guarantee whatsoever that the outcome will resemble the cause or that the cause will return to its owner. The butterfly effect likewise does not say that a butterfly creates a storm, but that such small differences make long-term prediction impossible.
+
+For this reason it would not be right to say that the proverb is confirmed by chaos theory. The more accurate interpretation is this: the two share the intuition that small causes can produce large consequences; but the proverb rests on certainty, while chaos theory rests on uncertainty.
+@@FLAGS
+info | gloss | Turkish proverb kept verbatim with a literal English gloss in the prompt and first answer sentence.
+
+=== g063
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1088
+@@USER
+Evaluate the proverb “Ateş olmayan yerden duman çıkmaz” (“There is no smoke without fire”) from the perspective of forensic science.
+@@ASSISTANT
+The most productive way to evaluate the proverb from the perspective of forensic science is to see it not as a type of evidence but as a pattern of reasoning. “Ateş olmayan yerden duman çıkmaz” (“There is no smoke without fire”) essentially carries this claim: if there is a sign, there is necessarily a real cause behind it. Forensic science is built precisely against this inference.
+
+Because this pattern is the everyday form of the logical fallacy of “affirming the consequent”: it jumps from a trace (smoke) directly to a single cause (fire) and disregards other causes that could produce the same trace. Yet the core of the forensic method is not to reach a conclusion without eliminating the alternative possibilities that could explain a finding. Smoke could also be fog, exhaust or steam; moreover, a fire can develop without leaving visible smoke. That is, the proverb is wrong literally as well as figuratively.
+
+For this reason, in forensic language smoke is at most circumstantial, that is, indirect evidence: a sign worth starting an investigation over, but not proof in itself. Locard's principle that “every contact leaves a trace” requires following the trace back to its source, not being content with the existence of the sign. The possibility of false positives is therefore taken into account at every step.
+
+This is where the real risk of the proverb lies in the Turkish context. In everyday language “smoke” is often used in place of gossip or suspicion, and the logic of “since it is being talked about, they must know something” conflicts directly with the presumption of innocence. Forensic thinking places the burden of proof on the one making the claim; it does not treat the sign as the crime itself.
+
+Still, the proverb has a defensible core: a sign is a legitimate reason to trigger an investigation. The mistake lies in turning it from a reason into a verdict. In short, this proverb is a good starter of investigations and a bad conclusion.
+@@FLAGS
+info | gloss | Turkish proverb kept with English equivalent in parentheses.
+
+=== g064
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:155
+@@USER
+How did the myth of Prometheus turn into a metaphor of “boundary violation” in modern technology ethics?
+@@ASSISTANT
+The transformation of Prometheus into a metaphor of “boundary violation” came about as the myth was reread in every age. In the process, the boundary being crossed itself changed.
+
+In the ancient sources the myth is two-faced. In Hesiod, Prometheus is a trickster punished for deceiving Zeus. In Aeschylus, he is a benefactor who gives humans the arts. The interpretation in Plato's Protagoras is the most instructive one today: Prometheus gives humans technical skill, but cannot give them the sense of shame and justice that makes living together possible. Zeus distributes these afterwards. That is, technical power comes before moral wisdom.
+
+In the modern age, Bacon made the hero of the myth a symbol of science, and the Romantics made him a figure of rebellion. The break came with Frankenstein (1818), subtitled “The Modern Prometheus.” Victor does not steal fire; he produces life and then flees from what he has created. The problem is no longer breaking a prohibition but not taking responsibility for the consequences. In Turkish, however, the myth was long read optimistically. In Tevfik Fikret's poem “Promete,” Prometheus is not a warning but the promise of reason and enlightenment.
+
+In the atomic age, the warning moved to the center. Günther Anders called the distance between what we can produce and what we can imagine of its consequences the “Promethean gap.” Hans Jonas opened his Imperative of Responsibility with the image of an unchained Prometheus and called for an ethics that looks after future generations. Thus the boundary moved from the prohibition set by the gods to humans' capacity for foresight.
+
+Today the metaphor is used for interventions whose consequences cannot be undone. The birth in 2018 of babies with CRISPR-edited genomes and artificial intelligence systems that are becoming hard to control are examples of this.
+
+The metaphor also has a weakness. Prometheus is a single person, whereas in today's technologies responsibility is spread across institutions. Even so, the myth's question remains current: we took the fire, but can we develop the wisdom to manage it at the same pace?
+@@FLAGS
+info | verification | Cited literature facts (Hesiod, Aeschylus, Plato's Protagoras, Frankenstein 1818 subtitle, Anders "Promethean gap", Jonas, 2018 CRISPR births) are consistent with common knowledge but were not independently source-checked; the Tevfik Fikret "Promete" attribution not verified.
+
+=== g065
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2002
+@@USER
+Explain the following technical concepts by drawing an everyday analogy for each. Order them from easy to hard. Basic: CPU time slice, database index, encryption, log file. Intermediate: inheritance, queue, stack, TCP handshake. Advanced: overfitting, blockchain, load balancing, deep learning. Also add a short analogy each for virtual memory, cache, DNS, CDN and microservice.
+@@ASSISTANT
+Basic
+CPU time slice: It is like a teacher giving each student in the class a short turn to speak, one after another. When a processor runs several programs on a single core, it gives each a very short slice of time and moves on to the next when the time is up; because it cycles so fast, the programs appear to be running at the same time.
+
+Database index: It is like the alphabetical index at the end of a book. When looking for a topic in a big book, instead of scanning all the pages, the index points directly to the page where the topic is. In a database too, an index is built on a column (for example customer name), and searching and sorting are done through this index much faster than by scanning the whole table.
+
+Encryption: It is like putting a letter in a locked box. Nobody can see what is inside the box; only a person with the right key can open and read it. Encrypted data likewise becomes meaningful only when it is decrypted with the right key.
+
+Log file: It is like a person noting down in a notebook the important events they experience each day. A computer also records what happens while it runs (errors, user actions, system warnings) line by line; later, by examining this record, one can understand when and how a problem arose.
+
+Intermediate
+Inheritance: It is like a master passing on their craft and tools to an apprentice. The apprentice takes over the same basic skills but can also add their own style. In object-oriented programming as well, a parent class defines the basic properties and methods; subclasses inherit them and extend or change them when needed.
+
+Queue: It is like a ticket line that works on the “first come, first served” (FIFO) principle. The first to arrive is processed first, and a newcomer is added to the end of the line. In the queue data structure as well, the oldest element comes out first and a new element is placed at the end.
+
+Stack: It is like a pile of dishes that follows the “last in, first out” (LIFO) rule. The last plate put on top is the first one taken when you start washing. In the stack data structure as well, a new element is added on top and removal starts from the topmost element.
+
+TCP handshake: It is like the three-step greeting two people exchange before they start talking. First one says “I want to talk” (SYN), the other answers “I am ready too” (SYN-ACK), and the first confirms by saying “OK, let's start” (ACK). Data flow does not begin until these three steps are completed.
+
+Advanced
+Overfitting: It is like a student who memorizes the exam questions and masters only those, but gets stuck on new types of questions. If a model likewise binds itself too tightly to every detail of the training data, it cannot generalize to data it has not seen before. A good model learns the underlying patterns instead of memorizing.
+
+Blockchain: It resembles a system in which everyone in a village keeps the same ledger. When a new transaction is added, all the villagers confirm and record it. Because each record is linked to the previous one like a chain, if someone tries to change a line in the past the integrity of the chain breaks and everyone notices; thus tampering with the records becomes almost impossible.
+
+Load balancing: It is like distributing tables evenly among waiters in a restaurant. If a single waiter runs to all the tables, service stalls; when the tables are shared out, the work flows. In distributed systems too, incoming requests are distributed equally across several servers so that no server is overloaded.
+
+Deep learning: It resembles the way the brain processes an image layer by layer. Light coming from the eye is first processed in layers that detect simple features (edges, color), and the upper layers combine these to reach a more abstract decision such as “this is a car.” A neural network likewise passes data through successive layers; each layer processes the output of the previous one in a more abstract way.
+
+Additional analogies
+Virtual memory: A full hotel placing its extra guests in a nearby annex. When the main building (RAM) is full, unused data is moved to the annex (disk), which is slower to reach; the hotel hosts more guests than its capacity, but getting there is slow.
+Cache: Keeping frequently bought products in a separate shelf in front of the checkout in a supermarket for quick access.
+DNS: A phone book that translates names (domain names) into numbers (IP addresses).
+CDN: A broadcasting company delivering the same content to viewers faster through distribution centers in different cities.
+Microservice: A big restaurant dividing its kitchen into separate sections (salad, soup, main course); each section does its own job, and the entrance (gateway) routes orders to the right section.

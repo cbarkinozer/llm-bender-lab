@@ -1,0 +1,186 @@
+[
+  {
+    "group_id": "bp01-g153",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P1",
+    "why": "Prompt is internally inconsistent (stated mean density 1.012x1.007=1.019084 vs 1.019583 implied by the 1:1.4 volumes; recomputed). The reviewed reasoning says the inconsistency must be mentioned but the answer omits it.",
+    "edits": [
+      {
+        "before": "- Dip tabakası: 607 × 1,4 ÷ 2,4 ≈ 354,08 km³\n",
+        "after": "- Dip tabakası: 607 × 1,4 ÷ 2,4 ≈ 354,08 km³\n\nNot: Verilen ortalama yoğunluk koşulu (1,012 × 1,007 = 1,019084 g/cm³) hacim oranından hesaplanan değerle (≈ 1,019583 g/cm³) tutarsızdır; sonuç hacim oranına göre verilmiştir.\n"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g028",
+    "field": "user",
+    "recommendation": "FIX",
+    "priority": "P1",
+    "why": "Ambiguous constraint: if the 1100 TL limit covered the whole 62.4 L trip (~2,808 TL) it would be infeasible; the answer silently treats it as the cost of refuelled fuel (535.68 TL).",
+    "edits": [
+      {
+        "before": "toplam yakıt maliyetinin 1100 TL’yi aşmaması",
+        "after": "ikmal edilen yakıtın toplam maliyetinin 1100 TL’yi aşmaması"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g035",
+    "field": "user",
+    "recommendation": "RETAIN",
+    "priority": "P1",
+    "why": "Shift length is missing, but the reviewed answer opens by naming this gap and states its assumption (4 h shifts, all six assigned), which is the behaviour the system prompt asks for (\"Belirsizliği belirt\"). Fixing the prompt would make that answer redundant (larger rewrite). Alternative: DROP if you prefer well-posed tasks only.",
+    "edits": [],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g068",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P1",
+    "why": "Objective typos: \"taka\" should be \"takas\" (trade-off); \"Takayı\" should be \"Takası\".",
+    "edits": [
+      {
+        "before": "Buradaki taka, su kuşlarının",
+        "after": "Buradaki takas, su kuşlarının"
+      },
+      {
+        "before": "Takayı görünür kılan adım",
+        "after": "Takası görünür kılan adım"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g030",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P2",
+    "why": "Wrong attribution. VERIFIED against the official Constitution text (mevzuat.gov.tr/mevzuatmetin/1.5.2709.pdf): Art. 56 says preventing pollution is \"Devletin ve vatandaşların ödevidir\".",
+    "edits": [
+      {
+        "before": "çevre kirlenmesini önlemeyi doğrudan devletin ödevi sayar",
+        "after": "çevre kirlenmesini önlemeyi devletin ve vatandaşların ödevi sayar"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g139",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P2",
+    "why": "Misquote. VERIFIED against the official text: Art. 65 reads \"malî kaynaklarının yeterliliği ölçüsünde\". (My earlier concern about the Art. 57 comma was wrong: the official text has a comma; no change there.)",
+    "edits": [
+      {
+        "before": "“mali kaynakların yeterliliği ölçüsünde”",
+        "after": "“mali kaynaklarının yeterliliği ölçüsünde”"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g012",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P2",
+    "why": "Inconsistent rule: the first two conjunction \"ki\" get commas, the third is said never to; a comma before purpose-result \"ki\" is optional, not forbidden.",
+    "edits": [
+      {
+        "before": "ve kendisinden önce virgül konmaz, tıpkı",
+        "after": "ve önünde virgül zorunlu değildir, tıpkı"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g095",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P2",
+    "why": "Incomplete citation (secondary sources): HMK 116/1-b and 117 are right; the arbitration objection is also governed by HMK 413.",
+    "edits": [
+      {
+        "before": "cevap süresi içinde ileri sürülmek zorundadır (HMK m. 117)",
+        "after": "cevap süresi içinde ileri sürülmek zorundadır (HMK m. 117 ve 413)"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g075",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P3",
+    "why": "Time-sensitive product/privacy-policy claims (Alexa has no Turkish; 2025 Amazon cloud processing; Google retention options) will go stale.",
+    "edits": [
+      {
+        "before": "ancak kurulumu daha fazla teknik bilgi ister.\n",
+        "after": "ancak kurulumu daha fazla teknik bilgi ister.\n\nNot: Ürün özellikleri ve gizlilik politikaları sık değişir; karar vermeden önce güncel resmî sayfaları kontrol edin.\n"
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g154",
+    "field": "assistant",
+    "recommendation": "FIX",
+    "priority": "P3",
+    "why": "\"Doğru künyeli\" examples were requested. The Kuvâyi Milliye line was VERIFIED (Book 8 of Kuvâyi Milliye per secondary sources). \"Açların Gözbebekleri\" exists (written in Moscow, first free-verse poem) but its content description is unverified, so the minimal fix keeps only the verified Salkımsöğüt description.",
+    "edits": [
+      {
+        "before": "“Açların Gözbebekleri” açlık çeken yığınları, “Salkımsöğüt” vurulup suya düşen bir Kızıl süvariyi anlatır.",
+        "after": "“Salkımsöğüt” vurulup suya düşen bir Kızıl süvariyi anlatır."
+      }
+    ],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g066",
+    "field": "assistant",
+    "recommendation": "RETAIN",
+    "priority": "P3",
+    "why": "No error found. Von Hannover (No. 2) / Axel Springer criteria and Art. 17/28, ECHR 8/10 are real; Law 5651 blanket-block case law not verified. Optional lawyer check.",
+    "edits": [],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g067",
+    "field": "assistant",
+    "recommendation": "RETAIN",
+    "priority": "P3",
+    "why": "No error found; TTK 369/553/555/557, TBK 50-51, Law 3095 not independently verified. Optional lawyer check.",
+    "edits": [],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g102",
+    "field": "assistant",
+    "recommendation": "RETAIN",
+    "priority": "P3",
+    "why": "No error found; HMK 27, Const. 36, ECHR 6 plausible/standard; \"Yargıtay bozma sebebidir\" not verified. Optional lawyer check.",
+    "edits": [],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g112",
+    "field": "assistant",
+    "recommendation": "RETAIN",
+    "priority": "P3",
+    "why": "TTK 393 (participation ban) confirmed by secondary sources; TTK 202, 369, 553 unverified but plausible. Optional lawyer check.",
+    "edits": [],
+    "applied": false
+  },
+  {
+    "group_id": "bp01-g159",
+    "field": "assistant",
+    "recommendation": "RETAIN",
+    "priority": "P3",
+    "why": "Const. 38/152, TCK 2 and 2/3, ECHR 7, Kokkinakis v. Greece are standard; not independently verified. Optional lawyer check.",
+    "edits": [],
+    "applied": false
+  }
+]

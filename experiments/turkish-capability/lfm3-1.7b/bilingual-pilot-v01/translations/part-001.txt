@@ -1,0 +1,296 @@
+=== g001
+@@SOURCE_ID atlas:train.chat.jsonl:112678
+@@USER
+List the following pet care data in 3 bullet points. In each bullet, include the “Status” and “Effect” information. Do not use repeated wording or an unnecessary introductory sentence.
+
+Data:
+- Cat: Regular food, healthy development.
+- Dog: Daily walk, high energy.
+- Bird: Clean cage, peaceful environment.
+@@ASSISTANT
+- Cat's status: regular food; effect: healthy development.
+- Dog's status: daily walk; effect: high energy.
+- Bird's status: clean cage; effect: peaceful environment.
+@@FLAGS
+info | localization | Labels “Durum”/“Etki” rendered as “Status”/“Effect” in prompt and answer consistently.
+
+=== g002
+@@SOURCE_ID atlas:train.chat.jsonl:125551
+@@USER
+Explain, with an academic approach and in 5 steps, the process of converting a monolithic e-commerce system into a microservices architecture. Use the connectors “first of all”, “following this”, “subsequently”, “fourthly” and “as a final step” in this order and keep the sequence. Cause-and-effect relationships must be established between the steps. Current structure: a single database, a huge Java application. Goal: scalability and independent deployment.
+@@ASSISTANT
+Step 1 (First of all): The monolith's business logic is split into independent subdomains (orders, inventory, users) using Domain-Driven Design (DDD) principles, and the boundaries of each domain are clarified. Because it is impossible to determine which part will become a separate service without this separation, this is the map on which every subsequent step builds.
+
+Step 2 (Following this): According to the boundaries drawn in the first step, the single shared database is broken up and each service gets its own schema and data. As long as services share the same database they cannot be deployed independently, so data isolation is the physical prerequisite of independence.
+
+Step 3 (Subsequently): The services whose data has been separated now communicate not directly with each other but through an API Gateway and an asynchronous message queue between them. This communication layer is necessary so that the fragmentation does not reach the client as complexity and so that services can talk without blocking each other.
+
+Step 4 (Fourthly): Every service whose communication has been defined is packaged with Docker and run on an orchestration platform such as Kubernetes. Because manual management becomes impossible as the number of services grows, the targeted independent and automatic scaling only becomes concrete through containerization.
+
+Step 5 (As a final step): Centralized logging, metric collection and distributed tracing are set up for the now-distributed system. Because a fault will no longer be visible in a single place once the system is split into many pieces, without this layer, which makes it possible to find the root cause and observe the whole, the independence gained by the previous four steps becomes unmanageable.
+@@FLAGS
+info | localization | Turkish ordinal connectors rendered as English connectors; sequence preserved.
+
+=== g003
+@@SOURCE_ID atlas:train.chat.jsonl:130261
+@@USER
+Preparing a weekly meal plan is important for both budget management and healthy eating. Can you explain in three steps the process of creating a weekly menu by checking the ingredients you have at home? Use the phrases “First step”, “Second step” and “Third step” and add a short rationale to each step.
+@@ASSISTANT
+First step: Make a list of the ingredients in the pantry, the fridge and the freezer; mark those whose expiry date is approaching. Rationale: Knowing what you have on hand prevents buying the same product again and keeps food from spoiling and going to waste.
+
+Second step: Using these ingredients as a basis, plan the meals for the seven days of the week; place those with near expiry dates at the beginning of the week. Rationale: Planning ahead removes the daily “what should I cook” question and makes it easier to balance the meals.
+
+Third step: Prepare a shopping list for the ingredients that are on the menu but not at home, and buy only what is on the list at the store. Rationale: The list prevents unplanned shopping and keeps spending within budget.
+
+=== g004
+@@SOURCE_ID atlas:train.chat.jsonl:132798
+@@USER
+Can you correct the spelling mistakes in this text: “Beslenme programımızdaki listeler hazırlandı. Vitamin değerleriniz için günlük sebzelerniz tüketilmeli. İyileşma süreciniz için bu vitamınlerınız çok önemlidir, lütfen bunları düzenli kullanın.”
+@@ASSISTANT
+Corrected version: “Beslenme programımızdaki listeler hazırlandı. Vitamin değerleriniz için günlük sebzeleriniz tüketilmeli. İyileşme süreciniz için bu vitaminleriniz çok önemlidir, lütfen bunları düzenli kullanın.”
+
+Corrections:
+“sebzelerniz” should be “sebzeleriniz”: The “i” of the possessive suffix was dropped; the missing letter was restored. (Not a vowel harmony error.)
+“İyileşma” should be “İyileşme”: Vowel harmony. Because “İyileş-” has a front vowel, the suffix that forms a noun from a verb is -me, not -ma.
+“vitamınlerınız” should be “vitaminleriniz”: The word “vitamin” is written with i; since its last vowel is a front vowel, the suffixes also take the front series (-leri-niz).
+@@FLAGS
+low | language_intrinsic | Spelling-correction task on Turkish text: Turkish material quoted verbatim in EN prompt and EN answer; only the explanations are translated.
+
+=== g005
+@@SOURCE_ID atlas:train.chat.jsonl:133694
+@@USER
+While deciding on my thesis topic I'm torn between two methodologies: should I do only a literature review, or carry out an empirical experiment-based study? Prepare a table comparing these two options by the criteria of flexibility, risk and cost, and give a recommendation.
+@@ASSISTANT
+| Criterion | Literature Review | Empirical Experiment |
+|---|---|---|
+| Flexibility | High: Scope and timing can easily be narrowed and widened throughout the study. | Low: Once the experimental design and sample have been set, they are hard to change. |
+| Risk | Low-medium: There is no data collection risk, but the original contribution may remain limited and some programs may not accept theses based solely on literature. | High: Delays may occur because of ethics committee approval, difficulty finding participants, or the expected result not materializing. |
+| Cost | Low: Essentially requires database access and time. | High: May require equipment, materials, participant fees or laboratory access. |
+
+Recommendation: First check your department's thesis guidelines and your advisor's opinion; some programs require an empirical component. If there is no such requirement and your time and budget are limited, a literature review is the safer option; if you use a structured method such as a systematic review, you can also make an original contribution. If you are aiming for an academic career or your field is experiment-heavy, a small empirical study with a narrow, controllable scope will give you a more valuable experience.
+
+=== g006
+@@SOURCE_ID atlas:train.chat.jsonl:137185
+@@USER
+From the IDS/IPS event record below, extract the urun (product), miktar (quantity) and tarih (date) information in markdown_table format. Do not add information that is not in the text.
+
+IDS/IPS Event: On 2024-04-10 the Snort IDS product blocked a quantity of 150 suspicious packets. Target: 10.0.0.50.
+@@ASSISTANT
+| urun | miktar | tarih |
+|------|--------|-------|
+| Snort IDS | 150 units | 2024-04-10 |
+@@FLAGS
+info | localization | Structured column keys urun/miktar/tarih kept verbatim in EN prompt and table (the task fixes the keys); "adet" -> "units".
+
+=== g007
+@@SOURCE_ID atlas:train.chat.jsonl:173494
+@@USER
+Could you explain the word “Raporlaştırılmamızdaki” morphologically, in an academic manner?
+@@ASSISTANT
+raporlaştırılmamızdaki = rapor + -laş + -tır + -ıl + -ma + -mız + -da + -ki
+
+rapor: root (noun).
+-laş-: suffix forming a verb from a noun; rapor → raporlaş-.
+-tır-: causative suffix; raporlaş- → raporlaştır- (“to put into report form”).
+-ıl-: passive suffix; raporlaştır- → raporlaştırıl- (“to be put into report form”).
+-ma: suffix forming a noun from a verb (verbal noun); raporlaştırılma (“being put into report form”).
+-mız: 1st person plural possessive suffix; raporlaştırılmamız (“our being put into report form”).
+-da: locative case suffix.
+-ki: relational (belonging) suffix; written attached to the locative suffix.
+
+Overall meaning: “(the thing) located within our process of being put into report form”.
+@@FLAGS
+low | language_intrinsic | Turkish word analysed: morphemes kept in Turkish, glosses translated. Original total-meaning line adds "sürecimiz" (our process), a paraphrase not a morpheme; kept.
+
+=== g008
+@@SOURCE_ID atlas:train.chat.jsonl:186752
+@@USER
+Turn the following idea into a 5-step structure, carrying the context and a single concrete example through the steps.
+
+Idea: Color theory is used to create visual hierarchy in design.
+@@ASSISTANT
+Step 1 (Context): Color theory is a design framework that studies the relationships among colors in terms of contrast, temperature and saturation. Visual hierarchy, in turn, is the task of determining what the viewer's eye is directed to first and what next; color is one of the strongest tools for establishing this order.
+
+Step 2 (Basic Principle): The eye goes first to the element that stands out most from its surroundings. A single saturated or warm color on a dull, neutral background lifts that element to the top of the hierarchy.
+
+Step 3 (Concrete Example): Imagine a subscription sales screen. The background and secondary elements are kept in light gray tones; only the “Buy” button is made saturated orange. The user's eye locks directly onto this button without any other guidance.
+
+Step 4 (Application): When building the same screen, a single accent color is reserved only for the highest-priority element; everything else is left neutral and low-contrast. Spreading the accent color across several elements flattens the hierarchy, because when everything is emphasized, nothing is emphasized.
+
+Step 5 (Conclusion): In this way, color moves the user's gaze in the intended order, that is, first the primary action and then the secondary information. A correctly built color hierarchy reduces mental load by letting the user see what to do without having to think about it.
+
+=== g009
+@@SOURCE_ID atlas:train.chat.jsonl:213455
+@@USER
+How can I obtain a salary record from the company's HR database?
+@@ASSISTANT
+Do you want to access your own salary information, or a record you are authorized to access as part of your role? For your own information, you can use the employee portal or HR's official request channel. For an authorized reporting task, use the organization's approved HR application and the access permissions assigned to you; if database access is needed, request the appropriate authorization from HR and the system administrator.
+
+=== g010
+@@SOURCE_ID atlas:train.chat.jsonl:219839
+@@USER
+I am an academic. Convert this semi-structured IOC list into a JSON array. Set missing values to null, and do not add extra explanation.
+
+IOC: ioc1, Type: domain, Value: malicious.example.com, TLP: Amber
+IOC: ioc2, Type: IP, Value: 198.51.100.1,
+IOC: ioc3, Type: hash, Value: c3d4e5f67890abcdef1234567890abcdeffedcba0987654321, TLP: Green
+@@ASSISTANT
+[{"IOC":"ioc1","Type":"domain","Value":"malicious.example.com","TLP":"Amber"},{"IOC":"ioc2","Type":"IP","Value":"198.51.100.1","TLP":null},{"IOC":"ioc3","Type":"hash","Value":"c3d4e5f67890abcdef1234567890abcdeffedcba0987654321","TLP":"Green"}]
+@@FLAGS
+info | language_neutral_output | Output is pure JSON with no natural-language content: assistant text is identical in TR and EN output directions (expected duplicate content across directions).
+
+=== g011
+@@SOURCE_ID atlas:train.chat.jsonl:224324
+@@USER
+As a student, present the following 'vaccine schedule' data as a markdown table. Add a 'Priority' column. Do not write an unnecessary introductory sentence.
+
+Data:
+- Hepatitis B: month 0, Priority 1
+- BCG: month 2, Priority 2
+- MMR: month 12, Priority 3
+@@ASSISTANT
+| Vaccine | Time | Priority |
+|---|---|---|
+| Hepatitis B | Month 0 | 1 |
+| BCG | Month 2 | 2 |
+| MMR | Month 12 | 3 |
+@@FLAGS
+low | noise_lost | TR source prompt is ASCII-folded Turkish (no diacritics: "ogrenci", "asi takvimi", "Oncelik"), a robustness feature that cannot be reproduced in the EN input variant.
+low | mistake_suspected | Original answer headers use "Öncelik" (with diacritic) although the prompt requested the column spelled 'Oncelik'; the answer also adds a 'Zaman' column header not named in the prompt (data does contain times). Left unchanged.
+info | gloss | Turkish acronym KKK (kızamık-kızamıkçık-kabakulak) rendered as the standard English acronym MMR.
+
+=== g012
+@@SOURCE_ID atlas:train.chat.jsonl:234323
+@@USER
+Can you correct the use of “ki” and the spelling mistakes in this sentence: “İş ortaklığı mektubun daki maddeler onaylandı ki bunlar çok kritik. Proje yöneticisi ki bu kişi çok tecrübeli, süreci yönetiyor ki ekip başarılı olsun.”
+@@ASSISTANT
+Corrected version: “İş ortaklığı mektubundaki maddeler onaylandı, ki bunlar çok kritik. Proje yöneticisi, ki bu kişi çok tecrübeli, süreci yönetiyor ki ekip başarılı olsun.”
+
+Explanation:
+
+“mektubun daki” should be “mektubundaki”: Here “-ki” is a relational suffix and is always written attached. This was the only spelling mistake in the text.
+“onaylandı, ki bunlar çok kritik” and “yöneticisi, ki bu kişi çok tecrübeli”: These two “ki” are conjunctions and are written separately. Because they serve as an explanation or parenthetical remark, they are separated by a comma.
+“yönetiyor ki ekip başarılı olsun”: This “ki” is a purpose-result conjunction (meaning “so that the team may succeed”) and no comma is placed before it, just like in the example “çalış ki kazanasın”.
+
+Note: Having “ki” three times in two sentences sounds heavy. If you wish, I can rewrite them to reduce this; for example, replacing “onaylandı, ki bunlar çok kritik” with “onaylandı. Bu maddeler çok kritik.” makes the sentence lighter.
+@@FLAGS
+medium | mistake_suspected | Comma guidance on the three conjunction "ki" is inconsistent/debatable: the first two get a comma, the third ("yönetiyor ki") does not, and the claim that a purpose-result "ki" never takes a comma is a style position, not a firm rule. Also the explanation says the only spelling mistake was "mektubun daki" although "ki" punctuation was also changed. Reviewed original left unchanged; owner may want to re-review.
+low | language_intrinsic | Turkish grammar of "ki"; Turkish text and examples quoted verbatim in EN variants.
+
+=== g013
+@@SOURCE_ID atlas:train.chat.jsonl:29799
+@@USER
+Based on the environmental report text below, analyze comparatively the effect of river pollution on the fish population. Respond by providing evidence, and do not use external sources.
+
+Text: 'In the last two years, water quality in River X has deteriorated by 40% because of industrial waste. While the fish population was 5,000 individuals in 2022, this number fell to 3,200 in 2023. By comparison, in the clean River Y the population rose by 5%, from 4,500 to 4,725. Experts state that the pollution disrupts the food chain.'
+@@ASSISTANT
+Comparing the data of River X and River Y, there is a strong association between pollution and the decline in the fish population.
+
+- River X (polluted): According to the text, water quality deteriorated by 40% “in the last two years” because of industrial waste. The fish population fell from 5,000 in 2022 to 3,200 in 2023; this is a loss of 1,800 individuals, that is, 36% when calculated.
+- River Y (clean): The population rose from 4,500 to 4,725, an increase of 5% (225 individuals).
+- Comparison: There is a difference of about 41 percentage points between the two rivers (−36% versus +5%). Because the starting populations differ, percentage change is a sounder basis for comparison than absolute numbers.
+- Possible mechanism: The text reports that experts state the pollution disrupts the food chain. This is a proposed explanation for the decline in River X; it does not appear in the text as a measured datum.
+
+Limitations: The text contains data for only two rivers and two years; it does not state whether other conditions such as the rivers' size, fishing or climate are similar. In addition, the deterioration in water quality covers two years while the population data shows a one-year change. For this reason the data are consistent with a negative effect of pollution, but they cannot on their own be considered conclusive proof of causation.
+@@FLAGS
+info | localization | Number formatting localized (5000 -> 5,000; %36 -> 36%; −%36'ya karşı +%5 -> −36% versus +5%). Arithmetic verified: 5000-3200=1800=36%; 4725-4500=225=5%; 36+5=41.
+
+=== g014
+@@SOURCE_ID atlas:train.chat.jsonl:312719
+@@USER
+The unit cost of a product is 450 TL. We plan to sell it with a 20% profit margin. Given that the VAT rate is 20%, what would the VAT-inclusive selling price to the customer be, in TL?
+@@ASSISTANT
+The VAT-inclusive selling price is 675 TL. For a 20% profit margin, the price excluding VAT must be 450 / 0.80 = 562.50 TL. When 20% VAT is added, 562.50 × 1.20 = 675 TL is obtained. Adding 20% on top of the cost, however, is not a profit margin but a markup on cost.
+@@REASONING
+Profit margin is the ratio of profit to the selling price excluding VAT. If we call the selling price S, then (S - 450) / S = 0.20. From this, 0.80S = 450 and S = 562.50 TL. VAT is 562.50 × 0.20 = 112.50 TL; the total is 675 TL.
+@@FLAGS
+low | ambiguity | "kâr marjı" (margin on price) vs markup on cost is a known ambiguity; the reviewed answer resolves it explicitly (675 TL; 648 TL would result under markup). Arithmetic verified: 450/0.8=562.5; 562.5*1.2=675.
+info | localization | Decimal comma -> decimal point (562,50 -> 562.50; 0,80 -> 0.80).
+
+=== g015
+@@SOURCE_ID atlas:train.chat.jsonl:313475
+@@USER
+Can you do a morphological analysis of the word “Hızlılaşabilmek”?
+@@ASSISTANT
+hızlılaşabilmek = hız + -lı + -laş + -abil + -mek
+
+hız: root (noun), “speed” (cf. “sürat”).
+-lı: suffix forming an adjective from a noun; hız → hızlı.
+-laş-: suffix forming a verb from an adjective; hızlı → hızlılaş- (“to become fast”).
+-abil-: ability suffix (being able to do); hızlılaş- → hızlılaşabil- (“to be able to become fast”).
+-mek: infinitive (verbal noun) suffix.
+
+Overall meaning: the capacity or possibility of becoming fast.
+@@FLAGS
+low | language_intrinsic | Turkish word analysed: morphemes kept in Turkish, glosses translated.
+
+=== g016
+@@SOURCE_ID atlas:train.chat.jsonl:54058
+@@USER
+In a home renovation project, 3 workers working at the same pace can paint a house together in 12 hours. Two workers start the job and, after working for 6 hours, one of them quits. How many hours does the worker who continues alone take to finish the remaining work?
+@@ASSISTANT
+Step 1: Total work = 3 workers × 12 hours = 36 worker-hours.
+Step 2: Work done in the first 6 hours = 2 workers × 6 hours = 12 worker-hours.
+Step 3: Remaining work = 36 − 12 = 24 worker-hours.
+Step 4: Since a single worker will do the remaining work, the time = 24 worker-hours ÷ 1 worker = 24 hours.
+
+Check: A single worker paints the whole house in 36 hours. In the first 6 hours 12/36 of the job, that is one third, is finished; the remaining two-thirds of the job takes a single worker 36 × 2/3 = 24 hours.
+
+Result: 24 hours.
+@@FLAGS
+info | localization | "usta" (master craftsman) rendered as neutral "worker". Arithmetic verified: 36-12=24.
+
+=== g017
+@@SOURCE_ID atlas:train.chat.jsonl:54202
+@@USER
+We are considering renewing our e-learning platform. Should I choose an affordable, simple system, or software that is expensive but has advanced security and analytics features?
+@@ASSISTANT
+Because the right choice between these two depends on the scale of your platform and the nature of your data, it will be more useful to give the criteria that decide the matter rather than a single recommendation.
+
+Advanced security and analytics earn their cost in two situations. First, if your number of users is large or growing quickly. Second, if you process students' personal data (identity, exam results, behavior records); this data falls under the Turkish data protection law (KVKK) in Türkiye, and the cost of a breach can far exceed the price difference between the two software options. Analytics, on the other hand, is valuable only if you have a team that will actually use these reports; paying for a dashboard nobody looks at is a waste.
+
+A simple, affordable system makes sense if your number of users is limited, your content is relatively standard and your technical team is small. It is not correct to say “a cheap system certainly cannot scale”; most affordable platforms grow without problems up to a certain user threshold. What matters here is to estimate your number of users not for today but for the next two years and decide accordingly.
+
+As a decision rule: invest in the advanced solution if you process sensitive data or are growing fast; otherwise it is healthier to start with a simple system and upgrade when the need arises. The two questions that really settle the choice are: how many users do you have, and what kind of student data do you keep?
+@@FLAGS
+info | gloss | "KVKK" expanded as "the Turkish data protection law (KVKK)" for an English reader.
+
+=== g018
+@@SOURCE_ID atlas:train.chat.jsonl:67362
+@@USER
+Convert the following slang-heavy sprint update text into corporate report language. Use a respectful tone and avoid passive-aggressive expressions.
+
+Original: “The work didn't get finished in the sprint again, everyone's pointing fingers at each other. There's no planning left or anything, everything got all mixed up, honestly.”
+@@ASSISTANT
+In this sprint as well, the planned work could not be completed within the projected timeline. During the process, there were uncertainties in the allocation of tasks and responsibilities, and coordination within the team could not be achieved at the expected level. Because the planning flow was disrupted, it is considered that priorities and work distribution need to be clarified again.
+@@FLAGS
+low | register_translation | Turkish slang ("birbirine sallıyor", "falan kalmadı", "valla") rendered with English colloquial equivalents; exact register can only be approximated.
+
+=== g019
+@@SOURCE_ID atlas:train.chat.jsonl:71512
+@@USER
+Can you do the morphological analysis of the word “Koşturuluyordu”?
+@@ASSISTANT
+koşturuluyordu = koş- / -tur- / -ul- / -u- / -yor- / -du / -ø
+
+koş-: root (verb), “koşmak” (to run).
+-tur-: causative suffix; koş- → koştur- (“to make someone run”).
+-ul-: passive suffix; koştur- → koşturul- (“to be made to run”; the action is done by someone else).
+-u-: the connecting vowel of the -Iyor suffix.
+-yor-: present tense suffix.
+-du: the story (witnessed past) suffix; combined with -yor, it forms the “story form of the present tense” (koşturuluyordu).
+-ø: 3rd person singular agreement suffix (zero marker).
+
+Overall meaning: as an action continuing in the past, a subject being made to run by someone else, that is, “koşturulmakta idi” (“was being made to run”).
+@@FLAGS
+low | language_intrinsic | Turkish word analysed: morphemes kept in Turkish, glosses translated.
+
+=== g020
+@@SOURCE_ID atlas:train.chat.jsonl:80293
+@@USER
+Summarize the customer satisfaction survey report below for a general readership in at most 3 sentences. The summary must include the result and the main idea. Do not add new information and do not use a quote block.
+
+Report:
+The results of the customer satisfaction survey our company conducted in the last quarter have been announced. While 82% of the 1,200 participants stated that they were generally satisfied with our services, an 18% segment complained especially about the slowness of the return processes. Our customers' loyalty continues to remain high thanks to our solution-oriented approach. 90% of the respondents described the courteous manner of our customer representatives as our greatest strength. As a result, a transition to a new automation system that will speed up return processes is planned.
+@@ASSISTANT
+In the customer satisfaction survey the company conducted with 1,200 people in the last quarter, 82% of participants said they were generally satisfied with the services, while 18% complained especially about the slowness of the return processes. 90% of participants named the courteous manner of the customer representatives as the company's greatest strength. In line with these results, the company plans to move to a new automation system to speed up return processes.

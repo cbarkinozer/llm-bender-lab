@@ -1,0 +1,283 @@
+=== g081
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:2376
+@@USER
+Turn these two sentences into a single fluent expression without using a conjunction:
+“The sun set. The street lamps came on.”
+@@ASSISTANT
+The simplest way is to line the two sentences up with a comma:
+
+The sun set, the street lamps came on.
+
+A semicolon does the same job and places a slightly more noticeable pause in between: “The sun set; the street lamps came on.” An absolute participial construction (“The sun having set, the street lamps came on”) also joins them without a conjunction, but this form adds a time/cause link in between; if you only want to run them one after another, the comma is enough.
+@@FLAGS
+low | language_intrinsic | The Turkish answer's adverbial-participle example ("Güneş batınca sokak lambaları yandı") has no exact English conjunction-free counterpart; rendered with an English absolute participle. The TR prompt quotes Turkish sentences; the EN prompt quotes their English equivalents (task is conjunction-free joining, not Turkish-bound).
+
+=== g082
+@@SOURCE_ID cot:train.jsonl:3281
+@@USER
+An explorer walks first 3 km southeast (exactly southeast, 45°) from the ruins on Mount Nemrut, then 4 km due north, and finally 2 km due west. Calculate the distance and direction of the explorer's final position relative to the ruins.
+@@ASSISTANT
+Let east = +x and north = +y. The ruins are at the point (0, 0).
+
+3 km southeast: (1.5√2, −1.5√2) ≈ (2.121, −2.121)
+4 km north: (0, 4)
+2 km west: (−2, 0)
+
+Total: Δx = 1.5√2 − 2 ≈ 0.121 km, Δy = 4 − 1.5√2 ≈ 1.879 km
+
+Distance: d = √(0.121² + 1.879²) = √(29 − 18√2) ≈ 1.88 km
+
+Direction: θ = arctan(0.121 / 1.879) ≈ 3.7° (from north toward east)
+
+The explorer is about 1.88 km from the ruins, in the N 3.7° E direction. Compass bearing ≈ 004°, that is, almost exactly north.
+@@FLAGS
+info | verification | Arithmetic verified: dx=2.1213-2=0.1213; dy=4-2.1213=1.8787; d=1.8826; theta=3.69 degrees. Decimal commas localized; "K 3,7° D" -> "N 3.7° E".
+
+=== g083
+@@SOURCE_ID occam:data/train.jsonl:73
+@@USER
+The team note says both that the file was uploaded and that the file was not uploaded. We do not know which is true. How should we correct the note?
+@@ASSISTANT
+Since it is not known which is true, do not just pick one of the two statements and leave it. First check whether the file was uploaded and correct the note according to the result. Until you check, you can remove the two contradictory statements and write this:
+
+"It is unclear whether the file was uploaded; this will be checked."
+
+=== g084
+@@SOURCE_ID cot:train.jsonl:280
+@@USER
+Three times the number that is 4 more than a number equals 10 more than twice the same number. Find the number by solving the equation step by step, and verify it by substituting the result.
+@@ASSISTANT
+Let the number be x: 3(x + 4) = 2x + 10
+
+3x + 12 = 2x + 10
+
+3x − 2x = 10 − 12
+
+x = −2
+
+Verification: The left side is 3(−2 + 4) = 6, the right side is 2(−2) + 10 = 6. Both sides are equal.
+@@FLAGS
+info | verification | x=-2 verified.
+
+=== g085
+@@SOURCE_ID occam:data/train.jsonl:34
+@@USER
+My photos are scattered across different devices. How can I build a realistic plan for setting up a single photo archive within the next two weeks?
+@@ASSISTANT
+For a realistic two-week plan, break the job into small steps and devote the first week to collecting and the second week to organizing.
+
+Week 1: Collecting
+- Day 1: List all the devices where photos are kept (phone, tablet, computer, camera cards, old drives). Decide where the archive will live: a computer, an external drive or a cloud service. Make sure there is enough storage space.
+- Days 2-5: Each day, copy the photos from one device to the archive. Do not bother with organizing at this stage; transfer each device into a folder carrying its own name.
+- Days 6-7: Check that the copying is complete. Do not delete the originals on the devices before this check is finished.
+
+Week 2: Organizing and backup
+- Days 8-10: Sort the photos into year and month folders, for example 2024/2024-07. Identify duplicates of the same photo; do the deleting only after you have created and verified the second backup. Do not delete files that will not open right away; keep them in a separate folder in case of recovery.
+- Days 11-12: Create a second copy of the archive in a different place. If the archive is on the computer, back it up to an external drive or the cloud.
+- Days 13-14: Decide how new photos will be added to the archive (automatic upload or a monthly transfer) and complete any remaining gaps.
+
+Do not aim to sort through every photo one by one within two weeks. The priority is for everything to be in one place and backed up. Detailed sorting and tagging can wait.
+
+=== g086
+@@SOURCE_ID atlas:train.chat.jsonl:183227
+@@USER
+Turn the following short note into a 5-step guideline, adding context and possible risks to each step.
+
+Note: “A transition to Zero Trust architecture should be made.”
+@@ASSISTANT
+Step 1: Identify the current state and assets. Inventory users, devices, applications, data and the access flows between them.
+Context: In the perimeter-based model, everything on the internal network is considered trusted. Zero Trust removes this assumption.
+Risk: If the inventory is left incomplete, some systems remain unprotected and policies are set up incorrectly.
+
+Step 2: Enforce strong authentication. Use multi-factor authentication (MFA) and centralized identity management for all user and service access.
+Context: The access decision is made according to identity and device state, not network location.
+Risk: Users may resist the change. Legacy systems may not support MFA.
+
+Step 3: Apply the principle of least privilege and microsegmentation. Give each user and service only as much access as needed, and only for as long as needed. Divide the network into small segments.
+Context: Even if an account is compromised, the attacker's spread within the network is limited.
+Risk: Overly restrictive rules can disrupt business processes.
+
+Step 4: Monitor access continuously. Collect access and traffic logs in a central system (e.g. a SIEM) and detect anomalous behavior in real time.
+Context: In Zero Trust, verification is not one-time; it is redone with every request.
+Risk: If the number of alerts grows too large, real threats may be overlooked.
+
+Step 5: Transition in stages and test. First pilot on non-critical systems. After validating the policies with penetration tests, roll them out gradually.
+Context: A gradual transition limits the impact of possible errors.
+Risk: A misconfiguration can block legitimate access to critical systems and interrupt business continuity.
+
+=== g087
+@@SOURCE_ID occam:data/train.jsonl:57
+@@USER
+The job posting says 'a doctorate degree is required'. I graduated from medical school and became a doctor, but I did not take part in a doctoral program. Do I meet the requirement?
+@@ASSISTANT
+No, you do not meet this requirement. A “doctorate degree” is the academic degree awarded to those who complete a doctoral program. Graduating from medical school gives the title “doctor” (physician), but it does not count as a doctorate degree.
+@@FLAGS
+low | language_intrinsic | The contrast relies on Turkish "doktora" (PhD) vs "doktor" (physician); English "doctorate" vs "doctor" preserves it but the lexical-similarity trap is weaker.
+
+=== g088
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:4465
+@@USER
+My child has the camera on while playing online games with friends; is this a safety risk?
+@@ASSISTANT
+Short answer: If your child turns the camera on only with friends they know from real life, the risk is low; but if they turn it on in environments that include people they do not know, then yes, this is a risk. The main concerns are:
+
+* Someone they do not know can see your child and their room; location clues can be drawn from details in the background such as a school uniform or the view from the window.
+* Their image can be recorded without permission, screenshotted and shared.
+* Malicious people can try to build trust through the camera and approach the child.
+
+Practical precautions:
+* Turn the camera on only with familiar friends. Make sure the people they video chat with are really people they know; the camera should never be turned on with people they do not know.
+* Keep it off by default. Turn it off in the game settings and in the device's camera permissions, and turn it on only when needed.
+* Use a camera cover. Fitting a sliding cover to the computer camera is simple and effective.
+* Have them play in a shared space. Playing the game in a common area of the home is good for both supervision and trust.
+* Talk. Explain, in a non-accusatory way, that they should not share personal information (full name, school, address) and that they should tell you right away if someone bothers them or asks for something strange.
+
+Banning the camera entirely is not necessary; playing with video alongside familiar friends can also be socially positive. What matters is keeping under control who the camera is open to.
+
+=== g089
+@@SOURCE_ID occam:data/train.jsonl:63
+@@USER
+In the sentence "The teacher gave the student his book", whose book is it?
+@@ASSISTANT
+As it stands, the sentence is ambiguous. The word "his" can mean either the teacher's or the student's book, and nothing definite can be said without context. To remove the ambiguity, one would need to say "the teacher's own book" or "the student's book".
+@@FLAGS
+low | language_intrinsic | The ambiguity stems from Turkish possessive "kitabını" (his/her book). The EN variant recreates it with the English pronoun "his" (gender must be chosen in English). The TR rows keep the original sentence.
+
+=== g090
+@@SOURCE_ID occam:data/train.jsonl:51
+@@USER
+Selin left the meeting early. She probably took offense at what I said, didn't she?
+@@ASSISTANT
+We cannot know that. Selin leaving the meeting early does not show that she took offense at what you said; there could be another reason. If you want to be sure, you can ask her directly.
+
+=== g091
+@@SOURCE_ID occam:data/train.jsonl:78
+@@USER
+Does the sentence “We cannot say that this result is impossible” treat the result as certain?
+@@ASSISTANT
+No. This sentence does not treat the result as certain; it only says that it may be possible.
+
+=== g092
+@@SOURCE_ID occam:data/train.jsonl:20
+@@USER
+A listener has cancelled their podcast subscription. The reason field on the cancellation form is blank. Can we conclude that they did this because they did not like our guest on the latest episode?
+@@ASSISTANT
+No. Having cancelled the subscription does not show that the listener did not like the guest; no reason was given on the form either. If you wish, you can ask the listener for brief, optional feedback, but unless a reply comes, it would not be right to attribute a specific cause to the cancellation.
+
+=== g093
+@@SOURCE_ID atlas:train.chat.jsonl:314226
+@@USER
+Convert the following text into professional language and improve its clarity. Do not use abbreviations, colloquial expressions (k, hey, gonna, etc.) or emojis.
+
+Original: “Dude, the project status is going pretty well, we've passed the milestones. I already wrote it in the weekly report too, there's no problem, you know :)”
+@@ASSISTANT
+The project is progressing as planned and on a positive course; the defined milestones have been reached. As I also stated in the weekly report, there are no problems in the process.
+@@FLAGS
+low | register_translation | Turkish text mixes Turkish slang with English loanwords (status, milestone, weekly report) and Turkish chat abbreviations (tmm, slm, bi); the English variant replaces them with English chat abbreviations/colloquialisms.
+
+=== g094
+@@SOURCE_ID atlas:train.chat.jsonl:66421
+@@USER
+Can you give information about the legal risks in a company merger process?
+@@ASSISTANT
+The main legal risks in company mergers are as follows:
+
+* Competition approval: Mergers exceeding certain turnover thresholds are subject to the permission of the Competition Authority. A merger completed without permission may be considered invalid and may give rise to an administrative fine.
+* Due diligence risks: If the target company's hidden debts, pending lawsuits, and tax and social security (SGK) liabilities are not identified in advance, they pass to the acquiring party.
+* Contract risks: “Change of control” provisions in existing contracts may give the counterparty a right to terminate or to approve in the event of a merger; critical customer or supplier contracts may be lost.
+* Labor law: Employment contracts pass to the new company through a transfer of workplace; severance pay, employee rights and possible dismissal obligations create risk.
+* Corporate law (Turkish Commercial Code, TTK): Failure to comply with procedural rules such as the merger agreement, general assembly approval, and protection of minority shareholders and creditors can impair the merger.
+* Tax: The structure of the merger (whether the conditions for a tax-neutral merger are met) and the target's past tax debts can create serious costs.
+* Regulatory approvals: In regulated sectors such as banking, insurance and energy, the approval of institutions such as the Banking Regulation and Supervision Agency (BDDK) and the Energy Market Regulatory Authority (EPDK) is also required.
+* Personal data protection (KVKK) and intellectual property: The transfer of personal data and the valid transfer of trademarks, patents and licenses are separate risk areas.
+
+This is a general framework, not legal advice; for a concrete transaction you must work with a legal adviser.
+@@FLAGS
+info | gloss | Turkish authorities and laws expanded for English readers (SGK, BDDK, EPDK, TTK, KVKK). Legal statements not independently verified.
+
+=== g095
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1750
+@@USER
+Although the contract between the parties contains an arbitration clause, the other party has taken the dispute to a state court. In this case, how should I raise the arbitration objection (preliminary objection), and how should I write the petition?
+@@ASSISTANT
+If the other party files a lawsuit in a state court in a dispute that has an arbitration clause, the objection to be raised is technically not “lack of jurisdiction” but the preliminary arbitration objection (Code of Civil Procedure (HMK) Art. 116/1-b). Because this is a preliminary objection, it must be raised in the statement of defense and within the time limit for the defense (HMK Art. 117). If it is not raised in time, it will not be heard and the court will continue to hear the case; the court does not take this objection into account on its own motion. If the objection is found well-founded, the case is dismissed on procedural grounds.
+
+Sample petition:
+
+TO THE ... COURT
+CASE NO: 20.../...
+DEFENDANT: [Full name / Title, address]
+COUNSEL: [if any, Att. ...]
+PLAINTIFF: [Full name / Title]
+SUBJECT: Request that, since there is a valid arbitration clause between the parties, our preliminary arbitration objection be accepted and the case be dismissed on procedural grounds.
+
+EXPLANATIONS
+The plaintiff has filed this case with the claim of ...
+Article ... of the contract dated ... between the parties contains the following arbitration clause: “[text of the clause]”. This provision is a valid agreement showing that the parties subjected the dispute to arbitration.
+Since the dispute falls within the scope of this clause, the place of resolution is arbitration, not the court. We raise our preliminary arbitration objection within the time limit and together with our statement of defense.
+
+LEGAL GROUNDS: HMK Arts. 116, 117 and 407 et seq.; the relevant article of the contract; the agreed arbitration rules.
+
+CONCLUSION AND REQUEST: We respectfully request that our preliminary arbitration objection be accepted, that the case be dismissed on procedural grounds, and that the litigation costs and attorney's fees be borne by the plaintiff.
+
+[Date] — [Defendant / Counsel, signature]
+ANNEXES: Copy of the contract, (if any) power of attorney
+
+Note: This is a sample template, not legal advice. Before adapting it to your specific case, have the current legislation and case law checked by a lawyer.
+@@FLAGS
+medium | mistake_suspected | Procedural-law claims and article numbers (HMK Arts. 116/1-b, 117, 407 et seq.) not independently verified; EN rendering of the Turkish petition template keeps Turkish procedural structure. Owner may want legal re-review.
+
+=== g096
+@@SOURCE_ID occam:data/train.jsonl:53
+@@USER
+The match was interrupted because of rain. Why did the match stop?
+@@ASSISTANT
+The match stopped because of rain.
+
+=== g097
+@@SOURCE_ID atlas:train.chat.jsonl:201637
+@@USER
+List the following educational technology comparison in three bullet points, including risk and summary.
+
+Data:
+System A: Fast, Risk: Cost
+System B: Secure, Risk: Slowness
+Summary: A hybrid model is recommended.
+@@ASSISTANT
+System A: Runs fast, but carries a high-cost risk.
+System B: Is secure, but carries a risk of slow operation.
+Summary: A hybrid model is recommended to combine speed and security.
+@@FLAGS
+low | mistake_suspected | Original answer lines carry no bullet markers although "three bullet points" were requested, and it intensifies "Risk: Maliyet" to "yüksek maliyet riski" (high cost risk). Left unchanged.
+
+=== g098
+@@SOURCE_ID atlas:train.chat.jsonl:217114
+@@USER
+Expand this item from the meeting notes by adding next step, timeline, potential risk and expected benefit. Item: “Updating the knowledge base architecture”.
+@@ASSISTANT
+Item: Updating the knowledge base architecture
+
+* Next step: Putting the existing articles through a content audit, weeding out the outdated ones and designing the new category structure.
+* Timeline (estimated): About 2 months. Content audit in the first month, transition to the new structure and testing in the second month.
+* Potential risk: Outdated information remaining in the system may damage customer trust; for this reason, the content verification process must be carried out meticulously.
+* Expected benefit: A notable reduction in support ticket volume through increased self-service use and shorter resolution times for agents (the target could be set at, for example, 15-20%).
+@@FLAGS
+low | noise_lost | TR source prompt is ASCII-folded Turkish (no diacritics); not reproducible in the EN input variant.
+
+=== g099
+@@SOURCE_ID occam:data/train.jsonl:68
+@@USER
+If you were a lantern guiding the way in a fairy tale, what would you say to the hero?
+@@ASSISTANT
+If I were a lantern guiding the way in a fairy tale, I would say this to the hero: "You do not need to see the whole path. I will light up the few steps ahead of you, and you keep walking."
+
+=== g100
+@@SOURCE_ID sft:TR-part1-261025_v1-fixed.jsonl:1691
+@@USER
+Turn the following explanation into a single summary paragraph that begins with “In short:”:
+
+“Our customers may return the product they purchased within fourteen days from the date they receive it, without giving any reason. The product to be returned must be unused and must be sent in its original packaging together with its invoice. Unless the product is defective, the return shipping fee is borne by the customer. After the return is approved, payment is made to your original payment method within five to ten business days.”
+@@ASSISTANT
+In short: You can return the product within 14 days of delivery, unused and with its invoice. Unless the product is defective, the shipping fee is yours; once the return is approved, your payment is refunded within 5-10 business days.
+@@FLAGS
+low | mistake_suspected | Reviewed summary omits two conditions from the source (original packaging; no reason required). Compression is acceptable but conditions are dropped. Left unchanged. The required prefix "Kısaca:" is rendered "In short:" in the EN variant.
