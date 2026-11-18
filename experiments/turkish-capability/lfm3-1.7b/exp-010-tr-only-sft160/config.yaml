@@ -77,7 +77,7 @@
     "supervised_token_budget": 208665,
     "epochs_equivalent": 5.0,
     "data_order": "explicit per-epoch permutation (random.Random(3407+epoch)), one sequential pass, no shuffling",
-    "runner": "scripts/training/run_lfm3_bilingual_pilot.py"
+    "runner": "scripts/training/run_lfm3_bilingual_gpu.py"
   },
   "evaluation": {
     "baseline": "Untouched LiquidAI/LFM3-1.7B at pinned parent revision",
@@ -139,7 +139,7 @@
   "tracking": {
     "project": "lfm3-turkish-post-training",
     "group": "lfm3-turkish-bilingual-pilot-v01",
-    "run_name": "exp010-tr-only-sft160-lr1e-4-100step-r32",
+    "run_name": "exp-010-tr-only-sft160-lr1e-4-100step-r32",
     "credentials": "Outside repository and artifact archives"
   },
   "operations": {

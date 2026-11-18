@@ -1,5 +1,17 @@
 # Environment & Pod Setup Gotchas
 
+## Compare LoRA reloads with identical execution wrappers (2026-11-18)
+
+During the bilingual pilot smoke test, post-Trainer versus plain reloaded PEFT
+logits differed by up to 0.1015625 despite matching top-1. The trained model still
+had Accelerate's mixed-precision forward wrapper, which the fresh reload lacked.
+Before the save/reload inference probe, use
+`trainer.accelerator.unwrap_model(model, keep_fp32_wrapper=False)` so both sides
+use the same inference path. With that correction, exact equality passed without
+relaxing the assertion. Production training started only after the corrected
+smoke and tiny-overfit gates passed; the two failed diagnostic attempts remain
+preserved. Native BF16 merge/save/reload parity is checked separately for vLLM.
+
 ## Windows text-mode SSH stdin can corrupt a remote shell environment file
 
 During the thinking-SFT LR pair (2026-11-07), passing a shell environment line

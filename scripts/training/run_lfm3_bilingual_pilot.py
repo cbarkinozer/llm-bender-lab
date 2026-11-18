@@ -119,14 +119,9 @@ def audit(experiment, mask_empty_think):
 
 def train(experiment, mask_empty_think):
     """GPU path (not run here). Mirrors run_lfm3_sft160.py; consumes rows in the explicit order, one pass, no shuffling."""
-    gates = json.loads(GATES.read_text(encoding='utf-8')) if GATES.exists() else {}
-    missing = [g for g in REQUIRED_GATES if not gates.get(g)]
-    if not (gates.get('provider_terms_cleared_for_translated_rows') or gates.get('provider_terms_owner_risk_acceptance', {}).get('accepted')):
-        missing.append('provider_terms (cleared or owner risk acceptance)')
-    if missing:
-        raise SystemExit(f'Refusing to train: gates not satisfied: {missing}')
-    raise SystemExit('Training path intentionally not implemented in the preparation phase: port the Trainer section of '
-                     'run_lfm3_sft160.py (SequentialSampler over the ordered examples, max_steps=config optimizer_steps) after the gates pass.')
+    assert not mask_empty_think, 'This matched pair preserves the agreed exp-007 masking policy'
+    from run_lfm3_bilingual_gpu import train as gpu_train
+    gpu_train(experiment, 'sft')
 
 
 def main():
