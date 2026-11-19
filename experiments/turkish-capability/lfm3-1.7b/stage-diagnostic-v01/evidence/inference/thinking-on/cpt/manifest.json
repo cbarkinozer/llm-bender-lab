@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "diagnostic": true,
+  "model": {
+    "repo": "LiquidAI/LFM3-1.7B",
+    "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "quantization": null,
+    "precision_proposed": "bfloat16",
+    "thinking_proposed": false
+  },
+  "protocol": "stage-diagnostic-v01-thinking-on",
+  "selected_ids": [
+    "bpe01-symbolic-01",
+    "bpe01-symbolic-02",
+    "bpe01-symbolic-03",
+    "bpe01-symbolic-04",
+    "bpe01-symbolic-05",
+    "bpe01-symbolic-06",
+    "bpe01-symbolic-07",
+    "bpe01-symbolic-08",
+    "bpe01-ar01-ticket-change-tr-tr",
+    "bpe01-ar02-sequential-discount-tr-tr",
+    "bpe01-ar03-session-end-time-tr-tr",
+    "bpe01-ar04-ratio-share-tr-tr",
+    "bpe01-ar05-net-fill-rate-tr-tr",
+    "bpe01-ar06-percent-up-down-tr-tr",
+    "bpe01-ar07-average-target-tr-tr",
+    "bpe01-ar08-egg-boxes-tr-tr"
+  ],
+  "selection": "All frozen packet rows in original packet order",
+  "merged_model": "/workspace/repos/llm-bender-lab/experiments/turkish-capability/lfm3-1.7b/stage-diagnostic-v01-local/models/cpt",
+  "questions_sha256": "50d5c3e6d8d8289007e7df9beb871cfa6d19eba5e2c799e434bf333b211f516b",
+  "expected_count": 16,
+  "count": 16,
+  "seed": 3407,
+  "engine_args": {
+    "model": "/workspace/repos/llm-bender-lab/experiments/turkish-capability/lfm3-1.7b/stage-diagnostic-v01-local/models/cpt",
+    "tokenizer": "LiquidAI/LFM3-1.7B",
+    "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "dtype": "bfloat16",
+    "max_model_len": 8192,
+    "gpu_memory_utilization": 0.75,
+    "enforce_eager": true,
+    "max_num_seqs": 4,
+    "seed": 3407,
+    "trust_remote_code": true,
+    "generation_config": "vllm",
+    "enable_prefix_caching": false
+  },
+  "eos_token_ids": [
+    124900
+  ],
+  "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+  "decoding": {
+    "temperature": 0.1,
+    "top_k": 50,
+    "top_p": 1.0,
+    "repetition_penalty": 1.1,
+    "max_new_tokens": 4096,
+    "context_budget": 8192,
+    "enable_thinking": true,
+    "ignore_eos": true,
+    "stop_token_ids": [
+      124900
+    ]
+  },
+  "packages": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+  },
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "wall_seconds": 51.80278657504823,
+  "timing_note": "Per-request generation_seconds overlap under batching; use wall_seconds for aggregate throughput."
+}

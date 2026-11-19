@@ -1,0 +1,44 @@
+{
+  "models": [
+    "base",
+    "cpt",
+    "cpt-bilingual69"
+  ],
+  "base_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "cpt_revision": "6f213ec25a944dab2fbdeb6d337deb0e0442e638",
+  "sft_checkpoint": 69,
+  "decoding": {
+    "seed": 3407,
+    "temperature": 0.1,
+    "top_k": 50,
+    "top_p": 1.0,
+    "repetition_penalty": 1.1,
+    "max_new_tokens": 4096,
+    "max_model_len": 8192,
+    "batch_size": 4,
+    "stop_token_ids": [
+      124900
+    ]
+  },
+  "training_authorized": false,
+  "outputs": 264,
+  "references_local_only_sha256": "f4fbf422a5d7d343de0ed8531a933dd60571c3da4d3434f03986b30634fc1617",
+  "files": {
+    "experiments/turkish-capability/lfm3-1.7b/stage-diagnostic-v01/prompts.jsonl": "f39ffc3af0448bd53231937406095d27a004e0261e5799673361f71a1e7bb025",
+    "experiments/turkish-capability/lfm3-1.7b/stage-diagnostic-v01/thinking-prompts.jsonl": "50d5c3e6d8d8289007e7df9beb871cfa6d19eba5e2c799e434bf333b211f516b",
+    "experiments/turkish-capability/lfm3-1.7b/stage-diagnostic-v01/packet-manifest.json": "5ebe73c38b7ca6ccf0de4ebc26d738d3aa63e2809536c6a57b43b46ce1bbe182",
+    "experiments/turkish-capability/lfm3-1.7b/stage-diagnostic-v01/training-audit.json": "9312ef34f053f07b3a2a0758dcce32d5566a5993174937ab64d75863e01d31ed",
+    "scripts/evaluation/run_lfm3_stage_diagnostic.py": "56a261f19f57afb6bbc5db634a2a80309755157cb83638f1b285713aadd19589",
+    "scripts/evaluation/evaluate_lfm3_vllm_batched.py": "c1cf2cf71422de0da6e2916be92271585617101cf40559c971bdaf990476a0fa",
+    "scripts/training/download_lfm3_session.py": "58d99503e020a007bec68471eb2ec286ab3e7989d7e56e189e87d42ff08df4b5",
+    "scripts/training/setup_lfm3_stage_diagnostic.sh": "ee8594dfd2c1e1f18ccc0c3b93ae8071437901c35c7e76c16a40594fef1405c0",
+    "scripts/evaluation/run_lfm3_stage_diagnostic.sh": "bffd470781b34a3426877521150e17d6653c0b5e5431b103d7968608748f1bf6",
+    "scripts/datasets/prepare_lfm3_stage_diagnostic.py": "4b742f99d335852b9cf515a6b2f61d7093f86f76a9f31fc90110619f34d03332",
+    "experiments/turkish-capability/lfm3-1.7b/exp-011-bilingual-sft640/results-local/sft/checkpoint-69/adapter_config.json": "daf8910908bb63deede95704a9c188c6d7fd74a20e588d669658f3cc570c0ef3",
+    "experiments/turkish-capability/lfm3-1.7b/exp-011-bilingual-sft640/results-local/sft/checkpoint-69/adapter_model.safetensors": "580b7a5392475a5821e415f118913dd7125de832bc302d83f1d8d700dbf7a974",
+    "experiments/turkish-capability/lfm3-1.7b/exp-000-baseline/config-planned.json": "c4807f74760a52d4217069f8879f8a63323495dbec2f8dd99608ebd4d83be385"
+  },
+  "created_utc": "2026-11-19T20:54:34.292671+00:00",
+  "git_commit": "dbfeecc56366abf11c4d0bb7799710b94fbfaaf6",
+  "git_dirty": true
+}

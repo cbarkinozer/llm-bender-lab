@@ -1,0 +1,28 @@
+{
+  "status": "CPU_PREPARATION_PASSED_GPU_NOT_RUN",
+  "checked_utc": "2026-11-19T21:00:29.692329+00:00",
+  "cpu_contract_tests": 3,
+  "checks": [
+    "Frozen file hashes and upload archive SHA/content boundaries",
+    "264 diagnostic outputs plus2 smoke outputs with fake subprocesses",
+    "Completed-stage reuse and thinking-mode mismatch rejection",
+    "Manifest-listed backup extraction and264 output verification with mocked SSH",
+    "Both shell scripts bash -n",
+    "Idempotent CPU rebuild",
+    "Python syntax compilation"
+  ],
+  "no_gpu_connection_made": true,
+  "no_training_performed": true,
+  "gpu_checks_pending": [
+    "Driver/BF16",
+    "Pinned runtime imports",
+    "Native prompt/EOT audit",
+    "Exact merge/reload parity",
+    "Non-test smoke generation"
+  ],
+  "local_analysis_and_transport_sha256": {
+    "scripts/evaluation/test_lfm3_stage_diagnostic_cpu.py": "2fccd8f5129247208926a232cf62e1c42a6084cfb804c3ffef07ee499e506de2",
+    "scripts/evaluation/summarize_lfm3_stage_diagnostic.py": "953dcff1f9bd5f4eb087ef0211dc8cee66a16120fd6688abddb530a003bc26b3",
+    "scripts/training/lfm3_stage_pod.py": "366e6ddcf57ccee750d9bc4f66f998670a273539d284a00dde4991864a078777"
+  }
+}

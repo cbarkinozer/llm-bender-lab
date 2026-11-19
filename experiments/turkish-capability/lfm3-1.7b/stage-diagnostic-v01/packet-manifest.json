@@ -1,0 +1,32 @@
+{
+  "status": "frozen-diagnostic-not-fresh-test",
+  "main_rows": 72,
+  "thinking_rows": 16,
+  "expected_outputs": 264,
+  "selected_groups": [
+    "bpe01-ar01-ticket-change",
+    "bpe01-ar02-sequential-discount",
+    "bpe01-ar03-session-end-time",
+    "bpe01-ar04-ratio-share",
+    "bpe01-ar05-net-fill-rate",
+    "bpe01-ar06-percent-up-down",
+    "bpe01-ar07-average-target",
+    "bpe01-ar08-egg-boxes",
+    "bpe01-rw01-course-registration",
+    "bpe01-ne04-upper-bound",
+    "bpe01-ol02-main-point",
+    "bpe01-sr03-instrument-note",
+    "bpe01-co02-camp-unstated"
+  ],
+  "selection": "All8 arithmetic groups, Random(3407) one group per other category; four directions per group. Plus8 symbolic and12 seen-training probes.",
+  "models": [
+    "base",
+    "cpt",
+    "cpt-bilingual69"
+  ],
+  "main_thinking": false,
+  "secondary_thinking": true,
+  "stage_interpretation": "Same exact ancestry for CPT->SFT; exp013 is not a CPT descendant and cannot isolate this transition.",
+  "references_sha256": "f4fbf422a5d7d343de0ed8531a933dd60571c3da4d3434f03986b30634fc1617",
+  "training_probes_are_seen": true
+}
