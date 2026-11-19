@@ -50,3 +50,44 @@ The matched160-row control is complete: [plan and status](BASE-SFT160-ABLATION.m
 ## Next diagnostic: matched language transfer
 
 Prepared `crosslingual-holdout-v01`: three matched cases in four language directions (12 prompts), plus three symbolic arithmetic controls. No inference run yet. See `CROSSLINGUAL-NEXT-STEPS.txt` for GPU/Argilla instructions and the conditional bilingual pilot. Keep all evaluation variants outside training; this tiny set becomes diagnostic development data once used for decisions.
+
+## Capability-preservation session, 2026-11-19
+
+Historical bilingual training and the35-group owner review are complete; see
+[findings](BILINGUAL-FINAL-REVIEW.md). Bilingual69 is the leading SFT candidate,
+with a small uncertain preference edge over original base and clear symbolic
+arithmetic weaknesses. Earlier planning paragraphs above are historical.
+
+All three follow-up experiments are owner-authorized. The
+[frozen session plan](PRESERVATION-SESSION-PLAN.md) covers thinking-enabled
+diagnostics, matched original-base bilingual SFT, and a small verified
+capability-preservation mix. Fresh32 baseline evaluation precedes training;
+primary checkpoint69 is fixed before results. No publication authorized.
+
+| Experiment | Status | Main change |
+|---|---|---|
+| exp-012-base-bilingual | trained/evaluated; review complete | Same640 and recipe as exp011; original-base parent |
+| exp-013-base-preservation | trained/evaluated; review complete | Same original parent; token-matched retention data mix |
+
+[Measured follow-up results](PRESERVATION-SESSION-RESULTS.md): thinking alone did
+not recover symbolic arithmetic, and original-base SFT also regressed on it.
+[Owner review](PRESERVATION-OWNER-REVIEW.md) is complete: exp013 leads relative
+preference, but most questions lack successful answers and no quality winner is
+established. Preferences are not accuracy; do not infer publication readiness.
+
+## Next: locate language adaptation gains and losses
+
+The objective is adding Turkish to LFM3-1.7B while retaining its existing
+capabilities, not replacing it with another model. The inference-only
+[base -> CPT -> SFT diagnostic](stage-diagnostic-v01/README.md) is complete:
+264 diagnostic outputs plus two smoke outputs are verified locally; the pod
+can close. See [current findings](STAGE-DIAGNOSTIC-RESULTS.md) and
+[remaining work](LANGUAGE-ADAPTATION-NEXT.md). No new training was performed.
+
+Raw symbolic-output review separates calculation from formatting: base and
+CPT calculate all eight controls correctly in both modes, although CPT with
+thinking disabled often appends unrelated continuation. CPT plus bilingual
+SFT checkpoint69 answers all eight incorrectly in both modes and immediately
+closes thinking when enabled. This does not establish permanent knowledge loss
+or an unavoidable Turkish/arithmetic tradeoff. Prose adjudication remains open;
+seen-training probes stay separate from generalization diagnostics.

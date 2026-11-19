@@ -1,0 +1,793 @@
+{
+  "status": "complete-agent-manual-final-value-audit",
+  "scope": "All70 fresh numeric answers inspected, including apparent matches. Not owner judgments or Turkish-fluency accuracy. Final-value counts allow contradictory explanations, flagged separately. No output is rewritten.",
+  "reviewer": "Codex assistant; not independent blinded human assessment",
+  "automatic_screen_limitation": "Last-number heuristic undercounts LaTeX fractions, initial answers followed by explanations, and numeric answers with trailing unit exponents; manual labels supersede it for final-value counts.",
+  "models": {
+    "base": {
+      "source_sha256": "5f67aa42cf3e507d5937375d1293702f4bce007b79c8bf06b5e8b8ae26a41823",
+      "by_language": {
+        "tr": {
+          "count": 7,
+          "final_value_correct": 3,
+          "correct_value_with_contradiction_flags": 3
+        },
+        "en": {
+          "count": 7,
+          "final_value_correct": 7,
+          "correct_value_with_contradiction_flags": 0
+        }
+      },
+      "details": [
+        {
+          "id": "cp01-eval-001",
+          "language": "tr",
+          "category": "synchronization",
+          "expected": "42",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Truncated; tail asserts21, correct42 not established.",
+          "finish_reason": "length"
+        },
+        {
+          "id": "cp01-eval-002",
+          "language": "tr",
+          "category": "border_area",
+          "expected": "104",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Truncated repeated conflicting geometry; no definitive correct104.",
+          "finish_reason": "length"
+        },
+        {
+          "id": "cp01-eval-003",
+          "language": "tr",
+          "category": "without_replacement",
+          "expected": "7/40",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct final fraction, but earlier conflicting 13.75% and unrelated probability claims.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-004",
+          "language": "tr",
+          "category": "median",
+          "expected": "18",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Confuses Turkish ortanca (median) with arithmetic mean.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-005",
+          "language": "tr",
+          "category": "inclusion_exclusion",
+          "expected": "36",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-006",
+          "language": "tr",
+          "category": "ceiling_capacity",
+          "expected": "8",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct minimum8; an earlier parenthetical allows11 pieces in a firing despite maximum9.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-007",
+          "language": "tr",
+          "category": "midnight_rollover",
+          "expected": "00:25",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct final00:25 after many conflicting arithmetic/unit claims.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-009",
+          "language": "en",
+          "category": "synchronization",
+          "expected": "112",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-010",
+          "language": "en",
+          "category": "border_area",
+          "expected": "128",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-011",
+          "language": "en",
+          "category": "without_replacement",
+          "expected": "28/171",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-012",
+          "language": "en",
+          "category": "median",
+          "expected": "23",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-013",
+          "language": "en",
+          "category": "inclusion_exclusion",
+          "expected": "42",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-014",
+          "language": "en",
+          "category": "ceiling_capacity",
+          "expected": "9",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-015",
+          "language": "en",
+          "category": "midnight_rollover",
+          "expected": "00:19",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        }
+      ]
+    },
+    "turkish60": {
+      "source_sha256": "debfdaf2a3704ed44b77f9c5bd9c23386ce205402f905e9fa630f8306229c2b1",
+      "by_language": {
+        "tr": {
+          "count": 7,
+          "final_value_correct": 2,
+          "correct_value_with_contradiction_flags": 1
+        },
+        "en": {
+          "count": 7,
+          "final_value_correct": 6,
+          "correct_value_with_contradiction_flags": 0
+        }
+      },
+      "details": [
+        {
+          "id": "cp01-eval-001",
+          "language": "tr",
+          "category": "synchronization",
+          "expected": "42",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-002",
+          "language": "tr",
+          "category": "border_area",
+          "expected": "104",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-003",
+          "language": "tr",
+          "category": "without_replacement",
+          "expected": "7/40",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-004",
+          "language": "tr",
+          "category": "median",
+          "expected": "18",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Median confused with mean.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-005",
+          "language": "tr",
+          "category": "inclusion_exclusion",
+          "expected": "36",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-006",
+          "language": "tr",
+          "category": "ceiling_capacity",
+          "expected": "8",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-007",
+          "language": "tr",
+          "category": "midnight_rollover",
+          "expected": "00:25",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct final00:25; parenthetical claims12 hours elapsed.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-009",
+          "language": "en",
+          "category": "synchronization",
+          "expected": "112",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-010",
+          "language": "en",
+          "category": "border_area",
+          "expected": "128",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-011",
+          "language": "en",
+          "category": "without_replacement",
+          "expected": "28/171",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-012",
+          "language": "en",
+          "category": "median",
+          "expected": "23",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-013",
+          "language": "en",
+          "category": "inclusion_exclusion",
+          "expected": "42",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-014",
+          "language": "en",
+          "category": "ceiling_capacity",
+          "expected": "9",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-015",
+          "language": "en",
+          "category": "midnight_rollover",
+          "expected": "00:19",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        }
+      ]
+    },
+    "bilingual69": {
+      "source_sha256": "2f9dcb5d836df50ae8974df84a0cbfcf1605cdf4174be84fcb40520b213a4fee",
+      "by_language": {
+        "tr": {
+          "count": 7,
+          "final_value_correct": 1,
+          "correct_value_with_contradiction_flags": 1
+        },
+        "en": {
+          "count": 7,
+          "final_value_correct": 6,
+          "correct_value_with_contradiction_flags": 3
+        }
+      },
+      "details": [
+        {
+          "id": "cp01-eval-001",
+          "language": "tr",
+          "category": "synchronization",
+          "expected": "42",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-002",
+          "language": "tr",
+          "category": "border_area",
+          "expected": "104",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-003",
+          "language": "tr",
+          "category": "without_replacement",
+          "expected": "7/40",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-004",
+          "language": "tr",
+          "category": "median",
+          "expected": "18",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Median confused with mean.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-005",
+          "language": "tr",
+          "category": "inclusion_exclusion",
+          "expected": "36",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-006",
+          "language": "tr",
+          "category": "ceiling_capacity",
+          "expected": "8",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Opens with correct8, then extensive incorrect count/unit enumeration.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-007",
+          "language": "tr",
+          "category": "midnight_rollover",
+          "expected": "00:25",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-009",
+          "language": "en",
+          "category": "synchronization",
+          "expected": "112",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-010",
+          "language": "en",
+          "category": "border_area",
+          "expected": "128",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct subtraction result128, but appended alternative224 and wrong interpretation undermine explanation.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-011",
+          "language": "en",
+          "category": "without_replacement",
+          "expected": "28/171",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct final probability; says18 blue stones remain rather than18 total stones.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-012",
+          "language": "en",
+          "category": "median",
+          "expected": "23",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-013",
+          "language": "en",
+          "category": "inclusion_exclusion",
+          "expected": "42",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-014",
+          "language": "en",
+          "category": "ceiling_capacity",
+          "expected": "9",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct9, but appended at-least-capacity counterfactual answer2 is unsupported.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-015",
+          "language": "en",
+          "category": "midnight_rollover",
+          "expected": "00:19",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        }
+      ]
+    },
+    "exp-012-base-bilingual": {
+      "source_sha256": "57e57210a304e9e4eeabbf975b0604405b12b5fc73964ed6fcd5c01c65f434a6",
+      "by_language": {
+        "tr": {
+          "count": 7,
+          "final_value_correct": 1,
+          "correct_value_with_contradiction_flags": 0
+        },
+        "en": {
+          "count": 7,
+          "final_value_correct": 5,
+          "correct_value_with_contradiction_flags": 1
+        }
+      },
+      "details": [
+        {
+          "id": "cp01-eval-001",
+          "language": "tr",
+          "category": "synchronization",
+          "expected": "42",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-002",
+          "language": "tr",
+          "category": "border_area",
+          "expected": "104",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-003",
+          "language": "tr",
+          "category": "without_replacement",
+          "expected": "7/40",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-004",
+          "language": "tr",
+          "category": "median",
+          "expected": "18",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Median confused with mean.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-005",
+          "language": "tr",
+          "category": "inclusion_exclusion",
+          "expected": "36",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-006",
+          "language": "tr",
+          "category": "ceiling_capacity",
+          "expected": "8",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-007",
+          "language": "tr",
+          "category": "midnight_rollover",
+          "expected": "00:25",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "24:25 instead of required00:25; not valid24-hour notation.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-009",
+          "language": "en",
+          "category": "synchronization",
+          "expected": "112",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-010",
+          "language": "en",
+          "category": "border_area",
+          "expected": "128",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-011",
+          "language": "en",
+          "category": "without_replacement",
+          "expected": "28/171",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Explicitly claims28/171=4/9, then presents wrong reduced fraction.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-012",
+          "language": "en",
+          "category": "median",
+          "expected": "23",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-013",
+          "language": "en",
+          "category": "inclusion_exclusion",
+          "expected": "42",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": true,
+          "notes": "Correct42, but ceramics-only32 is mislabeled Both+Ceramics only.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-014",
+          "language": "en",
+          "category": "ceiling_capacity",
+          "expected": "9",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-015",
+          "language": "en",
+          "category": "midnight_rollover",
+          "expected": "00:19",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        }
+      ]
+    },
+    "exp-013-base-preservation": {
+      "source_sha256": "f40f95f8bde8a4d6ecf533f5c889026ae792b4736c4323867f4abe895e37402a",
+      "by_language": {
+        "tr": {
+          "count": 7,
+          "final_value_correct": 1,
+          "correct_value_with_contradiction_flags": 0
+        },
+        "en": {
+          "count": 7,
+          "final_value_correct": 4,
+          "correct_value_with_contradiction_flags": 0
+        }
+      },
+      "details": [
+        {
+          "id": "cp01-eval-001",
+          "language": "tr",
+          "category": "synchronization",
+          "expected": "42",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-002",
+          "language": "tr",
+          "category": "border_area",
+          "expected": "104",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-003",
+          "language": "tr",
+          "category": "without_replacement",
+          "expected": "7/40",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-004",
+          "language": "tr",
+          "category": "median",
+          "expected": "18",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-005",
+          "language": "tr",
+          "category": "inclusion_exclusion",
+          "expected": "36",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-006",
+          "language": "tr",
+          "category": "ceiling_capacity",
+          "expected": "8",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-007",
+          "language": "tr",
+          "category": "midnight_rollover",
+          "expected": "00:25",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-009",
+          "language": "en",
+          "category": "synchronization",
+          "expected": "112",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-010",
+          "language": "en",
+          "category": "border_area",
+          "expected": "128",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-011",
+          "language": "en",
+          "category": "without_replacement",
+          "expected": "28/171",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-012",
+          "language": "en",
+          "category": "median",
+          "expected": "23",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Averages16 and23 despite odd five-element list.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-013",
+          "language": "en",
+          "category": "inclusion_exclusion",
+          "expected": "42",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Correct inclusion-exclusion expression evaluated as38 instead of42.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-014",
+          "language": "en",
+          "category": "ceiling_capacity",
+          "expected": "9",
+          "final_value_correct": true,
+          "contradiction_or_unit_flag": false,
+          "notes": "Final answer value agrees with reference.",
+          "finish_reason": "eos"
+        },
+        {
+          "id": "cp01-eval-015",
+          "language": "en",
+          "category": "midnight_rollover",
+          "expected": "00:19",
+          "final_value_correct": false,
+          "contradiction_or_unit_flag": false,
+          "notes": "Wrong required final value.",
+          "finish_reason": "eos"
+        }
+      ]
+    }
+  }
+}

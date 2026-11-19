@@ -1,0 +1,45 @@
+{
+  "builder": "scripts/data/build_lfm3_capability_preservation.py",
+  "builder_sha256": "4d042d6a470688cc42586736085e901644fcf652d54470ee8e1c7c719012d885",
+  "created_on": "2026-11-19",
+  "files": {
+    "README.md": {
+      "bytes": 5035,
+      "sha256": "13be98c18579139c0f39431b51faba22c316378fa8a1a9b9dc63c7f5b92082bb"
+    },
+    "eval-prompts.jsonl": {
+      "bytes": 19830,
+      "sha256": "332ad85232dbb3951347a8e420d59b7b673af98a7529a46368981ae1072c4f54"
+    },
+    "eval-references.jsonl": {
+      "bytes": 23020,
+      "sha256": "b1ed3f20f7779695fafd98e17b3d126ac6cbb756a4600aff937f36245d849a3d"
+    },
+    "overlap-review.json": {
+      "bytes": 41805,
+      "sha256": "6e99f876dba5d96cd284c96cb4580e10a458100116f7ec3b8f35c5dbac51a5be"
+    },
+    "protected-inputs.json": {
+      "bytes": 210628,
+      "sha256": "3eb5e2eff6c4a2bfa21ad5fe2acdb0b581221ed1f34fb2e83b6a53b5d2b13210"
+    },
+    "train.jsonl": {
+      "bytes": 197178,
+      "sha256": "038250585ae9492a7e39fe695af57b4bd2900b6249b18b39a9a19e73249d9f2c"
+    },
+    "validation.json": {
+      "bytes": 2201,
+      "sha256": "c086ca8c8e3d3f392c05171d38096e54ca9922ede0774b50fba0351244c380aa"
+    },
+    "verification-cases.json": {
+      "bytes": 9070,
+      "sha256": "8f37bf5ed273c79a050f338bbd8afa1d3c582e325547998499727ca7e038747e"
+    }
+  },
+  "generation": "Fixed authored templates; deterministic Python; no RNG, model API, GPU or network",
+  "git_commit": "dbfeecc56366abf11c4d0bb7799710b94fbfaaf6",
+  "schema_reference": "experiments/turkish-capability/lfm3-1.7b/bilingual-pilot-v01/revisions/v01-corrections-02/train.jsonl",
+  "schema_reference_sha256": "17170506a2510bf938cf196dc08f79729334e267fd1b6b8a718e56b82f499db6",
+  "status": "prepared-data-only",
+  "version": "capability-preservation-v01"
+}

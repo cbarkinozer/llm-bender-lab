@@ -1,0 +1,83 @@
+{
+  "eval_categories": {
+    "ambiguity": 2,
+    "border_area": 2,
+    "ceiling_capacity": 2,
+    "conditional_reading": 2,
+    "error_detection": 2,
+    "evidence": 2,
+    "exclusive_constraints": 2,
+    "inclusion_exclusion": 2,
+    "lexical_constraint": 2,
+    "median": 2,
+    "midnight_rollover": 2,
+    "negation_scope": 2,
+    "register": 2,
+    "synchronization": 2,
+    "title": 2,
+    "without_replacement": 2
+  },
+  "eval_languages": {
+    "en": 16,
+    "tr": 16
+  },
+  "eval_rows": 32,
+  "exact_historical_overlap": 0,
+  "historical_files": 894,
+  "historical_prompt_occurrences": 12948,
+  "historical_unique_prompts": 2034,
+  "independently_checked_reasoning_cases": 56,
+  "length_characters": {
+    "eval": {
+      "max": 656,
+      "min": 531
+    },
+    "train": {
+      "max": 2511,
+      "min": 2366
+    }
+  },
+  "limitations": "Lexical checks are not semantic/cross-lingual proof. Training repeats five reasoning templates; paired eval families across languages are not independent family-level evidence. No external benchmark corpus scanned; broad task categories overlap deliberately.",
+  "max_historical_word_jaccard": 0.3571,
+  "max_train_eval_word_jaccard": 0.2727272727272727,
+  "parse_errors": [],
+  "schema_keys_match": true,
+  "status": "PASS",
+  "tokenization": "Not performed; no model/tokenizer downloaded. Native-template length, label and truncation audit remains required before GPU training.",
+  "train_categories": {
+    "clarification": 2,
+    "classification": 2,
+    "coreference": 2,
+    "definition": 2,
+    "explanation": 2,
+    "faithfulness": 2,
+    "grammar": 5,
+    "grounded_comparison": 2,
+    "indexed_progression": 8,
+    "instruction": 2,
+    "logic_language": 1,
+    "planning": 2,
+    "punctuation": 2,
+    "reading": 4,
+    "reverse_operation": 8,
+    "rewrite": 2,
+    "signed_change": 8,
+    "structured_extraction": 2,
+    "sum_difference": 8,
+    "summary": 2,
+    "transitive_order": 8,
+    "uncertainty": 2,
+    "word_sense": 2
+  },
+  "train_eval_nearest_pair": [
+    "cp01-train-062",
+    "cp01-eval-025"
+  ],
+  "train_languages": {
+    "en": 40,
+    "tr": 40
+  },
+  "train_reasoning_rows": 40,
+  "train_rows": 80,
+  "unique_prompts": 112
+}

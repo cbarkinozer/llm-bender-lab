@@ -1,5 +1,19 @@
 # Next steps after the bilingual development review
 
+Update 2026-11-20: the subsequent lineage diagnostic is complete. Its raw-output
+review distinguishes correct CPT calculations with poor stopping from wrong
+post-SFT calculations. See STAGE-DIAGNOSTIC-RESULTS.md for current findings and
+LANGUAGE-ADAPTATION-NEXT.md for pending work; the older recommendation below is
+historical.
+
+Update 2026-11-19: the final 35-task review is complete. See
+BILINGUAL-FINAL-REVIEW.md for results and the current recommendation: keep
+bilingual69 as the leading SFT candidate, investigate symbolic arithmetic loss
+with a bounded inference-only reasoning-mode diagnostic before more training.
+The final packet below is now consumed; the numbered plan is preserved as
+the pre-final decision policy, not pending work.
+
+
 Status: training and development inference complete; 20/20 owner reviews
 exported. Four LoRAs, logs and predictions are verified locally. The previous
 pod can remain closed. See BILINGUAL-DEV-REVIEW.md for evidence and limitations.

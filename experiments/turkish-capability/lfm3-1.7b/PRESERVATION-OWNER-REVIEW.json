@@ -1,0 +1,390 @@
+{
+  "decoded": {
+    "records": 16,
+    "valid_submitted": 16,
+    "invalid": [],
+    "response_status_counts": {
+      "submitted": 16
+    },
+    "review_provenance": "Owner-supplied review; user reports API reading and AI-assisted evaluation. Judge model/prompt unavailable; not independent human correctness adjudication.",
+    "snapshot_sha256": "bda221e90776db48db64967893f05c9060cc780dfbb89a8d5c7d69ea3941a1f0",
+    "snapshot_path": "experiments/turkish-capability/lfm3-1.7b/preservation-session-v01-local/argilla/owner-responses-20261119T202410109089Z.json",
+    "reviews": [
+      {
+        "record_id": "47a3768d-0a5e-5ed5-bb42-c134b0798672",
+        "task_id": "cp01-eval-004",
+        "category": "median",
+        "ranking": "A = B = C > D",
+        "notes": "Doğru ortanca 18 (sıralı listenin ortası). Dördü de ortalama (19,6) hesaplamış, hepsi yanlış. A ayrıca ortancayı toplam/sayı diye yanlış tanımlıyor; D'de ek olarak bozuk sözcük 'Ortancı'. Sonuç hepsinde yanlış olduğu için sıralama zayıf. Soru net, belirsizlik yok.",
+        "model_ranks": {
+          "base": 1,
+          "exp-012-base-bilingual": 1,
+          "exp-013-base-preservation": 1,
+          "bilingual69": 2
+        }
+      },
+      {
+        "record_id": "011187ea-cfcf-54ba-ab55-d47916fee032",
+        "task_id": "cp01-eval-003",
+        "category": "without_replacement",
+        "ranking": "B > C = D > A",
+        "notes": "Doğru cevap C(7,2)/C(16,2)=21/120=7/40. Yalnızca B sonunda 7/40'a ulaşıyor (ara adımlarda 2/16, 13,75% gibi hatalar ve aşırı uzun, dağınık anlatım var, ama nihai cevap doğru). A (4/7, 'Pıhtı' anlamsız), C (1/8), D (7/16, tek taş olasılığı) yanlış; A'da ayrıca bozuk sözcük var.",
+        "model_ranks": {
+          "exp-013-base-preservation": 3,
+          "base": 1,
+          "exp-012-base-bilingual": 2,
+          "bilingual69": 2
+        }
+      },
+      {
+        "record_id": "75cfa4c6-2fec-53c7-a661-97562376bc2f",
+        "task_id": "cp01-eval-001",
+        "category": "synchronization",
+        "ranking": "A = B > D > C",
+        "notes": "Doğru cevap EKOK(14,21)=42 dakika. Dördü de yanlış (A 70, B 35, C 21, D anlamsız). C çok uzun, kendini tekrar ediyor, yarım kesiliyor ve 21'e varıyor; D anlamsız bir mantık yürütüyor. A ve B kısa ve akıcı ama yanlış. Hepsi yanlış olduğu için sıralama düşük güvenli.",
+        "model_ranks": {
+          "bilingual69": 1,
+          "exp-013-base-preservation": 1,
+          "base": 3,
+          "exp-012-base-bilingual": 2
+        }
+      },
+      {
+        "record_id": "5e42aa2c-074d-56ea-bc55-656f37080b95",
+        "task_id": "cp01-eval-019",
+        "category": "negation_scope",
+        "ranking": "B = C > A = D",
+        "notes": "İstenen: 'Selva imzalamadı, diğer herkes imzaladı' gibi bir cümle. Hiçbiri başarılı değil. A ve D uydurma isimler ekleyip hepsinin 'imzalamadı' dediği çelişkili çıktı veriyor ve ilk satırda orijinal cümleyi aynen tekrarlıyor. B akıcı ama anlamı tersine çeviriyor (Selva yalnızca kendisi imzaladı). C eksik bilgiyi kabul ediyor ama görevi yapmıyor, yer tutucular ve bozuk son cümle içeriyor. Hepsi yanlış.",
+        "model_ranks": {
+          "exp-012-base-bilingual": 2,
+          "bilingual69": 1,
+          "base": 1,
+          "exp-013-base-preservation": 2
+        }
+      },
+      {
+        "record_id": "aa78b71b-1c66-5dfe-a756-f305500c9880",
+        "task_id": "cp01-eval-006",
+        "category": "ceiling_capacity",
+        "ranking": "D > B > C > A",
+        "notes": "Doğru cevap 8 tur (68/9≈7,56 → 8; 7×9=63<68). Dördü de 8 diyor. D kısa, doğru ve doğrulayan eşitsizliği veriyor. B doğru ama gerekçe çok kısa. C doğru sonuca varıyor ama dağınık, kendi içinde tutarsız cümleler ('8. turda 11 parça') var. A'nın gerekçesi anlamsız: 'her turda 9 parça' iken '1 turda 1 parça' diyen 68 satırlık saçma döküm, ilk cümle dışında hiç işe yaramıyor.",
+        "model_ranks": {
+          "bilingual69": 4,
+          "exp-013-base-preservation": 2,
+          "base": 3,
+          "exp-012-base-bilingual": 1
+        }
+      },
+      {
+        "record_id": "730572e2-7cdd-5522-ad89-c216c6d479a7",
+        "task_id": "cp01-eval-005",
+        "category": "inclusion_exclusion",
+        "ranking": "D > C = B > A",
+        "notes": "Doğru cevap: birleşim 38+29−12=55, hiçbirini yapmayan 91−55=36. Dördü de yanlış (A, C, D: 12; B: 70). D temiz ve açık ama kesişimi iki kez sayma hatası yapıyor (38+29+12). C ve B gerekçesiz/anlamsız formüller. A çok uzun, kendini çürütüyor (55, 24, 12 arasında gidip geliyor), yanlış bir sonuç veriyor.",
+        "model_ranks": {
+          "base": 3,
+          "exp-013-base-preservation": 2,
+          "exp-012-base-bilingual": 2,
+          "bilingual69": 1
+        }
+      },
+      {
+        "record_id": "0e135b15-618d-51ad-8488-dedb509d5ee9",
+        "task_id": "cp01-eval-002",
+        "category": "border_area",
+        "ranking": "A = B > C > D",
+        "notes": "Yol bahçenin içinde, dört kenar boyunca 2 m: iç kare 15−4=11 m, alan 225−121=104 m². Hiçbiri doğru değil. A ve B aynı (361 m², yolu dışarıya eklenmiş gibi dış karenin alanını veriyor, yol alanı bile değil) ve akıcı. C kısa ama anlamsız (30 m², 169 m²). D çok uzun, döngüye girmiş, 64/56/76/124 gibi tutarsız değerler veriyor ve yarım kalıyor, nihai cevap yok. Hepsi yanlış.",
+        "model_ranks": {
+          "exp-013-base-preservation": 1,
+          "exp-012-base-bilingual": 1,
+          "bilingual69": 2,
+          "base": 3
+        }
+      },
+      {
+        "record_id": "ec8f6fc3-a0c9-5e28-a5fd-5f0efd8d29f5",
+        "task_id": "cp01-eval-018",
+        "category": "conditional_reading",
+        "ranking": "D > A > C > B",
+        "notes": "Kural çatlak kapları etikete bakmadan ayırıyor; etiketi sağlam ama çatlak kap ayrılır. D bunu söylüyor (yazım hataları ve 'kaygan' gibi uydurma sözcükler ve gereksiz açıklamayla). A kuralı yeniden yazıyor ve çatlak kapların ayrıldığını içeriyor ama ilk kısmı bozuk ve soruyu doğrudan yanıtlamıyor. C anlamsız. B açıkça yanlış: yeniden etiketle diyor.",
+        "model_ranks": {
+          "exp-012-base-bilingual": 2,
+          "bilingual69": 4,
+          "exp-013-base-preservation": 3,
+          "base": 1
+        }
+      },
+      {
+        "record_id": "fb97b493-629e-5abf-ac4d-45da8a8abeb6",
+        "task_id": "cp01-eval-021",
+        "category": "register",
+        "ranking": "C > B > A = D",
+        "notes": "Beklenen: 'Başvurunu aldık, işleme koyduk' gibi samimi ama saygılı 'sen' hitaplı cümle. Hiçbiri başarılı. C başvurunun bildirildiği fikrini az çok koruyor ama 'size' (resmi çoğul) kullanıyor, 'sen' değil. B uzun, kendi içinde çelişen bir açıklama yapıyor, cümlesi anlamı değiştiriyor (kullanıcıya teşekkür, 'başvurusunuza bakıyorum') ve ikinci tekil değil. A ve D anlamsız, kaynakla ilgisiz.",
+        "model_ranks": {
+          "exp-012-base-bilingual": 3,
+          "bilingual69": 2,
+          "exp-013-base-preservation": 1,
+          "base": 3
+        }
+      },
+      {
+        "record_id": "af778586-5fbf-5971-8878-e5f5959dc0a7",
+        "task_id": "cp01-eval-007",
+        "category": "midnight_rollover",
+        "ranking": "B > C > A > D",
+        "notes": "23:47 + 38 dk = 00:25. B uzun, dolambaçlı ve kendini sürekli çürüten bir hesap yapıyor (08:59, 23:25, 03:49 gibi yanlış ara sonuçlar), ama nihai cevap 00:25 doğru. C kısa ve '24:25' diyor: süre doğru ama 24 saat biçimi kuralına uymuyor (00:25 olmalı), kısmen doğru. A (25:53, 01:43) ve D (25:47, 1:47) yanlış ve anlamsız. Not: B'nin cevabı doğru ama biçim/uzunluk açısından zayıf; C'nin biçimi bozuk.",
+        "model_ranks": {
+          "bilingual69": 3,
+          "base": 1,
+          "exp-012-base-bilingual": 2,
+          "exp-013-base-preservation": 4
+        }
+      },
+      {
+        "record_id": "584cddc2-f78b-5aba-9e40-113ac6265bb5",
+        "task_id": "cp01-eval-022",
+        "category": "error_detection",
+        "ranking": "B > C > D > A",
+        "notes": "Hata: özet 'tüm' perdelerin değiştiğini söylüyor, kaynakta sadece yırtık perde değiştirilmiş (aşırı genelleme). B kısa ve temelde doğru (yazım hatası: 'yırtan perle'). C sonunda doğru düzeltmeyi veriyor ama ilk cümlesi çelişkili (özetin ifadesini 'yalnızca yırtığı değiştirdi' diye yorumluyor). D dolambaçlı ve hatayı net söylemiyor, kaynak/özet karışıyor. A tamamen konu dışı ('yalnızca' kelimesinin anlamı üzerine saçma açıklama).",
+        "model_ranks": {
+          "exp-012-base-bilingual": 4,
+          "exp-013-base-preservation": 1,
+          "bilingual69": 2,
+          "base": 3
+        }
+      },
+      {
+        "record_id": "e4163d50-e097-5fa9-b463-fd52a49f68e4",
+        "task_id": "cp01-eval-023",
+        "category": "evidence",
+        "ranking": "A > B > C > D",
+        "notes": "Hayır: gözlemsel bir ilişki nedensellik kanıtlamaz (karıştırıcı faktörler, ters nedensellik olabilir). A sonucu doğru veriyor (doğrudan kanıtlanmamış), ama gerekçesi zayıf/bozuk. B 'Hayır' ile başlayıp 'kanıtlar' diyerek çelişiyor ama gövdesi kanıtlamadığını söylüyor. C 'kanıtlamakta' ile başlıyor, uydurma mekanizmalar (hidrokinetik sıvı dönüşümü vb.) sıralıyor, sonunda yeterli değildir diyor. D yanlış: açıkça 'kanıtlar' diyor.",
+        "model_ranks": {
+          "exp-013-base-preservation": 1,
+          "bilingual69": 2,
+          "base": 3,
+          "exp-012-base-bilingual": 4
+        }
+      },
+      {
+        "record_id": "a198d9a7-08ce-5f8c-a186-37b3f2007a56",
+        "task_id": "cp01-eval-024",
+        "category": "lexical_constraint",
+        "ranking": "C > A = D > B",
+        "notes": "Beklenen: 'oysa' ile beklenti-sonuç karşıtlığını gösteren tek, doğal cümle (örn. 'Yağmur yağmayacağını sanıyordum, oysa sağanak başladı'). Hiçbiri yapmıyor. C akıcı ama beklenti/sonuç karşıtlığı yok. A dilbilgisi hatalı ('hedefimizi ulaştırmamız') ve karşıtlık yok. D mantıksız ve çelişkili. B tek cümle yerine anlamsız bir açıklama + cümle veriyor ve 'oysa'nın anlamını yanlış tanımlıyor.",
+        "model_ranks": {
+          "bilingual69": 2,
+          "base": 3,
+          "exp-013-base-preservation": 1,
+          "exp-012-base-bilingual": 2
+        }
+      },
+      {
+        "record_id": "c12c3561-f908-5fbb-a34e-75de3c3f0439",
+        "task_id": "cp01-eval-008",
+        "category": "exclusive_constraints",
+        "ranking": "C > B > D > A",
+        "notes": "Çözüm: tam iki açık; {P,R} P→¬R'yi bozar. {P,S} ve {R,S} ikisi de geçerli ({P,R,S} dışı). Yani S kesin açık, ama ikinci anahtar P mi R mi belli değil → 'Hayır, kesin söylenemez'. Yalnızca C bu sonuca ulaşıyor (gerekçesi bulanık, S'nin kesin açık olduğunu görmüyor). B 'P ve S' diye kesinlik iddia ediyor (yanlış). D soruyu yanıtlamayan bir kural tekrarı. A ~11.500 karakter, döngüde, çelişki sanıp saçmalıyor, yarım kalıyor ve cevap vermiyor.",
+        "model_ranks": {
+          "base": 4,
+          "exp-012-base-bilingual": 2,
+          "bilingual69": 1,
+          "exp-013-base-preservation": 3
+        }
+      },
+      {
+        "record_id": "5b0b50b9-22f8-574d-8a8c-24c32154cbf8",
+        "task_id": "cp01-eval-020",
+        "category": "title",
+        "ranking": "A = C = D > B",
+        "notes": "İstenen: en fazla dört sözcüklük başlık (örn. 'Tohum Zarflarının Etiketleri'). A, C, D hiç başlık yazmadan metni aynen tekrarlıyor, hepsi başarısız ama zararsız. B yaklaşık 11.500 karakter, anlamsız sözcük analizi yapıyor, kendini tekrarlıyor, yarım kalıyor; metni de bozuyor ('toplamanın'). Hepsi başarısız.",
+        "model_ranks": {
+          "exp-013-base-preservation": 1,
+          "base": 2,
+          "exp-012-base-bilingual": 1,
+          "bilingual69": 1
+        }
+      },
+      {
+        "record_id": "e10bbfaf-4382-5617-b5ca-4461fa2f4275",
+        "task_id": "cp01-eval-017",
+        "category": "ambiguity",
+        "ranking": "D = B > A = C",
+        "notes": "Doğru iki yorum: (1) fotoğrafçı ressamı dürbün kullanarak gördü; (2) fotoğrafçı, dürbünü olan ressamı gördü. Hiçbiri doğru ikilemi vermiyor. D ilk yorumda dürbünle görmeyi (alet) doğru koruyor, ikinci yorumda özneleri ters çeviriyor (yanlış). B ilk yorumda dürbüne bakmayı yakalıyor ama fotoğraf çekme uyduruyor, ikincisi anlamsız ve bozuk ekler ('anlamıştu'). A ve C uydurma sözcüklerle ('dürbüş', 'düdük') kaynakla ilgisiz.",
+        "model_ranks": {
+          "base": 2,
+          "exp-012-base-bilingual": 1,
+          "bilingual69": 2,
+          "exp-013-base-preservation": 1
+        }
+      }
+    ]
+  },
+  "summary": {
+    "snapshot_sha256": "bda221e90776db48db64967893f05c9060cc780dfbb89a8d5c7d69ea3941a1f0",
+    "n": 16,
+    "metric": "Preference among mostly unsuccessful answers; NOT accuracy",
+    "review_provenance": "Owner-supplied review; user reports API reading and AI-assisted evaluation. Judge model/prompt unavailable; not independent human correctness adjudication.",
+    "models": {
+      "base": {
+        "pairwise_preference": 0.3645833333333333,
+        "mean_rank": 2.90625,
+        "top_including_ties": 5
+      },
+      "bilingual69": {
+        "pairwise_preference": 0.5104166666666666,
+        "mean_rank": 2.46875,
+        "top_including_ties": 5
+      },
+      "exp-012-base-bilingual": {
+        "pairwise_preference": 0.5104166666666666,
+        "mean_rank": 2.46875,
+        "top_including_ties": 5
+      },
+      "exp-013-base-preservation": {
+        "pairwise_preference": 0.6145833333333334,
+        "mean_rank": 2.15625,
+        "top_including_ties": 9
+      }
+    },
+    "pairs": {
+      "base vs bilingual69": {
+        "wins": 5,
+        "ties": 2,
+        "losses": 9,
+        "net_win_rate": -0.25,
+        "exploratory_item_bootstrap_95": [
+          -0.6875,
+          0.1875
+        ]
+      },
+      "base vs exp-012-base-bilingual": {
+        "wins": 6,
+        "ties": 2,
+        "losses": 8,
+        "net_win_rate": -0.125,
+        "exploratory_item_bootstrap_95": [
+          -0.5625,
+          0.3125
+        ]
+      },
+      "base vs exp-013-base-preservation": {
+        "wins": 4,
+        "ties": 1,
+        "losses": 11,
+        "net_win_rate": -0.4375,
+        "exploratory_item_bootstrap_95": [
+          -0.8125,
+          0
+        ]
+      },
+      "bilingual69 vs exp-012-base-bilingual": {
+        "wins": 7,
+        "ties": 3,
+        "losses": 6,
+        "net_win_rate": 0.0625,
+        "exploratory_item_bootstrap_95": [
+          -0.375,
+          0.5
+        ]
+      },
+      "bilingual69 vs exp-013-base-preservation": {
+        "wins": 5,
+        "ties": 2,
+        "losses": 9,
+        "net_win_rate": -0.25,
+        "exploratory_item_bootstrap_95": [
+          -0.6875,
+          0.1875
+        ]
+      },
+      "exp-012-base-bilingual vs exp-013-base-preservation": {
+        "wins": 5,
+        "ties": 6,
+        "losses": 5,
+        "net_win_rate": 0,
+        "exploratory_item_bootstrap_95": [
+          -0.375,
+          0.375
+        ]
+      }
+    },
+    "subsets": {
+      "numeric": {
+        "n": 7,
+        "models": {
+          "base": {
+            "pairwise_preference": 0.42857142857142855,
+            "mean_rank": 2.7142857142857144,
+            "top_including_ties": 3
+          },
+          "bilingual69": {
+            "pairwise_preference": 0.42857142857142855,
+            "mean_rank": 2.7142857142857144,
+            "top_including_ties": 2
+          },
+          "exp-012-base-bilingual": {
+            "pairwise_preference": 0.6428571428571429,
+            "mean_rank": 2.0714285714285716,
+            "top_including_ties": 3
+          },
+          "exp-013-base-preservation": {
+            "pairwise_preference": 0.5,
+            "mean_rank": 2.5,
+            "top_including_ties": 3
+          }
+        }
+      },
+      "logic": {
+        "n": 1,
+        "models": {
+          "base": {
+            "pairwise_preference": 0.0,
+            "mean_rank": 4.0,
+            "top_including_ties": 0
+          },
+          "bilingual69": {
+            "pairwise_preference": 1.0,
+            "mean_rank": 1.0,
+            "top_including_ties": 1
+          },
+          "exp-012-base-bilingual": {
+            "pairwise_preference": 0.6666666666666666,
+            "mean_rank": 2.0,
+            "top_including_ties": 0
+          },
+          "exp-013-base-preservation": {
+            "pairwise_preference": 0.3333333333333333,
+            "mean_rank": 3.0,
+            "top_including_ties": 0
+          }
+        }
+      },
+      "general_language": {
+        "n": 8,
+        "models": {
+          "base": {
+            "pairwise_preference": 0.3541666666666667,
+            "mean_rank": 2.9375,
+            "top_including_ties": 2
+          },
+          "bilingual69": {
+            "pairwise_preference": 0.5208333333333334,
+            "mean_rank": 2.4375,
+            "top_including_ties": 2
+          },
+          "exp-012-base-bilingual": {
+            "pairwise_preference": 0.375,
+            "mean_rank": 2.875,
+            "top_including_ties": 2
+          },
+          "exp-013-base-preservation": {
+            "pairwise_preference": 0.75,
+            "mean_rank": 1.75,
+            "top_including_ties": 6
+          }
+        }
+      }
+    }
+  }
+}
