@@ -10,3 +10,11 @@ Recovered from the archive named in recovery-manifest.json. Original archive-rel
 - runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/trainer_state.json: best checkpoint selection and training history.
 
 The launcher is preserved here and in the parent dataset folder. It uses the original /workspace paths; dataset inputs are archived in the parent folder. These files are archival evidence, not a newly executed or validated GPU environment. Python sources were syntax checked; JSON records were parsed and recovered bytes verified by SHA-256. Model weights, optimizer binaries, caches and authentication logs are not included. No claim is made that every resolved TrainingArguments default was saved; inspect the source TrainingArguments constructor together with the saved launcher and manifests.
+
+## Complete 120-step log and checkpoint selection
+
+The complete released-run log is `combined-balanced-scratch-120step.log`, recovered from the archive root member `reflex-decision/combined-balanced-scratch-120step.log`. It is already included in the recovery commit, not just the launcher. The separate `combined-balanced-scratch-full.log` ends at 80 steps and belongs to the earlier run.
+
+Verified completion evidence in the 120-step log: `120/120`, `train/global_step 120`, W&B run `66wubl55`, and `COMBINED TRAINING COMPLETE (1663s total)` (spacing normalized here). The log reports training runtime of approximately 1,051 seconds; the run manifest records 1,052.1 seconds for its training elapsed timer.
+
+The final `runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/trainer_state.json` records global step 120 and best global step 100, with best model checkpoint ending in `checkpoints/checkpoint-100`. This distinguishes completion at step 120 from selection of step 100 for release. The parent `release-manifest.json` independently identifies checkpoint 100 as the selected release checkpoint. Original log bytes and their archive provenance are verified in `recovery-manifest.json`.
