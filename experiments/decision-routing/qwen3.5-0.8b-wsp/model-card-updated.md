@@ -37,14 +37,14 @@ This release has not been validated for high-stakes decisions, arbitrary tool ar
 
 Accuracy (%) on the same frozen cohort within each row. These are system comparisons with different training exposure and inference profiles, not a controlled architecture ablation. **MOBILE_ROUTING9** is our 180-case, nine-route phone benchmark, balanced at 20 reviewed examples per route. It measures agreement with our author-reviewed routing policy, rather than a universal definition of the correct tool. [Benchmark definition](MOBILE_ROUTING9.json).
 
-| Benchmark | Cases / decisions | Base Qwen3.5-0.8B | Reflex-1 (780M) | Laya English (421M) |
-| --- | ---: | ---: | ---: | ---: |
-| MOBILE_ROUTING9 (ours) | 180 / 180 | 54.44 | **91.11** | 47.22 |
-| typed-decisions | 400 / 2000 | 34.10 | **60.70** | 36.30 |
-| BANKING77 | 462 / 462 | 8.44 | **74.89** | 36.36 |
-| CLINC150 | 450 / 450 | 4.44 | **81.11** | 55.33 |
+| Benchmark | Cases / decisions | Base Qwen3.5-0.8B (original) | Qwen base (matched GPU) | WSP base | Reflex-1 (780M) | Reflex-1-WSP-experimental | Laya English (421M) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| MOBILE_ROUTING9 (ours) | 180 / 180 | 54.44 | 66.67 | 63.89 | **91.11** | 90.56 | 47.22 |
+| typed-decisions | 400 / 2000 | 34.10 | 34.10 | 33.65 | **60.70** | 57.35 | 36.30 |
+| BANKING77 | 462 / 462 | 8.44 | 8.44 | 6.71 | **74.89** | 70.13 | 36.36 |
+| CLINC150 | 450 / 450 | 4.44 | 4.44 | 1.56 | 81.11 | **81.33** | 55.33 |
 
-**Execution:** phone scores use A32 CPU Q4_K_M for base/Reflex-1 and Mac M4 MPS for Laya; general scores use GPU PyTorch for base/Reflex-1 and Mac M4 MPS for Laya. This table compares accuracy only, not cross-hardware latency.
+**Execution:** Original phone scores use A32 CPU Q4_K_M for base/Reflex-1 and Mac M4 MPS for Laya. The matched GPU Qwen/WSP phone bases use identical BF16 vLLM schema prompts and constrained non-thinking JSON generation; compare 66.67 with 63.89, rather than treating the historical 54.44 app-router score as their matched control. The trained WSP phone score uses native 4-bit decision-head inference; released Reflex-1 reproduced 91.11 in that GPU profile too. General Qwen/WSP base scores use fresh decision heads, while trained models restore their learned heads; Laya uses Mac M4 MPS. This table compares accuracy only, not cross-hardware latency. **Reflex-1-WSP-experimental is a trained WSP-based candidate, not the untrained WSP base or a Reflex-1.5 release.** See the WSP experiment section below for the protocol and limitations.
 
 **Base inference profiles:** MOBILE_ROUTING9 uses the measured cached raw-HTTP app-router on A32. For the three general tasks, the recorded base reference uses FastDecisionModel with a newly initialized decision head; initialization was not explicitly seeded. Those general scores describe that reference run, rather than generative zero-shot classification. General Reflex-1 scores use the restored PyTorch adapter on GPU; its MOBILE_ROUTING9 score uses the A32 Q4_K_M export. Laya scores were measured on the same inputs with its pinned English checkpoint, without additional training or test calibration.
 
