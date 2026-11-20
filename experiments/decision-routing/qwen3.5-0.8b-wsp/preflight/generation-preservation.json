@@ -1,17 +1,31 @@
 {
-  "archive": "C:/Repos/llm-bender-lab/artifacts/reflex-wsp-generation-partial-20261120/reflex-wsp-generation-partial-20261120.tar.gz",
-  "remote_archive": "/workspace/reflex-wsp-generation-partial-20261120.tar.gz",
-  "bytes": 13906017,
-  "sha256": "2c96cd8f425a3fa1a9500d66e7f353e652bec789af3fb0afce94cd852aabdaa1",
-  "local_remote_sha256_match": true,
-  "extracted_locally": true,
-  "contents": ["all saved eval/card outputs and manifests", "card-wsp.log", "card-suite.log", "suite-stage.txt", "run_card_eval.py", "run_card_suite.sh"],
-  "status": "Stopped on user scope correction; partial diagnostic data, not completed benchmark scores",
-  "completed_wsp_math_samples": 1664,
-  "completed_wsp_math_questions": 416,
-  "partial_accuracy": 0.5210336538461539,
-  "partial_token_limit_rate": 0.31430288461538464,
-  "generated_tokens_saved": 36139395,
-  "other_full_benchmarks_completed": false,
-  "policy": "Keep raw archive outside Git; no deletion of partial results; do not resume unrelated generation queue"
+    "archive":  "C:/Repos/llm-bender-lab/artifacts/reflex-wsp-generation-partial-20261120/reflex-wsp-generation-partial-20261120.tar.gz",
+    "remote_archive":  "/workspace/reflex-wsp-generation-partial-20261120.tar.gz",
+    "bytes":  13906017,
+    "sha256":  "2c96cd8f425a3fa1a9500d66e7f353e652bec789af3fb0afce94cd852aabdaa1",
+    "local_remote_sha256_match":  true,
+    "extracted_locally":  true,
+    "contents":  [
+                     "all saved eval/card outputs and manifests",
+                     "card-wsp.log",
+                     "card-suite.log",
+                     "suite-stage.txt",
+                     "run_card_eval.py",
+                     "run_card_suite.sh"
+                 ],
+    "status":  "Stopped on user scope correction; partial diagnostic data, not completed benchmark scores",
+    "completed_wsp_math_samples":  1664,
+    "completed_wsp_math_questions":  416,
+    "partial_accuracy":  0.5210336538461539,
+    "partial_token_limit_rate":  0.31430288461538464,
+    "generated_tokens_saved":  36139395,
+    "other_full_benchmarks_completed":  false,
+    "policy":  "Keep raw archive outside Git; no deletion of partial results; do not resume unrelated generation queue",
+    "support_archive":  "C:/Repos/llm-bender-lab/artifacts/reflex-wsp-generation-partial-20261120/reflex-wsp-generation-support-20261120.tar.gz",
+    "support_sha256":  "bad245eccf584d8c88a09773921624071117e7dfb546542309c6a8e0727cce3b",
+    "support_contents":  [
+                             "frozen benchmark inputs and manifest",
+                             "evaluation environment freeze",
+                             "runner scripts"
+                         ]
 }

@@ -1,0 +1,44 @@
+{
+  "purpose": "Preserve published adapter/head; resolve its unpinned base references to the pinned recovered original base in an isolated view",
+  "source": "/workspace/.cache/huggingface/hub/models--cbarkinozer--Reflex-1/snapshots/252a00c22cebca07c7ff4d6f99be15863c7faab2/adapter",
+  "view": "/workspace/reflex-wsp/training-models/released-pinned/adapter",
+  "base": "/workspace/.cache/huggingface/hub/models--unsloth--Qwen3.5-0.8B/snapshots/23c69c53358a07516b5827588b3fdb12ae78fd65",
+  "files": {
+    "adapter_config.json": {
+      "source_sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "view_sha256": "599a18d1d0b57a1cc038e0b28c5d4bc62a9c43912976518b660ee26361a333be"
+    },
+    "tokenizer.json": {
+      "source_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+      "view_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4"
+    },
+    "chat_template.jinja": {
+      "source_sha256": "ea210e5b4997b7b1d3af5ee3ad34e7677ffe38df7469e8d88089789b5a27fae5",
+      "view_sha256": "ea210e5b4997b7b1d3af5ee3ad34e7677ffe38df7469e8d88089789b5a27fae5"
+    },
+    "joint_head_config.json": {
+      "source_sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "view_sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30"
+    },
+    "processor_config.json": {
+      "source_sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "view_sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b"
+    },
+    "tokenizer_config.json": {
+      "source_sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "view_sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64"
+    },
+    "unsloth_decision_config.json": {
+      "source_sha256": "003cafe1317dd7277508b8878d0bd4ab7084b94fa51e5b96412e66612de81c49",
+      "view_sha256": "03179a1fcd9e19491ef081508242323c6a2e5be1c07ae02b9e229fe474fcaddd"
+    },
+    "adapter_model.safetensors": {
+      "source_sha256": "30e1aa405b994d72a2f89bb04897f601014b3414789b85df22d06c116aa42a7a",
+      "view_sha256": "30e1aa405b994d72a2f89bb04897f601014b3414789b85df22d06c116aa42a7a"
+    },
+    "joint_head.safetensors": {
+      "source_sha256": "2d27f016b2d8e0714ccb2f2f06d42831a4fa68d6b5e7356a72677407e15ceff4",
+      "view_sha256": "2d27f016b2d8e0714ccb2f2f06d42831a4fa68d6b5e7356a72677407e15ceff4"
+    }
+  }
+}
