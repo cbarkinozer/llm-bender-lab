@@ -36,7 +36,7 @@ def main():
     selected=[selected[i] for i in compatible];items=[items[i] for i in compatible]
     (out/'train-only.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in selected))
     before=FastDecisionModel.evaluate(model,tok,items,batch_size=2)
-    observations={'losses':[],'gradients':{},'optimizer_groups':[]}
+    observations={'losses':[],'gradients':{},'optimizer_groups':[],'train_checks':[]}
     class Audit(TrainerCallback):
         def on_log(self,args,state,control,logs=None,**kwargs):
             if logs and 'loss' in logs:
@@ -48,13 +48,20 @@ def main():
                     assert math.isfinite(value) and value>0,(kind,value)
                     observations['gradients'][kind]=value
                 observations['optimizer_groups']=[{'lr':g['lr'],'tensors':len(g['params'])} for g in optimizer.param_groups]
+        def on_step_end(self,args,state,control,model=None,**kwargs):
+            if state.global_step%20==0:
+                metrics=FastDecisionModel.evaluate(model,tok,items,batch_size=2)
+                observations['train_checks'].append({'step':state.global_step,**metrics})
+                print('Tiny train-only check',state.global_step,metrics,flush=True)
+                if metrics['accuracy']>=.95:control.should_training_stop=True
     trainer=DecisionTrainer(model=model,processing_class=tok,train_dataset=items,
         args=TrainingArguments(output_dir=str(out/'checkpoints'),per_device_train_batch_size=2,
-            gradient_accumulation_steps=1,max_steps=80,learning_rate=2e-4,warmup_steps=0,
+            gradient_accumulation_steps=1,max_steps=160,learning_rate=2e-4,warmup_steps=0,
             bf16=True,logging_steps=5,save_strategy='no',eval_strategy='no',
             optim='adamw_8bit',weight_decay=0,lr_scheduler_type='constant',seed=3407,report_to='none'),callbacks=[Audit()])
     trainer.train()
     after=FastDecisionModel.evaluate(model,tok,items,batch_size=2)
+    (out/'learning-check.json').write_text(json.dumps({'before':before,'after':after,'audit':observations},indent=2)+'\n')
     assert after['accuracy']>=.9 and after['loss']<before['loss'],(before,after)
     FastDecisionModel.for_inference(model)
     probe=selected[0];questions=json.loads(probe['questions'])

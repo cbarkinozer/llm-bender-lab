@@ -1,0 +1,22 @@
+{
+  "llm_bender_commit": "7965f2fd149ae27ac00d435471ce6e45566bce09",
+  "original_pocket_commit": "a55547c2b1d6338533cf0db82f65e37e6468cf8b",
+  "entrypoint": "bash /workspace/reflex-wsp/tools/run_routing_suite.sh",
+  "scope": "four published routing benchmarks, WSP base and WSP-trained candidate",
+  "scripts": {
+    "train_combined_routing.py": "dfe7768da579a74748c2807e41f71875c577ac2d2d54d7a87bca1d355d248cdb",
+    "decision_training_utils.py": "33e6d286699fd2cd51222eeec9eb62a39f3c73ced7643d09b311988829b7b20b",
+    "prepare_remote.py": "7f6b66a8d28a73a030e6274070c6a8879bb50ad2541509b5c53ac1fafd0165cd",
+    "run_card_eval.py": "6c6dfa4e6f07ede4c259835aedf19c4353977c6881122cdd395b257af7994bf7",
+    "audit_remote.py": "5d605a444db571f979f4e861a02f2e9b9158ddb13b085f6102ac62afd6ca39b6",
+    "verify_training_data.py": "e50a488b44706a91eaf6042b24d28b90a09ef2aba137e169051b2f9b94eedd17",
+    "prepare_training_models.py": "595fc153a6051da226640e5da32d3d26d2e8d8bdf44d33b697af9a89177ca2c5",
+    "audit_tokenizers.py": "208567c4736b0dbcbb6a7bd22ff78db5cfb2297cd5068a1c56ef677a8d4f0dba",
+    "prepare_training_view.py": "4a533afd03bf990ce3f35ef4574d0b826d4088ee289cc2801dc664a8d9130654",
+    "evaluate_routing.py": "5ce67f4cb2196b27da8434824a5e1b4a51c5833fdd87945e0606f8ef1e8fedd0",
+    "evaluate_phone_base.py": "d8998ebfc037d14496a81a022d0fbc8d690130da0ed05b0d9c6056340d8052c6",
+    "training_gate.py": "5e90ec10e1d5801e02fe40686abd41e8274bb1d7861e10df885131c81e9a01dc",
+    "write_routing_report.py": "102d0b2fafc4d117a1afe1602516ff709236c4e40495e82422fc0ff63d0bd9aa"
+  },
+  "shell_sha256": "ee04c842b368842b9aad31d2d521f643571450be622f518d9982389a264e5cd5"
+}
