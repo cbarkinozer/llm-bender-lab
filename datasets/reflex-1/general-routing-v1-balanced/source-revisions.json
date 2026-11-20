@@ -1,0 +1,32 @@
+{
+  "banking_downloads": {
+    "test": {
+      "sha256": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+      "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/test.csv"
+    },
+    "train": {
+      "sha256": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+      "url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/train.csv"
+    }
+  },
+  "sources": {
+    "banking77": {
+      "license": "cc-by-4.0",
+      "repo": "PolyAI-LDN/task-specific-datasets",
+      "revision": "57ec275d8078af65b7731c2a98be812d844a6d6b"
+    },
+    "clinc150": {
+      "config": "plus",
+      "license": "cc-by-3.0",
+      "oos_excluded": true,
+      "repo": "clinc/clinc_oos",
+      "revision": "155b9c710419136e17307b80d0a13e68cd46b4ec"
+    },
+    "typed_decisions": {
+      "config": "all",
+      "license": "apache-2.0",
+      "repo": "LocalLLaMA/typed-decisions",
+      "revision": "6a7927fa3c8ac114e29f5300eacb86f6f37a6447"
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "status": "provisional",
+  "policy": "reviewed_only",
+  "snapshot_sha256": "4ab0a79b688ec8d050f6a9b8a5da4a62ad20deb37e7fd6264ed3ef33d6b1cf2c",
+  "csv_sha256": "5e90322d6d2ac4b1664c5d33d1d8f323ea4601a6c8f6f52eb711f7aeb9f879da",
+  "contract_sha256": "6f75ca26be62d735eb75d3ff3acb4a85f01cf9c3314f3341e2185c514397d472",
+  "source_sha256": {
+    "train": "6e5705d717f6dcbcc167784c562c06ab4fe0e2fa0b968b26d4e3e20c0e78e775",
+    "calibration": "8c4b5d31908476c7006d25b56323eaaa309d28ee74c2a180b704c9ef66a0bd2a",
+    "test": "6a1df0a0afff45688d259043c48f4b95401a8a1e72049a30a79ff725e3866680"
+  },
+  "audit_issues": {
+    "requires_adjudication": {
+      "count": 1,
+      "sample_ids": [
+        "pr_phone_health_check_train_007"
+      ]
+    },
+    "route_changed_but_keep": {
+      "count": 1,
+      "sample_ids": [
+        "pr_save_note_train_092"
+      ]
+    },
+    "route_scenario_mismatch": {
+      "count": 4,
+      "sample_ids": [
+        "pr_get_battery_info_train_042",
+        "pr_get_storage_info_train_016",
+        "pr_phone_health_check_test_000",
+        "pr_phone_health_check_train_013"
+      ]
+    },
+    "unclear_request": {
+      "count": 16,
+      "sample_ids": [
+        "pr_get_battery_info_train_012",
+        "pr_get_battery_info_train_019",
+        "pr_get_battery_info_train_030",
+        "pr_get_battery_info_train_044",
+        "pr_get_battery_info_train_059",
+        "pr_get_battery_info_train_073",
+        "pr_get_storage_info_train_066",
+        "pr_phone_health_check_train_007",
+        "pr_phone_health_check_train_044",
+        "pr_save_note_train_053",
+        "pr_save_note_train_059",
+        "pr_save_note_train_068",
+        "pr_search_local_files_test_009",
+        "pr_search_local_files_train_008",
+        "pr_search_local_files_train_038",
+        "pr_search_local_files_train_082"
+      ]
+    }
+  },
+  "training_policy": "reviewed_only",
+  "validation_selection": "fixed reviewed IDs from prior pilot",
+  "validation_ids": [
+    "pr_answer_train_001",
+    "pr_answer_train_011",
+    "pr_answer_train_021",
+    "pr_answer_train_025",
+    "pr_answer_train_068",
+    "pr_answer_train_076",
+    "pr_answer_train_085",
+    "pr_answer_train_087",
+    "pr_answer_train_093",
+    "pr_answer_train_098",
+    "pr_get_battery_info_train_007",
+    "pr_get_battery_info_train_016",
+    "pr_get_battery_info_train_018",
+    "pr_get_battery_info_train_021",
+    "pr_get_battery_info_train_040",
+    "pr_get_battery_info_train_062",
+    "pr_get_battery_info_train_063",
+    "pr_get_battery_info_train_074",
+    "pr_get_battery_info_train_084",
+    "pr_get_battery_info_train_098",
+    "pr_get_device_info_train_000",
+    "pr_get_device_info_train_001",
+    "pr_get_device_info_train_017",
+    "pr_get_device_info_train_019",
+    "pr_get_device_info_train_021",
+    "pr_get_device_info_train_027",
+    "pr_get_device_info_train_037",
+    "pr_get_device_info_train_046",
+    "pr_get_device_info_train_064",
+    "pr_get_device_info_train_078",
+    "pr_get_media_info_train_006",
+    "pr_get_media_info_train_009",
+    "pr_get_media_info_train_019",
+    "pr_get_media_info_train_057",
+    "pr_get_media_info_train_061",
+    "pr_get_media_info_train_079",
+    "pr_get_media_info_train_080",
+    "pr_get_media_info_train_085",
+    "pr_get_media_info_train_087",
+    "pr_get_media_info_train_096",
+    "pr_get_storage_info_train_020",
+    "pr_get_storage_info_train_021",
+    "pr_get_storage_info_train_022",
+    "pr_get_storage_info_train_026",
+    "pr_get_storage_info_train_036",
+    "pr_get_storage_info_train_041",
+    "pr_get_storage_info_train_049",
+    "pr_get_storage_info_train_056",
+    "pr_get_storage_info_train_086",
+    "pr_get_storage_info_train_092",
+    "pr_phone_health_check_train_010",
+    "pr_phone_health_check_train_024",
+    "pr_phone_health_check_train_037",
+    "pr_phone_health_check_train_056",
+    "pr_phone_health_check_train_066",
+    "pr_phone_health_check_train_070",
+    "pr_phone_health_check_train_072",
+    "pr_phone_health_check_train_078",
+    "pr_phone_health_check_train_085",
+    "pr_phone_health_check_train_093",
+    "pr_save_note_train_028",
+    "pr_save_note_train_041",
+    "pr_save_note_train_051",
+    "pr_save_note_train_060",
+    "pr_save_note_train_066",
+    "pr_save_note_train_070",
+    "pr_save_note_train_076",
+    "pr_save_note_train_090",
+    "pr_save_note_train_095",
+    "pr_save_note_train_096",
+    "pr_search_local_files_train_018",
+    "pr_search_local_files_train_026",
+    "pr_search_local_files_train_034",
+    "pr_search_local_files_train_046",
+    "pr_search_local_files_train_049",
+    "pr_search_local_files_train_051",
+    "pr_search_local_files_train_064",
+    "pr_search_local_files_train_076",
+    "pr_search_local_files_train_090",
+    "pr_search_local_files_train_093",
+    "pr_search_notes_train_000",
+    "pr_search_notes_train_018",
+    "pr_search_notes_train_021",
+    "pr_search_notes_train_038",
+    "pr_search_notes_train_041",
+    "pr_search_notes_train_044",
+    "pr_search_notes_train_053",
+    "pr_search_notes_train_062",
+    "pr_search_notes_train_082",
+    "pr_search_notes_train_095"
+  ],
+  "validation_limit": "Reviewed availability is a convenience sample; not an unbiased sealed test",
+  "quarantined_train_ids": [
+    "pr_answer_train_060",
+    "pr_get_battery_info_train_012",
+    "pr_get_battery_info_train_019",
+    "pr_get_battery_info_train_030",
+    "pr_get_battery_info_train_042",
+    "pr_get_battery_info_train_044",
+    "pr_get_battery_info_train_059",
+    "pr_get_battery_info_train_073",
+    "pr_get_battery_info_train_090",
+    "pr_get_device_info_train_029",
+    "pr_get_media_info_train_017",
+    "pr_get_media_info_train_024",
+    "pr_get_media_info_train_053",
+    "pr_get_storage_info_train_016",
+    "pr_get_storage_info_train_066",
+    "pr_phone_health_check_train_007",
+    "pr_phone_health_check_train_013",
+    "pr_phone_health_check_train_044",
+    "pr_phone_health_check_train_053",
+    "pr_save_note_train_053",
+    "pr_save_note_train_059",
+    "pr_save_note_train_068",
+    "pr_save_note_train_092",
+    "pr_search_local_files_train_008",
+    "pr_search_local_files_train_013",
+    "pr_search_local_files_train_038",
+    "pr_search_local_files_train_082",
+    "pr_search_notes_train_013",
+    "pr_search_notes_train_055"
+  ],
+  "quarantined_evaluation_ids": [
+    "pr_phone_health_check_test_000",
+    "pr_search_local_files_test_009"
+  ],
+  "validation_ids_from_sha256": "a3a4d8240a2f36d100c812baebc6171a6dcb7b58852bb1ef1bee04cb3f4cc4cb",
+  "splits": {
+    "train": {
+      "rows": 781,
+      "routes": {
+        "get_device_info": 89,
+        "get_media_info": 87,
+        "search_local_files": 86,
+        "get_storage_info": 88,
+        "save_note": 86,
+        "get_battery_info": 82,
+        "phone_health_check": 86,
+        "answer": 89,
+        "search_notes": 88
+      },
+      "label_sources": {
+        "human_reviewed": 781
+      },
+      "sha256": "c01503a65e182b0eb68181fcfcdd0e775c3ea4b9a3039ee9f3abcb4f05d7a2b4"
+    },
+    "validation": {
+      "rows": 90,
+      "routes": {
+        "get_battery_info": 10,
+        "search_notes": 10,
+        "save_note": 10,
+        "answer": 10,
+        "phone_health_check": 10,
+        "get_media_info": 10,
+        "get_storage_info": 10,
+        "get_device_info": 10,
+        "search_local_files": 10
+      },
+      "label_sources": {
+        "human_reviewed": 90
+      },
+      "sha256": "a3a4d8240a2f36d100c812baebc6171a6dcb7b58852bb1ef1bee04cb3f4cc4cb"
+    },
+    "calibration": {
+      "rows": 90,
+      "routes": {
+        "get_battery_info": 10,
+        "phone_health_check": 10,
+        "get_storage_info": 10,
+        "answer": 10,
+        "get_device_info": 10,
+        "get_media_info": 10,
+        "search_notes": 10,
+        "save_note": 10,
+        "search_local_files": 10
+      },
+      "label_sources": {
+        "human_reviewed": 90
+      },
+      "sha256": "b4589ced22020c57b76056b0280c3998d23d3dd456122be9f75228f84e6f24fa"
+    },
+    "test": {
+      "rows": 88,
+      "routes": {
+        "answer": 10,
+        "get_battery_info": 10,
+        "get_device_info": 10,
+        "get_storage_info": 10,
+        "get_media_info": 10,
+        "search_local_files": 9,
+        "search_notes": 10,
+        "save_note": 10,
+        "phone_health_check": 9
+      },
+      "label_sources": {
+        "human_reviewed": 88
+      },
+      "sha256": "bc2693ff6b8ccb16eeb1df0a76127e38ed426f0cb0479f0ecbacd64793cd0447"
+    }
+  },
+  "historical_test_only": true
+}
