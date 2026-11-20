@@ -53,3 +53,7 @@ Released Reflex-1 reproduced all four published accuracy scores exactly (91.11, 
 ## Candidate continuation
 The two-step training smoke passed with finite losses and calibration/save completion. The first train-only tiny check reduced loss 2.7833 to 0.4184 and improved accuracy 16.67% to 86.11%, below the preset 90% gate. Its log and run directory are retained as attempt 1; candidate training did not start. The second diagnostic permits up to 160 steps, checking every 20 and stopping at 95%; the acceptance threshold remains 90%. This diagnostic budget change does not change the fresh candidate's original 120-step recipe. resume_candidate.sh continues only the outstanding gate, fresh candidate training, and four-task evaluation; it does not repeat completed baselines or generation benchmarks.
 
+
+## Completed candidate
+All required gates passed on attempt 2, including save/reload parity. Fresh WSP training completed 120 steps (training_elapsed_s 1403.9; complete trainer wall time 2124s), calibrated successfully, and all four frozen test evaluations completed. Candidate accuracy: MOBILE_ROUTING9 90.5556%, typed-decisions 57.35%, BANKING77 70.1299%, CLINC150 81.3333%. Relative to reproduced Reflex-1 these are -0.5556, -3.35, -4.7619 and +0.2222 percentage points. This single-seed candidate does not demonstrate an overall improvement; no release or additional GPU training is scheduled. Remote stage is completed and the continuation exited.
+

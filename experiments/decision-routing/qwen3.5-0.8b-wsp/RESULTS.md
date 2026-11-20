@@ -13,10 +13,10 @@
 
 | Benchmark | Cases / decisions | Qwen parent | WSP base | Released Reflex-1 | WSP Reflex-1.5 candidate |
 |---|---:|---:|---:|---:|---:|
-| MOBILE_ROUTING9 | 180 / 180 | 66.67 | 63.89 | 91.11 | pending |
-| typed-decisions | 400 / 2000 | 34.10 | 33.65 | 60.70 | pending |
-| BANKING77 | 462 / 462 | 8.44 | 6.71 | 74.89 | pending |
-| CLINC150 | 450 / 450 | 4.44 | 1.56 | 81.11 | pending |
+| MOBILE_ROUTING9 | 180 / 180 | 66.67 | 63.89 | 91.11 | 90.56 |
+| typed-decisions | 400 / 2000 | 34.10 | 33.65 | 60.70 | 57.35 |
+| BANKING77 | 462 / 462 | 8.44 | 6.71 | 74.89 | 70.13 |
+| CLINC150 | 450 / 450 | 4.44 | 1.56 | 81.11 | 81.33 |
 
 All current runs use the exact frozen published cohorts. Phone parent/WSP use a matched BF16 GPU schema-based non-thinking JSON router, so their scores must be compared with each other; they are a distinct profile from the historical A32 raw-HTTP base router. Released/candidate phone runs use native 4-bit decision-head inference. General parent/WSP runs use identically seeded fresh decision heads, matching the published general reference profile; these are not generative zero-shot classification scores. Adapter runs restore trained heads. Historical Laya and A32 latency are not remeasured here.
 
