@@ -1,14 +1,16 @@
 # Reflex weight-space-programming comparison
 
-Status (2026-11-20): GPU environments prepared; WSP generation smoke passed; model-card evaluation queue launched. No fine-tuning or completed benchmark comparison yet. See [EXECUTION.md](EXECUTION.md).
+Status (2026-11-20): Scope corrected by user to the four Reflex-1 routing-table benchmarks. Unrelated generation queue stopped; partial outputs preserved. Parent native routing baseline completed; WSP native baseline completed; corrected routing/training suite launched. No trained WSP candidate result yet. See [EXECUTION.md](EXECUTION.md).
 
 Test whether the WSP backbone improves Reflex decision quality under the recovered original training recipe. A lower rate of long thinking loops need not improve decision-head routing; this is an empirical comparison.
 
 ## Execution order
 
-1. Evaluate untouched WSP and the original Qwen parent on MATH-500, GSM8K and IFEval using the author's think35 protocol. Preserve four samples per MATH-500 problem, two per GSM8K/IFEval prompt, thinking enabled, temperature 0.6, top_p 0.95, top_k 20, presence_penalty 1.5, 32,768-token cap, seed 0 and BF16. Strict math grading and IFEval prompt-level grading remain primary.
-2. Train fresh WSP and original-base decision models using the same recovered mixture, recipe and seed, after baseline, smoke/save-reload and tiny-overfit gates pass. Select by equal-domain validation; do not force checkpoint 100.
-3. Compare both trained arms with released Reflex-1 on frozen routing cohorts and inference examples. Measure generative retention where supported. An untrained random decision head is an initialization diagnostic only.
+1. Recover the exact published MOBILE_ROUTING9 180-case, typed-decisions 400-record/2000-decision, BANKING77 462-case and CLINC150 450-case cohorts and inference profiles. Evaluate WSP base on those tasks. Preserve the published table as historical evidence, with its distinct phone and general inference profiles explicitly labeled.
+2. Train a fresh WSP-based Reflex-1.5 candidate using the recovered Reflex-1 mixture and recipe after baseline, finite-loss smoke, save/reload and tiny-overfit checks. Use validation for checkpoint selection and separate calibration data.
+3. Evaluate the candidate and released Reflex-1 on the same routing cohorts under matched GPU conditions. Add WSP base and candidate columns to a local comparison table only when measured. A matched original-base training control can distinguish training-stack variation from the WSP effect.
+
+MATH-500/GSM8K/IFEval are outside the corrected requested scope. The stopped run and its partial outputs remain diagnostic artifacts; do not resume its queue or require it before routing training. A newly initialized decision head is a diagnostic, not a generative zero-shot baseline. The historical general base reference used an unseeded fresh head, so it cannot be reproduced exactly; report a seeded matched parent/WSP pair separately where that profile is used.
 
 ## Pinned artifacts
 
@@ -35,6 +37,6 @@ No improvement or Reflex-1.5 release claim is established. Retain per-item outpu
 
 ## Remote operation
 
-Work root: /workspace/reflex-wsp. Evaluation and training environments are separate persistent venvs. run_card_suite.sh serializes parent smoke, WSP benchmarks and parent benchmarks using a lock; it stops on failure. run_card_eval.py saves every generated sample in atomic compressed batches and supports resuming completed batches. Batch scheduling and max_num_seqs differ from the upstream unbounded call and are held equal across arms; exact sampled strings need not match the author's hardware.
+Work root: /workspace/reflex-wsp. Evaluation and training environments are separate persistent venvs. The stopped run_card_suite.sh is retained as historical code and must not be resumed for this task. run_routing_suite.sh runs WSP/released native decision baselines, matched parent/WSP schema-based phone generation, a 4-bit delta gate, recovered two-step smoke, train-only tiny-overfit/reload checks, fresh WSP candidate training and its routing evaluation. It stops on any failure. run_card_eval.py saves every generated sample in atomic compressed batches and supports resuming completed batches. Batch scheduling and max_num_seqs differ from the upstream unbounded call and are held equal across arms; exact sampled strings need not match the author's hardware.
 
 The scripts use the pinned upstream evaluation repository at /workspace/repos/lm_understand-logs. The unused missing loop-detector import is disabled explicitly; boxed extraction/math-verify remain upstream. IFEval uses pinned Google official checkers, with the author's rule that unfinished thinking has an empty answer. Preserve prepare.log and retry logs: the initial download attempt hit a missing upstream __init__.py, fixed by creating an empty package initializer. No training starts automatically from the benchmark shell script.

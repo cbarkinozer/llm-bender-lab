@@ -84,7 +84,7 @@
                                            "errors and truncated/skipped decisions"
                                        ],
                        "conditions":  "same cohort IDs/order/schema/options/state strings/runtime/precision/context/hardware for each matched arm",
-                       "baseline_policy":  "compare untouched backbones with same generative prompt; newly random decision heads are initialization diagnostics only"
+                       "baseline_policy":  "Match published general fresh-head profile with fixed seed 3407; phone base uses matched GPU non-thinking constrained JSON. Preserve historical A32 phone base as a distinct profile."
                    },
     "tracking":  {
                      "provider":  "wandb",
@@ -93,7 +93,7 @@
                      "usage":  "actual training only"
                  },
     "execution":  {
-                      "status":  "not_started",
+                      "status":  "running_routing_suite",
                       "entrypoint":  "/workspace/reflex-wsp/tools/train_combined_routing.py",
                       "original_trainer_path":  "C:/Repos/pocket-agents-lab/tools/train_combined_routing.py",
                       "training_environment":  "preflight/train-environment.txt; training smoke not yet passed",
