@@ -1,0 +1,43 @@
+{
+  "model": {
+    "repo": "LiquidAI/LFM3-1.7B",
+    "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "parent_repo": "LiquidAI/LFM3-1.7B",
+    "parent_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "load_policy": "Original pinned BF16 base; independent fresh LoRA. NO CPT merge for new training.",
+    "quantization": null
+  },
+  "dataset_file": "experiments/turkish-capability/lfm3-1.7b/cookbook-sft-v01/train.jsonl",
+  "dataset_sha256": "fc4b679256de703d0606d300b8c8e6fc4d128e848eddc2635a2da4ab8efe10e9",
+  "seed": 3407,
+  "completion_only_loss": true,
+  "assistant_only_loss": false,
+  "packing": false,
+  "max_length": 4096,
+  "bf16": true,
+  "fp16": false,
+  "lr_scheduler_type": "cosine",
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "in_proj",
+    "out_proj",
+    "w1",
+    "w2",
+    "w3"
+  ],
+  "inference": "Reuse frozen stage-diagnostic settings for matched comparisons; score modes separately.",
+  "status": "prepared-not-trained-gpu-preflight-pending",
+  "r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "learning_rate": 0.0002,
+  "per_device_train_batch_size": 4,
+  "gradient_accumulation_steps": 4,
+  "num_train_epochs": 1,
+  "warmup_steps": 0.05,
+  "expected_steps_single_gpu": 40,
+  "hypothesis": "Combined official cookbook recipe on existing data; not a single-hyperparameter causal ablation."
+}

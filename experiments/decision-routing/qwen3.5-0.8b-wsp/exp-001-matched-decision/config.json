@@ -1,0 +1,111 @@
+{
+  "experiment": {
+    "id": "exp-001-matched-decision",
+    "status": "planned",
+    "parent": "cbarkinozer/Reflex-1@252a00c22cebca07c7ff4d6f99be15863c7faab2",
+    "hypothesis": "Replacing the starting backbone with WSP improves decision routing after identical training."
+  },
+  "model": {
+    "name": "RikiyaT/Qwen3.5-0.8B-weight-space-programming",
+    "revision": "d1671a178705bcab7644806d23c535517f35723b",
+    "tokenizer_revision": "d1671a178705bcab7644806d23c535517f35723b",
+    "initialization": "fresh backbone, fresh rank-16 LoRA and fresh decision head; never reuse Reflex-1 adapter",
+    "framework": "unsloth.FastDecisionModel"
+  },
+  "reference": {
+    "released_model": "cbarkinozer/Reflex-1",
+    "released_revision": "252a00c22cebca07c7ff4d6f99be15863c7faab2",
+    "original_base": "unsloth/Qwen3.5-0.8B",
+    "original_base_revision": "23c69c53358a07516b5827588b3fdb12ae78fd65",
+    "wsp_parent": "Qwen/Qwen3.5-0.8B",
+    "wsp_parent_revision": "2fc06364715b967f1860aea9cf38778875588b17"
+  },
+  "dataset": {
+    "policy": "reuse exact original rows, order, labels and splits; verify file hashes against training backup",
+    "training_rows": 1562,
+    "phone_rows": 781,
+    "general_rows": 781,
+    "general_components": {
+      "typed_decisions": 391,
+      "banking77": 195,
+      "clinc150": 195
+    },
+    "train_path": null,
+    "train_sha256": null,
+    "validation_path": null,
+    "validation_sha256": null,
+    "calibration_path": null,
+    "calibration_sha256": null,
+    "test_policy": "existing published cohorts are regression only; no test-based tuning; new independent final cohort for release",
+    "recovery_commit": "675e0334e82b6058c15b6b6c9af19955f589c714",
+    "phone_train_path": "datasets/reflex-1/phone-routing-human-reviewed-v2-1080-fixedval-20261013/train.jsonl",
+    "general_train_pool_path": "datasets/reflex-1/general-routing-v1-balanced/train.jsonl",
+    "general_train_pool_rows": 2240,
+    "mixture_materialization": "Pending original tools/train_combined_routing.py; exact 781 general rows and ordering cannot be inferred from counts and seed alone"
+  },
+  "training": {
+    "seed": 3407,
+    "lora_rank": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0,
+    "learning_rate": 0.0002,
+    "effective_batch_size": 32,
+    "max_seq_length": 4096,
+    "max_steps": 120,
+    "decision_head_learning_rate": null,
+    "optimizer": null,
+    "scheduler": null,
+    "warmup": null,
+    "weight_decay": null,
+    "micro_batch_size": 2,
+    "gradient_accumulation_steps": 16,
+    "precision": null,
+    "load_in_4bit": null,
+    "target_modules": "recover executed target selection from original trainer; released adapter regex in sources/reflex1-adapter-adapter_config.json",
+    "decision_head_config": "sources/reflex1-adapter-joint_head_config.json",
+    "checkpoint_selection": "same candidate steps and equal-domain validation mean as original; recover cadence/tie rule; do not force checkpoint 100",
+    "calibration": "fit on separate original calibration partition only; recover procedure"
+  },
+  "evaluation": {
+    "primary": "MOBILE_ROUTING9 accuracy and macro-F1",
+    "supporting": [
+      "typed-decisions per-question and exact-record accuracy",
+      "BANKING77 accuracy and macro-F1",
+      "CLINC150 in-domain accuracy and macro-F1"
+    ],
+    "diagnostics": [
+      "NLL",
+      "Brier sum",
+      "ECE 10 equal-width bins",
+      "per-route recall",
+      "latency",
+      "peak memory",
+      "errors and truncated/skipped decisions"
+    ],
+    "conditions": "same cohort IDs/order/schema/options/state strings/runtime/precision/context/hardware for each matched arm",
+    "baseline_policy": "compare untouched backbones with same generative prompt; newly random decision heads are initialization diagnostics only"
+  },
+  "tracking": {
+    "provider": "wandb",
+    "project": "reflexmodels",
+    "run_name": "wsp-decision-sft-r16-lr2e-4-1562rows-120steps-s3407",
+    "usage": "actual training only"
+  },
+  "execution": {
+    "status": "not_started",
+    "entrypoint": null,
+    "original_trainer_path": null,
+    "training_environment": null,
+    "required_gates": [
+      "recover exact trainer and data/config backup",
+      "audit original Unsloth base against official WSP parent",
+      "verify WSP edited tensor hashes before quantization",
+      "pin compatible environment and model loading path",
+      "matched baseline evaluation",
+      "data/schema/length/leakage checks",
+      "finite-loss smoke with save/reload parity",
+      "tiny-overfit and gradient checks"
+    ],
+    "unknown_values": "null means unresolved; config is not runnable and must not be filled with assumed defaults"
+  }
+}
