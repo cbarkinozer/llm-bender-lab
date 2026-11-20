@@ -1,47 +1,40 @@
 # Reflex weight-space-programming comparison
 
-Status: planned. No model evaluation or training has started.
+Status (2026-11-20): GPU environments prepared; WSP generation smoke passed; model-card evaluation queue launched. No fine-tuning or completed benchmark comparison yet. See [EXECUTION.md](EXECUTION.md).
 
-Test whether the WSP backbone improves Reflex decision quality under the original training recipe. The user will provide a Vast.ai GPU; the exact original data/trainer backup is on their Mac mini or laptop.
+Test whether the WSP backbone improves Reflex decision quality under the recovered original training recipe. A lower rate of long thinking loops need not improve decision-head routing; this is an empirical comparison.
 
-## Comparison
+## Execution order
 
-1. Untouched original Qwen and untouched WSP: same generative decision prompts and runtime. This measures usefulness before training.
-2. Released Reflex-1: restore its original backbone, adapter and decision head as a reference.
-3. Fresh WSP decision model: train fresh LoRA and decision head on exactly the original mixture and recipe. Never attach the old adapter as a substitute for retraining.
-4. A fresh original-base training control, using the same stack and seed, is needed to attribute any training gain to the starting weights rather than environment differences. Compare the WSP checkpoint with both this control and released Reflex-1.
+1. Evaluate untouched WSP and the original Qwen parent on MATH-500, GSM8K and IFEval using the author's think35 protocol. Preserve four samples per MATH-500 problem, two per GSM8K/IFEval prompt, thinking enabled, temperature 0.6, top_p 0.95, top_k 20, presence_penalty 1.5, 32,768-token cap, seed 0 and BF16. Strict math grading and IFEval prompt-level grading remain primary.
+2. Train fresh WSP and original-base decision models using the same recovered mixture, recipe and seed, after baseline, smoke/save-reload and tiny-overfit gates pass. Select by equal-domain validation; do not force checkpoint 100.
+3. Compare both trained arms with released Reflex-1 on frozen routing cohorts and inference examples. Measure generative retention where supported. An untrained random decision head is an initialization diagnostic only.
 
-An untrained random decision head is only an initialization diagnostic, not a useful zero-shot baseline. The WSP card reports reduced long-thinking loops; decision scoring does not generate those chains, so transfer is an empirical question.
+## Pinned artifacts
 
-## Artifacts and provenance
+- Original training base: unsloth/Qwen3.5-0.8B at 23c69c53358a07516b5827588b3fdb12ae78fd65.
+- WSP parent: Qwen/Qwen3.5-0.8B at 2fc06364715b967f1860aea9cf38778875588b17.
+- WSP: RikiyaT/Qwen3.5-0.8B-weight-space-programming at d1671a178705bcab7644806d23c535517f35723b.
+- Released Reflex-1: cbarkinozer/Reflex-1 at 252a00c22cebca07c7ff4d6f99be15863c7faab2.
 
-The sources directory contains revision-pinned upstream cards, model/adapter configs, routing schema and release manifest. sources/manifest.json records URLs and SHA-256 hashes. Source claims are historical evidence, not measurements from this experiment.
+The sources directory preserves revision-pinned upstream cards/configs and hashes. These are historical claims, not measurements. The preflight directory records benchmark revisions, environment freezes, recovered mixture and tensor audits. The original Unsloth and official parent snapshots have identical tensor keys and values; The tokenizer metadata differs; matched training uses the original metadata for both arms, recorded in preflight/training-view-manifest.json. WSP differs in exactly the two advertised MLP tensors, with matching published hashes.
 
-Original base: unsloth/Qwen3.5-0.8B at 23c69c53358a07516b5827588b3fdb12ae78fd65.
-WSP: RikiyaT/Qwen3.5-0.8B-weight-space-programming at d1671a178705bcab7644806d23c535517f35723b.
-WSP parent: Qwen/Qwen3.5-0.8B at 2fc06364715b967f1860aea9cf38778875588b17.
-Released Reflex-1: cbarkinozer/Reflex-1 at 252a00c22cebca07c7ff4d6f99be15863c7faab2.
+## Recovered recipe
 
-Audit original Unsloth versus official parent weights/tokenizer before calling this an edit-only ablation. Their configuration metadata differs; matching architecture is insufficient evidence of identical weights.
+Original data inputs are in datasets/reflex-1 (recovery commit 675e0334e82b6058c15b6b6c9af19955f589c714). All recovered file hashes verified locally and on the GPU. The recovered pocket-agents-lab tools/train_combined_routing.py reproduces 1,562 ordered rows: 781 phone, 391 typed-decisions, 195 BANKING77 and 195 CLINC150. Its materialized SHA-256 is recorded in preflight/training-mix-manifest.json. The 2,240-row general training file is the sampling pool, not the final mixture.
 
-## Original recipe to recover
+Rank/alpha 16, dropout 0, seed 3407, LR 2e-4, microbatch 2 with accumulation 16, sequence length 4096, 120 optimizer steps, 4-bit loading, BF16 computation, adamw_8bit, cosine schedule, warmup 10, weight decay 0.01. Evaluate/save every 20 steps and select highest equal mean of phone/general validation accuracy. Original release selected checkpoint 100. Fit calibration only on the independent calibration partition. Preserve the joint decision head along with LoRA.
 
-Released recipe: 1,562 training rows: 781 phone + 391 typed-decisions + 195 BANKING77 + 195 CLINC150. Rank/alpha 16, seed 3407, base LR 2e-4, effective batch 32, max sequence 4096, 120 optimizer steps. Original selected artifact: combined-balanced-scratch-120step-s3407/checkpoint-100. W&B run 66wubl55.
-
-Recover exact row order, split files, source hashes, trainer, executed config, decision-head LR, optimizer/scheduler/warmup/precision, microbatch/accumulation, validation cadence/selection and calibration procedure. Public phone data alone cannot reconstruct the exact general mixture. config.json nulls are unresolved facts and must be recovered before execution. JSON is used as the explicit experiment config format.
+The archived phone test contains 88 rows and differs from the separately frozen 180-case release regression cohort. Existing published tests are regression cohorts; never use them for checkpoint selection. The recovered log named combined-balanced-scratch-full.log ends at step 80, so it does not establish a complete original 120-step execution trace.
 
 ## Evaluation and release
 
-Use identical frozen schemas, options, cohort IDs and runtime/precision/hardware within each comparison. Measure phone accuracy/macro-F1 and per-route recall; retain general typed-decisions/BANKING77/CLINC150 scores, probabilities, calibration, errors, truncations and resource measurements. Separate generative baseline tables from decision-head tables. Historical A32 scores are context; GPU timings cannot be compared with them.
+Keep schemas, options, cohort IDs/order, runtime, precision and hardware matched. Report phone accuracy/macro-F1 and per-route recall, typed-decisions exact-record/per-question accuracy, BANKING77 and CLINC150 metrics, calibration, errors, truncations and resource use. Separate generation and decision-head results. GPU timings cannot be compared directly with historical A32 timings.
 
-Select checkpoints using original equal-domain validation procedure; do not force checkpoint 100. Calibrate only on the independent calibration split. Existing published tests are regression cohorts. Define regression tolerances before running; preserve per-item outputs and report paired bootstrap intervals. New independent final data and deployment checks are required before a Reflex-1.5 release claim. No improvement has been measured yet.
+No improvement or Reflex-1.5 release claim is established. Retain per-item outputs, report paired uncertainty, and use independent final data before a release decision.
 
-## Next action
+## Remote operation
 
-Recover experiments/unsloth-qwen35-08b-decision from Mac mini or laptop, including scripts, original JSONL datasets, configs and small manifests/results. Preserve existing checkpoints on that machine; no need to transfer large model weights initially. Once Vast SSH is supplied, inspect GPU and persistent disk, recover/pin the runtime, verify loading/edit tensors, then pass matched baselines, data audits, smoke/save-reload and tiny-overfit gates before production training.
+Work root: /workspace/reflex-wsp. Evaluation and training environments are separate persistent venvs. run_card_suite.sh serializes parent smoke, WSP benchmarks and parent benchmarks using a lock; it stops on failure. run_card_eval.py saves every generated sample in atomic compressed batches and supports resuming completed batches. Batch scheduling and max_num_seqs differ from the upstream unbounded call and are held equal across arms; exact sampled strings need not match the author's hardware.
 
-## Recovery update
-
-Commit 675e0334e82b6058c15b6b6c9af19955f589c714 recovered original data inputs and launch_combined_120.sh. All 11 recovery-manifest file hashes, byte counts and declared row counts verified locally. Phone input has 781 training rows; general input is the 2,240-row pool from which 781 were sampled. Exact sample selection/order still requires tools/train_combined_routing.py from the backup. Launch confirms microbatch 2 and accumulation 16. The archived phone test has 88 rows and must not be mistaken for the separately frozen 180-case release regression cohort.
-
-Original backup: C:/Users/barkin/Documents/GitHub/pocket-agents-lab/runs/decision-followups-vast-20261013/reflex-decision-artifacts-20261013.tar.gz. Request archive members reflex-decision/tools/, trainer local dependencies, sanitized executed run configs/environment records, and logs/combined-balanced-scratch-full.log. Exclude .env, tokens and credentials.
+The scripts use the pinned upstream evaluation repository at /workspace/repos/lm_understand-logs. The unused missing loop-detector import is disabled explicitly; boxed extraction/math-verify remain upstream. IFEval uses pinned Google official checkers, with the author's rule that unfinished thinking has an empty answer. Preserve prepare.log and retry logs: the initial download attempt hit a missing upstream __init__.py, fixed by creating an empty package initializer. No training starts automatically from the benchmark shell script.

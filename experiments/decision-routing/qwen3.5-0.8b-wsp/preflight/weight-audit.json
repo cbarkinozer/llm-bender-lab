@@ -1,0 +1,28 @@
+{
+  "parent_keys": 488,
+  "wsp_keys": 488,
+  "keys_parent_only": [],
+  "keys_wsp_only": [],
+  "changed": [
+    {
+      "key": "model.language_model.layers.15.mlp.down_proj.weight",
+      "shape": [
+        1024,
+        3584
+      ],
+      "dtype": "torch.bfloat16",
+      "different_elements": 65260,
+      "wsp_sha256": "82e2d733ea64feaeb4af93a1e065641d3df98b494a8b7576ef2f52e90fe2ee53"
+    },
+    {
+      "key": "model.language_model.layers.19.mlp.down_proj.weight",
+      "shape": [
+        1024,
+        3584
+      ],
+      "dtype": "torch.bfloat16",
+      "different_elements": 64928,
+      "wsp_sha256": "8ef3c61bc36af113ad58e89dbb0a4a14dcba5a45cb750c15ab515c82ddd12eb2"
+    }
+  ]
+}
