@@ -121,7 +121,7 @@ Accuracy (%), on the same frozen evaluation cohorts:
 
 **Outcome:** Compared with reproduced Reflex-1, the trained WSP candidate changed accuracy by -0.56, -3.35, -4.76 and +0.22 percentage points respectively. CLINC150 gained one correct case out of 450. This single-seed experiment did not demonstrate an overall improvement; it does not establish that WSP is generally worse or better. No new release or mobile-runtime performance claim follows from this result.
 
-The original release weights are unchanged. [Experiment results](experiments/wsp/RESULTS.md) and [training manifest](experiments/wsp/candidate-training-manifest.json) document this follow-up. Raw predictions, logs, the experimental adapter and checkpoints are preserved locally; the experimental weights are not part of the recommended release.
+The original release weights are unchanged. [Experiment results](experiments/wsp/RESULTS.md) and [training manifest](experiments/wsp/candidate-training-manifest.json) document this follow-up. Raw predictions, logs, the experimental adapter and checkpoints are preserved locally; the experimental weights are available separately in [`experimental/wsp/adapter/`](experimental/wsp/adapter/), including the trained decision head and tokenizer. They do not replace the recommended release. See that folder's README for pinned base and loading details.
 
 ## Model and training
 

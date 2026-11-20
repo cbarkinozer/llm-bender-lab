@@ -1,4 +1,4 @@
-"""Publish the reviewed WSP documentation only; never upload weights or tokens."""
+"""Publish the reviewed WSP documentation and the separately staged experimental adapter; never upload tokens."""
 from pathlib import Path
 from huggingface_hub import HfApi, CommitOperationAdd
 
@@ -18,6 +18,9 @@ result = api.create_commit(
     parent_commit=parent,
     commit_message="Document WSP base substitution experiment and routing results",
     operations=[CommitOperationAdd(path_in_repo=name, path_or_fileobj=str(path))
-                for name, path in files.items()],
+                for name, path in files.items()] + [
+        CommitOperationAdd(path_in_repo="experimental/wsp/adapter/" + p.name, path_or_fileobj=str(p))
+        for p in (root.parents[2] / "artifacts/reflex-wsp-routing-completed-20261120/publish-adapter").iterdir() if p.is_file()
+    ],
 )
 print(result.commit_url)
