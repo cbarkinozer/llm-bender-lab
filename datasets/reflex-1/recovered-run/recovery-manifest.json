@@ -1,0 +1,1301 @@
+{
+  "archive": "C:\\Users\\barkin\\Documents\\GitHub\\pocket-agents-lab\\runs\\decision-followups-vast-20261013\\reflex-decision-artifacts-20261013.tar.gz",
+  "files": [
+    {
+      "path": "setup_pod.sh",
+      "bytes": 1009,
+      "sha256": "f553fd67a69b9a104f08fad863e47e373513a5172ee2938038e976c2da191296",
+      "archive_member": "reflex-decision/setup_pod.sh"
+    },
+    {
+      "path": "tools/GPU_PHONE_FULL_HANDOFF.md",
+      "bytes": 3036,
+      "sha256": "4e03a56d59bff693191ec772653844e2e98ce2631dd94e0c7dfec73270ba76ad",
+      "archive_member": "reflex-decision/tools/GPU_PHONE_FULL_HANDOFF.md"
+    },
+    {
+      "path": "tools/decision_training_utils.py",
+      "bytes": 4556,
+      "sha256": "33e6d286699fd2cd51222eeec9eb62a39f3c73ced7643d09b311988829b7b20b",
+      "archive_member": "reflex-decision/tools/decision_training_utils.py"
+    },
+    {
+      "path": "tools/phone_routing_contract_v2.json",
+      "bytes": 1506,
+      "sha256": "6f75ca26be62d735eb75d3ff3acb4a85f01cf9c3314f3341e2185c514397d472",
+      "archive_member": "reflex-decision/tools/phone_routing_contract_v2.json"
+    },
+    {
+      "path": "tools/train_phone_routing.py",
+      "bytes": 30188,
+      "sha256": "ac003a7d95d05671042d225ca44672891b525508775494aa65c599954b036a01",
+      "archive_member": "reflex-decision/tools/train_phone_routing.py"
+    },
+    {
+      "path": "tools/train_general_routing.py",
+      "bytes": 16765,
+      "sha256": "b017c0a00e5c4887b58a4779e7a7bb0b34de54b7b95b145a4e4a0276b1455bda",
+      "archive_member": "reflex-decision/tools/train_general_routing.py"
+    },
+    {
+      "path": "tools/train_combined_routing.py",
+      "bytes": 25330,
+      "sha256": "dfe7768da579a74748c2807e41f71875c577ac2d2d54d7a87bca1d355d248cdb",
+      "archive_member": "reflex-decision/tools/train_combined_routing.py"
+    },
+    {
+      "path": "tools/prepare_general_mixture.py",
+      "bytes": 13863,
+      "sha256": "f78f4c139338ff101483e32432161c6bf4cd453e96ac025751a16db8496fcb78",
+      "archive_member": "reflex-decision/tools/prepare_general_mixture.py"
+    },
+    {
+      "path": "tools/prepare_followup_test_sets.py",
+      "bytes": 4741,
+      "sha256": "9f4eec01cbacf5b4b158dd19733bfc5304ccd356aa19db068aea7c3e0ebdce06",
+      "archive_member": "reflex-decision/tools/prepare_followup_test_sets.py"
+    },
+    {
+      "path": "tools/evaluate_decision_followups.py",
+      "bytes": 3279,
+      "sha256": "eb3399286865bc2e89e5cd7081bfb037289c22d0ac20006a0aad510b0f392830",
+      "archive_member": "reflex-decision/tools/evaluate_decision_followups.py"
+    },
+    {
+      "path": "setup-pod.log",
+      "bytes": 6358,
+      "sha256": "4f8fb1353d5b3fa8810653074dd67c6a168aacda87206ab7484fc05f46785abe",
+      "archive_member": "reflex-decision/setup-pod.log"
+    },
+    {
+      "path": "environment-freeze.txt",
+      "bytes": 2067,
+      "sha256": "276b35ae4c4b8cf11295749c42379d39b82407cb0e20e1c732ee9ce69c18f7aa",
+      "archive_member": "reflex-decision/environment-freeze.txt"
+    },
+    {
+      "path": "phone-scratch-smoke.log",
+      "bytes": 149203,
+      "sha256": "02af20458a89022fff63b0e8d8859af19fd73a7dbf4b72c39ed62b443928c9bb",
+      "archive_member": "reflex-decision/phone-scratch-smoke.log"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/metrics_before_val.json",
+      "bytes": 113,
+      "sha256": "4bc317062da5e43f13a9f696242519d0e2083b93098216aa9a733e31d59f915f",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/metrics_before_val.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/checkpoints/checkpoint-2/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/checkpoints/checkpoint-2/adapter_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/checkpoints/checkpoint-2/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/checkpoints/checkpoint-2/tokenizer_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/checkpoints/checkpoint-2/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/checkpoints/checkpoint-2/processor_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/checkpoints/checkpoint-2/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "589faf7823cc6460a51c94fc9b618931873c0e6804c3d22c158ad9232b9a6861",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/checkpoints/checkpoint-2/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/checkpoints/checkpoint-2/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/checkpoints/checkpoint-2/joint_head_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/checkpoints/checkpoint-2/trainer_state.json",
+      "bytes": 1289,
+      "sha256": "0e53eeb80ddbf4510294dc057249e8b6b5e608fcac156623e08c300a3d17b6a5",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/checkpoints/checkpoint-2/trainer_state.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/metrics_after_val.json",
+      "bytes": 107,
+      "sha256": "c41d5e75138f0b98a934e03726011ba4b85986a5ea135568f84d1ec6c4306154",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/metrics_after_val.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/metrics_calib_pre.json",
+      "bytes": 114,
+      "sha256": "5d164229d1682ddff13a0e9f8987ba06dc1ecec9989e398cb9b077a0dd2db1e8",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/calibration_config.json",
+      "bytes": 167,
+      "sha256": "8565f832aea935b1646de19dbf206c4dac8c603172f6cebf16affd307b5b31da",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/calibration_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/adapter/unsloth_decision_config.json",
+      "bytes": 236,
+      "sha256": "848e593fd55a013c31b99568b75f9c01e9fa1dad06d8513f5dcd044c378f0299",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/phone-scratch-smoke/run-manifest.json",
+      "bytes": 1725,
+      "sha256": "e5b470b447215b8700c66b49ec51a903b70082b99b63d3ed59b3b683f9c8e29c",
+      "archive_member": "reflex-decision/runs/phone-scratch-smoke/run-manifest.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/metrics_before_val.json",
+      "bytes": 111,
+      "sha256": "a06e290042875aac47c01c569b8161ba022450057f2c47eee7b9923b381a6057",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/metrics_before_val.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/adapter_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/processor_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/trainer_state.json",
+      "bytes": 1308,
+      "sha256": "6d00e2e14291c5538fd787b89157ff4c73bbcb58389a9daa0b556e135553e801",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/checkpoints/checkpoint-2/trainer_state.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/metrics_after_val.json",
+      "bytes": 113,
+      "sha256": "f0202d15d4453aaf7d86bd4ed0b078859905c0c12ab544633bbc636d322d1fb1",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/metrics_after_val.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/metrics_calib_pre.json",
+      "bytes": 111,
+      "sha256": "50febda244e0e188c461c5156b883bb590f0e22dffd3d1788e5475e561e136d2",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/calibration_config.json",
+      "bytes": 178,
+      "sha256": "6203acfd692c02a67e8ff28a325dfb723abeb3808744e7046f7beac98b348c73",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/calibration_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/adapter/unsloth_decision_config.json",
+      "bytes": 265,
+      "sha256": "4e2afc81c4a41c941192f9f3c30a9833bdd3cd968d14de0e164a0495c3b240c3",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-scratch-smoke-4096/run-manifest.json",
+      "bytes": 1669,
+      "sha256": "70f0d8b8df99d89e3d9cb610e3aa85dac0e68fa3921a6cd568a482e9e5e71dab",
+      "archive_member": "reflex-decision/runs/general-scratch-smoke-4096/run-manifest.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/metrics_before_val.json",
+      "bytes": 409,
+      "sha256": "ede0b58a7944422406c3c77fdd1e03ba839ae7ae66feb7bb69d6785a26efd8f8",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/metrics_before_val.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/processor_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/trainer_state.json",
+      "bytes": 1268,
+      "sha256": "0cc37826e76019a01ab4c8359716d9885fabfbf749f77e27452845a898b51fa2",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/checkpoints/checkpoint-2/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/metrics_after_val.json",
+      "bytes": 407,
+      "sha256": "f9072b8cbece4307cb01c6445baf3e0680c134e761d11b5ad8b5d3a515fee38c",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/metrics_after_val.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/metrics_calib_pre.json",
+      "bytes": 107,
+      "sha256": "9ffa971603b1c5d7ca9d98f3a9b501a984ddadc70208f6826e0b3133102e5d59",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/calibration_config.json",
+      "bytes": 163,
+      "sha256": "2e224843013c833ec4042031df8bcbacd980f4cd572af3f83e0a22a6dcf628ef",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/calibration_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/adapter/unsloth_decision_config.json",
+      "bytes": 236,
+      "sha256": "ac595148a035c555b1f288a6f84b79b2c0607cecd89d6532df37c54b95709ffa",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-scratch-smoke-final/run-manifest.json",
+      "bytes": 2848,
+      "sha256": "f863095ec55d66606fb16d194d4564c4e7aafb7aaddfd7c21749b19883c703ce",
+      "archive_member": "reflex-decision/runs/combined-scratch-smoke-final/run-manifest.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/metrics_before_val.json",
+      "bytes": 140,
+      "sha256": "118eb0bcb78280fa60ac663f795f56c9c2da3708d64ba7720afd111cf86ad435",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/metrics_before_val.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/adapter_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/tokenizer_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/processor_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "589faf7823cc6460a51c94fc9b618931873c0e6804c3d22c158ad9232b9a6861",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/joint_head_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/trainer_state.json",
+      "bytes": 4583,
+      "sha256": "4bfa23db644927df5ee6b1687f1279070caee4ef30412f234dfe2471456ce6f8",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-20/trainer_state.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/adapter_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/tokenizer_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/processor_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "589faf7823cc6460a51c94fc9b618931873c0e6804c3d22c158ad9232b9a6861",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/joint_head_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/trainer_state.json",
+      "bytes": 8485,
+      "sha256": "d285072ac5ebc09d69e7fddee54e4bd415f3a98efe6d4fdf81ef4e9f81413fe6",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-40/trainer_state.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/adapter_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/tokenizer_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/processor_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "589faf7823cc6460a51c94fc9b618931873c0e6804c3d22c158ad9232b9a6861",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/joint_head_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/trainer_state.json",
+      "bytes": 12430,
+      "sha256": "bcd2ca923de7283a95fc765c8e307b866a159397b124004ab672578b5496dfaa",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/checkpoints/checkpoint-60/trainer_state.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/metrics_after_val.json",
+      "bytes": 140,
+      "sha256": "afdf2c9cf3cf43707cb325d6e02b6f067a9547458ba20d7916b8a2e82ac6267e",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/metrics_after_val.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/metrics_calib_pre.json",
+      "bytes": 139,
+      "sha256": "cf35ad1a643a13c58fed365f3a8171c43eca85fc80c6a72abc34e4315e95406f",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/calibration_config.json",
+      "bytes": 193,
+      "sha256": "c112dae86595c21a9bd766d731af50655cd92897a188b8265ca25d646bb54527",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/calibration_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/adapter/unsloth_decision_config.json",
+      "bytes": 236,
+      "sha256": "d367c7f645c9d8a79bcb2d29d9e9376b8815055e3a733e1eb67f02ea406ef92d",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/phone-reviewed-scratch-full-s3407/run-manifest.json",
+      "bytes": 1899,
+      "sha256": "726c2b227f69306ca0f099daf958bb5068d2c9527220b0dd08ae709afaa930c3",
+      "archive_member": "reflex-decision/runs/phone-reviewed-scratch-full-s3407/run-manifest.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/metrics_before_val.json",
+      "bytes": 139,
+      "sha256": "d51a2952c2601256d3520742cdd596585d0511bc6acac0673fa602ab60a2294f",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/metrics_before_val.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/adapter_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/processor_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/trainer_state.json",
+      "bytes": 4549,
+      "sha256": "d511ba0b5f392296849c88a7959e809566dda3cc33f8e8b43f6e249415090c9a",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-20/trainer_state.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/adapter_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/processor_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/trainer_state.json",
+      "bytes": 8419,
+      "sha256": "8ee2fac099415abf031e100cffb6e622f4497c5f30b7f37fa9906c08466ddb59",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-40/trainer_state.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/adapter_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/processor_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/trainer_state.json",
+      "bytes": 12268,
+      "sha256": "70d1061c1f6bebee2638305287e38d27d0d8a7d49266c20833412a17da6264ff",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-60/trainer_state.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/adapter_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/processor_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/trainer_state.json",
+      "bytes": 16135,
+      "sha256": "f091bfc66847aa6473347189795c9462a3c86169ab4321415575bb5d86e84eab",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/checkpoints/checkpoint-80/trainer_state.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/metrics_after_val.json",
+      "bytes": 138,
+      "sha256": "25355bebd359898469d9c4090833fd2371179cf367bfd9ba80705b16ccdc1bc1",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/metrics_after_val.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/metrics_calib_pre.json",
+      "bytes": 137,
+      "sha256": "10d2e6179b69c468ae279250dd0677932d3e9ce1b5d79a7601a67ee42fb8c920",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/calibration_config.json",
+      "bytes": 204,
+      "sha256": "a8559f2ba012764c64097b119b8930f189decd48aaf0af7f45130762bd92df05",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/calibration_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/adapter/unsloth_decision_config.json",
+      "bytes": 251,
+      "sha256": "100092e6a1d24281a4d6e6c2b252ec5b3b32a5c6510479ab295656525fa08e3e",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/general-balanced-scratch-full-s3407/run-manifest.json",
+      "bytes": 1838,
+      "sha256": "16cde436b560c9aa465347ab80ab778d02785b0a864cc1673d42899035ccdc76",
+      "archive_member": "reflex-decision/runs/general-balanced-scratch-full-s3407/run-manifest.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/metrics_before_val.json",
+      "bytes": 491,
+      "sha256": "819630046e39771a43ff825f6b45ae56a2efd33516d78d19ec4763bce6341ee3",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/metrics_before_val.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/trainer_state.json",
+      "bytes": 4570,
+      "sha256": "5b10af3c60e761accb2c06f91ac9c6a7695dc2067b60539916117cb437aaea07",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-20/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/trainer_state.json",
+      "bytes": 8449,
+      "sha256": "3b2e79ae6c17ed506b75f8795c4772d4bcacd550987ff29db6200d62d46fc510",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-40/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/trainer_state.json",
+      "bytes": 12293,
+      "sha256": "b5b5566a3e6647693d76a1dc78ff136d9efd83a18a8aabfd21b883f4ababdd1e",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-60/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/trainer_state.json",
+      "bytes": 16179,
+      "sha256": "76214d319117f7f81ddcc6c74db917ba257f2538d8c8bd4bd0a1b8f1c6fa9e10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/checkpoints/checkpoint-80/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/metrics_after_val.json",
+      "bytes": 487,
+      "sha256": "4bec6f7ae19321aed5859a41e3b3448c7ccdf0f69313f4fb03468830fd366afd",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/metrics_after_val.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/metrics_calib_pre.json",
+      "bytes": 138,
+      "sha256": "7671373a3c21ef15600058b87e9988cb416f31a1addfc5b3ebdc668c088cedec",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/calibration_config.json",
+      "bytes": 206,
+      "sha256": "3501020c3e6dc1bf6dfe67704a1c6779e71c0c1012102ef3d448b00ff2f95b1c",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/calibration_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/adapter/unsloth_decision_config.json",
+      "bytes": 249,
+      "sha256": "93727ba44b703dd9f511b47a683311ea67c2e1934b110bee7eb6e49de286bdd8",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-full-s3407/run-manifest.json",
+      "bytes": 3153,
+      "sha256": "c893060d7543a9e43c28aee3178d26c8ad45dc5db0614aab909a44582f19bebc",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-full-s3407/run-manifest.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/metrics_before_val.json",
+      "bytes": 491,
+      "sha256": "9e9feb12e1e894695448f00a5a714d83935f6644f690396e0c8bcf565b77b55f",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/metrics_before_val.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/trainer_state.json",
+      "bytes": 4567,
+      "sha256": "bacdcf74c061f1313f764bd9002f25d7adef3bad591006abcc62bde839309aba",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-20/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/trainer_state.json",
+      "bytes": 8452,
+      "sha256": "ed5af1633543c503520c1943271fcbd11ef11f3c1e0640d588d8d3f8295d2902",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-40/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/trainer_state.json",
+      "bytes": 12322,
+      "sha256": "bcf3e9f6b8f844fb7978ceed0ade8d1b8a1f5c784442fb3834d2e94c5666cd7b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-60/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/trainer_state.json",
+      "bytes": 16190,
+      "sha256": "2163ed0c156fb0a5c66e5321ffe9cf9226c5747012d61f306cb7e48662ddbc2b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-80/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/trainer_state.json",
+      "bytes": 20060,
+      "sha256": "10ab2905158d2c5ac474fb90cae8967e362775010e4ec37f5c0fe978eb731441",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-100/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/unsloth_decision_config.json",
+      "bytes": 177,
+      "sha256": "b6a74515c73235fa9bd7579af3a35740bfd2d7933a0131296ae21cd0bda40b10",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/trainer_state.json",
+      "bytes": 23967,
+      "sha256": "9d8c10eb19e0d62fff9a6d1ee25b1da67b3d8a6b0c0e5120e7469bf22caf7e39",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/checkpoints/checkpoint-120/trainer_state.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/metrics_after_val.json",
+      "bytes": 490,
+      "sha256": "2d90a196a5a6a2447b5d2909b3b80c0d5532dac5e09b916fa756e40d50552096",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/metrics_after_val.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/metrics_calib_pre.json",
+      "bytes": 138,
+      "sha256": "1ae006bcb93d27020298b14291508e444d0b84bb303fa3a352b5a5d49bf3930b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/metrics_calib_pre.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/calibration_config.json",
+      "bytes": 206,
+      "sha256": "8c4b3f912ac10eda3605e7578d13adf7afcde308f8d5da7189aeb82848131e71",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/calibration_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/adapter/adapter_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/adapter/tokenizer_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/adapter/processor_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/adapter/unsloth_decision_config.json",
+      "bytes": 250,
+      "sha256": "003cafe1317dd7277508b8878d0bd4ab7084b94fa51e5b96412e66612de81c49",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/adapter/unsloth_decision_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/adapter/joint_head_config.json"
+    },
+    {
+      "path": "runs/combined-balanced-scratch-120step-s3407/run-manifest.json",
+      "bytes": 3158,
+      "sha256": "4efc937a91fb744dcf4e262d6cfcd1e5c0cbec79b26d17f7ddb5d3c70f75e5d7",
+      "archive_member": "reflex-decision/runs/combined-balanced-scratch-120step-s3407/run-manifest.json"
+    },
+    {
+      "path": "general-scratch-smoke.log",
+      "bytes": 145028,
+      "sha256": "833caf2dd290a4cd4173a59ab65e2d9111bf915e6cc96d757b44d9bac8707a78",
+      "archive_member": "reflex-decision/general-scratch-smoke.log"
+    },
+    {
+      "path": "general-scratch-smoke-4096.log",
+      "bytes": 146809,
+      "sha256": "8703ba374f2d4e205c0b8b0d4ea08e703d8dfd4636370b79478ffaf6b1c54979",
+      "archive_member": "reflex-decision/general-scratch-smoke-4096.log"
+    },
+    {
+      "path": "combined-scratch-smoke-4096.log",
+      "bytes": 144290,
+      "sha256": "f69c0e17d02b60662440ee31b9c4862d5a3f5c30a7b1563f3e53c9f381c48ea5",
+      "archive_member": "reflex-decision/combined-scratch-smoke-4096.log"
+    },
+    {
+      "path": "combined-scratch-smoke-balanced.log",
+      "bytes": 144382,
+      "sha256": "14199cee5703a5997d63a40e099f9aafd324e3ca7c764d585ee8d254d794d1d8",
+      "archive_member": "reflex-decision/combined-scratch-smoke-balanced.log"
+    },
+    {
+      "path": "combined-scratch-smoke-final.log",
+      "bytes": 146859,
+      "sha256": "c2df128a2d2856be954c6dca68f4f1ea7468812bcb961b6f1f88c49ab10e15a2",
+      "archive_member": "reflex-decision/combined-scratch-smoke-final.log"
+    },
+    {
+      "path": "phone-reviewed-scratch-full.log",
+      "bytes": 167374,
+      "sha256": "43101ad73e279b659ce24483269314e9a3c45bb73bdd8316b44a2acb5ad4dd7b",
+      "archive_member": "reflex-decision/phone-reviewed-scratch-full.log"
+    },
+    {
+      "path": "general-balanced-scratch-full.log",
+      "bytes": 170838,
+      "sha256": "326475c28bda796dae62b4d976dddabee3632acb19bd0ad34b4bd806eff3ac33",
+      "archive_member": "reflex-decision/general-balanced-scratch-full.log"
+    },
+    {
+      "path": "combined-balanced-scratch-full.log",
+      "bytes": 171067,
+      "sha256": "f047c348befdee17ab86f196652528d6835e6f6f8032d0041cb5f4e59888f187",
+      "archive_member": "reflex-decision/combined-balanced-scratch-full.log"
+    },
+    {
+      "path": "launch_combined_120.sh",
+      "bytes": 669,
+      "sha256": "cff296bbd840ebb7c9e8cc06ccbde5074c3e4a38c6150d9692d0510c59797ecd",
+      "archive_member": "reflex-decision/launch_combined_120.sh"
+    },
+    {
+      "path": "combined-balanced-scratch-120step.log",
+      "bytes": 183055,
+      "sha256": "b06d7154e062d704a2ff107c915402145a4cd2360b59b1850c23725002d175fd",
+      "archive_member": "reflex-decision/combined-balanced-scratch-120step.log"
+    },
+    {
+      "path": "archive_all_artifacts.sh",
+      "bytes": 1885,
+      "sha256": "906578996e9f2dbef89ac3719f23a27ee1ff2e8fac4aeaf774a94534cc7923cd",
+      "archive_member": "reflex-decision/archive_all_artifacts.sh"
+    },
+    {
+      "path": "run_heldout_evals.sh",
+      "bytes": 1096,
+      "sha256": "00e58449e7cd7808dcca1557bc915fedaf13800e172478611f6d3126572139cc",
+      "archive_member": "reflex-decision/run_heldout_evals.sh"
+    },
+    {
+      "path": "logs/combined-balanced-scratch-full.log",
+      "bytes": 167980,
+      "sha256": "ee530b8227276422b761e118b3f2bc1128cf83a35761dc8b4e5357241d8590e8",
+      "source": "C:\\Users\\barkin\\Documents\\GitHub\\pocket-agents-lab\\runs\\decision-followups-vast-20261013\\logs\\combined-balanced-scratch-full.log"
+    }
+  ]
+}

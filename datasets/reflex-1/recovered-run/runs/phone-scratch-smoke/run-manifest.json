@@ -1,0 +1,59 @@
+{
+  "run_completed": true,
+  "timestamp": "2026-10-13T19:37:37Z",
+  "smoke": true,
+  "checkpoint_source": "unsloth/Qwen3.5-0.8B",
+  "adapter_strategy": "scratch",
+  "reflex1_adapter_sha256": null,
+  "dataset": "phone_routing_v1",
+  "train_sha256": "c01503a65e182b0eb68181fcfcdd0e775c3ea4b9a3039ee9f3abcb4f05d7a2b4",
+  "calib_sha256": "b4589ced22020c57b76056b0280c3998d23d3dd456122be9f75228f84e6f24fa",
+  "test_sha256": "bc2693ff6b8ccb16eeb1df0a76127e38ed426f0cb0479f0ecbacd64793cd0447",
+  "val_sha256": "7f50a1bbcbd719b3380029dda31510373061866fc8e2fb1ff7531aab29d1e93a",
+  "val_split_size": 90,
+  "train_after_carve": 781,
+  "seed": 3407,
+  "max_steps": 2,
+  "effective_batch_size": 2,
+  "learning_rate": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 16,
+  "trainable_params": 38147588,
+  "total_params": 699244100,
+  "training_elapsed_s": 46.7,
+  "wandb_run_id": null,
+  "wandb_run_url": null,
+  "metrics": {
+    "before_val": {
+      "accuracy": 0.1875,
+      "ece": 0.0716032637283206,
+      "loss": 2.1863811314105988,
+      "record_accuracy": 0.1875
+    },
+    "after_val": {
+      "accuracy": 0.0,
+      "ece": 0.13388852030038834,
+      "loss": 2.239510104060173,
+      "record_accuracy": 0.0
+    },
+    "calib_pre": {
+      "accuracy": 0.1875,
+      "ece": 0.08583572134375571,
+      "loss": 2.1864510625600815,
+      "record_accuracy": 0.1875
+    }
+  },
+  "calibration_config": {
+    "accuracy": 0.1875,
+    "ece": 0.09608546691015363,
+    "loss": 2.2286460995674133,
+    "record_accuracy": 0.1875,
+    "fitted_types": [
+      0
+    ],
+    "calibrated": true
+  },
+  "calibration_ok": true,
+  "checkpoint_selection_metric": "eval_accuracy (greater is better)",
+  "val_split_strategy": "explicit grouped validation.jsonl"
+}

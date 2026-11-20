@@ -1,0 +1,59 @@
+{
+  "run_completed": true,
+  "timestamp": "2026-10-13T19:47:02Z",
+  "smoke": false,
+  "checkpoint_source": "unsloth/Qwen3.5-0.8B",
+  "adapter_strategy": "scratch",
+  "reflex1_adapter_sha256": null,
+  "dataset": "phone_routing_v1",
+  "train_sha256": "c01503a65e182b0eb68181fcfcdd0e775c3ea4b9a3039ee9f3abcb4f05d7a2b4",
+  "calib_sha256": "b4589ced22020c57b76056b0280c3998d23d3dd456122be9f75228f84e6f24fa",
+  "test_sha256": "bc2693ff6b8ccb16eeb1df0a76127e38ed426f0cb0479f0ecbacd64793cd0447",
+  "val_sha256": "7f50a1bbcbd719b3380029dda31510373061866fc8e2fb1ff7531aab29d1e93a",
+  "val_split_size": 90,
+  "train_after_carve": 781,
+  "seed": 3407,
+  "max_steps": 60,
+  "effective_batch_size": 32,
+  "learning_rate": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 16,
+  "trainable_params": 38147588,
+  "total_params": 699244100,
+  "training_elapsed_s": 59.5,
+  "wandb_run_id": "5qjlvdbq",
+  "wandb_run_url": "https://wandb.ai/c-barkinozer/reflexmodels/runs/5qjlvdbq",
+  "metrics": {
+    "before_val": {
+      "accuracy": 0.12222222222222222,
+      "ece": 0.006378390888373053,
+      "loss": 2.189006773630778,
+      "record_accuracy": 0.12222222222222222
+    },
+    "after_val": {
+      "accuracy": 0.9888888888888889,
+      "ece": 0.015998847617043392,
+      "loss": 0.07533416389568527,
+      "record_accuracy": 0.9888888888888889
+    },
+    "calib_pre": {
+      "accuracy": 0.9777777777777777,
+      "ece": 0.032551745242542736,
+      "loss": 0.0859635764437068,
+      "record_accuracy": 0.9777777777777777
+    }
+  },
+  "calibration_config": {
+    "accuracy": 0.9777777777777777,
+    "ece": 0.021637450986438364,
+    "loss": 0.13262289091866108,
+    "record_accuracy": 0.9777777777777777,
+    "fitted_types": [
+      0
+    ],
+    "calibrated": true
+  },
+  "calibration_ok": true,
+  "checkpoint_selection_metric": "eval_accuracy (greater is better)",
+  "val_split_strategy": "explicit grouped validation.jsonl"
+}

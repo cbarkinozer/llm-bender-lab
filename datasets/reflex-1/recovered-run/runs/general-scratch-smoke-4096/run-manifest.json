@@ -1,0 +1,59 @@
+{
+  "run_completed": true,
+  "dataset": "general_routing_v1",
+  "checkpoint_source": "unsloth/Qwen3.5-0.8B",
+  "adapter_strategy": "scratch",
+  "reflex1_adapter_sha256": null,
+  "train_sha256": "a2bdceaee87dc20aad139763534689bf7d6f84cba12f436041a8f2a874e472ee",
+  "val_sha256": "9cb7a8563431944dbe2e8e3597b87d939d32b8f79528c14f8ad90777b0a2914e",
+  "calib_sha256": "9f8b4955b676acbb81179a1ebfe0dd0281f506b248d064a4b5bc2ec4030409c4",
+  "source_counts_train": {
+    "typed_decisions": 1120,
+    "banking77": 560,
+    "clinc150": 560
+  },
+  "seed": 3407,
+  "max_steps": 2,
+  "effective_batch_size": 2,
+  "learning_rate": 0.0002,
+  "trainable_params": 38147588,
+  "training_elapsed_s": 18.5,
+  "wandb_run_id": null,
+  "wandb_run_url": null,
+  "metrics": {
+    "before_val": {
+      "accuracy": 0.4375,
+      "ece": 0.10938360169529916,
+      "loss": 1.2038479447364807,
+      "record_accuracy": 0.0
+    },
+    "after_val": {
+      "accuracy": 0.525,
+      "ece": 0.17696407288312915,
+      "loss": 1.1825279980897903,
+      "record_accuracy": 0.1875
+    },
+    "calib_pre": {
+      "accuracy": 0.45,
+      "ece": 0.1033996980637312,
+      "loss": 1.1683811023831367,
+      "record_accuracy": 0.0625
+    }
+  },
+  "calibration_config": {
+    "accuracy": 0.45,
+    "ece": 0.16444082297384743,
+    "loss": 1.199684239178896,
+    "record_accuracy": 0.0625,
+    "fitted_types": [
+      0,
+      1,
+      2
+    ],
+    "calibrated": true
+  },
+  "calibration_ok": true,
+  "checkpoint_selection_metric": "eval_accuracy (greater is better)",
+  "retention_note": "Use general val accuracy for retention decisions; benchmark test scores are for final reporting only.",
+  "smoke": true
+}

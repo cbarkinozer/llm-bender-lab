@@ -1,0 +1,91 @@
+{
+  "run_completed": true,
+  "dataset": "combined_routing_v1",
+  "checkpoint_source": "unsloth/Qwen3.5-0.8B",
+  "adapter_strategy": "scratch",
+  "reflex1_adapter_sha256": null,
+  "phone_train_sha256": "c01503a65e182b0eb68181fcfcdd0e775c3ea4b9a3039ee9f3abcb4f05d7a2b4",
+  "phone_val_source_sha256": "a3a4d8240a2f36d100c812baebc6171a6dcb7b58852bb1ef1bee04cb3f4cc4cb",
+  "phone_val_split_method": "explicit",
+  "phone_calib_sha256": "b4589ced22020c57b76056b0280c3998d23d3dd456122be9f75228f84e6f24fa",
+  "phone_test_sha256": "bc2693ff6b8ccb16eeb1df0a76127e38ed426f0cb0479f0ecbacd64793cd0447",
+  "general_train_sha256": "a2bdceaee87dc20aad139763534689bf7d6f84cba12f436041a8f2a874e472ee",
+  "val_sha256": "c9d18c298bf60ece214f1192686200a6aa6af81422432005cbcabebe44b4b5a1",
+  "seed": 3407,
+  "actual_weights": {
+    "phone": 781,
+    "general": 781,
+    "general_per_source": {
+      "typed_decisions": 391,
+      "banking77": 195,
+      "clinc150": 195
+    },
+    "phone_weight": 1.0,
+    "general_weight": 1.0
+  },
+  "max_steps": 2,
+  "effective_batch_size": 2,
+  "learning_rate": 0.0002,
+  "trainable_params": 38147588,
+  "training_elapsed_s": 8.3,
+  "wandb_run_id": null,
+  "wandb_run_url": null,
+  "metrics": {
+    "before_val_combined": {
+      "accuracy": 0.1875,
+      "ece": 0.0716032637283206,
+      "loss": 2.1863811314105988,
+      "record_accuracy": 0.1875
+    },
+    "before_val_phone": {
+      "accuracy": 0.1875,
+      "ece": 0.0716032637283206,
+      "loss": 2.1863811314105988,
+      "record_accuracy": 0.1875
+    },
+    "before_val_general": {
+      "accuracy": 0.45,
+      "ece": 0.12186506055295471,
+      "loss": 1.2037853576242923,
+      "record_accuracy": 0.0
+    },
+    "after_val_combined": {
+      "accuracy": 0.125,
+      "ece": 0.03483581729233265,
+      "loss": 2.2165470495820045,
+      "record_accuracy": 0.125
+    },
+    "after_val_phone": {
+      "accuracy": 0.125,
+      "ece": 0.03483581729233265,
+      "loss": 2.2165470495820045,
+      "record_accuracy": 0.125
+    },
+    "after_val_general": {
+      "accuracy": 0.35,
+      "ece": 0.020749570801854127,
+      "loss": 1.201841226965189,
+      "record_accuracy": 0.0
+    },
+    "calib_pre": {
+      "accuracy": 0.25,
+      "ece": 0.08959297090768814,
+      "loss": 2.1636957898736,
+      "record_accuracy": 0.25
+    }
+  },
+  "calibration_config": {
+    "accuracy": 0.25,
+    "ece": 0.23592376429587603,
+    "loss": 2.3703012242913246,
+    "record_accuracy": 0.25,
+    "fitted_types": [
+      0
+    ],
+    "calibrated": true
+  },
+  "calibration_ok": true,
+  "checkpoint_selection_metric": "equal mean of phone and general validation accuracy (greater is better)",
+  "retention_note": "Phone val accuracy is the primary phone retention signal. General val accuracy is the general retention signal. Benchmark test scores are for final reporting only.",
+  "smoke": true
+}
