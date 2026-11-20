@@ -19,7 +19,7 @@ def main():
           '|---|---:|---:|---:|---:|']
     for name,key,count,b,f,l in rows:text.append(f'| {name} | {count} | {b:.2f} | {f:.2f} | {l:.2f} |')
     text+=['','## Current measurements','',
-        '| Benchmark | Cases / decisions | Qwen parent | WSP base | Released Reflex-1 | WSP Reflex-1.5 candidate |',
+        '| Benchmark | Cases / decisions | Qwen parent | WSP base | Released Reflex-1 | Reflex-1-WSP-experimental |',
         '|---|---:|---:|---:|---:|---:|']
     for name,key,count,*_ in rows:
         values=[]

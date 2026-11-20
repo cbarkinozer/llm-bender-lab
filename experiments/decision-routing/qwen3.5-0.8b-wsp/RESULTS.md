@@ -11,7 +11,7 @@
 
 ## Current measurements
 
-| Benchmark | Cases / decisions | Qwen parent | WSP base | Released Reflex-1 | WSP Reflex-1.5 candidate |
+| Benchmark | Cases / decisions | Qwen parent | WSP base | Released Reflex-1 | Reflex-1-WSP-experimental |
 |---|---:|---:|---:|---:|---:|
 | MOBILE_ROUTING9 | 180 / 180 | 66.67 | 63.89 | 91.11 | 90.56 |
 | typed-decisions | 400 / 2000 | 34.10 | 33.65 | 60.70 | 57.35 |
