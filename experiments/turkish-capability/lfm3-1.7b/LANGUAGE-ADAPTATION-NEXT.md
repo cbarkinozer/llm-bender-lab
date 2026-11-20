@@ -1,5 +1,12 @@
 # LFM3'e Türkçe kazandırma: mevcut iş listesi
 
+2026-11-20 akşam güncellemesi: GPU kapatılabilir; eğitim yarına bırakıldı.
+Resmî cookbook ile karşılaştırma ve 640 satırın yeni prompt/completion sürümü
+CPU üzerinde hazırlandı. Boş reasoning, boş düşünme çıktısını öğretme talimatı
+değildi; önceki yorum düzeltildi. Gerçek TRL loss-mask kontrolü ve GPU smoke
+henüz yapılmadı. İki deneyin kapsamı ve yarınki adımlar:
+[cookbook hazırlığı](cookbook-sft-v01/README.md).
+
 Hedef: Türkçeyi anlayıp doğru ve doğal Türkçe cevap üretebilmek; İngilizce,
 aritmetik ve muhakemede çalışan becerileri mümkün olduğunca korumak.
 Dil başına ayrı parametre bölmesi varsayılmıyor. Başka modele geçmek bu

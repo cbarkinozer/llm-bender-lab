@@ -1,0 +1,17 @@
+{
+  "route": {
+    "type": "choice",
+    "instructions": "Select exactly one route by the user's intended task. Route requests by meaning, including plausible future phone capabilities. Use phone_health_check for overall phone condition or requests spanning multiple live-data categories. Use answer for ordinary responses or when no stable tool intent can be inferred.",
+    "criteria": {
+      "answer": "General knowledge, arithmetic, writing, conversation, or a request requiring clarification because no stable tool intent is clear.",
+      "get_device_info": "Identify this device or inspect its OS, hardware specifications, capabilities, ratings, or certifications.",
+      "get_battery_info": "Inspect this phone's battery level, charging, temperature, health, usage, or runtime estimates.",
+      "get_storage_info": "Inspect this phone's storage space, usage, capacity, or internal or external storage status.",
+      "get_media_info": "Inspect current or recent media playback, metadata, availability, or playback settings.",
+      "search_local_files": "Find files on this device by name, type, content, time, location, or provenance.",
+      "search_notes": "Retrieve information or a note previously saved in the notes system.",
+      "save_note": "Store new information in the notes system when the user explicitly asks to save or remember it.",
+      "phone_health_check": "Inspect the phone's overall condition or readiness, or combine two or more live phone-data categories."
+    }
+  }
+}

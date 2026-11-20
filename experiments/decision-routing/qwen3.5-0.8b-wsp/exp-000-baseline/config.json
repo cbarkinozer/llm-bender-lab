@@ -1,0 +1,42 @@
+{
+  "experiment": {
+    "id": "exp-000-baseline",
+    "status": "planned"
+  },
+  "models": {
+    "released_model": "cbarkinozer/Reflex-1",
+    "released_revision": "252a00c22cebca07c7ff4d6f99be15863c7faab2",
+    "original_base": "unsloth/Qwen3.5-0.8B",
+    "original_base_revision": "23c69c53358a07516b5827588b3fdb12ae78fd65",
+    "wsp_parent": "Qwen/Qwen3.5-0.8B",
+    "wsp_parent_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "wsp": "RikiyaT/Qwen3.5-0.8B-weight-space-programming",
+    "wsp_revision": "d1671a178705bcab7644806d23c535517f35723b"
+  },
+  "training": false,
+  "seed": 3407,
+  "evaluation": {
+    "primary": "MOBILE_ROUTING9 accuracy and macro-F1",
+    "supporting": [
+      "typed-decisions per-question and exact-record accuracy",
+      "BANKING77 accuracy and macro-F1",
+      "CLINC150 in-domain accuracy and macro-F1"
+    ],
+    "diagnostics": [
+      "NLL",
+      "Brier sum",
+      "ECE 10 equal-width bins",
+      "per-route recall",
+      "latency",
+      "peak memory",
+      "errors and truncated/skipped decisions"
+    ],
+    "conditions": "same cohort IDs/order/schema/options/state strings/runtime/precision/context/hardware for each matched arm",
+    "baseline_policy": "compare untouched backbones with same generative prompt; newly random decision heads are initialization diagnostics only"
+  },
+  "execution": {
+    "entrypoint": null,
+    "status": "not_started",
+    "required": "recover original evaluator and frozen cohorts; freeze matched generative profile before execution"
+  }
+}

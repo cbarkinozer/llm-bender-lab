@@ -1,0 +1,26 @@
+{
+  "benchmark": "MOBILE_ROUTING9",
+  "version": "1.0",
+  "task": "Single-choice phone-assistant routing",
+  "cases": 180,
+  "routes": 9,
+  "cases_per_route": 20,
+  "route_names": [
+    "answer",
+    "get_battery_info",
+    "get_device_info",
+    "get_media_info",
+    "get_storage_info",
+    "phone_health_check",
+    "save_note",
+    "search_local_files",
+    "search_notes"
+  ],
+  "metric": "Hard-label accuracy; macro-F1 additionally reported when per-case predictions available",
+  "test_sha256": "2d18133e44a9f9db82fe80099b642f00cd6a12ebf643dc043d1f89f9ddfa209b",
+  "schema_sha256": "95091aa81bc987c4283ff54e7b5286b02b6bcbf3d72aa4faf727c7fba0e4531a",
+  "source": "Frozen reviewed synthetic fresh180 cohort; benchmark name is a presentation alias, file contents/IDs unchanged.",
+  "review": "One human reviewer saw proposed labels; not blind multi-reviewer annotation.",
+  "selection": "Frozen after Reflex-1 candidate selection; no checkpoint choice or calibration based on these results.",
+  "release_policy": "Test request text remains private. The planned781-row training dataset is a separate split."
+}

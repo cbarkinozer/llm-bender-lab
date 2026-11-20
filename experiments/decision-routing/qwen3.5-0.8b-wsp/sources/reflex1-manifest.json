@@ -1,0 +1,84 @@
+{
+  "repo_id": "cbarkinozer/Reflex-1",
+  "selected_checkpoint": "combined-balanced-scratch-120step-s3407/checkpoint-100",
+  "base_revision": "23c69c53358a07516b5827588b3fdb12ae78fd65",
+  "files": [
+    {
+      "path": "adapter/adapter_config.json",
+      "bytes": 1743,
+      "sha256": "a442ac240800f8b600fd11028d4b109ce0abe53cab3bda3a9b6425a0c1d6e1fe"
+    },
+    {
+      "path": "adapter/adapter_model.safetensors",
+      "bytes": 43346432,
+      "sha256": "30e1aa405b994d72a2f89bb04897f601014b3414789b85df22d06c116aa42a7a"
+    },
+    {
+      "path": "adapter/chat_template.jinja",
+      "bytes": 7991,
+      "sha256": "ea210e5b4997b7b1d3af5ee3ad34e7677ffe38df7469e8d88089789b5a27fae5"
+    },
+    {
+      "path": "adapter/joint_head.safetensors",
+      "bytes": 54661902,
+      "sha256": "2d27f016b2d8e0714ccb2f2f06d42831a4fa68d6b5e7356a72677407e15ceff4"
+    },
+    {
+      "path": "adapter/joint_head_config.json",
+      "bytes": 116,
+      "sha256": "99f65ef462b1c92d9304ad1acecbbab93506efc0ba8227c46582b4264d27aa30"
+    },
+    {
+      "path": "adapter/processor_config.json",
+      "bytes": 1300,
+      "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b"
+    },
+    {
+      "path": "adapter/tokenizer.json",
+      "bytes": 19989343,
+      "sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4"
+    },
+    {
+      "path": "adapter/tokenizer_config.json",
+      "bytes": 7161,
+      "sha256": "50f7ac27a0406e04c3c7f9d9f3f1b628952d7f8449b365655e4ed89373f41c64"
+    },
+    {
+      "path": "adapter/unsloth_decision_config.json",
+      "bytes": 250,
+      "sha256": "003cafe1317dd7277508b8878d0bd4ab7084b94fa51e5b96412e66612de81c49"
+    },
+    {
+      "path": "gguf/export.json",
+      "bytes": 317,
+      "sha256": "3c99413547cc08220f1b2ff55fe19cf3247da19367e1f465dac2976771b59b79"
+    },
+    {
+      "path": "gguf/inventory.json",
+      "bytes": 1037,
+      "sha256": "b601f9fc3b4c93cee7159e9a814c631daad763999f8cefaf7b493d1da8d2f8e6"
+    },
+    {
+      "path": "gguf/mmproj-Q8_0.gguf",
+      "bytes": 115923136,
+      "sha256": "37800be294d8c041e6146516b636414b8a75d0dd0878b08f6e0282e471790f94"
+    },
+    {
+      "path": "gguf/model-Q4_K_M.gguf",
+      "bytes": 545161248,
+      "sha256": "abfea5f878331206f65e4117157984e14803b093b634c0ed52513c0723ef0699"
+    }
+  ],
+  "merged_pytorch_included": false,
+  "fresh_test_accuracy": 0.9111111111111111,
+  "fresh_test_macro_f1": 0.9083804972988432,
+  "gguf_mobile_validation": {
+    "status": "completed",
+    "benchmark": "MOBILE_ROUTING9",
+    "cases": 180,
+    "correct": 164,
+    "accuracy": 0.9111111111111111,
+    "runtime": "A32 CPU Q4_K_M; see benchmark-summary.json and README for method and limitations"
+  },
+  "inventory_scope": "Original model artifacts only. README is mutable and intentionally excluded; current benchmark/parameter evidence is supplied in separate JSON files."
+}
