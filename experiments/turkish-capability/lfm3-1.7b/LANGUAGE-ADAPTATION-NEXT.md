@@ -1,5 +1,11 @@
 # LFM3'e Türkçe kazandırma: mevcut iş listesi
 
+**2026-11-21 güncel plan:** [SELF-DISTILL-PLAN-20261121.md](SELF-DISTILL-PLAN-20261121.md).
+Hedefleri model kendi yazar (İngilizce kendi cevapları; filtreli ve filtresiz iki
+kol), AI'lar yalnızca Türkçeye çevirir. Önce değerlendirme v2, sonra exp014 ile
+tek değişkenli pilot.
+Aşağıdaki liste tarihsel kayıttır.
+
 2026-11-20 akşam güncellemesi: GPU kapatılabilir; eğitim yarına bırakıldı.
 Resmî cookbook ile karşılaştırma ve 640 satırın yeni prompt/completion sürümü
 CPU üzerinde hazırlandı. Boş reasoning, boş düşünme çıktısını öğretme talimatı
