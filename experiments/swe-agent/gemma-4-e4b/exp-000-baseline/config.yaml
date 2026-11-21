@@ -1,0 +1,53 @@
+experiment:
+  id: exp-000-baseline
+  parent: null
+  status: paused  # owner decision 2026-11-21; nothing has run
+  created: "2026-11-21"
+
+model:
+  name: gemma-4-e4b-it-qat-w4a16-ct
+  source: kaggle-competition-models
+  revision: "<pin at first download: file hashes>"
+  adapters: none
+
+serving:
+  engine: vllm
+  engine_version: "<pin on vast.ai after smoke test>"
+  tool_call_parser: gemma4  # reasoning_parser gemma4, max_model_len 32768, enable_auto_tool_choice (HARNESS_README section 3.1)
+  notes: "single 24 GB GPU on vast.ai; Kaggle scorer uses 4xL4, calibrate speed"
+
+agent:
+  harness: kaggle-competition-harness
+  agent_config: "organizer Getting Started defaults, unchanged (HARNESS_README.md sha256 445000219b803942c469391ec8b69791a31e9cec2f934738c767e34b5ca0aa1f)"
+  tools: "competition predefined tools only; graph tools off"
+
+sampling:
+  temperature: 1.0
+  top_p: 0.95
+  thinking_budget: 0
+  max_output_tokens: 16384  # harness default, do not shrink
+  seeds: [0, 1, 2, 3, 4]
+
+budget:
+  per_task_minutes: 5.5
+  max_tool_calls: 100  # inference.py default; sample_submission uses 10
+
+dataset:
+  name: kaggle gemma-4-developer-agent public tasks.jsonl
+  revision: "sha256 e4b3fd60f69dbc2b9213e54eeb9636db78aefe92c1d06269d73d9f5f8f3c8ad6"
+  num_tasks: 129
+  split:
+    develop_repos: [fastapi/fastapi, psf/requests, encode/httpx]
+    holdout_repos: [Textualize/rich]
+  repo_counts: {fastapi/fastapi: 67, Textualize/rich: 48, psf/requests: 13, encode/httpx: 1}
+  denominator: all attempted tasks
+
+evaluation:
+  metric: pass@1 mean +- sd over seeds (resolved / all tasks)
+  verifier: "local, gold patch must pass and empty patch must fail"
+  failure_classes: [empty_patch, timeout, bad_tool_json, wrong_file, file_overwrite, other]
+
+tracking:
+  provider: wandb
+  project: llm-bender-lab
+  run_name_pattern: "swe-e4b-baseline-seed{seed}"
