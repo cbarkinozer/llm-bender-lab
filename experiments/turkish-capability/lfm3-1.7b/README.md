@@ -91,3 +91,16 @@ SFT checkpoint69 answers all eight incorrectly in both modes and immediately
 closes thinking when enabled. This does not establish permanent knowledge loss
 or an unavoidable Turkish/arithmetic tradeoff. Prose adjudication remains open;
 seen-training probes stay separate from generalization diagnostics.
+
+## Cookbook-aligned session, 2026-11-20
+
+| Experiment | Status | Main change |
+|---|---|---|
+| exp-014-completion-mask | trained; inference complete; Turkish review pending | Prompt-mask empty thinking; TRL training |
+| exp-015-cookbook-recipe | trained; inference complete; Turkish review pending | Combined official cookbook recipe on640 rows |
+
+Both original-base adapters passed preflight and reload checks. All264 matched
+development outputs are generated. Both score8/8 symbolic controls with thinking
+on, but regress with thinking off; exp015 has unclosed thinking on Turkish word
+problems. See [session findings](COOKBOOK-SESSION-RESULTS.md). No new winner is
+selected; Turkish quality review remains necessary.

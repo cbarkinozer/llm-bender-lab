@@ -1,5 +1,6 @@
 """Local scoring after verified artifact download; correctness and fluency stay separate."""
 import csv
+import argparse
 import hashlib
 import json
 from collections import Counter
@@ -16,6 +17,10 @@ def rows(p):return [json.loads(l) for l in p.read_text(encoding='utf-8').splitli
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--cookbook',action='store_true',help='Score downloaded exp014/015 and matched base outputs separately from historical runs')
+    args=parser.parse_args()
+    models=['base','exp-014-completion-mask','exp-015-cookbook-recipe'] if args.cookbook else MODELS
     freeze=json.loads((DATA/'freeze.json').read_text());refs_path=DATA/'references-local-only.jsonl'
     assert sha(refs_path)==freeze['references_local_only_sha256']
     refs={r['id']:r for r in rows(refs_path)};report=dict(status='diagnostic-not-general-accuracy',models={},
@@ -24,10 +29,15 @@ def main():
                  'Numeric screen is only for eight integer symbolic controls; all prose correctness needs adjudication.',
                  'A stage difference locates observed regression, not its optimizer/data mechanism.'])
     review=[]
-    for model in MODELS:
+    for model in models:
         report['models'][model]={}
         for cohort,packet in [('main-off','prompts.jsonl'),('thinking-on','thinking-prompts.jsonl')]:
-            folder=RUN/'inference'/cohort/model;manifest=json.loads((folder/'manifest.json').read_text())
+            if args.cookbook:
+                root=BASE/'cookbook-runtime-local/base' if model=='base' else BASE/model/'results-local'
+                folder=root/('inference-on' if cohort=='thinking-on' else 'inference-off')
+            else:
+                folder=RUN/'inference'/cohort/model
+            manifest=json.loads((folder/'manifest.json').read_text())
             actual=rows(folder/'answers.jsonl');prompts=rows(DATA/packet)
             assert manifest['status']=='completed' and manifest['count']==len(actual)==len(prompts)
             assert manifest['questions_sha256']==sha(DATA/packet)
@@ -56,7 +66,7 @@ def main():
                     length_hits=sum(r['hit_max_new_tokens'] for r in selected))
             report['models'][model][cohort]=dict(source_sha256=sha(folder/'answers.jsonl'),strata=strata,
                 symbolic_matches=sum(r['numeric_match'] for r in symbolic),symbolic_count=len(symbolic),symbolic_details=symbolic)
-    out=RUN/'analysis';out.mkdir(parents=True,exist_ok=True)
+    out=(BASE/'cookbook-runtime-local' if args.cookbook else RUN)/'analysis';out.mkdir(parents=True,exist_ok=True)
     (out/'diagnostics.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     target=out/'correctness-review.csv'
     if not target.exists():

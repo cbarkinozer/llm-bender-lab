@@ -1,0 +1,673 @@
+{
+  "status": "diagnostic-not-general-accuracy",
+  "models": {
+    "base": {
+      "main-off": {
+        "source_sha256": "acf43e600725dc891671fe7289de6c85cb66cdb6a83c26ae54ec859141306dff",
+        "strata": {
+          "consumed-eval-diagnostic/en-en": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 121,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/en-tr": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 153,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/tr-en": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 209,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/tr-tr": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 197,
+            "length_hits": 0
+          },
+          "consumed-symbolic-diagnostic/symbolic": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 63.5,
+            "length_hits": 0
+          },
+          "seen-training-probe/en-en": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 102,
+            "length_hits": 0
+          },
+          "seen-training-probe/en-tr": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 289,
+            "length_hits": 0
+          },
+          "seen-training-probe/tr-en": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 181,
+            "length_hits": 0
+          },
+          "seen-training-probe/tr-tr": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 602,
+            "length_hits": 0
+          }
+        },
+        "symbolic_matches": 8,
+        "symbolic_count": 8,
+        "symbolic_details": [
+          {
+            "id": "bpe01-symbolic-01",
+            "expected": "259",
+            "parsed": "259",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-02",
+            "expected": "160",
+            "parsed": "160",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-04",
+            "expected": "53",
+            "parsed": "53",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-03",
+            "expected": "84",
+            "parsed": "84",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-06",
+            "expected": "210",
+            "parsed": "210",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-05",
+            "expected": "35",
+            "parsed": "35",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-07",
+            "expected": "38",
+            "parsed": "38",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-08",
+            "expected": "147",
+            "parsed": "147",
+            "numeric_match": true,
+            "final_answer_present": true
+          }
+        ]
+      },
+      "thinking-on": {
+        "source_sha256": "7541eb105998efd1815dcb7a6a12d011b1845c066a2d3dc627b9fe23fda9815f",
+        "strata": {
+          "consumed-symbolic-diagnostic/symbolic": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 88.5,
+            "length_hits": 0
+          },
+          "consumed-thinking-diagnostic/tr-tr": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 7,
+              "length": 1
+            },
+            "median_tokens": 613.0,
+            "length_hits": 1
+          }
+        },
+        "symbolic_matches": 8,
+        "symbolic_count": 8,
+        "symbolic_details": [
+          {
+            "id": "bpe01-symbolic-01",
+            "expected": "259",
+            "parsed": "259",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-04",
+            "expected": "53",
+            "parsed": "53",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-03",
+            "expected": "84",
+            "parsed": "84",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-06",
+            "expected": "210",
+            "parsed": "210",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-07",
+            "expected": "38",
+            "parsed": "38",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-02",
+            "expected": "160",
+            "parsed": "160",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-05",
+            "expected": "35",
+            "parsed": "35",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-08",
+            "expected": "147",
+            "parsed": "147",
+            "numeric_match": true,
+            "final_answer_present": true
+          }
+        ]
+      }
+    },
+    "exp-014-completion-mask": {
+      "main-off": {
+        "source_sha256": "3c718849f5d552367f2446189a4f1e4294029e42d4c918b97938d56e7c3bff40",
+        "strata": {
+          "consumed-eval-diagnostic/en-en": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 50,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/en-tr": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 56,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/tr-en": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 56,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/tr-tr": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 52,
+            "length_hits": 0
+          },
+          "consumed-symbolic-diagnostic/symbolic": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 19.5,
+            "length_hits": 0
+          },
+          "seen-training-probe/en-en": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 28,
+            "length_hits": 0
+          },
+          "seen-training-probe/en-tr": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 81,
+            "length_hits": 0
+          },
+          "seen-training-probe/tr-en": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 71,
+            "length_hits": 0
+          },
+          "seen-training-probe/tr-tr": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 35,
+            "length_hits": 0
+          }
+        },
+        "symbolic_matches": 2,
+        "symbolic_count": 8,
+        "symbolic_details": [
+          {
+            "id": "bpe01-symbolic-02",
+            "expected": "160",
+            "parsed": "008",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-03",
+            "expected": "84",
+            "parsed": "165",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-01",
+            "expected": "259",
+            "parsed": "-2",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-07",
+            "expected": "38",
+            "parsed": "250",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-04",
+            "expected": "53",
+            "parsed": "61",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-05",
+            "expected": "35",
+            "parsed": "35",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-06",
+            "expected": "210",
+            "parsed": "210",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-08",
+            "expected": "147",
+            "parsed": "129",
+            "numeric_match": false,
+            "final_answer_present": true
+          }
+        ]
+      },
+      "thinking-on": {
+        "source_sha256": "a10a1570f950b433c39c2939a705fe240a3794f5f52fc26cc93769b1e76024ca",
+        "strata": {
+          "consumed-symbolic-diagnostic/symbolic": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 55.5,
+            "length_hits": 0
+          },
+          "consumed-thinking-diagnostic/tr-tr": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 132.0,
+            "length_hits": 0
+          }
+        },
+        "symbolic_matches": 8,
+        "symbolic_count": 8,
+        "symbolic_details": [
+          {
+            "id": "bpe01-symbolic-02",
+            "expected": "160",
+            "parsed": "160",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-03",
+            "expected": "84",
+            "parsed": "84",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-01",
+            "expected": "259",
+            "parsed": "259",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-04",
+            "expected": "53",
+            "parsed": "53",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-05",
+            "expected": "35",
+            "parsed": "35",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-06",
+            "expected": "210",
+            "parsed": "210",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-07",
+            "expected": "38",
+            "parsed": "38",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-08",
+            "expected": "147",
+            "parsed": "147",
+            "numeric_match": true,
+            "final_answer_present": true
+          }
+        ]
+      }
+    },
+    "exp-015-cookbook-recipe": {
+      "main-off": {
+        "source_sha256": "1f69edf26bdde14561dac12d92dc83124ffe7972b10d125814d1edf5ff8aef5c",
+        "strata": {
+          "consumed-eval-diagnostic/en-en": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 53,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/en-tr": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 12,
+              "length": 1
+            },
+            "median_tokens": 68,
+            "length_hits": 1
+          },
+          "consumed-eval-diagnostic/tr-en": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 65,
+            "length_hits": 0
+          },
+          "consumed-eval-diagnostic/tr-tr": {
+            "count": 13,
+            "finish_reasons": {
+              "eos": 13
+            },
+            "median_tokens": 53,
+            "length_hits": 0
+          },
+          "consumed-symbolic-diagnostic/symbolic": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 2.0,
+            "length_hits": 0
+          },
+          "seen-training-probe/en-en": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 51,
+            "length_hits": 0
+          },
+          "seen-training-probe/en-tr": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 37,
+            "length_hits": 0
+          },
+          "seen-training-probe/tr-en": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 27,
+            "length_hits": 0
+          },
+          "seen-training-probe/tr-tr": {
+            "count": 3,
+            "finish_reasons": {
+              "eos": 3
+            },
+            "median_tokens": 73,
+            "length_hits": 0
+          }
+        },
+        "symbolic_matches": 1,
+        "symbolic_count": 8,
+        "symbolic_details": [
+          {
+            "id": "bpe01-symbolic-01",
+            "expected": "259",
+            "parsed": "374",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-02",
+            "expected": "160",
+            "parsed": "008",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-03",
+            "expected": "84",
+            "parsed": "165",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-05",
+            "expected": "35",
+            "parsed": "1",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-07",
+            "expected": "38",
+            "parsed": "250",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-04",
+            "expected": "53",
+            "parsed": "41",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-08",
+            "expected": "147",
+            "parsed": "75",
+            "numeric_match": false,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-06",
+            "expected": "210",
+            "parsed": "210",
+            "numeric_match": true,
+            "final_answer_present": true
+          }
+        ]
+      },
+      "thinking-on": {
+        "source_sha256": "8a6b75c869f1904e19b8d4874f29e2b9af4bb70c1f347335966d4a0dea7943c2",
+        "strata": {
+          "consumed-symbolic-diagnostic/symbolic": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 61.5,
+            "length_hits": 0
+          },
+          "consumed-thinking-diagnostic/tr-tr": {
+            "count": 8,
+            "finish_reasons": {
+              "eos": 8
+            },
+            "median_tokens": 107.5,
+            "length_hits": 0
+          }
+        },
+        "symbolic_matches": 8,
+        "symbolic_count": 8,
+        "symbolic_details": [
+          {
+            "id": "bpe01-symbolic-02",
+            "expected": "160",
+            "parsed": "160",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-01",
+            "expected": "259",
+            "parsed": "259",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-03",
+            "expected": "84",
+            "parsed": "84",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-04",
+            "expected": "53",
+            "parsed": "53",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-05",
+            "expected": "35",
+            "parsed": "35",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-06",
+            "expected": "210",
+            "parsed": "210",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-07",
+            "expected": "38",
+            "parsed": "38",
+            "numeric_match": true,
+            "final_answer_present": true
+          },
+          {
+            "id": "bpe01-symbolic-08",
+            "expected": "147",
+            "parsed": "147",
+            "numeric_match": true,
+            "final_answer_present": true
+          }
+        ]
+      }
+    }
+  },
+  "caveats": [
+    "Seen training probes MUST NOT be pooled with unseen diagnostic tasks.",
+    "Existing eval is consumed; no fresh final-test claim.",
+    "Numeric screen is only for eight integer symbolic controls; all prose correctness needs adjudication.",
+    "A stage difference locates observed regression, not its optimizer/data mechanism."
+  ]
+}

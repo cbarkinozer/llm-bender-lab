@@ -1,0 +1,278 @@
+{
+  "status": "trained-inference-complete-Turkish-adjudication-pending",
+  "training": {
+    "status": "passed",
+    "experiment": "exp-015-cookbook-recipe",
+    "mode": "sft",
+    "steps": 40,
+    "dataset_sha256": "fc4b679256de703d0606d300b8c8e6fc4d128e848eddc2635a2da4ab8efe10e9",
+    "runner_sha256": "04b1056713a3e71a182de83d437c54bdd29aabb042bfaee09507fd69b26e7a75",
+    "config_sha256": "f6aca48726a37ca89f497df22fecbf76ab8830d22606dc660fe1339e98d41f8f",
+    "initial_nll": null,
+    "final_nll": null,
+    "metrics": {
+      "train_runtime": 57.9432,
+      "train_samples_per_second": 11.045,
+      "train_steps_per_second": 0.69,
+      "total_flos": 2392681286541312.0,
+      "train_loss": 2.213328042626381,
+      "epoch": 1.0
+    },
+    "wall_seconds": 61.92756758001633,
+    "gradients_finite_nonzero_steps": 40,
+    "reload_exact": true,
+    "smoke_generations": [],
+    "packages": {
+      "torch": "2.14.1",
+      "transformers": "5.20.2",
+      "trl": "1.16.0",
+      "peft": "0.21.2",
+      "datasets": "5.1.0",
+      "accelerate": "1.15.0"
+    },
+    "max_allocated_bytes": 5929131008,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "adapter_files": {
+      "README.md": "948e50121027ff39fd1243c9a5c993527d6aac35802f8951249902a07e215ced",
+      "adapter_model.safetensors": "b865619a36b125aa2439dd0ee4348829bb1b029a0540e8f69669802834a9f73f",
+      "adapter_config.json": "354606e4041422ebc8f6051fc93d138adbecb3aa0d6dbf80bf4e44c8d11a1fd6",
+      "chat_template.jinja": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+      "tokenizer_config.json": "b68a35e5c8e7f99bc544fff2884ed6877daf010af51f08ddcd2e36972ff4d704",
+      "tokenizer.json": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+      "training_args.bin": "e3f1bcbd0b6e0923b5e8d258a638b46d4216f9ed236d8649645e9c7a393836f1"
+    }
+  },
+  "development_diagnostics": {
+    "main-off": {
+      "source_sha256": "1f69edf26bdde14561dac12d92dc83124ffe7972b10d125814d1edf5ff8aef5c",
+      "strata": {
+        "consumed-eval-diagnostic/en-en": {
+          "count": 13,
+          "finish_reasons": {
+            "eos": 13
+          },
+          "median_tokens": 53,
+          "length_hits": 0
+        },
+        "consumed-eval-diagnostic/en-tr": {
+          "count": 13,
+          "finish_reasons": {
+            "eos": 12,
+            "length": 1
+          },
+          "median_tokens": 68,
+          "length_hits": 1
+        },
+        "consumed-eval-diagnostic/tr-en": {
+          "count": 13,
+          "finish_reasons": {
+            "eos": 13
+          },
+          "median_tokens": 65,
+          "length_hits": 0
+        },
+        "consumed-eval-diagnostic/tr-tr": {
+          "count": 13,
+          "finish_reasons": {
+            "eos": 13
+          },
+          "median_tokens": 53,
+          "length_hits": 0
+        },
+        "consumed-symbolic-diagnostic/symbolic": {
+          "count": 8,
+          "finish_reasons": {
+            "eos": 8
+          },
+          "median_tokens": 2.0,
+          "length_hits": 0
+        },
+        "seen-training-probe/en-en": {
+          "count": 3,
+          "finish_reasons": {
+            "eos": 3
+          },
+          "median_tokens": 51,
+          "length_hits": 0
+        },
+        "seen-training-probe/en-tr": {
+          "count": 3,
+          "finish_reasons": {
+            "eos": 3
+          },
+          "median_tokens": 37,
+          "length_hits": 0
+        },
+        "seen-training-probe/tr-en": {
+          "count": 3,
+          "finish_reasons": {
+            "eos": 3
+          },
+          "median_tokens": 27,
+          "length_hits": 0
+        },
+        "seen-training-probe/tr-tr": {
+          "count": 3,
+          "finish_reasons": {
+            "eos": 3
+          },
+          "median_tokens": 73,
+          "length_hits": 0
+        }
+      },
+      "symbolic_matches": 1,
+      "symbolic_count": 8,
+      "symbolic_details": [
+        {
+          "id": "bpe01-symbolic-01",
+          "expected": "259",
+          "parsed": "374",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-02",
+          "expected": "160",
+          "parsed": "008",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-03",
+          "expected": "84",
+          "parsed": "165",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-05",
+          "expected": "35",
+          "parsed": "1",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-07",
+          "expected": "38",
+          "parsed": "250",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-04",
+          "expected": "53",
+          "parsed": "41",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-08",
+          "expected": "147",
+          "parsed": "75",
+          "numeric_match": false,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-06",
+          "expected": "210",
+          "parsed": "210",
+          "numeric_match": true,
+          "final_answer_present": true
+        }
+      ]
+    },
+    "thinking-on": {
+      "source_sha256": "8a6b75c869f1904e19b8d4874f29e2b9af4bb70c1f347335966d4a0dea7943c2",
+      "strata": {
+        "consumed-symbolic-diagnostic/symbolic": {
+          "count": 8,
+          "finish_reasons": {
+            "eos": 8
+          },
+          "median_tokens": 61.5,
+          "length_hits": 0
+        },
+        "consumed-thinking-diagnostic/tr-tr": {
+          "count": 8,
+          "finish_reasons": {
+            "eos": 8
+          },
+          "median_tokens": 107.5,
+          "length_hits": 0
+        }
+      },
+      "symbolic_matches": 8,
+      "symbolic_count": 8,
+      "symbolic_details": [
+        {
+          "id": "bpe01-symbolic-02",
+          "expected": "160",
+          "parsed": "160",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-01",
+          "expected": "259",
+          "parsed": "259",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-03",
+          "expected": "84",
+          "parsed": "84",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-04",
+          "expected": "53",
+          "parsed": "53",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-05",
+          "expected": "35",
+          "parsed": "35",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-06",
+          "expected": "210",
+          "parsed": "210",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-07",
+          "expected": "38",
+          "parsed": "38",
+          "numeric_match": true,
+          "final_answer_present": true
+        },
+        {
+          "id": "bpe01-symbolic-08",
+          "expected": "147",
+          "parsed": "147",
+          "numeric_match": true,
+          "final_answer_present": true
+        }
+      ]
+    }
+  },
+  "backup": {
+    "status": "verified",
+    "file_count": 138,
+    "archive_sha256": "7091f98f258f8a72c5ae9bbb31b8e82147ec0cde583359ccc73f839a8ddd54bb",
+    "full_weights_included": false
+  },
+  "caveats": [
+    "Seen training probes MUST NOT be pooled with unseen diagnostic tasks.",
+    "Existing eval is consumed; no fresh final-test claim.",
+    "Numeric screen is only for eight integer symbolic controls; all prose correctness needs adjudication.",
+    "A stage difference locates observed regression, not its optimizer/data mechanism."
+  ]
+}

@@ -1,0 +1,781 @@
+{
+  "dataset": "turkish-cookbook34-blind-v01",
+  "snapshot_sha256": "2584667ba387b08a3ffe4011dc91d6d9ac0c8552bf651d979f4fce229c2a4725",
+  "review_provenance": "User-reported AI-assisted blind judgments; not independent human correctness adjudication.",
+  "metric": "Relative preference, NOT accuracy. Repeated task directions and thinking modes are correlated; consumed development data.",
+  "overall": {
+    "n": 34,
+    "pairs": {
+      "base vs exp-014-completion-mask": {
+        "wins": 16,
+        "ties": 2,
+        "losses": 16
+      },
+      "base vs exp-015-cookbook-recipe": {
+        "wins": 16,
+        "ties": 1,
+        "losses": 17
+      },
+      "exp-014-completion-mask vs exp-015-cookbook-recipe": {
+        "wins": 14,
+        "ties": 8,
+        "losses": 12
+      }
+    },
+    "top_including_ties": {
+      "base": 13,
+      "exp-014-completion-mask": 15,
+      "exp-015-cookbook-recipe": 13
+    }
+  },
+  "subsets": {
+    "thinking_off": {
+      "n": 26,
+      "pairs": {
+        "base vs exp-014-completion-mask": {
+          "wins": 11,
+          "ties": 1,
+          "losses": 14
+        },
+        "base vs exp-015-cookbook-recipe": {
+          "wins": 12,
+          "ties": 0,
+          "losses": 14
+        },
+        "exp-014-completion-mask vs exp-015-cookbook-recipe": {
+          "wins": 12,
+          "ties": 5,
+          "losses": 9
+        }
+      },
+      "top_including_ties": {
+        "base": 8,
+        "exp-014-completion-mask": 13,
+        "exp-015-cookbook-recipe": 10
+      }
+    },
+    "thinking_on": {
+      "n": 8,
+      "pairs": {
+        "base vs exp-014-completion-mask": {
+          "wins": 5,
+          "ties": 1,
+          "losses": 2
+        },
+        "base vs exp-015-cookbook-recipe": {
+          "wins": 4,
+          "ties": 1,
+          "losses": 3
+        },
+        "exp-014-completion-mask vs exp-015-cookbook-recipe": {
+          "wins": 2,
+          "ties": 3,
+          "losses": 3
+        }
+      },
+      "top_including_ties": {
+        "base": 5,
+        "exp-014-completion-mask": 2,
+        "exp-015-cookbook-recipe": 3
+      }
+    },
+    "off_tr_tr": {
+      "n": 13,
+      "pairs": {
+        "base vs exp-014-completion-mask": {
+          "wins": 6,
+          "ties": 1,
+          "losses": 6
+        },
+        "base vs exp-015-cookbook-recipe": {
+          "wins": 5,
+          "ties": 0,
+          "losses": 8
+        },
+        "exp-014-completion-mask vs exp-015-cookbook-recipe": {
+          "wins": 6,
+          "ties": 4,
+          "losses": 3
+        }
+      },
+      "top_including_ties": {
+        "base": 4,
+        "exp-014-completion-mask": 7,
+        "exp-015-cookbook-recipe": 6
+      }
+    },
+    "off_en_tr": {
+      "n": 13,
+      "pairs": {
+        "base vs exp-014-completion-mask": {
+          "wins": 5,
+          "ties": 0,
+          "losses": 8
+        },
+        "base vs exp-015-cookbook-recipe": {
+          "wins": 7,
+          "ties": 0,
+          "losses": 6
+        },
+        "exp-014-completion-mask vs exp-015-cookbook-recipe": {
+          "wins": 6,
+          "ties": 1,
+          "losses": 6
+        }
+      },
+      "top_including_ties": {
+        "base": 4,
+        "exp-014-completion-mask": 6,
+        "exp-015-cookbook-recipe": 4
+      }
+    }
+  },
+  "reviews": [
+    {
+      "record_id": "0cdb8815-93b2-5f23-b498-ee890476bf4f",
+      "task_id": "bpe01-ar01-ticket-change-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "A > C > B",
+      "notes": "Doğru cevap: 200 − 108 = 92, 92 − 30 = 62 TL (200 − (108 + 30) ile aynı). Üçü de 62 buluyor, yani doğruluk açısından eşitler; sıralama yalnızca açıklama ve dil kalitesine göre. A: hesap doğru ve net, **Cevap** satırı var; ama gereksiz uzun ve bazı cümleler bozuk/çelişkili (\"kardeği için kalınan para\"). C: kısa ve mantık doğru, fakat cümleler bozuk (\"ödeleyerek\", \"selinin\") ve sonucu net cümleyle vermiyor. B: işlem 200 − (108 + 30) = 62 matematiksel olarak doğru; ancak adım etiketleri anlamsız (\"Selinin kira maliyeti\", \"geri verilecek tutar\" olarak 138), açıklama okuyucuyu yanıltıyor. B'yi yalnızca bu bozuk etiketler yüzünden sona koydum, işlemi yanlış saymadım.",
+      "model_ranks": {
+        "base": 0,
+        "exp-014-completion-mask": 2,
+        "exp-015-cookbook-recipe": 1
+      }
+    },
+    {
+      "record_id": "7c707df3-05a9-558c-9b65-fd28eb2e2ee0",
+      "task_id": "bpe01-ar02-sequential-discount-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "A = B > C",
+      "notes": "Doğru cevap 800 × 0,75 × 0,90 = 540 TL. Üçü de doğru. C tamamen İngilizce, \"Türkçe cevap ver\" şartını ihlal ediyor, bu yüzden en kötü. A kısa ve Türkçe, ama sondaki \"Not\" cümlesi anlamsız. B Türkçe ve açık, sadece \"Tag fiyatı\" gibi bir İngilizce kelime kaçmış ve biraz daha uzun. A ile B birbirine yakın, eşit.",
+      "model_ranks": {
+        "exp-014-completion-mask": 0,
+        "exp-015-cookbook-recipe": 0,
+        "base": 1
+      }
+    },
+    {
+      "record_id": "4e752d79-7a26-5879-96bf-83bf4126b7f6",
+      "task_id": "bpe01-ar08-egg-boxes-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "base",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "B > C > A",
+      "notes": "Doğru sonuç: 270 = 22×12 + 6 → 22 kutu, 1.980 TL, 6 yumurta artar. B hepsini doğru ve açık hesaplıyor (küçük dil kusurları: \"Gelin\", \"paket\"). C geliri ve artan 6'yı doğru buluyor ama sonra anlamsız \"6×3=18 kutuç\" ekliyor, net sonuç cümlesi yok, bozuk Türkçe. A geliri doğru veriyor ama artan yumurtayı 234 diye yanlış veriyor; \"3×12=36 ek kutu\" mantığı uydurma.",
+      "model_ranks": {
+        "exp-014-completion-mask": 2,
+        "base": 0,
+        "exp-015-cookbook-recipe": 1
+      }
+    },
+    {
+      "record_id": "95199588-ea4a-51e3-811c-3e67a15a8dd8",
+      "task_id": "bpe01-ar04-ratio-share-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "A > C > B",
+      "notes": "Doğru: toplam 10 pay, pay=84 TL; 5×84=420, 2×84=168, fark 252 TL. A doğru ve kısa; \"kurala göre\" tuhaf sözcük kullanımı küçük kusur, ayrı sonuç cümlesi yok ama 252 net. C doğru ve \"Cevap: 252 TL\" açık, ancak \"Prizın\", \"payinç/payinçin\" gibi uydurma/bozuk sözcükler Türkçeyi bozuyor, gereksiz orta pay hesabı. B hesapta 252 buluyor ama ilk cümlesi \"Kesinlikle 420 TL daha fazla alır\" diye yanlış sonucu iddia ediyor; kendi içinde çelişiyor, bu nedenle sonuç güvenilmez.",
+      "model_ranks": {
+        "exp-014-completion-mask": 0,
+        "exp-015-cookbook-recipe": 2,
+        "base": 1
+      }
+    },
+    {
+      "record_id": "81450598-2f2d-5212-9ed2-015b6dd4ade3",
+      "task_id": "bpe01-ar05-net-fill-rate-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "exp-014-completion-mask",
+        "C": "base"
+      },
+      "ranking": "C > A = B",
+      "notes": "Doğru sonuç: net 15−5=10 L/dk, (450−120)/10 = 33 dakika. C düşünmede doğru modeli kuruyor ve 33 dk buluyor; ancak düşünme çok uzun, \"dolar\" kelimesini para birimi sanıp gereksiz dolar/fiyat tereddüdü yaşıyor (fiil: dolar=dolmak), nihai cevapta da bu yersiz \"fiyat bilgisi yok\" uyarısı var; yine de nihai sonuç doğru. A (≈5,9 dk) ve B (110/66 dk, çelişkili) tamamen yanlış, anlamsız uydurma sözcüklerle dolu; ikisi eşit kötü.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 1,
+        "exp-014-completion-mask": 1,
+        "base": 0
+      }
+    },
+    {
+      "record_id": "2a7d0957-ea98-5020-8b3d-baf8dac0fcde",
+      "task_id": "bpe01-ar02-sequential-discount-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "base",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "A = C > B",
+      "notes": "Doğru cevap 800 × 0,75 × 0,90 = 540 TL; üçü de doğru. A ve C kısa, temiz Türkçe ve \"kısa hesaplama\" isteğine tam uyuyor, aralarında fark yok (C'nin \"-dır\" ekiyle bitirmesi biraz daha doğal ama önemsiz). B gereksiz uzun, LaTeX/kalın biçimlendirme kullanıyor ve \"Indirimli\" gibi küçük yazım hataları var; kısa hesaplama istenmişti.",
+      "model_ranks": {
+        "exp-014-completion-mask": 0,
+        "base": 1,
+        "exp-015-cookbook-recipe": 0
+      }
+    },
+    {
+      "record_id": "f7663f35-aaf3-5c22-8e15-ee8e5cc28628",
+      "task_id": "bpe01-co02-camp-unstated-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-015-cookbook-recipe",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "B > C > A",
+      "notes": "Doğru cevap \"metinde belirtilmemiş, bilinemez\" olmalı. Üçü de \"Hayır\" diyerek biraz fazla kesin konuşuyor. B kısa, Türkçe ve ulaşımın belirtilmediğini söylüyor. C benzer ama \"Güncel haberde\" ifadesi gereksiz/uydurma. A büyük ölçüde İngilizce (Türkçe cevap şartı ihlal), \"akvaryasyon\" gibi uydurma kelime ve gereksiz uzunluk var.",
+      "model_ranks": {
+        "base": 2,
+        "exp-015-cookbook-recipe": 0,
+        "exp-014-completion-mask": 1
+      }
+    },
+    {
+      "record_id": "3b5192a7-bbbf-5194-ba33-18845732102d",
+      "task_id": "bpe01-ne04-upper-bound-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "C > B > A",
+      "notes": "Doğru cevap 3 × 30 = 90; üçü de doğru. C hem gerekçeyi hem hesabı tek temiz cümlede veriyor. B de doğru ve temiz ama gerekçesi (neden 30) açıkça belirtilmemiş. A'da bozuk kelimeler var (\"Araçların\", \"sınırdaki\" yerine sınıf), gereksiz uzun ve tekrarlı.",
+      "model_ranks": {
+        "base": 2,
+        "exp-014-completion-mask": 1,
+        "exp-015-cookbook-recipe": 0
+      }
+    },
+    {
+      "record_id": "4a1d6802-53db-5c9b-bb18-b44c7d297577",
+      "task_id": "bpe01-sr03-instrument-note-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "A > B > C",
+      "notes": "Doğru: notu Berk yazdı, Deniz'e yazdı, kalem Ali'nindi. A üç soruyu da doğru cevaplıyor (Berk / Deniz / Ali'nin kalem); ancak gereksiz uzun, \"Not yazdığıye\", \"kaleminizi\", \"clear\" gibi bozuk/uydurma sözcükler ve gereksiz \"net cevap mümkün değil\" belirsizliği var. B çok kısa: yazar Berk ve kalem Ali'nin doğru, ama \"Deniz'e not: Berk\" kime yazıldığını net söylemiyor, tam cümle yok. C tamamen yanlış: notu Ali yazmış gibi, kalemi \"bilinmiyor\" diyor, Deniz'den hiç söz etmiyor.",
+      "model_ranks": {
+        "base": 0,
+        "exp-014-completion-mask": 1,
+        "exp-015-cookbook-recipe": 2
+      }
+    },
+    {
+      "record_id": "1bb60ea7-5b01-5ae8-871d-52e57b198ae0",
+      "task_id": "bpe01-ar05-net-fill-rate-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "C > A > B",
+      "notes": "Doğru cevap 330 / (15 − 5) = 33 dakika. Hiçbiri kabul edilebilir değil, hepsi kalite olarak kötü. C sadece 33 dakikaya ulaşıyor ama inanılmaz uzun, kendi içinde çelişkili, \"dakikada dolar\"ı para birimi sanıp sonda \"hesaplamam mümkün değil\" diyor; kısa hesaplama şartı ihlal. A kaçağı hesaba katmadan 22 dakika buluyor ve soruyu cevaplamadan \"220 litre kalır\" ile bitiyor, yanlış. B tamamen anlamsız (\"dağlıkta\", \"100 lira dolandırılır\"), en kötü. Yani esasen hepsi yanlış/kullanılamaz; C yalnızca doğru sayıyı içerdiği için önde.",
+      "model_ranks": {
+        "exp-014-completion-mask": 1,
+        "exp-015-cookbook-recipe": 2,
+        "base": 0
+      }
+    },
+    {
+      "record_id": "2b2c27ec-be4c-5587-8840-475b9a5fe558",
+      "task_id": "bpe01-ar06-percent-up-down-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "exp-014-completion-mask",
+        "C": "base"
+      },
+      "ranking": "B > C > A",
+      "notes": "Doğru: 250×1,20=300; 300×0,80=240 TL, ilk fiyattan farklı (10 TL az). HEPSİ YANLIŞ; yalnızca \"en az kötü\" sıralaması. B: başlıkta 160 TL diyor (zammı indirim sanmış), ama altta 250×0,8×1,2=240 geçiyor (ayrı satır, ne olduğu açıklanmamış) ve \"fiyat değişir\" doğru; çelişkili. C: temiz ama zammı da indirim sayıp 160 TL ve 90 TL fark veriyor, soruyu yanlış okumuş. A: 200 TL diyor ve \"farklı değil\" diyor; hesabında 160 çıkıyor ama 200≠160 yazıp kendi kendisiyle çelişiyor, en bozuk.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 2,
+        "exp-014-completion-mask": 0,
+        "base": 1
+      }
+    },
+    {
+      "record_id": "4f44fdce-1937-595e-b3f5-a09aa55b777d",
+      "task_id": "bpe01-ar05-net-fill-rate-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "C > B > A",
+      "notes": "Doğru cevap (450-120)/(15-5) = 33 dakika. C doğru, kısa ve tutarlı. B hesabı yapıyor ama ara adımlarda \"litre/saniye\" ve \"33 saniye\" yazıp sonucu \"33 dakika\" veriyor (birim tutarsız), ayrıca \"Tap/Leak\" gibi İngilizce kelimeler karışmış. A birimi baştan sona saniye alıyor, \"0,55 dakika\" ile sonuç yanlış ve kendi içinde çelişkili.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 2,
+        "base": 1,
+        "exp-014-completion-mask": 0
+      }
+    },
+    {
+      "record_id": "bc7e472c-c407-541f-b4f3-7f5f78a52d36",
+      "task_id": "bpe01-ar03-session-end-time-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "C > B > A",
+      "notes": "Doğru cevap 19:45 + 0:20 + 2:35 = 22:40. Düşünme metninin İngilizce olması hata sayılmadı; değerlendirme nihai cevaba göre. C: nihai cevap doğru (22:40), adımlar ve Türkçe temiz. B: nihai cevap yanlış (22:30), kendi içinde çelişen, \"19:65\" gibi saçma adımlar var ve komutu tekrar eden bir sonla bitiyor. A: nihai cevap yanlış (20:01:18), uydurma sayı ve birimler, karışık İngilizce/Türkçe.",
+      "model_ranks": {
+        "exp-014-completion-mask": 2,
+        "exp-015-cookbook-recipe": 1,
+        "base": 0
+      }
+    },
+    {
+      "record_id": "7231b963-8d40-51de-aa5e-90304c8c570b",
+      "task_id": "bpe01-ar01-ticket-change-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "C > A > B",
+      "notes": "Doğru: 4×27=108; para üstü 200−108=92; 30 TL kardeşe verilince 62 TL kalır. HEPSİ YANLIŞ; yalnızca \"en az kötü\" sıralaması. C: para üstünü (92) doğru buluyor ama 30 TL'yi hiç düşmeden 92 diyor; kısa, düzenli, kısmen doğru. A: biletleri hiç hesaplamıyor, 200−30=170 diyor, mantık yok. B: bilet fiyatını 4 TL uydurup (27 TL verilmiş) 16 TL, sonra 0 TL / 16 TL arasında çelişkili sonuçlar veriyor, çok uzun ve dağınık, \"200 TL vermek imkansız\" gibi yanlış çıkarımlar, nihai cevap 0 TL; en kötü.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 1,
+        "base": 2,
+        "exp-014-completion-mask": 0
+      }
+    },
+    {
+      "record_id": "cf82a08f-987f-5c05-90b8-925937eb7d33",
+      "task_id": "bpe01-ar06-percent-up-down-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "C > A > B",
+      "notes": "Doğru: 250×1,20=300; 300×0,80=240 TL, ilk fiyattan 10 TL az (farklı). HEPSİ YANLIŞ (üçü de 160 TL); yalnızca \"en az kötü\" sıralaması. Üçü de \"zam\"ı indirim sanıyor. A: düşünmede \"önce %20 zam\" ifadesini açıkça \"indirim\" diye yorumlayıp hatayı sabitliyor, nihai cevap düzgün Türkçe ama 90 TL fark da yanlış, \"ilk fiyadan\" yazım hatası. B: \"Kaynak:\" anlamsız etiket, cümleler yapışık (\"değişir.Son fiyatı\"), eksik cümle. C: kısa ve düzenli, ama \"zam\" hiç anılmıyor, \"Fiyat: 250×(1−0,20)\" yanlış; yazım hatası \"ilk fiyadan\". Sonuç aynı yanlış olduğu için sadece sunuma göre.",
+      "model_ranks": {
+        "base": 1,
+        "exp-014-completion-mask": 2,
+        "exp-015-cookbook-recipe": 0
+      }
+    },
+    {
+      "record_id": "8186c5b1-a8ec-56bd-ae3f-bcca1c0a27b5",
+      "task_id": "bpe01-ar01-ticket-change-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "C > A > B",
+      "notes": "Doğru: 4×27=108; para üstü 200−108=92; 30 TL kardeşe verilince 92−30 = 62 TL kalır. HEPSİ YANLIŞ; yalnızca \"en az kötü\" sıralaması. C: 92 TL diyor (30 TL'yi hiç kullanmamış), kısa ama \"92 TL.92 TL.\" tekrarı var. A: 92 TL diyor, 30 TL'yi atlıyor/anlamsız \"+30\" ekliyor, \"kardeşine 92 TL kazandığını görür\" gibi saçma ifadeler. B: düşünme çok uzun, tekrarlı, soruyu yanlış aktarıp 30 TL'yi düşmüş (\"kaç\" sözcüğünü deyim sanıyor), 0 / 92 arasında gidip geliyor; nihai cevap \"[\" ile kesiliyor, sonuç yok, \"kredi\", \"kardeşi'ye\" gibi bozuk sözcükler. B en kötü.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 1,
+        "base": 2,
+        "exp-014-completion-mask": 0
+      }
+    },
+    {
+      "record_id": "8198113d-4d2c-5344-9672-29efc6bb7c1c",
+      "task_id": "bpe01-ar07-average-target-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "A > B > C",
+      "notes": "Doğru: 4×85=340; 70+85+90=245; 340−245 = 95 puan. Üçü de doğru. A kısa, temiz, istenen \"kısa hesap + sonuç\" biçiminde (sonuç cümlesi yok ama 95 net). B doğru ve sonucu cümleyle veriyor ama \"dörtün en az 95 puanı almak gerekir\" bozuk bir cümle. C doğru ama \"Student'in\" gibi İngilizce sözcük sızıyor, \"Student'in … almalıdır\" dilbilgisi hatası, hesabı iki kez tekrarlıyor (kısa istenmişti).",
+      "model_ranks": {
+        "exp-014-completion-mask": 0,
+        "exp-015-cookbook-recipe": 1,
+        "base": 2
+      }
+    },
+    {
+      "record_id": "3bdb435c-f1fc-5c1b-81b7-b8e950304c1f",
+      "task_id": "bpe01-rw01-course-registration-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "C > A > B",
+      "notes": "Gerekenler: tek cümle, ≤25 kelime; 15 Mart, ödeme kayıttan sonra 3 gün içinde yoksa iptal, ücret iade yok. Kelime sayıları: C 21, A 22, B 25 (hepsi sınırda/altında). C tüm bilgileri ve koşul ilişkisini (\"yoksa kayıt iptal edilir\") doğru kuruyor; \"kayıtdan\" yazım hatası (üçünde de var) ve \"ödemeyi … yapılması gerekir\" küçük bozukluk. A bilgileri taşıyor ama \"15 Mart'a kadar kaydı vardır\" kaydın açık olduğunu bozuk ifade ediyor. B koşulu ters kuruyor: \"bu süre içinde kayıt iptal edilir\" (3 gün içinde iptal edilir gibi), yani anlam değişiyor; \"yapmanız\" ile üslup da kayıyor.",
+      "model_ranks": {
+        "base": 1,
+        "exp-014-completion-mask": 2,
+        "exp-015-cookbook-recipe": 0
+      }
+    },
+    {
+      "record_id": "803aa3a2-3daf-5b34-9a5d-ed983db6c816",
+      "task_id": "bpe01-ar08-egg-boxes-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "B = C > A",
+      "notes": "Doğru: 270÷12 = 22 tam kutu (264 yumurta), 22×90 = 1.980 TL, 6 yumurta açıkta. HEPSİ YANLIŞ; yalnızca \"en az kötü\" sıralaması. A: 135×3=405 yumurta, 36.450 TL, 135 yumurta gibi tamamen uydurma ve imkansız sayılar (açıktaki yumurta toplamdan fazla), en kötüsü. B: çok uzun, tekrarlı, kendi içinde çelişkili; ara adımda 22 kutu/264 yumurta/6 artık doğru geçiyor ama nihai cevap 23 kutu, 2.070 TL, 0 yumurta (276>270 olduğunu görüp yine de yazıyor) ve soruyu \"tutarsız\" ilan ediyor; bozuk sözcükler (\"Aktak\", \"kutlar\"). C: kısa ama 270÷12×90 = 22.500 TL ve 0 artık, kesirli kutuyu satmış; \"yalnızca dolu kutular\" kısıtını yok sayıyor. B ve C eşit yanlış (B ara adımda doğru bilgiyi taşıyor ama nihai cevabı kullanılamaz).",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 1,
+        "base": 0,
+        "exp-014-completion-mask": 0
+      }
+    },
+    {
+      "record_id": "4ad7b24b-2499-5ecf-a1e5-8ce8d7d81f8c",
+      "task_id": "bpe01-ne04-upper-bound-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-015-cookbook-recipe",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "B > A > C",
+      "notes": "Doğru cevap 3 × 30 = 90. Üçü de 90 diyor. B \"kısa hesaplama\" isteğine tam uyuyor (küçük yazım hatası: \"sınıfda\"). A doğru ve açık ama kısa istenmesine rağmen gereksiz uzun, \"üzerin\" gibi garip ifade var. C'de yanlış/anlamsız bir ek iddia var: \"Öğrenci sayısı her sınıfa eşit olması gerekir\" — soru böyle bir şey söylemiyor, gerekçesi de mantıksız.",
+      "model_ranks": {
+        "base": 1,
+        "exp-015-cookbook-recipe": 0,
+        "exp-014-completion-mask": 2
+      }
+    },
+    {
+      "record_id": "18f3b083-bb4c-5536-9120-b4b2597f6b25",
+      "task_id": "bpe01-ar08-egg-boxes-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "B > A = C",
+      "notes": "Doğru cevap: 22 dolu kutu × 90 = 1.980 TL, 270 − 264 = 6 yumurta açıkta. Düşünme metninin İngilizce olması hata sayılmadı; değerlendirme nihai cevaba göre. B: nihai cevap doğru (\"yalnızca dolu kutular\" şartını uyguluyor, 1.980 TL ve 6 yumurta); Türkçe kusurları var (\"kutular\", \"Aksa\" gibi bozuk ifadeler), gereksiz LaTeX ve uzunluk, ama sonuç doğru. A ve C: 22,5 kutu satıp 2.025 TL buluyor, \"yalnızca dolu kutular satılır\" şartını yok sayıyor, nihai sonuç yanlış (6 yumurta kısmı tesadüf). C ayrıca aynı satırları tekrar ediyor. A ile C eşit derecede yanlış.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 1,
+        "base": 0,
+        "exp-014-completion-mask": 1
+      }
+    },
+    {
+      "record_id": "4c607d98-01ff-5436-ba61-2e0e732ea381",
+      "task_id": "bpe01-ar04-ratio-share-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "A = C > B",
+      "notes": "Doğru sonuç: 840/10=84; 5×84=420, 2×84=168, fark 252 TL. A ve C doğru, açık ve doğal; A adım adım, C akıcı paragraf, belirleyici fark yok. B sayıyı 252 buluyor ama \"2'ün kopyası\", \"alacakki\" gibi uydurma sözcükler kullanıyor ve en çok alanı 2 payla eşleştirip etiketleri ters yazıyor (iç tutarsızlık).",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 0,
+        "base": 1,
+        "exp-014-completion-mask": 0
+      }
+    },
+    {
+      "record_id": "71c4edf4-f998-5a33-a64e-d0c068ecddca",
+      "task_id": "bpe01-co02-camp-unstated-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "B > C > A",
+      "notes": "Doğru cevap: haberde ulaşım masrafı belirtilmemiş, kulübün karşılayıp karşılamayacağı bilinemez. B bunu tek cümlede açıkça söylüyor (küçük yazım hataları: \"Haberinde\", \"kulüptürün\"). C de doğru ve kısa ama soruya doğrudan \"bilinemez\" demiyor, sadece belirtilmediğini söylüyor; \"Haberinde\" hatası var. A'nın gerekçesi doğru yönde ama haberi ve soruyu gereksiz tekrar ediyor, çok uzun, son cümlesi anlamsız/bozuk (\"karşılanacağımı biliyor musunuz?\") ve soruyu kullanıcıya geri soruyor gibi.",
+      "model_ranks": {
+        "base": 2,
+        "exp-014-completion-mask": 0,
+        "exp-015-cookbook-recipe": 1
+      }
+    },
+    {
+      "record_id": "743809f6-3d99-5826-b12d-e4ec9da3a0be",
+      "task_id": "bpe01-ar07-average-target-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "B > A > C",
+      "notes": "Doğru cevap 4 × 85 − 245 = 95; üçü de 95 buluyor. Düşünme metninin İngilizce olması hata sayılmadı; değerlendirme nihai cevaba göre. B: tek paragrafta, kısa ve Türkçe, sadece son cümlesi biraz kırık. A: doğru ve anlaşılır ama aynı hesabı iki kez art arda yazmış (tekrar, boşluksuz birleşik cümle). C: nihai Türkçe kısım doğru sonuca (95) ulaşıyor ama bozuk kelimeler (\"dörtüncü\", \"ortalamasının 85'ini\", \"Orta sayısı\"), gereksiz LaTeX ve uzunluk var; kısa hesaplama istenmişti. Sıralama yalnızca nihai cevabın dil/sunum kalitesine göre.",
+      "model_ranks": {
+        "exp-014-completion-mask": 1,
+        "exp-015-cookbook-recipe": 0,
+        "base": 2
+      }
+    },
+    {
+      "record_id": "a232b093-5958-5060-bf77-e501bc669137",
+      "task_id": "bpe01-rw01-course-registration-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "exp-014-completion-mask",
+        "C": "base"
+      },
+      "ranking": "B > C > A",
+      "notes": "Gerekenler: tek cümle, ≤25 kelime; 15 Mart, 3 gün içinde ödeme yoksa kayıt iptal, ücret iade edilmez. Üçü de ≤25 kelime ama hiçbiri kusursuz değil. B üç bilgiyi de taşıyor, iptali \"kayıtlara kapatılır\" diye anlaşılır biçimde veriyor, \"geri dönüşü yoktur\" iade yok anlamına geliyor; \"kayıt açılıyor ve 15 Mart'a kadar\" ifadesi \"açık\" yerine biraz bozuk. C akıcı ve \"ücret geri verilemez\" doğru ama \"Mart'e\" yazım hatası ve \"kullanılmaz\" iptal anlamını bozuyor. A \"kullanılmaz\" ile iptali yanlış aktarıyor ve cümle \"…olduğu\" ile eksik/bozuk bitiyor.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 2,
+        "exp-014-completion-mask": 0,
+        "base": 1
+      }
+    },
+    {
+      "record_id": "d4a206fe-25c7-5425-9cbb-f62446b88066",
+      "task_id": "bpe01-ol02-main-point-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-015-cookbook-recipe",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "A > C > B",
+      "notes": "Doğru ana fikir: toplantı yarın değil, bu Cuma. A anlamı doğru veriyor (bu Cuma, yarın değil) ama \"Meydan okuma\" gibi alakasız bir başlangıç ve bozuk \"gerektiğini belirtiyor\" kalıbı var. C bilgi uyduruyor (\"hava koşulları nedeniyle\", \"Cumartesi\") ve ana fikri yanlış veriyor. B tamamen bozuk, \"Meydan okuma:\" ifadesini sonsuz tekrar eden bir döngüye girmiş, hiçbir bilgi yok. Üçü de zayıf; A göreli olarak tek kullanılabilir.",
+      "model_ranks": {
+        "base": 0,
+        "exp-015-cookbook-recipe": 2,
+        "exp-014-completion-mask": 1
+      }
+    },
+    {
+      "record_id": "4c72a360-a4ef-5138-a1f0-f099bfd1a9f8",
+      "task_id": "bpe01-sr03-instrument-note-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "exp-015-cookbook-recipe",
+        "C": "base"
+      },
+      "ranking": "A > B > C",
+      "notes": "Üçü de olguları doğru veriyor (Berk yazdı, Deniz'e, Ali'nin kalemiyle). A doğru Türkçe kelimeyi (\"kalem\") kullanıyor, sadece küçük bir ek hatası var (\"Ali'nin kalemle\"). B dilbilgisi olarak temiz ama \"pen\" İngilizce kelimesini \"peni\" diye Türkçeleştirmiş. C gereksiz uzun, \"Denizye\", \"pen\" gibi bozuk/karışık ifadeler ve fazladan tırnak/madde işaretleri var, soru kısa cevap gerektiriyordu.",
+      "model_ranks": {
+        "exp-014-completion-mask": 0,
+        "exp-015-cookbook-recipe": 1,
+        "base": 2
+      }
+    },
+    {
+      "record_id": "a9c4ac2d-9d3d-5835-9e72-aba7fbb3b0c3",
+      "task_id": "bpe01-ar03-session-end-time-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-015-cookbook-recipe",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "B > A > C",
+      "notes": "Doğru cevap 19:45 + 0:20 + 2:35 = 22:40. Hepsi yanlış (nihai cevaplar 21:40, 21:15, 21:15). B'nin hesap satırında doğru değer (22:40) çıkıyor ama başta \"21:15\" yazıp sonra kendi hesabıyla çelişiyor, açıklaması bozuk; yine de doğru sonuca en yakın o. A düzgün biçimli ama \"19:05\" gibi uydurma bir ara adımla 21:40 buluyor. C \"2 × 35 dk\" gibi mantık hatası yapıyor ve 19:65 → 20:05 geçişi de kaba. Hepsi başarısız, sıralama sadece göreli.",
+      "model_ranks": {
+        "base": 1,
+        "exp-015-cookbook-recipe": 0,
+        "exp-014-completion-mask": 2
+      }
+    },
+    {
+      "record_id": "71e61572-13fa-56d0-85fe-ceb540855364",
+      "task_id": "bpe01-ar02-sequential-discount-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-014-completion-mask",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "A = B = C",
+      "notes": "Doğru: 800×0,75=600; 600×0,90=540 TL. Üçü de doğru sonuca ulaşıyor, kısa hesabı veriyor. A (thinking ON): düşünme doğru, kapanış etiketi görünmüyor ama bu tek başına hata sayılmadı; düşünme İngilizce ve uzun, nihai cevap temiz ve doğru. B: kısa, doğru, \"TL.Son\" arası boşluk eksik küçük kusur. C: doğru ama \"Son fiyat\" cümlesi açık yazılmamış, hesabın sonunda \"540 TL olur\" ile bitiyor. Belirleyici fark yok, eşdeğer.",
+      "model_ranks": {
+        "base": 0,
+        "exp-014-completion-mask": 0,
+        "exp-015-cookbook-recipe": 0
+      }
+    },
+    {
+      "record_id": "f264af98-264f-5013-8c36-f83ffacf45fd",
+      "task_id": "bpe01-ol02-main-point-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "base",
+        "B": "exp-015-cookbook-recipe",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "A > B = C",
+      "notes": "Doğru ana fikir: toplantı yarın değil, bu cuma yapılacak. Sadece A'nın sonundaki \"Cevap\" cümlesi doğru; ancak \"tek kısa cümle\" isteğine rağmen uzun bir giriş/açıklama yazmış ve bozuk ifadeler var (\"olmasayken\", \"tariğinde\"). B anlamsız ve bilgiyi yanlış veriyor (\"bu gün yapılır\"). C ise anlamı tersine çeviriyor (\"yarın yapılacak\"). B ve C ikisi de yanlış, eşit derecede kullanılamaz.",
+      "model_ranks": {
+        "base": 0,
+        "exp-015-cookbook-recipe": 1,
+        "exp-014-completion-mask": 1
+      }
+    },
+    {
+      "record_id": "ed0f7842-0e3a-5ea6-8d00-0d9177e2e2de",
+      "task_id": "bpe01-ar06-percent-up-down-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "base",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "C > B > A",
+      "notes": "Doğru cevap: 250 × 1,2 × 0,8 = 240 TL, orijinalden farklı (10 TL düşük). C hem hesabı hem \"farklıdır, 10 TL düşük\" sonucunu kısa ve doğru veriyor (cümle biraz kırık: \"orijinal fiyatın 10 TL daha düşük\"). B de doğru ve eksiksiz ama \"kısa hesaplama\" için fazla uzun, LaTeX/boxed biçimi var ve \"Productin\" gibi İngilizce kelime sızmış. A 240'ı buluyor ama sonuç cümlesi yanlış (\"60 TL düşer, 24 TL daha ucuz\") ve farklı olup olmadığı sorusuna net cevap vermiyor.",
+      "model_ranks": {
+        "exp-014-completion-mask": 2,
+        "base": 1,
+        "exp-015-cookbook-recipe": 0
+      }
+    },
+    {
+      "record_id": "54e19be1-758c-501a-84ed-5b4760e66735",
+      "task_id": "bpe01-ar07-average-target-tr-tr",
+      "mode": "off",
+      "direction": "tr-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "exp-014-completion-mask",
+        "C": "base"
+      },
+      "ranking": "A = B > C",
+      "notes": "Doğru: 4×85=340; 70+85+90=245; X=95 puan. Üçü de doğru. A ve B kısa, doğal ve temiz Türkçe; A \"en az 95\" sonucunu açıkça söylüyor, B daha kısa; belirleyici fark yok. C de doğru ve cebirle açık ama \"dörtüncü\" yazım hatası var ve istenen \"kısa hesap\"a göre biraz uzun/madde işaretli.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 0,
+        "exp-014-completion-mask": 0,
+        "base": 1
+      }
+    },
+    {
+      "record_id": "467da8ad-22be-5720-8278-102f0a8c8d20",
+      "task_id": "bpe01-ar03-session-end-time-en-tr",
+      "mode": "off",
+      "direction": "en-tr",
+      "cohort": "consumed-eval-diagnostic",
+      "models": {
+        "A": "exp-014-completion-mask",
+        "B": "base",
+        "C": "exp-015-cookbook-recipe"
+      },
+      "ranking": "B > C > A",
+      "notes": "Doğru sonuç 19:45 + 0:20 + 2:35 = 22:40. B doğru ve hesabı açık, biraz uzun. C de 22:40 buluyor ama \"Adlar\" ve \"Sesin başlangıcının\" gibi bozuk ifadeler var. A yanlış (22:20), reklam süresini toplamda hesaba katmamış ve ara adımları tutarsız.",
+      "model_ranks": {
+        "exp-014-completion-mask": 2,
+        "base": 0,
+        "exp-015-cookbook-recipe": 1
+      }
+    },
+    {
+      "record_id": "b27b3f2f-c3c4-50de-b189-60a8f9227d26",
+      "task_id": "bpe01-ar04-ratio-share-tr-tr",
+      "mode": "on",
+      "direction": "tr-tr",
+      "cohort": "consumed-thinking-diagnostic",
+      "models": {
+        "A": "exp-015-cookbook-recipe",
+        "B": "base",
+        "C": "exp-014-completion-mask"
+      },
+      "ranking": "B > C > A",
+      "notes": "Doğru: pay=84 TL; 5×84=420, 2×84=168, fark 252 TL. Üçü de 252 buluyor. B (thinking ON): düşünme doğru, tutarlı, nihai cevap tam ve doğru (en çok 420, en az 168, fark 252); düşünme İngilizce ve uzun, son cümle biraz dolambaçlı ama hata yok. C: hesap doğru ve açık, ancak tüm paragraf aynen iki kez tekrar edilmiş (tekrar kusuru), sonuç cümlesi yok. A: kısa ama etiketleri ters yazıyor (\"En çok: 2/10×840=168\", \"En az: 5/10×840=420\"), mantık kendi içinde tutarsız; sayı doğru olsa da gerekçe yanlış.",
+      "model_ranks": {
+        "exp-015-cookbook-recipe": 2,
+        "base": 0,
+        "exp-014-completion-mask": 1
+      }
+    }
+  ]
+}
