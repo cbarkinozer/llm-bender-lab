@@ -145,9 +145,12 @@ tool calling within noise of base; Turkish no worse than exp014.
 ## 4. Evaluation v2 (freeze before any training; never train on it)
 
 - **Paired bilingual verifiable set, about 300 items, each in EN and TR:** math
-  (`malhajar/gsm8k_tr-v0.2` test items, human-verified, with the matching English
-  GSM8K test item), tool calls (gold JSON), code (unit tests, Turkish prompt),
-  checkable instructions. Report EN accuracy (preservation), TR accuracy,
+  (`malhajar/gsm8k_tr-v0.2` test items with the matching English GSM8K test item;
+  the card claims human verification but only 1104 of 1319 items pass our
+  invariant check and several answers differ, so only clean pairs are used),
+  tool calls (BFCL gold), code (unit tests, Turkish prompt), checkable
+  instructions. Built so far: [eval-v2](eval-v2/README.md) (math 152, symbolic 60,
+  tool calls 80 pairs). Report EN accuracy (preservation), TR accuracy,
   TR-EN gap, answer-language rate, thinking-closure rate, length, EOS.
 - **Turkish grammar without generation:** TurBLiMP minimal pairs (as in Liquid's
   CPT notebook) and Wiki/web NLL.
@@ -182,6 +185,10 @@ tool calling within noise of base; Turkish no worse than exp014.
 
 Phase 0: evaluation (CPU + about 3 GPU hours)
 - [ ] Build eval v2 (paired EN/TR verifiable set, TurBLiMP, guard subset); freeze hashes.
+      Done 2026-11-21 (CPU-verified, [eval-v2](eval-v2/README.md)): math, symbolic and tool-call
+      packets, scorer, summary/compare script, vLLM runner (not yet run on a GPU).
+      Left: Turkish code and checkable-instruction families, English guard set, owner spot check
+      of the Turkish items, freeze.json.
 - [ ] Run it on base, CPT-100M, exp014, exp015 with card presets, both thinking modes.
 - [ ] Gate: base reproduces known behavior (symbolic 8/8; TR-EN gap visible).
 

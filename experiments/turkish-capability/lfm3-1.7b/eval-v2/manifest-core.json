@@ -1,0 +1,2031 @@
+{
+ "version": "eval-v2 core draft 1 (math, symbolic); more families are added before freeze",
+ "frozen": false,
+ "seed": "eval-v2-20261121",
+ "scorer": "eval-v2-scorer-2",
+ "builder_sha256": "040ccf2daddfcfc56abbe4645c5af0e15a750a4a50c68eea256d639d47d7bb11",
+ "scorer_sha256": "ea60c44d7cebce696e498f434ee619f0b49b3b3fc374c89388b765c8d7bd0c93",
+ "sources": {
+  "en": {
+   "repo": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "file": "main/test-00000-of-00001.parquet",
+   "rows": 1319,
+   "license": "mit",
+   "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+  },
+  "tr": {
+   "repo": "malhajar/gsm8k_tr-v0.2",
+   "revision": "f05ded624e64f2e9b2c384c91ed13e46922c70a1",
+   "file": "data/test-00000-of-00001.parquet",
+   "rows": 1317,
+   "license": "none declared",
+   "sha256": "c0534fc59e35e5df05e6a2829ff9da151097b5174dce6b5196468d5980d3d8bd"
+  }
+ },
+ "prompts": {
+  "math_en": "{q}\n\nSolve it step by step. End your reply with a line of the form \"Final answer: <number>\".",
+  "math_tr": "{q}\n\nAdım adım çöz. Yanıtını \"Nihai cevap: <sayı>\" biçiminde bir satırla bitir.",
+  "symbolic_en": "{e} = ?\nOutput only the number.",
+  "symbolic_tr": "{e} = ?\nYalnızca sayıyı yaz."
+ },
+ "packets": [
+  {
+   "file": "math-pairs.jsonl",
+   "rows": 304,
+   "sha256": "f2cfae2ca34873f9ac8e26d4eb4f9a34e2e5af519c5e01e2a5af2bdb857d900f"
+  },
+  {
+   "file": "symbolic-pairs.jsonl",
+   "rows": 120,
+   "sha256": "7bb29154c65558011911355119ac47931c79825868e139e1731515d18ba9fbc2"
+  },
+  {
+   "file": "toolcall-pairs.jsonl",
+   "rows": 160,
+   "sha256": "3ef139926fae612a26071a9aaeb3944e260a00a0e3b3abadba72369c4450ce80"
+  }
+ ],
+ "bfcl": {
+  "repo": "gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+  "revision": "61fc0608cfd831fcfbbaa676ebdfef0ed963eeda",
+  "license": "apache-2.0",
+  "files": {
+   "BFCL_v3_simple.json": "fbc37b2ad252bf9af985582e0e07b456173fe627d957491472ea9cef5fb83158",
+   "possible_answer/BFCL_v3_simple.json": "2911a2bc00df82c4f999ffa64fedb0164cb88e96212ffa5972087eb91fd496ee",
+   "BFCL_v3_multiple.json": "aef168155ebd74b7ac2401198b201343bc7d16d7a3d7e0d4e6d8ee82c6969b2a",
+   "possible_answer/BFCL_v3_multiple.json": "244e00ce9395df948bcafc7bee64e8f9c87ef70887587d83cae45b13699f3047",
+   "BFCL_v3_parallel.json": "fad375d68295776efb63e5aa331dd884f8635e7bb50e05908113c74f14281c3c",
+   "possible_answer/BFCL_v3_parallel.json": "3af54bf04e5b7640b03a9b6a82440f52474feb24b398f94435fd2b155c7727de"
+  }
+ },
+ "math": {
+  "audit": {
+   "en_rows": 1319,
+   "tr_rows": 1317,
+   "clean_pairs": 1104,
+   "dropped_en_items": 215,
+   "drop_reasons": {
+    "question_numbers_not_preserved": 190,
+    "extra_numbers_in_tr_question": 13,
+    "no_tr_item_with_same_final_answer": 12
+   },
+   "clean_pairs_by_bucket": {
+    "1": 382,
+    "2": 313,
+    "3": 232,
+    "4": 177
+   },
+   "selected": 152,
+   "selection": "sha256(\"eval-v2-20261121:gsm8k:<en_index>\") rank within step bucket"
+  },
+  "pairs": [
+   {
+    "pair_id": "ev2-math-001",
+    "en_index": 631,
+    "tr_index": 629,
+    "step_bucket": 1,
+    "gold": "4800"
+   },
+   {
+    "pair_id": "ev2-math-002",
+    "en_index": 1253,
+    "tr_index": 1251,
+    "step_bucket": 2,
+    "gold": "120"
+   },
+   {
+    "pair_id": "ev2-math-003",
+    "en_index": 114,
+    "tr_index": 114,
+    "step_bucket": 1,
+    "gold": "6"
+   },
+   {
+    "pair_id": "ev2-math-004",
+    "en_index": 1192,
+    "tr_index": 1190,
+    "step_bucket": 3,
+    "gold": "280"
+   },
+   {
+    "pair_id": "ev2-math-005",
+    "en_index": 1172,
+    "tr_index": 1170,
+    "step_bucket": 4,
+    "gold": "93"
+   },
+   {
+    "pair_id": "ev2-math-006",
+    "en_index": 1096,
+    "tr_index": 1094,
+    "step_bucket": 3,
+    "gold": "240"
+   },
+   {
+    "pair_id": "ev2-math-007",
+    "en_index": 620,
+    "tr_index": 618,
+    "step_bucket": 2,
+    "gold": "1509"
+   },
+   {
+    "pair_id": "ev2-math-008",
+    "en_index": 115,
+    "tr_index": 115,
+    "step_bucket": 2,
+    "gold": "90"
+   },
+   {
+    "pair_id": "ev2-math-009",
+    "en_index": 128,
+    "tr_index": 128,
+    "step_bucket": 4,
+    "gold": "880"
+   },
+   {
+    "pair_id": "ev2-math-010",
+    "en_index": 545,
+    "tr_index": 543,
+    "step_bucket": 1,
+    "gold": "30"
+   },
+   {
+    "pair_id": "ev2-math-011",
+    "en_index": 522,
+    "tr_index": 520,
+    "step_bucket": 2,
+    "gold": "29"
+   },
+   {
+    "pair_id": "ev2-math-012",
+    "en_index": 30,
+    "tr_index": 30,
+    "step_bucket": 2,
+    "gold": "109"
+   },
+   {
+    "pair_id": "ev2-math-013",
+    "en_index": 921,
+    "tr_index": 919,
+    "step_bucket": 2,
+    "gold": "4"
+   },
+   {
+    "pair_id": "ev2-math-014",
+    "en_index": 800,
+    "tr_index": 798,
+    "step_bucket": 1,
+    "gold": "428"
+   },
+   {
+    "pair_id": "ev2-math-015",
+    "en_index": 806,
+    "tr_index": 804,
+    "step_bucket": 4,
+    "gold": "70"
+   },
+   {
+    "pair_id": "ev2-math-016",
+    "en_index": 629,
+    "tr_index": 627,
+    "step_bucket": 4,
+    "gold": "17500"
+   },
+   {
+    "pair_id": "ev2-math-017",
+    "en_index": 1003,
+    "tr_index": 1001,
+    "step_bucket": 3,
+    "gold": "480"
+   },
+   {
+    "pair_id": "ev2-math-018",
+    "en_index": 571,
+    "tr_index": 569,
+    "step_bucket": 2,
+    "gold": "308"
+   },
+   {
+    "pair_id": "ev2-math-019",
+    "en_index": 1239,
+    "tr_index": 1237,
+    "step_bucket": 4,
+    "gold": "50"
+   },
+   {
+    "pair_id": "ev2-math-020",
+    "en_index": 282,
+    "tr_index": 282,
+    "step_bucket": 2,
+    "gold": "195"
+   },
+   {
+    "pair_id": "ev2-math-021",
+    "en_index": 613,
+    "tr_index": 611,
+    "step_bucket": 1,
+    "gold": "93000"
+   },
+   {
+    "pair_id": "ev2-math-022",
+    "en_index": 1000,
+    "tr_index": 998,
+    "step_bucket": 4,
+    "gold": "1"
+   },
+   {
+    "pair_id": "ev2-math-023",
+    "en_index": 700,
+    "tr_index": 698,
+    "step_bucket": 3,
+    "gold": "135"
+   },
+   {
+    "pair_id": "ev2-math-024",
+    "en_index": 409,
+    "tr_index": 408,
+    "step_bucket": 4,
+    "gold": "168000"
+   },
+   {
+    "pair_id": "ev2-math-025",
+    "en_index": 60,
+    "tr_index": 60,
+    "step_bucket": 2,
+    "gold": "17"
+   },
+   {
+    "pair_id": "ev2-math-026",
+    "en_index": 896,
+    "tr_index": 894,
+    "step_bucket": 2,
+    "gold": "250"
+   },
+   {
+    "pair_id": "ev2-math-027",
+    "en_index": 479,
+    "tr_index": 477,
+    "step_bucket": 4,
+    "gold": "15400"
+   },
+   {
+    "pair_id": "ev2-math-028",
+    "en_index": 1307,
+    "tr_index": 1305,
+    "step_bucket": 2,
+    "gold": "8"
+   },
+   {
+    "pair_id": "ev2-math-029",
+    "en_index": 1058,
+    "tr_index": 1056,
+    "step_bucket": 2,
+    "gold": "250"
+   },
+   {
+    "pair_id": "ev2-math-030",
+    "en_index": 1298,
+    "tr_index": 1296,
+    "step_bucket": 4,
+    "gold": "31"
+   },
+   {
+    "pair_id": "ev2-math-031",
+    "en_index": 186,
+    "tr_index": 186,
+    "step_bucket": 3,
+    "gold": "5"
+   },
+   {
+    "pair_id": "ev2-math-032",
+    "en_index": 928,
+    "tr_index": 926,
+    "step_bucket": 2,
+    "gold": "60"
+   },
+   {
+    "pair_id": "ev2-math-033",
+    "en_index": 1045,
+    "tr_index": 1043,
+    "step_bucket": 1,
+    "gold": "420"
+   },
+   {
+    "pair_id": "ev2-math-034",
+    "en_index": 658,
+    "tr_index": 656,
+    "step_bucket": 3,
+    "gold": "120"
+   },
+   {
+    "pair_id": "ev2-math-035",
+    "en_index": 1109,
+    "tr_index": 1107,
+    "step_bucket": 4,
+    "gold": "3"
+   },
+   {
+    "pair_id": "ev2-math-036",
+    "en_index": 168,
+    "tr_index": 168,
+    "step_bucket": 1,
+    "gold": "18"
+   },
+   {
+    "pair_id": "ev2-math-037",
+    "en_index": 518,
+    "tr_index": 516,
+    "step_bucket": 4,
+    "gold": "32"
+   },
+   {
+    "pair_id": "ev2-math-038",
+    "en_index": 289,
+    "tr_index": 289,
+    "step_bucket": 1,
+    "gold": "16"
+   },
+   {
+    "pair_id": "ev2-math-039",
+    "en_index": 2,
+    "tr_index": 2,
+    "step_bucket": 3,
+    "gold": "70000"
+   },
+   {
+    "pair_id": "ev2-math-040",
+    "en_index": 51,
+    "tr_index": 51,
+    "step_bucket": 2,
+    "gold": "5"
+   },
+   {
+    "pair_id": "ev2-math-041",
+    "en_index": 1120,
+    "tr_index": 1118,
+    "step_bucket": 2,
+    "gold": "560"
+   },
+   {
+    "pair_id": "ev2-math-042",
+    "en_index": 199,
+    "tr_index": 199,
+    "step_bucket": 4,
+    "gold": "7500"
+   },
+   {
+    "pair_id": "ev2-math-043",
+    "en_index": 661,
+    "tr_index": 659,
+    "step_bucket": 4,
+    "gold": "44"
+   },
+   {
+    "pair_id": "ev2-math-044",
+    "en_index": 1249,
+    "tr_index": 1247,
+    "step_bucket": 4,
+    "gold": "56"
+   },
+   {
+    "pair_id": "ev2-math-045",
+    "en_index": 382,
+    "tr_index": 381,
+    "step_bucket": 4,
+    "gold": "350"
+   },
+   {
+    "pair_id": "ev2-math-046",
+    "en_index": 916,
+    "tr_index": 914,
+    "step_bucket": 4,
+    "gold": "14"
+   },
+   {
+    "pair_id": "ev2-math-047",
+    "en_index": 788,
+    "tr_index": 786,
+    "step_bucket": 2,
+    "gold": "100"
+   },
+   {
+    "pair_id": "ev2-math-048",
+    "en_index": 1258,
+    "tr_index": 1256,
+    "step_bucket": 2,
+    "gold": "60"
+   },
+   {
+    "pair_id": "ev2-math-049",
+    "en_index": 836,
+    "tr_index": 834,
+    "step_bucket": 2,
+    "gold": "140"
+   },
+   {
+    "pair_id": "ev2-math-050",
+    "en_index": 1224,
+    "tr_index": 1222,
+    "step_bucket": 1,
+    "gold": "5"
+   },
+   {
+    "pair_id": "ev2-math-051",
+    "en_index": 1053,
+    "tr_index": 1051,
+    "step_bucket": 2,
+    "gold": "55"
+   },
+   {
+    "pair_id": "ev2-math-052",
+    "en_index": 336,
+    "tr_index": 335,
+    "step_bucket": 4,
+    "gold": "72"
+   },
+   {
+    "pair_id": "ev2-math-053",
+    "en_index": 304,
+    "tr_index": 304,
+    "step_bucket": 4,
+    "gold": "3200"
+   },
+   {
+    "pair_id": "ev2-math-054",
+    "en_index": 218,
+    "tr_index": 218,
+    "step_bucket": 4,
+    "gold": "45"
+   },
+   {
+    "pair_id": "ev2-math-055",
+    "en_index": 1021,
+    "tr_index": 1019,
+    "step_bucket": 4,
+    "gold": "36"
+   },
+   {
+    "pair_id": "ev2-math-056",
+    "en_index": 528,
+    "tr_index": 526,
+    "step_bucket": 4,
+    "gold": "172"
+   },
+   {
+    "pair_id": "ev2-math-057",
+    "en_index": 534,
+    "tr_index": 532,
+    "step_bucket": 4,
+    "gold": "300"
+   },
+   {
+    "pair_id": "ev2-math-058",
+    "en_index": 305,
+    "tr_index": 305,
+    "step_bucket": 1,
+    "gold": "4"
+   },
+   {
+    "pair_id": "ev2-math-059",
+    "en_index": 343,
+    "tr_index": 342,
+    "step_bucket": 2,
+    "gold": "180000"
+   },
+   {
+    "pair_id": "ev2-math-060",
+    "en_index": 185,
+    "tr_index": 185,
+    "step_bucket": 1,
+    "gold": "30"
+   },
+   {
+    "pair_id": "ev2-math-061",
+    "en_index": 1164,
+    "tr_index": 1162,
+    "step_bucket": 4,
+    "gold": "9"
+   },
+   {
+    "pair_id": "ev2-math-062",
+    "en_index": 1177,
+    "tr_index": 1175,
+    "step_bucket": 4,
+    "gold": "17"
+   },
+   {
+    "pair_id": "ev2-math-063",
+    "en_index": 874,
+    "tr_index": 872,
+    "step_bucket": 1,
+    "gold": "132"
+   },
+   {
+    "pair_id": "ev2-math-064",
+    "en_index": 234,
+    "tr_index": 234,
+    "step_bucket": 3,
+    "gold": "21"
+   },
+   {
+    "pair_id": "ev2-math-065",
+    "en_index": 873,
+    "tr_index": 871,
+    "step_bucket": 1,
+    "gold": "12"
+   },
+   {
+    "pair_id": "ev2-math-066",
+    "en_index": 716,
+    "tr_index": 714,
+    "step_bucket": 3,
+    "gold": "770"
+   },
+   {
+    "pair_id": "ev2-math-067",
+    "en_index": 509,
+    "tr_index": 507,
+    "step_bucket": 2,
+    "gold": "4"
+   },
+   {
+    "pair_id": "ev2-math-068",
+    "en_index": 735,
+    "tr_index": 733,
+    "step_bucket": 4,
+    "gold": "50"
+   },
+   {
+    "pair_id": "ev2-math-069",
+    "en_index": 572,
+    "tr_index": 570,
+    "step_bucket": 4,
+    "gold": "100"
+   },
+   {
+    "pair_id": "ev2-math-070",
+    "en_index": 296,
+    "tr_index": 296,
+    "step_bucket": 3,
+    "gold": "3"
+   },
+   {
+    "pair_id": "ev2-math-071",
+    "en_index": 578,
+    "tr_index": 576,
+    "step_bucket": 4,
+    "gold": "48"
+   },
+   {
+    "pair_id": "ev2-math-072",
+    "en_index": 1310,
+    "tr_index": 1308,
+    "step_bucket": 3,
+    "gold": "64"
+   },
+   {
+    "pair_id": "ev2-math-073",
+    "en_index": 8,
+    "tr_index": 8,
+    "step_bucket": 4,
+    "gold": "45"
+   },
+   {
+    "pair_id": "ev2-math-074",
+    "en_index": 204,
+    "tr_index": 204,
+    "step_bucket": 3,
+    "gold": "98"
+   },
+   {
+    "pair_id": "ev2-math-075",
+    "en_index": 1075,
+    "tr_index": 1073,
+    "step_bucket": 4,
+    "gold": "16"
+   },
+   {
+    "pair_id": "ev2-math-076",
+    "en_index": 303,
+    "tr_index": 303,
+    "step_bucket": 3,
+    "gold": "1300"
+   },
+   {
+    "pair_id": "ev2-math-077",
+    "en_index": 298,
+    "tr_index": 298,
+    "step_bucket": 3,
+    "gold": "500"
+   },
+   {
+    "pair_id": "ev2-math-078",
+    "en_index": 688,
+    "tr_index": 686,
+    "step_bucket": 2,
+    "gold": "100"
+   },
+   {
+    "pair_id": "ev2-math-079",
+    "en_index": 832,
+    "tr_index": 830,
+    "step_bucket": 1,
+    "gold": "42"
+   },
+   {
+    "pair_id": "ev2-math-080",
+    "en_index": 749,
+    "tr_index": 747,
+    "step_bucket": 1,
+    "gold": "3"
+   },
+   {
+    "pair_id": "ev2-math-081",
+    "en_index": 44,
+    "tr_index": 44,
+    "step_bucket": 3,
+    "gold": "20"
+   },
+   {
+    "pair_id": "ev2-math-082",
+    "en_index": 624,
+    "tr_index": 622,
+    "step_bucket": 1,
+    "gold": "85"
+   },
+   {
+    "pair_id": "ev2-math-083",
+    "en_index": 630,
+    "tr_index": 628,
+    "step_bucket": 1,
+    "gold": "10"
+   },
+   {
+    "pair_id": "ev2-math-084",
+    "en_index": 764,
+    "tr_index": 762,
+    "step_bucket": 3,
+    "gold": "14"
+   },
+   {
+    "pair_id": "ev2-math-085",
+    "en_index": 1028,
+    "tr_index": 1026,
+    "step_bucket": 1,
+    "gold": "200"
+   },
+   {
+    "pair_id": "ev2-math-086",
+    "en_index": 957,
+    "tr_index": 955,
+    "step_bucket": 1,
+    "gold": "45"
+   },
+   {
+    "pair_id": "ev2-math-087",
+    "en_index": 491,
+    "tr_index": 489,
+    "step_bucket": 1,
+    "gold": "16"
+   },
+   {
+    "pair_id": "ev2-math-088",
+    "en_index": 447,
+    "tr_index": 445,
+    "step_bucket": 2,
+    "gold": "5"
+   },
+   {
+    "pair_id": "ev2-math-089",
+    "en_index": 1052,
+    "tr_index": 1050,
+    "step_bucket": 4,
+    "gold": "110"
+   },
+   {
+    "pair_id": "ev2-math-090",
+    "en_index": 1238,
+    "tr_index": 1236,
+    "step_bucket": 2,
+    "gold": "520"
+   },
+   {
+    "pair_id": "ev2-math-091",
+    "en_index": 745,
+    "tr_index": 743,
+    "step_bucket": 3,
+    "gold": "1100"
+   },
+   {
+    "pair_id": "ev2-math-092",
+    "en_index": 1270,
+    "tr_index": 1268,
+    "step_bucket": 2,
+    "gold": "3528"
+   },
+   {
+    "pair_id": "ev2-math-093",
+    "en_index": 612,
+    "tr_index": 610,
+    "step_bucket": 1,
+    "gold": "30"
+   },
+   {
+    "pair_id": "ev2-math-094",
+    "en_index": 1193,
+    "tr_index": 1191,
+    "step_bucket": 4,
+    "gold": "9"
+   },
+   {
+    "pair_id": "ev2-math-095",
+    "en_index": 865,
+    "tr_index": 863,
+    "step_bucket": 3,
+    "gold": "23"
+   },
+   {
+    "pair_id": "ev2-math-096",
+    "en_index": 706,
+    "tr_index": 704,
+    "step_bucket": 1,
+    "gold": "9"
+   },
+   {
+    "pair_id": "ev2-math-097",
+    "en_index": 1111,
+    "tr_index": 1109,
+    "step_bucket": 3,
+    "gold": "157"
+   },
+   {
+    "pair_id": "ev2-math-098",
+    "en_index": 314,
+    "tr_index": 314,
+    "step_bucket": 1,
+    "gold": "30"
+   },
+   {
+    "pair_id": "ev2-math-099",
+    "en_index": 1147,
+    "tr_index": 1145,
+    "step_bucket": 3,
+    "gold": "22"
+   },
+   {
+    "pair_id": "ev2-math-100",
+    "en_index": 243,
+    "tr_index": 243,
+    "step_bucket": 1,
+    "gold": "250"
+   },
+   {
+    "pair_id": "ev2-math-101",
+    "en_index": 1170,
+    "tr_index": 1168,
+    "step_bucket": 1,
+    "gold": "2"
+   },
+   {
+    "pair_id": "ev2-math-102",
+    "en_index": 143,
+    "tr_index": 143,
+    "step_bucket": 3,
+    "gold": "16"
+   },
+   {
+    "pair_id": "ev2-math-103",
+    "en_index": 164,
+    "tr_index": 164,
+    "step_bucket": 1,
+    "gold": "15"
+   },
+   {
+    "pair_id": "ev2-math-104",
+    "en_index": 211,
+    "tr_index": 211,
+    "step_bucket": 1,
+    "gold": "4"
+   },
+   {
+    "pair_id": "ev2-math-105",
+    "en_index": 183,
+    "tr_index": 183,
+    "step_bucket": 2,
+    "gold": "2"
+   },
+   {
+    "pair_id": "ev2-math-106",
+    "en_index": 181,
+    "tr_index": 181,
+    "step_bucket": 1,
+    "gold": "160"
+   },
+   {
+    "pair_id": "ev2-math-107",
+    "en_index": 636,
+    "tr_index": 634,
+    "step_bucket": 2,
+    "gold": "1050"
+   },
+   {
+    "pair_id": "ev2-math-108",
+    "en_index": 165,
+    "tr_index": 165,
+    "step_bucket": 1,
+    "gold": "77"
+   },
+   {
+    "pair_id": "ev2-math-109",
+    "en_index": 1073,
+    "tr_index": 1071,
+    "step_bucket": 3,
+    "gold": "21"
+   },
+   {
+    "pair_id": "ev2-math-110",
+    "en_index": 669,
+    "tr_index": 667,
+    "step_bucket": 1,
+    "gold": "132"
+   },
+   {
+    "pair_id": "ev2-math-111",
+    "en_index": 1303,
+    "tr_index": 1301,
+    "step_bucket": 3,
+    "gold": "4"
+   },
+   {
+    "pair_id": "ev2-math-112",
+    "en_index": 322,
+    "tr_index": 322,
+    "step_bucket": 3,
+    "gold": "9"
+   },
+   {
+    "pair_id": "ev2-math-113",
+    "en_index": 994,
+    "tr_index": 992,
+    "step_bucket": 3,
+    "gold": "2"
+   },
+   {
+    "pair_id": "ev2-math-114",
+    "en_index": 1141,
+    "tr_index": 1139,
+    "step_bucket": 2,
+    "gold": "20"
+   },
+   {
+    "pair_id": "ev2-math-115",
+    "en_index": 95,
+    "tr_index": 95,
+    "step_bucket": 3,
+    "gold": "40"
+   },
+   {
+    "pair_id": "ev2-math-116",
+    "en_index": 644,
+    "tr_index": 642,
+    "step_bucket": 2,
+    "gold": "29"
+   },
+   {
+    "pair_id": "ev2-math-117",
+    "en_index": 730,
+    "tr_index": 728,
+    "step_bucket": 1,
+    "gold": "8"
+   },
+   {
+    "pair_id": "ev2-math-118",
+    "en_index": 581,
+    "tr_index": 579,
+    "step_bucket": 3,
+    "gold": "215"
+   },
+   {
+    "pair_id": "ev2-math-119",
+    "en_index": 1226,
+    "tr_index": 1224,
+    "step_bucket": 4,
+    "gold": "90"
+   },
+   {
+    "pair_id": "ev2-math-120",
+    "en_index": 1150,
+    "tr_index": 1148,
+    "step_bucket": 1,
+    "gold": "21"
+   },
+   {
+    "pair_id": "ev2-math-121",
+    "en_index": 413,
+    "tr_index": 412,
+    "step_bucket": 1,
+    "gold": "25"
+   },
+   {
+    "pair_id": "ev2-math-122",
+    "en_index": 100,
+    "tr_index": 100,
+    "step_bucket": 4,
+    "gold": "175"
+   },
+   {
+    "pair_id": "ev2-math-123",
+    "en_index": 1243,
+    "tr_index": 1241,
+    "step_bucket": 1,
+    "gold": "50"
+   },
+   {
+    "pair_id": "ev2-math-124",
+    "en_index": 844,
+    "tr_index": 842,
+    "step_bucket": 4,
+    "gold": "180"
+   },
+   {
+    "pair_id": "ev2-math-125",
+    "en_index": 216,
+    "tr_index": 216,
+    "step_bucket": 3,
+    "gold": "220"
+   },
+   {
+    "pair_id": "ev2-math-126",
+    "en_index": 489,
+    "tr_index": 487,
+    "step_bucket": 1,
+    "gold": "-10"
+   },
+   {
+    "pair_id": "ev2-math-127",
+    "en_index": 717,
+    "tr_index": 715,
+    "step_bucket": 3,
+    "gold": "5"
+   },
+   {
+    "pair_id": "ev2-math-128",
+    "en_index": 206,
+    "tr_index": 206,
+    "step_bucket": 4,
+    "gold": "860"
+   },
+   {
+    "pair_id": "ev2-math-129",
+    "en_index": 53,
+    "tr_index": 53,
+    "step_bucket": 2,
+    "gold": "40"
+   },
+   {
+    "pair_id": "ev2-math-130",
+    "en_index": 335,
+    "tr_index": 334,
+    "step_bucket": 1,
+    "gold": "310"
+   },
+   {
+    "pair_id": "ev2-math-131",
+    "en_index": 963,
+    "tr_index": 961,
+    "step_bucket": 1,
+    "gold": "147"
+   },
+   {
+    "pair_id": "ev2-math-132",
+    "en_index": 72,
+    "tr_index": 72,
+    "step_bucket": 2,
+    "gold": "221"
+   },
+   {
+    "pair_id": "ev2-math-133",
+    "en_index": 1229,
+    "tr_index": 1227,
+    "step_bucket": 3,
+    "gold": "36"
+   },
+   {
+    "pair_id": "ev2-math-134",
+    "en_index": 228,
+    "tr_index": 228,
+    "step_bucket": 3,
+    "gold": "1"
+   },
+   {
+    "pair_id": "ev2-math-135",
+    "en_index": 696,
+    "tr_index": 694,
+    "step_bucket": 4,
+    "gold": "145"
+   },
+   {
+    "pair_id": "ev2-math-136",
+    "en_index": 471,
+    "tr_index": 469,
+    "step_bucket": 3,
+    "gold": "80"
+   },
+   {
+    "pair_id": "ev2-math-137",
+    "en_index": 741,
+    "tr_index": 739,
+    "step_bucket": 2,
+    "gold": "28"
+   },
+   {
+    "pair_id": "ev2-math-138",
+    "en_index": 1030,
+    "tr_index": 1028,
+    "step_bucket": 2,
+    "gold": "24"
+   },
+   {
+    "pair_id": "ev2-math-139",
+    "en_index": 915,
+    "tr_index": 913,
+    "step_bucket": 2,
+    "gold": "23"
+   },
+   {
+    "pair_id": "ev2-math-140",
+    "en_index": 200,
+    "tr_index": 200,
+    "step_bucket": 2,
+    "gold": "55"
+   },
+   {
+    "pair_id": "ev2-math-141",
+    "en_index": 665,
+    "tr_index": 663,
+    "step_bucket": 2,
+    "gold": "360"
+   },
+   {
+    "pair_id": "ev2-math-142",
+    "en_index": 912,
+    "tr_index": 910,
+    "step_bucket": 2,
+    "gold": "6"
+   },
+   {
+    "pair_id": "ev2-math-143",
+    "en_index": 971,
+    "tr_index": 969,
+    "step_bucket": 3,
+    "gold": "100"
+   },
+   {
+    "pair_id": "ev2-math-144",
+    "en_index": 1234,
+    "tr_index": 1232,
+    "step_bucket": 1,
+    "gold": "12"
+   },
+   {
+    "pair_id": "ev2-math-145",
+    "en_index": 123,
+    "tr_index": 123,
+    "step_bucket": 3,
+    "gold": "50"
+   },
+   {
+    "pair_id": "ev2-math-146",
+    "en_index": 1242,
+    "tr_index": 1240,
+    "step_bucket": 3,
+    "gold": "20"
+   },
+   {
+    "pair_id": "ev2-math-147",
+    "en_index": 150,
+    "tr_index": 150,
+    "step_bucket": 4,
+    "gold": "4"
+   },
+   {
+    "pair_id": "ev2-math-148",
+    "en_index": 903,
+    "tr_index": 901,
+    "step_bucket": 4,
+    "gold": "16"
+   },
+   {
+    "pair_id": "ev2-math-149",
+    "en_index": 785,
+    "tr_index": 783,
+    "step_bucket": 3,
+    "gold": "155"
+   },
+   {
+    "pair_id": "ev2-math-150",
+    "en_index": 685,
+    "tr_index": 683,
+    "step_bucket": 3,
+    "gold": "14"
+   },
+   {
+    "pair_id": "ev2-math-151",
+    "en_index": 428,
+    "tr_index": 427,
+    "step_bucket": 3,
+    "gold": "26"
+   },
+   {
+    "pair_id": "ev2-math-152",
+    "en_index": 725,
+    "tr_index": 723,
+    "step_bucket": 2,
+    "gold": "25"
+   }
+  ]
+ },
+ "symbolic": {
+  "audit": {
+   "count": 60,
+   "by_operators": {
+    "3": 20,
+    "4": 20,
+    "2": 20
+   }
+  },
+  "items": [
+   {
+    "pair_id": "ev2-sym-001",
+    "expression": "94 * (80 * 68 / 32)",
+    "gold": "15980",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-002",
+    "expression": "29 + 55 + 74 * 21 - 19",
+    "gold": "1619",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-003",
+    "expression": "16 - 33 - (16 - 68) * 15",
+    "gold": "763",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-004",
+    "expression": "(72 - 63) * 80",
+    "gold": "720",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-005",
+    "expression": "32 - 24 + 83 + 35",
+    "gold": "126",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-006",
+    "expression": "53 * (59 + 32) - (21 + 74)",
+    "gold": "4728",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-007",
+    "expression": "91 + (8 - 80)",
+    "gold": "19",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-008",
+    "expression": "37 * 17 + (74 + 39)",
+    "gold": "742",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-009",
+    "expression": "(21 + (90 - 67)) * 46 + 24",
+    "gold": "2048",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-010",
+    "expression": "49 + 69 + 94 - 31",
+    "gold": "181",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-011",
+    "expression": "77 + 88 - (99 - 7 + 54)",
+    "gold": "19",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-012",
+    "expression": "44 + 39 + 50 + 13 - 54",
+    "gold": "92",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-013",
+    "expression": "2 + 12 * 87 + 10",
+    "gold": "1056",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-014",
+    "expression": "33 * (62 + (73 + 3))",
+    "gold": "4554",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-015",
+    "expression": "82 + 33 * 42 - 9 * 40",
+    "gold": "1108",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-016",
+    "expression": "(75 - 95 * 3) * (9 - 30)",
+    "gold": "4410",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-017",
+    "expression": "97 * 76 + 85",
+    "gold": "7457",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-018",
+    "expression": "29 * (80 - 24)",
+    "gold": "1624",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-019",
+    "expression": "68 - (69 - (68 - 59))",
+    "gold": "8",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-020",
+    "expression": "40 + (14 * 23 + 24)",
+    "gold": "386",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-021",
+    "expression": "(72 + 50) * (45 + (29 - 51))",
+    "gold": "2806",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-022",
+    "expression": "26 + (56 - 15)",
+    "gold": "67",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-023",
+    "expression": "(51 - 86) * (15 - 89 - 24)",
+    "gold": "3430",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-024",
+    "expression": "87 + 42 - (64 - 16 + 72)",
+    "gold": "9",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-025",
+    "expression": "(53 + 47) * (42 + 29) - 4",
+    "gold": "7096",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-026",
+    "expression": "14 - (39 + (7 - 51))",
+    "gold": "19",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-027",
+    "expression": "(35 + 82) * (18 + 88) - 34",
+    "gold": "12368",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-028",
+    "expression": "86 + 77 * 96",
+    "gold": "7478",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-029",
+    "expression": "99 + (87 - 28 + 66 - 23)",
+    "gold": "201",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-030",
+    "expression": "95 - 31 + 17",
+    "gold": "81",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-031",
+    "expression": "25 - (48 - 46)",
+    "gold": "23",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-032",
+    "expression": "86 * 77 + 51",
+    "gold": "6673",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-033",
+    "expression": "35 - (85 - 84) - 17",
+    "gold": "17",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-034",
+    "expression": "(27 - 5) * (85 * 51)",
+    "gold": "95370",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-035",
+    "expression": "70 + (9 + 54) + (62 + 5)",
+    "gold": "200",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-036",
+    "expression": "25 * 31 * 88",
+    "gold": "68200",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-037",
+    "expression": "59 - 28 + 93",
+    "gold": "124",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-038",
+    "expression": "(80 - 16 + 4) * 33",
+    "gold": "2244",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-039",
+    "expression": "(35 + (59 - 92)) * 13",
+    "gold": "26",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-040",
+    "expression": "61 * 45 - 14",
+    "gold": "2731",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-041",
+    "expression": "91 * 76 + 65 - 99 * 14",
+    "gold": "5595",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-042",
+    "expression": "85 * (65 + 11)",
+    "gold": "6460",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-043",
+    "expression": "8 - (29 + 57) + (56 + 34)",
+    "gold": "12",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-044",
+    "expression": "37 + 79 * 12",
+    "gold": "985",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-045",
+    "expression": "31 + 4 + 29 - 50",
+    "gold": "14",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-046",
+    "expression": "54 - 35 - (61 - 69)",
+    "gold": "27",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-047",
+    "expression": "(14 + 52) * 98",
+    "gold": "6468",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-048",
+    "expression": "10 * 56 + (65 - 63 + 80)",
+    "gold": "642",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-049",
+    "expression": "27 - (31 - 29)",
+    "gold": "25",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-050",
+    "expression": "95 * 41 / 5",
+    "gold": "779",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-051",
+    "expression": "41 - (97 - 36) + 61 * 44",
+    "gold": "2664",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-052",
+    "expression": "9 + 74 - 19",
+    "gold": "64",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-053",
+    "expression": "64 * 99 - 75 + 65",
+    "gold": "6326",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-054",
+    "expression": "76 + (82 + 29) * 64",
+    "gold": "7180",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-055",
+    "expression": "42 + (87 + (34 * 25 + 26))",
+    "gold": "1005",
+    "operators": 4
+   },
+   {
+    "pair_id": "ev2-sym-056",
+    "expression": "36 + 24 + 98",
+    "gold": "158",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-057",
+    "expression": "92 - 40 + 19 + 72",
+    "gold": "143",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-058",
+    "expression": "36 / 36 + 88 * 61",
+    "gold": "5369",
+    "operators": 3
+   },
+   {
+    "pair_id": "ev2-sym-059",
+    "expression": "(47 + 71) * 35",
+    "gold": "4130",
+    "operators": 2
+   },
+   {
+    "pair_id": "ev2-sym-060",
+    "expression": "76 + 96 + 41 - 6",
+    "gold": "207",
+    "operators": 3
+   }
+  ]
+ },
+ "toolcall": {
+  "audit": {
+   "count": 80,
+   "by_subfamily": {
+    "simple": 40,
+    "parallel": 20,
+    "multiple": 20
+   },
+   "schema_types": {
+    "string": 170,
+    "integer": 98,
+    "number": 34,
+    "boolean": 19,
+    "array": 23
+   },
+   "entity_exempt": [
+    "24 hour",
+    "Canadian dollars",
+    "Chicago area",
+    "December",
+    "Euros",
+    "May 12, 2022"
+   ],
+   "translation_author": "Claude Sonnet 5.5, 2026-11-21, owner spot check pending",
+   "invariants": "number sets equal; identifiers kept; gold literals with uppercase/digits/symbols kept verbatim"
+  },
+  "items": [
+   {
+    "pair_id": "ev2-tool-001",
+    "bfcl_id": "simple_383",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-002",
+    "bfcl_id": "simple_154",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-003",
+    "bfcl_id": "simple_135",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-004",
+    "bfcl_id": "parallel_35",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-005",
+    "bfcl_id": "multiple_145",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-006",
+    "bfcl_id": "simple_370",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-007",
+    "bfcl_id": "multiple_138",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-008",
+    "bfcl_id": "simple_70",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-009",
+    "bfcl_id": "parallel_101",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-010",
+    "bfcl_id": "multiple_81",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-011",
+    "bfcl_id": "simple_389",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-012",
+    "bfcl_id": "parallel_90",
+    "subfamily": "parallel",
+    "n_gold_calls": 4
+   },
+   {
+    "pair_id": "ev2-tool-013",
+    "bfcl_id": "simple_62",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-014",
+    "bfcl_id": "simple_174",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-015",
+    "bfcl_id": "simple_146",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-016",
+    "bfcl_id": "parallel_63",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-017",
+    "bfcl_id": "parallel_20",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-018",
+    "bfcl_id": "parallel_198",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-019",
+    "bfcl_id": "multiple_161",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-020",
+    "bfcl_id": "parallel_98",
+    "subfamily": "parallel",
+    "n_gold_calls": 4
+   },
+   {
+    "pair_id": "ev2-tool-021",
+    "bfcl_id": "multiple_69",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-022",
+    "bfcl_id": "simple_336",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-023",
+    "bfcl_id": "simple_215",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-024",
+    "bfcl_id": "parallel_171",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-025",
+    "bfcl_id": "parallel_94",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-026",
+    "bfcl_id": "parallel_115",
+    "subfamily": "parallel",
+    "n_gold_calls": 4
+   },
+   {
+    "pair_id": "ev2-tool-027",
+    "bfcl_id": "multiple_32",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-028",
+    "bfcl_id": "simple_12",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-029",
+    "bfcl_id": "simple_79",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-030",
+    "bfcl_id": "simple_218",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-031",
+    "bfcl_id": "parallel_159",
+    "subfamily": "parallel",
+    "n_gold_calls": 3
+   },
+   {
+    "pair_id": "ev2-tool-032",
+    "bfcl_id": "simple_144",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-033",
+    "bfcl_id": "simple_199",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-034",
+    "bfcl_id": "parallel_28",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-035",
+    "bfcl_id": "simple_373",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-036",
+    "bfcl_id": "multiple_153",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-037",
+    "bfcl_id": "multiple_165",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-038",
+    "bfcl_id": "parallel_167",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-039",
+    "bfcl_id": "simple_219",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-040",
+    "bfcl_id": "simple_161",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-041",
+    "bfcl_id": "multiple_119",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-042",
+    "bfcl_id": "parallel_114",
+    "subfamily": "parallel",
+    "n_gold_calls": 6
+   },
+   {
+    "pair_id": "ev2-tool-043",
+    "bfcl_id": "simple_299",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-044",
+    "bfcl_id": "simple_274",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-045",
+    "bfcl_id": "simple_40",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-046",
+    "bfcl_id": "simple_100",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-047",
+    "bfcl_id": "simple_132",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-048",
+    "bfcl_id": "parallel_50",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-049",
+    "bfcl_id": "simple_193",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-050",
+    "bfcl_id": "parallel_131",
+    "subfamily": "parallel",
+    "n_gold_calls": 3
+   },
+   {
+    "pair_id": "ev2-tool-051",
+    "bfcl_id": "parallel_156",
+    "subfamily": "parallel",
+    "n_gold_calls": 4
+   },
+   {
+    "pair_id": "ev2-tool-052",
+    "bfcl_id": "simple_376",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-053",
+    "bfcl_id": "simple_353",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-054",
+    "bfcl_id": "multiple_147",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-055",
+    "bfcl_id": "simple_390",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-056",
+    "bfcl_id": "simple_227",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-057",
+    "bfcl_id": "multiple_134",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-058",
+    "bfcl_id": "multiple_1",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-059",
+    "bfcl_id": "simple_211",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-060",
+    "bfcl_id": "simple_319",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-061",
+    "bfcl_id": "simple_69",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-062",
+    "bfcl_id": "multiple_191",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-063",
+    "bfcl_id": "simple_278",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-064",
+    "bfcl_id": "parallel_14",
+    "subfamily": "parallel",
+    "n_gold_calls": 3
+   },
+   {
+    "pair_id": "ev2-tool-065",
+    "bfcl_id": "simple_290",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-066",
+    "bfcl_id": "multiple_65",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-067",
+    "bfcl_id": "simple_364",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-068",
+    "bfcl_id": "multiple_168",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-069",
+    "bfcl_id": "simple_270",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-070",
+    "bfcl_id": "simple_261",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-071",
+    "bfcl_id": "simple_248",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-072",
+    "bfcl_id": "parallel_126",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-073",
+    "bfcl_id": "multiple_51",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-074",
+    "bfcl_id": "simple_312",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-075",
+    "bfcl_id": "multiple_12",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-076",
+    "bfcl_id": "simple_280",
+    "subfamily": "simple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-077",
+    "bfcl_id": "multiple_187",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-078",
+    "bfcl_id": "parallel_32",
+    "subfamily": "parallel",
+    "n_gold_calls": 2
+   },
+   {
+    "pair_id": "ev2-tool-079",
+    "bfcl_id": "multiple_184",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   },
+   {
+    "pair_id": "ev2-tool-080",
+    "bfcl_id": "multiple_140",
+    "subfamily": "multiple",
+    "n_gold_calls": 1
+   }
+  ]
+ },
+ "policy": "Evaluation only. Gold answers come from English GSM8K; Turkish items are kept only when the final answer and every question number match. Not a Turkish-quality benchmark: translation is machine-made."
+}
