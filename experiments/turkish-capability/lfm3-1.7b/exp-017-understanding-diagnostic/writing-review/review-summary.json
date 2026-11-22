@@ -1,0 +1,115 @@
+{
+ "rater": "OpenAI Codex (GPT-6-based assistant; runtime revision/settings unavailable)",
+ "assessment_type": "AI, identity-blind; experiment README aggregates seen",
+ "models": {
+  "base": {
+   "mean": 1.82,
+   "distribution": {
+    "1": 15,
+    "2": 20,
+    "3": 3,
+    "4": 1,
+    "5": 1
+   },
+   "share_1_2": 0.875,
+   "share_4_5": 0.05,
+   "lexical_flag_answers": 33,
+   "by_category": {
+    "advice": 1.75,
+    "constraint": 2,
+    "creative": 1.75,
+    "email": 1.67,
+    "explain": 1.5,
+    "rewrite": 2.75,
+    "summary": 1.83,
+    "translate": 1.5
+   }
+  },
+  "cpt": {
+   "mean": 1.05,
+   "distribution": {
+    "1": 38,
+    "2": 2
+   },
+   "share_1_2": 1.0,
+   "share_4_5": 0.0,
+   "lexical_flag_answers": 10,
+   "by_category": {
+    "advice": 1.25,
+    "constraint": 1,
+    "creative": 1,
+    "email": 1,
+    "explain": 1,
+    "rewrite": 1,
+    "summary": 1.17,
+    "translate": 1
+   }
+  },
+  "selfdistill-a": {
+   "mean": 1.88,
+   "distribution": {
+    "1": 11,
+    "2": 23,
+    "3": 6
+   },
+   "share_1_2": 0.85,
+   "share_4_5": 0.0,
+   "lexical_flag_answers": 30,
+   "by_category": {
+    "advice": 2.25,
+    "constraint": 2.17,
+    "creative": 1.5,
+    "email": 1.33,
+    "explain": 2,
+    "rewrite": 1.5,
+    "summary": 2.17,
+    "translate": 2
+   }
+  },
+  "selfdistill-b-cpt": {
+   "mean": 2.35,
+   "distribution": {
+    "1": 7,
+    "2": 17,
+    "3": 12,
+    "4": 3,
+    "5": 1
+   },
+   "share_1_2": 0.6,
+   "share_4_5": 0.1,
+   "lexical_flag_answers": 14,
+   "by_category": {
+    "advice": 2.5,
+    "constraint": 2.67,
+    "creative": 2.25,
+    "email": 1.67,
+    "explain": 2,
+    "rewrite": 2.5,
+    "summary": 2.83,
+    "translate": 3
+   }
+  }
+ },
+ "paired": {
+  "selfdistill-b-cpt-minus-base": {
+   "mean": 0.525,
+   "lo": 0.175,
+   "hi": 0.85
+  },
+  "selfdistill-a-minus-base": {
+   "mean": 0.05,
+   "lo": -0.275,
+   "hi": 0.35
+  },
+  "selfdistill-b-cpt-minus-selfdistill-a": {
+   "mean": 0.475,
+   "lo": 0.2,
+   "hi": 0.775
+  },
+  "cpt-minus-base": {
+   "mean": -0.775,
+   "lo": -1.05,
+   "hi": -0.5
+  }
+ }
+}

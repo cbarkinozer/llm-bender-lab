@@ -2,8 +2,9 @@
 
 ## Status
 
-completed (diagnostic; no model was trained). Human blind review of the writing probe was done by the owner after the run;
-the ratings are not yet recorded here (see Results).
+completed (diagnostic; no model was trained). The writing probe was rated by an AI assessor (OpenAI Codex), not by a human;
+the owner (a native speaker) added a qualitative opinion on excerpts, but no full human rating of the 160 answers exists
+(see "Writing review" and "Owner's qualitative assessment").
 
 ## Goal
 
@@ -129,8 +130,7 @@ Arm B vs arm A, Turkish: +.034 [+.006,+.064]. English restricted accuracy is unc
 0), so the Turkish gain is not just answer-format calibration; the generated-text reading (format failures count as wrong)
 agrees (base TR .353, A .441, B .478).
 
-Writing probe (40 native Turkish prompts, thinking off; `results/writing/`; the human blind review is not done yet,
-`writing-review/review-sheet.md`):
+Writing probe (40 native Turkish prompts, thinking off; `results/writing/`; ratings are in "Writing review" below):
 
 | Model | answers without EOS | 12 constraint prompts passed | mean words | unknown-word tokens | of which English | non-English candidates |
 |---|---:|---:|---:|---:|---:|---:|
@@ -177,25 +177,62 @@ Turkish" prompt (arm A: one e-mail; base: the translation prompt partly).
 5. **The CPT adapter alone is not usable** (no EOS in 70% of writing answers, Belebele Turkish at chance), as in the earlier
    baselines. Its Belebele number is partly a format effect and not a clean measure of comprehension.
 6. **The automatic unknown-word rate does not separate the models** at this sample size: non-English candidates are at or
-   below the human-text rate for A and B. It misses the semantic oddities seen earlier ("okuyacak mesafe"). The human
-   blind review is the real writing measure.
+   below the human-text rate for A and B. It misses the semantic oddities seen earlier ("okuyacak mesafe"). The AI ratings
+   below do rank them (B above A and base), but they are one AI rater, not a native speaker.
 
 ## Limits
 
 One training seed per arm; machine-translated math items (about 4 of 26 inspected failures had translation flaws); one
 greedy translation per item for cell G; the constraint check covers only 12 prompts; the writing sheet has not been rated
-by a human yet; arm A is exploratory. Belebele passage text is CC-BY-SA and kept out of Git.
+by a native speaker (only by an AI that had seen the aggregate results); arm A is exploratory. Belebele passage text is CC-BY-SA and kept out of Git.
 
 ## Regressions
 
 No model was changed, so no regression in this experiment. The regressions of the exp-016 arms that this experiment exposes
 are listed under Findings (2, 3).
 
-## Human review of the writing probe
+## Writing review (AI assessment, not a human review)
 
-The owner rated the blind sheet (`writing-review/review-sheet.md`, key in `writing-review/review-key.json`) after the run
-and reported only that it was done. The ratings were not passed on, so no human-review result is recorded here. Add them
-(rating per answer, invented words noted) before using the writing probe to choose between models.
+The 160 answers (40 prompts x 4 anonymous models) were rated 1-5 with notes on vocabulary by **OpenAI Codex (GPT-6-based
+assistant; runtime revision and settings unavailable)** on 2026-11-22 (`writing-review/review-ratings.json`, protocol at
+the top of `writing-review/review-sheet.md`). The assessor did not open `review-key.json`, but it had read this README's
+aggregate results first, so it was blind to model identity only in the sense of not seeing the key; its ratings may be
+influenced by those aggregates (for example the English-reply failures of arm B). It is one rater, not a native speaker, and
+its scale was not calibrated against a human. The summary below comes from `scripts/evaluation/summarize_lfm3_writing_review.py`
+(coverage verified: 160 distinct ratings, 40 prompts, all answer text in the sheet identical to the generated answers;
+`writing-review/review-summary.json`). Treat it as exploratory.
+
+| Model | mean rating (1-5) | rated 1-2 | rated 4-5 | answers with vocabulary flags |
+|---|---:|---:|---:|---:|
+| base | 1.82 | 88% | 5% | 33 / 40 |
+| CPT merged | 1.05 | 100% | 0% | 10 / 40 |
+| arm A | 1.88 | 85% | 0% | 30 / 40 |
+| arm B | 2.35 | 60% | 10% | 14 / 40 |
+
+Paired by prompt (mean rating difference, 95% bootstrap interval): arm B - base +0.53 [+0.18,+0.85]; arm B - arm A +0.48
+[+0.20,+0.78]; arm A - base +0.05 [-0.28,+0.35]; CPT - base -0.78 [-1.05,-0.50]. By category arm B is highest in
+summaries (2.83), translation (3.0) and constraint prompts (2.67) and lowest in e-mails (1.67, English replies) and
+explanations (2.0). Constraint prompts are few (12) and not analyzed separately.
+
+Reading: on this rater's scale all four models write poor Turkish (even arm B averages 2.35, between "partly decipherable
+with major problems" and "understandable but clearly non-native"). Arm B is the best, arm A is no better than the base, and
+the CPT adapter alone is unusable in chat. The six answers rated 4 or 5 are arm B (wr-tr-18, 22, 31, 40) and base (wr-tr-22,
+23); a human should check those and a sample of the 1s before the ranking is relied on.
+
+A second reading of the six top-rated answers by the same assessor found that the single score mixes Turkish naturalness
+with task success: arm B wr-tr-18 got a 4 although it copies the source and exceeds the 30-word limit, and wr-tr-31 got a 4
+although "en büyük kentidir" (Ankara) is false. Rank the models only after scoring naturalness and task correctness
+separately (planned for the next review). The saved ratings were not changed.
+
+## Owner's qualitative assessment (native speaker, 2026-11-22, from the AI summary and its excerpts, not a re-rating)
+
+Grammar is generally good: not perfect, but passable for a model of this size, and clearly improved over the base model;
+still not better than Qwen3.5-4B. The slips look like human errors rather than nonsense: "artıran" for "arttıran",
+an unnecessary suffix ("taze meyveleri kokar" for "taze meyveler kokar"). The more serious failure is hallucinated
+vocabulary, for example translating "meeting" as "meydan okuma" instead of "toplantı". Checked against the key: "artıran"
+came from the CPT adapter alone (wr-tr-02), "taze meyveleri kokar" from arm A (wr-tr-25), and "meydan okuma" from the base
+and arm A (wr-tr-39); arm B did not make these particular errors, but it left that translation prompt in English.
+The owner expects that teaching Turkish understanding will also improve Turkish writing.
 
 ## Conclusion
 
@@ -203,7 +240,8 @@ The gap is mainly reading Turkish (22 points with thinking on, 35 to 46 with thi
 when the reasoning happens in the English think block. The exp-016 SFT is mixed: Belebele Turkish +10 to +13 points,
 Turkish math reading about -12 points with thinking on, Turkish-reply math with thinking off much worse, and arm B answers
 some Turkish prompts in English. Neither translate-first nor restate-first is a usable no-training fix. The unknown-word
-rate cannot rank these models; human review has to.
+rate cannot rank these models; the AI ratings do (arm B best, arm A about equal to the base, CPT alone unusable), and the owner's read agrees that
+the Turkish is passable for the size, with mistranslation (hallucinated word meanings) the most serious remaining defect.
 
 ## Next step (proposed, not run)
 

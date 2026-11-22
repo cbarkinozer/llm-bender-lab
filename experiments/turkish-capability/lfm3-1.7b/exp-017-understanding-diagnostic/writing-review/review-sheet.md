@@ -3,6 +3,15 @@
 For each prompt rate every answer 1-5 (1 = unusable, 3 = understandable but clearly non-native, 5 = natural). Also mark any invented or wrong words you notice.
 
 
+## Review protocol (AI assessment, 2026-11-22)
+
+Reviewer: OpenAI Codex, GPT-6-based assistant; exact runtime revision and sampling settings are not exposed. This is an AI assessment, not a human review. All 160 answers were read in the supplied order, A-D for each prompt, with no answer rewriting. `review-key.json` was not opened or used. Repository evaluation guidance and the experiment README were read; the README contains aggregate model results, so this review is identity-blind to the key but not isolated from experiment context.
+
+Scale: **1** unusable (incoherent, irrelevant, wrong response language, or dominated by degeneration); **2** partly decipherable with major language/meaning problems; **3** understandable but clearly non-native; **4** mostly natural with minor defects; **5** natural. Ratings assess the complete answer as Turkish writing in response to its prompt: naturalness, coherence, relevance, and usability. Major meaning/task failures lower the rating; minor length or factual failures are also recorded explicitly and do not automatically make fluent Turkish a 1. These are holistic writing ratings, not a separate factual-accuracy benchmark.
+
+The existing “Invented words” field distinguishes apparent inventions/malformed forms, foreign words or hybrids, ordinary spelling/inflection errors, and real words used incorrectly. A flag is not proof that a word never exists in any dialect or specialist context. “None identified” means no lexical invention/error singled out, not that the answer is otherwise correct. Truncated endings and names are not automatically counted as invented vocabulary. Reasons describe additional failures separately.
+
+
 ---
 
 ## wr-tr-01 (explain)
@@ -29,7 +38,9 @@ Bir ortaokul öğrenci (ör. bir çiftçi) evde oturduğunda, aklında şu şeyl
 
 **Kısaca:** Bitkiler güneş ışığı ile su ve karbon disulfatı kullanarak gıdalara dönüştürmeye çalışırlar ve bu süreç, hem besin sağlar hem de atmosferde oksijen üretir. Ortaokul öğrenciler genellikle bitkileri tarama yaparak bu sürecin nasıl işlediğini görürler.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/foreign spelling: glicerin (gliserin). Wrong terms: karbon disulfat (karbondioksit), su tohumu.
+
+Review note: Frequent agreement and case errors; incoherent analogy and incorrect process description.
 
 
 ### B
@@ -59,7 +70,9 @@ Bir bitki güneş altında çiçek açtığında, güneş ışığına dayanarak
 
 **Kısaca:** Fotosentez = Güneş + Su + CO₂ → Şeker + Oksijen.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Foreign stem: chloroplastlarda (kloroplastlarda); not an invented word.
+
+Review note: Readable structure, but broken definition and several unnatural clauses; scientific inaccuracies.
 
 
 ### C
@@ -79,7 +92,9 @@ Fotosentez, bitkilerin beslenmesinde çok önemli bir rol oynar. Çünkü fotose
 Fotosentez, bitkilerde ve bazı mikroorganizmalarda ışık enerjisi ile karbon dioksit (CO2) ve su (H2O) kullanılarak glikoz ve oksijen üretme işlemidir.
 Fotosentez, bitkilerin beslenmesinde çok önemli bir rol oynar. Çünkü fotos
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; final fotos is a truncated word.
+
+Review note: Starts intelligibly, then repeats whole paragraphs and ends mid-word; unusable as a complete response.
 
 
 ### D
@@ -104,7 +119,9 @@ Düşünün ki bir **kitap fabrikası** var. Bu fabrika, **güneşin ışığın
 
 **Kısaca:** Fotosentez, **güneşin ışığını, su ve karbon disulfit ile birleştirip şeker ve oksijen üretmek** için bitkinin kendi "faktori" olduğunu gösterir. Yani bitki, kendisini güneşle besler! 🌱☀️
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent inventions/malformed forms: sugrular, güneşen, havaından, bileşekler, faktori. Wrong term: karbon disulfit; foreign chloroplast/glucose are not inventions.
+
+Review note: Pervasive lexical and syntactic breakdown; chloroplast incorrectly glossed as a nerve cell.
 
 
 ---
@@ -130,7 +147,9 @@ Bir ev sahibi, 100 bin dolarlık bir ev satın alır. Bir yıl sonra, enerji fiy
 
 Bu, fiyatların artmasının bir “demand-pull” etkisi olduğunu göstermektedir: talep artmış, ancak üretim o kadar hızlı değil.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: etkenten (etkenden). Wrong usage: parite.
+
+Review note: Some intelligible explanation, but the example and its causal conclusion are incoherent.
 
 
 ### B
@@ -139,7 +158,9 @@ Enflasyon nedir?
 Enflasyon, bir ekonomideki fiyatların zaman içinde belirli bir oranda artmasıdır.
 Fiyatların artması, genellikle maliyetlerin artmasıyla olur. Örneğin, enflasyonun temel nedeni işsizlik ve işsizliğin artmasıdır. İşsizlik, işsizlik oranının yükselmesi, işsizlik oranı artarsa, işsizlik oranında artış, işsizlik oranını artıran faktörler arasında yer alır. Bu faktörlerden biri de işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı işsizlik oranındaki artışın nedeni olarak işsizlik oranını artıran faktörler sayılabilir. Bu faktörler arasında en önemli olanı
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: False causal claim followed by a long circular repetition loop; no everyday example.
 
 
 ### C
@@ -179,7 +200,9 @@ Bu tür günlük fiyat değişiklikleri, uzun vadede **enflasyon**a yol açabili
 
 Bu mekanizmalarla, ekonomik enflasyon, günlük yaşamda görülen küçük fiyat dalgalanmalardan başlar ve zamanla büyük ölçüde ekonomik fiyat seviyesini yükseltir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: çekir (çeker), Taleb (talep), aylarık (aylık). Wrong labels: Takım Fırtınası, Maliyet Fırtınası; odd kahve suları.
+
+Review note: Basic mechanism is partly recoverable, but numerous unnatural phrases and a muddled example undermine clarity.
 
 
 ### D
@@ -208,7 +231,9 @@ Bu, talep arttığında fiyatın artmasını gösterir: daha fazla talep, üreti
 
 Bu mekanizma, ekonomide fiyatlar “içeriden kaynaklanan” ve “dışarıdan gelen” olarak adlandırılır. İhtiyacın veya üretim kapasitenin değişimi, fiyatları etkileyerek ekonomik dengeyi yeniden kurar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong usage/combinations: Bazlılık for demand, tüketicilik gücü, yemek sütü, süt sütüden.
+
+Review note: Real words largely used in unnatural combinations; explanation becomes circular and grammatically broken.
 
 
 ---
@@ -265,7 +290,9 @@ Kısa ve teknik terimler olmadan anlatmak için temel kavramları özetleyelim:
 - **Veri depolama → Backend işleme → Caching & Security → Frontend sunımı**  
 - Kullanıcı sadece “siteye gir” diyerek, arkasındaki karmaşık işlemler (database, proxy, şif
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/apparent coinage: sitresinin, Hafizeleme, Protokoli, içerdir, sunımı. Foreign spelling: traficini, geografik. Wrong glosses: Geri Yazılım, Önceki Katman, Arayüz İndeksi.
+
+Review note: Heavy jargon violates the prompt; mistranslated terminology, broken clauses, and an unfinished ending.
 
 
 ### B
@@ -274,7 +301,9 @@ Rating (1-5): ____   Invented words: ____
 Bu programlar, arka plan olarak kullanıldığında, bilgisayarınızın görünümünü değiştirirler. Örneğin, Windows Explorer, bilgisayarınıza gelen her türlü dosyayı açmak için kullanılır. Bu yüzden arka plan olarak kullanılmadığı takdirde, bilgisayarınızın görünümü bozulabilir. Ayrıca, bu programlar bilgisayarınızın güvenlik korumasını da etkileyebilir. Bunun için, arka plan olarak kullanılmayan programlar, bilgisayarınızın güvenlik koruması tarafından kontrol edilebilir.
 Bilgisayarınızda kullanılan arka plan programlarını kontrol etmek için, bilgisayarınızı açtığınızda, arka plan olarak kullanılacak programı seçmeniz gerekir. Bu programı seçerken, bilgisayarınızın güvenlik koruması tarafından kontrol edilebilir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Confuses website access with desktop/background programs; circular and irrelevant explanation.
 
 
 ### C
@@ -288,7 +317,9 @@ Arka planda genellikle şu unsurlar bulunur:
 
 Böylece bir web sayfası sadece sizin için değil, daha geniş bir sistem içinde çalışır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified; Yardım/uyarıcı is an odd category label.
+
+Review note: Mostly readable Turkish, but lists people and components rather than explaining what happens during a visit.
 
 
 ### D
@@ -301,7 +332,9 @@ Arka plandaki şeyler genellikle **veri**, **sürümler** ve **yönetim** içeri
 
 Bu, sitedeki verinin nasıl saklandığı, ne kadar uzun süre tutulduğunu ve kim tarafından yönetildiğine dair temel detayları kapsar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Wrong usage: sürümler as a main stage/component of visiting a website.
+
+Review note: Understandable but awkward; describes storage/management rather than the requested sequence.
 
 
 ---
@@ -323,7 +356,9 @@ Kısa ve anlaşılır bir şekilde:
 
 **Özet:** Bulutlar, havada su buharlarını taşırken, yükselen ve serinlenirken bu bulutlar birleşir. Düştüğünda bu su birleşimiyle yağmur oluşturur. Yani **sıcak, nemli ve yükselen bulutlar → yağmur**. 🌧️
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: Düştüğünda. Wrong combinations: su çöpleri, gölgelik kütleler.
+
+Review note: Broken opening and confused physical explanation; some rain-related meaning remains recoverable.
 
 
 ### B
@@ -338,7 +373,9 @@ Yağmur, bulutların suyu (sıvı) taşıyabileceği durumlar olduğunda oluşur
 
 Bu süreç, bulutların bulutların içinde suyu taşıyıp, bulutların sizi kaplamasıyla yağmur yağmaya yol açan bir döngü oluşturur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent invention: külte. Wrong term: bulut çubukları.
+
+Review note: Repetitive, semantically broken explanation with no coherent account of rainfall.
 
 
 ### C
@@ -347,7 +384,9 @@ Bulutlar yağmur yağdırabilir, ancak bu genellikle bulutların içinde sıcakl
 
 Kısaca: Bulutlar, sıcaklık ve nemin bulutların içindeki hareketini sağladığında yağmur yağdırır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong terms/combinations: sıcak su buharı glossed as yağmur damlacıkları; dolgun yağış.
+
+Review note: Surface grammar is partly fluent but the mechanism is opaque and scientifically confused.
 
 
 ### D
@@ -356,7 +395,9 @@ Bulutların yağmur yağdırması için en önemli etken sıcaklık farkıdır.
 Sıcaklık farkı, bulutların oluşumunu sağlayan nemin miktarına bağlıdır. Sıcaklık farkı az ise nem oranı yüksektir ve bu da yağışın oluşmasına yol açar. Bu nedenle sıcaklık farkı az olan bölgelerde yağmur yağar. Yağışın oluşması için sıcaklık farkının 10 dereceyi geçmesi gerekir. Bu durumda sıcaklık farkı 5 dereceye düşerse yağış azalır. Yağışın oluşumu için sıcaklık farkı 20 derecenin altında olması durumunda yağış yok olur.
 Yaz aylarında sıcaklık farkı az olduğu için yağmur yağmaz. Yazın yağışlı dönemleri kış aylarıdır. Kış aylarında sıcaklık farkı çok fazla olduğundan yağmur yağmamaktadır. Ancak sıcaklık farkı az olan bölgelerde yağmur yağar. Yağmur yağmaması için sıcaklık farkı 10 dereceyi geçmemelidir. Sıcaklık farkı 10 dereceyi geçerse yağmur yağar. Yağışın oluşması için sıcaklık farkı 20 dereceyi geçmemelidir. Sıcaklık farkı 20 dereceyi geçerse yağış yok olur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Contradictory temperature thresholds and repeated false explanations make the answer unusable.
 
 
 ---
@@ -387,7 +428,9 @@ Kısacası: **Fark = Fonun getirisi - Faizin oranı.**
 
 Böylece, bir bankanın faiz oranı ile bir yatırım fonunun getirisi arasındaki fark, fonun daha yüksek bir **iyileşik getirisi** veya **dolaylı gelir** sunması anlamına geliyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent invention: iyileşik. Wrong usage: İhtiyarlama for fund return.
+
+Review note: Confuses a conceptual difference with subtraction; misleading conclusion and repeated semantic errors.
 
 
 ### B
@@ -401,7 +444,9 @@ Bir bankanın faiz oranı ile bir yatırım fonunun getirisi arasındaki farkı 
 **Özetle:**  
 Bankın faiz oranı, bankın "kendi" borçlanma maliyetidir; yatırım fonun getirisi ise yatırımcıya verilen "ekstra" getiriyim. Yani fon, bankı aşırı bir riskle kullanmadan, daha uzun vadeli ve stabil bir yatırım fırsatı sunar. Fark, fonun risk yönetimi ve hedefleme stratejisinden kaynaklanır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: Bankın, oranudur, getiriyim. Foreign words ousted/return are not inventions. Wrong usage: para kaldırımı.
+
+Review note: Recognizable comparison structure, but serious case, morphology, and meaning errors obscure the distinction.
 
 
 ### C
@@ -410,7 +455,9 @@ Banka ve yatırım fonları arasında faiz oranının farklı olması nedeni, ya
 Bankalar, yatırım fonlarını kullanırken, bu fonlardan elde edebilecekleri kazançları bankadan alacakları faizlerden daha yüksek tutarlar ile elde etmeyi amaçlamaktadır. Bu nedenle, yatırım fonlarını kullanmak isteyen yatırımcılar, bankaların yatırım fonlarına yatırım yapmaları halinde, bankaların bankalara verdiği faiz oranını düşük tutarak, yatırım fonundan elde edebilecekleri kazançları artırmaya çalışmaktadırlar.
 Yatırım fonlarının faiz oranları, bankaların yatırım fonlarına yatırım yapmamaları durumunda, yatırımcıların bankaların bankalara verdiği faiz oranından daha yüksek kazanç elde etmelerine imkan sağlayacaktır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Circular clauses about banks investing in banks/funds never explain the requested distinction.
 
 
 ### D
@@ -423,7 +470,9 @@ Bir banka, bir yatırım fonundan belirli bir oran (ör. %5%) getiri verirken; b
 
 Bu durumda fon daha yüksek getiri sağlar (%1 daha fazla). Banka ise daha düşük getiri verir. Fark, her yıl getirdiğiniz miktarı belirlemek için kullanılır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; yasal veya sözleşme önerilen oranları is a broken phrase.
+
+Review note: Readable numerical example, but opening conflates bank and fund and misses the essential distinction.
 
 
 ---
@@ -445,7 +494,9 @@ Rating (1-5): ____   Invented words: ____
 
 Böylece, modelleri öğrenmek için pratik deneyler başlatın. Başlangıçta basit bir görevle başlayın ve zamanla kararlılık ve keskinliği geliştirin.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Apparent invention: Evalüre.
+
+Review note: Answers how to use models rather than how they learn; frequent unnatural constructions.
 
 
 ### B
@@ -485,7 +536,9 @@ Yani, yapay zeka modeli gibi "yazıyı öğrenmek" değil, **yazıyı yazmak iç
 
 Eğer yapay zeka ile ilgili bir sorununuz varsa (ör. bir yapay zeka modelinin size nasıl yardımcı olabilir?), lütfen belirtin!
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Misreads the task as teaching a person to write and explicitly denies the intended premise; long off-topic response.
 
 
 ### C
@@ -493,7 +546,9 @@ Rating (1-5): ____   Invented words: ____
 Programcı olmayan birisinin yapay zeka modellerini nasıl öğrenebileceğini anlatmak için, önce bu konuda en basit şekilde başlamak gerekir. Bu konuda ilk adım olarak, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor.
 İlk olarak, programcı olmayan birisinin yapay zeka modellerini öğrenmesi için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor. Bu nedenle, programcı olmayan birisinin yapay zeka modellerini öğrenmek için ilk olarak bilgisayar programcılığına ve programlama diline başlaması gerekiyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Misreads who is learning and repeats the same programming requirement throughout.
 
 
 ### D
@@ -522,7 +577,9 @@ Anladım, yapay zeka modelleri ile metin yazma konusunda bir başlangıç yapmak
 
 Başka bir konuda daha spesifik bir tavsiye isterseniz, lütfen söyleyin!
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed/apparent inventions: Kütüp, ileridecek. Wrong combination: API kartı.
+
+Review note: Long off-topic API/programming tutorial; several incoherent claims and broken phrases.
 
 
 ---
@@ -545,7 +602,9 @@ Yer yüzeyinin yuvarlak olması nedeniyle, güneşin doğduğu yarım kürede da
 Yer yüzeyinin yuvarlak olması nedeniyle, güneşin doğduğu yarım kürede daha fazla ısınmakta ve bu nedenle daha fazla yağış görülmektedir. Yer yüzeyinin düzlüğe dönüşmesi nedeniyle, güneşin batıldığı yarım kürede ise daha az yağış görülmektedir.
 Yer yüzeyinin yuvarlak olması nedeniyle, güneşin doğduğu yarım kürede daha fazla ısınmakta ve bu nedenle daha fazla yağış görülmektedir. Yer yüzeyinin düzlüğe dönüşmesi nedeniyle, güneşin batıldığı yarım kürede ise daha az yağış görülmektedir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Confuses Earth's tilt with flat/round surfaces and sunrise/sunset; prolonged repetition.
 
 
 ### B
@@ -580,7 +639,9 @@ Mevsimler, Dünya'nın **eğik yapısı** (ekstrik bir eğri) nedeniyle belirli 
 ### **Sonuç**
 Mevsimler, Dünya'nın **eğik yörüşü** sayesinde her yıl aynı şekilde döner ama **güneş ışığının olasılıklikiği** ve **atmosferdeki hava akımları** nedeniyle farklı mevsimler oluşur. Bu, insanların gıda, kıyafet ve yaşam tarzı gibi yaşamızdaki değişiklikleri tetikleyen temel nedenlerdir. 🌍🌞
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed/apparent inventions: ekstrik, Yörüşü, olasılıklikiği, yaşamızdaki. Wrong usage: ekstremal/ekstreme.
+
+Review note: Invented seasonal divisions, conflicting dates, and severe semantic and lexical errors.
 
 
 ### C
@@ -591,7 +652,9 @@ Bu dönüşün sonucu olarak, güneş ışığı Dünya’nın bu eğik yüzeyin
 
 Böylece, Dünya’nın eğikliği, her iki yarım küreyi de güneşten etkileyerek mevsim değişikliklerine yol açar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Some grammatical readability, but fragmented definition and nonsensical directions prevent a usable explanation.
 
 
 ### D
@@ -611,7 +674,9 @@ Mevsimler, Dünya'nın **eğikliği** (yani yarı çapı 90°'ye yakın olması)
 
 Bu nedenle, Dünya'nın eğikliği ve yansımalı doğruluğu, mevsimlerin nasıl ortaya çıkacağını ve ne kadar etkili olabileceğini belirler.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: değişimlar. Wrong usage: entegride, yarı çapı 90°.
+
+Review note: Tilt is mentioned, but fundamental terms and causal explanation are incoherent.
 
 
 ---
@@ -637,7 +702,9 @@ Kredi notu yükseltmek için, kişinin kendisine verilen kredi kartı veya kredi
 Kredi notu yükseltmek için, kişinin kendisine verilen kredi kartı veya kredi kartı kullanımına ilişkin şartları yerine getirmesi gerekmektedir. Bu durumda, kredi notu artar ve kredinin ödenme süresi de uzar.
 Kredi notu yükseltmek için, kişinin kendisine verilen kredi kartı veya kredi kartı kullanımına ilişkin şart
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Circular repetition and false claims; no useful explanation of scoring or improvement.
 
 
 ### B
@@ -689,7 +756,9 @@ Bu kriterlerin her biri genellikle 0–100 arasında bir puan olarak değerlendi
 - Bir kişi 2018'de 500 dolarlık bir kredi kartı kullanıyor ve 200 dolara ödemek zorunda kalıyor. Bu, 50 puan (düşük) verir.
 - Aynı kişi 2020'de 800 dolarlık bir kredi kartı kullanıyor ve 600 dolara ödemek zorunda kalıyor. Bu,
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/foreign-looking use: kredite. Wrong label: Tarım ve Borç Yükü.
+
+Review note: Recognizable headings, but repeated filler, unsupported scoring mechanics, and an unfinished example.
 
 
 ### C
@@ -717,7 +786,9 @@ Kredi notu yükselmek için şu yöntemler kullanılabilir:
 
 Kendi durumunuz için özel bir tavsiye almak için bir kredite uzmanına veya finans profesyoneline danışın.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/foreign-looking forms: kreditenin, kredite. Wrong phrase: kreditenin birinci şahıs notu; ödüllenmiş borçlular.
+
+Review note: Some relevant suggestions, but role confusion and tautological criteria dominate.
 
 
 ### D
@@ -762,7 +833,9 @@ Rating (1-5): ____   Invented words: ____
 3. **Raporları Düzenle**  
    - Her ay bir “soft inquiry” (sözlü sorgulama) oluşturur;
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent invention: Tarifet. Malformed: Yükselttirken, Odemayı. Wrong terms: kredi notası, soft inquiry glossed as sözlü sorgulama.
+
+Review note: Pervasive terminology errors, unsupported numerical guarantees, and truncated advice.
 
 
 ---
@@ -795,14 +868,18 @@ Kombi bozuldu. Ev sahibi ile görüşmek için telefon açarak sorununu anlatır
 - 18. Adım: Kombi temizlenmişse, combini kapatmadan önce, suyu boşaltmak için bir süre bekletmeniz gerekmektedir. Böylece, kombinin içindeki su kaybolmuş olur.
 - 19. Adım: Kombi temizlenmişse, combini kapatmadan önce, su
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Foreign/malformed spelling: combini (kombiyi).
+
+Review note: Does not write an email; gives irrelevant boiler-cleaning instructions and enters a repetition loop.
 
 
 ### B
 
 İşyerinizde kombi bozulmuştur. Bu sorunun çözümü için hemen yardım isteyeceğim.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Brief and readable, but changes home to workplace, confuses the speaker, and does not request landlord action.
 
 
 ### C
@@ -856,7 +933,9 @@ Huzurla,
 
 ---
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed/odd forms: iç kısm, fabrikal, kiralatıcıdan, marketa, Imajınız. Wrong labels: Konulma, takım for tracking; incident is English.
+
+Review note: Confuses boiler with vehicle/storage contents; unusable email full of invented circumstances and broken Turkish.
 
 
 ### D
@@ -867,7 +946,9 @@ Rating (1-5): ____   Invented words: ____
 
 **Açıklama:** Ev sahibinizde bir sorun yaşadığınız için size bildiriyorum. Bu, bir teknik veya fiziksel sorun olabilir; detayları (ör. ne tür bir bozulma var mı, hangi parçalarla ilgili) paylaşmanıza gerek yoktur. Sorunu bana bildirdiğinizde yardımcı olmaya devam edebilirim.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Recognizable Turkish clauses, but role confusion and missing repair request make it unsuitable as the email.
 
 
 ---
@@ -899,7 +980,9 @@ Eğitimde Etkinlikler
 Öğrenme ve Öğretim Teknikleri
 Öğrencilerimizin gelişimini desteklemek, onların becerilerini geliştirmek, onların yeteneklerini ortaya çıkarmak, onların ilgi alanlarına uygun eğitim ve ödevler vermek, onların sosyal ve fiziksel gelişimlerini desteklemektir. Öğrencilerimizin gelişimini desteklemek, onların becerilerini geliştirmek, onların yeteneklerini ortaya çıkarmak, on
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Entirely unrelated education-program text with repetition and truncation.
 
 
 ### B
@@ -937,7 +1020,9 @@ Hazırlanma tarihimi ve onay için teşekkür ederim.
 
 *Not: E-postayı müşteriden veya ilgili kurumun resmi e-posta adresine gönderin.*
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; İhtiyacınız olan diğer izin talepleriniz dersiniz is a broken clause.
+
+Review note: Mentions wedding and leave, but dates, register, roles, and grammar are badly confused.
 
 
 ### C
@@ -957,7 +1042,9 @@ Best regards,
 [Your Position]
 [Your Contact Information]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; entire answer is English.
+
+Review note: Fails the Turkish writing task; otherwise recognizable leave email, with weekend/next-week inconsistency.
 
 
 ### D
@@ -976,7 +1063,9 @@ Lütfen bana bildirin veya başka bir gün için alternatif bir plan önerin.
 
 — [Adınız]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; Haftalık Aylık Yolculuklar is an odd subject.
+
+Review note: Readable fragments but omits sibling's wedding and contradicts the requested timing.
 
 
 ---
@@ -1001,7 +1090,9 @@ E-posta: firstname.lastname@example.org
 Email adresi değiştirme
 Yorumlarınızı bekliyoruz.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; Kartvizyon/Kartvisyon are inconsistent names, not counted as invented vocabulary.
+
+Review note: Writes from the company's role, invents contact details, and never requests an exchange.
 
 
 ### B
@@ -1016,7 +1107,9 @@ Bugün, ürünlerinizin doğru renk verilmemesi nedeniyle bir sorun yaşadığı
 
 Lütfen, bu sorun hakkında bilgi verebilir misiniz? Bununla ilgili ne yapabiliriz?
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Wrong speaker perspective and inconsistent singular/plural; does not clearly request exchange.
 
 
 ### C
@@ -1041,7 +1134,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu mesaj, sorunun açıklanmasını, işbirliği yapmayı teşvik ediyor ve çözüm için adımları belirliyor. Duygusal destek ve profesyonel tonu ile uyumlu.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: reni, renasını.
+
+Review note: Wrong perspective and incoherent product/report discussion; fails to make a usable exchange request.
 
 
 ### D
@@ -1054,7 +1149,9 @@ Anlıyorum, ancak productunuzun yanlış reni gösteriliyor. Lütfen bana doğru
 
 Hemen yardımcı olmaktan memnuniyet duyarım! 🙏
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Hybrid/malformed: productunuzun, reni. English etc. is not invented.
+
+Review note: Readable intent to help, but replies as customer support rather than requesting an exchange.
 
 
 ---
@@ -1087,7 +1184,9 @@ Hazırlanacak bir sonradan görüşme için uygun bir tarih ve zamanı belirleme
 [E-posta adresiniz]  
 [Telefon numarası (isteğe bağlı)]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: yönlendiriler, sorumaya. Wrong salutation: Kahramanın.
+
+Review note: Purpose partly recognizable, but case/agreement errors and unnatural salutation make it unsuitable without substantial editing.
 
 
 ### B
@@ -1106,7 +1205,9 @@ Best regards,
 
 Feel free to adjust the greeting or add any specific details about the meeting.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; entire answer is English.
+
+Review note: Fails Turkish task, changes job interview to project meeting, and adds stray code fence.
 
 
 ### C
@@ -1124,7 +1225,9 @@ Best regards,
 [Your Position]
 [Contact Information]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; entire answer is English.
+
+Review note: Fails Turkish task; generic project discussion rather than clear job-interview thanks.
 
 
 ### D
@@ -1135,7 +1238,9 @@ Bu araştırmaya göre, internet kullanıcılarının yüzde 70'inde, internetin
 Ayrıca, internet kullanımının günlük yaşamda önemli bir yer tutmasından dolayı, internet kullanımını artırmak için gerekli olan kaynakların arttırılması gerektiği de belirtilmiştir. Bu araştırmada, internet kullanımının günlük yaşamda önemli bir yer tutmasından dolayı, internet kullanımını artırmak için gerekli olan kaynakların arttırılması gerektiği ifade edilmiştir.
 Kaynak: http://www.kpss.net/haber/2015-07-13-123456.html
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: tutduğu (tuttuğu).
+
+Review note: Unrelated internet-research passage and repeated filler; no interview thank-you email.
 
 
 ---
@@ -1155,7 +1260,9 @@ Bazen sesler çok yüksek çıkabilir; bu yüzden bir “düşük‑sessiz” mo
 
 İyi bir gün geçirmenizi dilerim! 🎂✨
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong combinations: düşük-sessiz modu, çiçekleri dondurmayı.
+
+Review note: Gives incoherent party advice instead of a neighbor notice; wrong time and perspective.
 
 
 ### B
@@ -1166,7 +1273,9 @@ Bir gün önce, evinizin kapısında veya bir yerde bir not yazın:
 
 Bu, sizleri uyarıyor, kutlamayı planlıyor ve gürültünün olabileceği konusunda uyarıyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Notice includes Saturday evening and noise, but kutlama yapacağım and the promised future statement sound non-native; weak politeness.
 
 
 ### C
@@ -1186,7 +1295,9 @@ Herhangi bir soru veya bir şeyle konuşmak isterseniz, her zaman buradayım. �
 
 — [Sizinle paylaştığım] **Doğum Günü Notu** 🌟
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent invention: buzdurmak. Malformed: toplun.
+
+Review note: Role confusion and incoherent imagery prevent a usable neighbor notice.
 
 
 ### D
@@ -1251,7 +1362,9 @@ BU HABERLERİ OKUDUM
 - En Güzel Kızlar Ne Diyor 1972
 - En Güzel K
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; film/site titles are not counted as lexical inventions.
+
+Review note: Unrelated web-page-like content with a long repetitive year list.
 
 
 ---
@@ -1268,7 +1381,9 @@ Bugün okulda bir ders çalışıyorum. Öğretmenim bana, "Bu hafta sonu 2 saat
 Sayın Öğretmenimiz,
 Benim 2014-2015 eğitim öğretim yılında 3. sınıf öğrencisiyim. 6. sınıfta okuyacağım. 2014-2015 eğitim öğretim yılından itibaren 7. sınıfa geçeceğim. 2014-2015 eğitim öğretim yılından itibaren 8. sınıfta okuyacağım. 2015-2016 eğitim öğretim yılından itibaren ise 9. sınıfta okuyacağım. 2015-2016 eğitim öğretim yılından itibaren 10. sınıfta okuyacağım. 2016-2017 eğitim öğretim yılından itibaren ise 11. sınıfta okuyacağım. 2017-2018 eğitim öğretim yılından itibaren ise 12. sınıfta okuyacağım. 2018-2019 eğitim öğretim yılından itibaren ise 13. sınıfta okuyacağım. 2019-2020 eğitim öğretim yılından itibaren ise 14. sınıfta okuyacağım. 2020-2021 eğitim öğretim yılından itibaren ise 15. sınıfta okuyacağım. 2021-2022 eğitim öğretim yılından itibaren ise 16. sınıfta okuyacağım. 2022-2023 eğitim öğretim yılından itibaren ise 17. sınıfta okuyacağım. 2023-2024 eğitim öğretim yılından itibaren ise 18. sınıfta okuyacağım. 2024-2025 eğitim öğretim yılından itibaren ise 19. sınıfta okuyacağım. 2025-2026 eğitim öğretim yılından itibaren ise 20. sınıfta okuyacağım. 2026-2027 eğitim öğretim yılından itibaren ise 21. sınıfta okuyacağım. 2027-2028 eğitim öğretim yılından itibaren ise 22. sınıfta okuyacağım. 2028-2029 eğitim öğretim yılından itibaren ise 23. sınıfta okuyacağım. 2029-2030 eğitim öğretim yılından itibaren ise 24. sınıfta okuyacağım. 2030-2031 eğitim öğretim yılından itibaren ise 25. sınıfta okuyacağım. 2031-2032 eğitim öğretim yılından itibaren ise 26. sınıfta okuyacağım. 2032-2033 eğitim öğretim yılından itibaren ise 27. sınıfta okuyacağım. 2033-2034 eğitim öğretim yılından itibaren ise 28. sınıfta okuyacağım. 2034-2035 eğitim öğretim yılından itibaren ise 29. sınıfta okuyacağım. 2035-2036 eğitim öğretim yılı
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Unrelated school narrative with contradictions and an escalating grade/year list.
 
 
 ### B
@@ -1291,7 +1406,9 @@ Hesabangı
 [Adınız]
 [Telefon numarası (isteğe bağlı)]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Apparent inventions/malformed forms: Hoşgunlar, itertekçe, Hesabangı; İsteyim is malformed here.
+
+Review note: Illness and extension intent are recoverable, but salutation, closing, and syntax are severely broken.
 
 
 ### C
@@ -1310,7 +1427,9 @@ Lütfen bana bildirin veya ödemeyi onaylayın. Herhangi bir sorun olursa veya e
 [Adresiniz]
 [Telefon numarası]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: ödelemizi. Wrong usage: Ödeme, hâkimliğim.
+
+Review note: Confuses assignment with payment and omits illness and the one-day request.
 
 
 ### D
@@ -1331,7 +1450,9 @@ Best regards,
 [Your Email Address]
 [Phone Number – optional]
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; entire answer is English.
+
+Review note: Fails Turkish writing task and does not explicitly request exactly one day.
 
 
 ---
@@ -1347,14 +1468,18 @@ Türkiye'de son yıllarda barajlardaki doluluk oranı mevsimlere göre büyük d
 
 Türkiye'de son yıllardaki baraj sistemlerinde mevsimsel dalgalanmalar artmıştır; özellikle kış aylarında yağışın azalması, yaz aylarda tarımsal sulamanın artışı ve kentlerdeki tüketim artışı su kaynaklarına baskı yaratmaktadır. Bu durumu hafifletmek için damla sulama gibi verimli yöntemlerin yaygınlaştırılması ve şebekeyi kaybını azaltmak, kısa vadede etkili bir çözüm olarak tespit edilmiştir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified; şebekeyi kaybını is a case error.
+
+Review note: Two-sentence summary retains key points, but several case/possessive errors and awkward nominalizations are clearly non-native.
 
 
 ### B
 
 Barajlar, hâlâ doluluk oranları değişen mevsimler arasında büyük dalgalanmalara uğradığını gösteriyor; özellikle yaz aylarında tarım sulaması ve şehirdeki tüketim artışı su kaynaklarını zorlayarak dolulukları artırmaktadır. Ekonomistler, damla sulama gibi verimli teknolojileri yaygınlaştırarak ve şebekelerin kaybını azaltarak bu sorunlara hızlı çözümler bulduklarında başarılı olabileceğini söylerler.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong usage: dolulukları artırmaktadır, Ekonomistler.
+
+Review note: Two sentences, but reverses the pressure's effect and distorts the expert claim; frequent syntax errors.
 
 
 ### C
@@ -1365,7 +1490,9 @@ Yapılan araştırmalara göre, Türkiye’nin 2013 yılında toplam su ihtiyac�
 Suların daha verimli şekilde kullanıldığında, Türkiye’nin 2020 yılına kadar su ihtiyacı yüzde 25 oranında azalabilir. Ancak, bu oran, 2030 yılına kadar yüzde 50’e çıkarılmalıdır. Bunun için, su kaynaklarının daha verimli kullanılması ve verimlilik artırıcı uygulamaların yaygınlaştırılması gerekiyor. Bu amaçla, su kaynaklarının daha verimli kullanımı konusunda hükümetin ve kamuoyunun bilinçlenmesinin sağlanması gerekiyor. Ayrıca, su kaynaklarının daha verimli kullanımına yönelik çalışmaların sürdürülmesi ve bu konuda uluslararası anlaşmaların imzalanması da önemli.
 Su kaynaklarının daha verimli kullanımı konusunda, Türkiye’nin 2015 yılında 10 milyar m3’lik bir kaynak tasarrufu yapması bekleniyor. Bu kaynak tasarrufu, 2017 yılında 15 milyar m3, 2020 yılında ise 20 milyar m3’ye ulaşabilecek. Bu sayede, Türkiye’nin 2020 yılında su ihtiyacını karşılayabilme potansiyeli ortaya çıkacak.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Copies source then adds unsupported statistics and long extra material; fails two-sentence summary.
 
 
 ### D
@@ -1373,7 +1500,9 @@ Rating (1-5): ____   Invented words: ____
 Türkiye'de son yıllarda barajlardaki doluluk oranı mevsimlere göre büyük dalgalanmalar göstermektedir. Kış aylarında yağışların azalması, tarımsal sulamanın yaz aylarında artması ve kentlerdeki tüketimin yükselmesi su kaynakları üzerinde baskı yaratmaktadır.
 Uzmanlar, damla sulama gibi verimli yöntemlerin yaygınlaştırılması ve şebeke kayıplarının azaltılması, kısa vadeli en etkin çözümler olarak görmektedir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Mostly clear and faithful, but gives three sentences and the final sentence has mismatched case and predicate construction.
 
 
 ---
@@ -1395,28 +1524,36 @@ Büyükşehir Belediye Başkanı Kadir Topbaş'ın, "Bisiklet yollarımızın ge
 BELDELİ BİR GÜN ÖNCE BİZİMLE İLGİNE ÇIKTI
 İstanbul Büyükşehir Belediyesi'ne ait 2 bin 500 metrekarelik alanda 1.5 kilometrelik bisiklet yolu yapılması için başvuruda bulunan belediye yetkilileri, "Bu projeyi gerçekleştirebilmemiz için belediyemize 2 bin 500 metrekarelik alanın bulunduğu noktaya ulaşmak için 2 bin 500 metrekarelik bir alandan 1.5 kilometrelik bisiklet yolu yapılması için başvuruda bulunmuştuk. Ancak belediyemizin 2016 yılı bütçesinden 2 milyon 600 bin liralık bir miktar ayırdığı tespit edilmiştir. Bu miktarın ise, 2016 yılında yapılacak olan 10 bin 300 metrekarelik bisiklet yolu ile 2 milyon 400 bin lira civarında bir harcama gerektirdiği tespit edilmiştir. Bu nedenle belediyemizin 2016 yılı bütçesinden 2 milyon 600 bin liralık bir miktar ayırması
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong/malformed heading: BİZİMLE İLGİNE ÇIKTI.
+
+Review note: Replaces source with invented budgets, quotations, and repeated prose; not a one-sentence summary.
 
 
 ### B
 
 Belediye, şehir merkezindeki yeni bir bisiklet yolu açtı: tren durağı üniversite kampüsü ile bağlanıyor ve 10 km'lik bir mesafe kapsıyor; bu yolun yanındaki park yerleri ve tamir istasyonlarıyla birlikte, ilk altı ay içinde günlük 3 bin civarında bir bisikleti bekleniyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: One sentence, but changes 12 km to 10 km and has broken station/campus and user-count phrasing.
 
 
 ### C
 
 Şehir merkezindeki bir bisiklet yolu (tren garibi üniversite kampüsüne bağlı, 20 km uzunluğunda) açıldı; yolda park yerleri ve tamir istasyonları da kuruldu ve ilk altı ay içinde günlük kullanıcılar sayısı üç boyutuna çıkma bekleniyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong terms/combinations: tren garibi, üç boyutuna.
+
+Review note: Changes distance and user count; severe semantic and grammatical corruption.
 
 
 ### D
 
 Şehir merkezinde yeni bir bisiklet yolu açıldı; bu yola üniversite kampüsü ile olan tren geçişi içindi ve yaklaşık on iki kilometre uzunluktaydı; yolda park yerleri ve tamir istasyonları da bulunuyordu.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified; bu yola ... tren geçişi içindi is malformed syntax.
+
+Review note: One sentence retains length and facilities, but gar/campus link is garbled and expected usage omitted.
 
 
 ---
@@ -1451,7 +1588,9 @@ Göktürkler, Türkmenlerden sonra da Türkçe'yi kullanmışlardır. Göktürkl
 18- Göktürkler, Türkmenlerden sonra da Türkçe'yi kullanmışlardır. Göktürkler, Türkçe'yi kullanmışlardır.
 19- Gö
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Entirely unrelated historical claims and repetition; neither source summary nor three points.
 
 
 ### B
@@ -1461,7 +1600,9 @@ Rating (1-5): ____   Invented words: ____
 - **Kitap Tutma Süresi:** Kitaplar en fazla yirmi (24) gün tutulabilir.
 - **Gecikme Cezası:** Her gün geçirdiğinde 15 pence gecikme cezası uygulanır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Readable list, but gives four points and substitutes currency, fee, duration, and penalty.
 
 
 ### C
@@ -1471,7 +1612,9 @@ Rating (1-5): ____   Invented words: ____
 
 *(Not: Metinde “yirmi yirmi lira” ve “elli kuruş” ifadesi geçmektedir; burada doğru sayılar 20 Lira ve 15 Kuruş olarak yorumlanmıştır.)*
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Changes nearly every number, contradicts itself in an explanatory note, and provides two points rather than three.
 
 
 ### D
@@ -1480,7 +1623,9 @@ Rating (1-5): ____   Invented words: ____
 - **Kitap Yönetimi:** Üyeler aynı anda en fazla altı kitap alabilir ve her kitap için en fazla yirmi bir gün tutabilir.
 - **Gecikme Cezası:** Süresi geçen her gün için 0,30 TL (elli kuruş) gecikme cezası uygulanır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: yetişkiler (yetişkinler).
+
+Review note: Three points and some retained details, but wrong fee and internally inconsistent penalty; awkward case/verb structure.
 
 
 ---
@@ -1498,28 +1643,36 @@ Kadınlar Ne Diyor 1
 Bebekler için en iyi beslenme şekli ne?
 Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nelerdir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için en iyi beslenme şekli nedir? Bebekler için
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Off-topic infant-feeding repetition, far beyond 30 words.
 
 
 ### B
 
 Uyku araştırmacıları, yetişkinlerin çoğunun gece yedi ile dokuz saat arasında uykuya ihtiyacı olduğunu belirtiyor. Düzensiz uyku saatleri, yatmadan önce ekran kullanımı ve akşam geç saatlerde alınan kafein uyku kalitesini düşüren önemli etkenler arasında sayılıyor. Her gün aynı saatte yatıp kalkmak, en basit ve etkili alışkanlıklarından biri olarak görülüyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 4   Invented words: None identified; alışkanlıklarından has an unnecessary possessive.
+
+Review note: Nearly natural and faithful Turkish, but essentially reproduces source and exceeds the 30-word limit.
 
 
 ### C
 
 Uyku araştırmacıları, çoğu adultın gece 7-9 saat uyku gerekiyordu. Uzun uyku süresi için düzenli bir rutin önerilir; bu, akşam erken kalmaya veya akşam geç saatlerde kafein tüketmeye neden olan ekran kullanımından kaynaklanabilir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Hybrid: adultın (yetişkinin/yetişkinlerin); not a new Turkish root.
+
+Review note: Broken tense/case and confused causal explanation; exceeds 30 words.
 
 
 ### D
 
 Uyku araştırmacıları, yetişkinlerin çoğunlukla gece 7-9 saat uyku ihtiyacı olduğunu belirttiğini söyleyebilir. Düzenli uyku zamanları, akıllı telefon kullanımı ve akşam kafein tüketimi gibi faktörler uyku kalitesini azaltabilir. Günlük aynı saat uyma ve sabah çıkma, bu durumu çözmek en kolay yöntemlerden biridir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong usage: düzenli for irregular, uyma, sabah çıkma.
+
+Review note: Meaning partly recoverable, but reverses a key factor, uses unnatural wording, and exceeds word limit.
 
 
 ---
@@ -1535,7 +1688,9 @@ Bir şirket, fabrikasının çatısına güneş enerjisi panelleri kurarak elekt
 
 Yeni bir işletmeci olarak, iş hayatında başarılı olmak için ilk adım olarak, işe başlamadan önce, işe başlayacak olan kişiye, işe başlama sürecinde, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce, işe başlamadan önce,
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Unrelated business-starting fragment degenerates into a repetition loop.
 
 
 ### B
@@ -1544,7 +1699,9 @@ Rating (1-5): ____   Invented words: ____
 
 **Özet:** Şirket, fabrikasının çatısına güneş enerjisi panelleri kurarak elektrik faturasını yüzde on azalttı; yatırımın maliyeti yaklaşık dört yıl içinde geri dönüşüyor. Şirket yetkilileri, gece enerjisini kendi ürettiği batarya sistemleriyle de kullanmayı planlıyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified; geri dönüşüyor is the wrong collocation here.
+
+Review note: Readable headline and two-sentence summary, but changes 30% to 10% and has awkward return/storage wording.
 
 
 ### C
@@ -1554,7 +1711,9 @@ Rating (1-5): ____   Invented words: ____
 **Özet:**  
 Şirket, fabrikasının çatısına güneş enerjisi panellerini yerleştirdi ve bu yoldan elektrik faturasını yüzde onüç azaltmış; maliyet yaklaşık dört yıl geri döndürülmekte ve geceler için de depolama bataryaları ile enerji üretmeye planlıdır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Spelling: onüç (on üç); not invented vocabulary.
+
+Review note: Contradictory percentages (23/13 instead of 30), broken syntax, and one summary sentence rather than two.
 
 
 ### D
@@ -1563,7 +1722,9 @@ Rating (1-5): ____   Invented words: ____
 
 **Özet:** Bir şirket, fabrikası için güneş enerjisi panelleri kurarak elektrik faturasını yüzde 21 azaltmış; maliyet yaklaşık dört yılda geri döner ve gece enerji için depolama bataryaları kullanmayı planlıyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Understandable but awkward; changes 30% to 21% and gives only one summary sentence.
 
 
 ---
@@ -1603,7 +1764,9 @@ UNESCO, Türk kahvesinin “sohbetin eğlenceli bir bölümü” olarak kabul et
 
 Özetle, Türk kahvesi UNESCO’sa sayılan “sohbetin eğlenceli bir bölümü” olarak kabul edilmiştir çünkü **çevresel üretimi, pişirme teknikleri, içecek kültürü, sosyolojik etkileşimleri ve yerel sanatçılarla olan ilişkileri** arasında güçlü bir bağ kurarak, bir topluluğun yaşam biçimini koruyarak ve taşır. Bu bağlar, bir kültürel miras olarak tanınmasını sağlayan bir bütünlüğe katkıda bulunur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed/apparent inventions: Yönemeler, kahvetin, UNESCO’sa. Spelling: Çezve. Wrong usage: tatlandır, kafes.
+
+Review note: Long semantic drift with fabricated explanations and frequent broken clauses; weak grounding in source.
 
 
 ### B
@@ -1629,14 +1792,18 @@ UNESCO, **Türk kahvesinin sadece bir içecek olarak değil, aynı zamanda milli
 **Özetle:**  
 Türk kahvesi, sadece bir içecek değil; **çeşitli gelenekler, sanat formları, sosyolojik amacları ve tarihsel geçmişin bir parçası** olarak toplum içinde şekillenmiş bir **kültürel miras**dir. Bu nedenle UNESCO, bu mirası "somut olmayan" olarak işaretlemiş, çünkü bu miranın varlığı, **kişisel veya fiziksel nesneler değil, kültürel kimlik ve geleneğin aktarımı** üzerine kuruludur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/hybrid: milliy, traditionlarının, mirayı, miranın, amacları. Wrong terms: sayılamayan and soyut olmayan for somut olmayan.
+
+Review note: Relevant core idea, but many terminology errors and unsupported historical/economic additions.
 
 
 ### C
 
 Türk kahvesinin kültürel mirası UNESCO tarafından 2013'te kabul edilmesi, bu türün hem tarihi hem de günlük yaşamda önemli bir yer tutduğu için önemlidir. Türk kahvesi, özellikle İslamiyet'in yaygınlaşmasından sonra, kahve yapımı ve içilmesiyle başlar; bu, Anadolu'daki sosyal ve ekonomik alışverişe kadar uzanır. Kahvenin hazırlanışı, tatlandırılması ve servisi, toplumsal bağları güçlendirmek için bir ritüel haline gelir. Ayrıca kahve, tarihsel olayların, savaşların ve kültürel gelişmelerin etkilerini yansıtan birer simgeler olarak da görülmektedir. Bu nedenle, UNESCO bu türün, kültürel kimliğe ve insanların ortak yaşam biçimlerine katkısı nedeniyle bir “insanlık mirası” olduğunu kabul etmiştir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Malformed: tutduğu (tuttuğu).
+
+Review note: Broadly readable answer linking ritual and social identity, but awkward agreement and unsupported historical additions.
 
 
 ### D
@@ -1646,7 +1813,9 @@ Türk kahvesi, 2013 yılında UNESCO tarafından somut olmayan kültürel miras 
 Kahve, cezvede kısık ateşte pişirilir ve genellikle şekerle birlikte, küçük fincanlarda sunulur. Kahvenin yanında verilen su ve lokum da geleneğin bir parçasıdır. Fincanın dibinde kalan telveden fal bakmak ise sohbetin eğlenceli bir bölümü sayılır.
 Türk kahvesinin tarihi, 14. yüzyılda başlamıştır. İlk kahve türleri, İspanya'dan getirilen kahve bitkisine dayanır. Bu nedenle, ilk kahve türü olan kahve çayı, 16. yüzyılın sonlarında İtalya'da üretilmeye başlanmıştır. 17. yüzyılda Fransa'da kahve içmek için özel bir bahçe kurulmuştur. 18. yüzyılda İngiltere'de kahve içmek için özel bir bahçe kurulmuştur. 19. yüzyılda ise, Avrupa ülkelerinde kahve içmek için özel bahçeler kurulmaya başlanmıştır. 20. yüzyılda ise, kahve içmek için özel bahçelerin yerine, kahvehaneler kurulmaya başlanmıştır. 21. yüzyılda ise, kahve içmek için özel bahçelerin yerine, kahvehanelerin yerini, kahve restoranları almaya başlanmıştır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; kahve çayı is a wrong term in this account.
+
+Review note: Natural source copying followed by unsupported historical narrative and repetitive chronology; poorly answers why.
 
 
 ---
@@ -1669,14 +1838,18 @@ Bu cümlelerin hepsi de "bu toplantıyı biraz daha" şeklinde ifade edilerek ya
 Örneğin; "Bu toplantıyı çok daha uzatabiliriz." cümlesinde "çok" kelimesi kullanıldığı için, "çok" kelimesinin anlamı "çok fazla" kelimesine benzer. Bu nedenle, "çok fazla" kelimesini kullanarak cümleleri değiştirebiliriz. Örneğin; "Bu toplantıyı çok fazla uzatabiliriz." cümlesi de aynı anlamda kullanılabilir.
 Bu cümlelerin hepsinde "biraz" kelimesinin yerine "çok" veya "çok fazla" gibi kelimeler kullanılabilir. Ancak, "biraz" kelimesinin anlamı "çok fazla" kelimesine benzemediği için, bu cümlelerin anlamları farklıdır. Bu nedenle, bu cümlelerin anlamlarını değiştirmek istenirse, "biraz" kelimesinin yerine "çok" veya "çok fazla" gibi kelimeler kullanılmalıdır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: erteliriz (erteleriz).
+
+Review note: Repetitive alternatives change postponement to prolonging and omit the reason; contradictory explanation.
 
 
 ### B
 
 Evet, toplantıyı biraz uzatabilir misiniz? İşiniz bitmiş durumda.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; uzatmak is wrong for ertelemek here.
+
+Review note: Short and readable but changes both request and reason; not a faithful formal rewrite.
 
 
 ### C
@@ -1685,7 +1858,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu, “İşime ne kadar zaman aittir?” anlamına gelen bir soruyu daha resmi bir biçimde ifade eder.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; uzatmak is wrong for ertelemek here.
+
+Review note: First sentence is readable, but changes meaning and adds a nonsensical explanation.
 
 
 ### D
@@ -1694,7 +1869,9 @@ Rating (1-5): ____   Invented words: ____
 
 "Lütfen toplantı süresini kısa bir süre uzatabiliriz; mevcut zamanı işimi engelleyecek şekilde ayarlayabilirim."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Unnatural request grammar and contradictory scheduling statement; meaning not preserved.
 
 
 ---
@@ -1708,7 +1885,9 @@ Rating (1-5): ____   Invented words: ____
 
 Neticesinden değerlendirme sonucunda, söz konusu başvurun kabul edilmesi için karara ulaştırılmıştır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: başvurun (başvurunun here).
+
+Review note: Does not simplify effectively; redundant opening and broken passive construction.
 
 
 ### B
@@ -1719,14 +1898,18 @@ Kaynak: http://www.akp.gov.tr/haber/2013/07/28/2007-2013-01-27-1.html
 AKP Genel Başkanı Recep Tayyip Erdoğan, 2013 yılına ilişkin bir açıklama yaptı.
 Erdoğan, "Türkiye'nin geleceği için, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, 'Bu süreçte, Türkiye'nin geleceği için, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine yönelik çalışmaların devam etmesi gerektiğini belirterek, bu süreçte, Türkiye'nin geleceğine
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Repeats original then adds unrelated political prose and a prolonged loop.
 
 
 ### C
 
 Böylece, değerlendirmenin sonuçları doğrultusunda başvurunun kabul edilmesi kararı verildi.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 4   Invented words: None identified.
+
+Review note: Grammatical and shorter, but still wordy and bureaucratic; could be much simpler.
 
 
 ### D
@@ -1734,7 +1917,9 @@ Rating (1-5): ____   Invented words: ____
 **Sade ve kısa bir versiyon:**  
 "Değerlendirme sonucu başvurunun kabul edilmesi kararı verilmiştir."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 4   Invented words: None identified.
+
+Review note: Clear and shorter, but nominalized passive remains more formal and wordy than requested.
 
 
 ---
@@ -1748,21 +1933,27 @@ Rating (1-5): ____   Invented words: ____
 
 Hava soğukdu; biz dışarı çıkardık, ancak dışarıda kimse yoktu. Yürüyüşü sırasında konuştuzdunuz.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: soğukdu, konuştuzdunuz.
+
+Review note: Person/tense corruption and changed meaning make the rewrite unusable.
 
 
 ### B
 
 Hava soğuk, dışarı çıkarken yalnızca kendimize kalmak için bir yolculuk yapmaya karar verdik. Yürüyorduk ve herkesin yanında olmadığını fark ettik.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Adds unsupported motive, drops conversation, and uses awkward phrasing; does not preserve the paragraph.
 
 
 ### C
 
 "Hava soğuktu; biz dışarı çıktık, ancak dışarıda kimse yoktu. Yürürken konuştuk."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 5   Invented words: None identified.
+
+Review note: Natural, concise connection of the events; retains the original meaning.
 
 
 ### D
@@ -1780,7 +1971,9 @@ Bu cümleler birbirine bağlanmakta ve birleştirilmiş cümleler oluşturmaktad
 Bu cümleler birbirine bağlanmakta ve birleştirilmiş cümleler oluşturmaktadır. Bu nedenle, bu cümlelerin birbirleriyle bağlantılı olması gerekir. Bunlar arasında bir bağcık bulunmamaktadır. Bu nedenle, bu cümleler birbirlerine bağlayıcı kelimeler ile bağlanmıştır.
 Bu cümleler birbirine bağlanmakta ve birleştirilmiş cümleler oluşturmaktadır. Bu nedenle, bu cümlelerin birbirleriyle bağlantılı olması gerekir. Bunlar arasında bir bağcık bulunmamaktadır. Bu nedenle,
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong usage: bağcık for a grammatical connective.
+
+Review note: Copies original and appends contradictory, looping commentary rather than improving flow.
 
 
 ---
@@ -1829,7 +2022,9 @@ Yazıyı düzelttiğimizi söyleyelim. İyi günler dileriz.
 Yazıyı düzelttiğimizi söyleyelim. İyi günler dileriz.
 Yaz
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Uncorrected spelling: bulusup; not an invented word.
+
+Review note: Starts with an incomplete correction, then changes events and enters a long closing loop.
 
 
 ### B
@@ -1843,7 +2038,9 @@ Rating (1-5): ____   Invented words: ____
 - “arkadaşlarla bulusup” → “arkadaşlarıyla”.
 - “yemeğe gittik ama yer bulamadıgımız için eve geri dönmek zorunda kaldık.”’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’’
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Uncorrected source spelling: bulamadıgımız; not an invented word.
+
+Review note: Changes yesterday to tomorrow, breaks agreement and meaning, and ends in punctuation degeneration.
 
 
 ### C
@@ -1862,14 +2059,18 @@ Rating (1-5): ____   Invented words: ____
 
 **Sonuç:** Cümle, zaman, cins ve anlatım açısından düzgün bir şekilde birleştirilmiştir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed/apparent inventions: yemekye, arkamadan. Düzeltimler is an unnatural heading here.
+
+Review note: Partly readable proposed sentence, but explanation invents grammar rules and introduces new errors.
 
 
 ### D
 
 Dün akşam arkadaşlarla bulusup yemeğe gittik ama yer bulamadık için eve geri dönmek zorunda kaldık.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Uncorrected spelling: bulusup. Wrong form: bulamadık için (bulamadığımız için).
+
+Review note: Recognizable original meaning, but fails the requested corrections and adds a new grammatical error.
 
 
 ---
@@ -1883,14 +2084,18 @@ Rating (1-5): ____   Invented words: ____
 
 Yazın ilk günlerinde herkesin en çok merak ettiği konulardan biri de yağmurlu bir pazar sabahı. Bu sabah, evde beklediğimiz gibi değil, çünkü sabah kahvaltısı için yiyeceklerimizi hazırlamak için kullanacağımız malzemelerin bulunduğu bir pazar vardı. Pazarın kapısında, birbirinden güzel ve farklı renklerdeki ürünleri görünce, hemen alışverişe başladık. Yemek yaparken kullandığımız malzemeleri seçerken, her şeyden önce kalitesini göz önünde bulundurduk. Çünkü bu pazarın ürünleri, her zaman kaliteye önem veriyorlar. Ürünlerin fiyatları da oldukça uygun. Çok kaliteli ürünleri, çok ucuz fiyatlara satın alabiliyoruz. Ayrıca, pazarın içinde bulunan ürünleri, daha sonra evimizde de kullanabileceğimize inanıyoruz. Pazarın içinde bulunan ürünlerden bazılarını, birbirinden güzel ve farklı renklerinde gördük. Bunlardan bazıları ise; şekerleme, tereyağı, süt, peynir, yoğurt, kurabiye, fındık, ceviz, domates, patates, biber, salata, et, tavuk, balık, sebze, meyve, ham, ızgara, kurabiyeli, çorba, pilav, makarna, pirinç, ekmek, kepekli, sosis, salam, köfte, kebap, çorbalar, sütlü yemekler, tatlılar, çikolata, kek, kremalı, çikolatalı, çikolatalı tatlılar, tatlı, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çikolata, çik
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Foreign ham may mean English ham in the food list; not counted as invented.
+
+Review note: Confuses Sunday with market, loses rainy-morning scene, and degenerates into a food-word loop.
 
 
 ### B
 
 Yazın ilk güneş ışınlarıyla aydınlanan pazar sabahı, taze meyvelerin kokusuyla ve çiçeklerin renkli çiçekleriyle doluydu; herkesin kendisini yiyecekler için bekleyen bir hava içinde kahvaltı yapmaya hazırlandığı gibi, sakin bir ritim içinde dolaşıyordu.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: One unwieldy sentence instead of five; sunny rather than rainy scene, with unnatural imagery and syntax.
 
 
 ### C
@@ -1899,14 +2104,18 @@ Yağmurlu bir pazar sabahını anlatmak için beş cümlelik kısa bir paragraf 
 
 Bu paragraf, beş cümleyi kapsar, yağmurlu sabah pazarını anlatarak havanın soğukluğunu, ürünlerin suya baktığını ve topluluk arasındaki bağları vurgular.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: mücadelenen, sağliyor. Wrong combinations: damarlı çiçekler, yüksek bir yağmur damlaları.
+
+Review note: Five initial sentences plus extra commentary, but incoherent imagery and pervasive syntactic errors.
 
 
 ### D
 
 Güneşin en erken ışıkları açarken, pazarın kapıları açılır ve soğuk hava, çiçekler ve taze meyveleri kokar. Sıcak bir nefes, sandalyelerde dolaşan sesleri ve çiçeklerin hafif dalgalanmalarını taşır. Müslümerke, peynirler ve çiçekli çaylar arasında sizi beklerken, herkesin gözlerini açarak bir tane de ne kadar güzel görünüyor. Her yerde bir şeyler var: taze çorba, kara çiçekler ve gölgede oturacaklar gibi. Bu sabah, pazarın ruhunu ve huzurunu öğrenmek için mükemmel bir zaman.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent invention: Müslümerke.
+
+Review note: Five sentences, but incoherent market scene with broken agreement and little rainy-Sunday content.
 
 
 ---
@@ -1924,7 +2133,9 @@ Sonra, annesi geldi ve ona, “Seni sevdiğim için, her zaman yanımda olacağ�
 
 **Mutlu bitmiş.**
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Partly readable family-comfort story, but missing cat, inconsistent dialogue perspective, and wrong paragraph structure.
 
 
 ### B
@@ -1938,7 +2149,9 @@ Bir çocuğun adında Ahmet, annesiyle birlikte yeni bir okulya gittiğinde, ail
 **Paragraf 3**
 Gece sonrası, Ahmet evinde oturdu ve çantanın altındaki bir küçük bir taş buldu. Taş, onun babasının kalemini bulunduğu yerini işaretledi ve ona “gözlemlemek için hazır” dedi. Bu taş onu daha önce hiç görmediği bir yer, yani doğa yürüyüşü yolu, keşfetmeye teşvik etti. Yürüyüş sırasında ona “her zaman yeni bir şey var” diyerek bir mesaj verdi ve bu duygular onu mutlu etti. Sonuç olarak, Ahmet’s çantasından gelen taş, onun hayatının ilerlemesini ve mutlu olmasını gösterdi.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: okulya, dersyi; English possessive Ahmet’s is not a Turkish invention.
+
+Review note: Three paragraphs but incoherent magical-object story without a lost cat; pervasive case and role errors.
 
 
 ### C
@@ -1946,7 +2159,9 @@ Rating (1-5): ____   Invented words: ____
 Kızlar Ne Diyor 2
 Bugün bir arkadaşımın evine gittim. Evde bir kız vardı, o da benim gibi çok güzel bir kız. Ona bakarken, "Benimle konuşmak istiyorum" dedi. Ben de ona "Seni çok seviyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü ben seni sevdim" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "Neden?" diye sordu. Ben de "Çünkü seninle birlikte olmak istiyorum" dedim. O da "N
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Unrelated romantic dialogue enters a long loop; no lost-cat story or completed ending.
 
 
 ### D
@@ -1963,7 +2178,9 @@ Mehmet'in ağrısını azaltmak için ailenin hem klinikte hem de evde bir tesis
 
 Sonraki aylarda, Mehmet artık sadece bir çocuktan çıkıp, bir adam haline geldi. Aile, onunla birlikte bir tane çiftçi ailesiyle bir çiftlik evini kurdu. Mehmet, çiftçilikte yeni bir seviyenin kazandığı ve aileyle birlikte birlikte çalışarak mutlu bir hayat sürdürdü. Odayı, annesiyle bir kahve içip, "Benim en büyük dostu olanı seniyim" dedi. Bu hikayede, kaybedilen çocuğun kaybından sonraki mutluluğu, ailenin desteği ve ortak çalışmalar sayesinde ortaya çıktı.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: seniyim. Wrong combinations: çiftçilik öğretici, yeni bir seviyenin kazandığı.
+
+Review note: No cat; incoherent injury/farming plot and pervasive syntax failures despite three sections.
 
 
 ---
@@ -1997,7 +2214,9 @@ Bir yere gitmek için, bir yere gelmek için, bir yere gelmenin, bir yere gelmek
 Bir yere gitmek için, bir yere gelmek için, bir yere gelmenin, bir yere gelmekten başka bir şey olmaz.
 Bir yere gitmek için, bir yere gelmek için, bir yere gelmen
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Repetition of abstract travel phrases; no usable Istanbul ferry poem.
 
 
 ### B
@@ -2029,7 +2248,9 @@ Böylece, bir geleceğin başlaması.
 
 *Bu şiir, İstanbul’un denizleri, vapurlu yolculukları ve bu şehirde yaşanan sakin, şarkılı atmosferi anlatır.*
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Mentions ferries and Istanbul, but many semantically empty or broken lines and an unnecessary explanation.
 
 
 ### C
@@ -2039,7 +2260,9 @@ Güneş, karanlıkta bir ışık gibi parlıyor; uçlarımın ucunda, bir dalgal
 Denizin sesi, bir çanta gibi sıcaklıktaydı; bir şarkı söylerken, bir kuyumcu gibi çalmaya başlıyor.
 Bütün bu, bir yolculuk gibiydi: bir yerden diğerine, bir uçak gibi, ama daha az hızla.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Some poetic form but strained comparisons, agreement errors, and no Istanbul/ferry specificity.
 
 
 ### D
@@ -2067,7 +2290,9 @@ Rüzgarla birlikte, gökyüzüyle.
 İstanbul'un kalbi, suya akar,
 Ve ben de bu yolculuğumda kalbimi açar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: Suunun (suyun).
+
+Review note: Relevant nouns and stanza form, but repeated case/agreement failures and disconnected imagery.
 
 
 ---
@@ -2087,7 +2312,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu iki cümlede, kitapçıyı yeni başladığını, geniş bir koleksiyonu ve sıcak bir hizmet sunduğunu, günlük ziyaretleri ve kişisel önerileri vurguluyor.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified; karşılıksınız var is a broken phrase.
+
+Review note: Unnatural ad, four quoted sentences rather than two, and a false claim about sentence count.
 
 
 ### B
@@ -2101,7 +2328,9 @@ Rating (1-5): ____   Invented words: ____
 - İkinci cümle, kitapçığın içindeki bütünleşik ortamın okuyucuyu derinlemesine etkilemesini belirtir.  
 - Kısaca hem görünüşünü hem de deneyimini bir arada aktararak akılda kalıcı bir reklam oluşturur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Malformed: kitapçınin. Wrong usage: kitapçığın (booklet instead of bookstore).
+
+Review note: Two ad sentences are understandable but stiff, generic, and awkward; unnecessary explanatory material adds errors.
 
 
 ### C
@@ -2133,14 +2362,18 @@ Bir kitapçıya, yeni açılan bir kitapçı için iki cümlelik, akılda kalıc
 Bir kitapçıya, yeni açılan bir kitapçı için iki cümlelik, akılda kalıcı bir reklam metni yaz.
 Bir kitapçıya, yeni açılan bir kitapçı için iki cümlelik, akılda kal
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Copies prompt repeatedly instead of producing ad copy.
 
 
 ### D
 
 **Kütüphanemizde yeni bir kitapçı açıyoruz.** Herkes, her zaman bulabileceğiniz en iyi kitapları bulmak için buraya gelin. Yaratıcılık, öğrenme ve sakin bir ortamda keyifli saatler geçirebilirsiniz.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Readable promotional intent, but three sentences, awkward address, and confusing bookstore/library setting.
 
 
 ---
@@ -2158,7 +2391,9 @@ Rating (1-5): ____   Invented words: ____
 - **Sürekli su tüketimi:** Günde 1,5 litre kadar su tüketin; bu, metabolizmayı destekler, enerji seviyesini düzenler ve bağışıklığı güçlendirir.
 - **Düşük şeker ve tuzlu beslenme:** Şekerli içecekleri, işlenmiş gıdalar ve aşırı tuzlu gıdalardan kaçının; doğal şeker ve tuzu tercih edin.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Apparent wrong food item: lara (intended word unclear). Wrong phrase: antik biyolojik maddeler.
+
+Review note: Five bullets and recognizable advice, but unnatural collocations and several unclear nutritional claims.
 
 
 ### B
@@ -2169,7 +2404,9 @@ Rating (1-5): ____   Invented words: ____
 - **Her gün 2 litre su için** — bol su tüketimi, metabolizmayı hızlandırır ve besinlerin emilimini kolaylaştırır.
 - **Yemekten önce 30 dakika kadar yürüyin** — aktivite kalp sağlığı için koruyucu etkisi vardır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: yürüyin. Wrong usage: Boyunlarınızın for plate portions.
+
+Review note: Five bullets, but severe semantic error and unusable dietary claims, including 400 calories in pregnancy.
 
 
 ### C
@@ -2182,7 +2419,9 @@ Sağlıklı beslenmek için 5 öneri:
 5- Günlük enerjinizin %20'sini su ile doldurun.
 Bu önerilerden bir tanesi de sizde olabilir mi?
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; enerjinizin %20'sini su ile doldurun is semantic nonsense.
+
+Review note: Readable surface Turkish, but multiple unusable nutrition/exercise prescriptions; numbered rather than bulleted list.
 
 
 ### D
@@ -2201,7 +2440,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu basit ama etkili adımlarla hem enerjinizi sabırlı bir şekilde sağlayıp hem de vücudunuzun sağlıklı gelişimine yol açabilirsiniz. 🌱🥗🍎
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent foreign-looking/invented form: antikvitet. Wrong food item: lara; wrong terms: kaymaz protein, vitamin M, havuç yağı.
+
+Review note: Frequent lexical nonsense and unreliable advice; does not use requested bullet format.
 
 
 ---
@@ -2215,14 +2456,18 @@ Rating (1-5): ____   Invented words: ____
 
 İstanbul'da kalın hava, sokaklar ve tarihi yapıları keşfetmek için hazırlıklı olun; çünkü şehir turistler için çok yoğun olabilir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Wrong usage: kalın hava.
+
+Review note: Within limit and basic caution is clear, but the opening list is grammatically and semantically awkward.
 
 
 ### B
 
 İstanbul, tarihi sokaklar, renkli cami ve şehrin zengin mirasıyla herkesin izlenmesini bekleyen bir şehirdir; yürüyüş, yemek ve kültür denemeleriyle dolu.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Within limit, but reads as awkward promotion rather than practical advice; herkesin izlenmesini is wrong.
 
 
 ### C
@@ -2330,14 +2575,18 @@ Rating (1-5): ____   Invented words: ____
 100- Beyoğlu
 İstanbul'un en güzel yerlerinden biri olan Galata Kulesi'ni görmek için buraya gelmen
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong/malformed place labels: Çamlıca Köprüsü, Hacı Bayram Veledini; not counted as new Turkish roots.
+
+Review note: Long repetitive place list, far over limit; incorrect labels and unfinished ending.
 
 
 ### D
 
 İstanbul, tarihi köklü yapıları, lezzetli yemekleri ve şehrin farklı yörelerini birbirinden uyumlu bir şekilde yaşamanızı sunar. Bursa'dan başlayarak, Galata Kulesi'ni, Sultanahmet Camii'ni, Boğaz Köprüsü'nü, Topkapı Sarayı'na, Çamlıhemşin'in manzarasını ve modern yaşam alanlarını keşfedin. Yemek için köy köyü lezzetleriyle (çörek, balık ekmeği) veya tarihsel mekanlar arasında gezintiye çıkın. İki günlük bir tatil için, tarihi merkezler ile deniz kenarında dinlenme yerleri arasında dengeyi bulun.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong combination: köy köyü lezzetleri.
+
+Review note: Awkward syntax, exceeds 50 words, and mixes Istanbul advice with Bursa and Çamlıhemşin.
 
 
 ---
@@ -2352,7 +2601,9 @@ Rating (1-5): ____   Invented words: ____
 Kendinizi iyi hissetmek için, birbirinize güvenmeniz ve onların sizin için ne yaptıklarını bilmeniz gerekir.
 İnsanlar, kendilerini iyi hissettiklerinde, onları sevmekten başka bir şey yapamazlar. Çünkü onlar, kendi kendini iyi hissettiği zaman, onlara karşı duydukları saygıyı da artırırlar. Bu nedenle, herkesin kendisine güvenmesi gerekir. Kendisiyle konuşmak, onunla ilgilenmek, ona yardım etmek, onu mutlu etmek, ona destek olmak, onunla birlikte olmak, onunla beraber olmak, onunla birlikte yaşamak, onunla birlikte çalışmak, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte eğlenmek, onunla birlikte
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Entirely unrelated self-esteem prose and a repetition loop.
 
 
 ### B
@@ -2361,14 +2612,18 @@ Ankara, Türkiye'nin devlet başkenti ve en büyük şehirlerinden biridir. Tari
 
 Bu şehir, Anadolu'da konumunda ve deniz kenarında değil, iç kesimlerde yer alır; bu da doğal güzellikleriyle birlikte sakin bir ortam sunar. Günlük yaşamında, tarihî sokaklar, müzeler ve lezzetli yemekler mevcuttur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong usage: miraslığını, kültürel kalıbı; Anadolu'da konumunda is broken.
+
+Review note: Five sentences rather than three; several unnatural collocations and grammatical errors.
 
 
 ### C
 
 Ankara, Türkiye'nin başkenti ve en büyük kentidir. Kültür, tarih ve sanat için önemli bir merkez olan Ankara'da tarihi eserleri, ünlü mekanları ve modern yaşam alanları bulunur. Ayrıca uluslararası toplantılar ve etkinlikler için de önemli bir yer tutar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 4   Invented words: None identified.
+
+Review note: Three mostly natural sentences; minor case issue in tarihi eserleri and false claim that Ankara is the largest city.
 
 
 ### D
@@ -2378,7 +2633,9 @@ Kültür ve tarihi değerleriyle tanınır, Ankara'da antik mezarlar, medeniyetl
 
 Bu şehir, hem tarihi miras hem de dinamik bir yaşam tarzı ile bilinir; turistler, müze, kafeler ve etkinlikler arayanlar arasında yer alır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong combination: serbest hava alanları.
+
+Review note: Three sentences but overlong, semantically strained, and grammatically disjointed.
 
 
 ---
@@ -2394,7 +2651,9 @@ Yazının konusu: Kızlar Ne Diyor 2013
 Kızlar Ne Diyor 2013
 Kızlar Ne Diyor 2013 filmi, 2009 yılında çekilmiş ve yönetmenliğini Dilek Yılmaz'ın yaptığı, yönetmenliğini ise Özlem Çelik'in üstlendiği, başrollerinde Meltem Cumbul, Burak Yıldırım, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Şebnem Uysal, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Sezen Aktaş, Melis Koçak, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Şebnem Uysal, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Şebnem Uysal, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zeynep Karaca, Neslihan Atagül, Emine Özdemir, Gülcan Çelik, Gökçe Özdemir, Ayşe Kestelioğlu, Serkan Sönmez, Selin Akyürek, Gülçin Güneş, İpek Aktaş, Ece Ergün, Zey
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; long lists of names are not counted as invented vocabulary.
+
+Review note: Unrelated film/cast text and repetition; does not meet the requested saying or keyword constraint.
 
 
 ### B
@@ -2403,7 +2662,9 @@ Rating (1-5): ____   Invented words: ____
 
 **Cümle 2:** Bir insan zamanı hissederken, o anın içinde ne yapacağını düşünebilir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: akıştırır (akıştır).
+
+Review note: Two sentences with keyword, but first sentence has broken definition and incoherent imagery.
 
 
 ### C
@@ -2412,14 +2673,18 @@ Rating (1-5): ____   Invented words: ____
 
 **2.** Biz de bu zamanı, her şeyin akışını yönetmek için bir kalemle izler; doğru bir anlama gelince, geleceğin yansıması olur.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: saatın (saatin).
+
+Review note: Two sentences with keyword, but agreement failures and opaque metaphors obstruct a meaningful saying.
 
 
 ### D
 
 Bir zaman geçer, ama zaman her şeyi değiştirmez.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Understandable but awkward Bir zaman geçer; only one sentence rather than two.
 
 
 ---
@@ -2449,7 +2714,9 @@ Rating (1-5): ____   Invented words: ____
    - Bir an için bir şeyler yapın (ör. bir kitap okuma, bir fotoğraf çekmek).  
    - Sonra bir tazeleme için kısa bir dinlenme yapın ve günün ilk hedeflerini gözden geçirin.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: yürün, Gününüza. Wrong phrase: şeritte bir dizelere geçin.
+
+Review note: Four main items, but several nonsensical instructions and broken case forms.
 
 
 ### B
@@ -2474,7 +2741,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu rutinin hedefi: **enerji ve odaklanma seviyini yükseltemek**, stresi azaltmak ve ofisde daha verimli bir başlangıc oluşturmak. Her adım kısa ve uygulanabilir olduğu için, haftalık bir alışkanlık haline geçebilirsiniz. 🌅🚶‍♂️💧
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: seviyini, yükseltemek, ofisde, başlangıc.
+
+Review note: Four items with partly useful content, but time references, headings, and numerous inflections are unnatural.
 
 
 ### C
@@ -2489,7 +2758,9 @@ Rating (1-5): ____   Invented words: ____
 4- İşe başlama anını gerçekleştiren kişiyi teşvik etme:
 İşe başlama anını gerçekleştiren kişiyi teşvik etmek için, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği anın ardından, işe başlama anını gerçekleştiren kişinin işe başlama anını gerçekleştirdiği an
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Starts with relevant workplace preparation, then devolves into tautology and a long repetition loop.
 
 
 ### D
@@ -2513,7 +2784,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu adımlar hem sağlığınızı korur, hem de daha verimli bir başlangıç sağlar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Wrong usage: uyuyun for waking at 7:00; ışığa ve hava alın is malformed.
+
+Review note: Four clear main items, but several case errors and a contradictory opening instruction.
 
 
 ---
@@ -2536,7 +2809,9 @@ Yeni bir dili öğrenmek, zihinsel ve duygusal açıdan birçok yönden zenginle
 
 Kısacası, yeni bir dili öğrenmek, zihinsel, kültürel ve sosyal alanlarda genişleme sağlar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: None identified.
+
+Review note: Mostly understandable and relevant, with agreement/collocation issues; substantially exceeds 40 words.
 
 
 ### B
@@ -2584,7 +2859,9 @@ Kırk kelime ile yeni bir dil öğrenmenin faydaları:
 40- Yeni bir dil öğrenmek için kendinizi zorlamaz.
 Bu yazılar, yeni bir dil öğrenmeyi nasıl yapabileceğinizi gösteren bir liste. Bu listede yer alan 40 adet öneri, yeni bir dil öğrenmek isteyenlere yardımcı olacaktır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Some relevant initial points, then prolonged repetition far beyond the requested limit.
 
 
 ### C
@@ -2604,7 +2881,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu faydalar, sadece dil becerisini değil, hayal gücünü ve yaşam kalitesini de yükseltir. 🌍✨
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Apparent invention: Emektoloji.
+
+Review note: Some intelligible benefits, but many unnatural labels and constructions; explicitly substitutes a 150-word limit for 40.
 
 
 ### D
@@ -2621,7 +2900,9 @@ Dil öğrenmek, sadece kelimeleri hatırlamak değil; o kelimelerin anlamları, 
 
 Örneğin, “kitap” + “yaz” = “yazılı kitab”. Bu, bir kitap yazmak anlamına gelir. Dil öğrenmek, bu tür bağlantıları geliştirerek konuşmayı ve yazmayı kolaylaştırır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/odd: Çevrimize, Katkın, kitab. Wrong claim: Kitap means a collection of books.
+
+Review note: Changes benefits into language-learning instructions, exceeds limit, and contains broken examples.
 
 
 ---
@@ -2644,7 +2925,9 @@ Bir bilgisayar satın alacak kişi, genellikle şu noktalara dikkat etmelidir:
 
 Bazı insanlar daha önceki deneyimleri veya belirli gereksinimleri göz önünde bulundurarak bu listeyi genişletebilir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Wrong usage: testere for trials, perakende alışverişleri under compatibility.
+
+Review note: Readable general checklist, but unnatural item labels and incomplete sentences reduce usefulness.
 
 
 ### B
@@ -2662,7 +2945,9 @@ Bir bilgisayar satın alırken, en temel noktaları şu şekilde gözlemleyebili
 
 Bu detayları belirlemek, en iyi seçiminizi sağlayacak şekilde bilgisayarınıza ayarlamanızı sağlar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Malformed: Bilgisayanın, amaçını. Wrong term: çekimli for cores; calque Operasyonel sistem.
+
+Review note: Recognizable buying checklist with frequent non-native phrasing and questionable processor description.
 
 
 ### C
@@ -2697,7 +2982,9 @@ Bilgisayar satın alırken dikkat etmeniz gereken noktalar;
 - Ekran kalitesi konusunda bir şey söyleyemeyiz. Çünkü herkes kendi tercihine karar verebilir.
 - Ek
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Malformed: görürsünüzde. Wrong term: puanlı for pixel resolution.
+
+Review note: Initially relevant, but long repetition overwhelms the answer and leaves it unfinished.
 
 
 ### D
@@ -2759,7 +3046,9 @@ Bir bilgisayar satın alarken ilk kez dikkate almanız gereken temel noktalar ş
 
 Bu noktaları inceleyerek, bütçenize uygun ve ihtiyaçlarınızı karşılayan bir bilgisayar seçebilirsiniz. Başka bir konuda detaylı bilgi isterseniz, lütfen söyleyin! 😊
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Apparent inventions/malformed forms: Kişiliçlik, üylem, işyete, RADON. Wrong terms: Hazırlık Hatıra, Sosyal Donanım, Oyuncak Modelleri.
+
+Review note: Recognizable checklist, but many invented translations, contradictory advice, and broken clauses.
 
 
 ---
@@ -2817,7 +3106,9 @@ Sınavdan önceki gece nasıl bir hazırlık yapmak daha verimli olur?
 Sınavdan önceki gece nasıl bir hazırlık yapmak daha verimli olur?
 Sınavdan önceki gece
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Only repeats the question and ends mid-sentence; no answer.
 
 
 ### B
@@ -2852,7 +3143,9 @@ Sınavdan önceki gece (yani test veya sınavın hemen öncesi, genellikle 24-48
 
 Bu yöntemlerle, zihinsel ve fiziksel enerjinizi koruyarak
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed/apparent inventions: sorularu, sakinize, korumacaktır, sistemiyi, uykuyi, önceliginalısınız; foreign stem materialına.
+
+Review note: Some relevant advice, but pervasive grammar errors, contradictory time/lighting advice, and unfinished ending.
 
 
 ### C
@@ -2867,7 +3160,9 @@ Geçmişteki gece hazırlıklarınız için en verimli yöntemler şunlardır:
 
 Bu adımlar hem zihinsel hem de fizyolojik olarak hazırlıklı olmanızı sağlar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong usage: öğütüyle doldurun, Yanınızdaki planlama.
+
+Review note: Partly useful sleep/rest advice, but unnatural syntax and contradictory suggestion to use phone light overnight.
 
 
 ### D
@@ -2899,7 +3194,9 @@ Bu soru, genellikle sınav hazırlığı sırasında en zor veya en sık sorulan
 
 **Özet:** Zamanınızı her konuya ayırarak, her konuyu ayrıntılı olarak öğrenerek ve gerçek koşullarda test edip denetleyerek en verimli hazırlık yapın.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: None identified.
+
+Review note: Readable in parts, but answers long-term preparation rather than the night before; several broken constructions.
 
 
 ---
@@ -2917,7 +3214,9 @@ Bizim evde bitki yetiştirmeyi çok seviyoruz. Çünkü bu konuda çok fazla bil
 Bitkilerimizin beslenmesini sağlamak için, bitkilerimizin ihtiyaçlarını belirlememiz gerekiyor. Bitkilerimizin ihtiyaçları, bitkinin büyümesini sağlamak için gerekli olan maddelerdir. Bunlardan bazıları; su, gübre, ışık, hava, toprak, soğuk ve sıcaklık gibi faktörlerdir. Bitkilerimizin ihtiyaçlarını belirledikten sonra, bunların nasıl sağlanacağına karar vermeliyiz. Örneğin, bitkilerimizin su ihtiyacını karşılamak için, bitkilerimizin toprağındaki nem oranını kontrol etmeliyiz. Bitkilerimizin su ihtiyacını karşılamak için, bitkilerimizin toprağını düzenli olarak sulamalıyız. Ayrıca, bitkilerimizin gübre ihtiyacını da karşılamak için, bitkilerimizin toprağındaki azot, fosfor ve potasyum miktarını kontrol etmeliyiz. Bu maddelerin bitkilerimize yeterli miktarda ulaşması için, bitkilerimizin toprağında yeterli oranda azot, fosfor ve potasyum bulunmalıdır. Bu maddelerin bitkilere ulaşabilmesi için, bitkilerimizin toprağındaki pH değeri de önemlidir. Bitkilerimizin toprağındaki pH değerinin 6-7 arasında olması, bitkilerimizin sağlıklı bir şekilde büyümelerinin için gereklidir. Bu nedenle, bitkilerimizin toprağındaki pH değerini kontrol etmeliyiz. Ayrıca, bitkilerimizin toprağındaki nem oranı da önemlidir. Bitkilerimizin toprağındaki nem oranı %50 ile %70 arasında olmalıdır. Bu oranın altında olan nem, bitkilerimizin çabucak kurumasına neden olurken, nem oranı yüksek olan topraklar ise bitkilerimizin hastalanmasına sebep olabilir. Bu nedenle, bitkilerimizin toprağındaki nem oranını kontrol etmeliyiz.
 Bitkilerimizin beslenmesini sağlamak için, bitkilerimizin ihtiyaçlarını karşılayacak gübreleri kullanmamız gerekiyor. Bitkilerimizin ihtiyacı olan gübreler, bitkilerimizin gelişim dönemlerine göre değişmektedir. Örneğin, çiçek aç
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: büyümelerinin için.
+
+Review note: Relevant material but very repetitive, includes unrelated opening title and overgeneralized conditions, and ends mid-word.
 
 
 ### B
@@ -2942,7 +3241,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu temel adımlar, çiçek açan, sağlıklı bitkiler elde etmek için başlamak için en iyi noktalardan biridir.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong usage/combinations: küçük bir çatıya başlayın, bahçe kabuğu, çatla, toprağın tadı.
+
+Review note: Some recoverable beginner advice, but frequent lexical substitutions and broken syntax.
 
 
 ### C
@@ -2975,7 +3276,9 @@ Rating (1-5): ____   Invented words: ____
 
 Bu adımları takip ederek, evde bitki yetiştirmeyi başaran bir başlangıç yapabilirsiniz! 🌱
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Apparent malformed/invented uses: azalayan, kozma, çaybazlı. Wrong combinations: hane as soil amendment, böcek tohumu; salak is a real word, not counted as invented.
+
+Review note: Extensive nonsense substitutions, contradictory lighting advice, and incoherent gardening instructions.
 
 
 ### D
@@ -2991,7 +3294,9 @@ Rating (1-5): ____   Invented words: ____
 
 Herhangi bir sorunuz varsa veya bitkinizin nasıl büyüyorsa hakkında sorularınız varsa, bana söylemeniz yardımcı olabilirim!
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong combinations: doğa çatıları, suyu sağlamlaştırabilirsiniz.
+
+Review note: Basic topics are relevant, but grammar and verb choices are consistently non-native, including closing offer.
 
 
 ---
@@ -3020,7 +3325,9 @@ Küçük bir tartışma, genellikle duygusal bir gerilim yaratır. Barışmak i�
 Bu yöntemle, tartışmanın sonunda herkesin "barış" hevesini hisseder. 😊  
 Ne kadar küçük bir tartışma olursa olsun, aslında bir bağ kurmayı ve anlayışı pekiştirme fırsatı sunar.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Malformed: korkutmuştım, düşündüğümlerim.
+
+Review note: General reconciliation intent is clear, but example dialogue and instructions contain serious person/case and meaning errors.
 
 
 ### B
@@ -3037,7 +3344,9 @@ Barışmak için en iyi şey, karşı tarafın da aynı duyguyu paylaşmasıdır
 
 Her insan farklı bir bakış açısıyla yaklaşabilir; bu yüzden, herkesin kendi kendine neyi istediklerini de göz önünde bulundurun. Barış, her iki tarafın da güvenli ve saygılı olmasıdır.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Malformed: Dolapınızda (dolabınızda if literal); wrong idiom Dolapınızda durun.
+
+Review note: Mostly understandable advice, but bizarre idiom, unnatural emotional phrasing, and agreement errors.
 
 
 ### C
@@ -3045,7 +3354,9 @@ Rating (1-5): ____   Invented words: ____
 Biraz önceki mesajda, "Kızlar Ne Diyor 2" filmi hakkında bilgi vermiştim. Bu filmde, bir kız arkadaşıyla yaşanan sorunları anlatan bir film. Filmde, bir kız arkadaşı ile yaşanan sorunların çözümüne yönelik bir dizi olay anlatılıyor. Birbirinden güzel ve eğlenceli bir film.
 Filmde, bir kız arkadaşı ile yaşanan sorunlar anlatılıyor. Kız arkadaşının kendisine karşı olan tutumundan dolayı, o da onunla birlikte olmaktan vazgeçiyor. Bu nedenle, iki arkadaşın da birbirlerine karşı olan tutumlarından dolayı, birbirlerini sevmekten vazgeçiyorlar. Ancak, bir gün birbirlerinin yanlarında olmaları üzerine, birbirlerine karşı olan tutumlarını değiştirmeye karar verirler. Bu arada, birbirlerinden ayrılmak istemeyen iki arkadaşın da birbirlerini sevmek için çabalar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmeleri ve birbirlerini sevmek için çabaladıkları gösteriliyor. Filmde, iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, birbirlerinden ayrılmak istemeyen iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmeleri ve birbirlerini sevmek için çabaladıkları gösteriliyor. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine karşı olan tutumlarını değiştirmelerinin ardından, birbirleriyle mutlu bir şekilde yaşama fırsatı buluyorlar. Filmde, bu iki arkadaşın da birbirlerine
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified.
+
+Review note: Invents prior film discussion and loops through an unrelated plot; no actionable reconciliation answer.
 
 
 ### D
@@ -3061,7 +3372,9 @@ Eğer tartışmanın çok da yoğun olmasa bile, bu basit adımlara devam edebil
 
 Bu, çoğu zaman sadece birkaç dakika süren bir barış sağlar. Başka bir şey isterseniz, konuşma sırasında “Bana zaman verin” veya “Böylece konuşalım” gibi basit bir söz kullanın.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong phrases: yerleşim alanında oturun, Sözlerini bırakın.
+
+Review note: Relevant overall topic, but distorted idioms, agreement errors, and unsupported promises make it unnatural.
 
 
 ---
@@ -3079,14 +3392,18 @@ Türkçe çeviri:
 
 **Meydan okuma gününe (Cumartesi) taşınmıştır; çünkü birkaç kolay Çarşamba günü seyahat etmekte olacak.**
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong translations: Meydan okuma for meeting, Cumartesi for Thursday, kolay for colleagues.
+
+Review note: Core entities and day are mistranslated; broken Turkish makes translation unusable.
 
 
 ### B
 
 "Meydan okuma, üç günlük iş günü seyahat eden birkaç karşılıklı üyeler nedeniyle Perşembeye taşınmıştır."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: Wrong translations: Meydan okuma, karşılıklı üyeler.
+
+Review note: Keeps Thursday but loses Wednesday and corrupts the main clause and participants.
 
 
 ### C
@@ -3095,14 +3412,18 @@ Rating (1-5): ____   Invented words: ____
 Türkçe:
 "Meeting, Wednesday because some of the colleagues are going to travel on Wednesday, has been moved to Thursday."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; response remains English.
+
+Review note: No Turkish translation; malformed English restatement instead.
 
 
 ### D
 
 Meeting has been moved to Thursday because several colleagues will be traveling on Wednesday.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; response remains English.
+
+Review note: Repeats the English source without translating.
 
 
 ---
@@ -3116,7 +3437,9 @@ Rating (1-5): ____   Invented words: ____
 
 "Eğer yeni politikaya dair herhangi bir sorun varsa, lisanslama bölümüne başvurun."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 3   Invented words: Wrong translation: lisanslama bölümü for human resources; sorun for question.
+
+Review note: Fairly natural Turkish, but changes the department and meaning of questions; inaccurate translation.
 
 
 ### B
@@ -3126,7 +3449,9 @@ Rating (1-5): ____   Invented words: ____
 Alternatif çeviri:
 "Yeni politikaya dair sorularınız varsa, lisans ve kaynaklar bölümünden iletişime geçin."
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 2   Invented words: Wrong translation: lisans ve kaynaklar bölümü; wrong case bölümünden iletişime geçin.
+
+Review note: Question is partly preserved, but both variants mistranslate HR and the alternative adds a case error.
 
 
 ### C
@@ -3179,11 +3504,15 @@ Rating (1-5): ____   Invented words: ____
 - 2010'da 16 milyon kişi istihdam ediliyor
 - 2010'd
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 1   Invented words: None identified; sorunuza is the wrong inflection here.
+
+Review note: Incomplete conditional followed by a long unrelated employment-statistics loop.
 
 
 ### D
 
 Eğer yeni politikaya ilişkin herhangi bir soru varsa lütfen insan kaynakları bölümüne ulaşın.
 
-Rating (1-5): ____   Invented words: ____
+Rating (1-5): 5   Invented words: None identified.
+
+Review note: Natural, clear Turkish translation that preserves the request and department; minor stylistic alternatives do not impair it.
