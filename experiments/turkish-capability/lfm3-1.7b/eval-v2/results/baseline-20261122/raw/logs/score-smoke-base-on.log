@@ -1,0 +1,148 @@
+{
+ "run": "smoke-base-on",
+ "thinking": "on",
+ "scorer": "eval-v2-scorer-2",
+ "seeds": {
+  "3407": {
+   "summary": {
+    "math/en": {
+     "n": 5,
+     "correct": 4,
+     "accuracy": 0.8,
+     "wilson95": [
+      0.3755,
+      0.9638
+     ],
+     "mean_tokens": 709.2,
+     "median_tokens": 482,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "strict_accuracy": 0.8,
+     "marker_parse_rate": 1.0
+    },
+    "math/tr": {
+     "n": 5,
+     "correct": 4,
+     "accuracy": 0.8,
+     "wilson95": [
+      0.3755,
+      0.9638
+     ],
+     "mean_tokens": 4135.2,
+     "median_tokens": 5318,
+     "hit_max_rate": 0.2,
+     "eos_rate": 0.8,
+     "thinking_closure_rate": 0.8,
+     "strict_accuracy": 0.8,
+     "marker_parse_rate": 0.8
+    },
+    "symbolic/en": {
+     "n": 5,
+     "correct": 5,
+     "accuracy": 1.0,
+     "wilson95": [
+      0.5655,
+      1.0
+     ],
+     "mean_tokens": 366.8,
+     "median_tokens": 186,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 1.0
+    },
+    "symbolic/tr": {
+     "n": 5,
+     "correct": 5,
+     "accuracy": 1.0,
+     "wilson95": [
+      0.5655,
+      1.0
+     ],
+     "mean_tokens": 436.4,
+     "median_tokens": 449,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.2
+    },
+    "toolcall/en": {
+     "n": 5,
+     "correct": 5,
+     "accuracy": 1.0,
+     "wilson95": [
+      0.5655,
+      1.0
+     ],
+     "mean_tokens": 203.2,
+     "median_tokens": 186,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {},
+     "by_subfamily": {
+      "multiple": 1.0,
+      "parallel": 1.0,
+      "simple": 1.0
+     }
+    },
+    "toolcall/tr": {
+     "n": 5,
+     "correct": 4,
+     "accuracy": 0.8,
+     "wilson95": [
+      0.3755,
+      0.9638
+     ],
+     "mean_tokens": 371.2,
+     "median_tokens": 418,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 1
+     },
+     "by_subfamily": {
+      "multiple": 1.0,
+      "parallel": 1.0,
+      "simple": 0.6667
+     }
+    }
+   },
+   "tr_en_gap": {
+    "math": {
+     "n": 5,
+     "en": 0.8,
+     "tr": 0.8,
+     "tr_minus_en": 0.0,
+     "bootstrap95": [
+      -0.6,
+      0.6
+     ]
+    },
+    "symbolic": {
+     "n": 5,
+     "en": 1.0,
+     "tr": 1.0,
+     "tr_minus_en": 0.0,
+     "bootstrap95": [
+      0.0,
+      0.0
+     ]
+    },
+    "toolcall": {
+     "n": 5,
+     "en": 1.0,
+     "tr": 0.8,
+     "tr_minus_en": -0.2,
+     "bootstrap95": [
+      -0.6,
+      0.0
+     ]
+    }
+   },
+   "items": 30
+  }
+ }
+}

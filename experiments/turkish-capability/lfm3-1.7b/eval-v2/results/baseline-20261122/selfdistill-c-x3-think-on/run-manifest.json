@@ -1,0 +1,98 @@
+{
+ "name": "selfdistill-c-x3-think-on",
+ "status": "completed",
+ "thinking": "on",
+ "model": "/workspace/lfm3-evalv2/models/selfdistill-c-x3",
+ "revision": null,
+ "base_model": {
+  "repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "quantization": null,
+  "precision_proposed": "bfloat16",
+  "thinking_proposed": false
+ },
+ "preset_mode": "card",
+ "family_presets": {
+  "math": "math",
+  "symbolic": "math",
+  "toolcall": "general"
+ },
+ "presets": {
+  "general": {
+   "temperature": 0.1,
+   "top_p": 1.0,
+   "top_k": 50,
+   "repetition_penalty": 1.1
+  },
+  "math": {
+   "temperature": 1.0,
+   "top_p": 0.95,
+   "top_k": 20,
+   "repetition_penalty": 1.0
+  },
+  "greedy": {
+   "temperature": 0.0,
+   "top_p": 1.0,
+   "top_k": -1,
+   "repetition_penalty": 1.0
+  }
+ },
+ "max_new_tokens": 8192,
+ "seeds": [
+  3407
+ ],
+ "families": [
+  "math",
+  "symbolic",
+  "toolcall"
+ ],
+ "rows": 584,
+ "limit_pairs": null,
+ "engine_args": {
+  "model": "/workspace/lfm3-evalv2/models/selfdistill-c-x3",
+  "tokenizer": "LiquidAI/LFM3-1.7B",
+  "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "dtype": "bfloat16",
+  "max_model_len": 12288,
+  "gpu_memory_utilization": 0.85,
+  "enforce_eager": true,
+  "max_num_seqs": 32,
+  "seed": 3407,
+  "trust_remote_code": true,
+  "generation_config": "vllm",
+  "enable_prefix_caching": false
+ },
+ "eos_token_ids": [
+  124900
+ ],
+ "chat_template_sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+ "packets": [
+  {
+   "file": "math-pairs.jsonl",
+   "rows": 304,
+   "sha256": "f2cfae2ca34873f9ac8e26d4eb4f9a34e2e5af519c5e01e2a5af2bdb857d900f"
+  },
+  {
+   "file": "symbolic-pairs.jsonl",
+   "rows": 120,
+   "sha256": "7bb29154c65558011911355119ac47931c79825868e139e1731515d18ba9fbc2"
+  },
+  {
+   "file": "toolcall-pairs.jsonl",
+   "rows": 160,
+   "sha256": "3ef139926fae612a26071a9aaeb3944e260a00a0e3b3abadba72369c4450ce80"
+  }
+ ],
+ "builder_sha256": "040ccf2daddfcfc56abbe4645c5af0e15a750a4a50c68eea256d639d47d7bb11",
+ "packages": {
+  "torch": "2.14.0",
+  "transformers": "5.20.2",
+  "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+ },
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "started": "2026-11-22T10:28:29+0000",
+ "wall_seconds": {
+  "3407": 341.4
+ },
+ "finished": "2026-11-22T10:34:37+0000"
+}

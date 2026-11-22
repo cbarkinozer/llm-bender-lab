@@ -1,0 +1,147 @@
+{
+ "run": "selfdistill-c-x3-think-off",
+ "thinking": "off",
+ "scorer": "eval-v2-scorer-2",
+ "seeds": {
+  "3407": {
+   "summary": {
+    "math/en": {
+     "n": 152,
+     "correct": 129,
+     "accuracy": 0.8487,
+     "wilson95": [
+      0.7832,
+      0.897
+     ],
+     "mean_tokens": 403.3,
+     "median_tokens": 206.0,
+     "hit_max_rate": 0.0592,
+     "eos_rate": 0.9408,
+     "strict_accuracy": 0.8421,
+     "marker_parse_rate": 0.9408
+    },
+    "math/tr": {
+     "n": 152,
+     "correct": 51,
+     "accuracy": 0.3355,
+     "wilson95": [
+      0.2653,
+      0.4138
+     ],
+     "mean_tokens": 420.7,
+     "median_tokens": 236.5,
+     "hit_max_rate": 0.0526,
+     "eos_rate": 0.9474,
+     "strict_accuracy": 0.3092,
+     "marker_parse_rate": 0.875
+    },
+    "symbolic/en": {
+     "n": 60,
+     "correct": 53,
+     "accuracy": 0.8833,
+     "wilson95": [
+      0.7782,
+      0.9423
+     ],
+     "mean_tokens": 121.2,
+     "median_tokens": 85.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "number_only_rate": 0.2
+    },
+    "symbolic/tr": {
+     "n": 60,
+     "correct": 54,
+     "accuracy": 0.9,
+     "wilson95": [
+      0.7985,
+      0.9534
+     ],
+     "mean_tokens": 97.6,
+     "median_tokens": 70.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "number_only_rate": 0.0167
+    },
+    "toolcall/en": {
+     "n": 80,
+     "correct": 69,
+     "accuracy": 0.8625,
+     "wilson95": [
+      0.7703,
+      0.9215
+     ],
+     "mean_tokens": 96.8,
+     "median_tokens": 45.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 7,
+      "no_tool_call": 2,
+      "wrong_call_count": 2
+     },
+     "by_subfamily": {
+      "multiple": 0.75,
+      "parallel": 0.9,
+      "simple": 0.9
+     }
+    },
+    "toolcall/tr": {
+     "n": 80,
+     "correct": 61,
+     "accuracy": 0.7625,
+     "wilson95": [
+      0.6586,
+      0.8424
+     ],
+     "mean_tokens": 143.6,
+     "median_tokens": 62.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 18,
+      "no_tool_call": 1
+     },
+     "by_subfamily": {
+      "multiple": 0.55,
+      "parallel": 0.8,
+      "simple": 0.85
+     }
+    }
+   },
+   "tr_en_gap": {
+    "math": {
+     "n": 152,
+     "en": 0.8487,
+     "tr": 0.3355,
+     "tr_minus_en": -0.5132,
+     "bootstrap95": [
+      -0.5987,
+      -0.4211
+     ]
+    },
+    "symbolic": {
+     "n": 60,
+     "en": 0.8833,
+     "tr": 0.9,
+     "tr_minus_en": 0.0167,
+     "bootstrap95": [
+      -0.0833,
+      0.1333
+     ]
+    },
+    "toolcall": {
+     "n": 80,
+     "en": 0.8625,
+     "tr": 0.7625,
+     "tr_minus_en": -0.1,
+     "bootstrap95": [
+      -0.1875,
+      -0.0125
+     ]
+    }
+   },
+   "items": 584
+  }
+ }
+}

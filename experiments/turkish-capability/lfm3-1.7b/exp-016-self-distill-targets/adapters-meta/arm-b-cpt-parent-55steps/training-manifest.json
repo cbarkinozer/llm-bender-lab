@@ -1,0 +1,37 @@
+{
+ "status": "passed",
+ "experiment": "exp-016-self-distill-targets",
+ "steps": 55,
+ "parent": "/workspace/lfm3-evalv2/models/cpt",
+ "repeat": 1,
+ "dataset_sha256": "f8f8d26b19462370ac84f6e4e3daeb7032540a31dd9b9b96cc6692edd11ac0c8",
+ "runner_sha256": "a50116acff100c100914298ffaf2bb51f3ddacfd0c5505aa32edb62877ee777a",
+ "metrics": {
+  "train_runtime": 83.8661,
+  "train_samples_per_second": 5.246,
+  "train_steps_per_second": 0.656,
+  "total_flos": 3100463410145280.0,
+  "train_loss": 1.075617738203569,
+  "epoch": 1.0
+ },
+ "wall_seconds": 86.84013717086054,
+ "reload_exact": true,
+ "mask_audits": 74,
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "packages": {
+  "torch": "2.14.0",
+  "transformers": "5.20.2",
+  "trl": "1.16.0",
+  "peft": "0.21.2",
+  "datasets": "5.1.0"
+ },
+ "adapter_files": {
+  "README.md": "10623f0cb9e0cf529f162bd23553fab9ffeb5f58dfc356b348efb4d90a2a1f42",
+  "adapter_model.safetensors": "1236192309eb27f8ae37a0f5cccd4c4193acbd8eb8d1bf143d1bf2e056e50761",
+  "adapter_config.json": "340d03b31aa1fe1b02f68330c6aceffada9d654e452c1866d7c9412fb9b9b7d8",
+  "chat_template.jinja": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+  "tokenizer_config.json": "b68a35e5c8e7f99bc544fff2884ed6877daf010af51f08ddcd2e36972ff4d704",
+  "tokenizer.json": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+  "training_args.bin": "f75e5d5d9e4ff77adcd5adfea63339ed6bc10f5c5c005869cae30915181ced39"
+ }
+}

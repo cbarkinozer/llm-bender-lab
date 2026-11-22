@@ -1,0 +1,25 @@
+{
+ "prompts_sha256": "10cd152661281e663abda4a89a5a371af49010f39d36afb9385d170bcc643ec8",
+ "k": 4,
+ "seed": 3407,
+ "model": {
+  "repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "quantization": null,
+  "precision_proposed": "bfloat16",
+  "thinking_proposed": false
+ },
+ "direct": {
+  "temperature": 0.1,
+  "top_p": 1.0,
+  "top_k": 50,
+  "repetition_penalty": 1.1
+ },
+ "reasoning": {
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "repetition_penalty": 1.0
+ },
+ "rows": 160
+}

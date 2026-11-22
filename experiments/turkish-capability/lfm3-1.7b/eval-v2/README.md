@@ -101,4 +101,5 @@ python scripts/evaluation/score_lfm3_eval_v2.py compare --base <runs>/base-think
 - Owner spot check: 20 random Turkish GSM8K items and the 80 tool queries in `toolcall-translations-tr.json`
   (written by Claude Sonnet 5.5; invariants checked automatically, meaning not).
 - Remaining families and the English guard set (see above), then `freeze.json` with all hashes.
-- GPU smoke of the runner (not yet executed anywhere).
+- GPU smoke of the runner (not yet executed anywhere). Pod procedure: [GPU-RUNBOOK.md](GPU-RUNBOOK.md); helper scripts
+  `merge_lfm3_adapter.py`, `run_lfm3_eval_v2_session.sh` and `scripts/training/eval_v2_pod.py` are syntax-checked only.

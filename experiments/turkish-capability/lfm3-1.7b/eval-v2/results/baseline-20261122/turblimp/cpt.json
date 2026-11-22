@@ -1,0 +1,97 @@
+{
+  "model": {
+    "repo": "LiquidAI/LFM3-1.7B",
+    "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+    "quantization": null,
+    "precision_proposed": "bfloat16",
+    "thinking_proposed": false
+  },
+  "adapter": null,
+  "merged_model": "/workspace/lfm3-evalv2/models/cpt",
+  "packet_sha256": "59b083e817ddafafe15b42bb3a31fc99d2abff3876f41370c44f47d390b918d0",
+  "policy": "BOS + raw sentence, no EOS, summed log probabilities; ties are not wins",
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "count": 100,
+      "accuracy": 0.87,
+      "ties": 0
+    },
+    "argument_structure_ditransitive": {
+      "count": 100,
+      "accuracy": 0.91,
+      "ties": 0
+    },
+    "argument_structure_transitive": {
+      "count": 100,
+      "accuracy": 0.88,
+      "ties": 0
+    },
+    "binding": {
+      "count": 100,
+      "accuracy": 0.92,
+      "ties": 0
+    },
+    "determiners": {
+      "count": 100,
+      "accuracy": 0.78,
+      "ties": 0
+    },
+    "ellipsis": {
+      "count": 100,
+      "accuracy": 0.33,
+      "ties": 0
+    },
+    "irregular_forms": {
+      "count": 100,
+      "accuracy": 1.0,
+      "ties": 0
+    },
+    "island_effects": {
+      "count": 100,
+      "accuracy": 0.72,
+      "ties": 0
+    },
+    "nominalization": {
+      "count": 100,
+      "accuracy": 0.9,
+      "ties": 0
+    },
+    "npi_licensing": {
+      "count": 100,
+      "accuracy": 1.0,
+      "ties": 0
+    },
+    "passives": {
+      "count": 100,
+      "accuracy": 1.0,
+      "ties": 0
+    },
+    "quantifiers": {
+      "count": 100,
+      "accuracy": 1.0,
+      "ties": 0
+    },
+    "relative_clauses": {
+      "count": 100,
+      "accuracy": 0.75,
+      "ties": 0
+    },
+    "scrambling": {
+      "count": 100,
+      "accuracy": 1.0,
+      "ties": 0
+    },
+    "subject_agreement": {
+      "count": 100,
+      "accuracy": 0.89,
+      "ties": 0
+    },
+    "suspended_affixation": {
+      "count": 100,
+      "accuracy": 0.96,
+      "ties": 0
+    }
+  },
+  "macro_accuracy": 0.869375,
+  "official_full_benchmark": false
+}

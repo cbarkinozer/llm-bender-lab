@@ -1,0 +1,152 @@
+{
+ "run": "selfdistill-c-x3-think-on",
+ "thinking": "on",
+ "scorer": "eval-v2-scorer-2",
+ "seeds": {
+  "3407": {
+   "summary": {
+    "math/en": {
+     "n": 152,
+     "correct": 145,
+     "accuracy": 0.9539,
+     "wilson95": [
+      0.908,
+      0.9775
+     ],
+     "mean_tokens": 865.4,
+     "median_tokens": 493.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "strict_accuracy": 0.9539,
+     "marker_parse_rate": 1.0
+    },
+    "math/tr": {
+     "n": 152,
+     "correct": 90,
+     "accuracy": 0.5921,
+     "wilson95": [
+      0.5126,
+      0.667
+     ],
+     "mean_tokens": 2216.0,
+     "median_tokens": 1060.5,
+     "hit_max_rate": 0.0789,
+     "eos_rate": 0.9211,
+     "thinking_closure_rate": 0.9211,
+     "strict_accuracy": 0.5789,
+     "marker_parse_rate": 0.8816
+    },
+    "symbolic/en": {
+     "n": 60,
+     "correct": 59,
+     "accuracy": 0.9833,
+     "wilson95": [
+      0.9114,
+      0.9971
+     ],
+     "mean_tokens": 178.1,
+     "median_tokens": 141.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.8833
+    },
+    "symbolic/tr": {
+     "n": 60,
+     "correct": 58,
+     "accuracy": 0.9667,
+     "wilson95": [
+      0.8864,
+      0.9908
+     ],
+     "mean_tokens": 183.1,
+     "median_tokens": 153.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.6333
+    },
+    "toolcall/en": {
+     "n": 80,
+     "correct": 73,
+     "accuracy": 0.9125,
+     "wilson95": [
+      0.8302,
+      0.957
+     ],
+     "mean_tokens": 240.1,
+     "median_tokens": 202.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 4,
+      "wrong_call_count": 2,
+      "parse_error": 1
+     },
+     "by_subfamily": {
+      "multiple": 0.95,
+      "parallel": 0.9,
+      "simple": 0.9
+     }
+    },
+    "toolcall/tr": {
+     "n": 80,
+     "correct": 69,
+     "accuracy": 0.8625,
+     "wilson95": [
+      0.7703,
+      0.9215
+     ],
+     "mean_tokens": 334.4,
+     "median_tokens": 222.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 11
+     },
+     "by_subfamily": {
+      "multiple": 0.8,
+      "parallel": 0.95,
+      "simple": 0.85
+     }
+    }
+   },
+   "tr_en_gap": {
+    "math": {
+     "n": 152,
+     "en": 0.9539,
+     "tr": 0.5921,
+     "tr_minus_en": -0.3618,
+     "bootstrap95": [
+      -0.4408,
+      -0.2895
+     ]
+    },
+    "symbolic": {
+     "n": 60,
+     "en": 0.9833,
+     "tr": 0.9667,
+     "tr_minus_en": -0.0167,
+     "bootstrap95": [
+      -0.05,
+      0.0
+     ]
+    },
+    "toolcall": {
+     "n": 80,
+     "en": 0.9125,
+     "tr": 0.8625,
+     "tr_minus_en": -0.05,
+     "bootstrap95": [
+      -0.125,
+      0.025
+     ]
+    }
+   },
+   "items": 584
+  }
+ }
+}

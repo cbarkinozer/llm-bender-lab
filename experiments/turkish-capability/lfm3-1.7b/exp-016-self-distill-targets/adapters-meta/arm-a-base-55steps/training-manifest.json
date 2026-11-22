@@ -1,0 +1,35 @@
+{
+ "status": "passed",
+ "experiment": "exp-016-self-distill-targets",
+ "steps": 55,
+ "dataset_sha256": "f8f8d26b19462370ac84f6e4e3daeb7032540a31dd9b9b96cc6692edd11ac0c8",
+ "runner_sha256": "90020106cfe9fee97e148fbd41a93f0bd74a404cdd0d89c06119ff5864c1554e",
+ "metrics": {
+  "train_runtime": 84.484,
+  "train_samples_per_second": 5.208,
+  "train_steps_per_second": 0.651,
+  "total_flos": 3100463410145280.0,
+  "train_loss": 1.1035295378078114,
+  "epoch": 1.0
+ },
+ "wall_seconds": 92.06804772210307,
+ "reload_exact": true,
+ "mask_audits": 74,
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "packages": {
+  "torch": "2.14.0",
+  "transformers": "5.20.2",
+  "trl": "1.16.0",
+  "peft": "0.21.2",
+  "datasets": "5.1.0"
+ },
+ "adapter_files": {
+  "README.md": "948e50121027ff39fd1243c9a5c993527d6aac35802f8951249902a07e215ced",
+  "adapter_model.safetensors": "0401ffefc211e82f58e9115d35195b56d4b5108497ecc105abf1cfeefb54531f",
+  "adapter_config.json": "d83edb1a3c646262b43b1ee9de065ed9f3ce328dfdf1a72fca8097c7ef9c1556",
+  "chat_template.jinja": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818",
+  "tokenizer_config.json": "b68a35e5c8e7f99bc544fff2884ed6877daf010af51f08ddcd2e36972ff4d704",
+  "tokenizer.json": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44",
+  "training_args.bin": "512c694d002713ec1f204439ef8eaa0505eae8daaf55571441c3e9697fa0011e"
+ }
+}

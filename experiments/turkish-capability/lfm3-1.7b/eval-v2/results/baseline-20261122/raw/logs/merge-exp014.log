@@ -1,0 +1,26 @@
+Loading weights:   0%|          | 0/286 [00:00<?, ?it/s]Loading weights: 100%|██████████| 286/286 [00:00<00:00, 4697.88it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/workspace/.venvs/lfm3-stage/lib/python3.12/site-packages/peft/config.py", line 321, in _get_peft_type
+    config_file = hf_hub_download(
+                  ^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/lfm3-stage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 85, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/workspace/.venvs/lfm3-stage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 133, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'experiments/turkish-capability/lfm3-1.7b/exp-014-completion-mask/results-local/sft/adapter'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/lfm3-evalv2/repo/scripts/evaluation/merge_lfm3_adapter.py", line 80, in <module>
+    main()
+  File "/workspace/lfm3-evalv2/repo/scripts/evaluation/merge_lfm3_adapter.py", line 53, in main
+    model = PeftModel.from_pretrained(model, str(adapter)).merge_and_unload(safe_merge=True).eval()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/lfm3-stage/lib/python3.12/site-packages/peft/peft_model.py", line 492, in from_pretrained
+    config = PEFT_TYPE_TO_CONFIG_MAPPING[PeftConfig._get_peft_type(model_id, **hf_kwargs)].from_pretrained(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/.venvs/lfm3-stage/lib/python3.12/site-packages/peft/config.py", line 327, in _get_peft_type
+    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
+ValueError: Can't find 'adapter_config.json' at 'experiments/turkish-capability/lfm3-1.7b/exp-014-completion-mask/results-local/sft/adapter'

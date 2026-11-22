@@ -1,0 +1,145 @@
+{
+ "run": "base-think-off",
+ "thinking": "off",
+ "scorer": "eval-v2-scorer-2",
+ "seeds": {
+  "3407": {
+   "summary": {
+    "math/en": {
+     "n": 152,
+     "correct": 136,
+     "accuracy": 0.8947,
+     "wilson95": [
+      0.8358,
+      0.9342
+     ],
+     "mean_tokens": 451.7,
+     "median_tokens": 216.5,
+     "hit_max_rate": 0.0658,
+     "eos_rate": 0.9342,
+     "strict_accuracy": 0.8882,
+     "marker_parse_rate": 0.9474
+    },
+    "math/tr": {
+     "n": 152,
+     "correct": 60,
+     "accuracy": 0.3947,
+     "wilson95": [
+      0.3205,
+      0.4741
+     ],
+     "mean_tokens": 1043.3,
+     "median_tokens": 764.5,
+     "hit_max_rate": 0.3158,
+     "eos_rate": 0.6842,
+     "strict_accuracy": 0.3947,
+     "marker_parse_rate": 0.7039
+    },
+    "symbolic/en": {
+     "n": 60,
+     "correct": 58,
+     "accuracy": 0.9667,
+     "wilson95": [
+      0.8864,
+      0.9908
+     ],
+     "mean_tokens": 158.8,
+     "median_tokens": 123.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "number_only_rate": 0.6
+    },
+    "symbolic/tr": {
+     "n": 60,
+     "correct": 58,
+     "accuracy": 0.9667,
+     "wilson95": [
+      0.8864,
+      0.9908
+     ],
+     "mean_tokens": 150.3,
+     "median_tokens": 99.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "number_only_rate": 0.2167
+    },
+    "toolcall/en": {
+     "n": 80,
+     "correct": 76,
+     "accuracy": 0.95,
+     "wilson95": [
+      0.8784,
+      0.9804
+     ],
+     "mean_tokens": 140.2,
+     "median_tokens": 64.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 4
+     },
+     "by_subfamily": {
+      "multiple": 0.9,
+      "parallel": 1.0,
+      "simple": 0.95
+     }
+    },
+    "toolcall/tr": {
+     "n": 80,
+     "correct": 59,
+     "accuracy": 0.7375,
+     "wilson95": [
+      0.6318,
+      0.8214
+     ],
+     "mean_tokens": 239.2,
+     "median_tokens": 126.0,
+     "hit_max_rate": 0.0125,
+     "eos_rate": 0.9875,
+     "errors": {
+      "wrong_arguments": 19,
+      "no_tool_call": 2
+     },
+     "by_subfamily": {
+      "multiple": 0.55,
+      "parallel": 0.85,
+      "simple": 0.775
+     }
+    }
+   },
+   "tr_en_gap": {
+    "math": {
+     "n": 152,
+     "en": 0.8947,
+     "tr": 0.3947,
+     "tr_minus_en": -0.5,
+     "bootstrap95": [
+      -0.5789,
+      -0.4211
+     ]
+    },
+    "symbolic": {
+     "n": 60,
+     "en": 0.9667,
+     "tr": 0.9667,
+     "tr_minus_en": 0.0,
+     "bootstrap95": [
+      -0.05,
+      0.05
+     ]
+    },
+    "toolcall": {
+     "n": 80,
+     "en": 0.95,
+     "tr": 0.7375,
+     "tr_minus_en": -0.2125,
+     "bootstrap95": [
+      -0.3125,
+      -0.125
+     ]
+    }
+   },
+   "items": 584
+  }
+ }
+}

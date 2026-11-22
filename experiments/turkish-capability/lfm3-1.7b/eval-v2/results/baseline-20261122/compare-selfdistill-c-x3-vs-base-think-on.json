@@ -1,0 +1,80 @@
+{
+ "math/en": {
+  "n": 152,
+  "base": 0.9539,
+  "candidate": 0.9539,
+  "delta": 0.0,
+  "bootstrap95": [
+   -0.0329,
+   0.0329
+  ],
+  "gained": 3,
+  "lost": 3,
+  "mcnemar_p": 1.0
+ },
+ "math/tr": {
+  "n": 152,
+  "base": 0.7171,
+  "candidate": 0.5921,
+  "delta": -0.125,
+  "bootstrap95": [
+   -0.2039,
+   -0.0461
+  ],
+  "gained": 9,
+  "lost": 28,
+  "mcnemar_p": 0.0026
+ },
+ "symbolic/en": {
+  "n": 60,
+  "base": 0.9667,
+  "candidate": 0.9833,
+  "delta": 0.0167,
+  "bootstrap95": [
+   0.0,
+   0.05
+  ],
+  "gained": 1,
+  "lost": 0,
+  "mcnemar_p": 1.0
+ },
+ "symbolic/tr": {
+  "n": 60,
+  "base": 0.9833,
+  "candidate": 0.9667,
+  "delta": -0.0167,
+  "bootstrap95": [
+   -0.05,
+   0.0
+  ],
+  "gained": 0,
+  "lost": 1,
+  "mcnemar_p": 1.0
+ },
+ "toolcall/en": {
+  "n": 80,
+  "base": 0.95,
+  "candidate": 0.9125,
+  "delta": -0.0375,
+  "bootstrap95": [
+   -0.1,
+   0.0125
+  ],
+  "gained": 1,
+  "lost": 4,
+  "mcnemar_p": 0.375
+ },
+ "toolcall/tr": {
+  "n": 80,
+  "base": 0.825,
+  "candidate": 0.8625,
+  "delta": 0.0375,
+  "bootstrap95": [
+   -0.0125,
+   0.1
+  ],
+  "gained": 4,
+  "lost": 1,
+  "mcnemar_p": 0.375
+ }
+}

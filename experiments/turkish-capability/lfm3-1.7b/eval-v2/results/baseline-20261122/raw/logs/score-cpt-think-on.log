@@ -1,0 +1,155 @@
+{
+ "run": "cpt-think-on",
+ "thinking": "on",
+ "scorer": "eval-v2-scorer-2",
+ "seeds": {
+  "3407": {
+   "summary": {
+    "math/en": {
+     "n": 152,
+     "correct": 141,
+     "accuracy": 0.9276,
+     "wilson95": [
+      0.8751,
+      0.9591
+     ],
+     "mean_tokens": 942.8,
+     "median_tokens": 537.0,
+     "hit_max_rate": 0.0132,
+     "eos_rate": 0.9868,
+     "thinking_closure_rate": 0.9934,
+     "strict_accuracy": 0.9276,
+     "marker_parse_rate": 0.9868
+    },
+    "math/tr": {
+     "n": 152,
+     "correct": 96,
+     "accuracy": 0.6316,
+     "wilson95": [
+      0.5525,
+      0.7041
+     ],
+     "mean_tokens": 1843.7,
+     "median_tokens": 924.5,
+     "hit_max_rate": 0.0263,
+     "eos_rate": 0.9737,
+     "thinking_closure_rate": 0.9276,
+     "strict_accuracy": 0.625,
+     "marker_parse_rate": 0.9079
+    },
+    "symbolic/en": {
+     "n": 60,
+     "correct": 60,
+     "accuracy": 1.0,
+     "wilson95": [
+      0.9398,
+      1.0
+     ],
+     "mean_tokens": 207.5,
+     "median_tokens": 159.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.9333
+    },
+    "symbolic/tr": {
+     "n": 60,
+     "correct": 57,
+     "accuracy": 0.95,
+     "wilson95": [
+      0.863,
+      0.9829
+     ],
+     "mean_tokens": 237.3,
+     "median_tokens": 190.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.8333
+    },
+    "toolcall/en": {
+     "n": 80,
+     "correct": 73,
+     "accuracy": 0.9125,
+     "wilson95": [
+      0.8302,
+      0.957
+     ],
+     "mean_tokens": 315.4,
+     "median_tokens": 256.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 4,
+      "no_tool_call": 3
+     },
+     "by_subfamily": {
+      "multiple": 0.75,
+      "parallel": 1.0,
+      "simple": 0.95
+     }
+    },
+    "toolcall/tr": {
+     "n": 80,
+     "correct": 60,
+     "accuracy": 0.75,
+     "wilson95": [
+      0.6452,
+      0.8319
+     ],
+     "mean_tokens": 521.1,
+     "median_tokens": 280.5,
+     "hit_max_rate": 0.0125,
+     "eos_rate": 0.9875,
+     "thinking_closure_rate": 0.9875,
+     "errors": {
+      "wrong_arguments": 10,
+      "no_tool_call": 5,
+      "wrong_call_count": 3,
+      "wrong_function": 1,
+      "unclosed_thinking": 1
+     },
+     "by_subfamily": {
+      "multiple": 0.55,
+      "parallel": 0.8,
+      "simple": 0.825
+     }
+    }
+   },
+   "tr_en_gap": {
+    "math": {
+     "n": 152,
+     "en": 0.9276,
+     "tr": 0.6316,
+     "tr_minus_en": -0.2961,
+     "bootstrap95": [
+      -0.375,
+      -0.2171
+     ]
+    },
+    "symbolic": {
+     "n": 60,
+     "en": 1.0,
+     "tr": 0.95,
+     "tr_minus_en": -0.05,
+     "bootstrap95": [
+      -0.1167,
+      0.0
+     ]
+    },
+    "toolcall": {
+     "n": 80,
+     "en": 0.9125,
+     "tr": 0.75,
+     "tr_minus_en": -0.1625,
+     "bootstrap95": [
+      -0.2625,
+      -0.075
+     ]
+    }
+   },
+   "items": 584
+  }
+ }
+}
