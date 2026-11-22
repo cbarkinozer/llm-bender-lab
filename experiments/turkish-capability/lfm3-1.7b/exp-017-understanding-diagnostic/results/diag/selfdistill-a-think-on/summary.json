@@ -1,0 +1,168 @@
+{
+ "name": "selfdistill-a-think-on",
+ "thinking": "on",
+ "seeds": [
+  3407,
+  3408,
+  3409,
+  3410
+ ],
+ "cells": {
+  "A": {
+   "accuracy": 0.9572,
+   "lo": 0.9293,
+   "hi": 0.9803,
+   "n_samples": 608,
+   "cap_rate": 0.0082,
+   "mean_tokens": 992.9,
+   "unclosed_thinking": 0.0082,
+   "reply_language": {
+    "en": 596,
+    "none": 12
+   },
+   "strict_marker_rate": 0.9918
+  },
+  "B": {
+   "accuracy": 0.9424,
+   "lo": 0.9079,
+   "hi": 0.972,
+   "n_samples": 608,
+   "cap_rate": 0.0082,
+   "mean_tokens": 1075.0,
+   "unclosed_thinking": 0.0049,
+   "reply_language": {
+    "tr": 578,
+    "none": 22,
+    "en": 8
+   },
+   "strict_marker_rate": 0.9852
+  },
+  "C": {
+   "accuracy": 0.6053,
+   "lo": 0.5444,
+   "hi": 0.6645,
+   "n_samples": 608,
+   "cap_rate": 0.0822,
+   "mean_tokens": 2436.0,
+   "unclosed_thinking": 0.074,
+   "reply_language": {
+    "none": 48,
+    "en": 555,
+    "tr": 4,
+    "mix": 1
+   },
+   "strict_marker_rate": 0.9178
+  },
+  "D": {
+   "accuracy": 0.6102,
+   "lo": 0.5461,
+   "hi": 0.6727,
+   "n_samples": 608,
+   "cap_rate": 0.0905,
+   "mean_tokens": 2303.5,
+   "unclosed_thinking": 0.0839,
+   "reply_language": {
+    "none": 153,
+    "tr": 419,
+    "en": 34,
+    "mix": 2
+   },
+   "strict_marker_rate": 0.9062
+  },
+  "F": {
+   "accuracy": 0.5691,
+   "lo": 0.5033,
+   "hi": 0.6332,
+   "n_samples": 608,
+   "cap_rate": 0.0609,
+   "mean_tokens": 2222.4,
+   "unclosed_thinking": 0.0493,
+   "reply_language": {
+    "en": 577,
+    "none": 30,
+    "tr": 1
+   },
+   "strict_marker_rate": 0.9391
+  },
+  "G": {
+   "accuracy": 0.5345,
+   "lo": 0.4622,
+   "hi": 0.6118,
+   "n_samples": 608,
+   "cap_rate": 0.125,
+   "mean_tokens": 2698.3,
+   "unclosed_thinking": 0.1184,
+   "reply_language": {
+    "none": 75,
+    "en": 533
+   },
+   "strict_marker_rate": 0.875
+  },
+  "G|numbers_preserved=True": {
+   "items": 110,
+   "accuracy": 0.6023
+  },
+  "G|numbers_preserved=False": {
+   "items": 42,
+   "accuracy": 0.3571
+  }
+ },
+ "deltas": {
+  "D-A": {
+   "label": "gap: Turkish prompt+reply vs English",
+   "delta": -0.347,
+   "lo": -0.4095,
+   "hi": -0.2878,
+   "n": 152
+  },
+  "C-A": {
+   "label": "reading cost (reply en)",
+   "delta": -0.352,
+   "lo": -0.4128,
+   "hi": -0.2928,
+   "n": 152
+  },
+  "B-A": {
+   "label": "writing cost (prompt en)",
+   "delta": -0.0148,
+   "lo": -0.0296,
+   "hi": -0.0016,
+   "n": 152
+  },
+  "D-C": {
+   "label": "reply language at fixed tr prompt",
+   "delta": 0.0049,
+   "lo": -0.0312,
+   "hi": 0.0395,
+   "n": 152
+  },
+  "F-D": {
+   "label": "restate-in-English gain over D",
+   "delta": -0.0411,
+   "lo": -0.0789,
+   "hi": -0.0049,
+   "n": 152
+  },
+  "G-D": {
+   "label": "translate-first gain over D",
+   "delta": -0.0757,
+   "lo": -0.1431,
+   "hi": -0.0099,
+   "n": 152
+  },
+  "G-C": {
+   "label": "translate-first vs direct tr prompt, English reply",
+   "delta": -0.0707,
+   "lo": -0.1382,
+   "hi": -0.0066,
+   "n": 152
+  },
+  "G-F": {
+   "label": "restate vs translate-first",
+   "delta": -0.0345,
+   "lo": -0.097,
+   "hi": 0.028,
+   "n": 152
+  }
+ }
+}

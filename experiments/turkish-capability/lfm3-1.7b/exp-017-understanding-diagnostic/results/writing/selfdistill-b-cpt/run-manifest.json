@@ -1,0 +1,25 @@
+{
+ "name": "selfdistill-b-cpt",
+ "model": "/workspace/lfm3-evalv2/models/selfdistill-b-cpt",
+ "base_model": {
+  "repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "quantization": null,
+  "precision_proposed": "bfloat16",
+  "thinking_proposed": false
+ },
+ "preset": {
+  "temperature": 0.1,
+  "top_p": 1.0,
+  "top_k": 50,
+  "repetition_penalty": 1.1
+ },
+ "max_new_tokens": 800,
+ "seeds": [
+  3407
+ ],
+ "prompts_sha256": "5bbe6f58c38f018fc3b779a572de844289e41de27474452acd1c02beb4a425e4",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "script_sha256": "a58b4ac5dd835b06d2c0e5e4cad1291e42a53cb8927a9f7ad1f1f5ae293031d2",
+ "finished": "2026-11-22T12:48:36+0000"
+}

@@ -4,6 +4,11 @@ Status 2026-11-22: Phase 0 baselines and the Phase 1 pilot ran, see [exp-016](ex
 [eval-v2 results](eval-v2/results/baseline-20261122/README.md). Summary: self-distilled targets prevent the SFT collapse;
 CPT parent + self-distilled SFT keeps the CPT grammar gain (TurBLiMP .868 vs .718 base) with working English chat/tool
 behavior; Turkish task understanding did not improve; scale gate not passed. Nothing published.
+Update 2026-11-22 (later): [exp-017](exp-017-understanding-diagnostic/README.md) located the gap: it is mostly reading
+Turkish, in both thinking modes. The exp-016 SFT raised Belebele Turkish by 10-13 points but lowered Turkish math reading
+and Turkish replies with thinking off; translate-first and restate-first are not fixes. Phase 2 is reframed: Turkish
+prompts with the model's own full English-version reasoning as targets, not short Turkish renderings, gated on several
+measures at once. Writer/fixer API plan replaced by owner-supplied translations of the prompts.
 Original status: plan only. Supersedes the
 "scale authored rows to 6000" idea discussed on 2026-11-21.
 

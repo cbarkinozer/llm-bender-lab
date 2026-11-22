@@ -1,0 +1,70 @@
+{
+ "name": "base-think-on",
+ "status": "completed",
+ "thinking": "on",
+ "model": "LiquidAI/LFM3-1.7B",
+ "base_model": {
+  "repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "quantization": null,
+  "precision_proposed": "bfloat16",
+  "thinking_proposed": false
+ },
+ "conditions": [
+  "A",
+  "B",
+  "C",
+  "D",
+  "F",
+  "G"
+ ],
+ "seeds": [
+  3407,
+  3408,
+  3409,
+  3410
+ ],
+ "pairs": 152,
+ "max_new_tokens": 8192,
+ "preset": {
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "repetition_penalty": 1.0
+ },
+ "wrappers": {
+  "B": "Solve it step by step. Write your whole reply in Turkish. End your reply with a line of the form \"Nihai cevap: <number>\".",
+  "C": "Solve it step by step. Write your whole reply in English. End your reply with a line of the form \"Final answer: <number>\".",
+  "F": "First restate the problem in English in one or two sentences, then solve it step by step in English. End your reply with a line of the form \"Final answer: <number>\".",
+  "G": "Solve it step by step. End your reply with a line of the form \"Final answer: <number>\"."
+ },
+ "translate_prompt": "Translate the following Turkish text into English. Output only the English translation, nothing else.\n\n{body}",
+ "builder_sha256": "040ccf2daddfcfc56abbe4645c5af0e15a750a4a50c68eea256d639d47d7bb11",
+ "script_sha256": "6deba81111517b79611a52d15e7219cee0027aa95cfb762042ac9b403fa5d28f",
+ "engine_args": {
+  "model": "LiquidAI/LFM3-1.7B",
+  "tokenizer": "LiquidAI/LFM3-1.7B",
+  "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "dtype": "bfloat16",
+  "max_model_len": 12288,
+  "gpu_memory_utilization": 0.85,
+  "enforce_eager": true,
+  "max_num_seqs": 96,
+  "seed": 3407,
+  "trust_remote_code": true,
+  "generation_config": "vllm",
+  "enable_prefix_caching": false,
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "code_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
+ },
+ "packages": {
+  "torch": "2.14.0",
+  "transformers": "5.20.2",
+  "vllm": "0.34.0rc1.dev251+g7cc0a8a2b"
+ },
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "started": "2026-11-22T11:47:46+0000",
+ "wall_seconds": 1685.0,
+ "generations": 3648,
+ "finished": "2026-11-22T12:16:39+0000"
+}
