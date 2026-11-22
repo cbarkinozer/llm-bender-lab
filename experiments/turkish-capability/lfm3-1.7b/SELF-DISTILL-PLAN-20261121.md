@@ -194,25 +194,41 @@ tool calling within noise of base; Turkish no worse than exp014.
 
 Phase 0: evaluation (CPU + about 3 GPU hours)
 - [ ] Build eval v2 (paired EN/TR verifiable set, TurBLiMP, guard subset); freeze hashes.
-      Done 2026-11-21 (CPU-verified, [eval-v2](eval-v2/README.md)): math, symbolic and tool-call
-      packets, scorer, summary/compare script, vLLM runner (not yet run on a GPU).
-      Left: Turkish code and checkable-instruction families, English guard set, owner spot check
-      of the Turkish items, freeze.json.
-- [ ] Run it on base, CPT-100M, exp014, exp015 with card presets, both thinking modes.
-- [ ] Gate: base reproduces known behavior (symbolic 8/8; TR-EN gap visible).
+      Partly done: math, symbolic and tool-call packets, scorer, runner and TurBLiMP are built and used
+      ([eval-v2](eval-v2/README.md)). Still open: Turkish code and checkable-instruction families,
+      English guard set (coding, instruction following, GPQA), owner spot check of the Turkish items,
+      freeze.json, overlap check between training prompts and eval items.
+- [x] Run it on base, CPT-100M, exp014, exp015 with card presets, both thinking modes.
+      Done for base, CPT and the exp-016 arms (2026-11-22); exp014/exp015 not run (adapter upload too slow).
+- [x] Gate: base reproduces known behavior (symbolic .97, TR-EN gap visible: math .89 vs .39 off).
 
 Phase 1: pilot `exp-016-self-distill-targets` (about $2)
-- [ ] Same 160 groups, same four directions as exp014; replace only the targets
+- [x] Same 160 groups, same four directions as exp014; replace only the targets
       with self-distilled ones (section 3). Same LoRA r32/alpha64, LR 1e-4, mask,
       order, steps as exp014.
-- [ ] Record per-category verified-sample rate (also a direct EN ability measure).
+- [ ] Record per-category verified-sample rate (also a direct EN ability measure). Not done: pilot was unfiltered.
 - [ ] Gate to scale: thinking-off arithmetic and EN guard within noise of base;
       TR accuracy and TurBLiMP not worse than exp014; answer language Turkish when asked.
-- [ ] Optional arm B only if A passes but the TR-EN gap stays: thinking starts with
-      a one-line English restatement of the Turkish problem.
+      Not passed (2026-11-22): English symbolic arithmetic with thinking off is 8-14 points below base, the EN
+      guard set was not run, Turkish accuracy did not improve, arm B answers some Turkish prompts in English.
+- [x] Optional arm B (one-line English restatement): tested without training as cell F of exp-017;
+      no gain over reading the Turkish problem directly, dropped.
+
+Phase 1b (added 2026-11-22): where does the Turkish gap come from?
+- [x] exp-017 understanding diagnostic ([README](exp-017-understanding-diagnostic/README.md)): the gap is mostly
+      reading Turkish; the exp-016 SFT raised Belebele Turkish but lowered Turkish math reading; AI-rated writing
+      probe (arm B best); owner's read: Turkish is passable for the size, below Qwen3.5-4B.
+- [x] English guard set on base and arm B ([exp-018](exp-018-english-guard/README.md)): HumanEval (164) and IFEval (541).
+      Coding preserved in both thinking modes, IFEval preserved with thinking on; IFEval with thinking off -8.9 points
+      (.730 to .641), so the pre-registered verdict is AMBIGUOUS. GPQA and arm A not run.
+- [ ] Decide whether arm B is a v1 candidate: usable with one known cost (thinking-off instruction following); owner decides
+      before any larger data work. Next training data must include answers over 1,500 characters and constraint rows.
 
 Phase 2: data engine (API + about 2 GPU hours)
-- [ ] Choose writer and fixer from different model families; confirm training-use terms.
+(Reframed 2026-11-22: the owner supplies the translations; targets are the model's own full reasoning on the
+English version of each prompt, plus writing and translation prompts so replies stay Turkish.)
+- [ ] Choose writer and fixer from different model families; confirm training-use terms. (Replaced by
+      owner-supplied translations plus automatic invariant checks.)
 - [ ] Build invariant checkers (numbers, entities, code, JSON, units, language ID).
 - [ ] 50-item dry run across all categories; owner reads all 50; fix prompts.
 - [ ] Generate 2k, then 6k groups; owner spot-checks 100 random + 30 lowest-scored rows per batch.
