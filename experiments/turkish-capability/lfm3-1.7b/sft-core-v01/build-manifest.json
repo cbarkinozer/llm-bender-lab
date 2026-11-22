@@ -1,0 +1,115 @@
+{
+ "seed": "sft-core-v01-20261122",
+ "sources": {
+  "gsm8k-train": {
+   "repo": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "file": "main/train-00000-of-00001.parquet",
+   "rows": 7473,
+   "license": "mit",
+   "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d"
+  },
+  "gsm8k-test": {
+   "repo": "openai/gsm8k",
+   "revision": "740312add88f781978c0658806c59bc2815b9866",
+   "file": "main/test-00000-of-00001.parquet",
+   "rows": 1319,
+   "license": "mit",
+   "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+  },
+  "mbpp-train": {
+   "repo": "google-research-datasets/mbpp",
+   "revision": "4bb6404fdc6cacfda99d4ac4205087b89d32030c",
+   "file": "full/train-00000-of-00001.parquet",
+   "rows": 374,
+   "license": "cc-by-4.0",
+   "sha256": "09d125ca31edacb7800be8c67c45abff618faf0214ff551291817d06bdb914ae"
+  },
+  "mbpp-validation": {
+   "repo": "google-research-datasets/mbpp",
+   "revision": "4bb6404fdc6cacfda99d4ac4205087b89d32030c",
+   "file": "full/validation-00000-of-00001.parquet",
+   "rows": 90,
+   "license": "cc-by-4.0",
+   "sha256": "3f0ec060987432d99fe8fb409d31e6c67445b208a01741c5583517c80a10fe80"
+  },
+  "humaneval": {
+   "repo": "openai/openai_humaneval",
+   "revision": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544",
+   "file": "openai_humaneval/test-00000-of-00001.parquet",
+   "rows": 164,
+   "license": "mit",
+   "sha256": "2f2871a15fbc95b6c683043359f4ed8e144c5a1c4f24f25f66bc51f598dfcfb6"
+  },
+  "glaive": {
+   "repo": "glaiveai/glaive-function-calling-v2",
+   "revision": "e7f4b6456019f5d8bcb991ef0dd67d8ff23221ac",
+   "file": "glaive-function-calling-v2.json",
+   "rows": 112960,
+   "license": "apache-2.0",
+   "sha256": "e9b5d671812b5ca2fbd7b625a37d5c99a19576c37252cdc806defe256aea6dad"
+  },
+  "dolly": {
+   "repo": "databricks/databricks-dolly-15k",
+   "revision": "bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a",
+   "file": "databricks-dolly-15k.jsonl",
+   "rows": 15011,
+   "license": "cc-by-sa-3.0",
+   "sha256": "2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec"
+  },
+  "atlas": {
+   "repo": "AlicanKiraz0/Turkce-Atlas-Instruct",
+   "revision": "c387738c5deacbb35667ab4057930adc34e647e8",
+   "file": "train.chat.jsonl",
+   "rows": 336146,
+   "license": "mit",
+   "sha256": "3caf3081da91ad46890b93907d5123ec1c03508368b5afbc8f9e33c89042e044"
+  }
+ },
+ "overlap": {
+  "gsm8k_train_vs_eval_and_holdout": {
+   "exact": 0,
+   "near": 0
+  },
+  "mbpp_vs_humaneval_flagged_task_ids": [
+   528,
+   536,
+   541,
+   582,
+   626,
+   677,
+   762,
+   822,
+   886,
+   928
+  ],
+  "glaive_filter_counts": {
+   "parse": 76863,
+   "schema": 312,
+   "args_not_in_user": 8178,
+   "shape": 0,
+   "bfcl_overlap": 3072,
+   "kept_pool": 24535
+  },
+  "atlas_pools": {
+   "constrained": 32903,
+   "context": 102081,
+   "plain": 105334
+  }
+ },
+ "counts": {
+  "math": 1000,
+  "math_final_test": 100,
+  "code": 300,
+  "tool": 300,
+  "en_general": 300,
+  "tr_general": 500
+ },
+ "constraint_kinds_in_tr_general": {
+  "bullets": 96,
+  "json": 2,
+  "max_sentences": 23,
+  "max_words": 179
+ },
+ "thinking_on_share": 0.795
+}

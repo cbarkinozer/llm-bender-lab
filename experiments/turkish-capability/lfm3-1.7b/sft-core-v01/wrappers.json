@@ -1,0 +1,51 @@
+{
+ "templates": {
+  "math": {
+   "bare": "{q}",
+   "w1": "Solve this problem. Show your reasoning, then give the final answer as a number.\n\n{q}",
+   "w2": "{q}\n\nExplain how you get the answer and state the final number at the end.",
+   "w3": "Problem: {q}\n\nWork it out carefully. Write the final answer on the last line as \"Answer: <number>\".",
+   "w4": "{q}\n\nGive the answer with a short explanation.",
+   "w5": "Answer the following math word problem.\n\n{q}"
+  },
+  "code": {
+   "c1": "{text}\nYour code should pass these tests:\n{tests}",
+   "c2": "Write a Python function for the following task.\n\n{text}\n\nIt must pass these tests:\n{tests}\n\nReturn the code in a Python code block.",
+   "c3": "{text} Make sure it passes these tests:\n{tests}\nGive only the code, in a ```python block."
+  }
+ },
+ "pool": {
+  "math": [
+   "bare",
+   "bare",
+   "bare",
+   "bare",
+   "bare",
+   "w1",
+   "w1",
+   "w1",
+   "w1",
+   "w2",
+   "w2",
+   "w2",
+   "w2",
+   "w3",
+   "w3",
+   "w3",
+   "w3",
+   "w4",
+   "w4",
+   "w4",
+   "w4",
+   "w5",
+   "w5",
+   "w5",
+   "w5"
+  ],
+  "code": [
+   "c1",
+   "c2",
+   "c3"
+  ]
+ }
+}
