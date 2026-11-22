@@ -81,9 +81,14 @@ def cmd_sheet(args):
     runs = {d.name: load(d) for d in args.run_dir}
     prompts = next(iter(runs.values()))[0]
     args.out.mkdir(parents=True, exist_ok=True)
+    two = args.two_scores
     key, parts = {}, ['# Turkish writing probe: blind review\n',
-                      'For each prompt rate every answer 1-5 (1 = unusable, 3 = understandable but clearly non-native, 5 = natural). '
-                      'Also mark any invented or wrong words you notice.\n']
+                      ('For each answer give two separate scores. **Naturalness** 1-5: 1 = unusable, 3 = understandable but clearly '
+                       'non-native, 5 = natural Turkish. **Task**: does it do what the prompt asks (yes / partly / no), judged apart from '
+                       'how natural it sounds (a fluent answer with a false fact or a broken constraint is "no" or "partly"). Also '
+                       'note invented or wrong words. Do not open review-key.json before you are done.\n') if two else
+                      ('For each prompt rate every answer 1-5 (1 = unusable, 3 = understandable but clearly non-native, 5 = natural). '
+                       'Also mark any invented or wrong words you notice.\n')]
     for pid, row in prompts.items():
         labels = [chr(65 + i) for i in range(len(runs))]
         names = list(runs)
@@ -92,7 +97,9 @@ def cmd_sheet(args):
         parts.append(f'\n---\n\n## {pid} ({row["category"]})\n\n**Prompt:** {row["prompt"]}\n')
         for label, name in zip(labels, names):
             a = next(x for x in runs[name][1] if x['id'] == pid)
-            parts.append(f'\n### {label}\n\n{visible(a["raw_output"]).strip()}\n\nRating (1-5): ____   Invented words: ____\n')
+            footer = ('Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____' if two
+                      else 'Rating (1-5): ____   Invented words: ____')
+            parts.append(f'\n### {label}\n\n{visible(a["raw_output"]).strip()}\n\n{footer}\n')
     (args.out / 'review-sheet.md').write_text('\n'.join(parts), encoding='utf-8', newline='\n')
     (args.out / 'review-key.json').write_text(json.dumps(key, indent=1), encoding='utf-8')
     print('wrote', args.out / 'review-sheet.md', 'and key for', len(key), 'prompts')
@@ -107,6 +114,7 @@ def main():
     p = sub.add_parser('sheet')
     p.add_argument('--run-dir', type=Path, action='append', required=True)
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--two-scores', action='store_true', help='separate naturalness and task-correctness fields')
     p.set_defaults(func=cmd_sheet)
     args = parser.parse_args()
     args.func(args)

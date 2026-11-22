@@ -1,22 +1,34 @@
-﻿id,english,turkish
+id,english,turkish
 math:w1,"Solve this problem. Show your reasoning, then give the final answer as a number.
 
-{q}",
+{q}","Bu problemi çözün. Akıl yürütmenizi gösterin, ardından nihai cevabı sayı olarak verin.
+
+{q}"
 math:w2,"{q}
 
-Explain how you get the answer and state the final number at the end.",
+Explain how you get the answer and state the final number at the end.","{q}
+
+Cevabı nasıl bulduğunuzu açıklayın ve nihai sayısal sonucu en sonda belirtin."
 math:w3,"Problem: {q}
 
-Work it out carefully. Write the final answer on the last line as ""Answer: <number>"".",
+Work it out carefully. Write the final answer on the last line as ""Answer: <number>"".","Problem: {q}
+
+Dikkatlice çözün. Nihai cevabı son satıra ""Cevap: <sayı>"" biçiminde yazın."
 math:w4,"{q}
 
-Give the answer with a short explanation.",
+Give the answer with a short explanation.","{q}
+
+Cevabı kısa bir açıklamayla verin."
 math:w5,"Answer the following math word problem.
 
-{q}",
+{q}","Aşağıdaki matematik problemini yanıtlayın.
+
+{q}"
 code:c1,"{text}
 Your code should pass these tests:
-{tests}",
+{tests}","{text}
+Kodunuz şu testleri geçmelidir:
+{tests}"
 code:c2,"Write a Python function for the following task.
 
 {text}
@@ -24,7 +36,16 @@ code:c2,"Write a Python function for the following task.
 It must pass these tests:
 {tests}
 
-Return the code in a Python code block.",
+Return the code in a Python code block.","Aşağıdaki görev için bir Python fonksiyonu yazın.
+
+{text}
+
+Şu testleri geçmelidir:
+{tests}
+
+Kodu bir Python kod bloğunda verin."
 code:c3,"{text} Make sure it passes these tests:
 {tests}
-Give only the code, in a ```python block.",
+Give only the code, in a ```python block.","{text} Şu testleri geçtiğinden emin olun:
+{tests}
+Yalnızca kodu, bir ```python bloğunda verin."

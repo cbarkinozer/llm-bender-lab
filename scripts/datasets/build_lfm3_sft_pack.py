@@ -53,8 +53,9 @@ def prose(answer):
     return CODE.sub(' ', answer)
 
 
-def language_ok(answer, lang, analyzer):
-    """Return (ok, reason). Checks only prose outside code and tool calls, and only when there is enough of it."""
+def language_ok(answer, lang, analyzer, check_unknown=True):
+    """Return (ok, reason). Checks only prose outside code and tool calls, and only when there is enough of it.
+    check_unknown=False skips the unknown-word limit (math answers repeat character names, which Zeyrek does not know)."""
     text = prose(answer)
     words = [w.lower() for w in WORD.findall(text)]
     if len(words) < 12:
@@ -69,7 +70,7 @@ def language_ok(answer, lang, analyzer):
         if analyzer is not None:
             from turkish_nonword_rate import tokens
             rate = analyzer.rate(tokens(text))
-            if rate['candidate_token_rate'] > MAX_TURKISH_CANDIDATE_RATE:
+            if check_unknown and rate['candidate_token_rate'] > MAX_TURKISH_CANDIDATE_RATE:
                 return False, 'unknown_words'
             if rate['english_token_rate'] > MAX_ENGLISH_TOKEN_RATE:
                 return False, 'english_leak'
@@ -112,6 +113,8 @@ def main():
     lengths = defaultdict(lambda: dict(kept=[], verified=[]))
     survival = defaultdict(Counter)
     for pid, prompt in sorted(prompts.items()):
+        if core_rows[prompt['core_id']]['split'] != 'train':
+            continue  # the final test is never part of a pack
         cell = f'{prompt["category"]}/{prompt["lang"]}/{"on" if prompt["thinking"] else "off"}'
         stats[cell]['prompts'] += 1
         if prompt['id'] not in samples or prompt['id'] not in verified:
@@ -123,7 +126,7 @@ def main():
         passed, reasons = [], Counter()
         for i in good:
             reasoning, answer = split_sample(row_samples[i]['raw_output'], prompt['thinking'])
-            ok, reason = language_ok(answer, prompt['lang'], analyzer)
+            ok, reason = language_ok(answer, prompt['lang'], analyzer, check_unknown=prompt['category'] == 'tr_general')
             reasons[reason] += 1
             if ok:
                 passed.append((i, reasoning, answer))

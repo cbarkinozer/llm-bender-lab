@@ -52,29 +52,33 @@ Phase A: sources, English prompt lists, worksheets (CPU only)
 Phase B: English-side sampling on the pod (needs the GPU, not the translations)
 - [x] B1 Sampler (`generate_lfm3_sft_samples.py`, resumable, k per category), verifier (`verify_lfm3_sft_samples.py`, oracle-tested
       on math, tool calls and MBPP references 300/300) and pod driver.
-- [ ] B2 Run on the pod for the base model (started 2026-11-22 15:46Z: 1,600 English prompts k=4, then Dolly 300 k=4 and Atlas
-      500 k=8 chained automatically).
-- [ ] B3 Report: verification rate per category, natural length distribution (the reference for the length-drift check).
+- [x] B2 Base model sampled (2026-11-22): 1,600 English prompts k=4, Dolly 300 k=4, Atlas 500 k=8, then 1,000 Turkish math
+      problems and the 100-item final test in both languages k=4 (thinking on, 8,192 tokens).
+- [x] B3 Verification rates (any verified sample per group, thinking on): math EN .96 / TR .79, code .89, tools .98, Dolly 1.0,
+      Atlas .96; thinking off is weaker (code .60, TR math .61). Natural lengths are the drift baseline of exp-019.
 
 Phase C: Turkish prompts (needs the owner's translations)
-- [ ] C1 Owner fills the worksheets: 1,000 GSM8K train and 100 GSM8K test (checked by the owner), 8 wrapper templates, 300 MBPP
-      task sentences and 300 tool-query one-liners. The first experiment can start with the math sheets plus the wrappers.
-- [ ] C2 Import + validate the translations (digits, names, code, JSON identical).
-- [ ] C3 Sample the model on the Turkish prompts (k=4+, thinking on); keep a random verified sample; fallback is the
-      model's correct answer to the English twin paired with the Turkish prompt (counted and reported).
+- [x] C1 Worksheets filled (math train 1,000, final test 100, wrappers 8) by OpenAI Codex, AI-reviewed (not owner-reviewed);
+      the 300 MBPP and 300 tool one-liners are still empty (deferred), see `sft-core-v01/DATASET-CARD.md`.
+- [x] C2 Validated independently: 0 errors in the delivered sheets. Found c-mathtest-0068 (meaning-changing translation) and
+      three items with English thousands format (read as decimals in Turkish): recorded as a sensitivity subset, data unchanged.
+- [x] C3 Sampled on the Turkish prompts (see B2). The fallback with the English twin's answer was dropped: it would teach
+      Turkish prompt -> English reply.
 
 Phase D: build the pack
-- [ ] D1 Assemble rows (tr->tr, tr->en, en->tr, en->en replay, long-answer and constraint rows) with native chat template.
-- [ ] D2 Validation report: token counts, trainable tokens, truncation, EOS, masks, duplicates, overlap with eval sets.
-- [ ] D3 Length-drift check: kept-answer lengths against the natural lengths (B3). A shift is a stop signal.
-- [ ] D4 60-row stratified review for the categories without a checker (owner reads).
+- [x] D1 Pack built: 2,909 rows (tr->tr, en->en only; no cross-language rows in v1), thinking on 81.5%.
+- [x] D2 Trainer audits on all rows: prompt masked, EOS supervised, no truncation (max 7,935 tokens), tool names in the prompt.
+      Not done: duplicates/overlap check of Atlas and Dolly against the eval sets.
+- [x] D3 Length drift 1.00 to 1.06 on most cells, 1.14 for Turkish math (kept answers longer), the opposite of exp-016.
+- [ ] D4 60-row stratified review of the Atlas rows (owner reads) and the 40-answer blind sheet
+      (`exp-019-sft-core-pack/results/writing-review/`, naturalness and task scored apart).
 
 Phase E: training and evaluation
-- [ ] E1 exp-019: CPT-merged parent + LFM3 pack, exp-016 LoRA recipe. One seed.
-- [ ] E2 exp-020: same data on the original LFM3 (shows how much Turkish the dataset carries without our CPT).
-- [ ] E3 Gates for exp-019 (thinking on): Turkish math >= .69 (base); Belebele TR >= .45; TurBLiMP >= .85; >= 98% Turkish
-      replies to Turkish prompts; English guard (IFEval, HumanEval, English math, tools) within the exp-018 rule.
-- [ ] E4 Fresh test: the 100 owner-checked GSM8K test items, used once. Also score the items the base never solved separately.
+- [x] E1 exp-019: CPT-merged parent + LFM3 pack, one seed (364 steps, 17.6 min). See `exp-019-sft-core-pack/README.md`.
+- [ ] E2 exp-020: same data on the original LFM3, running on the pod (shows how much the dataset carries without our CPT).
+- [x] E3 Gates G1 to G7 of exp-019 (thinking on): all pass (Turkish math reading .752 vs base .691 and arm B .612).
+- [x] E4 Fresh test, 100 GSM8K test items, AI-reviewed translations (not owner-checked): Turkish .770 vs base .7625, English .930
+      vs .9375, no difference. The never-solved items were not scored separately.
 - [ ] E5 Second seed for the winner; native 40-answer writing rating (naturalness and correctness separate).
 
 Phase F: release (each needs explicit approval)

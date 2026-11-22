@@ -1,0 +1,224 @@
+{
+ "diagnostic_cells_thinking_on": {
+  "A": {
+   "base": 0.949,
+   "armB": 0.9441,
+   "model": 0.949,
+   "vs_base": {
+    "delta": 0.0,
+    "ci": [
+     -0.0115,
+     0.0115
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": 0.0049,
+    "ci": [
+     -0.0148,
+     0.0247
+    ],
+    "n": 152
+   }
+  },
+  "B": {
+   "base": 0.9523,
+   "armB": 0.9326,
+   "model": 0.9375,
+   "vs_base": {
+    "delta": -0.0148,
+    "ci": [
+     -0.0312,
+     0.0
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": 0.0049,
+    "ci": [
+     -0.0082,
+     0.0181
+    ],
+    "n": 152
+   }
+  },
+  "C": {
+   "base": 0.7286,
+   "armB": 0.602,
+   "model": 0.7549,
+   "vs_base": {
+    "delta": 0.0263,
+    "ci": [
+     -0.0148,
+     0.0674
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": 0.153,
+    "ci": [
+     0.102,
+     0.2023
+    ],
+    "n": 152
+   }
+  },
+  "D": {
+   "base": 0.6908,
+   "armB": 0.6118,
+   "model": 0.7516,
+   "vs_base": {
+    "delta": 0.0609,
+    "ci": [
+     0.0214,
+     0.1036
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": 0.1398,
+    "ci": [
+     0.0921,
+     0.1891
+    ],
+    "n": 152
+   }
+  },
+  "F": {
+   "base": 0.7171,
+   "armB": 0.6168,
+   "model": 0.773,
+   "vs_base": {
+    "delta": 0.0559,
+    "ci": [
+     0.0132,
+     0.0987
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": 0.1562,
+    "ci": [
+     0.1086,
+     0.2039
+    ],
+    "n": 152
+   }
+  },
+  "G": {
+   "base": 0.551,
+   "armB": 0.6464,
+   "model": 0.625,
+   "vs_base": {
+    "delta": 0.074,
+    "ci": [
+     -0.0066,
+     0.1546
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": -0.0214,
+    "ci": [
+     -0.0872,
+     0.0444
+    ],
+    "n": 152
+   }
+  }
+ },
+ "G1": {
+  "rule": "D: model - base >= -0.03 and lower bound of (model - armB) > 0",
+  "D": {
+   "base": 0.6908,
+   "armB": 0.6118,
+   "model": 0.7516,
+   "vs_base": {
+    "delta": 0.0609,
+    "ci": [
+     0.0214,
+     0.1036
+    ],
+    "n": 152
+   },
+   "vs_armB": {
+    "delta": 0.1398,
+    "ci": [
+     0.0921,
+     0.1891
+    ],
+    "n": 152
+   }
+  },
+  "passed": true
+ },
+ "G3": {
+  "rule": "Belebele TR restricted >= .45 and >= armB (.483) - .03",
+  "tr_restricted": 0.48,
+  "en_restricted": 0.7067,
+  "passed": true
+ },
+ "G4": {
+  "rule": "TurBLiMP macro accuracy >= .85",
+  "macro": 0.85375,
+  "passed": true
+ },
+ "G5": {
+  "rule": "at most 1 of 40 answers entirely in English (heuristic)",
+  "english_answers": [],
+  "no_eos": 7,
+  "passed": true
+ },
+ "G6": {
+  "rule": "exp-018 rule, thinking on: IFEval strict (270) and HumanEval",
+  "ifeval_on": {
+   "n": 270,
+   "base": 0.8407,
+   "candidate": 0.8704,
+   "delta": 0.0296,
+   "lo": -0.0111,
+   "hi": 0.0704,
+   "verdict": "PASS"
+  },
+  "humaneval_on": {
+   "n": 164,
+   "base": 0.9268,
+   "candidate": 0.9146,
+   "delta": -0.0122,
+   "lo": -0.0427,
+   "hi": 0.0183,
+   "verdict": "PASS"
+  },
+  "passed": true,
+  "reported_not_gating": {
+   "ifeval_strict_off_full541": {
+    "n": 541,
+    "base": 0.7301,
+    "candidate": 0.7098,
+    "delta": -0.0203,
+    "lo": -0.0573,
+    "hi": 0.0166,
+    "verdict": "PASS"
+   },
+   "humaneval_off": {
+    "n": 164,
+    "base": 0.7622,
+    "candidate": 0.7561,
+    "delta": -0.0061,
+    "lo": -0.0732,
+    "hi": 0.0671,
+    "verdict": "PASS"
+   },
+   "ifeval_strict_off_270": {
+    "n": 270,
+    "base": 0.7074,
+    "candidate": 0.7111,
+    "delta": 0.0037,
+    "lo": -0.0481,
+    "hi": 0.0556,
+    "verdict": "PASS"
+   }
+  }
+ },
+ "G7_note": "tools and English math come from the eval v2 comparison logs (see README table)"
+}

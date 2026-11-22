@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "file": "01-gsm8k-train.csv",
+      "rows": 1000,
+      "filled": 1000,
+      "ids_english_and_order_match_core": true,
+      "sha256": "4c1f750ba1cd5d453546b4d3b809da2dbf3b37215a97834594db332bf6ea2917"
+    },
+    {
+      "file": "02-gsm8k-final-test.csv",
+      "rows": 100,
+      "filled": 100,
+      "ids_english_and_order_match_core": true,
+      "sha256": "9aefbb701b011e14ff75f3ecff5b08ddc1098838bdcb14f895ca42600377aefa"
+    },
+    {
+      "file": "03-mbpp-text.csv",
+      "rows": 300,
+      "filled": 0,
+      "ids_english_and_order_match_core": true,
+      "sha256": "aa2ae9b02f8de133de87468d6d31c30e88a46a4b3730fc76d8a219c8544b985d"
+    },
+    {
+      "file": "04-tool-user-queries.csv",
+      "rows": 300,
+      "filled": 0,
+      "ids_english_and_order_match_core": true,
+      "sha256": "9498483e14009ad09c350b452831ba2cad7dde741e7d2d96aaff798d88e85cf0"
+    },
+    {
+      "file": "00-wrappers.csv",
+      "rows": 8,
+      "filled": 8,
+      "placeholders_and_linebreaks_preserved": true,
+      "sha256": "4bc33d59a3a5793a2f59f00de03e70fa6ea565fcbd099ccc0602bd9e2e01186d"
+    }
+  ],
+  "translator": "OpenAI Codex, direct translation; no external translation drafts used",
+  "review": "All 100 final-test rows read and checked individually by the same AI assistant; not a human review"
+}

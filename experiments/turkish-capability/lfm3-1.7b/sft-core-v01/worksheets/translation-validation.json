@@ -1,0 +1,2799 @@
+{
+ "summary": {
+  "01-gsm8k-train.csv": {
+   "rows": 1000,
+   "expected": 1000,
+   "errors": 0
+  },
+  "02-gsm8k-final-test.csv": {
+   "rows": 100,
+   "expected": 100,
+   "errors": 0
+  },
+  "03-mbpp-text.csv": "not provided",
+  "04-tool-user-queries.csv": "not provided",
+  "00-wrappers.csv": {
+   "rows": 8,
+   "expected": 8,
+   "errors": 0
+  }
+ },
+ "errors": [],
+ "warnings": [
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0002",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0003",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0005",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0006",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0007",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0010",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0011",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0012",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0013",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0015",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0017",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0018",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0020",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0023",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0025",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0026",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0027",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0028",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0029",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0030",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0031",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0033",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0034",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0035",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0037",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0038",
+   "problem": "number words in Turkish (check they are not replacing digits): ['sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0039",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0044",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0045",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0046",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0047",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0050",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yirmi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0052",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0053",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0055",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0057",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0060",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0065",
+   "problem": "number words in Turkish (check they are not replacing digits): ['sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0066",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0069",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0073",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0075",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0076",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0077",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0080",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0081",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0084",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0085",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0086",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0088",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0090",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0093",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'on', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0094",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0095",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0096",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0097",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0098",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0099",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0100",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0101",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0106",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0107",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0108",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0113",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0117",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0118",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0122",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0125",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0127",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0129",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0130",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0131",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0132",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0133",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0136",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0141",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0143",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0144",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0145",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0151",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0152",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0153",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0156",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0157",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0158",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0162",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0162",
+   "problem": "code-like token not kept: iPods"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0163",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0165",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0166",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0167",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0169",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0170",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0171",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0172",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0177",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0178",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0180",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'iki', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0181",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0182",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0183",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0184",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki', 'yüz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0185",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0186",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0187",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0189",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0190",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0191",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0192",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0193",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0194",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0195",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0196",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0198",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0202",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0203",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0205",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0207",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0210",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0211",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0212",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0213",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0214",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0217",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0220",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0221",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0222",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0223",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0224",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0225",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0226",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0227",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0231",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'on', 'sekiz', 'yüz', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0233",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0235",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0239",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0240",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0241",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0242",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0245",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0249",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0250",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0251",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0252",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0253",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0258",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0259",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0262",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0263",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0264",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0265",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0268",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'yüz', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0269",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0270",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0272",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0281",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0283",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0285",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0287",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0288",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0289",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0291",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0292",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0294",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0297",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0298",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0300",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0301",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0303",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0304",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0309",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0312",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0313",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0314",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0315",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0316",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0317",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'iki', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0319",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0321",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0323",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0324",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0325",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0326",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0327",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0329",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0331",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0332",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0333",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0338",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0339",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0341",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0342",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0343",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0345",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0347",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0349",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0350",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0351",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0352",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0353",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0354",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0355",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0356",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0358",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0361",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0362",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0367",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0370",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0373",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0375",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0378",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0379",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0380",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0381",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0382",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0383",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0384",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0385",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0388",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0389",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0391",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0392",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0395",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0400",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0403",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0404",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'otuz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0408",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0410",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0411",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0414",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0415",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0416",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0419",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0420",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0421",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0423",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0424",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0425",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0426",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0427",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0429",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0431",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0433",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0434",
+   "problem": "number words in Turkish (check they are not replacing digits): ['sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0435",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0437",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0438",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0441",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0445",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'yirmi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0446",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0450",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0453",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0455",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0456",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0457",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0458",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0465",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0466",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0472",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0473",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0474",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0475",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0476",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0478",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0479",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0480",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0481",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0482",
+   "problem": "number words in Turkish (check they are not replacing digits): ['i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0484",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0485",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0488",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'elli']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0491",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0492",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0494",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0496",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0497",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0499",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0505",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0506",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0507",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0510",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0511",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0512",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0514",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0516",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0521",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0526",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0529",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0530",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0531",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0532",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0533",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0536",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0538",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0539",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'on', 'sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0540",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'dört', 'iki', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0541",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0542",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0543",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0545",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0547",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0551",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0552",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0556",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0558",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0559",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0560",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0561",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0564",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0565",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0566",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0568",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0569",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'yirmi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0572",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0574",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0576",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0578",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0581",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0586",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0587",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0588",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0592",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0595",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0605",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0610",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0611",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0612",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0613",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0614",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0617",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yirmi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0619",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0620",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0621",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0622",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0625",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0627",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0629",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0631",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0635",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0637",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0639",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0640",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'dört', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0641",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0642",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0643",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0644",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0646",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0647",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0648",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0651",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0652",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0653",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0655",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0656",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'sekiz', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0661",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0662",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0663",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0664",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0665",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0666",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0667",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0668",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0669",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0675",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0678",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0679",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0681",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0682",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0684",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0685",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0686",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0690",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0691",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0694",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dokuz', 'yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0697",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'yirmi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0698",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0699",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0701",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0704",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0707",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0708",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0709",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0711",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0714",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0720",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0721",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yüz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0732",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0738",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0739",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0740",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0747",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0749",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0750",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0752",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0753",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0754",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0755",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0756",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0757",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0762",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0764",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0765",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0772",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0773",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0775",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0777",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0780",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0783",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0784",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0786",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0787",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0788",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0789",
+   "problem": "number words in Turkish (check they are not replacing digits): ['i̇ki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0791",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0801",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0802",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0803",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0805",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0806",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0807",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0811",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0812",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0813",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0816",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0817",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0819",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0823",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0824",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0825",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0827",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0830",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0831",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0834",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0836",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'i̇ki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0838",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0842",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0843",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0846",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0850",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0851",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0852",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0853",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0855",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'on', 'otuz', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0856",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0858",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0859",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0860",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0862",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0864",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0866",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0867",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0868",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0870",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'dört', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0875",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0876",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0878",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0881",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0882",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0883",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0884",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0885",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'i̇ki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0888",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0889",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0893",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0895",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'on']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0896",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0897",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0904",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0906",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0907",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0914",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'sekiz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0923",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0926",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0928",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0930",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0931",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0932",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0936",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0937",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0941",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0943",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0947",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0948",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0949",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0952",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0958",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0959",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dokuz', 'dört', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0960",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0961",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'otuz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0963",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0964",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0969",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'dokuz', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0972",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0973",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0974",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0975",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0978",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0980",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0981",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0982",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0983",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0984",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0986",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0987",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0989",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0990",
+   "problem": "number words in Turkish (check they are not replacing digits): ['üç']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0992",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0993",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0995",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'otuz', 'yüz']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0997",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-0998",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "01-gsm8k-train.csv",
+   "id": "c-math-1000",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'bir', 'dört']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0001",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0003",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0004",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0007",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0008",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0009",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0010",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0011",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0019",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0026",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0028",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0029",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0031",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0035",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0036",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0037",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0044",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0045",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'otuz', 'yirmi', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0046",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'beş', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0048",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0050",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0052",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0055",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0056",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0064",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0068",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0070",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0071",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0072",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'dört', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0073",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0074",
+   "problem": "number words in Turkish (check they are not replacing digits): ['yedi', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0079",
+   "problem": "number words in Turkish (check they are not replacing digits): ['dört', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0081",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0082",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0083",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0086",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0089",
+   "problem": "number words in Turkish (check they are not replacing digits): ['beş', 'yedi']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0090",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'üç']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0091",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0093",
+   "problem": "number words in Turkish (check they are not replacing digits): ['altı', 'bir', 'iki', 'i̇ki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0095",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir', 'iki']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0097",
+   "problem": "number words in Turkish (check they are not replacing digits): ['bir']"
+  },
+  {
+   "file": "02-gsm8k-final-test.csv",
+   "id": "c-mathtest-0098",
+   "problem": "number words in Turkish (check they are not replacing digits): ['iki']"
+  }
+ ]
+}
