@@ -1,0 +1,862 @@
+{
+ "rows": 80,
+ "format_errors": [],
+ "per_row": [
+  {
+   "id": "mail-001",
+   "type": "formal e-posta (rica / talep)",
+   "words": 60,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-002",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 56,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-003",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 58,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-004",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-005",
+   "type": "limitli yazı",
+   "words": 18,
+   "limits": [
+    [
+     "sentences",
+     2
+    ],
+    [
+     "sentences",
+     2
+    ]
+   ],
+   "unknown_candidate_rate": 0.0667,
+   "problems": [
+    "unknown-word candidate rate 0.067"
+   ],
+   "notes": [],
+   "verdict": "check"
+  },
+  {
+   "id": "mail-006",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 41,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-007",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 42,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-008",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 43,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-009",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 41,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-010",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 40,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-011",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 41,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-012",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 45,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-013",
+   "type": "kısa mesaj (WhatsApp / SMS, samimi ton)",
+   "words": 44,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-014",
+   "type": "iş başvurusu veya referans",
+   "words": 51,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-015",
+   "type": "iş başvurusu veya referans",
+   "words": 48,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-016",
+   "type": "iş başvurusu veya referans",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-017",
+   "type": "iş başvurusu veya referans",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-018",
+   "type": "iş başvurusu veya referans",
+   "words": 111,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-019",
+   "type": "iş başvurusu veya referans",
+   "words": 113,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-020",
+   "type": "iş başvurusu veya referans",
+   "words": 113,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-021",
+   "type": "iş başvurusu veya referans",
+   "words": 53,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-022",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-023",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 48,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-024",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 48,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-025",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 52,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-026",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 106,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-027",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 109,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-028",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-029",
+   "type": "resmî dilekçe / kısa mektup",
+   "words": 52,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-030",
+   "type": "davet veya duyuru notu",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-031",
+   "type": "davet veya duyuru notu",
+   "words": 47,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-032",
+   "type": "davet veya duyuru notu",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-033",
+   "type": "davet veya duyuru notu",
+   "words": 48,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-034",
+   "type": "davet veya duyuru notu",
+   "words": 115,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-035",
+   "type": "davet veya duyuru notu",
+   "words": 109,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-036",
+   "type": "davet veya duyuru notu",
+   "words": 52,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-037",
+   "type": "davet veya duyuru notu",
+   "words": 54,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-038",
+   "type": "teşekkür / geri bildirim",
+   "words": 46,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-039",
+   "type": "teşekkür / geri bildirim",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-040",
+   "type": "teşekkür / geri bildirim",
+   "words": 43,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-041",
+   "type": "teşekkür / geri bildirim",
+   "words": 47,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-042",
+   "type": "teşekkür / geri bildirim",
+   "words": 112,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-043",
+   "type": "teşekkür / geri bildirim",
+   "words": 52,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-044",
+   "type": "teşekkür / geri bildirim",
+   "words": 44,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-045",
+   "type": "teşekkür / geri bildirim",
+   "words": 47,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-046",
+   "type": "formal e-posta (rica / talep)",
+   "words": 52,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-047",
+   "type": "formal e-posta (rica / talep)",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-048",
+   "type": "formal e-posta (rica / talep)",
+   "words": 54,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-049",
+   "type": "formal e-posta (rica / talep)",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-050",
+   "type": "formal e-posta (rica / talep)",
+   "words": 108,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-051",
+   "type": "formal e-posta (rica / talep)",
+   "words": 59,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-052",
+   "type": "formal e-posta (rica / talep)",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-053",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-054",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 54,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-055",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 51,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-056",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 51,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-057",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 118,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-058",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 58,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-059",
+   "type": "şikâyet veya itiraz e-postası",
+   "words": 54,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-060",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 54,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-061",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 48,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-062",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 51,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-063",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 53,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-064",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 109,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-065",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 52,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-066",
+   "type": "randevu, toplantı veya erteleme",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-067",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 47,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-068",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 50,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-069",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 23,
+   "limits": [
+    [
+     "max_words",
+     35
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-070",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-071",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 46,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-072",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 49,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-073",
+   "type": "e-postayı yeniden yazma (daha resmi / daha kibar / daha kısa)",
+   "words": 47,
+   "limits": [],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-074",
+   "type": "limitli yazı",
+   "words": 13,
+   "limits": [
+    [
+     "sentences",
+     2
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-075",
+   "type": "limitli yazı",
+   "words": 15,
+   "limits": [
+    [
+     "max_words",
+     25
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-076",
+   "type": "limitli yazı",
+   "words": 21,
+   "limits": [
+    [
+     "sentences",
+     3
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-077",
+   "type": "limitli yazı",
+   "words": 31,
+   "limits": [
+    [
+     "bullets",
+     3
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-078",
+   "type": "limitli yazı",
+   "words": 16,
+   "limits": [
+    [
+     "max_words",
+     20
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-079",
+   "type": "limitli yazı",
+   "words": 18,
+   "limits": [
+    [
+     "bullets",
+     2
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  },
+  {
+   "id": "mail-080",
+   "type": "limitli yazı",
+   "words": 15,
+   "limits": [
+    [
+     "max_words",
+     30
+    ],
+    [
+     "sentences",
+     2
+    ]
+   ],
+   "unknown_candidate_rate": 0.0,
+   "problems": [],
+   "notes": [],
+   "verdict": "ok"
+  }
+ ],
+ "ok": 79
+}
