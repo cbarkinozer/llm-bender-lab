@@ -489,3 +489,39 @@ parts, retry each, verify all part hashes and verify the reconstructed whole
 archive. Windows tar cannot restore absolute Linux W&B symlinks reliably;
 also archive W&B with dereferencing (-h) to retain actual linked debug-core logs.
 Keep weights and archives outside Git, with exact source bundles alongside them.
+
+## 17. QLoRA (4-bit / 8-bit bitsandbytes) does not shrink MoE models in transformers 5
+
+Found while planning LFM2.5-8B-A1B (`Lfm2MoeForCausalLM`, 24 layers, 22 of them
+MoE with 32 experts and 4 active per token). Parameter split, counted from the
+config on the meta device (no weights downloaded):
+
+| Part | Params | bf16 size |
+|---|---|---|
+| Experts (`experts.gate_up_proj`, `experts.down_proj`) | 7.75B (92%) | 15.5 GB |
+| Embeddings | 0.26B | 0.5 GB |
+| Attention, conv, 2 dense MLP layers, routers | 0.45B | 0.9 GB |
+
+In transformers 5 the experts are fused 3D `nn.Parameter` tensors, not per-expert
+`nn.Linear` layers. bitsandbytes only quantizes `nn.Linear`, so a 4-bit or 8-bit
+load leaves the experts in bf16. The model stays about 16.5 GB (only the 0.45B
+non-expert part shrinks), so QLoRA gives no memory saving on the 92% that matters.
+Unsloth's MoE docs advise bf16 LoRA instead of QLoRA for this reason. Axolotl has a
+`quantize_moe_experts` option that patches loading with an NF4 parametrization of
+the 3D tensors (CUDA only). It is a possible fallback, but it adds risk and some
+quality loss. Upstream bitsandbytes support (issue #1849, PR #1965) was reported as
+unmerged by a blog post. Not re-checked, verify versions before relying on it.
+
+Consequences for training:
+- Use bf16 LoRA. The weights alone need about 17 GB, so a 24 GB GPU fits only with
+  batch 1, gradient checkpointing and about 2k tokens (estimate, confirm with a
+  smoke test). Otherwise use a 48 GB GPU.
+- The Liquid notebooks' `target_modules=[..., "w1", "w2", "w3"]` only reaches the 2
+  dense layers of this model, without any warning. In the MoE layers the experts
+  are `experts.gate_up_proj` and `experts.down_proj` and need PEFT
+  `target_parameters` (peft 0.21 has it).
+- Keep the router (`feed_forward.gate.weight`) frozen. Training it can make a few
+  experts take over.
+- LoRA on attention, conv and dense layers only (r=16) is about 5.7M parameters.
+
+Sources: Axolotl "MoE Expert Quantization" docs, Unsloth "faster MoE" docs.

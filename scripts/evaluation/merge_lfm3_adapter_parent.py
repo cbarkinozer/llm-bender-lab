@@ -3,7 +3,7 @@
   python merge_lfm3_adapter_parent.py --parent /workspace/lfm3-evalv2/models/cpt --adapter A/adapter --output OUT
 
 Same procedure as the inline merge used for exp-016 arm B (safe_merge, bf16, tokenizer of the pinned base).
-Writes <output>/merge-receipt.json. The output directory must not exist.
+Writes <output>/merge-receipt.json. The output directory must not exist. --device cpu works without a GPU (bf16 rounding can differ from a GPU merge).
 """
 import argparse
 import gc
@@ -27,6 +27,7 @@ def sha256_file(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--parent', required=True)
+    parser.add_argument('--device', default='cuda', choices=['cuda', 'cpu'])
     parser.add_argument('--adapter', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
@@ -39,9 +40,9 @@ def main():
     assert not args.output.exists(), 'Output exists; preserve it and choose a new path'
     tok = AutoTokenizer.from_pretrained(base['repo'], revision=base['revision'])
     assert hashlib.sha256(tok.chat_template.encode()).hexdigest() == TEMPLATE_SHA256, 'Chat template changed'
-    model = AutoModelForCausalLM.from_pretrained(args.parent, trust_remote_code=True, dtype=torch.bfloat16).to('cuda')
+    model = AutoModelForCausalLM.from_pretrained(args.parent, trust_remote_code=True, dtype=torch.bfloat16).to(args.device)
     model = PeftModel.from_pretrained(model, str(args.adapter)).merge_and_unload(safe_merge=True).eval()
-    probe = tok('Merhaba.', return_tensors='pt').to('cuda')
+    probe = tok('Merhaba.', return_tensors='pt').to(args.device)
     with torch.inference_mode():
         before = model(**probe, use_cache=False).logits[:, -1].float().cpu()
     args.output.mkdir(parents=True)
@@ -49,8 +50,9 @@ def main():
     tok.save_pretrained(args.output)
     del model
     gc.collect()
-    torch.cuda.empty_cache()
-    reloaded = AutoModelForCausalLM.from_pretrained(args.output, trust_remote_code=True, dtype=torch.bfloat16).to('cuda').eval()
+    if args.device == 'cuda':
+        torch.cuda.empty_cache()
+    reloaded = AutoModelForCausalLM.from_pretrained(args.output, trust_remote_code=True, dtype=torch.bfloat16).to(args.device).eval()
     with torch.inference_mode():
         after = reloaded(**probe, use_cache=False).logits[:, -1].float().cpu()
     assert torch.equal(before, after), 'Reload parity failed'

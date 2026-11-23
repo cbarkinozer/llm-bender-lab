@@ -40,6 +40,7 @@ def main():
     parser.add_argument('--max-length', type=int, default=8192)
     parser.add_argument('--limit', type=int, help='Smoke test: first N rows only')
     parser.add_argument('--audit-only', action='store_true', help='Tokenize and audit, do not train')
+    parser.add_argument('--seed', type=int, default=3407, help='Training seed (data order and LoRA init); 3407 reproduces exp-019')
     args = parser.parse_args()
     os.environ.setdefault('HF_HOME', '/workspace/.cache/huggingface')
     import torch
@@ -58,7 +59,7 @@ def main():
     steps = max(1, round(len(data) * args.epochs / 8))
     assert not args.out.exists(), 'Preserve the existing attempt'
     args.out.mkdir(parents=True)
-    set_seed(3407)
+    set_seed(args.seed)
     tok = AutoTokenizer.from_pretrained(model_cfg['repo'], revision=model_cfg['revision'], padding_side='left')
     assert hashlib.sha256(tok.chat_template.encode()).hexdigest() == TEMPLATE_SHA256
 
@@ -77,7 +78,7 @@ def main():
     cfg = SFTConfig(output_dir=str(args.out), per_device_train_batch_size=1, gradient_accumulation_steps=8,
                     learning_rate=args.lr, max_length=args.max_length, completion_only_loss=True, assistant_only_loss=False,
                     packing=False, bf16=True, fp16=False, gradient_checkpointing=True,
-                    gradient_checkpointing_kwargs={'use_reentrant': False}, seed=3407, data_seed=3407, logging_steps=5,
+                    gradient_checkpointing_kwargs={'use_reentrant': False}, seed=args.seed, data_seed=args.seed, logging_steps=5,
                     save_strategy='no', eval_strategy='no', report_to='none', dataloader_num_workers=0, optim=old['optimizer'],
                     weight_decay=old['weight_decay'], adam_beta1=old['adam_beta1'], adam_beta2=old['adam_beta2'],
                     adam_epsilon=old['adam_epsilon'], max_grad_norm=old['max_grad_norm'], max_steps=steps,
@@ -141,7 +142,7 @@ def main():
     with torch.inference_mode():
         after = model(**probe, use_cache=False).logits[:, -1].float().cpu()
     assert torch.equal(before, after), 'Reload parity failed'
-    manifest = dict(status='passed', steps=steps, epochs=args.epochs, lr=args.lr, max_length=args.max_length, parent=args.parent,
+    manifest = dict(status='passed', steps=steps, epochs=args.epochs, lr=args.lr, max_length=args.max_length, parent=args.parent, seed=args.seed,
                     dataset_sha256=sha(args.data), runner_sha256=sha(Path(__file__)), metrics=result.metrics,
                     wall_seconds=time.monotonic() - start, reload_exact=True, stats=stats, gpu=torch.cuda.get_device_name(),
                     packages={p: importlib.metadata.version(p) for p in ('torch', 'transformers', 'trl', 'peft', 'datasets')},

@@ -21,20 +21,22 @@ TURB=$ROOT/turblimp
 MODEL=$MODELS/$NAME
 STATUS=$OUT/status-$NAME.txt
 LOGS=$OUT/logs-$NAME
-mkdir -p "$LOGS"
+mkdir -p "$LOGS" "$RUNS" "$DIAG" "$BEL" "$WRI" "$GUARD" "$TURB"
 log() { echo "$(date -u +%FT%TZ) $*" | tee -a "$STATUS"; }
 cd "$ROOT/repo"
 export PYTHONPATH=$ROOT/vendor
 ARM_B=$MODELS/selfdistill-b-cpt
+# STAGES (comma list of: train final evalv2 diag bel guard writing pack) limits the run to those stages; empty = all.
+want() { [ -z "${STAGES:-}" ] || [[ ",$STAGES," == *",$1,"* ]]; }
 
 # 1. train + merge
-if [ ! -f "$OUT/train-$NAME/training-manifest.json" ]; then
+if want train && [ ! -f "$OUT/train-$NAME/training-manifest.json" ]; then
   log "training $NAME (parent: ${PARENT:-base})"
   pargs=(); [ -n "$PARENT" ] && pargs=(--parent "$MODELS/$PARENT")
-  "$PY" scripts/training/run_lfm3_sft_core_train.py --data "$OUT/train.jsonl" --out "$OUT/train-$NAME" "${pargs[@]}" \
+  "$PY" scripts/training/run_lfm3_sft_core_train.py --data "${PACK:-$OUT/train.jsonl}" --out "$OUT/train-$NAME" --seed "${SEED:-3407}" "${pargs[@]}" \
       > "$LOGS/train.log" 2>&1 || { log "TRAIN_FAILED"; exit 1; }
 fi
-if [ ! -f "$MODEL/merge-receipt.json" ]; then
+if want train && [ ! -f "$MODEL/merge-receipt.json" ]; then
   log "merging"
   if [ -n "$PARENT" ]; then
     "$PY" scripts/evaluation/merge_lfm3_adapter_parent.py --parent "$MODELS/$PARENT" --adapter "$OUT/train-$NAME/adapter" \
@@ -46,7 +48,7 @@ if [ ! -f "$MODEL/merge-receipt.json" ]; then
 fi
 
 # 2. final test (100 GSM8K test items, EN and TR, thinking on, k=4): same sampler and checker as the base run
-if [ ! -f "$OUT/verified-$NAME-final.summary.json" ]; then
+if want final && [ ! -f "$OUT/verified-$NAME-final.summary.json" ]; then
   log "final test"
   "$PY" scripts/evaluation/generate_lfm3_sft_samples.py --prompts "$OUT/prompts-render-final.jsonl" --model "$MODEL" \
       --output "$OUT/samples-$NAME-final.jsonl" --k 4 >> "$LOGS/final.log" 2>&1
@@ -55,20 +57,21 @@ if [ ! -f "$OUT/verified-$NAME-final.summary.json" ]; then
 fi
 
 # 3. eval v2 (math EN/TR, symbolic, tool calls), thinking on, with paired comparisons against base and arm B
-if [ ! -f "$RUNS/$NAME-think-on/summary.json" ]; then
+if want evalv2 && [ ! -f "$RUNS/$NAME-think-on/summary.json" ]; then
   log "eval v2 thinking on"
   "$PY" scripts/evaluation/run_lfm3_eval_v2.py --name "$NAME-think-on" --thinking on --model "$MODEL" \
       --output-dir "$RUNS/$NAME-think-on" > "$LOGS/evalv2.log" 2>&1
   "$PY" scripts/evaluation/score_lfm3_eval_v2.py score --run-dir "$RUNS/$NAME-think-on" > "$LOGS/evalv2-score.log" 2>&1
 fi
 for ref in base-think-on selfdistill-b-cpt-think-on; do
+  want evalv2 || break
   [ -f "$RUNS/$NAME-think-on/compare-vs-$ref.json" ] || "$PY" scripts/evaluation/score_lfm3_eval_v2.py compare \
       --base "$RUNS/$ref" --candidate "$RUNS/$NAME-think-on" --output "$RUNS/$NAME-think-on/compare-vs-$ref.json" \
       > "$LOGS/evalv2-compare-$ref.log" 2>&1
 done
 
 # 4. understanding diagnostic (six conditions, 4 seeds), thinking on
-if [ ! -f "$DIAG/$NAME-think-on/summary.json" ]; then
+if want diag && [ ! -f "$DIAG/$NAME-think-on/summary.json" ]; then
   log "diagnostic thinking on"
   "$PY" scripts/evaluation/run_lfm3_understanding_diagnostic.py --name "$NAME-think-on" --thinking on --model "$MODEL" \
       --output-dir "$DIAG/$NAME-think-on" > "$LOGS/diag.log" 2>&1
@@ -76,29 +79,30 @@ if [ ! -f "$DIAG/$NAME-think-on/summary.json" ]; then
 fi
 
 # 5. Belebele (EN/TR), TurBLiMP
-if [ ! -f "$BEL/$NAME/summary.json" ]; then
+if want bel && [ ! -f "$BEL/$NAME/summary.json" ]; then
   log "belebele"
   "$PY" scripts/evaluation/lfm3_belebele_eval.py run --name "$NAME" --output-dir "$BEL/$NAME" --model "$MODEL" > "$LOGS/belebele.log" 2>&1
   "$PY" scripts/evaluation/lfm3_belebele_eval.py score --run-dir "$BEL/$NAME" > "$LOGS/belebele-score.log" 2>&1
 fi
 for ref in base selfdistill-b-cpt; do
+  want bel || break
   "$PY" scripts/evaluation/lfm3_belebele_eval.py compare --a "$BEL/$ref" --b "$BEL/$NAME" > "$LOGS/belebele-compare-$ref.log" 2>&1
 done
-if [ ! -d "$TURB/$NAME" ]; then
+if want bel && [ ! -d "$TURB/$NAME" ]; then
   log "turblimp"
   "$PY" scripts/evaluation/evaluate_lfm3_turblimp.py --experiment-dir experiments/turkish-capability/lfm3-1.7b/exp-000-baseline \
       --output-dir "$TURB/$NAME" --merged-model "$MODEL" > "$LOGS/turblimp.log" 2>&1
 fi
 
 # 6. English guard: IFEval 270 + HumanEval in both modes, then the other 271 IFEval prompts (thinking off), compare with base
-if [ ! -f "$GUARD/$NAME/summary.json" ]; then
+if want guard && [ ! -f "$GUARD/$NAME/summary.json" ]; then
   log "guard"
   "$PY" scripts/evaluation/lfm3_guard_eval.py run --name "$NAME" --output-dir "$GUARD/$NAME" --data-dir "$GDATA" --model "$MODEL" \
       > "$GUARD/run-$NAME.log" 2>&1
   "$PY" scripts/evaluation/lfm3_guard_eval.py score --run-dir "$GUARD/$NAME" --vendor "$ROOT/vendor" --data-dir "$GDATA" \
       --allow-exec > "$GUARD/score-$NAME.log" 2>&1
 fi
-if [ ! -f "$GUARD/$NAME-rest/summary.json" ]; then
+if want guard && [ ! -f "$GUARD/$NAME-rest/summary.json" ]; then
   "$PY" scripts/evaluation/lfm3_guard_eval.py run --name "$NAME-rest" --output-dir "$GUARD/$NAME-rest" --data-dir "$GDATA" \
       --model "$MODEL" --tasks ifeval --modes off --ifeval-file ifeval-rest.jsonl > "$GUARD/run-$NAME-rest.log" 2>&1
   "$PY" scripts/evaluation/lfm3_guard_eval.py score --run-dir "$GUARD/$NAME-rest" --vendor "$ROOT/vendor" --data-dir "$GDATA" \
@@ -110,10 +114,11 @@ fi
     --candidate "$GUARD/$NAME-rest" --out-name compare-full-ifeval.json > "$LOGS/guard-compare-full.log" 2>&1
 
 # 7. Turkish writing probe (40 prompts, thinking off) and pack of the results
-if [ ! -f "$WRI/$NAME/run-manifest.json" ]; then
+if want writing && [ ! -f "$WRI/$NAME/run-manifest.json" ]; then
   log "writing probe"
   "$PY" scripts/evaluation/run_lfm3_writing_probe.py --name "$NAME" --output-dir "$WRI/$NAME" --model "$MODEL" > "$LOGS/writing.log" 2>&1
 fi
+if want pack; then
 log "packing"
 (cd "$ROOT" && tar czf "sft-core/$NAME-results.tar.gz" "sft-core/train-$NAME/training-manifest.json" "sft-core/train-$NAME/audit.json" \
    "sft-core/verified-$NAME-final.jsonl" "sft-core/verified-$NAME-final.summary.json" "models/$NAME/merge-receipt.json" \
@@ -122,3 +127,4 @@ log "packing"
    sha256sum "sft-core/$NAME-results.tar.gz" > "sft-core/$NAME-results.sha256"; \
    tar czf "sft-core/$NAME-adapter.tar.gz" "sft-core/train-$NAME/adapter" && sha256sum "sft-core/$NAME-adapter.tar.gz" >> "sft-core/$NAME-results.sha256")
 log "SFT_CORE_MODEL_DONE $NAME"
+fi

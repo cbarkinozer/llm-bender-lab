@@ -27,6 +27,7 @@ def sha256_file(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--adapter', required=True)
+    parser.add_argument('--device', default='cuda', choices=['cuda', 'cpu'])
     parser.add_argument('--adapter-revision')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--expected-sha256')
@@ -51,10 +52,10 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(base['repo'], revision=base['revision'], trust_remote_code=True)
     assert hashlib.sha256(tokenizer.chat_template.encode()).hexdigest() == TEMPLATE_SHA256, 'Chat template changed'
     model = AutoModelForCausalLM.from_pretrained(base['repo'], revision=base['revision'], code_revision=base['revision'],
-                                                 dtype=torch.bfloat16, trust_remote_code=True).to('cuda').eval()
+                                                 dtype=torch.bfloat16, trust_remote_code=True).to(args.device).eval()
     model = PeftModel.from_pretrained(model, str(adapter)).merge_and_unload(safe_merge=True).eval()
     model.config.use_cache = True
-    probe = tokenizer('Merhaba.', return_tensors='pt').to('cuda')
+    probe = tokenizer('Merhaba.', return_tensors='pt').to(args.device)
     with torch.inference_mode():
         before = model(**probe, use_cache=False).logits[:, -1].cpu()
     args.output.mkdir(parents=True)
@@ -62,8 +63,9 @@ def main():
     tokenizer.save_pretrained(args.output)
     del model
     gc.collect()
-    torch.cuda.empty_cache()
-    reloaded = AutoModelForCausalLM.from_pretrained(args.output, dtype=torch.bfloat16, trust_remote_code=True).to('cuda').eval()
+    if args.device == 'cuda':
+        torch.cuda.empty_cache()
+    reloaded = AutoModelForCausalLM.from_pretrained(args.output, dtype=torch.bfloat16, trust_remote_code=True).to(args.device).eval()
     with torch.inference_mode():
         after = reloaded(**probe, use_cache=False).logits[:, -1].cpu()
     assert torch.equal(before, after), 'Merged model changed after save and reload'
