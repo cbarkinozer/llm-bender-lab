@@ -1,0 +1,120 @@
+{
+ "integrity": {
+  "only_footer_lines_changed": true,
+  "footer_count": 120,
+  "json_matches_sheet": true,
+  "no_blank_ratings": true
+ },
+ "models": {
+  "base": {
+   "answers": 40,
+   "mean_naturalness": 2.45,
+   "share_natural_4plus": 0.05,
+   "share_nat_1_or_2": 0.6,
+   "task_score": 0.525,
+   "task_yes": 0.225,
+   "flagged_words_per_answer": 2.27
+  },
+  "exp019": {
+   "answers": 40,
+   "mean_naturalness": 3.025,
+   "share_natural_4plus": 0.1,
+   "share_nat_1_or_2": 0.1,
+   "task_score": 0.562,
+   "task_yes": 0.25,
+   "flagged_words_per_answer": 1.07
+  },
+  "selfdistill-b-cpt": {
+   "answers": 40,
+   "mean_naturalness": 2.975,
+   "share_natural_4plus": 0.25,
+   "share_nat_1_or_2": 0.2,
+   "task_score": 0.4,
+   "task_yes": 0.075,
+   "flagged_words_per_answer": 0.42
+  }
+ },
+ "paired": {
+  "base - exp019": {
+   "prompts": 40,
+   "nat": {
+    "delta": -0.575,
+    "ci": [
+     -0.825,
+     -0.325
+    ]
+   },
+   "task": {
+    "delta": -0.037,
+    "ci": [
+     -0.138,
+     0.05
+    ]
+   },
+   "flags": {
+    "delta": 1.2,
+    "ci": [
+     0.575,
+     1.825
+    ]
+   },
+   "prompts_a_more_natural": 3,
+   "prompts_b_more_natural": 23,
+   "prompts_tied": 14
+  },
+  "base - selfdistill-b-cpt": {
+   "prompts": 40,
+   "nat": {
+    "delta": -0.525,
+    "ci": [
+     -0.825,
+     -0.225
+    ]
+   },
+   "task": {
+    "delta": 0.125,
+    "ci": [
+     0.025,
+     0.225
+    ]
+   },
+   "flags": {
+    "delta": 1.85,
+    "ci": [
+     1.35,
+     2.375
+    ]
+   },
+   "prompts_a_more_natural": 5,
+   "prompts_b_more_natural": 22,
+   "prompts_tied": 13
+  },
+  "exp019 - selfdistill-b-cpt": {
+   "prompts": 40,
+   "nat": {
+    "delta": 0.05,
+    "ci": [
+     -0.25,
+     0.375
+    ]
+   },
+   "task": {
+    "delta": 0.163,
+    "ci": [
+     0.062,
+     0.25
+    ]
+   },
+   "flags": {
+    "delta": 0.65,
+    "ci": [
+     0.3,
+     1.05
+    ]
+   },
+   "prompts_a_more_natural": 9,
+   "prompts_b_more_natural": 11,
+   "prompts_tied": 20
+  }
+ }
+}

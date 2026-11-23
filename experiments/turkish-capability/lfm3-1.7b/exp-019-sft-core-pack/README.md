@@ -148,6 +148,21 @@ consistent with the hypothesis that exp-016's brevity bias caused the Turkish-ma
 prove it (several things changed at once). It does not close the Turkish reading gap. One training seed: a v1 candidate, not a
 confirmed result. The "improvement over the base" on D comes from development items that already steered earlier decisions.
 
+## Owner decision (2026-11-22)
+
+exp-019 is kept as v1 of the Turkish SFT (working name `LFM3-1.7B-Turkish-SFT`, not published). Random writing-probe samples
+(thinking off) show the same weaknesses as the base and arm B (wrong facts, ignored word limits, template-like e-mails), and
+the automatic metrics put writing at base level with fewer invented words (1.4% against 2.3%); no blind human comparison has been
+made yet. Writing with thinking on (the owner's assumed mode) was measured afterwards: exp-019 answers 39 of 40 prompts in
+Turkish, the base 40 of 40, arm B only 9 of 40 (automatic metrics in [exp-020](../exp-020-sft-core-pack-base/README.md); blind
+sheet in `results/writing-review-think-on/`). The blind sheets were then rated by an AI (OpenAI Codex), not by a native speaker:
+exp-019 is rated somewhat more natural than the base (+.3 thinking on, +.6 thinking off on a 1 to 5 scale) with fewer wrong
+words, still low in absolute terms; details and caveats in the exp-020 README. The model card must say: Turkish
+grammar, passage reading and math reading are improved or kept, English skills are kept, writing quality is basic for the size,
+the thinking-off answers are long and structured. Planned for v2, in this order of expected effect: more Turkish pretraining text
+(the first CPT was about 100M tokens; the plan figure is about $5 per 300M tokens) and better Turkish prose targets in the SFT
+(human-written or owner-checked, a few hundred rows reviewed one by one by the owner), plus the code and tool sheets.
+
 ## Next step
 
 Second training seed of exp-019 (about 40 minutes of GPU) before any publication; the owner's read of about 40 Turkish answers

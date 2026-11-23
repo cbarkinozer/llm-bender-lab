@@ -70,12 +70,16 @@ Phase D: build the pack
 - [x] D2 Trainer audits on all rows: prompt masked, EOS supervised, no truncation (max 7,935 tokens), tool names in the prompt.
       Not done: duplicates/overlap check of Atlas and Dolly against the eval sets.
 - [x] D3 Length drift 1.00 to 1.06 on most cells, 1.14 for Turkish math (kept answers longer), the opposite of exp-016.
-- [ ] D4 60-row stratified review of the Atlas rows (owner reads) and the 40-answer blind sheet
-      (`exp-019-sft-core-pack/results/writing-review/`, naturalness and task scored apart).
+- [ ] D4 60-row stratified review of the Atlas rows (owner reads): still open. The blind sheets (thinking off and on, naturalness
+      and task scored apart) were rated by an AI (Codex); the owner checked 27 thinking-on prompts (random 18: exp-019 12, base 5,
+      neither 1; the 9 Codex ties: exp-019 7, base 1, neither 1). The AI scores separate answers less finely than the owner.
+      v2 notes from the owner: add email and letter writing data, and science vocabulary in the pretraining text.
 
 Phase E: training and evaluation
 - [x] E1 exp-019: CPT-merged parent + LFM3 pack, one seed (364 steps, 17.6 min). See `exp-019-sft-core-pack/README.md`.
-- [ ] E2 exp-020: same data on the original LFM3, running on the pod (shows how much the dataset carries without our CPT).
+- [x] E2 exp-020: same data on the original LFM3 (2026-11-22). The pack alone keeps the skills but does not teach Turkish
+      (TurBLiMP .719 = base, final test +.01); the CPT adds grammar (+.135) and reading (+.04 to +.05 on D and F). See
+      [exp-020](exp-020-sft-core-pack-base/README.md). Also: with thinking on, arm B answers 31 of 40 Turkish writing prompts in English.
 - [x] E3 Gates G1 to G7 of exp-019 (thinking on): all pass (Turkish math reading .752 vs base .691 and arm B .612).
 - [x] E4 Fresh test, 100 GSM8K test items, AI-reviewed translations (not owner-checked): Turkish .770 vs base .7625, English .930
       vs .9375, no difference. The never-solved items were not scored separately.

@@ -1,0 +1,22 @@
+{
+ "status": "passed",
+ "reload_exact": true,
+ "weight_sha256": "8d590c3d5f854e47da54e8d46a50b395ebb6f51786efd0194966d353217db144",
+ "adapter_sha256": "b2b17709af1398ad08922ea13be84cac1bc8b3b88401771d0d43949b0ed6860b",
+ "adapter": "/workspace/lfm3-evalv2/sft-core/train-exp020/adapter",
+ "adapter_revision": null,
+ "base": {
+  "repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "quantization": null,
+  "precision_proposed": "bfloat16",
+  "thinking_proposed": false
+ },
+ "expected_sha256": null,
+ "matches_expected": null,
+ "versions": {
+  "torch": "2.14.0+cu130",
+  "peft": "0.21.2",
+  "transformers": "5.20.2"
+ }
+}

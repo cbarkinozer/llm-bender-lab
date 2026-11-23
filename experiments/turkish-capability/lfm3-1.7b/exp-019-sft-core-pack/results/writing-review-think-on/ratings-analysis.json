@@ -1,0 +1,57 @@
+{
+ "integrity": {
+  "only_footer_lines_changed": true,
+  "footer_count": 80,
+  "json_matches_sheet": true,
+  "no_blank_ratings": true
+ },
+ "models": {
+  "base": {
+   "answers": 40,
+   "mean_naturalness": 2.375,
+   "share_natural_4plus": 0.075,
+   "share_nat_1_or_2": 0.575,
+   "task_score": 0.562,
+   "task_yes": 0.25,
+   "flagged_words_per_answer": 2.38
+  },
+  "exp019": {
+   "answers": 40,
+   "mean_naturalness": 2.65,
+   "share_natural_4plus": 0.075,
+   "share_nat_1_or_2": 0.45,
+   "task_score": 0.613,
+   "task_yes": 0.275,
+   "flagged_words_per_answer": 1.4
+  }
+ },
+ "paired": {
+  "base - exp019": {
+   "prompts": 40,
+   "nat": {
+    "delta": -0.275,
+    "ci": [
+     -0.55,
+     0.0
+    ]
+   },
+   "task": {
+    "delta": -0.05,
+    "ci": [
+     -0.113,
+     0.013
+    ]
+   },
+   "flags": {
+    "delta": 0.975,
+    "ci": [
+     0.425,
+     1.525
+    ]
+   },
+   "prompts_a_more_natural": 6,
+   "prompts_b_more_natural": 17,
+   "prompts_tied": 17
+  }
+ }
+}

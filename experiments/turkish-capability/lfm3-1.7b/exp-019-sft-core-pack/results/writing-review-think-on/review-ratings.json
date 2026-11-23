@@ -1,0 +1,670 @@
+{
+  "reviewer": "OpenAI Codex, GPT-6-based assistant",
+  "date": "2026-11-23",
+  "mode": "thinking-on",
+  "blinding": "Neither review-key.json opened. No model identities assigned or model ranking computed.",
+  "limitations": [
+    "AI review, not native-human ground truth.",
+    "Same provider as training-prompt translator; possible origin/style bias.",
+    "Experiment README read for protocol context before scoring; aggregate results there were visible, but answer identity keys remained closed.",
+    "Thinking-off evaluated after thinking-on, with repeated prompts; reviews are not independent replications."
+  ],
+  "scoring_conventions": {
+    "naturalness": "1 unusable Turkish or no Turkish output; 2 severely broken but fragments understandable; 3 understandable, clearly non-native; 4 mostly natural with local awkwardness; 5 natural Turkish. Factual mistakes do not directly lower this score.",
+    "task": "yes: requested artifact/content present despite language defects; partly: substantial relevant content with factual, semantic, role, language or limit failure; no: central task missing, reversed, or replaced. Entirely English answers cannot receive yes for these Turkish writing tasks.",
+    "lexical_flags": "Exact surface forms appearing in the answer. Includes clearly malformed forms and real words used in the wrong sense. Not an exhaustive grammar correction; ordinary valid technical terms or named entities are not automatically inventions.",
+    "limits": "Count whitespace-delimited words after removing Markdown markers; hyphenated ranges count as one. Count sentences in requested primary artifact, excluding headings and clearly separate explanatory commentary. Semicolons do not end sentences. Count top-level requested routine/suggestion items, not repeated recaps/substeps."
+  },
+  "reconstructed_unrated_sheet_sha256": "5124bc55aef2486c30434139019af10be87601ee202355c134c6fea43cbc1236",
+  "prompt_answer_content_sha256": "4c982858c3962a8d2beef4f0e87a3a6d2e32d90e024e79a425698b60ee1c7a0b",
+  "rated_sheet_sha256": "feb4c9ff8225d8349a60ad979481ae2506004c2130a245e945a6de02bf9139a3",
+  "validation": {
+    "prompts": 40,
+    "answers": 80,
+    "rating_lines": 80,
+    "only_rating_lines_changed": true,
+    "all_lexical_flags_checked_against_source": true
+  },
+  "ratings": [
+    {
+      "id": "wr-tr-01",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Photosentez; fotons; atmosphereye; Kloroplas; Analoj; donar",
+      "note": "Core process present; malformed terminology and incoherent claims."
+    },
+    {
+      "id": "wr-tr-01",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "karbon disulfit; havalandırabiliriz",
+      "note": "Wrong CO2 name; glucose confused with fruit and potatoes."
+    },
+    {
+      "id": "wr-tr-02",
+      "label": "A",
+      "naturalness": 1,
+      "task": "partly",
+      "words": "Yerleşik İhtiyac; arkalık; Yerleşik Shock; satiye; kaffesatiye; fısıltı; likalık",
+      "note": "Demand/cost ideas present; examples largely incoherent."
+    },
+    {
+      "id": "wr-tr-02",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Yakıt",
+      "note": "Cost example present; interest-rate/cost claim is wrong."
+    },
+    {
+      "id": "wr-tr-03",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "serveisi; telkafiyesi; sessizlik kutusu; komponmanın",
+      "note": "Does not minimize technical jargon."
+    },
+    {
+      "id": "wr-tr-03",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "brütör; gitir; Node‑vba; sesli numara; ses; Sessizlik",
+      "note": "Request/response present; assumes every visit requires login."
+    },
+    {
+      "id": "wr-tr-04",
+      "label": "A",
+      "naturalness": 2,
+      "task": "no",
+      "words": "Harbın; çisecek",
+      "note": "Condensation and rain sequence incorrect."
+    },
+    {
+      "id": "wr-tr-04",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "Condensation/coalescence present; increased height incorrectly causes falling."
+    },
+    {
+      "id": "wr-tr-05",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "depo; sahte; yardımcı",
+      "note": "Basic distinction partly present; monthly rate and high/low generalizations misleading."
+    },
+    {
+      "id": "wr-tr-05",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "tahvuz; depoy; aktar; karban",
+      "note": "Performance/interest distinction present; deposit and asset descriptions confused."
+    },
+    {
+      "id": "wr-tr-06",
+      "label": "A",
+      "naturalness": 3,
+      "task": "no",
+      "words": "",
+      "note": "Identity/architecture/use instead of explaining learning."
+    },
+    {
+      "id": "wr-tr-06",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "Prediction and parameter adjustment present; misunderstands non-programmer audience."
+    },
+    {
+      "id": "wr-tr-07",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Eğik Lütfen; eklips; ekvador; yerrir; açlık; monsoolar",
+      "note": "Tilt mentioned; seasonal dates and hemisphere claims wrong."
+    },
+    {
+      "id": "wr-tr-07",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Eklipte; İşare; Denizcilik",
+      "note": "Tilt mentioned; dates, equinox and geometry wrong."
+    },
+    {
+      "id": "wr-tr-08",
+      "label": "A",
+      "naturalness": 1,
+      "task": "partly",
+      "words": "sayfa; Krediting; vatasağı; diskordu; VATASYGAŞ; iğne; takvim; seninizin",
+      "note": "Payment/debt advice present; invented Turkish credit agency and contradictory advice."
+    },
+    {
+      "id": "wr-tr-08",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "kredite; Takvim; Seçici; optionları; Yüzdeki Gelir",
+      "note": "Core factors present; utilization formula inverted and account advice wrong."
+    },
+    {
+      "id": "wr-tr-09",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Koruyucu; iyileşmesi; yenilik",
+      "note": "Repair request present; delivery/refund context and speaker roles confused."
+    },
+    {
+      "id": "wr-tr-09",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Bilgi Götürme; taşımacıyanıza; Sözcük",
+      "note": "Fault mentioned; delivery context and landlord roles confused."
+    },
+    {
+      "id": "wr-tr-10",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "İzim; düğümü; İzinlemin",
+      "note": "This week instead of next; wedding becomes knot."
+    },
+    {
+      "id": "wr-tr-10",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "",
+      "note": "Two days next week and sibling wedding present; language flaws scored separately."
+    },
+    {
+      "id": "wr-tr-11",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Takviye Tarihi; Hemenle",
+      "note": "Color/change request present; irrelevant fees and service-agent role added."
+    },
+    {
+      "id": "wr-tr-11",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Geliştirme; Edebiye",
+      "note": "Change request present; customer/seller roles confused."
+    },
+    {
+      "id": "wr-tr-12",
+      "label": "A",
+      "naturalness": 2,
+      "task": "yes",
+      "words": "Hazırlar",
+      "note": "Short thank-you email present despite language errors."
+    },
+    {
+      "id": "wr-tr-12",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "Hazırlanıyor",
+      "note": "Short thank-you email present; malformed closing."
+    },
+    {
+      "id": "wr-tr-13",
+      "label": "A",
+      "naturalness": 2,
+      "task": "yes",
+      "words": "arkadamızla; geçirmenizdiniz; Cevap",
+      "note": "Saturday/birthday/noise notice present despite language errors."
+    },
+    {
+      "id": "wr-tr-13",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "Kardeşimler",
+      "note": "Core notice present; inappropriate address and incoherent venue details."
+    },
+    {
+      "id": "wr-tr-14",
+      "label": "A",
+      "naturalness": 2,
+      "task": "yes",
+      "words": "Rızası; Koruyucu Hesapla",
+      "note": "Illness and one-day extension request present despite language errors."
+    },
+    {
+      "id": "wr-tr-14",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Ödememinizin; Sözleşme Numarası",
+      "note": "Illness/extension present; negated slowdown undermines reason."
+    },
+    {
+      "id": "wr-tr-15",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "yazta",
+      "note": "Two sentences; causes and solutions retained."
+    },
+    {
+      "id": "wr-tr-15",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "belirttiThey",
+      "note": "Two sentences; main content retained despite malformed final word."
+    },
+    {
+      "id": "wr-tr-16",
+      "label": "A",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "One sentence; 20 instead of 12 km, threefold instead of 3000 users."
+    },
+    {
+      "id": "wr-tr-16",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "One sentence; 20 instead of 12 km."
+    },
+    {
+      "id": "wr-tr-17",
+      "label": "A",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "Three items; fee and fine wrong and internally contradictory."
+    },
+    {
+      "id": "wr-tr-17",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "İstihlal",
+      "note": "Three items; fee, duration and fine wrong."
+    },
+    {
+      "id": "wr-tr-18",
+      "label": "A",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "Under 30 words; 19-21 instead of 7-9 hours."
+    },
+    {
+      "id": "wr-tr-18",
+      "label": "B",
+      "naturalness": 1,
+      "task": "partly",
+      "words": "",
+      "note": "Entirely English: naturalness=1 for absent Turkish; accurate content and within limit, but wrong response language."
+    },
+    {
+      "id": "wr-tr-19",
+      "label": "A",
+      "naturalness": 4,
+      "task": "partly",
+      "words": "geri dönüştürülürken",
+      "note": "Headline and two sentences; headline says 10%, source and body 30%."
+    },
+    {
+      "id": "wr-tr-19",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "",
+      "note": "Headline and two sentences; 10% instead of 30%."
+    },
+    {
+      "id": "wr-tr-20",
+      "label": "A",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "miradır; finceğin; tel",
+      "note": "Cultural rituals present; cezve/telve definitions and extra claims wrong."
+    },
+    {
+      "id": "wr-tr-20",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "çezme; Suhu; miradan; kızık; Yemek‑soyluk; miraz",
+      "note": "Social importance present; numerous invented historical and material claims."
+    },
+    {
+      "id": "wr-tr-21",
+      "label": "A",
+      "naturalness": 3,
+      "task": "no",
+      "words": "",
+      "note": "Postponement becomes extension; unexpected work becomes completed work."
+    },
+    {
+      "id": "wr-tr-21",
+      "label": "B",
+      "naturalness": 3,
+      "task": "no",
+      "words": "",
+      "note": "Denies unexpected work, reversing the reason."
+    },
+    {
+      "id": "wr-tr-22",
+      "label": "A",
+      "naturalness": 4,
+      "task": "yes",
+      "words": "",
+      "note": "Meaning retained and shortened."
+    },
+    {
+      "id": "wr-tr-22",
+      "label": "B",
+      "naturalness": 5,
+      "task": "yes",
+      "words": "",
+      "note": "Meaning retained and shortened."
+    },
+    {
+      "id": "wr-tr-23",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "",
+      "note": "Events retained; person mismatch and repetition undermine requested fluency."
+    },
+    {
+      "id": "wr-tr-23",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "konuştuz",
+      "note": "Mostly retains events; malformed conjugation and added causation."
+    },
+    {
+      "id": "wr-tr-24",
+      "label": "A",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "One spelling fixed; introduces a new causal-construction error."
+    },
+    {
+      "id": "wr-tr-24",
+      "label": "B",
+      "naturalness": 1,
+      "task": "no",
+      "words": "döndüküm; Nedenki",
+      "note": "Introduces errors and false grammar explanations."
+    },
+    {
+      "id": "wr-tr-25",
+      "label": "A",
+      "naturalness": 1,
+      "task": "partly",
+      "words": "Yemeci; tapetri",
+      "note": "Five sentences and rain; largely incoherent scene with market/Sunday ambiguity."
+    },
+    {
+      "id": "wr-tr-25",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "",
+      "note": "Five sentences and rain; shifts toward marketplace and incoherent scene."
+    },
+    {
+      "id": "wr-tr-26",
+      "label": "A",
+      "naturalness": 2,
+      "task": "no",
+      "words": "kuşak",
+      "note": "Three paragraphs; lost cat replaced with kite-like sash."
+    },
+    {
+      "id": "wr-tr-26",
+      "label": "B",
+      "naturalness": 2,
+      "task": "no",
+      "words": "tuzaklama; hatım; umutsunu; bağışladılar",
+      "note": "Three paragraphs and happy ending; lost cat replaced with tooth."
+    },
+    {
+      "id": "wr-tr-27",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "",
+      "note": "Short Istanbul/ferry poem; language weaknesses separate."
+    },
+    {
+      "id": "wr-tr-27",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "Bosphoru",
+      "note": "Short Galata/ferry poem; language weaknesses separate."
+    },
+    {
+      "id": "wr-tr-28",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "",
+      "note": "Two-sentence bookstore advertisement; invented amenities allowed in creative task."
+    },
+    {
+      "id": "wr-tr-28",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "kitapçığın",
+      "note": "Two sentences; bookstore becomes booklet, weakening advertisement."
+    },
+    {
+      "id": "wr-tr-29",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Tam ürünler; işlek; Parçaları; konfeksiyonlar",
+      "note": "Five numbered suggestions; several food/fluid recommendations incoherent."
+    },
+    {
+      "id": "wr-tr-29",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "lütfen; fındık su",
+      "note": "Five bullets; food examples and proportions incorrect."
+    },
+    {
+      "id": "wr-tr-30",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "manzara sahili",
+      "note": "Under 50 words; visitor advice present."
+    },
+    {
+      "id": "wr-tr-30",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "Görünürde",
+      "note": "Under 50 words; Istanbul places recommended."
+    },
+    {
+      "id": "wr-tr-31",
+      "label": "A",
+      "naturalness": 4,
+      "task": "partly",
+      "words": "",
+      "note": "Exactly three sentences; wrongly calls Ankara largest city."
+    },
+    {
+      "id": "wr-tr-31",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Anıtkabir mezarlığı; Ankara’dada",
+      "note": "Three sentences; Anitkabir description and final sentence problematic."
+    },
+    {
+      "id": "wr-tr-32",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "",
+      "note": "Two sentences including Zaman; intended saying understandable."
+    },
+    {
+      "id": "wr-tr-32",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "yolculukumızı",
+      "note": "Two sentences including Zaman; poetic language flaws separate."
+    },
+    {
+      "id": "wr-tr-33",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "Positif",
+      "note": "Four main steps; repeated recap not counted as additional suggestions."
+    },
+    {
+      "id": "wr-tr-33",
+      "label": "B",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "",
+      "note": "Four usable routine items."
+    },
+    {
+      "id": "wr-tr-34",
+      "label": "A",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "problemsolüzyon; yükümlülüğü",
+      "note": "Benefits present; substantially exceeds 40 words."
+    },
+    {
+      "id": "wr-tr-34",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "aktivleştirerek",
+      "note": "Benefits present; exceeds 40 words."
+    },
+    {
+      "id": "wr-tr-35",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Operasyonel Sistemi; Akıllı Bellek; Küçükler; İşleyici; üyum",
+      "note": "Buying criteria present; CPU/GPU and SMT/socket facts confused."
+    },
+    {
+      "id": "wr-tr-35",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "Operasyonel Sistem; Hazırlanabilirlik",
+      "note": "Buying criteria present; TL price examples implausible."
+    },
+    {
+      "id": "wr-tr-36",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Cafein; pencereler",
+      "note": "Review/sleep advice present; coffee and study instructions contradictory."
+    },
+    {
+      "id": "wr-tr-36",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "zinciri; Lihavetli; sanal; duvar sağlığı; unvanların",
+      "note": "Review/sleep advice present; contradictory coffee, hydration and schedule details."
+    },
+    {
+      "id": "wr-tr-37",
+      "label": "A",
+      "naturalness": 1,
+      "task": "partly",
+      "words": "gereksizlikli; tereyağı; kedi yeşili; sukeç; balık çayısı; pottağına; milp; sülphat otyok; torba",
+      "note": "Light/watering/drainage present; plant names and procedures largely unreliable."
+    },
+    {
+      "id": "wr-tr-37",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Bademcik; Seedseed; Gövdü; birdenfazlı; kaşık suyu; seçkin",
+      "note": "Light/drainage present; egg-yolk propagation and watering claims false."
+    },
+    {
+      "id": "wr-tr-38",
+      "label": "A",
+      "naturalness": 3,
+      "task": "yes",
+      "words": "",
+      "note": "Listening, conversation and solution offered."
+    },
+    {
+      "id": "wr-tr-38",
+      "label": "B",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "",
+      "note": "Listening/cooling down present; sample wording accusatory and dismissive."
+    },
+    {
+      "id": "wr-tr-39",
+      "label": "A",
+      "naturalness": 2,
+      "task": "partly",
+      "words": "Meclik",
+      "note": "Days retained; meeting and colleagues mistranslated."
+    },
+    {
+      "id": "wr-tr-39",
+      "label": "B",
+      "naturalness": 3,
+      "task": "partly",
+      "words": "",
+      "note": "Meeting/travel retained; Thursday/Wednesday changed to Saturday/Friday."
+    },
+    {
+      "id": "wr-tr-40",
+      "label": "A",
+      "naturalness": 4,
+      "task": "yes",
+      "words": "insansal kaynakları",
+      "note": "Primary translation correct; alternative has lexical/grammar errors."
+    },
+    {
+      "id": "wr-tr-40",
+      "label": "B",
+      "naturalness": 5,
+      "task": "yes",
+      "words": "",
+      "note": "Accurate natural translation."
+    }
+  ]
+}

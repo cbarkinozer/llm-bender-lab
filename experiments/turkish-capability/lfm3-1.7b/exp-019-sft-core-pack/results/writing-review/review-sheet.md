@@ -40,7 +40,7 @@ Fotosentez, bitkilerin güneş ışığı kullanarak **kalsiyum dioksit (CO₂)*
 
 Bu süreç, bitkinin **yaşamı için en kritik işlem**dir! 🌞🍃
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: kalsiyum dioksit; fotolitin; niyatojen
 
 
 ### B
@@ -70,7 +70,7 @@ Bir bitki güneş altında çiçek açtığında, güneş ışığına dayanarak
 
 **Kısaca:** Fotosentez = Güneş + Su + CO₂ → Şeker + Oksijen.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -95,7 +95,7 @@ Düşünün ki bir **kitap fabrikası** var. Bu fabrika, **güneşin ışığın
 
 **Kısaca:** Fotosentez, **güneşin ışığını, su ve karbon disulfit ile birleştirip şeker ve oksijen üretmek** için bitkinin kendi "faktori" olduğunu gösterir. Yani bitki, kendisini güneşle besler! 🌱☀️
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: sugrular; güneşen; karbon disulfit; sinir hücresi; faktori; bileşekler
 
 
 ---
@@ -157,7 +157,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 > **Enflasyon, fiyatların artmasını
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: yükseklik; Taleplenme; Situasyon; miktar artışı
 
 
 ### B
@@ -176,7 +176,7 @@ Bir ev sahibi, 100 bin dolarlık bir ev satın alır. Bir yıl sonra, enerji fiy
 
 Bu, fiyatların artmasının bir “demand-pull” etkisi olduğunu göstermektedir: talep artmış, ancak üretim o kadar hızlı değil.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: parite
 
 
 ### C
@@ -216,7 +216,7 @@ Bu tür günlük fiyat değişiklikleri, uzun vadede **enflasyon**a yol açabili
 
 Bu mekanizmalarla, ekonomik enflasyon, günlük yaşamda görülen küçük fiyat dalgalanmalardan başlar ve zamanla büyük ölçüde ekonomik fiyat seviyesini yükseltir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Takım; Fırtınası; kahve suları; aylarık
 
 
 ---
@@ -245,7 +245,7 @@ Kısaca, bir web sayfasına girince arkada **gizlilik, güvenlik, veri depolama 
 ### Kısa özet
 Girişte **HTTP/HTTPS**, **cookies**, **server response headers**, **SSL/TLS**, **cache**, **JavaScript/DOM**, **redirects** gibi unsurlar görülür. Bunlar arka planlarda veri depolama, güvenli iletişim ve sunucu yönetimini gerçekleştiren temel mekanizmalardır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -259,7 +259,7 @@ Arka planda genellikle şu unsurlar bulunur:
 
 Böylece bir web sayfası sadece sizin için değil, daha geniş bir sistem içinde çalışır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words: Yardım/uyarıcı
 
 
 ### C
@@ -309,7 +309,7 @@ Kısa ve teknik terimler olmadan anlatmak için temel kavramları özetleyelim:
 - **Veri depolama → Backend işleme → Caching & Security → Frontend sunımı**  
 - Kullanıcı sadece “siteye gir” diyerek, arkasındaki karmaşık işlemler (database, proxy, şif
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: sitresinin; Geri Yazılım; Önceki Katman; Hafizeleme; Arayüz İndeksi; arkadaşlık
 
 
 ---
@@ -331,7 +331,7 @@ Kısa ve anlaşılır bir şekilde:
 
 **Özet:** Bulutlar, havada su buharlarını taşırken, yükselen ve serinlenirken bu bulutlar birleşir. Düştüğünda bu su birleşimiyle yağmur oluşturur. Yani **sıcak, nemli ve yükselen bulutlar → yağmur**. 🌧️
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): no   Invented or wrong words: su çöpleri; gölgelik kütleler
 
 
 ### B
@@ -356,7 +356,7 @@ Bulutlar, havanın sıcaklık ve nem seviyesini belirleyen bir yapıdır. İşte
 **Kısaca:**  
 Bulutlar, sıcak ve nemli havayı yukarıya doğru hareketlendirerek su buharı oluşturur. Bu su buharı, yoğunlaşarak yağmur, fırtına gibi yağışlı hava durumlarını yaratır. 🌧️
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Yazır; Uygulama; Nimotronlar; fajdalar; yağmur damarları
 
 
 ### C
@@ -365,7 +365,7 @@ Bulutlar yağmur yağdırabilir, ancak bu genellikle bulutların içinde sıcakl
 
 Kısaca: Bulutlar, sıcaklık ve nemin bulutların içindeki hareketini sağladığında yağmur yağdırır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: dolgun yağış
 
 
 ---
@@ -396,7 +396,7 @@ Bu durumda, **faiz oranı (4%)**, **getiri (6%)** ile karşılaştırıldığın
 ### Sonuç:
 **Fark**, **getiri > faiz oranı** olduğunda **yaşar** olur; yani yatırım fonu, bankadan daha yüksek bir getirisi sunar. Bu, yatırımcıların riski ve potansiyelini daha iyi değerlendirmesi için tercih edilmesini sağlar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: getirler; yaşar
 
 
 ### B
@@ -420,7 +420,7 @@ Kısacası: **Fark = Fonun getirisi - Faizin oranı.**
 
 Böylece, bir bankanın faiz oranı ile bir yatırım fonunun getirisi arasındaki fark, fonun daha yüksek bir **iyileşik getirisi** veya **dolaylı gelir** sunması anlamına geliyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): no   Invented or wrong words: İhtiyarlama; iyileşik
 
 
 ### C
@@ -434,7 +434,7 @@ Bir bankanın faiz oranı ile bir yatırım fonunun getirisi arasındaki farkı 
 **Özetle:**  
 Bankın faiz oranı, bankın "kendi" borçlanma maliyetidir; yatırım fonun getirisi ise yatırımcıya verilen "ekstra" getiriyim. Yani fon, bankı aşırı bir riskle kullanmadan, daha uzun vadeli ve stabil bir yatırım fırsatı sunar. Fark, fonun risk yönetimi ve hedefleme stratejisinden kaynaklanır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Bankın; para kaldırımı; ousted; getiriyim
 
 
 ---
@@ -470,7 +470,7 @@ Anladım, yapay zeka modelleri ile metin yazma konusunda bir başlangıç yapmak
 
 Başka bir konuda daha spesifik bir tavsiye isterseniz, lütfen söyleyin!
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: Kütüp; API kartı; ileridecek
 
 
 ### B
@@ -510,7 +510,7 @@ Yani, yapay zeka modeli gibi "yazıyı öğrenmek" değil, **yazıyı yazmak iç
 
 Eğer yapay zeka ile ilgili bir sorununuz varsa (ör. bir yapay zeka modelinin size nasıl yardımcı olabilir?), lütfen belirtin!
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ### C
@@ -585,7 +585,7 @@ Bu adımlar, **yapay zekâ** (AI) modellerini anlamak için başlangıcıdır. �
 
 ### 5. Önerilen Kaynaklar
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ---
@@ -627,7 +627,7 @@ Mevsimler, Dünya'nın **eğik yapısı** (ekstrik bir eğri) nedeniyle belirli 
 ### **Sonuç**
 Mevsimler, Dünya'nın **eğik yörüşü** sayesinde her yıl aynı şekilde döner ama **güneş ışığının olasılıklikiği** ve **atmosferdeki hava akımları** nedeniyle farklı mevsimler oluşur. Bu, insanların gıda, kıyafet ve yaşam tarzı gibi yaşamızdaki değişiklikleri tetikleyen temel nedenlerdir. 🌍🌞
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: ekstrik; Yörüşü; olasılıklikiği
 
 
 ### B
@@ -638,7 +638,7 @@ Bu dönüşün sonucu olarak, güneş ışığı Dünya’nın bu eğik yüzeyin
 
 Böylece, Dünya’nın eğikliği, her iki yarım küreyi de güneşten etkileyerek mevsim değişikliklerine yol açar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ### C
@@ -672,7 +672,7 @@ Bu değişiklikler, **atmosferdeki sıcaklık ve nem dengesini** etkiler:
 ### Özetle:
 Mevsimler, **Dünya'nın Eğikliği** nedeniyle yerçekimin farklı değerlere sahip olması sonucu oluşur. Ekvatordan uzak bölgelerde yerçekiminin azalması, soğuk ve kurak iklimlere yol açar; ekvatorda ise dengeyi koruyarak ılıman iklimi sağlar. Bu nedenle mevsimler, Dünya'nın şeklini ve dönüş hızını etkileyen temel fiziksel etkiyle doğar. 🌍🔄
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: Ekvatoral Ekvator
 
 
 ---
@@ -737,7 +737,7 @@ Bu oranlar farklı kurumlarda değişebilir; genellikle **FICO** modelinde:
    - Her ayın sonunda borçlarını tam olarak öder.  
    - Her k
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Tekrar Borçlar; Tekrarlama Tarihi; Teklif; ücra; Positif; Yüksekltir
 
 
 ### B
@@ -782,7 +782,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 3. **Raporları Düzenle**  
    - Her ay bir “soft inquiry” (sözlü sorgulama) oluşturur;
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Tarifet; notası; sözlü sorgulama
 
 
 ### C
@@ -834,7 +834,7 @@ Bu kriterlerin her biri genellikle 0–100 arasında bir puan olarak değerlendi
 - Bir kişi 2018'de 500 dolarlık bir kredi kartı kullanıyor ve 200 dolara ödemek zorunda kalıyor. Bu, 50 puan (düşük) verir.
 - Aynı kişi 2020'de 800 dolarlık bir kredi kartı kullanıyor ve 600 dolara ödemek zorunda kalıyor. Bu,
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: kredite; Tarım
 
 
 ---
@@ -859,14 +859,14 @@ Cevapla, bu sorunun çözümü için gerekli adımları belirleyebilirim.
 İyi günler!  
 [Adınız]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: kompakt
 
 
 ### B
 
 İşyerinizde kombi bozulmuştur. Bu sorunun çözümü için hemen yardım isteyeceğim.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -920,7 +920,7 @@ Huzurla,
 
 ---
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 1   Task (yes/partly/no): no   Invented or wrong words: Konulma; takım; kiralatıcı; fabrikal
 
 
 ---
@@ -953,7 +953,7 @@ Hazırladım:
 
 *Not:* Eğer bu e-postayı bir resmi kurum veya şirketinize göndermek istiyorsanız, "Resmi" başlığına göre ayarlayın.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -973,7 +973,7 @@ Best regards,
 [Your Position]
 [Your Contact Information]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 1   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -1011,7 +1011,7 @@ Hazırlanma tarihimi ve onay için teşekkür ederim.
 
 *Not: E-postayı müşteriden veya ilgili kurumun resmi e-posta adresine gönderin.*
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -1033,7 +1033,7 @@ Bugün, ürünlerinizin doğru renk verilmemesi nedeniyle bir sorun yaşadığı
 
 Lütfen, bu sorun hakkında bilgi verebilir misiniz? Bununla ilgili ne yapabiliriz?
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1046,7 +1046,7 @@ Anlıyorum, ancak productunuzun yanlış reni gösteriliyor. Lütfen bana doğru
 
 Hemen yardımcı olmaktan memnuniyet duyarım! 🙏
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: productunuzun; reni
 
 
 ### C
@@ -1072,7 +1072,7 @@ Hazır olduğumuz için teşekkür ederim!
 [Şirket Adı] Müşteri Hizmetleri  
 [E-Posta / Telefon]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ---
@@ -1097,7 +1097,7 @@ Best regards,
 [Your Position]
 [Contact Information]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 1   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1158,7 +1158,7 @@ Hazırladığım e-postayı aşağıda bulabilirsiniz:
 
 *(Yukarıdaki paragrafı yerine, gerçek konuyu, fikirleri ve önerileri girin.)*
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: Punkt; toplamam; Toplamama
 
 
 ### C
@@ -1184,7 +1184,7 @@ Hazırlanacak bir sonradan görüşme için uygun bir tarih ve zamanı belirleme
 [E-posta adresiniz]  
 [Telefon numarası (isteğe bağlı)]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Kahramanın; yönlendiriler; sorumaya
 
 
 ---
@@ -1206,7 +1206,7 @@ Her zaman sevgili dostlarımla birlikte olsun.
 
 İyi gelebilir! 🌟
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Düğün
 
 
 ### B
@@ -1226,7 +1226,7 @@ Herhangi bir soru veya bir şeyle konuşmak isterseniz, her zaman buradayım. �
 
 — [Sizinle paylaştığım] **Doğum Günü Notu** 🌟
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: toplun; buzdurmak
 
 
 ### C
@@ -1237,7 +1237,7 @@ Bir gün önce, evinizin kapısında veya bir yerde bir not yazın:
 
 Bu, sizleri uyarıyor, kutlamayı planlıyor ve gürültünün olabileceği konusunda uyarıyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ---
@@ -1264,7 +1264,7 @@ Lütfen bu talebi doğrultusunda, gerekli düzenlemeyi yapalım ve teslim tarihi
 [E-Posta Adresi]  
 [Öğrenci Numarası / Ünvan]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: Rızası
 
 
 ### B
@@ -1285,7 +1285,7 @@ Best regards,
 [Your Email Address]
 [Phone Number – optional]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 1   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -1308,7 +1308,7 @@ Hesabangı
 [Adınız]
 [Telefon numarası (isteğe bağlı)]
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): yes   Invented or wrong words: İsteyim; Hoşgunlar; itertekçe; Hesabangı
 
 
 ---
@@ -1325,14 +1325,14 @@ Türkiye'de son yıllarda barajlardaki doluluk oranı mevsimlere göre büyük d
 Türkiye'de son yıllarda barajlardaki doluluk oranı mevsimlere göre büyük dalgalanmalar göstermektedir. Kış aylarında yağışların azalması, tarımsal sulamanın yaz aylarında artması ve kentlerdeki tüketimin yükselmesi su kaynakları üzerinde baskı yaratmaktadır.
 Uzmanlar, damla sulama gibi verimli yöntemlerin yaygınlaştırılması ve şebeke kayıplarının azaltılması, kısa vadeli en etkin çözümler olarak görmektedir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
 
 Türkiye'de son yıllardaki baraj sistemlerinde mevsimsel dalgalanmalar artmıştır; özellikle kış aylarında yağışın azalması, yaz aylarda tarımsal sulamanın artışı ve kentlerdeki tüketim artışı su kaynaklarına baskı yaratmaktadır. Bu durumu hafifletmek için damla sulama gibi verimli yöntemlerin yaygınlaştırılması ve şebekeyi kaybını azaltmak, kısa vadede etkili bir çözüm olarak tespit edilmiştir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### C
@@ -1342,7 +1342,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 1. Türkiye’de son yıllarda barajlarda su doluluğu mevsimlere göre büyük dalgalanmalar gösteriyor; kışın yağış azlığı, yazta tarım sulaması ve kent tüketimi su kaynaklarını baskıya sokuyor.  
 2. Damla sulama gibi verimli yöntemlerin yaygınlaştırılması ve şebeke kaybını azaltmak, kısa vadede en etkili çözüm olarak öne sürüldü.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: yazta
 
 
 ---
@@ -1358,21 +1358,21 @@ Belediye, şehir merkezinde yeni bir bisiklet yolu açtığını duyurdu. Yol, t
 
 Belediye, şehir merkezindeki yeni bir bisiklet yolu açtı: tren durağı üniversite kampüsü ile bağlanıyor ve 10 km'lik bir mesafe kapsıyor; bu yolun yanındaki park yerleri ve tamir istasyonlarıyla birlikte, ilk altı ay içinde günlük 3 bin civarında bir bisikleti bekleniyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
 
 Belediye, şehir merkezindeki yeni bir bisiklet yolu açtı; bu yoldan tren garı üniversite kampüsüne bağlı olarak 2 km uzunluğunda bir bisiklet yolu oluşturuldu ve yanındaki park yerleri ve tamir istasyonları da kuruldu; hedef, ilk altı ay içinde günlük kullanıcıların üç binin üzerinde olmasıdır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
 
 Şehir merkezindeki bir bisiklet yolu (tren garibi üniversite kampüsüne bağlı, 20 km uzunluğunda) açıldı; yolda park yerleri ve tamir istasyonları da kuruldu ve ilk altı ay içinde günlük kullanıcılar sayısı üç boyutuna çıkma bekleniyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: garibi; üç boyutuna
 
 
 ---
@@ -1390,7 +1390,7 @@ Kütüphanenin yeni dönem üyelik koşulları değişti. Artık öğrenciler ki
 - **Kitap Yönetimi:** Üyeler aynı anda en fazla altı kitap alabilir ve her kitap için en fazla yirmi bir gün tutabilir.
 - **Gecikme Cezası:** Süresi geçen her gün için 0,30 TL (elli kuruş) gecikme cezası uygulanır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words: yetişkiler
 
 
 ### B
@@ -1400,7 +1400,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 *(Not: Metinde “yirmi yirmi lira” ve “elli kuruş” ifadesi geçmektedir; burada doğru sayılar 20 Lira ve 15 Kuruş olarak yorumlanmıştır.)*
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -1414,7 +1414,7 @@ Kütüphane yeni dönem üyelik koşullarını değiştirdi; öğrenciler artık
 **3. Gecikme Cezası:**  
 Süresi geçen her gün için **elli kuruş (15 lira)** gecikme cezası uygulanır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -1430,21 +1430,21 @@ Uyku araştırmacıları, yetişkinlerin çoğunun gece yedi ile dokuz saat aras
 
 Uyku araştırmacıları, yetişkinlerin çoğunlukla gece 7-9 saat uyku ihtiyacı olduğunu belirttiğini söyleyebilir. Düzenli uyku zamanları, akıllı telefon kullanımı ve akşam kafein tüketimi gibi faktörler uyku kalitesini azaltabilir. Günlük aynı saat uyma ve sabah çıkma, bu durumu çözmek en kolay yöntemlerden biridir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: uyma; çıkma
 
 
 ### B
 
 Uyku araştırmacıları, yetişkinlerin çoğunun gece yedi ile dokuz saat arasında uykuya ihtiyacı olduğunu belirtiyor. Düzensiz uyku saatleri, ekran kullanımı ve akşam geç saatlerdeki kafein gibi faktörler uyku kalitesini azaltıyor; aynı saatte yatıp kalkmak da en etkili alışkanlık olarak öne çıkar. (34 kelime)
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 5   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
 
 Uyku araştırmacıları, yetişkinlerin çoğunun gece yedi ile dokuz saat arasında uykuya ihtiyacı olduğunu belirtiyor. Düzensiz uyku saatleri, yatmadan önce ekran kullanımı ve akşam geç saatlerde alınan kafein uyku kalitesini düşüren önemli etkenler arasında sayılıyor. Her gün aynı saatte yatıp kalkmak, en basit ve etkili alışkanlıklarından biri olarak görülüyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -1462,7 +1462,7 @@ Bir şirket, fabrikasının çatısına güneş enerjisi panelleri kurarak elekt
 
 **Özet:** Şirket, fabrikasının çatısına güneş enerjisi panelleri kurarak elektrik faturasını yüzde on azalttı; yatırımın maliyeti yaklaşık dört yıl içinde geri dönüşüyor. Şirket yetkilileri, gece enerjisini kendi ürettiği batarya sistemleriyle de kullanmayı planlıyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1472,7 +1472,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 **Özet:**  
 Şirket, fabrikasının çatısına güneş enerjisi panellerini yerleştirdi ve bu yoldan elektrik faturasını yüzde onüç azaltmış; maliyet yaklaşık dört yıl geri döndürülmekte ve geceler için de depolama bataryaları ile enerji üretmeye planlıdır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -1483,7 +1483,7 @@ Bir şirketin fabrikasında güneş enerjisi panelleri kurularak elektrik fatura
 **Özet:**  
 Şirket, fabrikasının çatısına güneş enerjisi panelleri kurarak elektrik faturasını yüzde on azaltmıştır. Yatırım maliyeti yaklaşık dört yıl sonra geri dönüşüp, ikinci aşamada depolama bataryaları ekleyerek geceleri kendi enerjisini kullanmayı planlıyor.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -1520,14 +1520,14 @@ Türk kahvesi, 2013 yılında UNESCO tarafından somut olmayan kültürel miras 
 **Sonuç:**  
 Türk kahvesi, UNESCO’nun 2013 tarihli kültürel miras listesine alması, bu birikimin sadece bir yemek türü değil, aynı zamanda **toplumsal bir varlık** olduğunu vurgular. Yerel pişirme teknikleri, tatları, sohbetlerin ve sosyal etkinliklerin bütünleşmesi, bu mirasının kültürel önemini ortaya koymaktadır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
 
 Türk kahvesinin kültürel mirası UNESCO tarafından 2013'te kabul edilmesi, bu türün hem tarihi hem de günlük yaşamda önemli bir yer tutduğu için önemlidir. Türk kahvesi, özellikle İslamiyet'in yaygınlaşmasından sonra, kahve yapımı ve içilmesiyle başlar; bu, Anadolu'daki sosyal ve ekonomik alışverişe kadar uzanır. Kahvenin hazırlanışı, tatlandırılması ve servisi, toplumsal bağları güçlendirmek için bir ritüel haline gelir. Ayrıca kahve, tarihsel olayların, savaşların ve kültürel gelişmelerin etkilerini yansıtan birer simgeler olarak da görülmektedir. Bu nedenle, UNESCO bu türün, kültürel kimliğe ve insanların ortak yaşam biçimlerine katkısı nedeniyle bir “insanlık mirası” olduğunu kabul etmiştir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -1553,7 +1553,7 @@ UNESCO, **Türk kahvesinin sadece bir içecek olarak değil, aynı zamanda milli
 **Özetle:**  
 Türk kahvesi, sadece bir içecek değil; **çeşitli gelenekler, sanat formları, sosyolojik amacları ve tarihsel geçmişin bir parçası** olarak toplum içinde şekillenmiş bir **kültürel miras**dir. Bu nedenle UNESCO, bu mirası "somut olmayan" olarak işaretlemiş, çünkü bu miranın varlığı, **kişisel veya fiziksel nesneler değil, kültürel kimlik ve geleneğin aktarımı** üzerine kuruludur.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: milliy; sayılamayan; soyut olmayan; mirayı; miranın
 
 
 ---
@@ -1569,14 +1569,14 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 "Lütfen toplantı süresini kısa bir süre uzatabiliriz; mevcut zamanı işimi engelleyecek şekilde ayarlayabilirim."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ### B
 
 Evet, toplantıyı biraz uzatabilir misiniz? İşiniz bitmiş durumda.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ### C
@@ -1586,7 +1586,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 *(Not: "erter" yerine "uzat" kullanılmıştır; "bitmiştir" ise "çıktı" yerine daha resmi bir ifade olarak tercih edilmiştir.)*
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: erter
 
 
 ---
@@ -1600,7 +1600,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Böylece, değerlendirmenin sonuçları doğrultusunda başvurunun kabul edilmesi kararı verildi.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### B
@@ -1608,7 +1608,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 **Sade ve kısa bir versiyon:**  
 "Değerlendirme sonucu başvurunun kabul edilmesi kararı verilmiştir."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### C
@@ -1617,7 +1617,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 "Değerlendirme sonucunda, başvurunun kabul edilmesi kararı verilmiştir."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ---
@@ -1631,7 +1631,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 "Hava soğuktu; biz dışarı çıktık, ancak dışarıda kimse yoktu. Yürürken konuştuk."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 5   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### B
@@ -1645,14 +1645,14 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu cümleler, zaman dilimleri ve eylemlerin akışı ile daha doğal bir dille yazılmıştır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Söğütlü
 
 
 ### C
 
 Hava soğuk, dışarı çıkarken yalnızca kendimize kalmak için bir yolculuk yapmaya karar verdik. Yürüyorduk ve herkesin yanında olmadığını fark ettik.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ---
@@ -1678,7 +1678,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 **Sonuç:** Cümle, zaman, cins ve anlatım açısından düzgün bir şekilde birleştirilmiştir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: yemekye; Düzeltimler; arkamadan; güvenliksel
 
 
 ### B
@@ -1699,14 +1699,14 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
              - "yemeğe" tamamlı bir cümlede kullanılmaz. Doğru ifadesi **"yemeğe"** değil, **"yemeğe"**... Bu durumun cevabını daha net bir şekilde ifade etmek gerekir:
                - "yemeğe" tamamlı bir cümlede kullanılm
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 1   Task (yes/partly/no): partly   Invented or wrong words: cümleyde
 
 
 ### C
 
 Dün akşam arkadaşlarla bulusup yemeğe gittik ama yer bulamadık için eve geri dönmek zorunda kaldık.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words: bulusup
 
 
 ---
@@ -1720,14 +1720,14 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Yazın ilk güneş ışınlarıyla aydınlanan pazar sabahı, taze meyvelerin kokusuyla ve çiçeklerin renkli çiçekleriyle doluydu; herkesin kendisini yiyecekler için bekleyen bir hava içinde kahvaltı yapmaya hazırlandığı gibi, sakin bir ritim içinde dolaşıyordu.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ### B
 
 Yağmurlu bir pazar sabahı, havanın soğuğunu ve çiçeklerin kokusunu eşliğinde başlar; yolların su dolu yolu, çay bahçelerinde çiçekler arasında çatlar. Gürültüyü, çarşıdaki halkın sesleriyle karıştırır, ama herkesin gözlerinde bir huzur vardır. Yüzüklerin altında, taze kurutulmuş sebze ve tatlılar, sıcaklıkta beklemektedir. Sabahın ilk ışıkları, camların altındaki çiçekleri aydınlatır ve pazarın gürültüsünü hafifletir. Sonra, çarşıda çalışan işçiler, kahvaltı malzemeleri toplayarak, yeni günün enerjisini yavaş yavaş alır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Yüzüklerin
 
 
 ### C
@@ -1736,7 +1736,7 @@ Yağmurlu bir pazar sabahını anlatmak için beş cümlelik kısa bir paragraf 
 
 Bu paragraf, beş cümleyi kapsar, yağmurlu sabah pazarını anlatarak havanın soğukluğunu, ürünlerin suya baktığını ve topluluk arasındaki bağları vurgular.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: mücadelenen
 
 
 ---
@@ -1757,7 +1757,7 @@ Bir gün, kedi Leyla’yı bir parkta bulur ve onu bir yere bırakır. Onunla bi
 **Paragraf 3:**  
 Sonraki günlerde, Leyla, kedinin yanında dolaşıp, ona bir şeyler öğretir ve ondan da bir şeyler öğrenir. Kedi, her zaman Leyla’nın kalbiyle dans eder ve ona “mutlu” bir hayat sunar. Leyla, artık kedinin yanında mutlu bir şekilde yaşar ve herkesin “kedi” gibi bir dostu olduğunu anlar. Böylece, kedi, sadece bir hayvan değil, bir mutluluk kaynağı olmuştur.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1774,7 +1774,7 @@ Mehmet'in ağrısını azaltmak için ailenin hem klinikte hem de evde bir tesis
 
 Sonraki aylarda, Mehmet artık sadece bir çocuktan çıkıp, bir adam haline geldi. Aile, onunla birlikte bir tane çiftçi ailesiyle bir çiftlik evini kurdu. Mehmet, çiftçilikte yeni bir seviyenin kazandığı ve aileyle birlikte birlikte çalışarak mutlu bir hayat sürdürdü. Odayı, annesiyle bir kahve içip, "Benim en büyük dostu olanı seniyim" dedi. Bu hikayede, kaybedilen çocuğun kaybından sonraki mutluluğu, ailenin desteği ve ortak çalışmalar sayesinde ortaya çıktı.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): no   Invented or wrong words: seniyim
 
 
 ### C
@@ -1785,7 +1785,7 @@ Sonra, annesi geldi ve ona, “Seni sevdiğim için, her zaman yanımda olacağ�
 
 **Mutlu bitmiş.**
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ---
@@ -1802,7 +1802,7 @@ Güneş, karanlıkta bir ışık gibi parlıyor; uçlarımın ucunda, bir dalgal
 Denizin sesi, bir çanta gibi sıcaklıktaydı; bir şarkı söylerken, bir kuyumcu gibi çalmaya başlıyor.
 Bütün bu, bir yolculuk gibiydi: bir yerden diğerine, bir uçak gibi, ama daha az hızla.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1833,7 +1833,7 @@ Rüzgarla, denizle, birleşen bir gece...
 
 *Bu şiir, İstanbul'daki vapur yolculuğunu, deniz, rüzgar ve gölge ile anlatıyor.*
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### C
@@ -1861,7 +1861,7 @@ Rüzgarla birlikte, gökyüzüyle.
 İstanbul'un kalbi, suya akar,
 Ve ben de bu yolculuğumda kalbimi açar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): yes   Invented or wrong words: Suunun
 
 
 ---
@@ -1875,7 +1875,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 **Kütüphanemizde yeni bir kitapçı açıyoruz.** Herkes, her zaman bulabileceğiniz en iyi kitapları bulmak için buraya gelin. Yaratıcılık, öğrenme ve sakin bir ortamda keyifli saatler geçirebilirsiniz.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1889,7 +1889,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 - İkinci cümle, kitapçığın içindeki bütünleşik ortamın okuyucuyu derinlemesine etkilemesini belirtir.  
 - Kısaca hem görünüşünü hem de deneyimini bir arada aktararak akılda kalıcı bir reklam oluşturur.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: kitapçınin; kitapçığın
 
 
 ### C
@@ -1901,7 +1901,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu iki cümleyi birden okuduğunda, kitapçıyı sadece bir depo olarak değil, bir kültürel ve zihinsel yolculuk merkezi olarak tanımak istiyorsunuz.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -1932,7 +1932,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu basit adımlar, hem vücudunuzu güçlendirir hem de uzun vadeli sağlıklı bir yaşam sürmenizi sağlar! 🌱🍎🥗
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -1951,7 +1951,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu basit ama etkili adımlarla hem enerjinizi sabırlı bir şekilde sağlayıp hem de vücudunuzun sağlıklı gelişimine yol açabilirsiniz. 🌱🥗🍎
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Güneşli; yemleyin; antikvitet; Kaymaz; lara
 
 
 ### C
@@ -1962,7 +1962,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 - **Her gün 2 litre su için** — bol su tüketimi, metabolizmayı hızlandırır ve besinlerin emilimini kolaylaştırır.
 - **Yemekten önce 30 dakika kadar yürüyin** — aktivite kalp sağlığı için koruyucu etkisi vardır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Boyunlarınızın; yürüyin
 
 
 ---
@@ -1976,21 +1976,21 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 İstanbul, tarihi köklü yapıları, lezzetli yemekleri ve şehrin farklı yörelerini birbirinden uyumlu bir şekilde yaşamanızı sunar. Bursa'dan başlayarak, Galata Kulesi'ni, Sultanahmet Camii'ni, Boğaz Köprüsü'nü, Topkapı Sarayı'na, Çamlıhemşin'in manzarasını ve modern yaşam alanlarını keşfedin. Yemek için köy köyü lezzetleriyle (çörek, balık ekmeği) veya tarihsel mekanlar arasında gezintiye çıkın. İki günlük bir tatil için, tarihi merkezler ile deniz kenarında dinlenme yerleri arasında dengeyi bulun.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: köy köyü
 
 
 ### B
 
 İstanbul, tarihi ve kültürel zenginliğini birbirinden harika yerler ile karışık bir kent. İlk ziyaretinizde **Türbesi Camii**, **Sultanahmet Meydanı**, **Hamam-ı Süleymaniye** ve **Topkapı Sarayı**'yı gezdirin; bu yerler İstanbul'un en önemli simgeleridir. Ayrıca **Galata Kulesi** ve **Bosphorus** kıyısındaki manzara da unutmayın!
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Türbesi Camii
 
 
 ### C
 
 İstanbul, tarihi sokaklar, renkli cami ve şehrin zengin mirasıyla herkesin izlenmesini bekleyen bir şehirdir; yürüyüş, yemek ve kültür denemeleriyle dolu.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ---
@@ -2004,7 +2004,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Ankara, Türkiye'nin başkenti ve en büyük kentlerinden biridir; bu kente, tarihi eserleriyle ve kültürel aktivitelere sahip bir merkez olarak tanımlanır. Ayrıca, şehirde yer alan Kültür Merkezi ve various müzeler ile turistlerin ilgi çeken bir mekan haline gelmiştir. Ankara, aynı zamanda ekonomik ve siyasi merkezi olarak da önemli bir rol oynar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### B
@@ -2013,14 +2013,14 @@ Ankara, Türkiye'nin devlet başkenti ve en büyük şehirlerinden biridir. Tari
 
 Bu şehir, Anadolu'da konumunda ve deniz kenarında değil, iç kesimlerde yer alır; bu da doğal güzellikleriyle birlikte sakin bir ortam sunar. Günlük yaşamında, tarihî sokaklar, müzeler ve lezzetli yemekler mevcuttur.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: miraslığını
 
 
 ### C
 
 Ankara, Türkiye'nin başkenti ve en büyük kentidir. Kültür, tarih ve sanat için önemli bir merkez olan Ankara'da tarihi eserleri, ünlü mekanları ve modern yaşam alanları bulunur. Ayrıca uluslararası toplantılar ve etkinlikler için de önemli bir yer tutar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -2034,7 +2034,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bir zaman geçer, ama zaman her şeyi değiştirmez.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -2044,7 +2044,7 @@ Zaman, her bir akşamın ışıklarıyla yansıyan bir renktir; onu gözlerimde 
 
 Bu iki cümlede "zaman" kelimesi en az bir kez kullanıldı.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: duraklığını
 
 
 ### C
@@ -2053,7 +2053,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 **2.** Biz de bu zamanı, her şeyin akışını yönetmek için bir kalemle izler; doğru bir anlama gelince, geleceğin yansıması olur.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ---
@@ -2084,7 +2084,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu adımlar hem sağlığınızı korur, hem de daha verimli bir başlangıç sağlar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### B
@@ -2105,7 +2105,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu rutinin her adımı, sadece bir ofis çalışanının değil, aynı zamanda kişisel gelişimi de destekleyen bir şekilde tasarlanmıştır. İyi bir sabah, daha iyi bir gün! 🌅
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### C
@@ -2130,7 +2130,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu rutinin hedefi: **enerji ve odaklanma seviyini yükseltemek**, stresi azaltmak ve ofisde daha verimli bir başlangıc oluşturmak. Her adım kısa ve uygulanabilir olduğu için, haftalık bir alışkanlık haline geçebilirsiniz. 🌅🚶‍♂️💧
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: seviyini; yükseltemek; başlangıc
 
 
 ---
@@ -2155,7 +2155,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Sonuç olarak, yeni bir dil öğrenmek sadece bir dil bilgisinin değil, **zihin, duygular ve toplumsal bağların genişlemesi** demektir. Bu nedenle, her gün bir miktar dil çalışması, hayatınızı daha zengin ve etkili hale getirir!
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Zihin Fazlalığı
 
 
 ### B
@@ -2175,7 +2175,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu faydalar, sadece dil becerisini değil, hayal gücünü ve yaşam kalitesini de yükseltir. 🌍✨
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Emektoloji
 
 
 ### C
@@ -2191,7 +2191,7 @@ Yeni bir dili öğrenmek, zihinsel ve duygusal açıdan birçok yönden zenginle
 
 Kısacası, yeni bir dili öğrenmek, zihinsel, kültürel ve sosyal alanlarda genişleme sağlar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ---
@@ -2238,7 +2238,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 - **Tüm Detayları Online Alıcılar:** 
   - **
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Hamleman; Operasyon Sistemi
 
 
 ### B
@@ -2254,7 +2254,7 @@ Bir bilgisayar satın alacak kişi, genellikle şu noktalara dikkat etmelidir:
 
 Bazı insanlar daha önceki deneyimleri veya belirli gereksinimleri göz önünde bulundurarak bu listeyi genişletebilir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: testere
 
 
 ### C
@@ -2316,7 +2316,7 @@ Bir bilgisayar satın alarken ilk kez dikkate almanız gereken temel noktalar ş
 
 Bu noktaları inceleyerek, bütçenize uygun ve ihtiyaçlarınızı karşılayan bir bilgisayar seçebilirsiniz. Başka bir konuda detaylı bilgi isterseniz, lütfen söyleyin! 😊
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: Kişiliçlik; Hazırlık Hatıra; Sosyal Donanım; üylem; işyete; RADON
 
 
 ---
@@ -2368,7 +2368,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 | 23:00 – 23:05 | Dinlenme |
 | 23:05 – 23:30 | Pomodoro 3 (25 dk) – Konu C
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Fiziksel Gerektiği
 
 
 ### B
@@ -2403,7 +2403,7 @@ Sınavdan önceki gece (yani test veya sınavın hemen öncesi, genellikle 24-48
 
 Bu yöntemlerle, zihinsel ve fiziksel enerjinizi koruyarak
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: sakinize; önceliginalısınız
 
 
 ### C
@@ -2435,7 +2435,7 @@ Bu soru, genellikle sınav hazırlığı sırasında en zor veya en sık sorulan
 
 **Özet:** Zamanınızı her konuya ayırarak, her konuyu ayrıntılı olarak öğrenerek ve gerçek koşullarda test edip denetleyerek en verimli hazırlık yapın.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ---
@@ -2467,7 +2467,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu temel adımlar, çiçek açan, sağlıklı bitkiler elde etmek için başlamak için en iyi noktalardan biridir.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: çatıya; bahçe kabuğu; çatla
 
 
 ### B
@@ -2500,7 +2500,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Bu adımları takip ederek, evde bitki yetiştirmeyi başaran bir başlangıç yapabilirsiniz! 🌱
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): partly   Invented or wrong words: hane; tereyağı; çaybazlı; böcek tohumu
 
 
 ### C
@@ -2534,7 +2534,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
    - **Seedling (Çiçeklenme Öncesi):** Çiçeklenme döneminden sonra, **fertilize** (örneğin, fosforlu gübre) ve **düzeltici su** uygulayın.  
    - **Kök Gelişimi:** İlk çiçeklen
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Kaynaklu; Organik Ambalaj; sodyum kalbit; düzeltici su
 
 
 ---
@@ -2563,7 +2563,7 @@ Küçük bir tartışma, genellikle duygusal bir gerilim yaratır. Barışmak i�
 Bu yöntemle, tartışmanın sonunda herkesin "barış" hevesini hisseder. 😊  
 Ne kadar küçük bir tartışma olursa olsun, aslında bir bağ kurmayı ve anlayışı pekiştirme fırsatı sunar.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: korkutmuştım; düşündüğümlerim
 
 
 ### B
@@ -2580,7 +2580,7 @@ Barışmak için en iyi şey, karşı tarafın da aynı duyguyu paylaşmasıdır
 
 Her insan farklı bir bakış açısıyla yaklaşabilir; bu yüzden, herkesin kendi kendine neyi istediklerini de göz önünde bulundurun. Barış, her iki tarafın da güvenli ve saygılı olmasıdır.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: Dolapınızda
 
 
 ### C
@@ -2595,7 +2595,7 @@ Barışmak için, ilk adım olarak **daha fazla dinlenmek** ve **konuşmanın i�
 
 Önemli: Barışmak için **içinize ve karşı tarafın ihtiyaçlarına** göre yaklaşın. Bazen tartışma, bir sorunun bir parçasıdır; onu çözmek için birlikte çalışmanız daha etkili olabilir. 😊
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): yes   Invented or wrong words: sandık
 
 
 ---
@@ -2609,7 +2609,7 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 
 Meeting has been moved to Thursday because several colleagues will be traveling on Wednesday.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 1   Task (yes/partly/no): no   Invented or wrong words:
 
 
 ### B
@@ -2622,7 +2622,7 @@ Alternatif bir çeviri:
 
 "Meeting, Thursday was rescheduled because several colleagues are traveling on Wednesday." → "Toplantı, Perşembe gününe taşınır; çünkü birkaç arkadaşımız Perşembe günü seyahat edecek."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 4   Task (yes/partly/no): partly   Invented or wrong words:
 
 
 ### C
@@ -2633,7 +2633,7 @@ Türkçe çeviri:
 
 **Meydan okuma gününe (Cumartesi) taşınmıştır; çünkü birkaç kolay Çarşamba günü seyahat etmekte olacak.**
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 2   Task (yes/partly/no): no   Invented or wrong words: Meydan okuma; kolay
 
 
 ---
@@ -2649,14 +2649,14 @@ Bu cümle şu şekilde Türkçe'ye çevrilir:
 
 "Eğer yeni politika hakkında sorularınız varsa, insan kaynakları birimine ulaşın."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 5   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### B
 
 Eğer yeni politikaya ilişkin herhangi bir soru varsa lütfen insan kaynakları bölümüne ulaşın.
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 5   Task (yes/partly/no): yes   Invented or wrong words:
 
 
 ### C
@@ -2666,4 +2666,4 @@ Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: 
 Alternatif çeviri:
 "Yeni politikaya dair sorularınız varsa, lisans ve kaynaklar bölümünden iletişime geçin."
 
-Naturalness (1-5): ____   Task (yes/partly/no): ____   Invented or wrong words: ____
+Naturalness (1-5): 3   Task (yes/partly/no): partly   Invented or wrong words: lisans ve kaynaklar
