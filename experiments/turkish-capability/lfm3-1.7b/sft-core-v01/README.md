@@ -60,3 +60,61 @@ python scripts/datasets/validate_lfm3_sft_core_translations.py --worksheets DIR 
 python scripts/datasets/lfm3_sft_core.py render --lang tr --translations DIR --output P_tr.jsonl
 # pod: generate_lfm3_sft_samples.py -> verify_lfm3_sft_samples.py (--allow-exec for MBPP) ; local: build_lfm3_sft_pack.py --zeyrek
 ```
+
+## Audits (2026-11-23)
+
+### Leakage and duplicates
+
+`python scripts/datasets/audit_lfm3_sft_core_leakage.py` compares the 2,909-row pack and the 2,500 core prompts with the protected
+eval sets: eval v2 (math, symbolic, tools, EN and TR), the 100-item GSM8K final test, the 40 writing prompts, Belebele EN and TR,
+TurBLiMP 1600, CETVEL-500, IFEval 541, HumanEval 164 and BFCL v3. Method: normalised word n-grams (exact text, 6-gram containment,
+a shared 12-gram, short sentences, number signature for math). Lexical only: it does not prove semantic or cross-lingual
+clearance. Report with ids and counts: `leakage-audit-v01.json`; matched text stays in `samples-local/`.
+
+Result: 18 of 24 (training set, protected set) pairs are clean. Three rows are flagged and were read by hand, none changes a
+reported result:
+- `c-math-0587`: shares one 12-word template phrase ("The first movie is 1 hour and 30 minutes long while the second movie is")
+  with ev2-math-118; a different problem.
+- `c-engen-0049` (Dolly): its Wikipedia context repeats a definition of a prime number that also sits in the docstring of
+  HumanEval/78; the HumanEval task itself (hex_key) is not in the row. Drop it from a published core.
+- `c-tool-0261` (glaive): "I need to calculate the area of a circle with a radius of 5" is a close paraphrase of BFCL simple_9. The
+  eval v2 tool items are not affected (no hit against them). Drop it from a published core.
+Ten GSM8K train problems share a multiset of three or more numbers with a final-test or eval v2 item; all ten were read and are
+different problems (number coincidences). No exact duplicate prompt inside the pack. Other findings for v2: 292 tool rows hold only
+202 distinct completions (28 rows are the same `calculate_discount(200, 20)` call), 43 groups of identical completions overall and
+43 near-duplicate prompt pairs, mostly tool and Dolly rows; deduplicate the glaive rows by function and arguments. The Atlas rows
+use 373 distinct four-word openings in 422 rows (22 rows share the "Aşağıdaki pasaja dayanarak soruyu" opening).
+
+### Atlas row review (owner)
+
+60 of the 422 Atlas rows (26 constrained, 19 context, 15 plain; seeded hash rank, `atlas-review-60-manifest.json`) are loaded as a
+new dataset in the local Argilla (`atlas-review-receipt.json`; stack: `experiments/response-style-control/qwen3.5-4b/exp-001-sft-dataset/annotation/argilla`,
+`docker compose up -d`, http://127.0.0.1:6900). Each row shows the Atlas prompt, the answer used as the target, its English
+reasoning and the Atlas original answer (never trained on). Questions: prompt quality, Turkish of the answer, correctness, keep /
+edit / drop, optional corrections. Publisher: `scripts/datasets/publish_lfm3_sft_core_atlas_review.py`; export of the submitted
+reviews: `scripts/datasets/export_lfm3_sft_core_atlas_review.py`.
+
+#### Result (submitted 2026-11-23)
+
+All 60 reviews and the 56 corrected answers were written by an AI assistant: this is an AI review, **not a human review**. The owner
+skimmed the data, gave feedback that was applied, checked the result (generally fine; the number of rows read was not recorded) and
+approved the use of the rows. Labels are in
+`atlas-review-labels.json` (ids and labels only); the full export with the corrections is in `samples-local/` and stays out of Git.
+
+| Question | Result (60 rows) |
+|---|---|
+| Prompt | good 26, fixable 33, bad 1 (diacritics missing, wrong spelling, unclear count or limit) |
+| Turkish of the trained answer | good 3, needs edit 23, poor 34 |
+| Answer does the task, keeps limits, no wrong facts | pass 7, **fail 53** (78 to 94% of the 422 rows at 95%, if the sample is representative) |
+| Decision | keep 1, edit 56, drop 3 |
+
+Failures by group: constrained 22 of 26, context 19 of 19, plain 12 of 15; thinking on 37 of 43, thinking off 16 of 17. Typical
+notes: invented facts or recommendations, broken or malformed words, a changed count or forbidden commentary, sign-offs such as
+"Koruyucu", English leftovers. The Zeyrek and English-leak filters of the pack builder did not catch these. The 56 corrections are
+near rewrites (median text similarity with the trained answer 0.11, median length 0.52 of the original). The reasoning saved with
+each row no longer matches a corrected answer, so a corrected row needs its reasoning regenerated or must be trained thinking off.
+Provenance: the corrections are AI-written text. Using them as training targets is the owner's decision (approved); the dataset card
+must say they are AI-written and not human-reviewed.
+
+Meaning for v1: the 422 free-form Turkish rows of the exp-019 pack are mostly flawed self-generated answers, so self-distillation is
+weak for free-form Turkish writing; it worked for verifiable tasks (math, tools, code). Untested: a run without the Atlas rows.

@@ -5,7 +5,7 @@ For each prompt rate every answer 1-5 (1 = unusable, 3 = understandable but clea
 
 ## Review protocol (AI assessment, 2026-11-22)
 
-Reviewer: OpenAI Codex, GPT-6-based assistant; exact runtime revision and sampling settings are not exposed. This is an AI assessment, not a human review. All 160 answers were read in the supplied order, A-D for each prompt, with no answer rewriting. `review-key.json` was not opened or used. Repository evaluation guidance and the experiment README were read; the README contains aggregate model results, so this review is identity-blind to the key but not isolated from experiment context.
+Reviewer: AI assistant; exact runtime revision and sampling settings are not exposed. This is an AI assessment, not a human review. All 160 answers were read in the supplied order, A-D for each prompt, with no answer rewriting. `review-key.json` was not opened or used. Repository evaluation guidance and the experiment README were read; the README contains aggregate model results, so this review is identity-blind to the key but not isolated from experiment context.
 
 Scale: **1** unusable (incoherent, irrelevant, wrong response language, or dominated by degeneration); **2** partly decipherable with major language/meaning problems; **3** understandable but clearly non-native; **4** mostly natural with minor defects; **5** natural. Ratings assess the complete answer as Turkish writing in response to its prompt: naturalness, coherence, relevance, and usability. Major meaning/task failures lower the rating; minor length or factual failures are also recorded explicitly and do not automatically make fluent Turkish a 1. These are holistic writing ratings, not a separate factual-accuracy benchmark.
 

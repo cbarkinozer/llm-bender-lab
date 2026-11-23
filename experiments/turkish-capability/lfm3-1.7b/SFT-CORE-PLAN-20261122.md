@@ -40,8 +40,10 @@ Phase A: sources, English prompt lists, worksheets (CPU only)
 - [x] A3 English prompt lists with stable ids, fixed seed: GSM8K train 1,000, GSM8K test 100 (final holdout), MBPP 300,
       glaive 300, Dolly 300, Atlas 500 (`prompts-en.jsonl`, 2,500 rows).
 - [x] A4 Overlap checks: GSM8K train vs the 152 eval-v2 items and the 100 holdout (0 exact, 0 near); MBPP vs HumanEval (10
-      tasks removed); glaive vs BFCL (function names and queries, 3,072 removed). Not done: a cross-lingual check of the Turkish
-      rows against Cetvel/Belebele, and the training-vs-eval overlap for Atlas and Dolly.
+      tasks removed); glaive vs BFCL (function names and queries, 3,072 removed). Done 2026-11-23: lexical check of the pack and core
+      prompts against Belebele, TurBLiMP, CETVEL-500, IFEval, HumanEval, BFCL, eval v2 and the final test, plus duplicates inside
+      the pack (`sft-core-v01/leakage-audit-v01.json`; 3 benign or borderline flags, see the README). Semantic and cross-lingual
+      clearance is not claimed.
 - [x] A5 Constraint rows: reframed. 250 Atlas prompts carry countable constraints (179 word limits, 96 bullet counts, 23
       sentence limits, 2 JSON) checked by `lfm3_sft_constraints.py`. IFEval-style English synthesis and the held-out
       constraint types were dropped to keep the dataset simple; English long-answer replay (Dolly) addresses the length
@@ -58,7 +60,7 @@ Phase B: English-side sampling on the pod (needs the GPU, not the translations)
       Atlas .96; thinking off is weaker (code .60, TR math .61). Natural lengths are the drift baseline of exp-019.
 
 Phase C: Turkish prompts (needs the owner's translations)
-- [x] C1 Worksheets filled (math train 1,000, final test 100, wrappers 8) by OpenAI Codex, AI-reviewed (not owner-reviewed);
+- [x] C1 Worksheets filled (math train 1,000, final test 100, wrappers 8) by an AI assistant, AI-reviewed (not owner-reviewed);
       the 300 MBPP and 300 tool one-liners are still empty (deferred), see `sft-core-v01/DATASET-CARD.md`.
 - [x] C2 Validated independently: 0 errors in the delivered sheets. Found c-mathtest-0068 (meaning-changing translation) and
       three items with English thousands format (read as decimals in Turkish): recorded as a sensitivity subset, data unchanged.
@@ -68,11 +70,15 @@ Phase C: Turkish prompts (needs the owner's translations)
 Phase D: build the pack
 - [x] D1 Pack built: 2,909 rows (tr->tr, en->en only; no cross-language rows in v1), thinking on 81.5%.
 - [x] D2 Trainer audits on all rows: prompt masked, EOS supervised, no truncation (max 7,935 tokens), tool names in the prompt.
-      Not done: duplicates/overlap check of Atlas and Dolly against the eval sets.
+      Overlap and duplicate check of Atlas, Dolly and the rest done 2026-11-23 (see A4).
 - [x] D3 Length drift 1.00 to 1.06 on most cells, 1.14 for Turkish math (kept answers longer), the opposite of exp-016.
-- [ ] D4 60-row stratified review of the Atlas rows (owner reads): still open. The blind sheets (thinking off and on, naturalness
-      and task scored apart) were rated by an AI (Codex); the owner checked 27 thinking-on prompts (random 18: exp-019 12, base 5,
-      neither 1; the 9 Codex ties: exp-019 7, base 1, neither 1). The AI scores separate answers less finely than the owner.
+- [x] D4 60-row stratified review of the Atlas rows, done 2026-11-23 in the local Argilla (`sft-core-v01/atlas-review-labels.json`).
+      The reviews and 56 complete corrections were written by an AI assistant (not a human review); the owner skimmed them, gave
+      feedback that was applied and approved their use. Result:
+      the answers trained on were judged wrong or flawed in 53 of 60 rows (poor Turkish in 34), prompts good in 26, fixable in 33,
+      bad in 1; decisions keep 1, edit 56, drop 3. So the free-form Turkish targets of v1 are mostly flawed model outputs. The blind sheets (thinking off and on, naturalness
+      and task scored apart) were rated by an AI; the owner checked 27 thinking-on prompts (random 18: exp-019 12, base 5,
+      neither 1; the 9 AI ties: exp-019 7, base 1, neither 1). The AI scores separate answers less finely than the owner.
       v2 notes from the owner: add email and letter writing data, and science vocabulary in the pretraining text.
 
 Phase E: training and evaluation

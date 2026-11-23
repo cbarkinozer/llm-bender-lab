@@ -31,7 +31,7 @@ from the exp-016 and exp-018 logs, not a proven cause.
 | | exp-016 arm B | exp-019 |
 |---|---|---|
 | Rows | 516 (129 groups x 4 directions) | the pack (about 3,000 rows, built from verified samples) |
-| Turkish prompts | 160 human prompts, targets from English twins, Turkish renderings by Claude | 1,000 GSM8K problems translated by OpenAI Codex, 500 native Atlas tasks; targets are the base model's own reply to the Turkish prompt |
+| Turkish prompts | 160 human prompts, targets from English twins, Turkish renderings by Claude | 1,000 GSM8K problems translated by an AI assistant, 500 native Atlas tasks; targets are the base model's own reply to the Turkish prompt |
 | Selection | shortest sample, answers over 1,500 characters dropped | random verified sample, nothing cut by length (limit 8,000 tokens) |
 | Reasoning | English twin's | the model's own on the Turkish prompt (English think block) |
 | Thinking mode | about 16% on | 80% on, 20% off |
@@ -92,7 +92,7 @@ G2 can only show "no large drop", not an improvement.
 ## Threats to validity
 
 - The 152 eval items and Belebele have steered earlier decisions (development data); the final test is the clean check.
-- The training translations (OpenAI Codex, AI-reviewed) and the eval translations (malhajar machine translation) differ; both are
+- The training translations (AI-translated, AI-reviewed) and the eval translations (malhajar machine translation) differ; both are
   measured. Translation errors that change an answer (found: c-mathtest-0068) lower scores for every model equally.
 - Verified samples exist only for problems the base already solves; the unsolved ones are not trained on (selection bias,
   reported per solution-step bucket in the pack report).
@@ -155,7 +155,7 @@ exp-019 is kept as v1 of the Turkish SFT (working name `LFM3-1.7B-Turkish-SFT`, 
 the automatic metrics put writing at base level with fewer invented words (1.4% against 2.3%); no blind human comparison has been
 made yet. Writing with thinking on (the owner's assumed mode) was measured afterwards: exp-019 answers 39 of 40 prompts in
 Turkish, the base 40 of 40, arm B only 9 of 40 (automatic metrics in [exp-020](../exp-020-sft-core-pack-base/README.md); blind
-sheet in `results/writing-review-think-on/`). The blind sheets were then rated by an AI (OpenAI Codex), not by a native speaker:
+sheet in `results/writing-review-think-on/`). The blind sheets were then rated by an AI, not by a native speaker:
 exp-019 is rated somewhat more natural than the base (+.3 thinking on, +.6 thinking off on a 1 to 5 scale) with fewer wrong
 words, still low in absolute terms; details and caveats in the exp-020 README. The model card must say: Turkish
 grammar, passage reading and math reading are improved or kept, English skills are kept, writing quality is basic for the size,

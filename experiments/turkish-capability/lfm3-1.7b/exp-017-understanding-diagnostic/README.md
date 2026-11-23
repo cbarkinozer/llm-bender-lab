@@ -2,7 +2,7 @@
 
 ## Status
 
-completed (diagnostic; no model was trained). The writing probe was rated by an AI assessor (OpenAI Codex), not by a human;
+completed (diagnostic; no model was trained). The writing probe was rated by an AI assessor, not by a human;
 the owner (a native speaker) added a qualitative opinion on excerpts, but no full human rating of the 160 answers exists
 (see "Writing review" and "Owner's qualitative assessment").
 
@@ -193,8 +193,8 @@ are listed under Findings (2, 3).
 
 ## Writing review (AI assessment, not a human review)
 
-The 160 answers (40 prompts x 4 anonymous models) were rated 1-5 with notes on vocabulary by **OpenAI Codex (GPT-6-based
-assistant; runtime revision and settings unavailable)** on 2026-11-22 (`writing-review/review-ratings.json`, protocol at
+The 160 answers (40 prompts x 4 anonymous models) were rated 1-5 with notes on vocabulary by **an AI assistant (runtime revision and settings
+unavailable)** on 2026-11-22 (`writing-review/review-ratings.json`, protocol at
 the top of `writing-review/review-sheet.md`). The assessor did not open `review-key.json`, but it had read this README's
 aggregate results first, so it was blind to model identity only in the sense of not seeing the key; its ratings may be
 influenced by those aggregates (for example the English-reply failures of arm B). It is one rater, not a native speaker, and

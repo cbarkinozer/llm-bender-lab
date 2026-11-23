@@ -20,22 +20,18 @@ IDs, English text, row counts, and row order are preserved. Wrappers preserve
 
 ## Translator and review
 
-- **Tool/provider:** OpenAI Codex, in this conversation.
-- **Model/version:** GPT-6-based assistant, as identified by the runtime instructions.
-  The exact deployed model revision, application build, sampling settings, and seed
-  are not exposed; no more specific revision is claimed.
-- **Method:** direct English-to-Turkish translation by the Codex assistant, in
-  worksheet order, followed by same-assistant review and deterministic checks.
+- **Tool:** an AI language-model assistant used in a chat session; its name and exact revision are not recorded in this card.
+- **Method:** direct English-to-Turkish translation of each worksheet row, in worksheet order, followed by a review pass by the
+  same assistant and deterministic checks.
 - **Date:** 2026-11-22.
-- **Final-test review:** the assistant read all 100 English final-test questions
-  individually and authored/reviewed their Turkish translations. This is AI review,
-  not owner review or independent native-speaker validation.
-- **No solutions:** only problem statements and instruction wrappers were translated;
-  no worked solutions, gold answers, or reasoning targets were added.
-- **Discarded alternatives:** local OPUS-MT and Qwen translation smoke tests/drafts
-  were explored before the owner requested direct translation. None of those draft
-  translations remains in the delivered Turkish cells. The preliminary Qwen wrapper
-  wording was also replaced with direct Codex translations.
+- **Final-test review:** the assistant read all 100 English final-test questions individually and authored/reviewed their Turkish
+  translations. This is AI review, not owner review or independent native-speaker validation.
+- **Owner:** the owner skimmed the data, gave feedback that was applied, and approved the use of the data. This is not a human review.
+- **No solutions:** only problem statements and instruction wrappers were translated; no worked solutions, gold answers, or
+  reasoning targets were added.
+- **Discarded alternatives:** local OPUS-MT and Qwen translation smoke tests/drafts were explored before the owner requested direct
+  translation. None of those draft translations remains in the delivered Turkish cells. The preliminary Qwen wrapper wording was
+  also replaced with direct AI translations.
 - **Anthropic:** no Anthropic model output was used in these translated cells.
 
 The original problems' relationships, names, units, currencies, and quoted values
@@ -55,29 +51,13 @@ objects), and `c-math-0647` (different currencies without an exchange rate).
 Translation does not repair their English, alter the gold checker, or insert an
 exchange rate. Such source limitations remain distinct from translation quality.
 
-## Provider terms review
+## Provenance and terms
 
-Checked 2026-11-22 against the official
-[OpenAI Terms of Use](https://openai.com/policies/terms-of-use/)
-(effective January 1, 2026) and
-[OpenAI Services Agreement](https://openai.com/policies/services-agreement/)
-(effective January 1, 2026).
-
-Both assign output ownership to the customer/user, subject to compliance with their
-terms. The Terms of Use prohibit using output to develop models that compete with
-OpenAI. The Services Agreement has a corresponding competing-model restriction
-in section 3.3(e), with specified permitted exceptions. Output ownership alone
-does not eliminate those restrictions. The applicable account agreement was not
-independently inspected.
-
-The owner explicitly described this work as personal, noncommercial learning and
-research: a Turkish fine-tuning experiment on LFM3-1.7B, with no competing product
-or service and no earnings, and directed Codex to translate it directly. Work
-proceeded on that stated **noncompeting research scope**. This terms assessment is
-conditional on that scope; it is not a claim of unrestricted permission to train
-competing models, nor written clearance from OpenAI. The owner's intended open
-resource should retain this provider provenance rather than claim provider approval
-or human authorship.
+The Turkish cells (the translations, and any corrected Atlas answers) are AI-written text: not human-authored and not
+human-reviewed. The owner approved their use for personal, non-commercial research, a Turkish fine-tuning experiment on
+LFM3-1.7B. The terms of the tool that produced the text restrict some uses of its output; this card makes no claim of provider
+approval, and the owner's notes on those terms are kept privately. Re-check those terms before releasing the dataset or a model
+trained on it.
 
 The GSM8K source license remains **MIT**, as recorded in the build manifest. This
 card does not relicense unrelated core categories or override their source licenses.

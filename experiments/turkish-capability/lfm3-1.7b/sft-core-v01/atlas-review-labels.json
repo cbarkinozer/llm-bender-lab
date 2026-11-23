@@ -1,0 +1,583 @@
+{
+ "dataset": "lfm3-sft-core-v01-atlas-review-60",
+ "submitted": 60,
+ "pending": [],
+ "summary": {
+  "prompt_quality": {
+   "fixable": 33,
+   "good": 26,
+   "bad": 1
+  },
+  "answer_turkish": {
+   "poor": 34,
+   "needs_edit": 23,
+   "good": 3
+  },
+  "answer_correct": {
+   "fail": 53,
+   "pass": 7
+  },
+  "decision": {
+   "edit": 56,
+   "drop": 3,
+   "keep": 1
+  }
+ },
+ "decision_by_group": {
+  "constrained": {
+   "edit": 25,
+   "keep": 1
+  },
+  "context": {
+   "edit": 18,
+   "drop": 1
+  },
+  "plain": {
+   "edit": 13,
+   "drop": 2
+  }
+ },
+ "reviewer_type": "AI assistant (not a human review); the owner approved the use",
+ "rows": {
+  "c-trgen-0492-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0374-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0069-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0495-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0307-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "pass",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0187-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0485-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0188-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0159-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "pass",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0202-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0133-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0360-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "good",
+   "answer_correct": "pass",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0364-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0018-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0288-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0088-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "pass",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0127-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0230-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0400-tr": {
+   "group": "context",
+   "prompt_quality": "bad",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "drop",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": false
+  },
+  "c-trgen-0112-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0023-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0087-tr": {
+   "group": "plain",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "drop",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": false
+  },
+  "c-trgen-0015-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0487-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0298-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0147-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0488-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0493-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0293-tr": {
+   "group": "plain",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "pass",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0010-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0201-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0174-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "pass",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0440-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0144-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0425-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0033-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0056-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0253-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0265-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0476-tr": {
+   "group": "plain",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "drop",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": false
+  },
+  "c-trgen-0402-tr": {
+   "group": "plain",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0161-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0037-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0269-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0301-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0122-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0393-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0468-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0076-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0175-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0268-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "good",
+   "answer_correct": "pass",
+   "decision": "keep",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": false
+  },
+  "c-trgen-0273-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0303-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0229-tr": {
+   "group": "plain",
+   "prompt_quality": "fixable",
+   "answer_turkish": "good",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0482-tr": {
+   "group": "context",
+   "prompt_quality": "fixable",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0282-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0369-tr": {
+   "group": "constrained",
+   "prompt_quality": "fixable",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": true,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0274-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0372-tr": {
+   "group": "context",
+   "prompt_quality": "good",
+   "answer_turkish": "poor",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  },
+  "c-trgen-0168-tr": {
+   "group": "constrained",
+   "prompt_quality": "good",
+   "answer_turkish": "needs_edit",
+   "answer_correct": "fail",
+   "decision": "edit",
+   "has_corrected_prompt": false,
+   "has_corrected_answer": true
+  }
+ }
+}

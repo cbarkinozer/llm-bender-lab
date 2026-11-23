@@ -96,12 +96,12 @@ exp-019 and exp-020 numbers are in `results/writing/`. Constraint counts come fr
 
 Sheets: [thinking on, base against exp-019](../exp-019-sft-core-pack/results/writing-review-think-on/) (arm B left out, 31 of its
 40 answers are English) and [thinking off, base, arm B and exp-019](../exp-019-sft-core-pack/results/writing-review/). **All 200
-answers were rated by OpenAI Codex (an AI), not by a native speaker.** Its stated limits: AI rating, same provider as the
+answers were rated by an AI assistant, not by a native speaker.** Its stated limits: AI rating, same provider as the
 training-prompt translator, it read the experiment README before scoring (aggregate results visible, answer keys not opened),
 and the thinking-off sheet was rated after the thinking-on one with the same prompts. Integrity checked afterwards
 (`scripts/evaluation/analyze_lfm3_writing_ratings.py`): only rating lines changed in both sheets and the rating files equal the
-sheet lines. The owner personally judged three random thinking-on prompts: wr-tr-15 base (exp-019 tied for Codex), wr-tr-18
-neither (exp-019 answered in English, base was Turkish but wrong), wr-tr-22 exp-019 (Codex also preferred it, 5 against 4).
+sheet lines. The owner personally judged three random thinking-on prompts: wr-tr-15 base (exp-019 tied for the AI rater), wr-tr-18
+neither (exp-019 answered in English, base was Turkish but wrong), wr-tr-22 exp-019 (the AI rater also preferred it, 5 against 4).
 
 | Mean over 40 prompts | base | arm B | exp-019 |
 |---|---|---|---|
@@ -119,10 +119,10 @@ but the level is still low (about 3 on a 1 to 5 scale, 7.5 to 10% of answers rat
 answers).
 
 Native check (owner, thinking on, base against exp-019), 27 of the 40 prompts in three parts: 3 prompts drawn at random, 15 more
-drawn at random (blind), and the 9 prompts Codex had scored as a tie that were not yet judged (a selected group, not random).
+drawn at random (blind), and the 9 prompts the AI rater had scored as a tie that were not yet judged (a selected group, not random).
 - Random 18 prompts: exp-019 preferred on 12, base on 5, neither on 1 (wr-tr-18, exp-019 answered in English); two-sided sign
   test p = .14, a direction only.
-- Codex-tie 9 prompts: exp-019 7, base 1, neither 1 (wr-tr-21, both wrong); p = .07.
+- AI-tie 9 prompts: exp-019 7, base 1, neither 1 (wr-tr-21, both wrong); p = .07.
 - All 27: exp-019 19, base 6, neither 2 (sign test p = .015, but 9 of the prompts were selected, so this is not a clean test of the
   whole prompt set).
 
@@ -131,8 +131,8 @@ summary 1-1, translate 1-0.
 
 The owner's reasons were fine-grained: word choice (ulasin against basvurun), kitapci read as booklet, grammar, order of an advice
 answer. Winners were often called "still really bad" or "not acceptable". Against the AI scores: on the 25 prompts with a winner,
-Codex gave both answers the same naturalness on 16, agreed on 7 and disagreed on 2 (wr-tr-01 and wr-tr-24). So the AI scores point
-the same way but separate answers much less finely than a native reader; where Codex saw no difference the owner still found
+the AI rater gave both answers the same naturalness on 16, agreed on 7 and disagreed on 2 (wr-tr-01 and wr-tr-24). So the AI scores point
+the same way but separate answers much less finely than a native reader; where the AI rater saw no difference the owner still found
 exp-019 better in 7 of 8 decided prompts. 13 prompts remain unjudged by the owner. Preferences:
 `results/writing-review-think-on/owner-preferences.json`.
 

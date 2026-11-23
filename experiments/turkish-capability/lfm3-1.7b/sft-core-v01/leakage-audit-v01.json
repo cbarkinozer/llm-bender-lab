@@ -1,0 +1,373 @@
+{
+ "protected_sets": {
+  "evalv2-math": {
+   "items": 304,
+   "texts": 304
+  },
+  "evalv2-symbolic": {
+   "items": 120,
+   "texts": 120
+  },
+  "evalv2-toolcall": {
+   "items": 160,
+   "texts": 160
+  },
+  "writing-tr-40": {
+   "items": 40,
+   "texts": 40
+  },
+  "belebele-eng_Latn": {
+   "items": 900,
+   "texts": 1800
+  },
+  "belebele-tur_Latn": {
+   "items": 900,
+   "texts": 1800
+  },
+  "turblimp-1600": {
+   "items": 1600,
+   "texts": 3200
+  },
+  "cetvel-500": {
+   "items": 500,
+   "texts": 2900
+  },
+  "ifeval-541": {
+   "items": 541,
+   "texts": 541
+  },
+  "humaneval-164": {
+   "items": 164,
+   "texts": 164
+  },
+  "bfcl-v3": {
+   "items": 800,
+   "texts": 800
+  },
+  "gsm8k-final-test": {
+   "items": 100,
+   "texts": 100
+  }
+ },
+ "training_sets": {
+  "pack": 2909,
+  "core-prompts": 2500
+ },
+ "method": "SFT core v01: lexical leakage and duplicate audit of the pack and the core prompts against the protected eval sets (CPU).",
+ "matches": {
+  "pack vs evalv2-math": {
+   "run12": {
+    "train_rows": 1,
+    "ids": [
+     "c-math-0587-en"
+    ]
+   }
+  },
+  "core-prompts vs evalv2-math": {
+   "run12": {
+    "train_rows": 1,
+    "ids": [
+     "c-math-0587"
+    ]
+   }
+  },
+  "pack vs evalv2-symbolic": "none",
+  "core-prompts vs evalv2-symbolic": "none",
+  "pack vs evalv2-toolcall": "none",
+  "core-prompts vs evalv2-toolcall": "none",
+  "pack vs writing-tr-40": "none",
+  "core-prompts vs writing-tr-40": "none",
+  "pack vs belebele-eng_Latn": "none",
+  "core-prompts vs belebele-eng_Latn": "none",
+  "pack vs belebele-tur_Latn": "none",
+  "core-prompts vs belebele-tur_Latn": "none",
+  "pack vs turblimp-1600": "none",
+  "core-prompts vs turblimp-1600": "none",
+  "pack vs cetvel-500": "none",
+  "core-prompts vs cetvel-500": "none",
+  "pack vs ifeval-541": "none",
+  "core-prompts vs ifeval-541": "none",
+  "pack vs humaneval-164": {
+   "run12": {
+    "train_rows": 1,
+    "ids": [
+     "c-engen-0049-en"
+    ]
+   }
+  },
+  "core-prompts vs humaneval-164": {
+   "run12": {
+    "train_rows": 1,
+    "ids": [
+     "c-engen-0049"
+    ]
+   }
+  },
+  "pack vs bfcl-v3": {
+   "near": {
+    "train_rows": 1,
+    "ids": [
+     "c-tool-0261-en"
+    ]
+   }
+  },
+  "core-prompts vs bfcl-v3": {
+   "near": {
+    "train_rows": 1,
+    "ids": [
+     "c-tool-0261"
+    ]
+   }
+  },
+  "pack vs gsm8k-final-test": "none",
+  "core-prompts vs gsm8k-final-test": "none"
+ },
+ "numsig_math_train_vs_eval_and_final": {
+  "c-math-0081": [
+   "c-mathtest-0009"
+  ],
+  "c-math-0101": [
+   "c-mathtest-0043"
+  ],
+  "c-math-0124": [
+   "c-mathtest-0043"
+  ],
+  "c-math-0338": [
+   "c-mathtest-0055"
+  ],
+  "c-math-0466": [
+   "ev2-math-009-en",
+   "ev2-math-009-tr"
+  ],
+  "c-math-0724": [
+   "c-mathtest-0088"
+  ],
+  "c-math-0774": [
+   "c-mathtest-0088"
+  ],
+  "c-math-0844": [
+   "ev2-math-061-en",
+   "ev2-math-061-tr"
+  ],
+  "c-math-0903": [
+   "ev2-math-056-en",
+   "ev2-math-056-tr"
+  ],
+  "c-math-0961": [
+   "ev2-math-118-en",
+   "ev2-math-118-tr"
+  ]
+ },
+ "pack_duplicates": {
+  "exact_prompt_groups": 0,
+  "exact_prompt_rows": 0,
+  "examples": [],
+  "exact_completion_groups": 43,
+  "exact_completion_examples": [
+   [
+    "c-math-0954-tr",
+    "c-math-0203-tr"
+   ],
+   [
+    "c-tool-0252-en",
+    "c-tool-0178-en",
+    "c-tool-0122-en",
+    "c-tool-0073-en",
+    "c-tool-0041-en",
+    "c-tool-0067-en",
+    "c-tool-0012-en",
+    "c-tool-0135-en",
+    "c-tool-0223-en",
+    "c-tool-0091-en",
+    "c-tool-0001-en",
+    "c-tool-0267-en",
+    "c-tool-0148-en",
+    "c-tool-0099-en",
+    "c-tool-0084-en",
+    "c-tool-0241-en",
+    "c-tool-0272-en",
+    "c-tool-0110-en",
+    "c-tool-0071-en",
+    "c-tool-0133-en",
+    "c-tool-0029-en",
+    "c-tool-0151-en",
+    "c-tool-0247-en",
+    "c-tool-0243-en",
+    "c-tool-0044-en",
+    "c-tool-0285-en",
+    "c-tool-0105-en",
+    "c-tool-0193-en"
+   ],
+   [
+    "c-tool-0192-en",
+    "c-tool-0160-en",
+    "c-tool-0281-en"
+   ],
+   [
+    "c-tool-0072-en",
+    "c-tool-0186-en",
+    "c-tool-0016-en"
+   ],
+   [
+    "c-tool-0158-en",
+    "c-tool-0076-en",
+    "c-tool-0282-en",
+    "c-tool-0053-en",
+    "c-tool-0189-en",
+    "c-tool-0089-en",
+    "c-tool-0013-en",
+    "c-tool-0232-en",
+    "c-tool-0054-en"
+   ],
+   [
+    "c-tool-0045-en",
+    "c-tool-0103-en"
+   ],
+   [
+    "c-math-0940-tr",
+    "c-math-0942-tr"
+   ],
+   [
+    "c-tool-0234-en",
+    "c-tool-0203-en"
+   ],
+   [
+    "c-math-0847-tr",
+    "c-math-0947-tr"
+   ],
+   [
+    "c-tool-0138-en",
+    "c-tool-0204-en",
+    "c-tool-0156-en"
+   ]
+  ],
+  "near_duplicate_prompt_pairs_80pct": 43,
+  "near_examples": [
+   [
+    "c-engen-0073-en",
+    "c-engen-0086-en"
+   ],
+   [
+    "c-tool-0012-en",
+    "c-tool-0084-en"
+   ],
+   [
+    "c-tool-0014-en",
+    "c-tool-0244-en"
+   ],
+   [
+    "c-tool-0015-en",
+    "c-tool-0091-en"
+   ],
+   [
+    "c-tool-0015-en",
+    "c-tool-0122-en"
+   ],
+   [
+    "c-tool-0015-en",
+    "c-tool-0247-en"
+   ],
+   [
+    "c-tool-0015-en",
+    "c-tool-0285-en"
+   ],
+   [
+    "c-tool-0016-en",
+    "c-tool-0186-en"
+   ],
+   [
+    "c-tool-0020-en",
+    "c-tool-0274-en"
+   ],
+   [
+    "c-tool-0024-en",
+    "c-tool-0278-en"
+   ],
+   [
+    "c-tool-0026-en",
+    "c-tool-0157-en"
+   ],
+   [
+    "c-tool-0029-en",
+    "c-tool-0067-en"
+   ],
+   [
+    "c-tool-0029-en",
+    "c-tool-0133-en"
+   ],
+   [
+    "c-tool-0044-en",
+    "c-tool-0105-en"
+   ],
+   [
+    "c-tool-0044-en",
+    "c-tool-0193-en"
+   ]
+  ]
+ },
+ "atlas_prompt_openings_in_pack": {
+  "rows": 422,
+  "distinct_4word_openings": 373,
+  "top10": [
+   [
+    "aşağıdaki pasaja dayanarak soruyu",
+    22
+   ],
+   [
+    "aşağıdaki teknik metni genel",
+    3
+   ],
+   [
+    "bir müşteri temsilcisi olarak",
+    3
+   ],
+   [
+    "aşağıdaki mesajı hem günlük",
+    3
+   ],
+   [
+    "bir güvenlik analisti olarak",
+    3
+   ],
+   [
+    "aşağıdaki mesajı hem samimi",
+    3
+   ],
+   [
+    "güvenlik analisti olarak tedarik",
+    2
+   ],
+   [
+    "tez ilerleme raporu verilerini",
+    2
+   ],
+   [
+    "aşağıdaki teknik metni bir",
+    2
+   ],
+   [
+    "ürün yöneticisi olarak aşağıdaki",
+    2
+   ]
+  ],
+  "rows_with_an_opening_seen_at_least_5_times": 22
+ },
+ "tool_rows_redundancy": {
+  "rows": 292,
+  "distinct_completions": 202,
+  "largest_identical_groups": [
+   28,
+   9,
+   8,
+   5,
+   4,
+   4,
+   3,
+   3
+  ]
+ },
+ "inputs_sha256": {
+  "pack": "caf7c09ffe15ec6b4e2ed49f9f689bc5dfae4c57f8df8d03909415f075a9dc25",
+  "core_prompts": "fd46fb0d7ffa35427c02c4b127aae1bbf2fed504a3d2597996ea618483694768"
+ }
+}
