@@ -1,0 +1,51 @@
+experiment:
+  id: exp-003-dpo-turkish-quality
+  parent: exp-021-sft-core-pack-v2 (turkish-capability)
+  status: planned
+  domain: preference-rl
+  purpose: DPO with our own minimal-repair pairs to reduce invented words, unfinished answers and broken constraints in the Turkish SFT model
+
+arms:
+  arm-sft: "DPO over exp-021 (cbarkinozer/LFM3-1.7B-Turkish-SFT)"
+  arm-base: "DPO over the original LiquidAI/LFM3-1.7B; same pairs (built from exp-021's wrong answers)"
+
+model:
+  name: cbarkinozer/LFM3-1.7B-Turkish-SFT
+  revision: "6e4f0b7658b115a28da971f82ff4009f63bed612 (commit of the published repo when the data was designed; the sampling manifest records the one used)"
+  base_for_tokenizer: {name: LiquidAI/LFM3-1.7B, revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"}
+  precision: bfloat16
+  thinking_mode: "off"
+  reference_model: "the same model with the adapter switched off"
+
+data:
+  prompts: {file: data/prompts-tr-dpo.jsonl, manifest: data/prompts-tr-dpo.manifest.json, rows: 526, atlas_unseen: 443, template: 83}
+  sampling: {script: scripts/training/sample_tr_dpo_candidates.py, samples_per_prompt: 4, temperatures: [0.1, 0.7, 0.7, 0.7], top_k: 50, repetition_penalty: 1.1, max_new_tokens: 800, thinking: "off"}
+  detectors: scripts/datasets/tr_dpo_flags.py
+  skills_lane: {prompts: data/prompts-skills-dpo.jsonl, rows: 920, sampler: scripts/evaluation/generate_lfm3_sft_samples.py, verifier: scripts/evaluation/verify_lfm3_sft_samples.py, pair_builder: scripts/datasets/tr_dpo_skill_pairs.py, label: own_verified, mix_ratio_skills_to_turkish: 1.0, max_pair_tokens: 3000, cap_per_cell: 100}
+  format: "prompt, chosen, rejected, chat_template_kwargs (+ tools); thinking inside assistant messages as in the SFT core pack"
+  holdout: "15% of the prompts by sha256 of the id, never edited or trained on"
+  worksheet_rows: "up to 300 (all everyday prompts, Atlas by severity)"
+  edit_rules: {max_edit_ratio: 0.25, length_band: [0.85, 1.15], short_answer_words_tolerance: 5, kinds_in_first_run: [minimal]}
+  label: synthetic
+  leakage: "no prompt equals or nearly equals a writing-probe prompt (4-gram Jaccard limit 0.7, checked in the builder); eval sets are not used"
+
+training:
+  framework: trl.DPOTrainer + peft
+  method: lora-dpo
+  seed: 42
+  loss_type: [sigmoid, sft]
+  loss_weights: [1.0, 1.0]
+  beta: 0.1
+  learning_rate: 2.0e-5   # the notebook's; fallback 5.0e-6 once if a guard fails
+  epochs: 1
+  lora: {rank: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj, in_proj, out_proj, w1, w2, w3]}
+  runner: "to adapt from scripts/training/run_pref_dpo_grounded_qa.py (pairs file, local model path, held-out split)"
+
+evaluation:
+  held_out_prompts: "flag rates, unknown-word types per answer, constraint pass, end rate, words per answer, vs exp-021 with the same sampler"
+  writing_probe: "40 prompts, thinking off, blind AI rating, reported not gated"
+  guards: [IFEval strict on and off, HumanEval, final test math EN and TR, Belebele EN and TR, TurBLiMP, diagnostic cell D, tool calls]
+  comparison_models: [exp-021, "vngrs/Kumru-2B (Turkish items, later)"]
+
+tracking:
+  provider: none
