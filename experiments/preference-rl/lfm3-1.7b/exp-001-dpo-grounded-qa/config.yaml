@@ -1,0 +1,60 @@
+experiment:
+  id: exp-001-dpo-grounded-qa
+  parent: exp-000-baseline
+  status: ready
+  domain: preference-rl
+  purpose: first DPO run (learning experiment): teach the model to answer only from the given documents, or to say it cannot
+
+model:
+  name: LiquidAI/LFM3-1.7B
+  revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
+  chat_template_sha256: "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+  precision: bfloat16
+  thinking_mode: "off (enable_thinking=False in training and evaluation)"
+  reference_model: "the same model with the adapter switched off (no second copy)"
+
+dataset:
+  name: LiquidAI/grounded-qa
+  revision: "eb449523389ebfe24a9255fd7a5a90ead32ad4de"
+  license: apache-2.0
+  train_pairs: 4072
+  train_composition: "2,100 answerable and 1,972 unanswerable questions; rejected answers: 1,972 hallucination, 1,822 refusal, 278 wrong_answer; 16 languages (no Turkish)"
+  eval: {test: 500, test_unseen: 300}
+  prompt_tokens: "median 1,233, p99 2,244, max 2,959; one pair of 4,072 exceeds max_length 3,072 with its longer answer"
+
+training:
+  framework: trl.DPOTrainer + peft (libraries pinned, see environment)
+  method: lora-dpo
+  seed: 42
+  loss_type: [sigmoid, sft]
+  loss_weights: [1.0, 1.0]
+  beta: 0.1
+  learning_rate: 2.0e-5
+  lr_scheduler: cosine
+  warmup_steps: 0.1   # a fraction of the total steps
+  epochs: 1
+  micro_batch_size: 2
+  gradient_accumulation_steps: 8
+  effective_batch_pairs: 16
+  expected_optimizer_steps: 255
+  max_length: 3072
+  gradient_checkpointing: false
+  lora: {rank: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj, in_proj, out_proj, w1, w2, w3], gate_proj: not adapted}
+  recipe_source: "the public Liquid cookbook notebook lfm3_dpo_with_trl, re-implemented in scripts/training/run_pref_dpo_grounded_qa.py"
+
+evaluation:
+  runner: scripts/training/run_pref_dpo_grounded_qa.py
+  splits: {test: 500, test_unseen: 300}
+  decoding: {do_sample: false, repetition_penalty: 1.1, max_new_tokens: 256, batch_size: 16}
+  comparison: "same script, same pins; the 'original' evaluation inside the run equals exp-000 (repeat of the baseline)"
+  judge_model: none
+
+environment:
+  gpu: "1 x RTX 4090 (24 GB)"
+  python: "3.12"
+  packages: {torch: "2.14.1", transformers: "5.20.2", trl: "1.16.0", peft: "0.21.2", datasets: "5.1.0", accelerate: "1.15.0"}
+  bootstrap: scripts/training/pod_bootstrap_preference_rl.sh
+  campaign: "scripts/training/run_preference_rl_campaign.sh (STAGES=dpo)"
+
+tracking:
+  provider: none

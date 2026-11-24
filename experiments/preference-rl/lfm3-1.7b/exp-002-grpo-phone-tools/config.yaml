@@ -1,0 +1,69 @@
+experiment:
+  id: exp-002-grpo-phone-tools
+  parent: exp-000-baseline
+  status: planned   # becomes ready after the 5-step smoke test on the real model has given speed and memory
+  domain: preference-rl
+  purpose: first GRPO run (learning experiment): reinforce exact tool calls with a rule-based reward, no preference pairs and no judge
+
+model:
+  name: LiquidAI/LFM3-1.7B
+  revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
+  chat_template_sha256: "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+  precision: bfloat16
+  thinking_mode: "off (enable_thinking=False in training and evaluation)"
+  reference_model: "the same model with the adapter switched off (no second copy)"
+
+dataset:
+  name: LiquidAI/phone-assistant-tools
+  revision: "02100f57ab94eda248909b83a79e9d46a590d038"
+  license: apache-2.0
+  train_requests: 2500   # plus the 375 no_tool and clarify requests shown twice = 2,875 prompts available, 150 steps x 4 requests used
+  train_categories: {single: 1250, multi: 375, lookalike: 375, no_tool: 200, clarify: 175, partial: 125}
+  tools: 108   # 98 appear as answers in training, 10 are held out
+  eval: {test: 499, test_unseen: 300}
+  prompt_tokens: "about 8,100 (all 108 tool schemas in every prompt)"
+  languages: "16 (no Turkish)"
+
+reward:
+  exact_match: 1.0   # the calls equal the gold calls in any order; for no-call requests, no call at all
+  otherwise: "0.2 x F1 of the tool names (partial credit)"
+  scorer: scripts/evaluation/phone_tools_scoring.py
+
+training:
+  framework: trl.GRPOTrainer + peft (libraries pinned, see environment)
+  method: lora-grpo
+  seed: 42
+  max_steps: 150
+  generations_per_request: 8
+  generation_batch_size: 8
+  micro_batch_size: 2
+  gradient_accumulation_steps: 16
+  answers_per_step: 32
+  requests_per_step: 4
+  max_completion_length: 256
+  temperature: 1.0
+  learning_rate: 1.0e-5
+  lr_scheduler: constant_with_warmup
+  warmup_steps: 5
+  beta: 0.04   # KL penalty towards the original model
+  generation_backend: "transformers generate (no vLLM)"
+  lora: {rank: 32, alpha: 64, dropout: 0.0, target_modules: [q_proj, k_proj, v_proj, o_proj, in_proj, out_proj, w1, w2, w3], gate_proj: not adapted}
+  recipe_source: "the public Liquid cookbook notebook lfm3_grpo_with_trl, re-implemented in scripts/training/run_pref_grpo_phone_tools.py"
+  smoke_test: "STAGES=grpo-smoke: 5 steps on 160 requests, evaluation on 16 requests per split; gives seconds per step and peak memory"
+
+evaluation:
+  runner: scripts/training/run_pref_grpo_phone_tools.py
+  splits: {test: 499, test_unseen: 300}
+  decoding: {do_sample: false, max_new_tokens: 512, batch_size: 8}
+  comparison: "same script, same pins; the 'original' evaluation inside the run repeats exp-000"
+  judge_model: none
+
+environment:
+  gpu: "1 x RTX 4090 (24 GB)"
+  python: "3.12"
+  packages: {torch: "2.14.1", transformers: "5.20.2", trl: "1.16.0", peft: "0.21.2", datasets: "5.1.0", accelerate: "1.15.0"}
+  bootstrap: scripts/training/pod_bootstrap_preference_rl.sh
+  campaign: "scripts/training/run_preference_rl_campaign.sh (STAGES=grpo-smoke, then STAGES=grpo)"
+
+tracking:
+  provider: none

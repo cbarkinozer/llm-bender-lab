@@ -525,3 +525,12 @@ Consequences for training:
 - LoRA on attention, conv and dense layers only (r=16) is about 5.7M parameters.
 
 Sources: Axolotl "MoE Expert Quantization" docs, Unsloth "faster MoE" docs.
+
+## 18. TRL DPO silently drops pairs whose prompt does not fit `max_length`
+
+A CPU smoke test of the grounded-QA DPO run with `max_length=512` printed "Dropping fully truncated examples from train dataset: 4/4"
+and then failed with `num_samples=0` in the sampler. The prompts carry 1,200 tokens of documents at the median, so the whole prompt
+is cut and the pair is dropped without an error of its own. Measure prompt plus longer answer in tokens against `max_length` before a
+run, and count the pairs that exceed it (the runner writes `pairs_over_max_length` into its manifest). For this data at 3,072 tokens it
+is 1 of 4,072 pairs; at 2,048 it would be 164. GRPO on the phone-tools data has the opposite problem: every prompt is about 8,100
+tokens (108 tool schemas), so a CPU pipeline test needs a shortened tool list (`--tiny-test`).

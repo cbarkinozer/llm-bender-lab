@@ -1,0 +1,49 @@
+experiment:
+  id: exp-000-baseline
+  parent: null
+  status: ready
+  domain: preference-rl
+  purpose: score the untouched model on the two Liquid test sets that exp-001 (DPO) and exp-002 (GRPO) train for
+
+model:
+  name: LiquidAI/LFM3-1.7B
+  revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
+  chat_template_sha256: "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+  precision: bfloat16
+  adapter: none
+  thinking_mode: "off (chat template enable_thinking=False)"
+
+training:
+  method: none
+
+runs:
+  - name: dpo-grounded-qa
+    runner: scripts/training/run_pref_dpo_grounded_qa.py
+    args: "--eval-only"
+    dataset: LiquidAI/grounded-qa
+    dataset_revision: "eb449523389ebfe24a9255fd7a5a90ead32ad4de"
+    splits: {test: 500, test_unseen: 300}
+    decoding: {do_sample: false, repetition_penalty: 1.1, max_new_tokens: 256, batch_size: 16}
+  - name: grpo-phone-tools
+    runner: scripts/training/run_pref_grpo_phone_tools.py
+    args: "--eval-only"
+    dataset: LiquidAI/phone-assistant-tools
+    dataset_revision: "02100f57ab94eda248909b83a79e9d46a590d038"
+    splits: {test: 499, test_unseen: 300}
+    scorer: scripts/evaluation/phone_tools_scoring.py
+    decoding: {do_sample: false, max_new_tokens: 512, batch_size: 8}
+
+evaluation:
+  metrics: "exact-rule rates with Wilson 95% intervals; per-question outputs saved as eval-original-<split>.jsonl"
+  judge_model: none
+  seed: 42
+
+environment:
+  gpu: "1 x RTX 4090 (24 GB)"
+  python: "3.12"
+  packages: {torch: "2.14.1", transformers: "5.20.2", trl: "1.16.0", peft: "0.21.2", datasets: "5.1.0", accelerate: "1.15.0"}
+  bootstrap: scripts/training/pod_bootstrap_preference_rl.sh
+  campaign: "scripts/training/run_preference_rl_campaign.sh (STAGES=baseline)"
+
+tracking:
+  provider: none
