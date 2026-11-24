@@ -2,14 +2,14 @@
 
 ## Status
 
-`data built, not trained`. Design written 2026-11-24. Sampling ran on a pod the same day (exp-021 and the original model, 4 answers per prompt; skills lane verified).
+`done, rule 1 failed (null result)`. Design written 2026-11-24. Sampling ran on a pod the same day (exp-021 and the original model, 4 answers per prompt; skills lane verified).
 Turkish repairs, three rounds (AI-assisted edits under the owner's supervision, labelled synthetic):
 
 - Round 1 took the most severe answer per prompt and produced mostly rewrites (chosen about half as long as rejected), which would teach "answer shorter". Only the 26 minimal repairs and 49 rewrites within a 0.75 to 1.33 length band are kept.
 - Rounds 2 and 3 took the mildest flagged answer that ended properly, then the next mildest. Repairs stay under 25% of the words and about 1.0x the length. About 80% of the offered answers were dropped as wrong at the task level (the detectors do not see wrong content).
 - Result: 130 Turkish pairs (81 minimal, 49 light rewrites; 10 from template prompts, 120 from Atlas prompts) and 173 skills pairs. The mix caps each skills cell at 30: 225 pairs (130 Turkish, 95 skills).
 - The Turkish lane is below the 200-pair target, and IFEval-like (5) and tool (3) pairs are thin, so the IFEval guard is the most at risk. Treat the first run as a pilot.
-- The training runner is not generalised yet and nothing was trained.
+- Trained 2026-11-24 with `run_tr_dpo_train.py`: DPO over exp-021 and over the original model, 1 and 3 epochs. The held-out Turkish flagged share did not change. See Results.
 
 ## Goal
 
@@ -138,8 +138,7 @@ The recipe of exp-001, which is the notebook's recipe, unchanged:
 | LoRA | r 16, alpha 32, dropout .05, attention, conv and MLP projections |
 | Seed | 42 |
 
-The runner `scripts/training/run_pref_dpo_grounded_qa.py` needs a generic option for a pairs file (with `tools`, `thinking` in assistant messages and per-row
-`chat_template_kwargs`), a local model path and logging per lane; build that when the pairs exist, then the overfit check of the playbook before the run.
+The runner is `scripts/training/run_tr_dpo_train.py` (pairs file, tools, thinking in assistant messages, per-row template kwargs, local model path, per-lane margins before and after, merged 16-bit model). Pod: `pod_tr_dpo_train.sh`; evaluation: `pod_tr_dpo_eval.sh`. The 3-epoch runs are a documented variant (one epoch is 14 steps with 226 pairs).
 
 ## Evaluation
 
@@ -159,15 +158,45 @@ A failure of rule 2 or 3 means the DPO drifted; the answer then is a lower LR or
 
 ## Results
 
-Pending.
+Runs on one RTX 4090 (training 4 to 7 minutes each; 226 pairs: 131 Turkish, 95 skills; `run_tr_dpo_train.py`). Names: `dpo-on-sft` = DPO over exp-021, `dpo-on-base` = DPO over the original model.
+
+Training signal (policy against the adapter-off reference, over the training pairs, per lane):
+
+| Run | Lane | Reward accuracy | Margin | Chosen log-prob gain per answer |
+|---|---|---|---|---|
+| dpo-on-sft, 1 epoch (14 steps, the notebook recipe) | Turkish / skills | 0.71 / 0.73 | 0.04 / 0.07 | 0.07 / 0.16 nats |
+| dpo-on-base, 1 epoch | Turkish / skills | 0.76 / 0.69 | 0.10 / 0.11 | 0.87 / 0.52 nats |
+| dpo-on-sft-e3 (3 epochs, nothing else changed) | Turkish / skills | 0.99 / 1.00 | 0.42 / 0.57 | 0.18 / 1.84 nats |
+| dpo-on-base-e3 | Turkish / skills | 0.98 / 0.97 | 0.77 / 0.77 | 7.6 / 4.4 nats |
+
+One epoch hardly moved the model (14 optimizer steps), so 3 epochs were run as a documented variant; the 1-epoch models were not evaluated.
+The tiny-overfit check (32 pairs, 10 epochs, LR 1e-4) passed (reward accuracy 1.0).
+
+Held-out Turkish prompts (78 prompts, 4 answers each, never edited or trained on; the detectors of `tr_dpo_flags.py`, same sampler):
+
+| Model | Flagged answers | 95% interval | Mean words | Ended with end token |
+|---|---|---|---|---|
+| exp-021 | 158 / 312 (50.6%) | 45.1 to 56.2 | 96.4 | 91.0% |
+| dpo-on-sft-e3 | 156 / 312 (50.0%) | 44.5 to 55.5 | 93.9 | 92.3% |
+| original model | 256 / 312 (82.1%) | 77.4 to 85.9 | 126.8 | 86.2% |
+| dpo-on-base-e3 | 256 / 312 (82.1%) | 77.4 to 85.9 | 120.0 | 87.8% |
+
+English guards of dpo-on-sft-e3 against exp-021 (same scripts, IFEval 270 and HumanEval 164): IFEval strict thinking off 68.5 (71.1), on 86.7 (84.4);
+HumanEval off 75.6 (73.2), on 92.1 (92.7). All differences are inside the run-to-run noise at this n. The remaining guards (Belebele, TurBLiMP, math,
+tool calls, writing probe) were not run for either arm once rule 1 failed.
 
 ## Regressions
 
-Pending.
+None measured (guards unchanged), because the model barely changed.
 
 ## Conclusion
 
-Pending.
+Success rule 1 failed: on the held-out prompts the flagged share did not fall (50.6% to 50.0% for the SFT arm; 82.1% to 82.1% for the base arm; the rule needed a quarter).
+The DPO did fit the training pairs (reward accuracy 0.99 after 3 epochs), but 131 hand-repaired Turkish pairs, each fixing different word-level mistakes,
+did not generalise to new prompts, and the 95 skills pairs left the guards unchanged. This is a null result for this pair count and this recipe, not evidence that
+preference training cannot help. Both arms behaved alike (the base arm moved more per step because the pairs came from the SFT model's mistakes, and stayed
+far from the SFT model's level). Hypothesis for a follow-up: pairs that are cheap enough to be numerous (hundreds to thousands), built from the model's own clean
+and flagged samples of the same prompt, with the length difference controlled.
 
 ## Limits (known before the run)
 

@@ -1,0 +1,68 @@
+# exp-004 DPO on on-policy Turkish pairs (no editing, one signal, notebook-sized data)
+
+## Status
+
+data built, not trained (2026-11-24). The exp-000/exp-001 control passed (answerable-correct 4% to 66% on held-out, other skills level),
+so the pipeline is trusted. Samples (8 per prompt, 31,584 answers) are flagged; pairs are built (about 3,570, length ratio 0.99). Next:
+the owner reads 30 random pairs (`results-local/spotcheck-30.md`) before any training. Expect about 45 minutes of training per arm.
+
+Known detector issue: about 12% of flagged "unknown words" in a random sample of 200 were real Turkish or ordinary loanword forms
+(oluşturmalısınız, müzakareye, logları ...). `data/accept-words.txt` lists the ones read by hand; flags and pairs are rebuilt with it
+(`tr_dpo_flags.py flag --accept-words`). The other 88% were invented words, typos or missing diacritics.
+
+## Why
+
+exp-003 replicated the notebook's recipe but not its data: 226 mixed pairs (14 steps) against 4,072 single-signal pairs (254 steps).
+It moved nothing on held-out Turkish prompts (flagged share 50.6% to 50.0%). Rule 1 failed. The pairs also cost a lot of review: about 80%
+of the flagged answers were wrong at task level and had to be dropped, so editing yields about 130 pairs per 526 prompts.
+
+## Hypothesis
+
+DPO over the Turkish SFT model (exp-021) with a few thousand on-policy pairs that differ in ONE thing (flagged words, broken constraints,
+loops, cut-off answers) lowers the flagged share of held-out Turkish answers, with the notebook's recipe unchanged.
+
+## Variables changed against exp-003 (documented on purpose)
+
+| | exp-003 | exp-004 |
+|---|---|---|
+| Pairs | 131 Turkish (edited) + 95 skills | thousands, Turkish only, nothing edited |
+| chosen | minimal repair of the rejected answer (synthetic) | a clean sample of the same prompt (exp-021's own) |
+| rejected | exp-021's flagged answer | a flagged sample of the same prompt, length within 0.85-1.15 of chosen |
+| Prompts | 526 (448 trainable) | 3,948: those 448 + 3,500 fresh Turkce Atlas prompts |
+| Samples per prompt | 4 | 8 |
+| Skills lane | yes | no (guards are measured, not trained) |
+
+Unchanged: recipe (sigmoid + SFT, beta .1, LR 2e-5 cosine, LoRA r16, batch 2 x 8, 1 epoch), both arms (`dpo-on-sft`, `dpo-on-base`),
+the held-out 78 prompts, the detectors and the rule-1 threshold. The skills lane is dropped because it was 42% of exp-003's pairs and a
+different signal; that is the single-signal condition the notebook has. If the guards fall, a skills lane is the next experiment.
+
+## Decision rules (fixed now)
+
+1. Target: held-out flagged share of `dpo-on-sft` falls by at least a quarter (50.6% to 38.0% or lower).
+2. Not by shortening or by dodging words: mean words within +-10% of exp-021 (96.4) and the share of answers that end properly not below 90%.
+3. Guards (only if 1 and 2 pass): IFEval and HumanEval inside the noise of exp-021; Belebele and TurBLiMP not down by more than 1 point.
+4. Because the detectors both build the pairs and measure the result, a pass on 1 needs a blind side-by-side review of 30 held-out answers
+   (exp-021 against the DPO model) before it is believed.
+
+Pairs are spot-checked before training (30 random pairs read by the owner): a pair whose "clean" answer is wrong at task level is the
+expected noise; a detector false positive in the rejected answer is the risk to watch.
+
+## Pipeline
+
+```
+python scripts/datasets/tr_dpo_onpolicy_prompts.py build --out experiments/.../exp-004.../data
+bash scripts/training/pod_tr_dpo4_sampling.sh up | status | fetch DIR        # 8 samples per prompt from exp-021 (vLLM, pod)
+python scripts/datasets/tr_dpo_flags.py flag --prompts P --answers A --out F --accept-from <exp-003 worksheets>
+python scripts/datasets/tr_dpo_onpolicy_pairs.py build --prompts P --answers A --flags F/flags.jsonl --out DIR
+bash scripts/training/pod_tr_dpo_train.sh up PAIRS "dpo-on-sft dpo-on-base"   # then pod_tr_dpo_eval.sh, held-out first
+```
+
+## Data
+
+`data/prompts-tr-dpo4.jsonl` (3,948 rows, manifest next to it). The held-out ids are exp-003's 15% hash set; fresh Atlas prompts exclude the
+500 SFT-core prompts and any near duplicate (4-gram Jaccard above 0.7) of a held-out or writing-probe prompt. Pairs and samples stay local
+(not in Git), labelled `on_policy`.
+
+## Results
+
+Not run yet.
