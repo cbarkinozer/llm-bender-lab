@@ -179,6 +179,7 @@ def main():
     assert len(checks) == trainer.state.global_step, 'gradient check did not run on every step'
     manifest['learning_check'] = C.learning_check(trainer.state.log_history, 'dpo')
     print('LEARNING CHECK', json.dumps(manifest['learning_check']), flush=True)
+    manifest['adapter_tensors_cast_to_fp32'] = C.adapter_to_fp32(trainer.model)
     trainer.save_model(str(args.out / 'adapter'))
     tuned = trainer.model
     final = run_eval('trained', tuned, tok, data, args, device, args.out)
@@ -197,21 +198,17 @@ def main():
                          reference=row['reference_answer'], original=one['original']['answer'], trained=one['trained']['answer'],
                          original_correct=one['original']['correct'], trained_correct=one['trained']['correct']))
     C.write_json(args.out / 'showcase.json', show)
-    # save/reload parity of the adapter
-    probe = tok('A short save and reload test.', return_tensors='pt').to(device)
-    tuned.eval()
-    with torch.inference_mode():
-        before = tuned(**probe, use_cache=False).logits[:, -1].float().cpu()
+    # save/reload parity of the adapter, on the trained answers (see C.reload_parity)
+    on = C.answer_logprobs(tuned, tok, pairs, device)
+    with tuned.disable_adapter():
+        off = C.answer_logprobs(tuned, tok, pairs, device)
     del trainer, tuned, model
     gc.collect()
     if device == 'cuda':
         torch.cuda.empty_cache()
     if not args.tiny_test:  # a random miniature cannot be rebuilt identically
         reloaded = PeftModel.from_pretrained(C.load_model(device, dtype), str(args.out / 'adapter')).eval()
-        with torch.inference_mode():
-            after = reloaded(**probe, use_cache=False).logits[:, -1].float().cpu()
-        assert torch.equal(before, after), 'Reload parity failed'
-        manifest['reload_exact'] = True
+        manifest['reload_parity'] = C.reload_parity(on, off, C.answer_logprobs(reloaded, tok, pairs, device))
     manifest['adapter_files'] = {p.name: C.sha256_file(p) for p in (args.out / 'adapter').iterdir() if p.is_file()}
     manifest['wall_seconds'] = time.monotonic() - start
     C.write_json(args.out / 'results.json', manifest)

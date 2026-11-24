@@ -152,12 +152,15 @@ def load_inputs(prompts_path, answers_path):
 def cmd_flag(args):
     prompts, answers = load_inputs(args.prompts, args.answers)
     analyzer = nonword.Analyzer()
+    accept = {w for path in args.accept_from or [] for r in read_jsonl(path) for w in (r.get('accept_words') or [])}
+    if args.accept_words:
+        accept |= {w.strip() for w in args.accept_words.read_text(encoding='utf-8').splitlines() if w.strip() and not w.startswith('#')}
     out = []
     for a in answers:
         p = prompts[a['id']]
         text = visible(a['raw_output'])
         out.append(dict(id=a['id'], sample=a['sample'], kind=p['kind'], source=p['source'], words=len(words(text)),
-                        **flags_for(analyzer, p, text, a['finish_reason'] == 'eos')))
+                        **flags_for(analyzer, p, text, a['finish_reason'] == 'eos', accept=accept)))
     args.out.mkdir(parents=True, exist_ok=True)
     write_jsonl(args.out / 'flags.jsonl', out)
     by_flag = {k: sum(bool(r[k]) for r in out) for k in ('unfinished', 'empty', 'english_reply', 'loop', 'constraint', 'unknown_words', 'english_words')}
@@ -320,6 +323,8 @@ def main():
     s.add_argument('--prompts', type=Path, required=True)
     s.add_argument('--answers', type=Path, required=True)
     s.add_argument('--out', type=Path, required=True)
+    s.add_argument('--accept-from', type=Path, nargs='*', default=None, help='edited worksheets: their accept_words (verified real words) are not flagged')
+    s.add_argument('--accept-words', type=Path, default=None, help='text file, one verified real word per line (# comments allowed)')
     s = sub.add_parser('worksheet')
     s.add_argument('--prompts', type=Path, required=True)
     s.add_argument('--answers', type=Path, required=True)

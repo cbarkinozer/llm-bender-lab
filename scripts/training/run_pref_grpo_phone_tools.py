@@ -192,6 +192,7 @@ def main():
     assert len(checks) == trainer.state.global_step, 'gradient check did not run on every step'
     manifest['learning_check'] = C.learning_check(trainer.state.log_history, 'grpo')
     print('LEARNING CHECK', json.dumps(manifest['learning_check']), flush=True)
+    manifest['adapter_tensors_cast_to_fp32'] = C.adapter_to_fp32(trainer.model)
     trainer.save_model(str(args.out / 'adapter'))
     tuned = trainer.model
     parse_errors.clear()
@@ -224,8 +225,8 @@ def main():
     if reloaded is not None:
         with torch.inference_mode():
             after = reloaded(**probe, use_cache=False).logits[:, -1].float().cpu()
-        assert torch.equal(before, after), 'Reload parity failed'
-        manifest['reload_exact'] = True
+        manifest['reload_parity'] = C.reload_parity(before, after)
+        print('RELOAD PARITY', json.dumps(manifest['reload_parity']), flush=True)
     manifest['adapter_files'] = {p.name: C.sha256_file(p) for p in (args.out / 'adapter').iterdir() if p.is_file()}
     manifest['wall_seconds'] = time.monotonic() - start
     C.write_json(args.out / 'results.json', manifest)

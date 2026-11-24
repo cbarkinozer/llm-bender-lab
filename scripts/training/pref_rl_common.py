@@ -125,6 +125,47 @@ def environment(device):
     return env
 
 
+def adapter_to_fp32(model):
+    """PEFT loads adapters in fp32 (autocast_adapter_dtype), while the trainer can leave them in bf16. Put the trained adapter in fp32
+    before it is evaluated and saved, so the evaluated model, the saved adapter and the reloaded model are the same numbers."""
+    import torch
+    n = 0
+    for name, p in model.named_parameters():
+        if 'lora_' in name and p.dtype != torch.float32:
+            p.data = p.data.float()
+            n += 1
+    return n
+
+
+def answer_logprobs(model, tok, pairs, device, n=4):
+    """Per-token log-probabilities of the chosen answers of the first n training pairs (answer tokens only), one flat list."""
+    import torch
+    out = []
+    model.eval()
+    for pair in pairs[:n]:
+        kw = pair.get('chat_template_kwargs') or {}
+        head = tok.apply_chat_template(pair['prompt'], add_generation_prompt=True, tokenize=False, **kw)
+        full = tok.apply_chat_template(pair['prompt'] + pair['chosen'], tokenize=False, **kw)
+        n_head = len(tok(head, add_special_tokens=False).input_ids)
+        ids = tok(full, add_special_tokens=False, return_tensors='pt').input_ids.to(device)
+        with torch.inference_mode():
+            logp = model(input_ids=ids, use_cache=False).logits[0, :-1].float().log_softmax(-1)
+        out.append(logp.gather(-1, ids[0, 1:, None])[n_head - 1:, 0].cpu())
+    return torch.cat(out)
+
+
+def reload_parity(on, off, after, max_noise=0.2):
+    """The model rebuilt from the saved adapter must behave like the trained model. Bit equality is not possible (bf16 logits near 20 move in
+    steps of 0.125 and a freshly built model can take other kernels), and a generic probe cannot tell noise from a lost adapter. So: on the
+    trained answers, the difference trained-vs-reloaded (noise) must be below max_noise of the difference adapter-on-vs-off (effect)."""
+    effect = (on - off).abs().mean().item()
+    noise = (on - after).abs().mean().item()
+    out = dict(tokens=int(on.numel()), effect=effect, noise=noise, noise_over_effect=noise / max(effect, 1e-9), max_noise=max_noise)
+    print('RELOAD PARITY', out, flush=True)
+    assert effect > 0 and noise <= max_noise * effect, f'Reload parity failed (adapter lost, or the probe is blind): {out}'
+    return out
+
+
 def learning_check(log_history, kind):
     """Did the training signal reach the model? kind='dpo': last logged rewards/accuracies >= 0.9; kind='grpo': the mean reward of
     the last third of the logged steps exceeds the first third by at least 0.05. Advisory for the tiny-overfit stages, recorded in the manifest."""
