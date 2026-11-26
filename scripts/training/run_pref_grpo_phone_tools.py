@@ -200,7 +200,7 @@ def main():
     manifest['parse_errors_trained'] = dict(parse_errors)
 
     # original vs fine-tuned on the hand-checked showcase requests (adapter switched off for the original)
-    show = []
+    show, parity_items = [], []
     for r in [dict(x) for x in ds['showcase']]:
         gold, p = json.loads(r['calls']), build_prompt(r)
         enc = tok([p], return_tensors='pt', add_special_tokens=False).to(device)
@@ -210,23 +210,22 @@ def main():
                 out = tuned.generate(**enc, max_new_tokens=args.max_new_tokens, do_sample=False)[0, enc['input_ids'].shape[1]:]
             pred = parse_calls(out, p)
             row[tag] = dict(calls=pred, match=scorer.calls_match(gold, pred), text=tok.decode(out, skip_special_tokens=False)[:400])
+            if tag == 'trained' and len(parity_items) < 4 and len(out):
+                parity_items.append((enc['input_ids'][0], out))
         show.append(row)
     C.write_json(args.out / 'showcase.json', show)
 
-    probe = tok('A short save and reload test.', return_tensors='pt').to(device)
-    tuned.eval()
-    with torch.inference_mode():
-        before = tuned(**probe, use_cache=False).logits[:, -1].float().cpu()
+    # reload parity on the trained model's own answers: noise (trained vs reloaded) must be small against the effect (adapter on vs off)
+    on = C.generated_logprobs(tuned, parity_items, device)
+    with tuned.disable_adapter():
+        off = C.generated_logprobs(tuned, parity_items, device)
     del trainer, tuned, model
     gc.collect()
     if device == 'cuda':
         torch.cuda.empty_cache()
     reloaded = PeftModel.from_pretrained(C.load_model(device, dtype, tiny=args.tiny_test), str(args.out / 'adapter')).eval() if not args.tiny_test else None
     if reloaded is not None:
-        with torch.inference_mode():
-            after = reloaded(**probe, use_cache=False).logits[:, -1].float().cpu()
-        manifest['reload_parity'] = C.reload_parity(before, after)
-        print('RELOAD PARITY', json.dumps(manifest['reload_parity']), flush=True)
+        manifest['reload_parity'] = C.reload_parity(on, off, C.generated_logprobs(reloaded, parity_items, device))
     manifest['adapter_files'] = {p.name: C.sha256_file(p) for p in (args.out / 'adapter').iterdir() if p.is_file()}
     manifest['wall_seconds'] = time.monotonic() - start
     C.write_json(args.out / 'results.json', manifest)

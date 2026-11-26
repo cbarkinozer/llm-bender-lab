@@ -154,6 +154,19 @@ def answer_logprobs(model, tok, pairs, device, n=4):
     return torch.cat(out)
 
 
+def generated_logprobs(model, items, device):
+    """Per-token log-probabilities of generated answers. items: list of (prompt_ids, answer_ids) 1-D id tensors (for GRPO, which has no chosen answer)."""
+    import torch
+    out = []
+    model.eval()
+    for prompt_ids, answer_ids in items:
+        ids = torch.cat([prompt_ids.cpu(), answer_ids.cpu()])[None].to(device)
+        with torch.inference_mode():
+            logp = model(input_ids=ids, use_cache=False).logits[0, :-1].float().log_softmax(-1)
+        out.append(logp.gather(-1, ids[0, 1:, None])[len(prompt_ids) - 1:, 0].cpu())
+    return torch.cat(out)
+
+
 def reload_parity(on, off, after, max_noise=0.2):
     """The model rebuilt from the saved adapter must behave like the trained model. Bit equality is not possible (bf16 logits near 20 move in
     steps of 0.125 and a freshly built model can take other kernels), and a generic probe cannot tell noise from a lost adapter. So: on the

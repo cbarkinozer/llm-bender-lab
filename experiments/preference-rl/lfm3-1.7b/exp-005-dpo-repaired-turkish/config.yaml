@@ -1,0 +1,53 @@
+experiment:
+  id: exp-005-dpo-repaired-turkish
+  parent: exp-021-sft-core-pack-v2 (turkish-capability); exp-001-dpo-grounded-qa (control); exp-003 and exp-004 (data findings)
+  status: ready
+  domain: preference-rl
+  purpose: DPO on minimally repaired exp-021 answers for data-carrying Turkish prompts, with an SFT-only control, judged by blind comparison
+
+arms:
+  dpo-on-sft: "LoRA sigmoid DPO + SFT loss over exp-021 (cbarkinozer/LFM3-1.7B-Turkish-SFT)"
+  sft-only: "same pairs and chosen answers, DPO weight 0 (SFT loss only)"
+
+model:
+  name: cbarkinozer/LFM3-1.7B-Turkish-SFT
+  revision: "6e4f0b7658b115a28da971f82ff4009f63bed612"
+  base_for_tokenizer: {name: LiquidAI/LFM3-1.7B, revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"}
+  precision: bfloat16
+  thinking_mode: "off"
+  reference_model: "the same model with the adapter switched off"
+
+data:
+  prompts_source: {file: experiments/preference-rl/lfm3-1.7b/exp-004-dpo-onpolicy-turkish/data/prompts-tr-dpo4.jsonl, rows: 3948}
+  samples_source: "exp-004 samples, 8 per prompt (31,584), results-local, sha256 in data/repair-pool-manifest.json"
+  pool: {script: scripts/datasets/tr_dpo_repair.py, manifest: data/repair-pool-manifest.json, seed: exp005, train: 2000, heldout: 200, pilot: 300,
+         groups: [constraint, context, plain_source]}
+  repair: {guide: data/REPAIR-GUIDE.md, verdicts: [none, minimal, larger, rewrite_needed], retry: 1, word_range_vs_original: [0.70, 1.10], short_answer_words: 20}
+  validation: {script: scripts/datasets/tr_dpo_repair.py validate, accept_words: experiments/preference-rl/lfm3-1.7b/exp-004-dpo-onpolicy-turkish/data/accept-words.txt}
+  min_pairs: 1000
+  label: synthetic_repair
+  leakage: "held-out ids are cut before the train pool and never repaired; prompts exclude the 500 SFT-core prompts and near duplicates of probe and held-out prompts (exp-004 builder)"
+
+training:
+  framework: trl.DPOTrainer + peft
+  method: lora-dpo
+  seed: 42
+  loss_type: [sigmoid, sft]
+  loss_weights: {dpo-on-sft: [1.0, 1.0], sft-only: [0.0, 1.0]}
+  beta: 0.1
+  learning_rate: 2.0e-5
+  epochs: 3
+  batch: {per_device: 2, accumulation: 8}
+  max_length: 3072
+  lora: {rank: 16, alpha: 32, dropout: 0.05, target_modules: [q_proj, k_proj, v_proj, o_proj, in_proj, out_proj, w1, w2, w3]}
+  runner: scripts/training/run_tr_dpo_train.py
+
+evaluation:
+  held_out: {prompts: 200, decoding: {temperature: 0.1, top_k: 50, repetition_penalty: 1.1, max_new_tokens: 800, thinking: "off"}, answers_per_prompt: 1}
+  secondary: "exp-003 held-out 78 open prompts"
+  judge: "blind, order-randomised pairwise, different model family than the repair model, instructions in data/JUDGE-GUIDE.md, ties allowed"
+  side_checks: [constraint pass rate, mean words, ended share, detector flagged share]
+  guards: [IFEval strict on and off, HumanEval, final test math EN and TR, Belebele EN and TR, TurBLiMP, tool calls]
+
+tracking:
+  provider: none

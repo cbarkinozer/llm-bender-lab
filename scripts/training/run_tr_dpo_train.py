@@ -100,6 +100,7 @@ def main():
     ap.add_argument('--max-length', type=int, default=3072)
     ap.add_argument('--limit-train', type=int, default=0, help='Smoke test or overfit check: first N pairs, alternating lanes')
     ap.add_argument('--sft-weight', type=float, default=1.0)
+    ap.add_argument('--dpo-weight', type=float, default=1.0, help='0 gives the SFT-only control arm (same chosen answers, no preference term)')
     ap.add_argument('--no-merge', action='store_true')
     ap.add_argument('--tiny-test', action='store_true', help='Pipeline test with a random miniature model (no real results)')
     args = ap.parse_args()
@@ -136,7 +137,7 @@ def main():
     data = Dataset.from_list([trainer_row(r) for r in rows])
     evals = {lane: Dataset.from_list([trainer_row(r) for r in rows if r['lane'] == lane]) for lane in lanes}
     cfg = DPOConfig(output_dir=str(args.out / 'trainer'), num_train_epochs=args.epochs, per_device_train_batch_size=2, per_device_eval_batch_size=2,
-                    gradient_accumulation_steps=8, learning_rate=args.lr, loss_type=['sigmoid', 'sft'], loss_weights=[1.0, args.sft_weight],
+                    gradient_accumulation_steps=8, learning_rate=args.lr, loss_type=['sigmoid', 'sft'], loss_weights=[args.dpo_weight, args.sft_weight],
                     lr_scheduler_type='cosine', warmup_steps=0.1, beta=args.beta, max_length=args.max_length, logging_steps=5,
                     save_strategy='no', eval_strategy='no', bf16=dtype == torch.bfloat16, use_cpu=device == 'cpu', seed=args.seed,
                     data_seed=args.seed, report_to='none', dataloader_num_workers=0)

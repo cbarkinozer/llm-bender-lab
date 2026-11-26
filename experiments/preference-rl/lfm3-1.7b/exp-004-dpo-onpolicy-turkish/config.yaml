@@ -1,0 +1,21 @@
+experiment:
+  id: exp-004-dpo-onpolicy-turkish
+  parent: exp-021-sft-core-pack-v2 (turkish-capability); exp-001-dpo-grounded-qa (control)
+  status: abandoned
+  domain: preference-rl
+  purpose: DPO on clean-vs-flagged on-policy samples of the Turkish SFT model; stopped at the pre-training audit (27 of 30 chosen answers wrong at task level)
+  superseded_by: exp-005-dpo-repaired-turkish
+
+model:
+  name: cbarkinozer/LFM3-1.7B-Turkish-SFT
+  revision: "6e4f0b7658b115a28da971f82ff4009f63bed612"
+
+data:
+  prompts: {script: scripts/datasets/tr_dpo_onpolicy_prompts.py, file: data/prompts-tr-dpo4.jsonl, manifest: data/prompts-tr-dpo4.manifest.json, rows: 3948}
+  sampling: {script: scripts/training/pod_tr_dpo4_sampling.sh, samples_per_prompt: 8, temperatures: [0.1, 0.4, 0.7, 0.7, 0.7, 0.7, 0.9, 0.9]}
+  flags: {script: scripts/datasets/tr_dpo_flags.py, accept_words: data/accept-words.txt}
+  pairs: {script: scripts/datasets/tr_dpo_onpolicy_pairs.py, band: [0.85, 1.15], pairs: 3552}
+  audit: {publisher: scripts/datasets/publish_exp004_pair_review.py, export: scripts/datasets/export_exp004_pair_review.py, checker: scripts/datasets/check_exp004_pair_fixes.py, pairs_read: 30}
+
+training:
+  note: "not run"
