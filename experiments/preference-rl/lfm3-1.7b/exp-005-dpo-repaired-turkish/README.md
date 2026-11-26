@@ -2,8 +2,8 @@
 
 ## Status
 
-`ready` (2026-11-26). Prompt pool, held-out set, repair packets, repair guide and validator exist; no answer has been repaired yet. The rules below
-are fixed before any repaired data or model result exists.
+`ready` (2026-11-26). The pilot (300 items) is repaired and passed the data gate (see Pilot); the remaining 1,700 items are waiting for repair. The
+rules below were fixed before any repaired data or model result existed.
 
 ## Goal
 
@@ -28,7 +28,7 @@ unseen data-carrying prompts prefers the trained model over exp-021.
 | Prompts | 526 open and data-carrying | 3,948 | 2,000 train + 200 held-out, **only prompts that carry data** (open knowledge or advice questions excluded: DPO cannot teach facts) |
 | rejected | flagged sample, mildest | flagged sample | one random finished exp-021 sample, no detector selection |
 | chosen | edited by hand-supervised model, 36% usable | detector-clean sample | **repaired by a strong model**, validated by code, 3 verdicts, rewrites dropped |
-| Length | band 0.85-1.15 | band 0.85-1.15 | chosen/rejected words 0.70-1.10 (mild brevity is wanted; the floor stops the exp-016 brevity bias) |
+| Length | band 0.85-1.15 | band 0.85-1.15 | chosen/rejected words 0.50-1.10 per pair and a mean of at least 0.85 over the set (mild brevity is wanted; the mean guard stops the exp-016 brevity bias; the floor was 0.70 until the pilot, see Pilot) |
 | Judging of the result | detector flagged share | detector flagged share | **blind pairwise comparison of content**, detectors only as side checks |
 | Arms | dpo-on-sft, dpo-on-base | same | **dpo-on-sft and sft-only** (same chosen answers, DPO weight 0) |
 | Steps | 14 | about 220 | 3 epochs, about 200 steps |
@@ -45,11 +45,15 @@ same model with the adapter off.
 
 Source: exp-004's `data/prompts-tr-dpo4.jsonl` (Atlas-based, MIT, excludes the SFT core prompts) and its 31,584 samples. Groups: `constraint` (Atlas
 prompts with countable limits), `context`, `plain_source` (plain prompts with at least 15 words after the first line break). Held-out: 200 prompts cut
-first (131 / 61 / 8) and never repaired or trained on. Train: 2,000 prompts (1,300 / 118 / 582). One finished sample per prompt, chosen by hash rank, is
-repaired; the manifest `data/repair-pool-manifest.json` has the ids, the sample numbers and the input hashes.
+first (131 / 61 / 8) and never repaired or trained on. Train: 2,000 prompts, 300 of them the pilot. After the pilot (plain_source repairs were usable 22%
+of the time, constraint 64%) the 500 plain_source prompts outside the pilot were replaced by 500 unused constraint prompts
+(`pool --drop-plain-after-pilot`; the pilot packet and the held-out set are byte-identical to before). Train by group: constraint 1,800, context 118,
+plain_source 82 (the pilot only); rest packet 1,599 constraint + 101 context. The held-out set keeps its 61 plain_source prompts, so those are
+evaluated although training has few: reported as a distribution gap. One finished sample per prompt, chosen by hash rank, is repaired; the manifest
+`data/repair-pool-manifest.json` has the ids, the sample numbers and the input hashes.
 
 Repair: `data/REPAIR-GUIDE.md` (rules, verdicts, two worked examples from the owner-reviewed fixes). Check: `scripts/datasets/tr_dpo_repair.py validate`
-(detectors with the accept list, constraint checker with a normalisation for decimal numbers and `1-` list markers, word range 0.70-1.10, ending, `none`
+(detectors with the accept list, constraint checker with a normalisation for decimal numbers and `1-` list markers, word range 0.50-1.10, ending, `none`
 and `rewrite_needed` dropped). Failed repairs get one retry with the failure reasons, then are dropped. Pairs are labelled `synthetic_repair`; the
 packets and pairs stay local (not in Git).
 
@@ -91,6 +95,34 @@ fixed, not the gate.
 
 What this will not fix: knowledge errors (wrong facts in open questions). Those need more data or a bigger model.
 
+## Pilot (2026-11-26, before any training)
+
+300 pilot items repaired by the strong model (`results-local/repair-output-pilot.jsonl`): 118 proposed repairs (57 minimal, 61 larger), 177
+`rewrite_needed`, 5 `none`. First validation: 103 usable pairs (34%): constraint 88 of 201, context 7 of 17, plain_source 8 of 82; 15 repairs failed
+the code check (11 unknown words, 3 endings, 2 English words). The yield gate (50%) was not met. Reading the 177 `rewrite_needed` reasons: 84 items (28%
+of the pilot) are mostly invented content that no repair rule saves, and 79 cite the lower word bound (27 of them nothing else): the 0.70 floor made
+the repairer refuse answers whose invented parts, once removed, leave fewer than 70% of the words. Changes made before any training: floor 0.50, a
+mean-ratio guard of 0.85 over the pair set (the shortest pairs are dropped until the mean is met), and a second pass for the 94 rows above
+(`retry-input.jsonl`: 15 failed checks with their reasons, 79 range-widened) with a guide that says never to pad. The gate itself is unchanged and is
+re-checked after the second pass, together with the owner's read of 30 pairs.
+
+Second pass (94 rows): 52 repairs, 42 `rewrite_needed`. Validated together with the first pass: **155 usable of 300 (51.7%)**: constraint 128 of 201
+(64%), context 9 of 17, plain_source 18 of 82 (22%); 94 `larger`, 61 `minimal`; median length ratio 0.83, median character similarity 0.60. The
+yield gate is met, narrowly. The brevity guard (mean ratio 0.85) then drops 9 of the shortest `larger` pairs, leaving 146 pairs (48.7% of the pilot;
+the gate is counted on usable repairs before the set-level guard). One ending-check fix: a JSON answer that ends with `}` was flagged (3 rows in
+pass 2), `}` now counts as a finished ending. Scaled to the train pool (1,300 / 118 / 582) the yield predicts about 1,000 usable repairs and about 950
+pairs after the guard, under the 1,000 minimum, and 582 plain_source prompts would cost most of the repair effort for about 130 pairs.
+Owner read: 30 random pilot pairs (18 `larger`, 12 `minimal`; 23 constraint, 4 context, 3 plain_source), Argilla dataset
+`exp005-pilot-pairs-read-30`, publisher `scripts/datasets/publish_exp005_pair_review.py`.
+
+Read result: 27 of 30 `good` and `chosen_better`, 3 of 30 `minor_issues` (missing targets, padding or item count, items not concrete enough; complete
+corrections written in the Argilla text boxes). **The 27 / 30 labels were entered by an AI assistant, not by an independent human**, and the same
+assistant family did the repairs, so it is a weak check. The owner glanced through the pairs for anomalies and found none (natural, good-quality
+Turkish), without labelling them in the tool. The gate is counted as passed on that combined evidence; the independent checks come later (blind judge in rule 1-2, the
+owner's blind read of 30 held-out answers in rule 6). The 3 corrected answers replace those chosen answers when the final pairs are built. The repair guide got one sentence from these three cases
+(cover every named target, N concrete items, no filler item); the 1,700 rest items are repaired under it.
+After the read the train pool changed (see Dataset): plain_source dropped from the rest packet, 500 constraint prompts added.
+
 ## Results
 
 Not run yet.
@@ -105,4 +137,5 @@ Pending.
 
 ## Next Step
 
-Pilot repair of 300 items (`results-local/repair-input-pilot.jsonl`), validation, owner read of 30 pairs.
+Repair the 1,700 rest items (`results-local/repair-input-rest.jsonl`) following `data/REPAIR-GUIDE.md`, validate, send the retry rows back once, build the
+pairs (at least 1,000 after the brevity guard; `alt_sample` repairs if fewer), then train `dpo-on-sft` and `sft-only` on the pod.

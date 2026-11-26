@@ -1,6 +1,7 @@
 """Repaired-answer DPO data for Turkish (preference-rl exp-005): a strong model fixes the SFT model's own answers, we validate and pair them.
 
   python tr_dpo_repair.py pool     --prompts P --answers A --out-data DIR --out-local DIR [--train 2000] [--heldout 200] [--pilot 300]
+                                   [--drop-plain-after-pilot]
   python tr_dpo_repair.py validate --packet PACKET --results R1 [R2 ...] --accept WORDS --out DIR
   python tr_dpo_repair.py pairs    --validated DIR/validated.jsonl --out FILE
 
@@ -8,7 +9,7 @@ pool      Only prompts that carry their own data (Atlas constraint prompts, cont
           finished sample of exp-021 per prompt is the answer to repair. A held-out set is cut first and never enters the packets.
 validate  The repair model answers each packet row with verdict none | minimal | larger | rewrite_needed, the complete repaired answer
           and a list of changes. A repair is usable when the detectors and the constraint checker pass, the word count stays in
-          [0.70, 1.10] of the original (or within 5 words for short answers) and it ends like a finished answer. Later result files
+          [0.50, 1.10] of the original (or within 5 words for short answers) and it ends like a finished answer. Later result files
           override earlier ones for the same id (retry). `rewrite_needed` and failed retries are dropped.
 pairs     rejected = the SFT model's own answer, chosen = the repaired answer, labelled `synthetic_repair`.
 """
@@ -26,7 +27,9 @@ import tr_dpo_flags as F  # noqa: E402
 from tr_dpo_flags import read_jsonl, write_jsonl, visible, words  # noqa: E402
 
 SEED = 'exp005'
-BAND = (0.70, 1.10)
+BAND = (0.50, 1.10)  # pilot: 0.70 turned fixable answers into rewrites (removing invented content shortens an answer); mean ratio is guarded in `pairs`
+MIN_MEAN_RATIO = 0.85
+BOUND_CITED = re.compile(r'alt s[ıi]n[ıi]r|asgari uzunluk|kelime(lik)?\s+(alt\s+)?(s[ıi]n[ıi]r|aral)|aralık|dolgu|word range|lower bound|padding', re.I)
 SHORT_WORDS = 20
 VERDICTS = ('none', 'minimal', 'larger', 'rewrite_needed')
 MIN_ANSWER_WORDS = 8
@@ -56,7 +59,7 @@ def group_of(row):
 def repair_input(p):
     """What the repair model sees: the prompt, the answer to repair, the limits checked by code and the word range to stay in."""
     w = p['answer_words']
-    low, high = (w - 5, w + 5) if w < SHORT_WORDS else (-(-w * 70 // 100), w * 110 // 100)
+    low, high = (w - 5, w + 5) if w < SHORT_WORDS else (-(-w * round(BAND[0] * 100) // 100), w * round(BAND[1] * 100) // 100)
     return dict(id=p['id'], prompt=p['prompt'], answer=p['answer'], limits_checked_by_code=p['check'], answer_words=w, repaired_word_range=[max(1, low), high])
 
 
@@ -92,15 +95,24 @@ def cmd_pool(args):
         for row in rest.get(g, [])[:n]:
             train.append((g, row))
     train.sort(key=lambda t: rank('order', t[1]['id']))
-    packet = []
-    for g, row in train:
+    def entry(g, row):
         ranked = sorted(by_prompt[row['id']], key=lambda a: rank('sample', row['id'], a['sample']))
         a = ranked[0]
         alt = ranked[1]['sample'] if len(ranked) > 1 else None
         text = visible(a['raw_output'])
-        packet.append(dict(id=row['id'], kind=row['kind'], group=g, prompt=row['prompt'], check=row['check'], sample=a['sample'], alt_sample=alt,
-                           answer=text, answer_words=len(words(text))))
+        return dict(id=row['id'], kind=row['kind'], group=g, prompt=row['prompt'], check=row['check'], sample=a['sample'], alt_sample=alt,
+                    answer=text, answer_words=len(words(text)))
+
+    packet = [entry(g, row) for g, row in train]
     pilot, rest_packet = packet[:args.pilot], packet[args.pilot:]
+    if args.drop_plain_after_pilot:
+        # pilot yield: plain_source 22% usable, constraint 64%; refill the rest with the unused constraint prompts (the pilot stays as it was)
+        unused = rest['constraint'][train_quota['constraint']:]
+        dropped = [p for p in rest_packet if p['group'] == 'plain_source']
+        assert len(unused) >= len(dropped), f'only {len(unused)} unused constraint prompts for {len(dropped)} dropped plain_source prompts'
+        kept = [p for p in rest_packet if p['group'] != 'plain_source']
+        rest_packet = sorted(kept + [entry('constraint', r) for r in unused[:len(dropped)]], key=lambda p: rank('order', p['id']))
+        packet = pilot + rest_packet
     args.out_local.mkdir(parents=True, exist_ok=True)
     args.out_data.mkdir(parents=True, exist_ok=True)
     write_jsonl(args.out_local / 'repair-packet-pilot.jsonl', pilot)
@@ -114,9 +126,11 @@ def cmd_pool(args):
                     train_ids=[p['id'] for p in packet], pilot_ids=[p['id'] for p in pilot],
                     samples={p['id']: [p['sample'], p['alt_sample']] for p in packet},
                     inputs=dict(prompts_sha256=sha256_file(args.prompts), answers_sha256=sha256_file(args.answers)),
-                    rules=dict(band=BAND, short_words=SHORT_WORDS, min_answer_words=MIN_ANSWER_WORDS, source_words=SOURCE_WORDS))
+                    train_by_group=dict(Counter(p['group'] for p in packet)), rest_by_group=dict(Counter(p['group'] for p in rest_packet)),
+                    rules=dict(band=BAND, short_words=SHORT_WORDS, min_answer_words=MIN_ANSWER_WORDS, source_words=SOURCE_WORDS,
+                               drop_plain_after_pilot=args.drop_plain_after_pilot))
     (args.out_data / 'repair-pool-manifest.json').write_text(json.dumps(manifest, indent=1, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
-    print(json.dumps({k: manifest[k] for k in ('eligible_by_group', 'heldout_quota', 'train_quota', 'train_prompts', 'pilot', 'heldout')}, indent=1))
+    print(json.dumps({k: manifest[k] for k in ('eligible_by_group', 'heldout_quota', 'train_quota', 'train_by_group', 'rest_by_group', 'train_prompts', 'pilot', 'heldout')}, indent=1))
     print('packet words (median):', sorted(p['answer_words'] for p in packet)[len(packet) // 2])
 
 
@@ -171,7 +185,7 @@ def check_repair(analyzer, row, result, accept):
         (chosen.startswith('```') and chosen.endswith('```') and chosen.count('```') % 2 == 0)
     last_line = chosen.rstrip().splitlines()[-1]
     list_item = bool(re.match(r'\s*(?:[-*•]|\d+\s*[.)\-])\s+\S', last_line))  # a list item needs no final period
-    if not structured and not list_item and chosen[-1] not in '.!?…"\')”»)]*':
+    if not structured and not list_item and chosen[-1] not in '.!?…"\')”»)]}*':
         problems.append('does not end like a finished answer')
     return problems, m
 
@@ -195,8 +209,14 @@ def cmd_validate(args):
                                     check=packet[pid]['check'], rejected=packet[pid]['answer'].strip(), chosen=result['chosen'].strip(),
                                     verdict=result['verdict'], changes=result['changes'], **m))
     answered = set(latest)
-    retry = [packet[r['id']] | dict(failure_reasons=r['problems']) for r in report
-             if not r['usable'] and r['attempt'] == 1 and r['verdict'] in ('minimal', 'larger') and len(args.results) == 1]
+    retry = []
+    if len(args.results) == 1:
+        for r in report:
+            res = latest[r['id']][1]
+            if not r['usable'] and r['verdict'] in ('minimal', 'larger'):
+                retry.append(repair_input(packet[r['id']]) | dict(retry='check_failed', failure_reasons=r['problems'], previous_chosen=res['chosen']))
+            elif r['verdict'] == 'rewrite_needed' and BOUND_CITED.search(' '.join(res.get('changes') or [])):
+                retry.append(repair_input(packet[r['id']]) | dict(retry='range_widened', previous_reason=res.get('changes')))
     missing = [pid for pid in packet if pid not in answered]
     verdicts = Counter(r['verdict'] for r in report)
     summary = dict(packet=len(packet), answered=len(answered), missing=len(missing), verdicts=dict(verdicts), usable=len(usable_rows),
@@ -210,13 +230,21 @@ def cmd_validate(args):
     write_jsonl(args.out / 'validation.jsonl', report)
     write_jsonl(args.out / 'validated.jsonl', usable_rows)
     if retry:
-        write_jsonl(args.out / 'retry-packet.jsonl', retry)
+        write_jsonl(args.out / 'retry-input.jsonl', retry)
     (args.out / 'validation-summary.json').write_text(json.dumps(summary, indent=1, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps(summary, indent=1, ensure_ascii=False))
 
 
 def cmd_pairs(args):
     rows = read_jsonl(args.validated)
+    # Brevity guard: the set must not teach "shorter is better". While the mean chosen/rejected word ratio is below MIN_MEAN_RATIO, drop the pair
+    # with the lowest ratio (ties by id), so the rule is fixed and reproducible.
+    dropped = 0
+    rows.sort(key=lambda r: (r['length_ratio'], r['id']))
+    while rows and sum(r['length_ratio'] for r in rows) / len(rows) < MIN_MEAN_RATIO:
+        rows.pop(0)
+        dropped += 1
+    rows.sort(key=lambda r: r['id'])
     out = []
     for r in rows:
         out.append(dict(id=r['id'], kind=r['kind'], source='atlas', prompt=[dict(role='user', content=r['prompt'])],
@@ -225,7 +253,7 @@ def cmd_pairs(args):
                         verdict=r['verdict'], length_ratio=r['length_ratio'], char_similarity=r['char_similarity']))
     write_jsonl(args.out, out)
     print(f'{len(out)} pairs -> {args.out}', dict(Counter(r['group'] for r in out)), 'mean length ratio',
-          round(sum(r['length_ratio'] for r in rows) / max(1, len(rows)), 3))
+          round(sum(r['length_ratio'] for r in rows) / max(1, len(rows)), 3), f'(dropped {dropped} shortest by the brevity guard)')
 
 
 def main():
@@ -239,6 +267,7 @@ def main():
     p.add_argument('--train', type=int, default=2000)
     p.add_argument('--heldout', type=int, default=200)
     p.add_argument('--pilot', type=int, default=300)
+    p.add_argument('--drop-plain-after-pilot', action='store_true', help='replace the plain_source prompts after the pilot with unused constraint prompts')
     p.set_defaults(func=cmd_pool)
     v = sub.add_parser('validate')
     v.add_argument('--packet', type=Path, required=True)

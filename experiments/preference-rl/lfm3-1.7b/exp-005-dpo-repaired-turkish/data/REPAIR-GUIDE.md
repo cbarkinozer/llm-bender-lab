@@ -27,7 +27,13 @@ A dull correct answer is fine. Do not improve style, add detail, or make it long
 
 - Keep the answer's own words, structure and order wherever they are correct. Change only what is wrong. If most of it is wrong, still keep what you can.
 - Use only information in the prompt. No outside facts, no new examples.
-- Stay inside `repaired_word_range`. Shorter is welcome when the original repeats itself or pads; do not cut required content.
+- Stay inside `repaired_word_range` (from 50% to 110% of the original's words; changed after the pilot, because removing invented content legitimately
+  shortens an answer). Shorter is welcome when the original repeats itself, pads or invents; do not cut required content. Never pad to reach the
+  range: if the true content cannot reach the lower end without invented filler, say so with `rewrite_needed`. Restating data that is in the
+  prompt is allowed when a stated minimum (for example "en az 50 kelime") needs it.
+- Cover every target the prompt names (each data point, each required part). When it asks for N items (suggestions, bullets), give N concrete items
+  built from the data, not a filler item. (Added after the owner read of 30 pilot pairs: the three weak chosen answers missed a target, padded an
+  item count or gave items that were not concrete.)
 - Meet every limit exactly. Count before you answer. For lists write `- item` or `1. item` (not `1- item`). Decimal numbers such as 13,44 are fine.
 - Real Turkish words with correct diacritics only. Keep names and terms from the prompt as they are.
 - End like a finished answer. No preface ("İşte düzeltilmiş cevap"), no notes, no markdown fences around the whole answer.
@@ -47,6 +53,14 @@ A dull correct answer is fine. Do not improve style, add detail, or make it long
   `chosen` is `""`; say why in `changes`. Prefer this over inventing content.
 
 `changes` is required for `minimal` and `larger`: one short Turkish or English note per fix (what was wrong, what you did).
+
+## Second pass (retry rows)
+
+Some rows come back with a `retry` field:
+- `check_failed`: your earlier repair is in `previous_chosen` and `failure_reasons` lists what the code check found (unknown or English words, an
+  ending that looks cut). Fix those, keep the rest, return the same output format.
+- `range_widened`: you earlier answered `rewrite_needed` because the repair could not stay in the old word range (`previous_reason`). The range is now
+  wider. Try again. Answer `rewrite_needed` again if the repair still needs invented content or filler.
 
 ## Examples
 

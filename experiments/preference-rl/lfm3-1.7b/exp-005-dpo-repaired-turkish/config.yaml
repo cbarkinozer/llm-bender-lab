@@ -21,8 +21,9 @@ data:
   prompts_source: {file: experiments/preference-rl/lfm3-1.7b/exp-004-dpo-onpolicy-turkish/data/prompts-tr-dpo4.jsonl, rows: 3948}
   samples_source: "exp-004 samples, 8 per prompt (31,584), results-local, sha256 in data/repair-pool-manifest.json"
   pool: {script: scripts/datasets/tr_dpo_repair.py, manifest: data/repair-pool-manifest.json, seed: exp005, train: 2000, heldout: 200, pilot: 300,
-         groups: [constraint, context, plain_source]}
-  repair: {guide: data/REPAIR-GUIDE.md, verdicts: [none, minimal, larger, rewrite_needed], retry: 1, word_range_vs_original: [0.70, 1.10], short_answer_words: 20}
+         groups: [constraint, context, plain_source], drop_plain_after_pilot: true,
+         train_by_group: {constraint: 1800, context: 118, plain_source: 82}, rest_by_group: {constraint: 1599, context: 101}}
+  repair: {guide: data/REPAIR-GUIDE.md, verdicts: [none, minimal, larger, rewrite_needed], retry: 1, word_range_vs_original: [0.50, 1.10], mean_ratio_floor: 0.85, short_answer_words: 20}
   validation: {script: scripts/datasets/tr_dpo_repair.py validate, accept_words: experiments/preference-rl/lfm3-1.7b/exp-004-dpo-onpolicy-turkish/data/accept-words.txt}
   min_pairs: 1000
   label: synthetic_repair
