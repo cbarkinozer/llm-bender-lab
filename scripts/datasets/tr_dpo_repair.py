@@ -4,6 +4,8 @@
                                    [--drop-plain-after-pilot]
   python tr_dpo_repair.py validate --packet PACKET --results R1 [R2 ...] --accept WORDS --out DIR [--retry-widened]
   python tr_dpo_repair.py pairs    --validated DIR/validated.jsonl --out FILE
+  python tr_dpo_repair.py alt      --packets P1 [P2 ...] --validated V1 [V2 ...] --answers A --out-local DIR --out-manifest FILE [--count 150]
+                                   [--exclude-ids FILE]
 
 pool      Only prompts that carry their own data (Atlas constraint prompts, context prompts, plain prompts with a source block). One
           finished sample of exp-021 per prompt is the answer to repair. A held-out set is cut first and never enters the packets.
@@ -12,6 +14,8 @@ validate  The repair model answers each packet row with verdict none | minimal |
           [0.50, 1.10] of the original (or within 5 words for short answers) and it ends like a finished answer. Later result files
           override earlier ones for the same id (retry). `rewrite_needed` and failed retries are dropped.
 pairs     rejected = the SFT model's own answer, chosen = the repaired answer, labelled `synthetic_repair`.
+alt       Second-sample round for when the first round gives too few pairs: train prompts without a usable repair (and not in the retry
+          batch) get their `alt_sample` (a second random finished sample of exp-021) as a new answer to repair, first `--count` by hash rank.
 """
 import argparse
 from collections import Counter
@@ -256,6 +260,47 @@ def cmd_pairs(args):
           round(sum(r['length_ratio'] for r in rows) / max(1, len(rows)), 3), f'(dropped {dropped} shortest by the brevity guard)')
 
 
+def cmd_alt(args):
+    packets = {}
+    for path in args.packets:
+        for p in read_jsonl(path):
+            packets[p['id']] = p
+    done = {r['id'] for path in args.validated for r in read_jsonl(path)}
+    skip = {r['id'] for r in read_jsonl(args.exclude_ids)} if args.exclude_ids else set()
+    unknown = (done | skip) - set(packets)
+    assert not unknown, f'ids that are not in the packets: {sorted(unknown)[:5]}'
+    eligible = sorted((p for pid, p in packets.items() if pid not in done and pid not in skip and p['alt_sample'] is not None),
+                      key=lambda p: rank('alt', p['id']))
+    wanted = {p['id']: p['alt_sample'] for p in eligible}
+    answers = {}
+    for a in read_jsonl(args.answers):
+        if wanted.get(a['id']) == a['sample']:
+            answers[a['id']] = a
+    assert set(answers) == set(wanted), f'alt samples missing in the answers file: {sorted(set(wanted) - set(answers))[:5]}'
+    packet, same_text = [], 0
+    for p in eligible:  # hash rank order
+        a = answers[p['id']]
+        assert a['finish_reason'] == 'eos' and not a.get('hit_max_new_tokens'), p['id']
+        text = visible(a['raw_output'])
+        if text.strip() == p['answer'].strip():  # the sampler drew the same text twice: nothing new to repair
+            same_text += 1
+            continue
+        packet.append(dict(id=p['id'], kind=p['kind'], group=p['group'], prompt=p['prompt'], check=p['check'], sample=p['alt_sample'],
+                           first_sample=p['sample'], alt_sample=None, answer=text, answer_words=len(words(text))))
+        if len(packet) == args.count:
+            break
+    assert len(packet) == args.count, f'only {len(packet)} usable alt samples for {args.count} wanted ({len(eligible)} eligible)'
+    args.out_local.mkdir(parents=True, exist_ok=True)
+    write_jsonl(args.out_local / 'repair-packet-alt.jsonl', packet)
+    write_jsonl(args.out_local / 'repair-input-alt.jsonl', [repair_input(p) for p in packet])
+    manifest = dict(seed=SEED, count=args.count, eligible=len(eligible), skipped_same_text=same_text, excluded_retry_ids=len(skip), already_usable=len(done),
+                    ids=[p['id'] for p in packet], samples={p['id']: [p['first_sample'], p['sample']] for p in packet},
+                    by_group=dict(Counter(p['group'] for p in packet)), answers_sha256=sha256_file(args.answers))
+    args.out_manifest.write_text(json.dumps(manifest, indent=1, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
+    print(json.dumps({k: manifest[k] for k in ('count', 'eligible', 'skipped_same_text', 'excluded_retry_ids', 'already_usable', 'by_group')}, indent=1))
+    print('alt answer words (median):', sorted(p['answer_words'] for p in packet)[len(packet) // 2])
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest='cmd', required=True)
@@ -281,6 +326,15 @@ def main():
     q.add_argument('--validated', type=Path, required=True)
     q.add_argument('--out', type=Path, required=True)
     q.set_defaults(func=cmd_pairs)
+    a = sub.add_parser('alt')
+    a.add_argument('--packets', type=Path, nargs='+', required=True, help='packets of the first round (pilot, rest)')
+    a.add_argument('--validated', type=Path, nargs='+', required=True, help='validated.jsonl files that already give a usable repair')
+    a.add_argument('--answers', type=Path, required=True)
+    a.add_argument('--out-local', type=Path, required=True)
+    a.add_argument('--out-manifest', type=Path, required=True)
+    a.add_argument('--count', type=int, default=150)
+    a.add_argument('--exclude-ids', type=Path, help='jsonl with an id per row (e.g. the retry batch): these prompts keep their first sample')
+    a.set_defaults(func=cmd_alt)
     args = ap.parse_args()
     args.func(args)
 

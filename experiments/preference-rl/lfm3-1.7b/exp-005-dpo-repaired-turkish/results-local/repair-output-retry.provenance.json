@@ -1,0 +1,85 @@
+{
+  "task": "Repair Turkish preference-learning answers, exp-005 round 2 retry. Only reported lexical failures and flagged loop corrected; rest of previous_chosen retained.",
+  "generator": {
+    "provider": "redacted",
+    "interface": "AI assistant in this conversation",
+    "model_family": "strong model",
+    "model_revision": null,
+    "revision_note": "Exact runtime revision is not exposed; no external model API or subagents used.",
+    "sampling_parameters": null
+  },
+  "date_utc": "2026-11-27T13:14:51.011865+00:00",
+  "guide": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-GUIDE.md",
+    "sha256": "6c7c3681d9fe2c0b2bcb2d051d46e8ee8350de6ba56b92f5117fb69ca96adc69"
+  },
+  "repair_prompt": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-PROMPT-ROUND2.md",
+    "sha256": "22ed02badca81d07faf1fa0e10004316fe44c8b3c0e128ca8274dfece43bbda3"
+  },
+  "input": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-input-retry.jsonl",
+    "sha256": "61d730e38813cb894164fcf61f13fb6ddd77208092690d4ecf7995a95ee97ad4"
+  },
+  "output": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-output-retry.jsonl",
+    "sha256": "60dd427c5504ca97406b638e5fa373e12e42b31d590ba206e6d83c7e801172a7"
+  },
+  "item_count": 32,
+  "verdict_counts": {
+    "minimal": 31,
+    "larger": 1
+  },
+  "repair_word_ratios_before_owner_validation": {
+    "count": 32,
+    "median": 0.8541666666666667,
+    "mean": 0.8238332049675671,
+    "counting": "Repository tr_dpo_flags.words divided by input answer_words; lexical checks and brevity guard not applied."
+  },
+  "checks": {
+    "valid_json_every_line": true,
+    "exact_schema": true,
+    "complete_unique_ids_in_input_order": true,
+    "chosen_empty_iff_none_or_rewrite_needed": true,
+    "changes_present_for_repairs": true,
+    "all_repairs_inside_repaired_word_range": true,
+    "supplied_countable_code_constraints": true,
+    "supplemental_prompt_word_ranges_maximums_list_counts_and_question_bans": true,
+    "additional_question_format_and_sentence_checks": true,
+    "chosen_json_parse": true,
+    "finished_endings": true,
+    "utf8_roundtrip": true,
+    "manual_review": "All input rows individually read; retry changes limited to flagged expressions and loop, alt rows independently reviewed for source coverage, facts, numbers, original preservation and constraints. No quota targeted.",
+    "lexical_detectors": "Not run; owner tooling performs validation.",
+    "earlier_output_files_read": false,
+    "training_run": false,
+    "commit_created": false,
+    "guide_or_threshold_changed": false
+  },
+  "checks_implementation": {
+    "script_sha256": "ff6a31698d35db3e408b6316772ed04372dedbb73f987341c8b364f0b07ea9cc",
+    "save_script_sha256": "8063869f55309ff99e6393fb568be5a6a40e11c1010ce5f537c7f41b48b13bd3",
+    "normalization": "Repository normalized handles decimal punctuation and numbered lists."
+  },
+  "hardest_review_rows": {
+    "count": 5,
+    "indices_zero_based": [
+      1,
+      14,
+      22,
+      28,
+      29
+    ],
+    "ids": [
+      "dpo4-atlas-271783",
+      "dpo4-atlas-101300",
+      "dpo4-atlas-285533",
+      "dpo4-atlas-077374",
+      "dpo4-atlas-187721"
+    ],
+    "reason": "Preserve JSON and mandatory field words while changing flagged expressions; loop repair; apostrophe suffix and word bounds.",
+    "measurement_note": "Qualitative high-attention selection, not instrumented per-row timing."
+  },
+  "scope": "Only repair-output-retry.jsonl and its provenance created in experiment; no source, guide, training, configuration or other output changes.",
+  "reproducibility_note": "Manually authored by this assistant; model revision and sampling parameters unavailable; hashes identify exact artifacts."
+}
