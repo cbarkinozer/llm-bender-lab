@@ -2,7 +2,7 @@
 
   python tr_dpo_repair.py pool     --prompts P --answers A --out-data DIR --out-local DIR [--train 2000] [--heldout 200] [--pilot 300]
                                    [--drop-plain-after-pilot]
-  python tr_dpo_repair.py validate --packet PACKET --results R1 [R2 ...] --accept WORDS --out DIR
+  python tr_dpo_repair.py validate --packet PACKET --results R1 [R2 ...] --accept WORDS --out DIR [--retry-widened]
   python tr_dpo_repair.py pairs    --validated DIR/validated.jsonl --out FILE
 
 pool      Only prompts that carry their own data (Atlas constraint prompts, context prompts, plain prompts with a source block). One
@@ -215,7 +215,7 @@ def cmd_validate(args):
             res = latest[r['id']][1]
             if not r['usable'] and r['verdict'] in ('minimal', 'larger'):
                 retry.append(repair_input(packet[r['id']]) | dict(retry='check_failed', failure_reasons=r['problems'], previous_chosen=res['chosen']))
-            elif r['verdict'] == 'rewrite_needed' and BOUND_CITED.search(' '.join(res.get('changes') or [])):
+            elif args.retry_widened and r['verdict'] == 'rewrite_needed' and BOUND_CITED.search(' '.join(res.get('changes') or [])):
                 retry.append(repair_input(packet[r['id']]) | dict(retry='range_widened', previous_reason=res.get('changes')))
     missing = [pid for pid in packet if pid not in answered]
     verdicts = Counter(r['verdict'] for r in report)
@@ -274,6 +274,8 @@ def main():
     v.add_argument('--results', type=Path, nargs='+', required=True)
     v.add_argument('--accept', type=Path, required=True)
     v.add_argument('--out', type=Path, required=True)
+    v.add_argument('--retry-widened', action='store_true',
+                   help='also retry rewrite_needed rows that cite the word bound; only useful when the range was widened since the first pass (pilot: 0.70 -> 0.50)')
     v.set_defaults(func=cmd_validate)
     q = sub.add_parser('pairs')
     q.add_argument('--validated', type=Path, required=True)
