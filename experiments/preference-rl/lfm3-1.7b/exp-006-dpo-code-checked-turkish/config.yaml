@@ -1,0 +1,52 @@
+experiment:
+  id: exp-006-dpo-code-checked-turkish
+  parent: exp-005-dpo-repaired-turkish
+  status: planned   # draft; rules not frozen, nothing generated or trained
+  domain: preference-rl
+  purpose: test whether DPO beats plain SFT on the same chosen answers for Turkish constrained, source-grounded answers, with code-checked pairs
+
+model:
+  parent: cbarkinozer/LFM3-1.7B-Turkish-SFT
+  parent_revision: "6e4f0b7658b115a28da971f82ff4009f63bed612"
+  base: LiquidAI/LFM3-1.7B
+  base_revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
+
+data:
+  prompts: "Turkish source passages with 2-4 verifiable constraints; split by passage into train / dev / held-out"
+  hard_prompt_filter: {samples_per_prompt: 8, temperature: 1.0, parent_pass_rate: [0.2, 0.8]}
+  pairs:
+    chosen: "parent sample passing every code check"
+    rejected: "parent sample from the same prompt failing at least one check"
+    length_ratio_chosen_over_rejected: [0.8, 1.25]
+    max_pairs_per_prompt: 2
+    max_share_per_constraint_type: 0.25
+    target: 2500   # to freeze
+    minimum: 1500  # below this the experiment stops and reports
+  judge_in_pair_builder: none
+
+arms: [parent, sft-control, dpo]
+
+dev_sweep:
+  max_runs: 6
+  beta: [0.05, 0.1, 0.3]
+  length: [1_epoch, 2_epochs]
+  pick_rule: "highest dev gain over matching control among runs passing dev anti-hack flags and guards; ties to larger beta"
+
+evaluation:
+  seeds: 2
+  held_out_prompts: "600-800"   # to freeze after power simulation on dev
+  samples_per_prompt: 4
+  temperature: 0.7
+  primary: "per-prompt all-checks pass rate, paired bootstrap over prompts, 95% interval"
+  secondary: "per-constraint-type pass rate; blind AI-judge comparison on 400 prompts (never decisive)"
+  anti_hack: [mean_words, skeleton_share_below_40pct_of_parent_median, distinct_2gram_ratio, source_copy_rate, invented_numbers, kl_to_parent]
+  guards: {margin_points: -2, sets: [belebele_tr, belebele_en, turblimp, exp021_math, exp021_tools, ifeval_if_run, humaneval_if_run]}  # list to freeze
+  owner_read: {answers: 40, blind: true}
+
+rules: {status: "to freeze", summary: "see README"}
+
+environment:
+  packages: {torch: "2.14.1", transformers: "5.20.2", trl: "1.16.0", peft: "0.21.2"}
+  gpu: "1 x RTX 4090 (24 GB)"
+
+publication: "none until rules 1-5 pass and the owner approves the exact files; no AI tool names in any published text"
