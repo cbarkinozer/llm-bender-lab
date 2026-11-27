@@ -37,8 +37,16 @@ Parent: `cbarkinozer/LFM3-1.7B-Turkish-SFT` (exp-021, commit `6e4f0b7658b115a28d
 
 ## Data Design
 
-- **Prompts**: Turkish source passages (summarise, extract, list, answer from the text) with 2 to 4 verifiable constraints each. Passages are
-  split by passage into `train`, `dev` and `held-out`, so no passage appears in two splits.
+- **Prompts, three sources**:
+  1. The exp-004 pool (3,948 prompts, 8 parent samples each, already on disk). Measured with the code checks only (2026-11-27): 1,959 prompts carry a
+     check, 1,058 have both passing and failing samples, **645 have a length-matched pair**. That is below the 1,500-pair minimum, so it is a base,
+     not the whole set. (The exp-005 held-out 200 are not reused for the final test.)
+  2. Programmatic prompts: a task (write, explain, rewrite, list) on a topic with 2 to 4 stacked countable constraints (word limit, bullet or
+     sentence count, required word, forbidden word, no greeting, no closing question). No corpus needed.
+  3. Source passages for summarise / extract / answer tasks, with the invented-number check on. The parent saw Turkish Wikipedia in CPT (about
+     100M tokens), so Wikipedia is not used. FineWeb-2 Turkish (`tur_Latn`, ODC-By) is only partly seen: use a train shard the CPT did not read and
+     drop any URL that appears in the CPT corpus (to verify before use).
+  Prompts are split by topic or passage into `train`, `dev` and `held-out`, so no topic or passage appears in two splits.
 - **Hard-prompt filter**: sample 8 answers per prompt from the parent (temperature 1.0); keep prompts where the parent passes 20-80% of the
   samples. Prompts it always or never passes teach nothing.
 - **Code checks** (no model judge in the pair builder or in the primary metric): every stated limit met (words, sentences, bullets, required or
