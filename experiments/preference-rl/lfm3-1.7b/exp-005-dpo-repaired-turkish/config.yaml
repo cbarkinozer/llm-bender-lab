@@ -1,7 +1,7 @@
 experiment:
   id: exp-005-dpo-repaired-turkish
   parent: exp-021-sft-core-pack-v2 (turkish-capability); exp-001-dpo-grounded-qa (control); exp-003 and exp-004 (data findings)
-  status: results-in (rule 6, the owner's read, open)
+  status: results-in (rule 6 read by the owner, second seed not run)
   domain: preference-rl
   purpose: DPO on minimally repaired exp-021 answers for data-carrying Turkish prompts, with an SFT-only control, judged by blind comparison
 
@@ -67,13 +67,15 @@ results:
     B_dpo_on_sft_vs_sft_only: {decisive: 126, wins: 75, share: 0.595, wilson95: [0.508, 0.677], ties: 63, identical: 11, rule2: "missed (threshold 0.60)"}
     C_sft_only_vs_exp021: {decisive: 170, wins: 150, share: 0.882, wilson95: [0.825, 0.923], ties: 27, identical: 3}
     length_matched_share: {A: [37, 45], B: [52, 85], C: [41, 50]}
+    H_owner_read_30: {file: results-local/judging/owner-read-h/judge-report-H.json, prompts: "30 random held-out prompts, seed exp005-owner-human-read, excluding set O", who: "the owner, typed in chat in 3 batches of 10, key closed per batch",
+                      decisive: 30, wins_dpo_on_sft: 19, share: 0.633, wilson95: [0.455, 0.781], sign_test_two_sided_p: 0.20, by_batch: [[8, 2], [5, 5], [6, 4]], ties: 0, shorter_answer_wins: "18 of 29", length_matched: [7, 12], criterion_recorded: false}
     O_additional_read_30: {file: results-local/judging/owner-read/judge-report-O.json, who: "supplied by the owner 2026-11-27, stated by the owner to be an additional AI evaluation; does not count as rule 6",
                            decisive: 24, wins_dpo_on_sft: 23, share: 0.958, wilson95: [0.798, 0.993], ties: 6, shorter_answer_wins: "23 of 24", length_matched: [4, 5], criterion_recorded: false}
   side_checks_heldout_t0.1: {exp021: {mean_words: 68.3, constraint_pass: 0.756, flagged: 0.395, ended: 0.975},
                              dpo-on-sft: {mean_words: 29.7, constraint_pass: 0.931, flagged: 0.160, ended: 1.0},
                              sft-only: {mean_words: 34.0, constraint_pass: 0.916, flagged: 0.190, ended: 0.995}, rule3: "failed (mean words ratio 0.43 and 0.50)"}
   guards: {file: results-local/guards.json, rule5: "failed as registered (Belebele EN -2.4 and TR -2.3, TurBLiMP -1.1 for dpo-on-sft; Belebele TR -1.6 for sft-only); IFEval and HumanEval inside the noise"}
-  rules: {rule1: passed, rule2: missed, rule3: failed, rule4: passed, rule5: failed, rule6: open}
+  rules: {rule1: passed, rule2: missed, rule3: failed, rule4: passed, rule5: failed, rule6: "passed as worded (19 to 11), weak, second seed not run"}
 
 tracking:
   provider: none

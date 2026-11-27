@@ -1,0 +1,59 @@
+{
+ "set": "H",
+ "names": [
+  "dpo-on-sft",
+  "exp-021"
+ ],
+ "items_judged": 30,
+ "identical_by_code": 0,
+ "ties": 0,
+ "decisive": 30,
+ "wins": {
+  "dpo-on-sft": 19,
+  "exp-021": 11
+ },
+ "win_share_first": 0.6333333333333333,
+ "wilson95": [
+  0.45513246433604937,
+  0.7812629779598231
+ ],
+ "passes_60_and_lower_above_50": false,
+ "by_group": {
+  "constraint": {
+   "dpo-on-sft": 12,
+   "exp-021": 6
+  },
+  "plain_source": {
+   "dpo-on-sft": 6,
+   "exp-021": 5
+  },
+  "context": {
+   "dpo-on-sft": 1
+  }
+ },
+ "by_deciding_criterion": {
+  "dpo-on-sft:None": 19,
+  "exp-021:None": 11
+ },
+ "position_share_A_among_decisive": 0.4666666666666667,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 29,
+  "shorter_answer_wins": 18,
+  "shorter_wins_share": 0.6206896551724138,
+  "length_matched_decisive": 12,
+  "length_matched_first_wins": 7,
+  "length_matched_win_share_first": 0.5833333333333334,
+  "length_matched_wilson95": [
+   0.3195073356553728,
+   0.8067425380947535
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "abb5f15768aab91fad9633886b8d65229ea7696eebfdfbcd34ead042bd48f86f",
+ "judgment_files": [
+  "judge-H-batch-01.jsonl",
+  "judge-H-batch-02.jsonl",
+  "judge-H-batch-03.jsonl"
+ ]
+}

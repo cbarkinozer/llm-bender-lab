@@ -1,0 +1,158 @@
+{
+ "set": "H",
+ "seed": "exp005-owner-human",
+ "name_a": "dpo-on-sft",
+ "name_b": "exp-021",
+ "prompts": 30,
+ "identical": [],
+ "batches": 2,
+ "batch_size": 10,
+ "order": [
+  "dpo4-atlas-020524",
+  "dpo4-atlas-073267",
+  "dpo4-atlas-082072",
+  "dpo-c-trgen-0186",
+  "dpo4-atlas-207772",
+  "dpo4-atlas-175902",
+  "dpo4-atlas-246337",
+  "dpo4-atlas-094574",
+  "dpo4-atlas-315781",
+  "dpo4-atlas-001336",
+  "dpo4-atlas-163888",
+  "dpo-c-trgen-0117",
+  "dpo4-atlas-257407",
+  "dpo4-atlas-319407",
+  "dpo-c-trgen-0408",
+  "dpo4-atlas-072808",
+  "dpo4-atlas-125247",
+  "dpo4-atlas-268098",
+  "dpo4-atlas-171181",
+  "dpo4-atlas-010015"
+ ],
+ "items": {
+  "dpo4-atlas-020524": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 16,
+   "words_B": 28
+  },
+  "dpo4-atlas-073267": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 32,
+   "words_B": 39
+  },
+  "dpo4-atlas-082072": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 36,
+   "words_B": 34
+  },
+  "dpo-c-trgen-0186": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 20,
+   "words_B": 14
+  },
+  "dpo4-atlas-207772": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 26,
+   "words_B": 38
+  },
+  "dpo4-atlas-175902": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 9,
+   "words_B": 9
+  },
+  "dpo4-atlas-246337": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 242,
+   "words_B": 59
+  },
+  "dpo4-atlas-094574": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 18,
+   "words_B": 21
+  },
+  "dpo4-atlas-315781": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 69,
+   "words_B": 41
+  },
+  "dpo4-atlas-001336": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 31,
+   "words_B": 39
+  },
+  "dpo4-atlas-163888": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 21,
+   "words_B": 28
+  },
+  "dpo-c-trgen-0117": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 22,
+   "words_B": 19
+  },
+  "dpo4-atlas-257407": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 96,
+   "words_B": 279
+  },
+  "dpo4-atlas-319407": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 33,
+   "words_B": 43
+  },
+  "dpo-c-trgen-0408": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 23,
+   "words_B": 31
+  },
+  "dpo4-atlas-072808": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 18,
+   "words_B": 118
+  },
+  "dpo4-atlas-125247": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 99,
+   "words_B": 55
+  },
+  "dpo4-atlas-268098": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 54
+  },
+  "dpo4-atlas-171181": {
+   "A": "dpo-on-sft",
+   "B": "exp-021",
+   "words_A": 52,
+   "words_B": 54
+  },
+  "dpo4-atlas-010015": {
+   "A": "exp-021",
+   "B": "dpo-on-sft",
+   "words_A": 240,
+   "words_B": 43
+  }
+ },
+ "prompts_sha256": "222814e55af5874c79776ca6d63403d2129d2568a2f4434a8583832514435b83",
+ "answers_a_sha256": "4f97099a759a66bc7ea21e3dc7227125eccebb726c572003c72c790075fa3e36",
+ "answers_b_sha256": "07405e112e36025519ea6cb15d3b7e51b79f744fac6d281b541e772380d8f85f",
+ "note": "batches 01 and 02 of 3; the full key judge-key-H.json is for the complete unblind after batch 03"
+}

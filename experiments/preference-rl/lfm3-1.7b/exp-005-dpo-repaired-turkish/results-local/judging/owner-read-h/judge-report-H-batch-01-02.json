@@ -1,0 +1,58 @@
+{
+ "set": "H",
+ "names": [
+  "dpo-on-sft",
+  "exp-021"
+ ],
+ "items_judged": 20,
+ "identical_by_code": 0,
+ "ties": 0,
+ "decisive": 20,
+ "wins": {
+  "dpo-on-sft": 13,
+  "exp-021": 7
+ },
+ "win_share_first": 0.65,
+ "wilson95": [
+  0.43285051021946463,
+  0.8188104521320554
+ ],
+ "passes_60_and_lower_above_50": false,
+ "by_group": {
+  "constraint": {
+   "dpo-on-sft": 9,
+   "exp-021": 3
+  },
+  "plain_source": {
+   "dpo-on-sft": 3,
+   "exp-021": 4
+  },
+  "context": {
+   "dpo-on-sft": 1
+  }
+ },
+ "by_deciding_criterion": {
+  "dpo-on-sft:None": 13,
+  "exp-021:None": 7
+ },
+ "position_share_A_among_decisive": 0.55,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 19,
+  "shorter_answer_wins": 12,
+  "shorter_wins_share": 0.631578947368421,
+  "length_matched_decisive": 9,
+  "length_matched_first_wins": 5,
+  "length_matched_win_share_first": 0.5555555555555556,
+  "length_matched_wilson95": [
+   0.2666473457440297,
+   0.811224570528086
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "a19f7d51d522d867a481f296cf9034b87581382be09fb2d36a76b721c114ca00",
+ "judgment_files": [
+  "judge-H-batch-01.jsonl",
+  "judge-H-batch-02.jsonl"
+ ]
+}

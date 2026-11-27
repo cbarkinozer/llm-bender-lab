@@ -2,10 +2,10 @@
 
 ## Status
 
-`results in, rule 6 waits for the owner` (2026-11-27). Both arms trained on the 1,008 pairs (seed 42, 189 steps), the 200 held-out prompts were answered by
+`results in, rule 6 read by the owner` (2026-11-27). Both arms trained on the 1,008 pairs (seed 42, 189 steps), the 200 held-out prompts were answered by
 exp-021, `dpo-on-sft` and `sft-only`, judged blind by an AI assistant, and the guards ran. **Rule 1 passed, rule 2 missed its threshold (59.5% against 60%),
 rule 3 failed on length (mean words 0.43 of exp-021's), rule 4 passed, rule 5 failed the 1-point limit on Belebele and TurBLiMP (inside sampling noise),
-rule 6 is open (an additional read of the 30 comparisons, stated by the owner to be an AI evaluation, preferred `dpo-on-sft` 23 of 24 decisive; it does not count as rule 6).** One seed, one AI judge. The rules below were fixed before any repaired data or model result existed.
+rule 6 passed as worded but weakly: the owner's own blind read of 30 comparisons preferred `dpo-on-sft` 19 to 11 (63%, Wilson 46-78%, sign test p = 0.20 two-sided).** One seed, one AI judge. The rules below were fixed before any repaired data or model result existed.
 
 ## Goal
 
@@ -178,13 +178,22 @@ comparisons; among comparisons whose word counts are within a factor of 0.75-1.3
 50.5-70.8) in B and 82.0% (41/50) in C. By prompt group the first-named arm wins 96 of 111 constraint, 44 of 51 plain_source and 6 of 7 context decisive
 comparisons in A. Most of the wins in A come from criterion 1 (105 of 146: invented or inverted content in exp-021), then criterion 2 (limits and format).
 
-**Additional read of 30 comparisons** (set O, `results-local/judging/owner-read/`): the 30 sheets (`dpo-on-sft` against exp-021, answer order randomised, key
-closed until the read came back) were answered by the owner on 2026-11-27 with the note that the read is an additional AI evaluation. Because the guide
-defines rule 6 as the owner's own human read, **this does not count as rule 6, which stays open**. Result: `dpo-on-sft` preferred in 23 of 24 decisive
+**Owner's read, rule 6** (set H, `results-local/judging/owner-read-h/`): 30 further held-out prompts (random draw without the 30 of set O and without
+identical pairs, seed `exp005-owner-human-read`), `dpo-on-sft` against exp-021, A/B order randomised by the tool, sheets shown to the owner in chat in
+three batches of 10, key closed until each batch was answered (batches 1 and 2 were unblinded for their own results before batch 3 was read; the key
+of the later batches was never printed). The owner typed the answers in chat, without a deciding criterion and without ties
+(`judge-H-batch-01..03.jsonl`, `judge-report-H.json`). Result: `dpo-on-sft` preferred in **19 of 30** (63.3%, Wilson 45.5-78.1, two-sided sign test
+p = 0.20), by batch 8-2, 5-5, 6-4; by group constraint 12-6, plain_source 6-5, context 1-0; A/B position share 47%. The shorter answer won 18 of the 29
+comparisons with different lengths (62%); among the 12 length-matched pairs `dpo-on-sft` won 7. Rule 6 as worded ("prefers `dpo-on-sft` in more of the
+decisive ones than exp-021") is met, but 30 items cannot separate 63% from 50%, and it is lower than the AI judge's 86% on the 200 prompts. Most of the
+cases exp-021 won are ones where the `dpo-on-sft` answer was a skeleton or missed an explicit instruction (observed while reading, not a coded split).
+
+**Additional read of 30 comparisons** (set O, `results-local/judging/owner-read/`): earlier, the owner answered a first 30 sheets (set O) with the note that
+the read is an additional AI evaluation; it is recorded as an additional read and was not used for rule 6. Result: `dpo-on-sft` preferred in 23 of 24 decisive
 comparisons (95.8%, Wilson 79.8-99.3), 6 ties, A/B position share 50%, no deciding criterion recorded. The shorter answer won 23 of the 24 decisive ones
 and only 5 pairs are length-matched (4 won), so the read repeats the length confound and cannot separate it. The owner's notes: a tie is not "good"
 (item 15: both answers add unsupported information; item 22: both present an undecided decision as decided), and the preferred answer in items 10 and 25
-also breaks the greeting/question ban. Sets A to C were judged by this repo's AI assistant; the read adds a second AI view, not a human one.
+also breaks the greeting/question ban. Sets A to C were judged by this repo's AI assistant; set O adds a second AI view, not a human one.
 
 **Side checks, rule 3** (`results-local/heldout-checks/`, 200 answers per system, temperature 0.1; the temperature-0.7 answers give the same ordering):
 
@@ -219,7 +228,7 @@ IFEval and HumanEval are inside the noise (every paired interval contains 0). **
 point): `dpo-on-sft` is down 2.4 and 2.3 on Belebele EN and TR and 1.1 on TurBLiMP, `sft-only` 1.6 on Belebele TR. These differences are smaller than the
 Belebele sampling interval (about plus or minus 3 points at n=900), but the rule is not loosened here. The hint that the DPO arm loses a little more reading
 and grammar ability than the SFT-only arm is within noise and needs the second seed. Not run in this session: the diagnostic and the writing probe
-(not registered guards) and the owner's read (rule 6).
+(not registered guards).
 
 ## Conclusion
 
@@ -229,13 +238,11 @@ exp-021), and `dpo-on-sft` beats `sft-only` in 59.5% of decisive comparisons (Wi
 SFT on the repaired answers explains most of the gain; the preference term is not shown to add, at best a small edge** (61% on length-matched pairs, not
 enough against the threshold). The gain comes with a large shortening of the answers (mean words below half of exp-021's) that was not intended and
 that fails rule 3, and with Belebele and TurBLiMP changes that miss the 1-point limit for `dpo-on-sft` (inside noise). Neither arm replaces exp-021 as
-published. One seed, one AI judge, the owner's blind read (rule 6) open: no public claim before the second seed.
+published. One seed, one AI judge, the owner's blind read (rule 6) 19 to 11 for `dpo-on-sft` on 30 items: no public claim before the second seed.
 
 ## Next Step
 
-1. Rule 6 (owner's own human blind read of the 30 comparisons, `results-local/judging/owner-read/judge-sheet-O-batch-01.md`) is still not done: the read
-   that came back was declared an AI evaluation (23 of 24 decisive for `dpo-on-sft`, shorter answer winning 23 of 24) and is recorded as an additional
-   read only.
+1. Rule 6 is read (owner, 30 items, 19 to 11 for `dpo-on-sft`, see Results). The second seed that a pass requires before any public claim has not run.
 2. If the line goes on: a pair set that does not shorten (repairs chosen without the short-answer selection, or a length-controlled chosen and rejected
    pair as in exp-003's lessons) and a second seed; the SFT-only arm stays as the control.
 3. Later: publish the pairs on the Hugging Face Hub as a public dataset repo (owner's plan; wording of provenance decided then).

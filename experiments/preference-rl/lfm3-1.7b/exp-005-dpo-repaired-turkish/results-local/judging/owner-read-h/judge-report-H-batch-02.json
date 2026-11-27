@@ -1,0 +1,54 @@
+{
+ "set": "H",
+ "names": [
+  "dpo-on-sft",
+  "exp-021"
+ ],
+ "items_judged": 10,
+ "identical_by_code": 0,
+ "ties": 0,
+ "decisive": 10,
+ "wins": {
+  "dpo-on-sft": 5,
+  "exp-021": 5
+ },
+ "win_share_first": 0.5,
+ "wilson95": [
+  0.23658959361548731,
+  0.7634104063845126
+ ],
+ "passes_60_and_lower_above_50": false,
+ "by_group": {
+  "constraint": {
+   "dpo-on-sft": 4,
+   "exp-021": 1
+  },
+  "plain_source": {
+   "exp-021": 4,
+   "dpo-on-sft": 1
+  }
+ },
+ "by_deciding_criterion": {
+  "dpo-on-sft:None": 5,
+  "exp-021:None": 5
+ },
+ "position_share_A_among_decisive": 0.6,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 10,
+  "shorter_answer_wins": 5,
+  "shorter_wins_share": 0.5,
+  "length_matched_decisive": 4,
+  "length_matched_first_wins": 2,
+  "length_matched_win_share_first": 0.5,
+  "length_matched_wilson95": [
+   0.15003570882017148,
+   0.8499642911798285
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "a6de7b6fbb4264891435d0b37669c35f319379c4e9455040051fb8d473d0147d",
+ "judgment_files": [
+  "judge-H-batch-02.jsonl"
+ ]
+}
