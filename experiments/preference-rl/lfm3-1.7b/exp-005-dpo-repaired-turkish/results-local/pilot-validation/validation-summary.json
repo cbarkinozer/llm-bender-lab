@@ -1,0 +1,30 @@
+{
+ "packet": 300,
+ "answered": 300,
+ "missing": 0,
+ "verdicts": {
+  "larger": 61,
+  "rewrite_needed": 177,
+  "none": 5,
+  "minimal": 57
+ },
+ "usable": 103,
+ "usable_by_group": {
+  "constraint": 88,
+  "context": 7,
+  "plain_source": 8
+ },
+ "usable_by_verdict": {
+  "larger": 55,
+  "minimal": 48
+ },
+ "failed_checks": 15,
+ "retry_candidates": 94,
+ "fail_reasons": {
+  "unknown words": 11,
+  "does not end like a finished answer": 3,
+  "English words": 2
+ },
+ "median_length_ratio": 0.901,
+ "median_char_similarity": 0.657
+}

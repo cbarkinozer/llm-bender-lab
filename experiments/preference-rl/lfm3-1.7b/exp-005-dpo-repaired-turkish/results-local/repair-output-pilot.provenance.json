@@ -1,0 +1,27 @@
+{
+  "task": "exp-005 pilot repair, first pass",
+  "generator": "AI assistant, current conversation; exact model revision not exposed",
+  "model_family": "strong model",
+  "execution": "Repairs authored in the current assistant session; no external repair model, sub-agent, training, held-out repair, or detector validation run.",
+  "guide": "data/REPAIR-GUIDE.md",
+  "guide_sha256": "98494e06c529ffb473a0a6e5f0d011d00564e677d67242f55f2693ab16f0d760",
+  "input": "results-local/repair-input-pilot.jsonl",
+  "input_sha256": "cef907b158ec21a972c41180ff84d30ac328873f26a8d26983090ca46c80432b",
+  "output": "results-local/repair-output-pilot.jsonl",
+  "output_sha256": "0b11923422973efe671da563800c3024e96f991519ed9e3b9f93a093d86f0f93",
+  "items": 300,
+  "verdicts": {
+    "larger": 61,
+    "rewrite_needed": 177,
+    "none": 5,
+    "minimal": 57
+  },
+  "checks": [
+    "300 unique ids, exact input order and coverage",
+    "JSONL schema and empty chosen rules",
+    "every nonempty chosen inside supplied word range",
+    "countable constraints preflight; detector validation left to owner"
+  ],
+  "sampling_parameters": "Current interactive session; API sampling settings and exact model revision are not available.",
+  "date": "2026-11-26"
+}

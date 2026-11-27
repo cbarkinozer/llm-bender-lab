@@ -1,0 +1,95 @@
+{
+  "task": "Repair Turkish preference-learning answers, exp-005 rest packet part 1; individual review and minimal error-only edits",
+  "generator": {
+    "provider": "redacted",
+    "interface": "AI assistant in this conversation",
+    "model_family": "strong model",
+    "model_revision": null,
+    "revision_note": "Exact runtime model identifier and revision are not exposed; no external model API or delegated agents used."
+  },
+  "date_utc": "2026-11-26T12:17:05.723591+00:00",
+  "guide": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-GUIDE.md",
+    "sha256": "6c7c3681d9fe2c0b2bcb2d051d46e8ee8350de6ba56b92f5117fb69ca96adc69"
+  },
+  "input": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-input-rest-part1.jsonl",
+    "sha256": "6af61b7078933434682a8beedd937696da35d8b9672bd662c40ea24becb5011d"
+  },
+  "output": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-output-rest-part1.jsonl",
+    "sha256": "96f2bb17b28e86c5863b69dbdedc2433f610dbf38f14292bbabed574675cb39e"
+  },
+  "item_count": 284,
+  "verdict_counts": {
+    "larger": 96,
+    "rewrite_needed": 148,
+    "minimal": 39,
+    "none": 1
+  },
+  "checks": {
+    "valid_json_every_line": true,
+    "exact_schema": true,
+    "unique_ids_complete_and_in_input_order": true,
+    "chosen_empty_iff_none_or_rewrite_needed": true,
+    "changes_present_for_repairs": true,
+    "repaired_word_range_all_nonempty": true,
+    "supplied_code_constraints_all_nonempty": true,
+    "prompt_word_ranges_and_maximums": true,
+    "prompt_list_counts_where_list_requested": true,
+    "required_terms_spotlist": true,
+    "chosen_json_parse": true,
+    "finished_endings": true,
+    "constraint_normalization": "Repository tr_dpo_repair.normalized: decimal numbers and numeric list markers normalized before countable checks.",
+    "paragraph_items": "Prompt-only list check distinguishes three facts in a paragraph from three list bullets; supplied code constraints are always enforced.",
+    "semantic_review": "All 284 source prompts and original answers individually read; proposed repairs reviewed for source fidelity, targets, item counts and preservation of correct content.",
+    "lexical_detectors": "Not run; owner tooling performs lexical validation and retry after delivery.",
+    "training_run": false,
+    "git_commit_created": false,
+    "earlier_output_files_read": false
+  },
+  "check_script_sha256": "37254ed717d125334a46eb9d605092c368e020623f099a1b8219a9399cc2807e",
+  "hardest_review_rows": {
+    "count": 16,
+    "indices_zero_based": [
+      0,
+      12,
+      34,
+      35,
+      37,
+      41,
+      54,
+      60,
+      74,
+      77,
+      79,
+      101,
+      152,
+      160,
+      164,
+      264
+    ],
+    "ids": [
+      "dpo4-atlas-066487",
+      "dpo4-atlas-328525",
+      "dpo4-atlas-214689",
+      "dpo4-atlas-133665",
+      "dpo4-atlas-190019",
+      "dpo4-atlas-133153",
+      "dpo4-atlas-204864",
+      "dpo4-atlas-208693",
+      "dpo-c-trgen-0462",
+      "dpo4-atlas-043579",
+      "dpo4-atlas-178951",
+      "dpo4-atlas-114519",
+      "dpo4-atlas-013380",
+      "dpo4-atlas-334599",
+      "dpo4-atlas-162586",
+      "dpo4-atlas-303523"
+    ],
+    "reason": "Length-floor versus no-padding decisions, conflicting constraints, missing source fields, preserving targets under short upper bounds, verb-initial item counts, and source-grounded process steps.",
+    "measurement_note": "Qualitative high-attention review set, not instrumented per-row timing."
+  },
+  "scope": "Only part 1 output and provenance created under the experiment; all source inputs, guides, other parts and training settings left unchanged.",
+  "reproducibility_note": "Outputs manually authored by this assistant in conversation; sampling parameters unavailable; artifact hashes identify the exact delivered content."
+}

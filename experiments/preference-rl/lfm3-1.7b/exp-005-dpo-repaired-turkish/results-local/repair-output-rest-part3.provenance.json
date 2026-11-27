@@ -1,0 +1,162 @@
+{
+  "task": "Repair Turkish preference-learning answers, exp-005 rest packet part 3; error-only edits under the existing repair guide.",
+  "generator": {
+    "provider": "redacted",
+    "interface": "AI assistant in this conversation",
+    "model_family": "strong model",
+    "model_revision": null,
+    "revision_note": "Exact runtime revision is not exposed. No external model API or subagents used.",
+    "sampling_parameters": null
+  },
+  "date_utc": "2026-11-26T15:04:48.925153+00:00",
+  "guide": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-GUIDE.md",
+    "sha256": "6c7c3681d9fe2c0b2bcb2d051d46e8ee8350de6ba56b92f5117fb69ca96adc69"
+  },
+  "repair_prompt": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-PROMPT.md",
+    "sha256": "a235379bd468d600eea187661cd106673de980609ec835ca55790dac9fc1bd54"
+  },
+  "input": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-input-rest-part3.jsonl",
+    "sha256": "50040baaf37058ee92aa101c6cabc37c50ec5256fba255e9d52e0248ef5c8a59"
+  },
+  "output": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-output-rest-part3.jsonl",
+    "sha256": "d6bf1546c62db331de099ef056fad2da6c75ac349b54e218b0d8c3579dddc3e2"
+  },
+  "item_count": 284,
+  "verdict_counts": {
+    "larger": 110,
+    "rewrite_needed": 114,
+    "minimal": 56,
+    "none": 4
+  },
+  "checks": {
+    "valid_json_every_line": true,
+    "exact_output_schema": true,
+    "complete_unique_ids_in_input_order": true,
+    "chosen_empty_iff_none_or_rewrite_needed": true,
+    "changes_present_for_repairs": true,
+    "chosen_differs_from_original": true,
+    "all_repairs_inside_repaired_word_range": true,
+    "supplied_countable_code_constraints": true,
+    "prompt_word_ranges_and_maximums": true,
+    "prompt_list_counts_where_list_requested": true,
+    "additional_prompt_sentence_limits": true,
+    "required_terms_review_list": {
+      "8": [
+        "ana fikir",
+        "karar noktası"
+      ],
+      "33": [
+        "sonuç"
+      ],
+      "41": [
+        "risk",
+        "durum"
+      ],
+      "82": [
+        "karar noktası",
+        "temel öneri"
+      ],
+      "85": [
+        "kritik bulgu",
+        "karar noktası"
+      ],
+      "111": [
+        "sonuç",
+        "kritik bulgu"
+      ],
+      "126": [
+        "karar noktası",
+        "anahtar veri noktası"
+      ],
+      "193": [
+        "kritik bulgu"
+      ],
+      "202": [
+        "etki",
+        "sonraki_adım"
+      ],
+      "208": [
+        "sonraki_adim"
+      ],
+      "216": [
+        "sahip",
+        "oncelik"
+      ]
+    },
+    "chosen_json_parse": true,
+    "finished_endings": true,
+    "semantic_review": "All 284 input prompts and originals individually read, with source facts, target coverage, ungrounded claims, minimal preservation and countable restrictions reviewed.",
+    "lexical_detectors": "Not run; owner tooling performs lexical validation and the consolidated retry.",
+    "training_run": false,
+    "commit_created": false,
+    "earlier_output_files_read": false,
+    "guide_or_threshold_changed": false
+  },
+  "checks_implementation": {
+    "script_sha256": "cba950e76ab6707ce95147ff4eadea6194c7afbea36c19cf5a9ef11a943d197b",
+    "normalization": "Repository normalized function handles decimal punctuation and numbered-list markers for supplied count checks. Paragraph facts are distinguished from bullet lists for supplemental prompt checks."
+  },
+  "hardest_review_rows": {
+    "count": 18,
+    "indices_zero_based": [
+      2,
+      4,
+      11,
+      24,
+      29,
+      37,
+      38,
+      80,
+      90,
+      120,
+      130,
+      144,
+      155,
+      187,
+      226,
+      244,
+      252,
+      279
+    ],
+    "ids": [
+      "dpo4-atlas-239774",
+      "dpo4-atlas-331825",
+      "dpo-c-trgen-0146",
+      "dpo4-atlas-307604",
+      "dpo4-atlas-162791",
+      "dpo4-atlas-114399",
+      "dpo-c-trgen-0403",
+      "dpo4-atlas-032576",
+      "dpo4-atlas-133530",
+      "dpo4-atlas-130338",
+      "dpo4-atlas-006310",
+      "dpo4-atlas-267563",
+      "dpo4-atlas-196446",
+      "dpo4-atlas-083847",
+      "dpo4-atlas-162181",
+      "dpo4-atlas-227175",
+      "dpo4-atlas-240839",
+      "dpo4-atlas-019125"
+    ],
+    "reason": "Source fidelity and target coverage in tight word ranges; source-only chronology; JSON formatting; prompt/code contradictions; exact causes, recommendations and facts.",
+    "measurement_note": "Qualitative high-attention selection, not instrumented per-row timing."
+  },
+  "constraint_conflict_indices_zero_based": [
+    24,
+    29,
+    32,
+    40,
+    92,
+    149,
+    236,
+    244,
+    262,
+    279
+  ],
+  "scope": "Only part 3 output and provenance created in the experiment. Source, guides, repository code, other part outputs and training settings unchanged.",
+  "reproducibility_note": "Repairs manually authored by this assistant. Generation parameters and exact revision unavailable; preserved artifacts and hashes identify the deliverable."
+}

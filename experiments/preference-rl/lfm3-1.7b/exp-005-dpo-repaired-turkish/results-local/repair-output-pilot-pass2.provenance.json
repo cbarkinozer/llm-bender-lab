@@ -1,0 +1,41 @@
+{
+  "task": "exp-005 pilot repair, second pass",
+  "generator": "AI assistant, current conversation; exact model revision not exposed",
+  "model_family": "strong model",
+  "execution": "Repairs authored in the current assistant session; no external repair model, sub-agent, training, held-out repair, or full detector validation run.",
+  "guide": "data/REPAIR-GUIDE.md",
+  "guide_sha256": "06df47823693daccf75c8f56e84635267ab6ff50379bc57c12c0ae88f981714f",
+  "input": "results-local/repair-input-pilot-pass2.jsonl",
+  "input_sha256": "dfb1eff5957e43687ee0972e29672cbafb522129597131d6e8431d60a0647cb8",
+  "output": "results-local/repair-output-pilot-pass2.jsonl",
+  "output_sha256": "96304cedf9e5df2ebc79f026b2a15100e622357622feab68c5a5a15df70e29ff",
+  "items": 94,
+  "verdicts": {
+    "larger": 39,
+    "rewrite_needed": 42,
+    "minimal": 13
+  },
+  "checks": [
+    "94 unique ids, exact input order and coverage",
+    "JSONL schema and verdict rules",
+    "nonempty repairs satisfy supplied word ranges and countable constraints",
+    "JSON payloads parsed; all objects valid",
+    "full detector validation left to owner"
+  ],
+  "unresolved_checker_issues": [
+    {
+      "id": "dpo4-atlas-149316",
+      "issue": "Reported ending failure is a false positive for a valid JSON object closing with }. Required JSON syntax preserved."
+    },
+    {
+      "id": "dpo4-atlas-103480",
+      "issue": "Reported ending failure is a false positive for a valid JSON object closing with }. Required JSON syntax preserved."
+    },
+    {
+      "id": "dpo4-atlas-209485",
+      "issue": "Reported ending failure is a false positive for a valid JSON object closing with }. Required JSON syntax preserved."
+    }
+  ],
+  "sampling_parameters": "Current interactive session; API sampling settings and exact model revision unavailable.",
+  "date": "2026-11-26"
+}

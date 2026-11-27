@@ -1,0 +1,542 @@
+[
+  {
+    "id": "dpo4-atlas-314158",
+    "fields": {
+      "changes": "dpo4-atlas-314158\nverdict: larger, group: plain_source, chosen/rejected words: 0.78\n- Yazım hataları düzeltildi; eksik başarı oranı eklendi; teslimatın kısaldığı ve gecikmelerin azaltıldığı iddiaları kaynakla değiştirildi.",
+      "prompt": "Aşağıdaki pasaja dayanarak soruyu yanıtla. Pasajda olmayan bilgi ekleme.\n\nPasaj: Kargo performans analizinde, teslimat süresi ortalama 3 gün olarak hedeflendi ve %95 başarı sağlandı. Gecikmeler yağışlı havalardan kaynaklandı. Müşteri şikayetleri %8 azaldı. Self-servis takip kullanımı arttı. Bu sayede memnuniyet yükseldi.\n\nSoru: Kargo performansından memnuniyet artışı için ne çıkarım yapılabilir?",
+      "chosen": "- Teslimat süresi ortalama 3 gün olarak hedeflendi ve %95 başarı sağlandı.\n- Gecikmeler yağışlı havalardan kaynaklandı.\n- Müşteri şikayetleri %8 azaldı.\n- Self-servis takip kullanımı artarken memnuniyet yükseldi.\nBu nedenle pasaj, memnuniyet artışını self-servis takip kullanımının artmasıyla ilişkilendiriyor.",
+      "rejected": "- Teslimat süresi ortalama 3 gün olarak hedeflenildi.\n- Gecikliler yağışlı hava durumundan kaynaklandı.\n- Müşteri şikayetleri %8 azaldu.\n- Self-servis takip kullanımı artarken memnuniyet yükseldi.  \n\nBu nedenle, teslimat süresinin kısalması, hava koşullarının olumsuz etkisi nedeniyle gecikmenin azaltılması, veya müşteri şikayeti azaltma girişimiyle kargo performansının artması, memnuniyet artışını ortaya çıkarır."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "plain_source"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "9bb22e7b-013a-43c5-9cc7-b58a25f0077e"
+  },
+  {
+    "id": "dpo-c-trgen-0053",
+    "fields": {
+      "changes": "dpo-c-trgen-0053\nverdict: larger, group: constraint, chosen/rejected words: 0.513\n- Yanlış avantaj sınıflandırması düzeltildi; kaynaksız teminat sınırı, yakınlık ve sonuç iddiaları çıkarıldı; iki avantaj ve iki dezavantaj korundu.",
+      "prompt": "Sigorta poliçe değerlendirmesine dair verileri resmi ama samimi bir tonda, en fazla 120 kelime olacak şekilde teknik bir e-posta olarak düzenle. Tam olarak 2 avantaj ve 2 dezavantaj içermeli, tekrarlı ifade kullanmamalısın. Veriler: Kapsamlı teminat, düşük prim, yüksek muafiyet, dar servis ağı.",
+      "chosen": "Sayın Müşterimiz,\n\nSigorta poliçesine ilişkin değerlendirmede aşağıdaki avantaj ve dezavantajlar yer almaktadır.\n\n**Avantajlar:**\n- Poliçe kapsamlı teminat sunmaktadır.\n- Poliçenin prim tutarı düşüktür.\n\n**Dezavantajlar:**\n- Poliçede uygulanan muafiyet yüksektir.\n- Poliçenin servis ağı dardır.\n\nBilgilerinize sunar, iyi çalışmalar dileriz.",
+      "rejected": "Sayın Müşterimiz,\n\nKapsamlı teminat, düşük prim, yüksek muafiyet ve dar servis ağı gibi özellikleriyle sigorta poliçemizde değerlendirilmiştir.\n\n**Avantajlar:**\n- Temel risklerinizi daha iyi kontrol edebilirsiniz.\n- Prim maliyeti düşük olduğundan tasarruf sağlayabilirsiniz.\n- Muafiyet oranınız artmıştır; bu da sizin için daha güvenli bir durum demektir.\n- Servis ağına yakın olması, sorunların hızlı çözümünü sağlar.\n\n**Dezavantajlar:**\n- Bazı özel durumlarda teminatın sınırlı kalması olabilir.\n- Dar servis ağı, bazı bölgelerde zaman kaybına yol açabilir.\n\nİyi çalışmalar dileriz."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "3630db9f-851a-4233-8abd-b206eaa10ea3"
+  },
+  {
+    "id": "dpo4-atlas-055944",
+    "fields": {
+      "changes": "dpo4-atlas-055944\nverdict: larger, group: context, chosen/rejected words: 0.727\n- Hata oranı yönü düzeltildi; overhead yerine downtime azaltımı ayrıldı; bozuk Türkçe, kaynaksız yorum ve tekrarlayan özet çıkarıldı.",
+      "prompt": "Aşağıdaki pasaja dayanarak soruyu yanıtla. Pasajda olmayan bilgi ekleme.\n\nPasaj: Performans benchmark raporunda, monolitik mimariden mikroservis mimarisine geçiş planlandı. Mevcut sistemde API response süresi 500ms iken, mikroservislerde 150ms'ye düştü. Bunun nedeni, servislerin bağımsız ölçeklenebilir olmasıydı. Migration planında, önce user service ayrıldı, ardından payment service. Testlerde latency azaldı ama network overhead arttı. Deployment sırasında downtime minimize edildi. SRE metrikleri iyileşti: error rate %0.5'ten %0.1'e indi. Kapasite planlamasında CPU kullanımı optimize edildi. Incident postmortem'lerde failover mekanizmaları eklendi. Bulut maliyetleri %20 azaldı. Container orkestrasyonu Kubernetes ile sağlandı. Monitoring ile anomaly detection aktif hale getirildi. Sonuçta sistem resiliency arttı.\n\nSoru: Monolitik mimariden mikroservis mimarisine geçişin neden-sonuç ilişkileri nelerdir?",
+      "chosen": "Monolitik mimariden mikroservis mimarisine geçişin neden ve sonuçları şöyle açıklanabilir:\n\n**Neden:**\n- **Performans optimizasyonu:** API response süresi mevcut sistemde 500ms iken mikroservis mimarisinde 150ms'ye düştü. Bu düşüş, servislerin bağımsız ölçeklenebilmesiyle gerçekleşti.\n\n**Sonuç:**\n- **Latency azalması ve overhead artışı:** Testlerde latency azaldı ama network overhead arttı; deployment sırasında downtime minimize edildi.\n- **Metrikler iyileşti:** SRE metriklerinde error rate %0.5'ten %0.1'e indi.\n- **Kapasite planlaması:** CPU kullanımı optimize edildi.\n- **Dayanıklılığın artırılması:** Incident postmortem'lerde failover mekanizmaları eklendi ve sistem resiliency arttı.\n- **Maliyet azaltma:** Bulut maliyetleri %20 azaldı.\n- **Orkestrasyon ve monitoring:** Kubernetes ile container orkestrasyonu sağlandı; monitoring ile anomaly detection aktif hale getirildi.",
+      "rejected": "Monolitik mimariden mikroservis mimarisine geçişin neden ve sonuçları şöyle açıklayabilir:\n\n**Neden:**  \n- **Performans optimizasyonu:** Mevcut sistemi (monolitik)de API response süresi 500ms, mikroservis mimarisinde 150ms’e düştü. Bu düşüş, servislerin bağımsız ölçeklenebilmesiyle gerçekleştirildi. Böylece her servisin performansını ayrı ayrı kontrol edip, gereksinimlerine göre ölçülmesini sağladı.  \n\n**Sonuç:**  \n- **Latency azalma ve overhead artışı:** Testlerde latency azalırken, network overhead artarken, deployment sırasında bu artış minimized edildi.  \n- **Metrikler iyileşti:** SRE metrikleri error rate %0.5'dan %0.1'e yükseldi.  \n- **Kapasite planlaması:** CPU kullanımının optimize edilmesi ile sistem daha verimli çalıştı.  \n- **Resiliyeti artırma:** Incident postmortem'lerde failover mekanizmaları eklendi.  \n- **Maliyet azaltma:** Bulut maliyetleri %20 azaldı.  \n- **Orkestrasyon ve monitoring:** Kubernetes ile container orkestrasyonu sağlandı; anomaly detection aktif hale getirildi.  \n\n**Özetle:** Monolitik mimarinin tek bir yapıya bağlı olarak performans sınırlamaları, mikroservis mimarisinin bağımsız ölçeklenebilirlik sayesinde bu sorunları çözerek, sistemdeki latency, resource kullanımı, maliyet ve resiliyeti birlikte iyileşti."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "context"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "48f5c469-43f6-42ba-9c53-3dd7fab96d8b"
+  },
+  {
+    "id": "dpo4-atlas-260637",
+    "fields": {
+      "changes": "dpo4-atlas-260637\nverdict: minimal, group: constraint, chosen/rejected words: 1.05\n- Soru-cevap biçimi eklendi; bozuk mimari ve mikroservis ifadeleri düzeltildi.",
+      "prompt": "Aşağıdaki performans testi verilerini resmi ama samimi bir tonla, kısa bir soru-cevap (qa_short) şeklinde hazırla. En fazla 150 kelime kullan. Tam olarak 1 sonuç ve 1 öneri içersin. Tekrarlı ifadelerden kaçın.\n\nVeri:\n- Test: Yük testi altında sistem 500ms gecikme gösterdi.\n- Sonuç: Mevcut mimari yüksek trafiği kaldıramıyor.\n- Öneri: Mikroservis yapısına geçiş planlanmalı.",
+      "chosen": "Soru: Yük testi sonucu ve öneri nedir?\nCevap: 500ms gecikme görüldü; mevcut mimari yüksek trafiği kaldıramıyor. Öneri: Mikroservis yapısına geçiş planlanmalı.",
+      "rejected": "Yük testi sırasında 500ms gecikme görüldü. Bu, mevcut mimarinin yüksek trafikle yetersiz kalması anlamına geliyor.  \n**Öneri:** Mikroservis yapıya geçiş planlayın."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "2d4aa13c-43d7-4b43-8cda-4abe9232319e"
+  },
+  {
+    "id": "dpo4-atlas-285778",
+    "fields": {
+      "changes": "dpo4-atlas-285778\nverdict: minimal, group: constraint, chosen/rejected words: 0.857\n- Durum açıkça belirtildi; yanlış ekler ve koşullu, verisiz sonuç düzeltildi.",
+      "prompt": "Araştırmacı kimliğinle, aşağıdaki sürdürülebilir yaşam verilerini 'durum' belirterek tek bir cümle ile özetle. Fazla açıklama yapma.\n\nVeri:\n- Plastik kullanımı: Azaltıldı.\n- Enerji tüketimi: Optimize edildi.\n- Atık yönetimi: Kompost sistemine geçildi.",
+      "chosen": "Durum: Plastik kullanımı azaltıldı, enerji tüketimi optimize edildi ve atık yönetiminde kompost sistemine geçilerek sürdürülebilir yaşam adımları uygulandı.",
+      "rejected": "Plastik kullanımının azalması, enerji tüketiminin optimize edilmesi ve atık yönetimin kompost sistemine geçilmesiyle birlikte çevreye daha sürdürülebilir bir yaşam sağlanmış olurdu."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "117d8d25-aa34-4500-90b4-cf62d33bffb0"
+  },
+  {
+    "id": "dpo4-atlas-008041",
+    "fields": {
+      "changes": "dpo4-atlas-008041\nverdict: larger, group: constraint, chosen/rejected words: 0.909\n- Bozuk sözcükler düzeltildi; nedenleri tekrarlayan üçüncü madde çıkarılıp çözüm üçüncü maddeye taşındı.",
+      "prompt": "Bir yönetici olarak, kitap okuma alışkanlığının sürdürülememesi nedenlerini resmi bir tonda, en fazla 80 kelimelik 3 maddelik bir liste olarak düzenle. Tam olarak 2 neden ve 1 çözüm içermeli. Eylem odaklı bir kapanışla bitir. Pasif-agresif ton kullanma. Veri: Nedenler: Yoğun iş takvimi ve dijital bildirimlerin yarattığı dikkat dağınıklığı. Çözüm: Günlük 15 dakikalık kesintisiz okuma blokları.",
+      "chosen": "- Yoğun iş takvimi, kitap okuma alışkanlığının sürdürülmesini engelleyen ilk nedendir.\n- Dijital bildirimlerin yarattığı dikkat dağınıklığı ikinci nedendir.\n- Çözüm olarak her gün 15 dakikalık kesintisiz okuma blokları uygulayın.",
+      "rejected": "- İşte yoğun bir takvım var; bu zamanı tutunmaya zorluyor.\n- Dijital bildiriyetlerle beraber dikkatimi dağıtılmaya başlar.\n- Bu iki etki okumayı sürdürmemde engeller.\n\n**Çözüm:** Her gün 15 dakikalık kesintisiz okuma blokları yapın."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "552e8040-46f1-46e1-9e78-b9109d1c528f"
+  },
+  {
+    "id": "dpo4-atlas-106275",
+    "fields": {
+      "changes": "dpo4-atlas-106275\nverdict: larger, group: constraint, chosen/rejected words: 0.742\n- Soru cümlesi konu başlığına çevrildi; yanlış/bozuk aksiyonlar kaynakla düzeltildi ve kronolojik tek özet/iki aksiyon sağlandı.",
+      "prompt": "Müşteri temsilcisi bakış açısıyla, şu eskalasyon verilerini nesnel ve ölçülü bir tonla, en fazla 100 kelime kullanarak kısa bir soru-cevap formatına (qa_short) dönüştür. İçerik tam olarak 1 özet ve 2 aksiyon içermeli, kronolojik sırada yazılmalı ve asla soru cümlesi kullanılmamalıdır.\n\nVeri: Müşteri iade gecikmesi için 10:00'da aradı. 10:15'te ödeme sistemindeki teknik hata saptandı. Finans departmanına acil kodlu talep iletildi. Müşteriye 24 saat içinde iadenin tamamlanacağı bilgisi verildi.",
+      "chosen": "Soru: İade gecikmesi eskalasyon özeti\nCevap: Özet: Müşteri, iade gecikmesi için 10:00'da aradı; 10:15'te ödeme sistemindeki teknik hata saptandı.\nAksiyon 1: Ardından finans departmanına acil kodlu talep iletildi.\nAksiyon 2: Müşteriye iadenin 24 saat içinde tamamlanacağı bilgisi verildi; bu bildirim, iadenin tamamlandığı anlamına gelmemektedir.",
+      "rejected": "Soru: Nesnelce nelere dikkat edilmelidir?\nCevap: Müşteri iade gecikmesi için 10:00'da başvuruldu; 10:15'te ödeme sisteminin teknik hatasında bulunurken finans departmanına acil kodlu talep gönderildi; müşteriye 24 saat içinde iadenin tamamlanması söz konusu oldu.\nAksiyonlar: İadesine başvuran kişi belirtilen zaman diliminde müşterinin talebine ulaştı; teknik sorunun farküretilmesine ve finans departmanının akıl vermesine karar verildi; müşteride iadenin tamamlanma süresinin açıklanmasına izin verildi."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "ebce80fd-63a5-4905-960a-aaaf1fd60556"
+  },
+  {
+    "id": "dpo4-atlas-153346",
+    "fields": {
+      "changes": "dpo4-atlas-153346\nverdict: larger, group: constraint, chosen/rejected words: 1.0\n- Karar noktası ulaşım tercihi olarak düzeltildi; eksik soru-cevap biçimi eklendi.",
+      "prompt": "Aşağıdaki şehir rehberi özetini genel okuyucuya yönelik, en fazla 3 cümle ile, karar noktası belirterek Soru-Cevap formatında sun. Detay fazlalığından ve kişisel yorumdan kaçın.\n\nMetin: İstanbul'un tarihi yarımadası, son dönemde yapılan düzenlemelerle yayalaştırılmış alanlarını genişletti. Özellikle Sultanahmet ve çevresindeki otel ve restoranlar, turist trafiğini yönetmek için yeni bir dijital rezervasyon sistemi kurdu. Şehir yönetimi, bu bölgeye özel araç girişini tamamen yasaklayarak toplu taşıma kullanımını teşvik etmeyi amaçlıyor. Ziyaretçilerin bölgeye ulaşım sağlamak için tramvay hattını tercih etmeleri, trafik yoğunluğunu azaltmak adına en etkili yöntem olarak belirlenmiştir.\n\nS: Şehir rehberindeki temel karar noktası nedir?\nC:",
+      "chosen": "S: Şehir rehberindeki temel karar noktası nedir?\nC: Özel araç girişinin yasaklandığı tarihi yarımadaya ulaşımda trafik yoğunluğunu azaltmak için tramvay hattının tercih edilmesidir.",
+      "rejected": "Şehir rehberinde temel karar noktası, Sultanahmet ve çevresinin otel/restoranların dijital rezervasyon sisteminin oluşturulması ve toplu taşıma kullanımı için tramvay hattının tercih edilmesi."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "139e5b85-3ef3-4a96-88b9-536ae45b7973"
+  },
+  {
+    "id": "dpo4-atlas-000215",
+    "fields": {
+      "changes": "dpo4-atlas-000215\nverdict: minimal, group: constraint, chosen/rejected words: 0.852\n- Toprak analizinin sızıntıyı önlediği yanlış bağ kaldırıldı; ek su akışı kontrolü çıkarıldı ve iki risk/iki aksiyon korundu.",
+      "prompt": "Bir bahçe planı projesini yürüten bir geliştirici olarak, aşağıdaki notları resmi bir tonda, en fazla 80 kelimelik düz bir paragraf olarak özetle. Tam olarak 2 risk ve 2 aksiyon içermeli. Soru cümlesi kullanma.\n\nNotlar:\n- Riskler: Toprak pH değerinin dengesizliği, sulama sistemindeki sızıntı ihtimali.\n- Aksiyonlar: Toprak analizi yaptırılması, damlama sulama borularının test edilmesi.",
+      "chosen": "Toprak pH değerinin dengesizliği ve sulama sistemindeki sızıntı ihtimali iki risktir. Bu riskler için toprak analizi yaptırılmalı ve damlama sulama boruları test edilmelidir.",
+      "rejected": "Toprak pH değerlerinin dengesizliği ve sulamada sızıntı riskinin önlenmesi için toprak analizi yapılmalıdır. Damlama sulama borularını test etmek ve su akışını kontrol etmek için gerekli incelemede bulunulmalıdır."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "a04544dd-f534-419c-91ad-7763b88a1e48"
+  },
+  {
+    "id": "dpo4-atlas-304635",
+    "fields": {
+      "changes": "dpo4-atlas-304635\nverdict: minimal, group: constraint, chosen/rejected words: 0.952\n- Kod kontrolünün işaretlediği miksajda ifadesi kaynaktaki miksaj süreci ifadesiyle değiştirildi.",
+      "prompt": "Araştırmacı olarak, aşağıdaki müzik albümü incelemesini teknik ekibe yönelik 3 maddelik bir özet haline getir. Ana fikri ve kritik bulguyu vurgula, 80 kelimeyi geçme, tekrardan ve yeni bilgiden kaçın.\n\nRapor:\n'Dijital Yankılar' adlı yeni albüm, 48 kHz/24-bit kayıt kalitesi ile teknik açıdan kusursuz bir ses mühendisliği örneği sunuyor. Albümdeki enstrümantal katmanların frekans analizi, 200 Hz ile 500 Hz arasındaki bölgede yoğun bir denge olduğunu gösteriyor. Ancak, bazı parçalarda kullanılan sentetik efektlerin, vokal netliğini %15 oranında maskelediği gözlemlenmiştir. Müzikal açıdan türler arası geçişler başarılı olsa da, miksaj sürecindeki bu frekans çakışması, teknik ekibin bir sonraki projede daha dinamik bir EQ (ekolayzır) stratejisi izlemesi gerektiğini ortaya koymaktadır.\n\nÖzet:",
+      "chosen": "**Dijital Yankılar – Teknik Ekip Özeti**\n\n1. **Ses kalitesinin üstünlüğü:** Albüm 48 kHz/24-bit kaydıyla mükemmel bir ses mühendisliği sunuyor; frekans analizinde 200–500 Hz arasında yoğun bir denge var.\n2. **Sentetik efektlerin vokal netliğini %15 maskelemesi:** Bu etki bazı parçalarda gözlemlenmiştir.\n3. **Miksaj sürecindeki frekans çakışması:** Teknik ekibin bir sonraki projede daha dinamik bir EQ (ekolayzır) yaklaşımı izlemesi gerekir.",
+      "rejected": "**Dijital Yankılar – Teknik Ekip Özeti**\n\n1. **Ses kalitesinin üstünlüğü:** Albüm 48 kHz/24‑bit kaydıyla mükemmel bir mühendislik sunuldu; frekans analizinde 200–500 Hz arasında yoğun bir denge var.  \n2. **Sentetik efektlerin vokal netliğini %15 azaltması:** Bazı parçaların sentetik efektleri, vokalın netliğini belirgin bir oranda maskeledir.  \n3. **Miksajda frekans çakışması:** EKİ’nin bir sonraki projeye daha dinamik bir EQ (ekolayzır) yaklaşımı izlemesi gerekir."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "dce0fc09-0dec-4502-b14d-8cf20d99ff3c"
+  },
+  {
+    "id": "dpo4-atlas-141462",
+    "fields": {
+      "changes": "dpo4-atlas-141462\nverdict: minimal, group: constraint, chosen/rejected words: 0.828\n- Riskler aksiyon olmaktan çıkarıldı; bozuk ekler düzeltildi ve e-posta biçimi sağlandı.",
+      "prompt": "Kamp planı hakkında resmi bir tonda e-posta yaz. En fazla 60 kelime olmalı, tam olarak 2 risk ve 2 aksiyon içermelidir.\n\nVeriler:\n- Riskler: Fırtına, ekipman hasarı.\n- Aksiyonlar: Yedek tente alımı, kontrol listesi takibi.",
+      "chosen": "Konu: Kamp Planı\nSayın İlgili,\nRiskler:\n- Fırtına.\n- Ekipman hasarı.\nAksiyonlar:\n- Yedek tente alımı yapılacaktır.\n- Kontrol listesi düzenli takip edilecektir.\nSaygılarımla.",
+      "rejected": "Kamp Planı\n\nRiskler:\n- Fırtınaya karşı güvenlik önlemleri alınır.\n- Ekipman hasarının durumunu kontrol edilir.\n\nAksiyonlar:\n- Yedek tente alımında gerekli işlemler tamamlanır.\n- Kontrol listesini düzenli takip edilir."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "0d4752d1-9e4c-467d-8654-e405faf5f79e"
+  },
+  {
+    "id": "dpo4-atlas-035677",
+    "fields": {
+      "changes": "dpo4-atlas-035677\nverdict: larger, group: constraint, chosen/rejected words: 0.729\n- Bozuk tespit cümlesi onarıldı; soru bankasını düzeltme yerine karıştırarak sunma yazıldı; iki sınav ve verisiz yorum çıkarıldı.",
+      "prompt": "Sınav analiz raporu verilerini samimi bir tonda düz paragraf olarak hazırla. En fazla 150 kelime olsun. Tam olarak 1 özet ve 2 aksiyon içermeli. Veriler: Dönem sonu online sınavında sistem logları incelendi. Özet: Öğrencilerin %5'inin sınav sırasında farklı sekmeler açtığı tespit edildi. Aksiyonlar: Bir sonraki sınavda güvenli tarayıcı moduna geçilmeli ve soru bankası karıştırılarak sunulmalı.",
+      "chosen": "Dönem sonu çevrim içi sınavında sistem loglarından elde edilen verilerin değerlendirilmesi sonucunda, öğrencilerin %5'inin sınav sırasında farklı sekmeler açtığı tespit edildi. Bu bulgu doğrultusunda bir sonraki sınavda güvenli tarayıcı moduna geçmeli ve soru bankasındaki soruları öğrencilere karıştırılmış olarak sunmak için gerekli düzenlemeyi yapmalıyız.",
+      "rejected": "Bir önceki sınavda sistem loglarından elde edilen verilerin değerlendirme sonucunda, öğrencilerin %5'inin sınav sırasında farklı sekmelere giriş yaptığını tespit edildim. Bu durum, sınav süresince gelen soruların doğru kullanımının etkili olmadığını gösteriyor. Bir sonraki sınavda güvenli tarayıcı moduna geçmek ve soru bankasının arka planında oluşturulan karışıklıkların düzeltilmesi için gerekli önlemleri almalıyız. Bu değişiklik her iki sınavda da uygulanacak şekilde düzenlenmelidir."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "02ebab81-df02-4b01-b96b-0b4c286729a2"
+  },
+  {
+    "id": "dpo4-atlas-257654",
+    "fields": {
+      "changes": "dpo4-atlas-257654\nverdict: larger, group: constraint, chosen/rejected words: 0.571\n- Kaynak dışı entegrasyon ve geri bildirim açıklamaları çıkarıldı; üç durum maddesi e-posta biçiminde korunup eylem odaklı kapanış eklendi.",
+      "prompt": "Proje durum raporu verilerini resmi bir tonla, en fazla 80 kelimelik bir e-posta formatında yaz. Tam olarak 3 madde içersin. Eylem odaklı bir kapanış cümlesiyle bitir. Tekrarlı ifade kullanma. Veriler: Arayüz tasarımları onaylandı, backend geliştirme süreci %60 seviyesinde, kullanıcı kabul testleri önümüzdeki hafta başlayacak.",
+      "chosen": "Konu: Proje Durum Raporu\n\nSayın İlgili,\n\n- Arayüz tasarımları onaylanmıştır.\n- Backend geliştirme süreci %60 seviyesinde devam etmektedir.\n- Kullanıcı kabul testleri önümüzdeki hafta başlayacaktır.\n\nBelirtilen proje planı doğrultusunda gereğini rica ederim.",
+      "rejected": "Arayüz tasarımları onaylanmıştır. Backend geliştirme süreci %60’lik seviyede devam etmektedir. Kullanıcı kabul testleri önümüzdeki hafta başlayacaktır.\n\nBu adım, yeni özelliklerini veri tabanlı bir dille sunmayı ve geri bildirimlerin beklenmesini sağlar. Onaylanan tasarımlar ile birlikte geliştirilen yazılım, kullanıcının ihtiyaçlarını doğrudan etkileyecek şekilde planlanmaktadır. Bu süreçte en önemlisi, işletim sistemine entegrasyon noktalarını belirlemek ve test aşamasını hazırlamak olacaktır."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "4580fb40-0fe3-4f93-9923-7aab314260aa"
+  },
+  {
+    "id": "dpo4-atlas-222779",
+    "fields": {
+      "changes": "dpo4-atlas-222779\nverdict: larger, group: constraint, chosen/rejected words: 0.614\n- Yetersizlik, yükseklik ve tedbir iddiaları çıkarıldı; değerler kaynak yazımıyla korundu ve durum tek cümlede belirtildi.",
+      "prompt": "Bir biyomedikal mühendisi olarak, aşağıdaki laboratuvar sonuçlarını 'durum' bilgisini içerecek şekilde tek bir cümlede özetle. Emoji kullanma.\n\nVeri: Glikoz 110 mg/dL, Hemoglobin 13 g/dL, WBC 8000/uL, Trombosit 250k/uL. Hepsi referans aralık dahilinde.",
+      "chosen": "Laboratuvar sonuçlarında glikoz seviyesi 110 mg/dL, hemoglobin 13 g/dL, WBC 8000/uL ve trombosit sayısı 250k/uL olup durum, tüm ölçümlerin referans aralık dahilinde bulunmasıdır.",
+      "rejected": "Ürünün glikoz seviyesinin normal aralığı içerisindeki 110 mg/dL, hemoglobine (13 g/dL) ve WBC (8.000/µL) değerlerinin yetersizliği ve trombosit sayısının yüksek olan 250 k/µL, tüm ölçülerin refüans sınırı dahilinde bulunması anlamı taşımaktadır; bu konularda takip ve gerekli tedbirlerin alınmasını gerektirir."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "f32518d5-0228-40b5-b48a-f81568121126"
+  },
+  {
+    "id": "dpo4-atlas-149316",
+    "fields": {
+      "changes": "dpo4-atlas-149316\nverdict: larger, group: constraint, chosen/rejected words: 0.828\n- Önceki onarımın geçerli JSON nesnesi korundu. Bildirilen bitiş hatası içerik hatası değil: nesne kapanış ayracı } geçerli ve zorunludur; sonuna noktalama eklemek JSON'u bozar.",
+      "prompt": "Asagidaki deployment checklist verilerini JSON formatinda ver. 'Durum' ve 'oncelik' alanlarini mutlaka ekle. Uydurma kaynak kullanma.\n\nVeri: [Docker imaj hazir, Tamamlandi, Yuksek], [K8s konfigürasyon, Beklemede, Orta], [Database migration, Devam ediyor, Yuksek].",
+      "chosen": "{\n  \"deployment_checklist\": [\n    {\n      \"item\": \"Docker imaj hazır\",\n      \"Durum\": \"Tamamlandı\",\n      \"oncelik\": \"Yüksek\"\n    },\n    {\n      \"item\": \"K8s konfigürasyon\",\n      \"Durum\": \"Beklemede\",\n      \"oncelik\": \"Orta\"\n    },\n    {\n      \"item\": \"Database migration\",\n      \"Durum\": \"Devam ediyor\",\n      \"oncelik\": \"Yüksek\"\n    }\n  ]\n}",
+      "rejected": "{\n  \"deployment_checklist\": [\n    {\n      \"item\": \"Docker image hazır\",\n      \"status\": \"Yapılmış\",\n      \"completion\": true\n    },\n    {\n      \"item\": \"K8s konfigürasyon\",\n      \"status\": \"Beklemeye alındı\",\n      \"completion\": false,\n      \"notes\": \"Orta\"\n    },\n    {\n      \"item\": \"Database migration\",\n      \"status\": \"Devam ediyor\",\n      \"completion\": true,\n      \"notes\": \"Yuksek\"\n    }\n  ]\n}"
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "7d8ab8b7-1920-4563-b0ca-0d1068cb8a42"
+  },
+  {
+    "id": "dpo4-atlas-283301",
+    "fields": {
+      "changes": "dpo4-atlas-283301\nverdict: larger, group: plain_source, chosen/rejected words: 0.6\n- Görev dışı kaynak ve selamlama talebi çıkarıldı; tablo korundu, durum başlığı istenen yazıma getirildi.",
+      "prompt": "Aşağıdaki çağrı merkezi performans verilerini Markdown tablosu olarak sun. 'durum' sütununu mutlaka ekle. Uydurma kaynak ve selamlama kullanma.\n\nVeri: Temsilci A, Çözüm: 85%, Durum: Başarılı. Temsilci B, Çözüm: 60%, Durum: Eğitimde. Temsilci C, Çözüm: 45%, Durum: Uyarıldı.",
+      "chosen": "| Temsilci | Çözüm | durum |\n|----------|-------|-------|\n| A | 85% | Başarılı |\n| B | 60% | Eğitimde |\n| C | 45% | Uyarıldı |",
+      "rejected": "| Temsilci | Çözüm | Durum |\n|----------|-------|-------|\n| A        | 85%   | Başarılı |\n| B        | 60%   | Eğitimde |\n| C        | 45%   | Uyarıldı |\n\n**Not:** Verilerin kaynakları ve selamlamaların oluşturulması için gerekli bilgileri sağlayınız."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "plain_source"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "d8106fc6-fd3e-420c-8f1a-6f8117a01013"
+  },
+  {
+    "id": "dpo4-atlas-094364",
+    "fields": {
+      "changes": "dpo4-atlas-094364\nverdict: minimal, group: constraint, chosen/rejected words: 0.944\n- Silence ve kapatılamış düzeltildi; iki tarih ve durum tek cümlede korundu.",
+      "prompt": "Bir geliştirici olarak, aşağıdaki dijital detoks verilerini 'durum' ve 'tarih' içerecek şekilde tek bir cümle ile yaz. Uydurma kaynak kullanma.\n\nVeri:\n- 01.06.2024: Sosyal medya uygulamaları silindi.\n- 05.06.2024: E-posta bildirimleri kapatıldı.",
+      "chosen": "Durum: Sosyal medya uygulamaları 01.06.2024 tarihinde silindi ve e-posta bildirimleri 05.06.2024 tarihinde kapatıldı.",
+      "rejected": "Sosyal medya uygulamalarının 01.06.2024 tarihinden silence edilmesiyle birlikte, e-posta bildirimlerinin 05.06.2024 itibariyle kapatılamış bulunmuştur."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "979c76f5-a6ff-46e4-8ff0-23a4feb7fefe"
+  },
+  {
+    "id": "dpo4-atlas-152135",
+    "fields": {
+      "changes": "dpo4-atlas-152135\nverdict: larger, group: context, chosen/rejected words: 0.779\n- Ortalama ile doğruluk çıkarımı ve anlamsız kıyaslar kaldırıldı; benzerlik, sayı tutarsızlıkları ve farklı tercih kategorileri ayrıldı.",
+      "prompt": "Aşağıdaki üç pazar araştırması raporunu (Kaynak A, B ve C) karşılaştırarak tutarsızlıkları tespit et. Benzerlikleri, farkları ve varsa çelişkileri teknik bir paragraf halinde açıkla. Yalnızca kaynaklardaki bilgilere dayan ve metin dışı yorum ekleme.\n\nKaynak A: Pazar araştırması raporunda, hedef pazarın büyüme oranı yıllık %8 olarak tahmin ediliyor. Rakip X'in pazar payı %25, bizimki %15. Tüketici tercihleri sürdürülebilir ürünlere kayıyor, %60'ı yeşil etiketli ürünleri tercih ediyor.\n\nKaynak B: Aynı pazar araştırmasında büyüme oranı %7,5. Rakip X %28 pazar payına sahip, şirketimiz %12. Tüketici eğilimi organik ürünlere, %55 oranında tercih ediliyor.\n\nKaynak C: Rapor, pazar büyümesini %9 olarak öngörüyor. Rakip X'in payı %24, bizim %16. Tercihler hibrit modellere, %65 destek var.",
+      "chosen": "Pazar araştırmalarındaki veriler arasında büyüme oranında tutarsızlık bulunur: Kaynak A'da büyüme %8, Kaynak B'de %7,5, Kaynak C'de %9 olarak belirtilmiştir. Ayrıca rakip X'in pazar payı %25 (A), %28 (B) ve %24 (C) iken, bizim payımız %15 (A), %12 (B) ve %16 (C) olarak verilmektedir; aynı pazara ilişkin bu paylar da birbirleriyle uyuşmamaktadır. Tüketici tercihlerinde A, %60 oranında yeşil etiketli ürünleri, B %55 oranında organik ürünleri, C ise %65 oranında hibrit modelleri öne çıkarmaktadır; tercih kategorileri farklı olduğundan bu yüzdeler aynı tercihe ilişkin doğrudan bir çelişki değildir. Üç raporun ortak konusu pazar büyümesi, pazar payları ve tüketici tercihleridir; ancak veriler hangi tahminin daha doğru olduğunu göstermemektedir.",
+      "rejected": "Pazar araştırmalarındaki veriler arasında büyüme oranında tutarsızlık bulunur. Kaynak A'da büyüme %8, Kaynak B'de %7,5, Kaynak C'de de %9 olarak belirtilmiştir; bu değerlerin ortalaması yaklaşık %8 olduğundan, en yüksek %9'luk tahminin (Kaynak C) daha doğru olabilir. Ayrıca rakip X'in pazar payı %25 (A), %28 (B) ve %24 (C); bu sayılar da en düşük olan %24'ü (Kaynak C) gösterirken, bizim payımız %15 (A), %12 (B) ve %16 (C). Bu durum, rakip X'in payının artışının farklılık göstermesi veya bizim payın yükselmesi gibi bir nedeni yansıtmaz. Tüketici tercihlerinin ise %60'ı (A) yeşil etiketli ürünlerden %55'ü (B) organik ürünlerden %65'i hibrit modellere yönelmiştir; bu da tercihlerin farklılık göstermesine rağmen, %60 ve %55 arasındaki farkın, %65'in daha yüksek olduğunu göstermez. Yani tercihler arasında bir çelişkinin bulunmadığı görüldüğü halde, büyüme oranındaki farklılıklar ve pay dağılımları, raporun birbirine uyumlu olmadığını ortaya çıkarır."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "context"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "638f9261-7d16-4252-b169-c918516a3a94"
+  },
+  {
+    "id": "dpo4-atlas-038167",
+    "fields": {
+      "changes": "dpo4-atlas-038167\nverdict: larger, group: constraint, chosen/rejected words: 0.738\n- Bozuk cümleler düzeltildi, kritik yüzdeler eklendi; tekrarlanan sonuç ve kaynaksız ifadeler çıkarıldı.",
+      "prompt": "Asagidaki surdurulebilirlik makalesini genel okuyucuya yonelik duz paragraf olarak ozetle. Ozetin en fazla 150 kelime olmali, kritik bulguyu icermelidir. Kaynak metnin yapisini kopyalama ve detay fazlalıgından kacin.\n\nMetin:\nKentsel tarım uygulamaları üzerine 2022'de başlayan 18 aylık çalışma, 400 metrekarelik bir alanda 12 farklı sebze türünün yetiştirilmesini analiz etti. Bulgular, dikey bahçecilik yönteminin geleneksel yöntemlere kıyasla su tüketimini %70 oranında azalttığını ve ürün verimliliğini %25 artırdığını gösterdi. Ayrıca, yerel tüketimin lojistik karbon ayak izini yıllık 3 ton azalttığı saptandı. Proje, sürdürülebilir şehirleşme için dikey bahçelerin yaygınlaştırılmasının kritik bir çözüm olduğunu savunuyor.\n\nHedef Kitle: Genel okuyucu\nMust Include: Kritik bulgu\nMust Avoid: Kaynak metnin yapısını kopyalama, detay fazlalığı",
+      "chosen": "Sürdürülebilir kentleşmede dikey bahçelerin önemine dikkat çeken çalışmada, 18 ay boyunca 400 metrekarelik alanda 12 farklı sebze türünün yetiştirilmesi incelenmişti. Dikey bahçe yöntemiyle, geleneksel yöntemlere göre su tüketimi %70 azaldı ve ürün verimliliği %25 artırıldı. Yerel tüketimin lojistik karbon ayak izi de yıllık 3 ton azaldı. Projede dikey bahçelerin yaygınlaştırılması sürdürülebilir kentleşme için kritik bir çözüm olarak öne sürüldü.",
+      "rejected": "Sürdürülebilir kentleşmede dikey bahçelerin önemine dikkat çeken çalışmaya göre, 18 aylık bir deneyde 400 m² alanın 12 farklı sebze türünü kullanarak etkiler incelenmişti. Dikey bahçe yöntemiyle, geleneksel yöntemlere göre daha çok su kullanımı azaldığı ve ürünün verimliliği artırıldı. Yerel tüketimin lojistik karbon emisyonu da bu yönteme göre yaşandığında yıllık 3 ton azalırken, aynı şekilde son kullanıma kadar uygulanan projede dikey bahçe yaygınlaştırılması sürdürülebilir kentleşmeye bir alternatif olarak öne sürüldü. Çalışmanın sonuçları, sürdürülebilir kentleştirmenin dikey bahçeleri yaygınlaştırma yoluyla mümkün olabileceğini gösteriyor."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "dabcb9dd-ac02-478e-ba7a-05c352b7accd"
+  },
+  {
+    "id": "dpo4-atlas-165582",
+    "fields": {
+      "changes": "dpo4-atlas-165582\nverdict: minimal, group: constraint, chosen/rejected words: 0.952\n- İsimlendirme aksiyonu düzeltildi; ek çalıştırma önerisi çıkarıldı ve üç madde sağlandı.",
+      "prompt": "Kod inceleme özetini samimi bir tonda, en fazla 80 kelime ve 3 madde kullanarak yaz. Pasif-agresif bir ton kullanmaktan kesinlikle kaçın.\n\nVeriler:\n- Değişken isimlendirmeleri standartlara uygun değil.\n- Hata yakalama (try-catch) blokları eksik.\n- Fonksiyonlar çok uzun, bölünmesi gerekiyor.",
+      "chosen": "- Değişken isimlerini standartlara uygun hale getirin.\n- Hataları yakalamak için eksik try-catch bloklarını ekleyin.\n- Çok uzun fonksiyonları bölün.",
+      "rejected": "Değişken isimleri düzeltmek için fonksiyonları ayarlayın.  \nHataları yakalamak için try-catch bloklarını ekleyin.  \nFonksiyonları kısa tutun ve gerekiyorsa bölün.  \nYeni kodla çalıştırın."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "f1b13d13-b5e3-416a-9c5c-cffdef61ab2d"
+  },
+  {
+    "id": "dpo4-atlas-214745",
+    "fields": {
+      "changes": "dpo4-atlas-214745\nverdict: larger, group: context, chosen/rejected words: 0.787\n- Pazar payı artışının nedeni düzeltildi; fiyat önerisi ve en önemli faktör sıralaması çıkarıldı; pasajdaki öneriler korundu.",
+      "prompt": "Aşağıdaki pasaja dayanarak soruyu yanıtla. Pasajda olmayan bilgi ekleme.\n\nPasaj: Araştırmacı olarak rekabet analizi raporumda, ana rakibimizin pazar payını %12 artırdığını belirledik. Bu büyüme, agresif indirim stratejilerinden kaynaklanıyor. Bizim fiyatlandırmamızın yüksek kalması satış kaybına yol açtı. Dijital pazarlama yatırımlarını artırmamız öneriliyor. Rakibin yeni ürün lansmanları da etkili olmuş. Tedarik zincirimizi optimize ederek maliyetleri düşürmeliyiz.\n\nSoru: Pasaja göre rakibin pazar payı artışı satışlarımızı nasıl etkiledi?",
+      "chosen": "Rakibin pazar payının %12 artışının agresif indirim stratejilerinden kaynaklandığını tespit ettik. Bizim fiyatlandırmamızın yüksek kalması satış kaybına yol açtı. Ayrıca rakibin yeni ürün lansmanları da etkili oldu. Böylece, rakibin büyümesi karşısında yüksek kalan fiyatlarımız satışlarımızı olumsuz etkiledi; pasaj dijital pazarlama yatırımlarının artırılmasını ve tedarik zincirinin optimize edilmesini öneriyor.",
+      "rejected": "Rakibin pazar payının %12 artışının, bizim fiyatlandırmamızın yüksek kaldığından kaynaklandığını tespit ettik. Fiyatımızın yüksek olması satış kaybına yol açtı ve bu yüzden dikkatli bir fiyatlandırma yapmamız gerekiyor. Ayrıca rakibin yeni ürün lansmanları da satış üzerimizde olumsuz etki yaptı. Böylece, rakip tarafından daha fazla pazar payı alındığında, bizim satışlarımızı etkileyen en önemli faktörler, fiyatlarımızın yüksekliği ve rakibin yeni ürünlerini tanıma çalışmaları oldu."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "context"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "ed52d17c-6ebb-4961-aad3-c3fa18046ad2"
+  },
+  {
+    "id": "dpo4-atlas-069143",
+    "fields": {
+      "changes": "dpo4-atlas-069143\nverdict: minimal, group: context, chosen/rejected words: 0.938\n- İngilizce/bozuk sözcükler düzeltildi; tamamlanan anlaşma ve gecikme azaltımı planlanmış gibi anlatılmadı; personel alımı İK içine yerleştirilmedi.",
+      "prompt": "Aşağıdaki pasaja dayanarak soruyu yanıtla. Pasajda olmayan bilgi ekleme.\n\nPasaj: Stratejik plan belgesinde, şirket 2024 için pazar payını %15 artırmayı hedefliyor. Satış ekibi yeni bölgelerde agresif kampanyalar yürütecek. Tedarik zinciri optimizasyonu ile maliyetler %20 düşürülecek; bu kapsamda yerel tedarikçilerle anlaşmalar imzalandı. Operasyonel verimlilik için dijital araçlar entegre edilecek. IK departmanı, 50 yeni personel alımı yapacak. Pazarlama bütçesi %30 artırıldı. Riskler arasında ekonomik dalgalanmalar ve rakip hamleleri yer alıyor. KPI'lar aylık raporlanacak. Proje yönetimi altında 5 ana inisiyatif tanımlandı. Yatırımcılar için ROI %25 hedeflendi. Tedarik zinciri analizi, lojistik gecikmelerini %40 azalttı. Satış performansı Q1'de %12 büyüdü. Gelecek yıl için OKR'lar belirlendi.\n\nSoru: Pasajda belirtilen stratejik hedefler ve önlemler nelerdir? (Akademisyen gibi executive özetle, 3 madde.)",
+      "chosen": "- **Pazar Payı Artışı:** Şirketin 2024 hedefi, pazar payını %15 artırmak. Satış ekibinin yeni bölgelerde agresif kampanyalar yürütmesi planlanmıştır.\n- **Tedarik Zinciri Optimizasyonu:** Maliyetlerin %20 düşürülmesi hedeflenir; yerel tedarikçilerle anlaşmalar imzalanmış ve tedarik zinciri analizi lojistik gecikmelerini %40 azaltmıştır.\n- **Operasyonel Verimlilik ve Personel Alımı:** Dijital araçlar entegre edilecek; İK departmanı 50 yeni personel alacak. Ayrıca pazarlama bütçesi %30 artırılmıştır.",
+      "rejected": "- **Pazar Pay Artışı:** Şirketin 2024 hedefi, pazar payını %15 artırmak. Satış ekibinin agresif kampanyalarıyla new marketlerde etkinleştirilmesinin planlandığı belirtilmiştir.\n- **Tedarik Zinciri Optimasyonu:** Maliyetlerin %20 düşürülmesi hedeflenir; yerel tedarikçilerle anlaşmaların imzalanması hedeflenmiş ve lojistik gecikmelerinin %40 azalacağı planlanmıştır.\n- **Operasyonel Verimlik ve Personel Değişikliği:** Dijital araçların işleştirilmek üzere entegrasyonunda çalışmalar sürdürülürken, IK departmanında 50 yeni personel alınması planlanmıştır. Ayrıca pazarlama bütçesi %30 artırılmıştır."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "context"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "c9c6b6a5-0e37-4d50-936c-cbd912af41ec"
+  },
+  {
+    "id": "dpo4-atlas-103480",
+    "fields": {
+      "changes": "dpo4-atlas-103480\nverdict: larger, group: plain_source, chosen/rejected words: 1.0\n- Önceki onarımın geçerli JSON nesnesi korundu. Bitiş kontrolü } ayracını yanlış işaretliyor; JSON nesnesinin sonuna nokta veya başka bir karakter eklenemez.",
+      "prompt": "Ürün yöneticisi olarak, resmi bir şekilde aşağıdaki proje teklifinden urun, miktar, tarih bilgilerini json_object formatında çıkar. Metinde olmayan bilgi veya uydurma alan ekleme.\n\nMetin: 'Proje teklifinde, 20 Haziran 2024 itibarıyla Endüstriyel Makine 100 adet, Yedek Parça Seti 500 adet tedarik edilecek. Pazarlama bütçesi onaylandı.'",
+      "chosen": "{\n  \"tarih\": \"2024-06-20\",\n  \"ürünler\": [\n    {\"ürün\": \"Endüstriyel Makine\", \"miktar\": 100},\n    {\"ürün\": \"Yedek Parça Seti\", \"miktar\": 500}\n  ]\n}",
+      "rejected": "{\n  \"proje_tklifi\": {\n    \"tarih\": \"2024-06-20\",\n    \"miktar\": 100,\n    \"adet\": \"Endüstriyel Makine\",\n    \"yeni_parca_seti\": 500,\n    \"tedarik\": true,\n    \"pazarlama_bütçesi_onaylandigi\": true\n  }\n}"
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "plain_source"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "4fcfe07f-23f3-4f42-8598-95574c4fbd12"
+  },
+  {
+    "id": "dpo4-atlas-286372",
+    "fields": {
+      "changes": "dpo4-atlas-286372\nverdict: minimal, group: constraint, chosen/rejected words: 0.947\n- Sebep cümlesi ve beden tablolarını özne hatası düzeltildi.",
+      "prompt": "Bir ürün yöneticisi olarak, iade talebi analizi sonuçlarını resmi ama samimi bir tonda, en fazla 60 kelimelik düz bir paragraf olarak yaz. Tam olarak 1 sonuç ve 1 öneri içermeli.\n\nHam veri:\n- İade oranı %12 arttı.\n- Sebep: Ürün beden tabloları yanlış.\n- Öneri: Beden tabloları güncellenmeli.",
+      "chosen": "İade oranı yüzde 12 artmıştır; sebep, ürün beden tablolarının hatalı olmasıdır. Bu yüzden beden tabloları güncel hale getirilmelidir.",
+      "rejected": "İade oranı yüzde 12 artmıştır; sebebi, ürün beden tablolarının hatalı olduğu görülmüştür. Bu yüzden beden tablolarını güncel hale getirilmelidir."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "475e6253-ec6b-4fa4-965d-7ff6b0c23f97"
+  },
+  {
+    "id": "dpo4-atlas-316565",
+    "fields": {
+      "changes": "dpo4-atlas-316565\nverdict: larger, group: constraint, chosen/rejected words: 1.143\n- Yanlış kaynak ve ekip bağımlılığı ifadeleri veriyle düzeltildi; iki öneri ve e-posta biçimi sağlandı.",
+      "prompt": "Teknik borç değerlendirmesini bir akademisyen ciddiyetiyle, e-posta formatında, nesnel ve ölçülü bir tonda yaz. En fazla 80 kelime olsun. Tam olarak 2 öneri içersin ve abartılı sıfatlar kullanma.\n\nVeri:\nDurum: Eski kütüphaneler güvenlik riski oluşturuyor.\nÖneriler: Bağımlılıkları güncelle, kod standartlarını belirle.",
+      "chosen": "Konu: Teknik Borç\nSayın İlgili,\nEski kütüphaneler güvenlik riski oluşturuyor. Bağımlılıkları güncelleyin; kod standartlarını belirleyin.\nSaygılarımla.",
+      "rejected": "Eskiden kullanılan kaynakların güvenliği riski yaratmıştır. Kodları belgelendirmeyi düzenleyin; ekip arasındaki bağımlılıkların kontrolünü sağlayın."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "739ef7b3-e8ce-461a-a951-edb86868fc5f"
+  },
+  {
+    "id": "dpo4-atlas-060417",
+    "fields": {
+      "changes": "dpo4-atlas-060417\nverdict: minimal, group: constraint, chosen/rejected words: 1.0\n- Bozuk ifadeler düzeltildi; bant genişliğini artırma yerine yayın optimizasyonu ve %95'in üzerindeki tahmin yazıldı.",
+      "prompt": "Geliştirici olarak, aşağıdaki teletip değerlendirme raporunu üst yönetime yönelik düz paragraf formatında özetle. Sonucu içermeli, detay fazlalığından kaçınmalı ve kaynak metnin yapısını kopyalamamalısın. En fazla 100 kelime.\n\nRapor:\nTeletip platformumuzun son 6 aylık performans verileri incelenmiştir. Platform üzerinden yapılan 10.000 görüşmenin %92'si teknik bir aksaklık olmadan tamamlanmıştır. Geriye kalan %8'lik kısımda ise bağlantı kesintileri ve görüntü donması gibi sorunlar bildirilmiştir. Kullanıcı geri bildirimlerine göre, özellikle 5G altyapısının olmadığı bölgelerde görüntü kalitesi düşmektedir. Sistem mimarimizde yapılacak bir güncelleme ile düşük bant genişliğinde daha optimize bir yayın akışı sağlanabileceği öngörülmektedir. Bu güncellemenin, görüşme kalitesini %95'in üzerine çıkaracağı tahmin edilmektedir.",
+      "chosen": "Teletip platformunda son 6 ay içinde toplam 10.000 görüşmenin %92'sinin teknik sorun olmadan tamamlandığı gözlemlenmiş; kalan %8'de bağlantı kesintisi ve görüntü donması yaşanmıştır. Kullanıcı geri bildirimlerine göre özellikle 5G altyapısı bulunmayan bölgelerde görüntü kalitesi düşmektedir. Sistem mimarisindeki bir güncellemeyle düşük bant genişliğinde yayın akışının optimize edilmesi ve görüşme kalitesinin yüzde 95'in üzerine çıkarılması öngörülmektedir.",
+      "rejected": "Teletip platformunda son 6 ay içinde toplam 10.000 görüşmenin %92'sinin teknik sorun olmadan bitişik bir şekilde gerçekleşmesi gözlemlenmiş; kalan %8'de bağlantı kesintisi ve görüntüye donma yaşanmıştır. Kullanıcı geri bildirimi doğrultusunda özellikle 5G altyapısı bulunmayan bölgelere karşı görüntü kalitesi düşük görülmüştür. Planlı bir sistem güncellemesiyle bant genişliği optimize edebilir ve görüşme kalitesini yüzde 95'e çıkarabiliriz."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "84733afa-f645-4a28-a5c7-ec042122d6d0"
+  },
+  {
+    "id": "dpo-c-trgen-0242",
+    "fields": {
+      "changes": "dpo-c-trgen-0242\nverdict: larger, group: constraint, chosen/rejected words: 1.105\n- Uydurma 90 dakika ve ters sınırlamayın çıkarıldı; üç maddede iki öneri sağlandı.",
+      "prompt": "Dijital detoks planı için şu verileri kullanarak öneriler sun: Sosyal medya uygulamalarını silmek, ekran süresi sınırı koymak, yatmadan 1 saat önce telefon kullanmamak. Resmi bir tonda, en fazla 100 kelimeyle tam olarak 2 öneri içeren 3 maddelik (bullets_3) bir liste hazırla. Önerileri önem sırasına göre en önemli olandan başlayarak diz. Gereksiz teknik detay ekleme.",
+      "chosen": "- Sosyal medya uygulamalarını silin.\n- Ekran süresini sınırlayın ve yatmadan 1 saat önce telefon kullanmayın.\n- Planın kapsamı dijital detokstur.",
+      "rejected": "- Sosyal medyayı tamamen kaldırın.\n- Ekran süresini günlük 90 dakika sınırlamayın ve yatmadan 1 saat önce telefon kullanmayın."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "ca654e11-2516-4c75-9d5b-6e936a874df5"
+  },
+  {
+    "id": "dpo4-atlas-272645",
+    "fields": {
+      "changes": "dpo4-atlas-272645\nverdict: larger, group: constraint, chosen/rejected words: 0.711\n- Dilbilgisi düzeltildi; önceki proje ve geleneksel/merkezi yapı iddiaları çıkarıldı; hata yönetimine yönelik iki öneri korundu.",
+      "prompt": "Kod inceleme özetini resmi ama samimi bir tonda, düz bir paragraf olarak yaz. En fazla 150 kelime olmalı ve tam olarak 2 somut öneri içermeli.\n\nVeriler:\n- Bu hafta 40 PR incelendi.\n- Standartlara genel olarak uyulmuş.\n- Mikroservislerde hata yönetimi (error handling) kısımları zayıf kalmış.",
+      "chosen": "Bu hafta toplam 40 PR incelenirken, standartların genelde uygulanmış olduğu görüldü. Fakat mikroservislerde hata yönetimi alanları zayıf kalmıştır; hata yönetimi kodlarını düzenleyelim ve bu kısımları yeniden tasarlayalım.",
+      "rejected": "Bu hafta toplam 40 PR'ini incelerken, standartların genelde uygulanmış olduğunu gördüm. Fakat, microservislerde hata yönetim alanları zayıftır; özellikle geleneksel error handling kodlarını tek bir yerde düzenleyip yeniden tasarım yaparak daha sağlamlaştırabiliriz. Bir önceki projenin PR'sini de gözden geçirelim."
+    },
+    "metadata": {
+      "verdict": "larger",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "9f6af501-be3f-41e8-8fc2-c17bbd79498b"
+  },
+  {
+    "id": "dpo4-atlas-030705",
+    "fields": {
+      "changes": "dpo4-atlas-030705\nverdict: minimal, group: constraint, chosen/rejected words: 1.455\n- Kategoriler ile sonraki adımlar ayrıldı; gerçekleşmiş eylem ve kişisel gelecek zaman iddiaları kaldırıldı.",
+      "prompt": "Bir araştırmacı olarak, şu hobi seçimi verilerini tek bir cümleyle özetle. Kategori ve sonraki_adım bilgilerini ekle. Emoji veya tekrarlı ifade kullanma.\n\nVeri: Resim (Sanat, kursa kaydol), Satranç (Zeka, turnuvaya katıl).",
+      "chosen": "Resim için kategori Sanat, sonraki_adım kursa kaydol; Satranç için kategori Zeka, sonraki_adım turnuvaya katıl olarak belirlenmiştir.",
+      "rejected": "Resim için Sanat kursuna kaydoldu, Satranç için ise Zeka turnuvasına katılacağım."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "bb2968bf-bed6-4767-bbc6-4f595cb60fe1"
+  },
+  {
+    "id": "dpo4-atlas-081316",
+    "fields": {
+      "changes": "dpo4-atlas-081316\nverdict: minimal, group: constraint, chosen/rejected words: 1.0\n- Genel harcama yerine idari gider yazıldı; bozuk iki cümle düzeltildi; tasarruf bulgusu tekrar olmadan birleştirildi.",
+      "prompt": "Aşağıdaki maliyet optimizasyon raporunu üst yönetime yönelik, en fazla 50 kelime olacak şekilde özetle. Sonucu ve kritik bulguyu içermeli, gereksiz tekrarlardan kaçın.\n\nRapor:\nŞirket genelindeki harcamaların analizi sonucunda, idari giderlerde %18'lik bir artış tespit edilmiştir. Özellikle gereksiz yazılım lisansları ve kullanılmayan ofis ekipmanları, maliyetleri şişiren ana unsurlardır. Kritik bulgu, yıllık 2,5 milyon TL'lik bir tasarruf potansiyelinin verimsiz harcamalar nedeniyle değerlendirilememesidir. Sonuç olarak, tüm departmanlarda merkezi satın alma politikasına geçilmesi ve lisans denetimlerinin ayda bir yapılması önerilmektedir. Bu adımlar, bütçe verimliliğini artıracaktır.\n\nTalimat: Yönetici özeti hazırla.",
+      "chosen": "- İdari giderlerdeki artış %18'dir.\n- Gereksiz yazılım lisansları ve kullanılmayan ofis ekipmanları maliyetleri yükseltmiştir.\n- Kritik bulgu: Yıllık 2,5 milyon TL tasarruf potansiyeli, verimsiz harcamalar nedeniyle değerlendirilememektedir.\n- Sonuç: Merkezi satın alma politikası ve aylık lisans denetimi uygulaması önerilmektedir.",
+      "rejected": "- Genel harcama artışı %18'dir.\n- Gereksiz yazılım lisansları ve ofis ekipmanlarının maliyetlerini yükseltmiştir.\n- Yıllık 2,5 milyon TL tasarruf potansiyeli vardır.\n- Değerlendirme, verimsiz harcamalar nedeniyle gerçekleşmez.\n- Çözüm: Merkezi satın alma politikası ve aylık lisans denetimi uygulaması gerekir."
+    },
+    "metadata": {
+      "verdict": "minimal",
+      "group": "constraint"
+    },
+    "suggestions": {},
+    "responses": {},
+    "vectors": {},
+    "status": "pending",
+    "_server_id": "543a92a3-c154-474b-b80a-26cacda4dcf8"
+  }
+]

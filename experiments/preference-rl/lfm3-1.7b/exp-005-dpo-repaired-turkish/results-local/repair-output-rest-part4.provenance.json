@@ -1,0 +1,188 @@
+{
+  "task": "Repair Turkish preference-learning answers, exp-005 rest packet part 4; error-only edits under the existing guide and the owner instruction to retain correct necessary sentences without shortening or padding.",
+  "generator": {
+    "provider": "redacted",
+    "interface": "AI assistant in this conversation",
+    "model_family": "strong model",
+    "model_revision": null,
+    "revision_note": "Exact runtime revision is not exposed. No external model API or subagents used.",
+    "sampling_parameters": null
+  },
+  "date_utc": "2026-11-27T09:23:18.226229+00:00",
+  "guide": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-GUIDE.md",
+    "sha256": "6c7c3681d9fe2c0b2bcb2d051d46e8ee8350de6ba56b92f5117fb69ca96adc69"
+  },
+  "repair_prompt": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-PROMPT.md",
+    "sha256": "a235379bd468d600eea187661cd106673de980609ec835ca55790dac9fc1bd54"
+  },
+  "input": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-input-rest-part4.jsonl",
+    "sha256": "9cf89f21ae2d8e62bd2a4e6d2f3d6d2628495e9d9663bcaab117aaa91f5edda0"
+  },
+  "output": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-output-rest-part4.jsonl",
+    "sha256": "e91036c8866baede2c6319fb26af645f0390ad500d4bae1f93fd9187f6c7f6fb"
+  },
+  "item_count": 284,
+  "verdict_counts": {
+    "larger": 77,
+    "rewrite_needed": 124,
+    "minimal": 81,
+    "none": 2
+  },
+  "repair_word_ratios_before_owner_validation": {
+    "count": 158,
+    "median": 0.8571428571428571,
+    "mean": 0.8663675418935736,
+    "counting": "Repository tr_dpo_flags.words, divided by input answer_words. No brevity filtering or lexical validation applied."
+  },
+  "owner_additional_instruction": "Sadece yanlış olanı çıkar. Doğru ve gerekli cümleleri kısaltma. Dolgu da ekleme.",
+  "checks": {
+    "valid_json_every_line": true,
+    "exact_output_schema": true,
+    "complete_unique_ids_in_input_order": true,
+    "chosen_empty_iff_none_or_rewrite_needed": true,
+    "changes_present_for_repairs": true,
+    "chosen_differs_from_original": true,
+    "all_repairs_inside_repaired_word_range": true,
+    "supplied_countable_code_constraints": true,
+    "supplemental_prompt_word_ranges_and_maximums": true,
+    "supplemental_prompt_list_counts": true,
+    "additional_prompt_sentence_limits": true,
+    "required_terms_review_list": {
+      "16": [
+        "sonuç"
+      ],
+      "21": [
+        "kritik bulgu"
+      ],
+      "54": [
+        "temel öneri",
+        "karar noktası"
+      ],
+      "86": [
+        "temel öneri",
+        "ana fikir"
+      ],
+      "88": [
+        "anahtar veri noktası",
+        "kritik bulgu"
+      ],
+      "98": [
+        "karar noktası",
+        "temel öneri"
+      ],
+      "151": [
+        "temel öneri"
+      ],
+      "152": [
+        "sahip"
+      ],
+      "193": [
+        "karar noktası"
+      ],
+      "202": [],
+      "220": [
+        "sonuç",
+        "anahtar veri noktası"
+      ],
+      "239": [
+        "puan",
+        "sonraki_adim"
+      ],
+      "250": [
+        "etki",
+        "risk"
+      ],
+      "269": [
+        "anahtar veri noktası",
+        "ana fikir"
+      ],
+      "280": [
+        "karar noktası"
+      ]
+    },
+    "question_requirements_reviewed": true,
+    "finished_endings": true,
+    "utf8_roundtrip": true,
+    "semantic_review": "All 284 prompts and original answers individually read. Correct language and necessary factual content retained; source fidelity, target coverage, repetitions, missing facts, countable limits and contradictory instructions reviewed.",
+    "lexical_detectors": "Not run; owner tooling performs lexical validation and the consolidated retry.",
+    "training_run": false,
+    "commit_created": false,
+    "earlier_output_files_read": false,
+    "guide_or_threshold_changed": false
+  },
+  "checks_implementation": {
+    "script_sha256": "96dd917bdfdbac70e83c961493cd0fd6bf05a4986e04cc8836aaa6d1aaa018f2",
+    "normalization": "Repository normalized handles decimals and numbered-list markers for supplied counts. Supplemental checks distinguish paragraph facts from lists and mandatory questions from question bans."
+  },
+  "hardest_review_rows": {
+    "count": 20,
+    "indices_zero_based": [
+      7,
+      14,
+      18,
+      35,
+      38,
+      47,
+      65,
+      98,
+      110,
+      130,
+      136,
+      142,
+      157,
+      163,
+      194,
+      208,
+      230,
+      239,
+      265,
+      271
+    ],
+    "ids": [
+      "dpo4-atlas-247363",
+      "dpo4-atlas-158442",
+      "dpo4-atlas-330953",
+      "dpo4-atlas-003131",
+      "dpo-c-trgen-0499",
+      "dpo4-atlas-257781",
+      "dpo4-atlas-304478",
+      "dpo4-atlas-203350",
+      "dpo4-atlas-166267",
+      "dpo4-atlas-228566",
+      "dpo4-atlas-152928",
+      "dpo4-atlas-315251",
+      "dpo4-atlas-185168",
+      "dpo4-atlas-150378",
+      "dpo4-atlas-118200",
+      "dpo4-atlas-130153",
+      "dpo4-atlas-229032",
+      "dpo-c-trgen-0444",
+      "dpo4-atlas-091826",
+      "dpo4-atlas-172563"
+    ],
+    "reason": "Preserving correct original wording while removing invented content; tight bounds with complete target coverage; source-only comparisons; contradictory prompt/code formats; terse QA and exact data fields.",
+    "measurement_note": "Qualitative high-attention selection, not instrumented per-row timing."
+  },
+  "constraint_conflict_indices_zero_based": [
+    5,
+    8,
+    38,
+    66,
+    87,
+    140,
+    167,
+    198,
+    224,
+    226,
+    251,
+    261,
+    262,
+    270
+  ],
+  "scope": "Only part 4 output and provenance created in the experiment. No source, guide, code, other packet or training-setting edits.",
+  "reproducibility_note": "Manually authored by this assistant. Exact runtime revision and sampling parameters unavailable; artifact hashes identify the delivered data."
+}

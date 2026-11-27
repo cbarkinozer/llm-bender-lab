@@ -54,8 +54,9 @@ evaluated although training has few: reported as a distribution gap. One finishe
 
 Repair: `data/REPAIR-GUIDE.md` (rules, verdicts, two worked examples from the owner-reviewed fixes). Check: `scripts/datasets/tr_dpo_repair.py validate`
 (detectors with the accept list, constraint checker with a normalisation for decimal numbers and `1-` list markers, word range 0.50-1.10, ending, `none`
-and `rewrite_needed` dropped). Failed repairs get one retry with the failure reasons, then are dropped. Pairs are labelled `synthetic_repair`; the
-packets and pairs stay local (not in Git).
+and `rewrite_needed` dropped). Failed repairs get one retry with the failure reasons, then are dropped. Pairs are labelled `synthetic_repair`. The packets,
+repair outputs and validation outputs under `results-local/` are committed (force-added, so the work can continue on another machine); the repairing
+assistant's identity is redacted from the provenance files. The folder is git-excluded locally, so new files there need `git add -f`.
 
 Why there is no minimal-edit similarity gate: the 17 repairs made during the exp-004 audit (by a strong model, read and judged legitimate in a second
 pass) had a median character similarity of 0.40 to the original chosen answer (some started from the rejected answer instead), so a 50% gate would

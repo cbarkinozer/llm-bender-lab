@@ -1,0 +1,237 @@
+{
+  "task": "Repair Turkish preference-learning answers, exp-005 rest packet part 2, with the unchanged guide and error-only edits.",
+  "generator": {
+    "provider": "redacted",
+    "interface": "AI assistant in this conversation",
+    "model_family": "strong model",
+    "model_revision": null,
+    "revision_note": "Exact runtime model identifier and revision not exposed. No external model API or delegated agents used."
+  },
+  "date_utc": "2026-11-26T14:45:41.227770+00:00",
+  "guide": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-GUIDE.md",
+    "sha256": "6c7c3681d9fe2c0b2bcb2d051d46e8ee8350de6ba56b92f5117fb69ca96adc69"
+  },
+  "repair_prompt": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-PROMPT.md",
+    "sha256": "a235379bd468d600eea187661cd106673de980609ec835ca55790dac9fc1bd54"
+  },
+  "input": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-input-rest-part2.jsonl",
+    "sha256": "280489fb9a72ec4d53420280435b8aa03bd68e244e2a6d04704412e8d7f6cdce"
+  },
+  "output": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-output-rest-part2.jsonl",
+    "sha256": "8ab3c297ddb829cc7269cd5f9cfb31b490beadc86fcd10bbfbeb7dbd4612a532"
+  },
+  "item_count": 284,
+  "verdict_counts": {
+    "rewrite_needed": 118,
+    "larger": 116,
+    "minimal": 46,
+    "none": 4
+  },
+  "checks": {
+    "valid_json_every_line": true,
+    "exact_output_schema": true,
+    "unique_complete_ids_in_input_order": true,
+    "chosen_empty_iff_none_or_rewrite_needed": true,
+    "changes_present_for_repairs": true,
+    "nonempty_chosen_differs_from_original": true,
+    "all_nonempty_chosen_inside_repaired_word_range": true,
+    "supplied_code_constraints_all_nonempty": true,
+    "prompt_word_ranges_and_maximums": true,
+    "prompt_list_counts_where_lists_requested": true,
+    "required_terms_review_list": {
+      "4": [
+        "kritik bulgu",
+        "karar noktası"
+      ],
+      "13": [
+        "sonuç",
+        "temel öneri"
+      ],
+      "25": [
+        "temel öneri",
+        "anahtar veri noktası"
+      ],
+      "38": [
+        "sonuç",
+        "ana fikir"
+      ],
+      "53": [
+        "ana fikir"
+      ],
+      "68": [
+        "temel öneri"
+      ],
+      "76": [
+        "kritik bulgu"
+      ],
+      "79": [
+        "kritik bulgu",
+        "temel öneri"
+      ],
+      "95": [
+        "kritik bulgu",
+        "sonuç"
+      ],
+      "100": [
+        "anahtar veri noktası"
+      ],
+      "102": [
+        "kritik bulgu",
+        "sonuç"
+      ],
+      "107": [
+        "ana fikir",
+        "anahtar veri noktası"
+      ],
+      "113": [
+        "ana fikir"
+      ],
+      "117": [
+        "anahtar veri",
+        "temel öneri"
+      ],
+      "129": [
+        "temel öneri"
+      ],
+      "135": [
+        "anahtar veri noktası"
+      ],
+      "138": [
+        "sonuç"
+      ],
+      "141": [
+        "anahtar veri noktası"
+      ],
+      "152": [
+        "ana fikir"
+      ],
+      "156": [
+        "kritik bulgu",
+        "temel öneri"
+      ],
+      "157": [
+        "karar noktası"
+      ],
+      "160": [
+        "karar noktası",
+        "anahtar veri noktası"
+      ],
+      "162": [
+        "kritik bulgu",
+        "anahtar veri noktası"
+      ],
+      "183": [
+        "kritik bulgu",
+        "karar noktası"
+      ],
+      "194": [
+        "ana fikir"
+      ],
+      "200": [
+        "kritik bulgu"
+      ],
+      "201": [
+        "ana fikir",
+        "karar noktası"
+      ],
+      "211": [
+        "sonuç"
+      ],
+      "225": [
+        "temel öneri",
+        "anahtar veri noktası"
+      ],
+      "238": [
+        "temel öneri",
+        "ana fikir"
+      ],
+      "240": [
+        "anahtar veri noktası"
+      ],
+      "242": [
+        "temel öneri",
+        "anahtar veri noktası"
+      ],
+      "247": [
+        "anahtar veri noktası"
+      ],
+      "267": [
+        "temel öneri",
+        "ana fikir"
+      ],
+      "274": [
+        "anahtar veri noktası"
+      ],
+      "276": [
+        "karar noktası",
+        "kritik bulgu"
+      ],
+      "282": [
+        "karar noktası",
+        "anahtar veri noktası"
+      ]
+    },
+    "chosen_json_parse": true,
+    "finished_endings": true,
+    "normalization": "Repository tr_dpo_repair.normalized for decimals and numbered list markers before countable checks.",
+    "prompt_scope": "Paragraph facts are distinguished from list bullets; question prohibition restricted to answer section where the prompt explicitly says Cevap kısmında.",
+    "semantic_review": "All 284 prompts and original answers individually read; proposed repairs reviewed against source facts, targets, item counts, unsupported claims and preservation of valid content.",
+    "lexical_detectors": "Not run; owner tooling handles lexical validation and the consolidated retry after parts 2-6.",
+    "training_run": false,
+    "git_commit_created": false,
+    "earlier_output_files_read": false,
+    "guide_or_threshold_changed": false
+  },
+  "check_script_sha256": "c22f03427081000b751365e92297da613923ed5a703935683000baf96e8f6279",
+  "hardest_review_rows": {
+    "count": 16,
+    "indices_zero_based": [
+      4,
+      9,
+      30,
+      36,
+      42,
+      64,
+      79,
+      96,
+      101,
+      110,
+      141,
+      145,
+      149,
+      158,
+      225,
+      270
+    ],
+    "ids": [
+      "dpo4-atlas-046797",
+      "dpo4-atlas-099350",
+      "dpo4-atlas-214648",
+      "dpo-c-trgen-0032",
+      "dpo4-atlas-049907",
+      "dpo4-atlas-145913",
+      "dpo4-atlas-283637",
+      "dpo4-atlas-235768",
+      "dpo4-atlas-242447",
+      "dpo4-atlas-272550",
+      "dpo4-atlas-019763",
+      "dpo4-atlas-141494",
+      "dpo4-atlas-122052",
+      "dpo4-atlas-048229",
+      "dpo4-atlas-158626",
+      "dpo4-atlas-313266"
+    ],
+    "reason": "Source fidelity within tight word ranges; source targets and minimal edits; conflicting paragraph/list requirements; question scope; priorities and inferred actions.",
+    "measurement_note": "Qualitative high-attention set, not instrumented per-row timing."
+  },
+  "constraint_conflict_ids": [
+    "dpo4-atlas-214648",
+    "dpo4-atlas-049907"
+  ],
+  "scope": "Only part 2 output and provenance created in the experiment. Other part outputs, source packets, guides, repository code and training settings unchanged.",
+  "reproducibility_note": "Manually authored by this assistant in conversation; sampling parameters unavailable; hashes identify exact delivered artifacts."
+}

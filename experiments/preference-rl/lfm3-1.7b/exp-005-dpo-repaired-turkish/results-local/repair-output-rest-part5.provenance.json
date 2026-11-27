@@ -1,0 +1,307 @@
+{
+  "task": "Repair Turkish preference-learning answers, exp-005 rest packet part 5; error-only edits, preserving correct and necessary sentences without shortening them or adding filler.",
+  "generator": {
+    "provider": "redacted",
+    "interface": "AI assistant in this conversation",
+    "model_family": "strong model",
+    "model_revision": null,
+    "revision_note": "Exact runtime revision is not exposed. No external model API or subagents used.",
+    "sampling_parameters": null
+  },
+  "date_utc": "2026-11-27T10:29:48.394799+00:00",
+  "guide": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-GUIDE.md",
+    "sha256": "6c7c3681d9fe2c0b2bcb2d051d46e8ee8350de6ba56b92f5117fb69ca96adc69"
+  },
+  "repair_prompt": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\data\\REPAIR-PROMPT.md",
+    "sha256": "a235379bd468d600eea187661cd106673de980609ec835ca55790dac9fc1bd54"
+  },
+  "input": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-input-rest-part5.jsonl",
+    "sha256": "f9897f2dd16c15a6be2e731102532d89c95575a77fab561b0e08d4bb704d7343"
+  },
+  "output": {
+    "path": "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\repair-output-rest-part5.jsonl",
+    "sha256": "1c0f8a71770689c1b72a4a43a00633c3491936e17cf1591c010595b62d1398eb"
+  },
+  "item_count": 284,
+  "verdict_counts": {
+    "rewrite_needed": 110,
+    "minimal": 82,
+    "larger": 89,
+    "none": 3
+  },
+  "repair_word_ratios_before_owner_validation": {
+    "count": 171,
+    "median": 0.8157894736842105,
+    "mean": 0.8246311179406115,
+    "counting": "Repository tr_dpo_flags.words, divided by input answer_words. No lexical validation or brevity filter applied."
+  },
+  "owner_additional_instruction": "Sadece yanlış olanı çıkar. Doğru ve gerekli cümleleri kısaltma. Dolgu da ekleme.",
+  "checks": {
+    "valid_json_every_line": true,
+    "exact_output_schema": true,
+    "complete_unique_ids_in_input_order": true,
+    "chosen_empty_iff_none_or_rewrite_needed": true,
+    "changes_present_for_repairs": true,
+    "chosen_differs_from_original": true,
+    "all_repairs_inside_repaired_word_range": true,
+    "supplied_countable_code_constraints": true,
+    "supplemental_prompt_word_ranges_and_maximums": true,
+    "supplemental_prompt_list_counts": true,
+    "additional_prompt_sentence_limits": true,
+    "required_terms_review_list": {
+      "1": [
+        "temel öneri"
+      ],
+      "14": [
+        "ana fikir",
+        "karar noktası"
+      ],
+      "25": [
+        "puan",
+        "etki"
+      ],
+      "32": [
+        "sahip"
+      ],
+      "37": [
+        "karar noktası",
+        "anahtar veri noktası"
+      ],
+      "40": [
+        "karar noktası",
+        "sonuç"
+      ],
+      "57": [
+        "kritik bulgu",
+        "anahtar veri noktası"
+      ],
+      "58": [
+        "temel öneri",
+        "karar noktası"
+      ],
+      "71": [
+        "temel öneri",
+        "kritik bulgu"
+      ],
+      "75": [
+        "karar noktası",
+        "sonuç"
+      ],
+      "80": [
+        "anahtar veri noktası"
+      ],
+      "84": [
+        "karar noktası",
+        "sonuç"
+      ],
+      "102": [
+        "risk",
+        "sonraki_adim"
+      ],
+      "107": [
+        "sahip",
+        "kategori"
+      ],
+      "112": [
+        "sahip",
+        "durum"
+      ],
+      "113": [
+        "temel öneri"
+      ],
+      "129": [
+        "sonraki_adim"
+      ],
+      "130": [
+        "durum",
+        "etki"
+      ],
+      "136": [
+        "kritik bulgu",
+        "ana fikir"
+      ],
+      "142": [
+        "ana fikir",
+        "temel öneri"
+      ],
+      "144": [
+        "temel öneri"
+      ],
+      "147": [
+        "ana fikir",
+        "sonuç"
+      ],
+      "152": [
+        "temel öneri"
+      ],
+      "167": [
+        "karar noktası"
+      ],
+      "175": [
+        "öncelik"
+      ],
+      "185": [
+        "kritik bulgu"
+      ],
+      "192": [
+        "risk",
+        "önceliği"
+      ],
+      "193": [
+        "karar noktası"
+      ],
+      "203": [
+        "sahip"
+      ],
+      "206": [
+        "temel öneri"
+      ],
+      "207": [
+        "anahtar veri noktası"
+      ],
+      "215": [
+        "karar noktası",
+        "kritik bulgu"
+      ],
+      "219": [
+        "ana fikir",
+        "sonuç"
+      ],
+      "220": [
+        "ana fikir",
+        "sonuç"
+      ],
+      "225": [
+        "temel öneri",
+        "sonuç"
+      ],
+      "236": [
+        "kategori"
+      ],
+      "255": [
+        "risk",
+        "sonraki_adım"
+      ],
+      "259": [
+        "puan",
+        "sonraki adım"
+      ],
+      "261": [
+        "sonuç"
+      ],
+      "267": [
+        "temel öneri",
+        "karar noktası"
+      ],
+      "270": [
+        "temel öneri",
+        "sonuç"
+      ],
+      "273": [
+        "temel öneri"
+      ],
+      "281": [
+        "kritik bulgu"
+      ],
+      "282": [
+        "kritik bulgu",
+        "ana fikir"
+      ],
+      "283": [
+        "özet"
+      ]
+    },
+    "additional_question_format_and_single_sentence_checks": true,
+    "chosen_json_parse": true,
+    "finished_endings": true,
+    "utf8_roundtrip": true,
+    "semantic_review": "All 284 input prompts and originals individually read. Reviewed original-word preservation, facts, missing targets, cause and direction errors, repetitions, source-only attribution and constraints. No quota targeted.",
+    "lexical_detectors": "Not run; owner tooling performs lexical validation and consolidated retry.",
+    "training_run": false,
+    "commit_created": false,
+    "earlier_output_files_read": false,
+    "guide_or_threshold_changed": false
+  },
+  "checks_implementation": {
+    "script_sha256": "0a77e196f4aa13dd88133542150af94e3db7ec19685f9b6c7668387857a0a05d",
+    "normalization": "Repository normalized handles decimal punctuation and numbered lists. Supplemental checks distinguish paragraph facts and bullet lists."
+  },
+  "hardest_review_rows": {
+    "count": 24,
+    "indices_zero_based": [
+      1,
+      7,
+      14,
+      26,
+      32,
+      57,
+      70,
+      75,
+      79,
+      88,
+      112,
+      132,
+      142,
+      154,
+      164,
+      181,
+      189,
+      192,
+      214,
+      225,
+      250,
+      270,
+      277,
+      281
+    ],
+    "ids": [
+      "dpo4-atlas-085595",
+      "dpo4-atlas-299383",
+      "dpo4-atlas-228518",
+      "dpo4-atlas-014805",
+      "dpo4-atlas-082953",
+      "dpo4-atlas-059050",
+      "dpo-c-trgen-0354",
+      "dpo4-atlas-330505",
+      "dpo4-atlas-004808",
+      "dpo4-atlas-017271",
+      "dpo4-atlas-103850",
+      "dpo-c-trgen-0206",
+      "dpo4-atlas-333489",
+      "dpo4-atlas-041126",
+      "dpo4-atlas-266101",
+      "dpo4-atlas-330685",
+      "dpo4-atlas-081269",
+      "dpo4-atlas-212432",
+      "dpo4-atlas-036435",
+      "dpo4-atlas-253854",
+      "dpo-c-trgen-0008",
+      "dpo4-atlas-225129",
+      "dpo4-atlas-219946",
+      "dpo4-atlas-198962"
+    ],
+    "reason": "Preservation under tight word bounds, exact target coverage, source-only causal claims and comparisons, JSON fields, financial arithmetic, source-attributed book claims and contradictory constraints.",
+    "measurement_note": "Qualitative high-attention selection, not instrumented per-row timing."
+  },
+  "constraint_conflict_indices_zero_based": [
+    28,
+    42,
+    52,
+    56,
+    63,
+    81,
+    92,
+    108,
+    119,
+    171,
+    173,
+    174,
+    226,
+    280
+  ],
+  "scope": "Only part 5 output and provenance created in the experiment. No other packet, source, guide, code, config, training or committed changes.",
+  "reproducibility_note": "Manually authored by this assistant; exact runtime revision and sampling parameters unavailable. Artifact hashes identify the delivered data."
+}
