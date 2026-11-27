@@ -1,0 +1,151 @@
+{
+ "run": "exp005-dpo-on-sft-think-on",
+ "thinking": "on",
+ "scorer": "eval-v2-scorer-2",
+ "seeds": {
+  "3407": {
+   "summary": {
+    "math/en": {
+     "n": 152,
+     "correct": 142,
+     "accuracy": 0.9342,
+     "wilson95": [
+      0.8831,
+      0.9639
+     ],
+     "mean_tokens": 1074.6,
+     "median_tokens": 508.0,
+     "hit_max_rate": 0.0197,
+     "eos_rate": 0.9803,
+     "thinking_closure_rate": 0.9803,
+     "strict_accuracy": 0.9342,
+     "marker_parse_rate": 0.9803
+    },
+    "math/tr": {
+     "n": 152,
+     "correct": 110,
+     "accuracy": 0.7237,
+     "wilson95": [
+      0.6477,
+      0.7886
+     ],
+     "mean_tokens": 2430.9,
+     "median_tokens": 1092.0,
+     "hit_max_rate": 0.0921,
+     "eos_rate": 0.9079,
+     "thinking_closure_rate": 0.9013,
+     "strict_accuracy": 0.7237,
+     "marker_parse_rate": 0.9013
+    },
+    "symbolic/en": {
+     "n": 60,
+     "correct": 60,
+     "accuracy": 1.0,
+     "wilson95": [
+      0.9398,
+      1.0
+     ],
+     "mean_tokens": 187.3,
+     "median_tokens": 155.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.9333
+    },
+    "symbolic/tr": {
+     "n": 60,
+     "correct": 60,
+     "accuracy": 1.0,
+     "wilson95": [
+      0.9398,
+      1.0
+     ],
+     "mean_tokens": 267.2,
+     "median_tokens": 191.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "number_only_rate": 0.6
+    },
+    "toolcall/en": {
+     "n": 80,
+     "correct": 75,
+     "accuracy": 0.9375,
+     "wilson95": [
+      0.8619,
+      0.973
+     ],
+     "mean_tokens": 278.6,
+     "median_tokens": 204.0,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 4,
+      "no_tool_call": 1
+     },
+     "by_subfamily": {
+      "multiple": 0.9,
+      "parallel": 1.0,
+      "simple": 0.925
+     }
+    },
+    "toolcall/tr": {
+     "n": 80,
+     "correct": 66,
+     "accuracy": 0.825,
+     "wilson95": [
+      0.7274,
+      0.8928
+     ],
+     "mean_tokens": 324.1,
+     "median_tokens": 249.5,
+     "hit_max_rate": 0.0,
+     "eos_rate": 1.0,
+     "thinking_closure_rate": 1.0,
+     "errors": {
+      "wrong_arguments": 14
+     },
+     "by_subfamily": {
+      "multiple": 0.7,
+      "parallel": 0.9,
+      "simple": 0.85
+     }
+    }
+   },
+   "tr_en_gap": {
+    "math": {
+     "n": 152,
+     "en": 0.9342,
+     "tr": 0.7237,
+     "tr_minus_en": -0.2105,
+     "bootstrap95": [
+      -0.2829,
+      -0.1316
+     ]
+    },
+    "symbolic": {
+     "n": 60,
+     "en": 1.0,
+     "tr": 1.0,
+     "tr_minus_en": 0.0,
+     "bootstrap95": [
+      0.0,
+      0.0
+     ]
+    },
+    "toolcall": {
+     "n": 80,
+     "en": 0.9375,
+     "tr": 0.825,
+     "tr_minus_en": -0.1125,
+     "bootstrap95": [
+      -0.2,
+      -0.0375
+     ]
+    }
+   },
+   "items": 584
+  }
+ }
+}

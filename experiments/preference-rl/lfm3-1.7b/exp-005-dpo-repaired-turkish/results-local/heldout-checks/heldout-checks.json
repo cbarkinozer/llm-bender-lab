@@ -1,0 +1,218 @@
+{
+ "exp-021": {
+  "sample0": {
+   "answers": 200,
+   "mean_words": 68.315,
+   "ended_share": 0.975,
+   "constraint_checked": 131,
+   "constraint_pass_raw": 0.7557251908396947,
+   "constraint_pass_normalized": 0.7557251908396947,
+   "flagged_share": 0.395,
+   "flags": {
+    "unfinished": 5,
+    "empty": 0,
+    "english_reply": 2,
+    "loop": 7,
+    "constraint": 32,
+    "unknown_words": 48,
+    "english_words": 16
+   },
+   "by_group": {
+    "constraint": {
+     "answers": 131,
+     "mean_words": 48.847328244274806,
+     "flagged_share": 0.3969465648854962
+    },
+    "context": {
+     "answers": 8,
+     "mean_words": 76.875,
+     "flagged_share": 0.25
+    },
+    "plain_source": {
+     "answers": 61,
+     "mean_words": 109.0,
+     "flagged_share": 0.4098360655737705
+    }
+   }
+  },
+  "sample1": {
+   "answers": 200,
+   "mean_words": 77.545,
+   "ended_share": 0.97,
+   "constraint_checked": 131,
+   "constraint_pass_raw": 0.7099236641221374,
+   "constraint_pass_normalized": 0.7099236641221374,
+   "flagged_share": 0.54,
+   "flags": {
+    "unfinished": 6,
+    "empty": 0,
+    "english_reply": 3,
+    "loop": 2,
+    "constraint": 38,
+    "unknown_words": 80,
+    "english_words": 37
+   },
+   "by_group": {
+    "constraint": {
+     "answers": 131,
+     "mean_words": 59.465648854961835,
+     "flagged_share": 0.5190839694656488
+    },
+    "context": {
+     "answers": 8,
+     "mean_words": 127.375,
+     "flagged_share": 0.75
+    },
+    "plain_source": {
+     "answers": 61,
+     "mean_words": 109.8360655737705,
+     "flagged_share": 0.5573770491803278
+    }
+   }
+  }
+ },
+ "dpo-on-sft": {
+  "sample0": {
+   "answers": 200,
+   "mean_words": 29.715,
+   "ended_share": 1.0,
+   "constraint_checked": 131,
+   "constraint_pass_raw": 0.9312977099236641,
+   "constraint_pass_normalized": 0.9312977099236641,
+   "flagged_share": 0.16,
+   "flags": {
+    "unfinished": 0,
+    "empty": 0,
+    "english_reply": 0,
+    "loop": 0,
+    "constraint": 9,
+    "unknown_words": 20,
+    "english_words": 4
+   },
+   "by_group": {
+    "constraint": {
+     "answers": 131,
+     "mean_words": 28.30534351145038,
+     "flagged_share": 0.183206106870229
+    },
+    "context": {
+     "answers": 8,
+     "mean_words": 38.5,
+     "flagged_share": 0.125
+    },
+    "plain_source": {
+     "answers": 61,
+     "mean_words": 31.59016393442623,
+     "flagged_share": 0.11475409836065574
+    }
+   }
+  },
+  "sample1": {
+   "answers": 200,
+   "mean_words": 33.8,
+   "ended_share": 1.0,
+   "constraint_checked": 131,
+   "constraint_pass_raw": 0.9236641221374046,
+   "constraint_pass_normalized": 0.9236641221374046,
+   "flagged_share": 0.33,
+   "flags": {
+    "unfinished": 0,
+    "empty": 0,
+    "english_reply": 0,
+    "loop": 2,
+    "constraint": 10,
+    "unknown_words": 53,
+    "english_words": 3
+   },
+   "by_group": {
+    "constraint": {
+     "answers": 131,
+     "mean_words": 30.954198473282442,
+     "flagged_share": 0.29770992366412213
+    },
+    "context": {
+     "answers": 8,
+     "mean_words": 44.25,
+     "flagged_share": 0.375
+    },
+    "plain_source": {
+     "answers": 61,
+     "mean_words": 38.540983606557376,
+     "flagged_share": 0.39344262295081966
+    }
+   }
+  }
+ },
+ "sft-only": {
+  "sample0": {
+   "answers": 200,
+   "mean_words": 34.035,
+   "ended_share": 0.995,
+   "constraint_checked": 131,
+   "constraint_pass_raw": 0.916030534351145,
+   "constraint_pass_normalized": 0.916030534351145,
+   "flagged_share": 0.19,
+   "flags": {
+    "unfinished": 1,
+    "empty": 0,
+    "english_reply": 0,
+    "loop": 2,
+    "constraint": 11,
+    "unknown_words": 26,
+    "english_words": 6
+   },
+   "by_group": {
+    "constraint": {
+     "answers": 131,
+     "mean_words": 30.18320610687023,
+     "flagged_share": 0.16030534351145037
+    },
+    "context": {
+     "answers": 8,
+     "mean_words": 48.25,
+     "flagged_share": 0.375
+    },
+    "plain_source": {
+     "answers": 61,
+     "mean_words": 40.442622950819676,
+     "flagged_share": 0.22950819672131148
+    }
+   }
+  },
+  "sample1": {
+   "answers": 200,
+   "mean_words": 40.545,
+   "ended_share": 1.0,
+   "constraint_checked": 131,
+   "constraint_pass_raw": 0.8778625954198473,
+   "constraint_pass_normalized": 0.8778625954198473,
+   "flagged_share": 0.37,
+   "flags": {
+    "unfinished": 0,
+    "empty": 0,
+    "english_reply": 1,
+    "loop": 0,
+    "constraint": 16,
+    "unknown_words": 58,
+    "english_words": 13
+   },
+   "by_group": {
+    "constraint": {
+     "answers": 131,
+     "mean_words": 34.0763358778626,
+     "flagged_share": 0.37404580152671757
+    },
+    "context": {
+     "answers": 8,
+     "mean_words": 57.5,
+     "flagged_share": 0.625
+    },
+    "plain_source": {
+     "answers": 61,
+     "mean_words": 52.21311475409836,
+     "flagged_share": 0.32786885245901637
+    }
+   }
+  }
+ }
+}

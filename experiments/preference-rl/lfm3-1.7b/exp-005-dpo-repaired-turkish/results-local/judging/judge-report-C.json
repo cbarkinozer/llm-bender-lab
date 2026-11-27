@@ -1,0 +1,73 @@
+{
+ "set": "C",
+ "names": [
+  "sft-only",
+  "exp-021"
+ ],
+ "items_judged": 197,
+ "identical_by_code": 3,
+ "ties": 27,
+ "decisive": 170,
+ "wins": {
+  "sft-only": 150,
+  "exp-021": 20
+ },
+ "win_share_first": 0.8823529411764706,
+ "wilson95": [
+  0.8252689384712235,
+  0.9225382607262067
+ ],
+ "passes_60_and_lower_above_50": true,
+ "by_group": {
+  "constraint": {
+   "sft-only": 98,
+   "exp-021": 15,
+   "tie": 16
+  },
+  "plain_source": {
+   "sft-only": 46,
+   "exp-021": 5,
+   "tie": 9
+  },
+  "context": {
+   "sft-only": 6,
+   "tie": 2
+  }
+ },
+ "by_deciding_criterion": {
+  "exp-021:1": 12,
+  "exp-021:2": 4,
+  "exp-021:3": 3,
+  "exp-021:4": 1,
+  "sft-only:1": 99,
+  "sft-only:2": 25,
+  "sft-only:3": 12,
+  "sft-only:4": 14
+ },
+ "position_share_A_among_decisive": 0.5352941176470588,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 168,
+  "shorter_answer_wins": 138,
+  "shorter_wins_share": 0.8214285714285714,
+  "length_matched_decisive": 50,
+  "length_matched_first_wins": 41,
+  "length_matched_win_share_first": 0.82,
+  "length_matched_wilson95": [
+   0.6920368054529739,
+   0.902299172675462
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "062a6713910ac090eab7a76eb48e4d3ed539b7d66f13578d80f20c7e45df063d",
+ "judgment_files": [
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-01.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-02.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-03.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-04.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-05.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-06.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-07.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-C-batch-08.jsonl"
+ ]
+}

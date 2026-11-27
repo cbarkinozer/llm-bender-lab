@@ -2,8 +2,10 @@
 
 ## Status
 
-`ready` (2026-11-27). All 2,000 train prompts are repaired and validated (pilot and rest packet, see Pilot and Rest packet); the final pair file has
-**1,008 pairs** (`results-local/final/pairs-train.jsonl`, sha256 in `config.yaml`), above the 1,000 minimum. Training has not run. The rules below were fixed before any repaired data or model result existed.
+`results in, rule 6 waits for the owner` (2026-11-27). Both arms trained on the 1,008 pairs (seed 42, 189 steps), the 200 held-out prompts were answered by
+exp-021, `dpo-on-sft` and `sft-only`, judged blind by an AI assistant, and the guards ran. **Rule 1 passed, rule 2 missed its threshold (59.5% against 60%),
+rule 3 failed on length (mean words 0.43 of exp-021's), rule 4 passed, rule 5 failed the 1-point limit on Belebele and TurBLiMP (inside sampling noise),
+rule 6 is open (an additional read of the 30 comparisons, stated by the owner to be an AI evaluation, preferred `dpo-on-sft` 23 of 24 decisive; it does not count as rule 6).** One seed, one AI judge. The rules below were fixed before any repaired data or model result existed.
 
 ## Goal
 
@@ -65,14 +67,16 @@ have discarded most good repairs. The similarity is recorded and reported per ve
 ## Training Setup
 
 LoRA DPO + SFT (`scripts/training/run_tr_dpo_train.py`), seed 42, 3 epochs (about 200 steps for 1,000-1,300 pairs; the notebook ran 255 steps), arms:
-`dpo-on-sft` (default) and `sft-only` (`--dpo-weight 0`, same chosen answers). Pod launch through the session script's `variant` stage. At least 1,000
-usable pairs are needed; if fewer, a second sample per prompt (`alt_sample`) is repaired.
+`dpo-on-sft` (default) and `sft-only` (`--dpo-weight 0`, same chosen answers). Pod launch through the session script's stages `exp005-dpo-on-sft` and
+`exp005-sft-only`. At least 1,000 usable pairs are needed; if fewer, a second sample per prompt (`alt_sample`) is repaired.
 
 ## Evaluation
 
 Held-out answers from exp-021, `dpo-on-sft` and `sft-only`, same decoding (temperature 0.1, top_k 50, repetition penalty 1.1, max 800 new tokens,
 thinking off, one answer per prompt; a temperature-0.7 second answer is a reported sensitivity check). Judge: a model of a different family than the
-repair model, blind and order-randomised, instructions fixed in `data/JUDGE-GUIDE.md` before any answer exists, ties allowed. Secondary set: exp-003's
+repair model, blind and order-randomised, instructions fixed in `data/JUDGE-GUIDE.md` before any answer exists, ties allowed. Run by an AI assistant
+with `scripts/evaluation/tr_dpo_judge.py`: sheets show only the prompt, two anonymous answers and their word counts, the key stays closed until a
+set is finished, batches of 25 are final once saved. This is a model's judgement, not an independent human check. Secondary set: exp-003's
 78 held-out open prompts (expect no change). Guards: IFEval strict on and off, HumanEval, final-test math EN and TR, Belebele EN and TR (source file
 on the pod fixed first), TurBLiMP, tool calls.
 
@@ -152,17 +156,86 @@ constraint 937, context 57, plain_source 14; 590 `larger`, 418 `minimal`; unique
 
 ## Results
 
-Not run yet.
+**Training** (RTX 4090, 189 steps each, about 8 minutes of training and 15 with the checks and merge; `results-local/train-fetch/`). Rule 4 passed for both
+arms: the logged `logps/chosen` went from -64.2 at the first logged step to -54.5 (`dpo-on-sft`) and -50.7 (`sft-only`) at the last, it did not fall. Reward
+margin at the end 4.96 (`dpo-on-sft`) and 3.14 (`sft-only`); both reach implicit-reward accuracy 1.0 on the training pairs, because the SFT term alone also
+lifts the chosen answers over the reference. Training accuracy therefore does not separate the arms.
+
+**Blind judging** (200 held-out prompts, temperature-0.1 answers, ties and identical answers not counted as decisive; `results-local/judging/`):
+
+| set | comparison | decisive | wins of the first | share | Wilson 95% | ties | identical | rule |
+|-----|------------|---------:|------------------:|------:|-----------:|-----:|----------:|------|
+| A | `dpo-on-sft` vs exp-021 | 169 | 146 | 86.4% | 80.4-90.8 | 29 | 2 | rule 1: **passed** |
+| B | `dpo-on-sft` vs `sft-only` | 126 | 75 | 59.5% | 50.8-67.7 | 63 | 11 | rule 2: **missed** (threshold 60%, lower bound above 50%) |
+| C | `sft-only` vs exp-021 | 170 | 150 | 88.2% | 82.5-92.3 | 27 | 3 | not a rule; run because rule 1 passed and rule 2 did not |
+
+Sanity check of the procedure before set A: 30 training pairs (repaired against original answer, key apart): the repaired answer was chosen 30 of 30, so the
+procedure agrees with the repair on clear cases; it does not show sensitivity on fine differences. The share of `A` among decisive judgements was 53%,
+57% and 54% (position check, inside 40-60%).
+
+Length confound, reported as a robustness split (added to the guide before any judgement): in A and C the shorter answer wins 78% and 82% of the decisive
+comparisons; among comparisons whose word counts are within a factor of 0.75-1.33 the share is 82.2% (37/45, Wilson 68.7-90.7) in A, 61.2% (52/85,
+50.5-70.8) in B and 82.0% (41/50) in C. By prompt group the first-named arm wins 96 of 111 constraint, 44 of 51 plain_source and 6 of 7 context decisive
+comparisons in A. Most of the wins in A come from criterion 1 (105 of 146: invented or inverted content in exp-021), then criterion 2 (limits and format).
+
+**Additional read of 30 comparisons** (set O, `results-local/judging/owner-read/`): the 30 sheets (`dpo-on-sft` against exp-021, answer order randomised, key
+closed until the read came back) were answered by the owner on 2026-11-27 with the note that the read is an additional AI evaluation. Because the guide
+defines rule 6 as the owner's own human read, **this does not count as rule 6, which stays open**. Result: `dpo-on-sft` preferred in 23 of 24 decisive
+comparisons (95.8%, Wilson 79.8-99.3), 6 ties, A/B position share 50%, no deciding criterion recorded. The shorter answer won 23 of the 24 decisive ones
+and only 5 pairs are length-matched (4 won), so the read repeats the length confound and cannot separate it. The owner's notes: a tie is not "good"
+(item 15: both answers add unsupported information; item 22: both present an undecided decision as decided), and the preferred answer in items 10 and 25
+also breaks the greeting/question ban. Sets A to C were judged by this repo's AI assistant; the read adds a second AI view, not a human one.
+
+**Side checks, rule 3** (`results-local/heldout-checks/`, 200 answers per system, temperature 0.1; the temperature-0.7 answers give the same ordering):
+
+| system | mean words | ended with the end token | constraint pass | detector flagged share |
+|--------|-----------:|-------------------------:|----------------:|-----------------------:|
+| exp-021 | 68.3 | 97.5% | 75.6% | 39.5% |
+| `dpo-on-sft` | 29.7 | 100% | 93.1% | 16.0% |
+| `sft-only` | 34.0 | 99.5% | 91.6% | 19.0% |
+
+Constraint pass, ending and flagged share all improved. The mean words did not stay within 0.80-1.10 of exp-021's: the ratio is **0.43** (`dpo-on-sft`)
+and 0.50 (`sft-only`), so **rule 3 fails** on its length clause. Cause seen in the data: the chosen answers in the pairs average 34 words (rejected 42),
+because only answers that could be repaired short of a rewrite became pairs, and both arms learned that length (by group, mean words in `plain_source`
+fell from 109 to 32 although that group has only 14 training pairs).
 
 ## Regressions
 
-Not run yet.
+Guards (`results-local/guards.json`, same session and decoding as exp-021; difference to exp-021 in points, interval = paired 95%):
+
+| guard | exp-021 | `dpo-on-sft` | `sft-only` |
+|-------|--------:|-------------:|-----------:|
+| IFEval strict, thinking off (541) | 71.5 | 68.2 (-3.3, [-7.1, +0.4]) | 68.9 (-2.6, [-6.1, +0.9]) |
+| IFEval strict, thinking on (270) | 84.1 | 87.4 (+3.3, [-0.4, +7.1]) | 87.0 (+3.0, [-0.3, +6.2]) |
+| HumanEval off / on (164) | 73.2 / 92.7 | 75.6 / 92.1 | 75.6 / 92.1 |
+| Belebele EN restricted | 70.0 | 67.6 (-2.4) | 69.4 (-0.6) |
+| Belebele TR restricted | 48.7 | 46.3 (-2.3) | 47.1 (-1.6) |
+| TurBLiMP macro | 85.9 | 84.8 (-1.1) | 85.8 (-0.1) |
+| math final test, thinking on, group rate | 90.5 | 91.5 | 92.5 |
+| math EN / TR (eval v2) | 92.8 / 73.7 | 93.4 / 72.4 | 94.7 / 77.0 |
+| tool calls EN / TR | 91.2 / 81.2 | 93.8 / 82.5 | 93.8 / 82.5 |
+
+IFEval and HumanEval are inside the noise (every paired interval contains 0). **Rule 5 fails as registered** (Belebele and TurBLiMP not down by more than 1
+point): `dpo-on-sft` is down 2.4 and 2.3 on Belebele EN and TR and 1.1 on TurBLiMP, `sft-only` 1.6 on Belebele TR. These differences are smaller than the
+Belebele sampling interval (about plus or minus 3 points at n=900), but the rule is not loosened here. The hint that the DPO arm loses a little more reading
+and grammar ability than the SFT-only arm is within noise and needs the second seed. Not run in this session: the diagnostic and the writing probe
+(not registered guards) and the owner's read (rule 6).
 
 ## Conclusion
 
-Pending.
+On held-out data-carrying prompts both trained arms are judged better than exp-021 in most decisive comparisons (86% and 88%), with fewer invented facts,
+more kept limits and no unfinished answers; rule 1 passes. The same trained answers without the preference term do about as well (`sft-only` 88% against
+exp-021), and `dpo-on-sft` beats `sft-only` in 59.5% of decisive comparisons (Wilson 50.8-67.7), just under the registered 60%. **The finding is therefore:
+SFT on the repaired answers explains most of the gain; the preference term is not shown to add, at best a small edge** (61% on length-matched pairs, not
+enough against the threshold). The gain comes with a large shortening of the answers (mean words below half of exp-021's) that was not intended and
+that fails rule 3, and with Belebele and TurBLiMP changes that miss the 1-point limit for `dpo-on-sft` (inside noise). Neither arm replaces exp-021 as
+published. One seed, one AI judge, the owner's blind read (rule 6) open: no public claim before the second seed.
 
 ## Next Step
 
-Train `dpo-on-sft` and `sft-only` on the pod with `results-local/final/pairs-train.jsonl` (owner starts the pod), then the held-out generation, guards and
-blind judging. Later: publish the pairs and the model on the Hub as a public dataset repo (owner's plan, after the results).
+1. Rule 6 (owner's own human blind read of the 30 comparisons, `results-local/judging/owner-read/judge-sheet-O-batch-01.md`) is still not done: the read
+   that came back was declared an AI evaluation (23 of 24 decisive for `dpo-on-sft`, shorter answer winning 23 of 24) and is recorded as an additional
+   read only.
+2. If the line goes on: a pair set that does not shorten (repairs chosen without the short-answer selection, or a length-controlled chosen and rejected
+   pair as in exp-003's lessons) and a second seed; the SFT-only arm stays as the control.
+3. Later: publish the pairs on the Hugging Face Hub as a public dataset repo (owner's plan; wording of provenance decided then).

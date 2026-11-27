@@ -1,7 +1,7 @@
 experiment:
   id: exp-005-dpo-repaired-turkish
   parent: exp-021-sft-core-pack-v2 (turkish-capability); exp-001-dpo-grounded-qa (control); exp-003 and exp-004 (data findings)
-  status: ready
+  status: results-in (rule 6, the owner's read, open)
   domain: preference-rl
   purpose: DPO on minimally repaired exp-021 answers for data-carrying Turkish prompts, with an SFT-only control, judged by blind comparison
 
@@ -50,8 +50,30 @@ evaluation:
   held_out: {prompts: 200, decoding: {temperature: 0.1, top_k: 50, repetition_penalty: 1.1, max_new_tokens: 800, thinking: "off"}, answers_per_prompt: 1}
   secondary: "exp-003 held-out 78 open prompts"
   judge: "blind, order-randomised pairwise, different model family than the repair model, instructions in data/JUDGE-GUIDE.md, ties allowed"
+  judge_guide: {file: data/JUDGE-GUIDE.md, registered: {commit: 8639f47, date: "2026-11-26", sha256: 8fc3fca3ec13aca85bfcecffcdbf01be2c007fcd5b47a55253abb8a91c0bd02d},
+                with_procedure: {sha256: a5382277914cf50d75bcfd251306f067df62dfaab2e95021d86fc4b841deb94c, added: "2026-11-27; procedure written before any held-out answer existed, one sentence on the length split added after the answers existed (and the length gap was known) but before any judgment; criteria and output format unchanged; one parenthetical naming the judge removed before the commit (hash is of the committed text)"},
+                tool: scripts/evaluation/tr_dpo_judge.py, sets: {A: "dpo-on-sft vs exp-021 (rule 1)", B: "dpo-on-sft vs sft-only (rule 2)", C: "sft-only vs exp-021 (only if rule 1 passes and rule 2 fails)"},
+                sanity_check: "30 training pairs, chosen vs rejected, at least 80% of decisive items prefer chosen, before set A"}
   side_checks: [constraint pass rate, mean words, ended share, detector flagged share]
   guards: [IFEval strict on and off, HumanEval, final test math EN and TR, Belebele EN and TR, TurBLiMP, tool calls]
+
+results:
+  date: "2026-11-27"
+  training: {steps: 189, seed: 42, dpo-on-sft: {logps_chosen_first_last: [-64.2, -54.5], margin: 4.96}, sft-only: {logps_chosen_first_last: [-64.2, -50.7], margin: 3.14}}
+  judging:
+    judge: "AI assistant, blind, procedure in data/JUDGE-GUIDE.md, tool scripts/evaluation/tr_dpo_judge.py; not an independent human check"
+    sanity_30_training_pairs: "30 of 30 repaired answers chosen"
+    A_dpo_on_sft_vs_exp021: {decisive: 169, wins: 146, share: 0.864, wilson95: [0.804, 0.908], ties: 29, identical: 2, rule1: passed}
+    B_dpo_on_sft_vs_sft_only: {decisive: 126, wins: 75, share: 0.595, wilson95: [0.508, 0.677], ties: 63, identical: 11, rule2: "missed (threshold 0.60)"}
+    C_sft_only_vs_exp021: {decisive: 170, wins: 150, share: 0.882, wilson95: [0.825, 0.923], ties: 27, identical: 3}
+    length_matched_share: {A: [37, 45], B: [52, 85], C: [41, 50]}
+    O_additional_read_30: {file: results-local/judging/owner-read/judge-report-O.json, who: "supplied by the owner 2026-11-27, stated by the owner to be an additional AI evaluation; does not count as rule 6",
+                           decisive: 24, wins_dpo_on_sft: 23, share: 0.958, wilson95: [0.798, 0.993], ties: 6, shorter_answer_wins: "23 of 24", length_matched: [4, 5], criterion_recorded: false}
+  side_checks_heldout_t0.1: {exp021: {mean_words: 68.3, constraint_pass: 0.756, flagged: 0.395, ended: 0.975},
+                             dpo-on-sft: {mean_words: 29.7, constraint_pass: 0.931, flagged: 0.160, ended: 1.0},
+                             sft-only: {mean_words: 34.0, constraint_pass: 0.916, flagged: 0.190, ended: 0.995}, rule3: "failed (mean words ratio 0.43 and 0.50)"}
+  guards: {file: results-local/guards.json, rule5: "failed as registered (Belebele EN -2.4 and TR -2.3, TurBLiMP -1.1 for dpo-on-sft; Belebele TR -1.6 for sft-only); IFEval and HumanEval inside the noise"}
+  rules: {rule1: passed, rule2: missed, rule3: failed, rule4: passed, rule5: failed, rule6: open}
 
 tracking:
   provider: none

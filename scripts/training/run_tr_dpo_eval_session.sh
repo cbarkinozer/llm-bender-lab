@@ -3,6 +3,8 @@
 # held-out Turkish prompts. Stage-major: every arm goes through a stage before the next stage starts, so the arms can be compared early.
 #   ARMS="dpo-on-sft dpo-on-base"   (merged models in /workspace/tr-dpo/runs/<arm>/merged)
 #   STAGES="heldout guard bel final evalv2 diag writing pack"   (the suite's own stage names, plus heldout = 78 never-trained Turkish prompts)
+#   heldout5 = exp-005's 200 held-out data-carrying prompts, two answers each (temperature 0.1 = the judged answer, 0.7 = sensitivity check)
+#   exp-021 itself is an arm for the heldout stages only: ln -s /workspace/tr-dpo/exp021 /workspace/tr-dpo/runs/exp021/merged
 # Needs the lfm3-stage venv (vLLM), the uploaded repo files in $EV/repo and $EV/sft-core/prompts-render-final.jsonl. Status: $EV/eval-status.txt
 set -uo pipefail
 source /workspace/lfm3-stage-env.sh
@@ -50,6 +52,13 @@ PYEOF
         mkdir -p $TR/heldout
         $PY scripts/training/sample_tr_dpo_candidates.py --prompts $TR/prompts-heldout.jsonl --output-dir $out --model $EV/models/$name --model-revision '' > $TR/heldout/$arm.log 2>&1
       fi
+    elif [ "$stage" = heldout5 ]; then
+      out=$TR/heldout5/$arm
+      if [ ! -f $out/answers.jsonl ]; then
+        mkdir -p $TR/heldout5
+        $PY scripts/training/sample_tr_dpo_candidates.py --prompts $EV/repo/experiments/preference-rl/lfm3-1.7b/exp-005-dpo-repaired-turkish/results-local/heldout-prompts.jsonl \
+            --output-dir $out --model $EV/models/$name --model-revision '' --temperatures 0.1,0.7 > $TR/heldout5/$arm.log 2>&1
+      fi
     else
       STAGES="$stage" bash scripts/evaluation/run_lfm3_sft_core_model_session.sh "$name"
     fi
@@ -57,6 +66,6 @@ PYEOF
   done
 done
 if [[ " $STAGES " == *" pack "* ]]; then  # the suite packs its own results per model (sft-core/<name>-results.tar.gz); the held-out answers go in one more tarball
-  (cd $TR && tar czf tr-dpo-heldout.tar.gz heldout prompts-heldout.jsonl 2>/dev/null; sha256sum tr-dpo-heldout.tar.gz > tr-dpo-heldout.sha256)
+  (cd $TR && tar czf tr-dpo-heldout.tar.gz heldout heldout5 prompts-heldout.jsonl 2>/dev/null; sha256sum tr-dpo-heldout.tar.gz > tr-dpo-heldout.sha256)
 fi
 log "EVAL_DONE ($ARMS; $STAGES)"

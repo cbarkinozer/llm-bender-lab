@@ -1,0 +1,74 @@
+{
+ "set": "B",
+ "names": [
+  "dpo-on-sft",
+  "sft-only"
+ ],
+ "items_judged": 189,
+ "identical_by_code": 11,
+ "ties": 63,
+ "decisive": 126,
+ "wins": {
+  "dpo-on-sft": 75,
+  "sft-only": 51
+ },
+ "win_share_first": 0.5952380952380952,
+ "wilson95": [
+  0.507943775465677,
+  0.6768968303186016
+ ],
+ "passes_60_and_lower_above_50": false,
+ "by_group": {
+  "constraint": {
+   "sft-only": 31,
+   "dpo-on-sft": 50,
+   "tie": 42
+  },
+  "plain_source": {
+   "dpo-on-sft": 24,
+   "tie": 17,
+   "sft-only": 17
+  },
+  "context": {
+   "tie": 4,
+   "sft-only": 3,
+   "dpo-on-sft": 1
+  }
+ },
+ "by_deciding_criterion": {
+  "dpo-on-sft:1": 42,
+  "dpo-on-sft:2": 18,
+  "dpo-on-sft:3": 11,
+  "dpo-on-sft:4": 4,
+  "sft-only:1": 16,
+  "sft-only:2": 23,
+  "sft-only:3": 11,
+  "sft-only:4": 1
+ },
+ "position_share_A_among_decisive": 0.5714285714285714,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 115,
+  "shorter_answer_wins": 61,
+  "shorter_wins_share": 0.5304347826086957,
+  "length_matched_decisive": 85,
+  "length_matched_first_wins": 52,
+  "length_matched_win_share_first": 0.611764705882353,
+  "length_matched_wilson95": [
+   0.505475154675872,
+   0.7083886208527093
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "6279414de4d3241da05459836932c83465437aa962b06309aee8a65345635192",
+ "judgment_files": [
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-01.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-02.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-03.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-04.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-05.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-06.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-07.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-B-batch-08.jsonl"
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "set": "A",
+ "names": [
+  "dpo-on-sft",
+  "exp-021"
+ ],
+ "items_judged": 198,
+ "identical_by_code": 2,
+ "ties": 29,
+ "decisive": 169,
+ "wins": {
+  "dpo-on-sft": 146,
+  "exp-021": 23
+ },
+ "win_share_first": 0.863905325443787,
+ "wilson95": [
+  0.8040618279432782,
+  0.9075724082591173
+ ],
+ "passes_60_and_lower_above_50": true,
+ "by_group": {
+  "plain_source": {
+   "exp-021": 7,
+   "dpo-on-sft": 44,
+   "tie": 10
+  },
+  "constraint": {
+   "dpo-on-sft": 96,
+   "exp-021": 15,
+   "tie": 18
+  },
+  "context": {
+   "dpo-on-sft": 6,
+   "exp-021": 1,
+   "tie": 1
+  }
+ },
+ "by_deciding_criterion": {
+  "dpo-on-sft:1": 105,
+  "dpo-on-sft:2": 20,
+  "dpo-on-sft:3": 7,
+  "dpo-on-sft:4": 14,
+  "exp-021:1": 12,
+  "exp-021:2": 11
+ },
+ "position_share_A_among_decisive": 0.5325443786982249,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 165,
+  "shorter_answer_wins": 128,
+  "shorter_wins_share": 0.7757575757575758,
+  "length_matched_decisive": 45,
+  "length_matched_first_wins": 37,
+  "length_matched_win_share_first": 0.8222222222222222,
+  "length_matched_wilson95": [
+   0.6866989315634587,
+   0.9070572107414617
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "aa0b033fea462a614b4151f21e3c65104487de7eb1c75281354db562f048542a",
+ "judgment_files": [
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-01.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-02.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-03.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-04.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-05.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-06.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-07.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-A-batch-08.jsonl"
+ ]
+}

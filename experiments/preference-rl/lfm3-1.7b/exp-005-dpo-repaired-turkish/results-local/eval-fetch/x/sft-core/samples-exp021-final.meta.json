@@ -1,0 +1,42 @@
+{
+ "prompts_sha256": "cde74b8fbc163c0864b655b61a112bc5bdc693bb726a5fda9bcc9cede97987b7",
+ "k": 4,
+ "seed": 3407,
+ "model": "/workspace/lfm3-evalv2/models/exp021",
+ "base": {
+  "repo": "LiquidAI/LFM3-1.7B",
+  "revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "quantization": null,
+  "precision_proposed": "bfloat16",
+  "thinking_proposed": false
+ },
+ "general": {
+  "temperature": 0.1,
+  "top_p": 1.0,
+  "top_k": 50,
+  "repetition_penalty": 1.1
+ },
+ "reasoning": {
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "top_k": 20,
+  "repetition_penalty": 1.0
+ },
+ "max_new_on": 8192,
+ "max_new_off": 2048,
+ "engine_args": {
+  "model": "/workspace/lfm3-evalv2/models/exp021",
+  "tokenizer": "LiquidAI/LFM3-1.7B",
+  "tokenizer_revision": "0dc4268b561499c648c7ba7c9466bf3d8d01517a",
+  "dtype": "bfloat16",
+  "max_model_len": 12288,
+  "gpu_memory_utilization": 0.85,
+  "enforce_eager": true,
+  "max_num_seqs": 128,
+  "seed": 3407,
+  "trust_remote_code": true,
+  "generation_config": "vllm",
+  "enable_prefix_caching": false
+ },
+ "script_sha256": "3005c81d80204b7dce4e331ad133727a77fc6b306cfa3511924b8f0a077dab6e"
+}

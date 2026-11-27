@@ -11,6 +11,7 @@ EV=/workspace/lfm3-evalv2
 TR=/workspace/tr-dpo
 L=experiments/turkish-capability/lfm3-1.7b
 H=experiments/preference-rl/lfm3-1.7b/exp-003-dpo-turkish-quality
+H5=experiments/preference-rl/lfm3-1.7b/exp-005-dpo-repaired-turkish
 ARMS=${ARMS:-"dpo-on-sft dpo-on-base"}
 cmd=${1:-}; shift || true
 case $cmd in
@@ -23,7 +24,12 @@ case $cmd in
       $L/eval-v2/source-cache/belebele-eng_Latn.jsonl $L/eval-v2/source-cache/belebele-tur_Latn.jsonl \
       $L/exp-000-baseline/config-planned.json $L/exp-000-baseline/data-local/turblimp-1600.jsonl $L/exp-000-baseline/turblimp-manifest-v01.json \
       $L/exp-014-completion-mask/config.json $L/exp-012-base-bilingual/config.yaml $H/data/prompts-tr-dpo.jsonl \
+      $H5/results-local/heldout-prompts.jsonl \
       | $S "cd $EV/repo && tar xzf - && find scripts -name '*.sh' -exec sed -i 's/\r\$//' {} + && echo extracted" || exit 1
+    # the --exclude above also drops the explicitly listed Belebele files, so the source cache goes up in its own archive (IFEval code into the vendor dir)
+    $S "mkdir -p $EV/vendor/instruction_following_eval $EV/repo/$L/eval-v2/source-cache" || exit 1
+    tar czf - -C $L/eval-v2/source-cache belebele-eng_Latn.jsonl belebele-tur_Latn.jsonl | $S "tar xzf - -C $EV/repo/$L/eval-v2/source-cache" || exit 1
+    tar czf - -C $L/eval-v2/source-cache/ifeval-code . | $S "tar xzf - -C $EV/vendor/instruction_following_eval" || exit 1
     want=$(sha256sum "$FINAL" | cut -d' ' -f1)
     cat "$FINAL" | $S "cat > $EV/sft-core/prompts-render-final.jsonl" || exit 1
     [ "$($S "sha256sum $EV/sft-core/prompts-render-final.jsonl | cut -d' ' -f1")" = "$want" ] || { echo "final prompts upload mismatch"; exit 1; }

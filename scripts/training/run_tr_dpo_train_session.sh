@@ -4,6 +4,7 @@
 #   overfit     playbook tiny-overfit check: 32 pairs, 10 epochs, LR 1e-4, arm sft, no merge; rewards/accuracies must reach .9
 #   dpo-on-sft     DPO over exp-021 on the pairs file, the notebook's recipe
 #   dpo-on-base    the same pairs over the original LFM3-1.7B
+#   exp005-dpo-on-sft, exp005-sft-only   exp-005 arms on its pairs file: 3 epochs, seed 42; the second has DPO weight 0 (SFT loss only)
 #   variant     a documented variant of a run (VARIANT_NAME, VARIANT_ARGS), for example more epochs
 #   package     tar + sha256 of the adapters and manifests (the merged weights stay on the pod for the evaluation stages)
 set -uo pipefail
@@ -32,6 +33,10 @@ for stage in $STAGES; do
       run dpo-on-sft $T --arm sft --sft-dir $ROOT/exp021 --out $ROOT/runs/dpo-on-sft ;;
     dpo-on-base)
       run dpo-on-base $T --arm base --out $ROOT/runs/dpo-on-base ;;
+    exp005-dpo-on-sft)
+      run exp005-dpo-on-sft $T --arm sft --sft-dir $ROOT/exp021 --epochs 3 --out $ROOT/runs/exp005-dpo-on-sft ;;
+    exp005-sft-only)
+      run exp005-sft-only $T --arm sft --sft-dir $ROOT/exp021 --epochs 3 --dpo-weight 0 --out $ROOT/runs/exp005-sft-only ;;
     variant)  # VARIANT_NAME and VARIANT_ARGS from the environment, for example VARIANT_NAME=dpo-on-sft-e3 VARIANT_ARGS="--arm sft --sft-dir $ROOT/exp021 --epochs 3"
       run $VARIANT_NAME $T --out $ROOT/runs/$VARIANT_NAME $VARIANT_ARGS ;;
     package)

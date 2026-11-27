@@ -1,0 +1,54 @@
+{
+ "set": "S",
+ "names": [
+  "chosen",
+  "rejected"
+ ],
+ "items_judged": 30,
+ "identical_by_code": 0,
+ "ties": 0,
+ "decisive": 30,
+ "wins": {
+  "chosen": 30,
+  "rejected": 0
+ },
+ "win_share_first": 1.0,
+ "wilson95": [
+  0.8864829086095221,
+  1.0
+ ],
+ "passes_60_and_lower_above_50": true,
+ "by_group": {
+  "constraint": {
+   "chosen": 28
+  },
+  "context": {
+   "chosen": 2
+  }
+ },
+ "by_deciding_criterion": {
+  "chosen:1": 21,
+  "chosen:2": 8,
+  "chosen:3": 1
+ },
+ "position_share_A_among_decisive": 0.5333333333333333,
+ "position_warning": false,
+ "length_split": {
+  "decisive_with_different_lengths": 26,
+  "shorter_answer_wins": 18,
+  "shorter_wins_share": 0.6923076923076923,
+  "length_matched_decisive": 24,
+  "length_matched_first_wins": 24,
+  "length_matched_win_share_first": 1.0,
+  "length_matched_wilson95": [
+   0.8620194241710247,
+   1.0
+  ],
+  "note": "length matched = word counts within a factor of 0.75-1.33; a reported robustness split, not a decision rule"
+ },
+ "key_sha256": "c9e5ecb09acab98e51365ff2026fea98659773fd5db899665572f6ace2f83963",
+ "judgment_files": [
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-S-batch-01.jsonl",
+  "experiments\\preference-rl\\lfm3-1.7b\\exp-005-dpo-repaired-turkish\\results-local\\judging\\judge-S-batch-02.jsonl"
+ ]
+}

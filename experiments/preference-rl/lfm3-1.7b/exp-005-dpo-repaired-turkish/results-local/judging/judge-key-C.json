@@ -1,0 +1,1400 @@
+{
+ "set": "C",
+ "seed": "exp005-judge",
+ "name_a": "sft-only",
+ "name_b": "exp-021",
+ "prompts": 200,
+ "identical": [
+  "dpo-c-trgen-0300",
+  "dpo4-atlas-012429",
+  "dpo4-atlas-041580"
+ ],
+ "batches": 8,
+ "batch_size": 25,
+ "order": [
+  "dpo4-atlas-318690",
+  "dpo4-atlas-164326",
+  "dpo4-atlas-192374",
+  "dpo4-atlas-235414",
+  "dpo4-atlas-119744",
+  "dpo4-atlas-045991",
+  "dpo4-atlas-226361",
+  "dpo4-atlas-121676",
+  "dpo4-atlas-114311",
+  "dpo4-atlas-324104",
+  "dpo-c-trgen-0022",
+  "dpo4-atlas-038883",
+  "dpo4-atlas-085806",
+  "dpo-c-trgen-0284",
+  "dpo4-atlas-072808",
+  "dpo4-atlas-109294",
+  "dpo4-atlas-323621",
+  "dpo-c-trgen-0477",
+  "dpo4-atlas-243826",
+  "dpo4-atlas-161991",
+  "dpo4-atlas-197051",
+  "dpo4-atlas-296097",
+  "dpo4-atlas-285783",
+  "dpo4-atlas-190639",
+  "dpo4-atlas-281688",
+  "dpo4-atlas-040672",
+  "dpo4-atlas-331768",
+  "dpo4-atlas-131630",
+  "dpo4-atlas-016463",
+  "dpo4-atlas-163888",
+  "dpo4-atlas-028098",
+  "dpo4-atlas-185054",
+  "dpo4-atlas-015280",
+  "dpo4-atlas-019955",
+  "dpo4-atlas-079332",
+  "dpo4-atlas-257407",
+  "dpo4-atlas-172480",
+  "dpo4-atlas-050359",
+  "dpo4-atlas-207772",
+  "dpo4-atlas-153728",
+  "dpo4-atlas-023623",
+  "dpo4-atlas-152229",
+  "dpo4-atlas-220443",
+  "dpo4-atlas-296857",
+  "dpo-c-trgen-0398",
+  "dpo-c-trgen-0395",
+  "dpo4-atlas-189029",
+  "dpo4-atlas-112894",
+  "dpo4-atlas-253030",
+  "dpo4-atlas-301351",
+  "dpo4-atlas-125247",
+  "dpo4-atlas-020034",
+  "dpo4-atlas-149604",
+  "dpo4-atlas-319575",
+  "dpo4-atlas-233855",
+  "dpo4-atlas-222202",
+  "dpo4-atlas-125164",
+  "dpo4-atlas-169494",
+  "dpo-c-trgen-0323",
+  "dpo-c-trgen-0213",
+  "dpo4-atlas-251596",
+  "dpo4-atlas-225241",
+  "dpo4-atlas-186125",
+  "dpo4-atlas-217293",
+  "dpo4-atlas-207728",
+  "dpo4-atlas-205163",
+  "dpo4-atlas-160589",
+  "dpo4-atlas-070834",
+  "dpo4-atlas-084210",
+  "dpo4-atlas-137982",
+  "dpo4-atlas-333353",
+  "dpo4-atlas-188680",
+  "dpo4-atlas-160805",
+  "dpo4-atlas-083241",
+  "dpo4-atlas-268098",
+  "dpo4-atlas-171327",
+  "dpo4-atlas-323527",
+  "dpo4-atlas-327726",
+  "dpo4-atlas-214112",
+  "dpo4-atlas-013895",
+  "dpo4-atlas-181277",
+  "dpo4-atlas-251813",
+  "dpo4-atlas-126648",
+  "dpo4-atlas-074744",
+  "dpo4-atlas-280977",
+  "dpo4-atlas-163835",
+  "dpo4-atlas-155792",
+  "dpo4-atlas-023563",
+  "dpo-c-trgen-0414",
+  "dpo4-atlas-128740",
+  "dpo-c-trgen-0261",
+  "dpo-c-trgen-0179",
+  "dpo4-atlas-279194",
+  "dpo4-atlas-113770",
+  "dpo4-atlas-094574",
+  "dpo4-atlas-058847",
+  "dpo4-atlas-082072",
+  "dpo4-atlas-181683",
+  "dpo4-atlas-082315",
+  "dpo4-atlas-292628",
+  "dpo4-atlas-150070",
+  "dpo4-atlas-073267",
+  "dpo4-atlas-298976",
+  "dpo4-atlas-301718",
+  "dpo4-atlas-008658",
+  "dpo4-atlas-141278",
+  "dpo4-atlas-007032",
+  "dpo4-atlas-005394",
+  "dpo4-atlas-187106",
+  "dpo4-atlas-050987",
+  "dpo4-atlas-001336",
+  "dpo4-atlas-301280",
+  "dpo4-atlas-177692",
+  "dpo4-atlas-174906",
+  "dpo4-atlas-116691",
+  "dpo4-atlas-010015",
+  "dpo4-atlas-331975",
+  "dpo-c-trgen-0117",
+  "dpo4-atlas-281591",
+  "dpo4-atlas-095183",
+  "dpo4-atlas-175902",
+  "dpo4-atlas-020524",
+  "dpo-c-trgen-0186",
+  "dpo-c-trgen-0114",
+  "dpo4-atlas-168872",
+  "dpo4-atlas-146942",
+  "dpo4-atlas-313543",
+  "dpo4-atlas-315781",
+  "dpo4-atlas-258525",
+  "dpo4-atlas-125589",
+  "dpo-c-trgen-0042",
+  "dpo4-atlas-229575",
+  "dpo4-atlas-171181",
+  "dpo4-atlas-224605",
+  "dpo4-atlas-029325",
+  "dpo4-atlas-093493",
+  "dpo4-atlas-232890",
+  "dpo4-atlas-090116",
+  "dpo4-atlas-302235",
+  "dpo4-atlas-262499",
+  "dpo4-atlas-185751",
+  "dpo4-atlas-111430",
+  "dpo4-atlas-307391",
+  "dpo4-atlas-178358",
+  "dpo4-atlas-227416",
+  "dpo4-atlas-332666",
+  "dpo4-atlas-215489",
+  "dpo-c-trgen-0408",
+  "dpo4-atlas-127793",
+  "dpo4-atlas-095189",
+  "dpo4-atlas-261288",
+  "dpo4-atlas-254810",
+  "dpo4-atlas-231882",
+  "dpo-c-trgen-0054",
+  "dpo4-atlas-283673",
+  "dpo-c-trgen-0426",
+  "dpo4-atlas-176668",
+  "dpo4-atlas-135242",
+  "dpo4-atlas-012745",
+  "dpo4-atlas-174212",
+  "dpo4-atlas-319407",
+  "dpo4-atlas-020731",
+  "dpo4-atlas-261381",
+  "dpo4-atlas-249476",
+  "dpo4-atlas-263352",
+  "dpo4-atlas-277525",
+  "dpo4-atlas-144314",
+  "dpo4-atlas-203741",
+  "dpo4-atlas-267696",
+  "dpo4-atlas-224174",
+  "dpo4-atlas-307535",
+  "dpo4-atlas-119330",
+  "dpo4-atlas-005677",
+  "dpo4-atlas-106263",
+  "dpo4-atlas-035803",
+  "dpo4-atlas-012609",
+  "dpo4-atlas-131695",
+  "dpo4-atlas-313258",
+  "dpo4-atlas-201339",
+  "dpo4-atlas-027028",
+  "dpo4-atlas-197086",
+  "dpo4-atlas-175856",
+  "dpo4-atlas-218629",
+  "dpo4-atlas-254759",
+  "dpo-c-trgen-0221",
+  "dpo4-atlas-080881",
+  "dpo4-atlas-246337",
+  "dpo4-atlas-013518",
+  "dpo4-atlas-091723",
+  "dpo4-atlas-088725",
+  "dpo4-atlas-306671",
+  "dpo4-atlas-245444",
+  "dpo4-atlas-116863",
+  "dpo4-atlas-185426",
+  "dpo4-atlas-274553",
+  "dpo4-atlas-241682",
+  "dpo4-atlas-164434"
+ ],
+ "items": {
+  "dpo4-atlas-318690": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 58,
+   "words_B": 26
+  },
+  "dpo4-atlas-164326": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 26,
+   "words_B": 25
+  },
+  "dpo4-atlas-192374": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 29,
+   "words_B": 47
+  },
+  "dpo4-atlas-235414": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 36,
+   "words_B": 27
+  },
+  "dpo4-atlas-119744": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 12
+  },
+  "dpo4-atlas-045991": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 27,
+   "words_B": 25
+  },
+  "dpo4-atlas-226361": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 41,
+   "words_B": 112
+  },
+  "dpo4-atlas-121676": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 26,
+   "words_B": 31
+  },
+  "dpo4-atlas-114311": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 26,
+   "words_B": 31
+  },
+  "dpo4-atlas-324104": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 71,
+   "words_B": 180
+  },
+  "dpo-c-trgen-0022": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 348,
+   "words_B": 87
+  },
+  "dpo4-atlas-038883": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 47,
+   "words_B": 20
+  },
+  "dpo4-atlas-085806": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 64,
+   "words_B": 56
+  },
+  "dpo-c-trgen-0284": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 61,
+   "words_B": 51
+  },
+  "dpo4-atlas-072808": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 42,
+   "words_B": 118
+  },
+  "dpo4-atlas-109294": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 167,
+   "words_B": 302
+  },
+  "dpo4-atlas-323621": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 19,
+   "words_B": 36
+  },
+  "dpo-c-trgen-0477": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 61,
+   "words_B": 31
+  },
+  "dpo4-atlas-243826": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 21,
+   "words_B": 71
+  },
+  "dpo4-atlas-161991": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 40,
+   "words_B": 42
+  },
+  "dpo4-atlas-197051": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 35,
+   "words_B": 53
+  },
+  "dpo4-atlas-296097": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 51,
+   "words_B": 36
+  },
+  "dpo4-atlas-285783": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 23,
+   "words_B": 24
+  },
+  "dpo4-atlas-190639": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 162,
+   "words_B": 65
+  },
+  "dpo4-atlas-281688": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 57,
+   "words_B": 47
+  },
+  "dpo4-atlas-040672": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 21,
+   "words_B": 38
+  },
+  "dpo4-atlas-331768": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 14,
+   "words_B": 16
+  },
+  "dpo4-atlas-131630": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 23,
+   "words_B": 31
+  },
+  "dpo4-atlas-016463": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 94,
+   "words_B": 27
+  },
+  "dpo4-atlas-163888": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 28,
+   "words_B": 24
+  },
+  "dpo4-atlas-028098": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 31,
+   "words_B": 13
+  },
+  "dpo4-atlas-185054": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 28,
+   "words_B": 93
+  },
+  "dpo4-atlas-015280": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 27,
+   "words_B": 158
+  },
+  "dpo4-atlas-019955": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 46,
+   "words_B": 69
+  },
+  "dpo4-atlas-079332": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 36,
+   "words_B": 59
+  },
+  "dpo4-atlas-257407": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 279,
+   "words_B": 146
+  },
+  "dpo4-atlas-172480": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 12,
+   "words_B": 86
+  },
+  "dpo4-atlas-050359": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 15,
+   "words_B": 56
+  },
+  "dpo4-atlas-207772": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 25
+  },
+  "dpo4-atlas-153728": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 100,
+   "words_B": 44
+  },
+  "dpo4-atlas-023623": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 10,
+   "words_B": 11
+  },
+  "dpo4-atlas-152229": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 8,
+   "words_B": 12
+  },
+  "dpo4-atlas-220443": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 52,
+   "words_B": 24
+  },
+  "dpo4-atlas-296857": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 33,
+   "words_B": 59
+  },
+  "dpo-c-trgen-0398": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 48,
+   "words_B": 36
+  },
+  "dpo-c-trgen-0395": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 15,
+   "words_B": 42
+  },
+  "dpo4-atlas-189029": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 99,
+   "words_B": 21
+  },
+  "dpo4-atlas-112894": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 32,
+   "words_B": 22
+  },
+  "dpo4-atlas-253030": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 15,
+   "words_B": 264
+  },
+  "dpo4-atlas-301351": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 13,
+   "words_B": 18
+  },
+  "dpo4-atlas-125247": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 71,
+   "words_B": 99
+  },
+  "dpo4-atlas-020034": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 77,
+   "words_B": 101
+  },
+  "dpo4-atlas-149604": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 46,
+   "words_B": 54
+  },
+  "dpo4-atlas-319575": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 323,
+   "words_B": 87
+  },
+  "dpo4-atlas-233855": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 46,
+   "words_B": 37
+  },
+  "dpo4-atlas-222202": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 28,
+   "words_B": 37
+  },
+  "dpo4-atlas-125164": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 48,
+   "words_B": 61
+  },
+  "dpo4-atlas-169494": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 18,
+   "words_B": 40
+  },
+  "dpo-c-trgen-0323": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 46,
+   "words_B": 48
+  },
+  "dpo-c-trgen-0213": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 79,
+   "words_B": 39
+  },
+  "dpo4-atlas-251596": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 19,
+   "words_B": 6
+  },
+  "dpo4-atlas-225241": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 55,
+   "words_B": 38
+  },
+  "dpo4-atlas-186125": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 21,
+   "words_B": 32
+  },
+  "dpo4-atlas-217293": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 21,
+   "words_B": 42
+  },
+  "dpo4-atlas-207728": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 25,
+   "words_B": 64
+  },
+  "dpo4-atlas-205163": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 19,
+   "words_B": 53
+  },
+  "dpo4-atlas-160589": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 18,
+   "words_B": 16
+  },
+  "dpo4-atlas-070834": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 10,
+   "words_B": 10
+  },
+  "dpo4-atlas-084210": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 20,
+   "words_B": 35
+  },
+  "dpo4-atlas-137982": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 31,
+   "words_B": 43
+  },
+  "dpo4-atlas-333353": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 12,
+   "words_B": 20
+  },
+  "dpo4-atlas-188680": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 30,
+   "words_B": 35
+  },
+  "dpo4-atlas-160805": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 50,
+   "words_B": 76
+  },
+  "dpo4-atlas-083241": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 19,
+   "words_B": 18
+  },
+  "dpo4-atlas-268098": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 37,
+   "words_B": 54
+  },
+  "dpo4-atlas-171327": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 69,
+   "words_B": 255
+  },
+  "dpo4-atlas-323527": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 67,
+   "words_B": 61
+  },
+  "dpo4-atlas-327726": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 53,
+   "words_B": 41
+  },
+  "dpo4-atlas-214112": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 81,
+   "words_B": 31
+  },
+  "dpo4-atlas-013895": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 53
+  },
+  "dpo4-atlas-181277": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 48,
+   "words_B": 99
+  },
+  "dpo4-atlas-251813": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 18,
+   "words_B": 34
+  },
+  "dpo4-atlas-126648": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 26,
+   "words_B": 14
+  },
+  "dpo4-atlas-074744": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 23,
+   "words_B": 29
+  },
+  "dpo4-atlas-280977": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 33,
+   "words_B": 79
+  },
+  "dpo4-atlas-163835": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 77,
+   "words_B": 335
+  },
+  "dpo4-atlas-155792": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 222,
+   "words_B": 22
+  },
+  "dpo4-atlas-023563": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 12,
+   "words_B": 11
+  },
+  "dpo-c-trgen-0414": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 25,
+   "words_B": 61
+  },
+  "dpo4-atlas-128740": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 14,
+   "words_B": 20
+  },
+  "dpo-c-trgen-0261": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 18
+  },
+  "dpo-c-trgen-0179": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 54,
+   "words_B": 28
+  },
+  "dpo4-atlas-279194": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 61,
+   "words_B": 101
+  },
+  "dpo4-atlas-113770": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 49,
+   "words_B": 15
+  },
+  "dpo4-atlas-094574": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 18,
+   "words_B": 21
+  },
+  "dpo4-atlas-058847": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 23
+  },
+  "dpo4-atlas-082072": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 25,
+   "words_B": 34
+  },
+  "dpo4-atlas-181683": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 30,
+   "words_B": 35
+  },
+  "dpo4-atlas-082315": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 51,
+   "words_B": 59
+  },
+  "dpo4-atlas-292628": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 47,
+   "words_B": 59
+  },
+  "dpo4-atlas-150070": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 21,
+   "words_B": 30
+  },
+  "dpo4-atlas-073267": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 39,
+   "words_B": 29
+  },
+  "dpo4-atlas-298976": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 76,
+   "words_B": 30
+  },
+  "dpo4-atlas-301718": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 37,
+   "words_B": 60
+  },
+  "dpo4-atlas-008658": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 24,
+   "words_B": 41
+  },
+  "dpo4-atlas-141278": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 46,
+   "words_B": 44
+  },
+  "dpo4-atlas-007032": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 19,
+   "words_B": 28
+  },
+  "dpo4-atlas-005394": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 145,
+   "words_B": 29
+  },
+  "dpo4-atlas-187106": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 22,
+   "words_B": 29
+  },
+  "dpo4-atlas-050987": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 14,
+   "words_B": 21
+  },
+  "dpo4-atlas-001336": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 32,
+   "words_B": 39
+  },
+  "dpo4-atlas-301280": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 69,
+   "words_B": 32
+  },
+  "dpo4-atlas-177692": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 49,
+   "words_B": 43
+  },
+  "dpo4-atlas-174906": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 28,
+   "words_B": 55
+  },
+  "dpo4-atlas-116691": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 52,
+   "words_B": 23
+  },
+  "dpo4-atlas-010015": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 240,
+   "words_B": 40
+  },
+  "dpo4-atlas-331975": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 11,
+   "words_B": 23
+  },
+  "dpo-c-trgen-0117": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 19,
+   "words_B": 22
+  },
+  "dpo4-atlas-281591": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 15,
+   "words_B": 15
+  },
+  "dpo4-atlas-095183": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 53,
+   "words_B": 63
+  },
+  "dpo4-atlas-175902": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 9,
+   "words_B": 9
+  },
+  "dpo4-atlas-020524": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 28
+  },
+  "dpo-c-trgen-0186": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 20
+  },
+  "dpo-c-trgen-0114": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 78,
+   "words_B": 122
+  },
+  "dpo4-atlas-168872": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 19
+  },
+  "dpo4-atlas-146942": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 59,
+   "words_B": 50
+  },
+  "dpo4-atlas-313543": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 37
+  },
+  "dpo4-atlas-315781": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 69,
+   "words_B": 54
+  },
+  "dpo4-atlas-258525": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 26,
+   "words_B": 250
+  },
+  "dpo4-atlas-125589": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 37,
+   "words_B": 42
+  },
+  "dpo-c-trgen-0042": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 45,
+   "words_B": 30
+  },
+  "dpo4-atlas-229575": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 20,
+   "words_B": 36
+  },
+  "dpo4-atlas-171181": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 45,
+   "words_B": 54
+  },
+  "dpo4-atlas-224605": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 32,
+   "words_B": 34
+  },
+  "dpo4-atlas-029325": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 56,
+   "words_B": 49
+  },
+  "dpo4-atlas-093493": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 50,
+   "words_B": 25
+  },
+  "dpo4-atlas-232890": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 76,
+   "words_B": 64
+  },
+  "dpo4-atlas-090116": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 17
+  },
+  "dpo4-atlas-302235": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 28,
+   "words_B": 58
+  },
+  "dpo4-atlas-262499": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 12,
+   "words_B": 45
+  },
+  "dpo4-atlas-185751": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 43,
+   "words_B": 21
+  },
+  "dpo4-atlas-111430": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 42,
+   "words_B": 69
+  },
+  "dpo4-atlas-307391": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 65,
+   "words_B": 56
+  },
+  "dpo4-atlas-178358": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 124,
+   "words_B": 19
+  },
+  "dpo4-atlas-227416": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 225
+  },
+  "dpo4-atlas-332666": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 17,
+   "words_B": 19
+  },
+  "dpo4-atlas-215489": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 36,
+   "words_B": 60
+  },
+  "dpo-c-trgen-0408": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 31,
+   "words_B": 23
+  },
+  "dpo4-atlas-127793": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 46,
+   "words_B": 29
+  },
+  "dpo4-atlas-095189": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 73,
+   "words_B": 27
+  },
+  "dpo4-atlas-261288": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 28,
+   "words_B": 37
+  },
+  "dpo4-atlas-254810": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 20,
+   "words_B": 236
+  },
+  "dpo4-atlas-231882": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 33,
+   "words_B": 50
+  },
+  "dpo-c-trgen-0054": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 48,
+   "words_B": 46
+  },
+  "dpo4-atlas-283673": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 62,
+   "words_B": 16
+  },
+  "dpo-c-trgen-0426": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 34,
+   "words_B": 323
+  },
+  "dpo4-atlas-176668": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 63,
+   "words_B": 54
+  },
+  "dpo4-atlas-135242": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 31,
+   "words_B": 30
+  },
+  "dpo4-atlas-012745": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 10,
+   "words_B": 10
+  },
+  "dpo4-atlas-174212": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 94,
+   "words_B": 40
+  },
+  "dpo4-atlas-319407": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 35,
+   "words_B": 43
+  },
+  "dpo4-atlas-020731": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 24,
+   "words_B": 70
+  },
+  "dpo4-atlas-261381": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 110,
+   "words_B": 18
+  },
+  "dpo4-atlas-249476": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 18,
+   "words_B": 14
+  },
+  "dpo4-atlas-263352": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 88,
+   "words_B": 39
+  },
+  "dpo4-atlas-277525": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 21,
+   "words_B": 16
+  },
+  "dpo4-atlas-144314": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 21,
+   "words_B": 42
+  },
+  "dpo4-atlas-203741": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 43,
+   "words_B": 30
+  },
+  "dpo4-atlas-267696": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 35,
+   "words_B": 20
+  },
+  "dpo4-atlas-224174": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 66,
+   "words_B": 26
+  },
+  "dpo4-atlas-307535": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 50,
+   "words_B": 25
+  },
+  "dpo4-atlas-119330": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 24,
+   "words_B": 43
+  },
+  "dpo4-atlas-005677": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 30,
+   "words_B": 30
+  },
+  "dpo4-atlas-106263": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 22,
+   "words_B": 28
+  },
+  "dpo4-atlas-035803": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 47,
+   "words_B": 37
+  },
+  "dpo4-atlas-012609": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 11,
+   "words_B": 10
+  },
+  "dpo4-atlas-131695": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 27,
+   "words_B": 60
+  },
+  "dpo4-atlas-313258": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 25,
+   "words_B": 83
+  },
+  "dpo4-atlas-201339": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 113,
+   "words_B": 26
+  },
+  "dpo4-atlas-027028": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 89,
+   "words_B": 24
+  },
+  "dpo4-atlas-197086": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 43,
+   "words_B": 56
+  },
+  "dpo4-atlas-175856": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 38,
+   "words_B": 25
+  },
+  "dpo4-atlas-218629": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 182,
+   "words_B": 69
+  },
+  "dpo4-atlas-254759": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 32,
+   "words_B": 63
+  },
+  "dpo-c-trgen-0221": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 68,
+   "words_B": 74
+  },
+  "dpo4-atlas-080881": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 42,
+   "words_B": 132
+  },
+  "dpo4-atlas-246337": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 71,
+   "words_B": 242
+  },
+  "dpo4-atlas-013518": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 35,
+   "words_B": 89
+  },
+  "dpo4-atlas-091723": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 26,
+   "words_B": 22
+  },
+  "dpo4-atlas-088725": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 54,
+   "words_B": 162
+  },
+  "dpo4-atlas-306671": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 26,
+   "words_B": 80
+  },
+  "dpo4-atlas-245444": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 29,
+   "words_B": 32
+  },
+  "dpo4-atlas-116863": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 34,
+   "words_B": 24
+  },
+  "dpo4-atlas-185426": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 20,
+   "words_B": 32
+  },
+  "dpo4-atlas-274553": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 83,
+   "words_B": 78
+  },
+  "dpo4-atlas-241682": {
+   "A": "sft-only",
+   "B": "exp-021",
+   "words_A": 52,
+   "words_B": 102
+  },
+  "dpo4-atlas-164434": {
+   "A": "exp-021",
+   "B": "sft-only",
+   "words_A": 117,
+   "words_B": 33
+  }
+ },
+ "prompts_sha256": "f11b935ebcc7e0f8ead669f268ca18d59dbf04009c5e7faf4086ea58004c1d91",
+ "answers_a_sha256": "ec5419ef3d0080568c0b58668a9906b768421bc18379208e832f8adb2a2bc8bc",
+ "answers_b_sha256": "44b0641eb42d7890dcb4ae6931870a6e408e6c2deb782ce6bd0bd4c71aa86789"
+}
