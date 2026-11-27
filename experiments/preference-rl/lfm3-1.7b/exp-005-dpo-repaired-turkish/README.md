@@ -2,8 +2,8 @@
 
 ## Status
 
-`ready` (2026-11-27). All 2,000 train prompts are repaired and validated (pilot and rest packet, see Pilot and Rest packet): 1,011 pairs after the brevity
-guard, above the 1,000 minimum. Training has not run. The rules below were fixed before any repaired data or model result existed.
+`ready` (2026-11-27). All 2,000 train prompts are repaired and validated (pilot and rest packet, see Pilot and Rest packet); the final pair file has
+**1,008 pairs** (`results-local/final/pairs-train.jsonl`, sha256 in `config.yaml`), above the 1,000 minimum. Training has not run. The rules below were fixed before any repaired data or model result existed.
 
 ## Goal
 
@@ -120,7 +120,7 @@ Read result: 27 of 30 `good` and `chosen_better`, 3 of 30 `minor_issues` (missin
 corrections written in the Argilla text boxes). **The 27 / 30 labels were entered by an AI assistant, not by an independent human**, and the same
 assistant family did the repairs, so it is a weak check. The owner glanced through the pairs for anomalies and found none (natural, good-quality
 Turkish), without labelling them in the tool. The gate is counted as passed on that combined evidence; the independent checks come later (blind judge in rule 1-2, the
-owner's blind read of 30 held-out answers in rule 6). The 3 corrected answers replace those chosen answers when the final pairs are built. The repair guide got one sentence from these three cases
+owner's blind read of 30 held-out answers in rule 6). The 3 corrected answers were to replace those chosen answers when the final pairs are built (outcome: see Rest packet). The repair guide got one sentence from these three cases
 (cover every named target, N concrete items, no filler item); the 1,700 rest items are repaired under it.
 After the read the train pool changed (see Dataset): plain_source dropped from the rest packet, 500 constraint prompts added.
 
@@ -138,8 +138,17 @@ in the pilot.
 Second-sample round: the first 150 train prompts without a usable repair (hash rank, `tr_dpo_repair.py alt`, manifest `data/repair-alt-manifest.json`) got
 their `alt_sample`, a different answer of the same model, repaired. 56 of 150 usable (37%, median length ratio 0.58), so the yield is lower than for the first
 sample. The pre-registered rule says the alt round is used only when fewer than 1,000 pairs exist; the main set already has 1,011, so **the alt repairs
-are not used in training** (with them the set would have 1,034 pairs; they stay in `results-local/alt-validation/`). The three pilot pairs marked
-`minor_issues` in the read are corrected or dropped when the final pair file is built (see Next Step).
+are not used in training** (with them the set would have 1,034 pairs; they stay in `results-local/alt-validation/`).
+
+Three pilot pairs: the three marked `minor_issues` in the read had a complete correction written by the AI assistant (not an independent human;
+`results-local/repair-output-pilot-corrections.jsonl`). The corrections went through the same validator as every other repair
+(`results-local/pilot-validation-corrected/`): one is usable and replaces its chosen answer (`dpo4-atlas-272645`), two fail the length band (ratio 1.36 and a
+short answer changed by more than 5 words), so those two pairs (`dpo4-atlas-069143`, `dpo-c-trgen-0242`) are dropped. The pilot then has 153 usable repairs of
+300 (51.0%, the 50% gate still met).
+
+**Final pair file:** 1,103 usable repairs (153 pilot + 950 rest) give **1,008 pairs** after the brevity guard (95 shortest dropped, mean ratio 0.85):
+constraint 937, context 57, plain_source 14; 590 `larger`, 418 `minimal`; unique ids, no overlap with the held-out ids (checked in code). Short answers
+(under 20 words) are allowed to move by 5 words, so single pairs reach a length ratio of up to 1.62.
 
 ## Results
 
@@ -155,6 +164,5 @@ Pending.
 
 ## Next Step
 
-Handle the three `minor_issues` pilot pairs (their ids and corrected answers are in the Argilla read dataset `exp005-pilot-pairs-read-30`; replace the
-chosen answers and re-validate, or drop the pairs), build the final pair file with `tr_dpo_repair.py pairs` (still at least 1,000), then train
-`dpo-on-sft` and `sft-only` on the pod. Later: publish the pairs and the model on the Hub as a public dataset repo (owner's plan, after the results).
+Train `dpo-on-sft` and `sft-only` on the pod with `results-local/final/pairs-train.jsonl` (owner starts the pod), then the held-out generation, guards and
+blind judging. Later: publish the pairs and the model on the Hub as a public dataset repo (owner's plan, after the results).

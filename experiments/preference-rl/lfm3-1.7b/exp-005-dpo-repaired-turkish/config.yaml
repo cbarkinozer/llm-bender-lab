@@ -26,6 +26,9 @@ data:
   repair: {guide: data/REPAIR-GUIDE.md, verdicts: [none, minimal, larger, rewrite_needed], retry: 1, word_range_vs_original: [0.50, 1.10], mean_ratio_floor: 0.85, short_answer_words: 20}
   validation: {script: scripts/datasets/tr_dpo_repair.py validate, accept_words: experiments/preference-rl/lfm3-1.7b/exp-004-dpo-onpolicy-turkish/data/accept-words.txt}
   min_pairs: 1000
+  alt_round: {script: scripts/datasets/tr_dpo_repair.py alt, manifest: data/repair-alt-manifest.json, used_in_training: false, reason: "main set already has at least min_pairs"}
+  final_pairs: {file: results-local/final/pairs-train.jsonl, pairs: 1008, sha256: 5fb8068eedd00834715d446f34a1075e221be7985f8a4c9dc739aeb87e87698e,
+                by_group: {constraint: 937, context: 57, plain_source: 14}, by_verdict: {minimal: 418, larger: 590}, mean_length_ratio: 0.85}
   label: synthetic_repair
   leakage: "held-out ids are cut before the train pool and never repaired; prompts exclude the 500 SFT-core prompts and near duplicates of probe and held-out prompts (exp-004 builder)"
 

@@ -1,0 +1,29 @@
+{
+ "packet": 300,
+ "answered": 300,
+ "missing": 0,
+ "verdicts": {
+  "larger": 95,
+  "rewrite_needed": 140,
+  "none": 5,
+  "minimal": 60
+ },
+ "usable": 153,
+ "usable_by_group": {
+  "constraint": 127,
+  "context": 8,
+  "plain_source": 18
+ },
+ "usable_by_verdict": {
+  "larger": 93,
+  "minimal": 60
+ },
+ "failed_checks": 2,
+ "retry_candidates": 0,
+ "fail_reasons": {
+  "short answer changed by more than 5 words": 1,
+  "length ratio 1.36 outside": 1
+ },
+ "median_length_ratio": 0.828,
+ "median_char_similarity": 0.598
+}
