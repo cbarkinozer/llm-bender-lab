@@ -1,7 +1,7 @@
 experiment:
   id: exp-006-dpo-code-checked-turkish
   parent: exp-005-dpo-repaired-turkish
-  status: planned   # draft; rules not frozen, nothing generated or trained
+  status: running   # rules frozen 2026-11-28 before any training run
   domain: preference-rl
   purpose: test whether DPO beats plain SFT on the same chosen answers for Turkish constrained, source-grounded answers, with code-checked pairs
 
@@ -20,7 +20,7 @@ data:
     length_ratio_chosen_over_rejected: [0.8, 1.25]
     max_pairs_per_prompt: 2
     max_share_per_failure_type: 0.35
-    target: 2500   # to freeze
+    target: 4012   # all pairs from the train split (target of 2,500 dropped)
     minimum: 1500  # below this the experiment stops and reports
   judge_in_pair_builder: none
   prompt_sources:
@@ -40,7 +40,7 @@ dev_sweep:
 
 evaluation:
   seeds: 2
-  held_out_prompts: "600-800"   # to freeze after power simulation on dev
+  held_out_prompts: 700   # frozen; 80% power for 2.7 points on dev variance
   samples_per_prompt: 4
   temperature: 0.7
   primary: "per-prompt all-checks pass rate, paired bootstrap over prompts, 95% interval"
@@ -49,7 +49,7 @@ evaluation:
   guards: {margin_points: -2, sets: [belebele_tr, belebele_en, turblimp, exp021_math, exp021_tools, ifeval_if_run, humaneval_if_run]}  # list to freeze
   owner_read: {answers: 40, blind: true}
 
-rules: {status: "to freeze", summary: "see README"}
+rules: {status: "frozen 2026-11-28 before any training run", summary: "see README"}
 
 environment:
   packages: {torch: "2.14.1", transformers: "5.20.2", trl: "1.16.0", peft: "0.21.2"}

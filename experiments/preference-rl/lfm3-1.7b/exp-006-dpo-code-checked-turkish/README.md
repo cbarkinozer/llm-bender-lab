@@ -2,9 +2,12 @@
 
 ## Status
 
-`planned` (draft written 2026-11-27, **rules not frozen**). Nothing is generated or trained. The numbers marked "to freeze" are proposals; the
-owner approves them, the power simulation on dev data confirms them, and only then the rules below become fixed and are committed before any
-pair is built.
+`running` (rules frozen 2026-11-28 before any training run). Prompts, parent samples (train+dev 8 each, held-out 4) and 4,012 train pairs exist;
+nothing has been trained yet. Frozen choices: all 4,012 pairs are used (the 2,500 target is dropped); 700 held-out prompts, 2 seeds; the sweep is
+6 DPO runs (beta 0.05/0.1/0.3 x 1/2 epochs) plus 2 SFT controls (the control does not depend on beta); the sweep's dev guard is the anti-hack flags
+(mean words within 0.8-1.25 of the matching control, skeleton share <= 5%, not-ended share <= control + 2 points); the full guard suite (rule 4)
+runs on the picked configuration in the confirmatory run. Power simulation on dev (300 prompts, 4 samples at T 0.7, parent pass rate 42%):
+smallest gain seen with 80% power is 2.7 points at 700 prompts (sampling noise only).
 
 ## Goal
 
@@ -77,7 +80,7 @@ Parent: `cbarkinozer/LFM3-1.7B-Turkish-SFT` (exp-021, commit `6e4f0b7658b115a28d
 - Guards (non-inferiority): Turkish and English Belebele, TurBLiMP, the exp-021 math set and tool-calling set, IFEval and HumanEval if exp-021
   ran them; lower bound of the paired difference to the parent above -2 points (list to freeze).
 
-## Pre-registered Success Rules (to freeze)
+## Pre-registered Success Rules (FROZEN 2026-11-28, before any training run)
 
 1. `dpo` minus `sft-control` on the primary metric at least +3 points, with the lower bound of the 95% interval above 0, in both seeds.
 2. `dpo` minus `parent` at least +3 points, lower bound above 0, in both seeds.
