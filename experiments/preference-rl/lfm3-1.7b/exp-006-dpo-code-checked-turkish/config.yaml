@@ -12,17 +12,23 @@ model:
   base_revision: "0dc4268b561499c648c7ba7c9466bf3d8d01517a"
 
 data:
-  prompts: "Turkish source passages with 2-4 verifiable constraints; split by passage into train / dev / held-out"
+  prompts: "topics, explain-type questions and source passages with 2-4 stacked verifiable constraints (see prompt_sources); split by item into train / dev / held-out"
   hard_prompt_filter: {samples_per_prompt: 8, temperature: 1.0, parent_pass_rate: [0.2, 0.8]}
   pairs:
     chosen: "parent sample passing every code check"
     rejected: "parent sample from the same prompt failing at least one check"
     length_ratio_chosen_over_rejected: [0.8, 1.25]
     max_pairs_per_prompt: 2
-    max_share_per_constraint_type: 0.25
+    max_share_per_failure_type: 0.35
     target: 2500   # to freeze
     minimum: 1500  # below this the experiment stops and reports
   judge_in_pair_builder: none
+  prompt_sources:
+    topics: {file: data/topics.jsonl, rows: 300, sha256: 07e54ab07c163da9b902daf86214906690b6d5dd9b074b534bbdfe6e7e618141, written_by: an AI assistant}
+    passages: {file: data/passages.jsonl, rows: 400, sha256: 62c47f655c3cd544cd0c9b00c03dfadb2c4a4a6be7a6f3e52e116ee9c5a59de8, written_by: an AI assistant, note: template-like, at most 15% of prompts}
+    questions: {dataset: AlicanKiraz0/Turkish-CoT-Instruct-Dataset, revision: 3473e6c6350564d5a7000faf3ff140e9c4b9d1f2, license: apache-2.0, used: explain-type questions only (1185), never its answers}
+    mix: {topic: 0.6, question: 0.25, passage: 0.15}
+  split: sha256 of the topic / question / passage text, 15% heldout, 10% dev, 75% train; no item in two splits
 
 arms: [parent, sft-control, dpo]
 

@@ -41,11 +41,14 @@ Parent: `cbarkinozer/LFM3-1.7B-Turkish-SFT` (exp-021, commit `6e4f0b7658b115a28d
   1. The exp-004 pool (3,948 prompts, 8 parent samples each, already on disk). Measured with the code checks only (2026-11-27): 1,959 prompts carry a
      check, 1,058 have both passing and failing samples, **645 have a length-matched pair**. That is below the 1,500-pair minimum, so it is a base,
      not the whole set. (The exp-005 held-out 200 are not reused for the final test.)
-  2. Programmatic prompts: a task (write, explain, rewrite, list) on a topic with 2 to 4 stacked countable constraints (word limit, bullet or
-     sentence count, required word, forbidden word, no greeting, no closing question). No corpus needed.
-  3. Source passages for summarise / extract / answer tasks, with the invented-number check on. The parent saw Turkish Wikipedia in CPT (about
-     100M tokens), so Wikipedia is not used. FineWeb-2 Turkish (`tur_Latn`, ODC-By) is only partly seen: use a train shard the CPT did not read and
-     drop any URL that appears in the CPT corpus (to verify before use).
+  2. Programmatic prompts (`scripts/datasets/tr_dpo6_prompts.py`): a task on a topic, an explain-type question, or a source passage, each with
+     2 to 4 stacked countable constraints (word limit, bullet or sentence count, required word, forbidden word, no greeting, no closing question).
+     Sources: 424 topics (126 hand-written here, 300 AI-written, `data/topics.jsonl`), 1,185 explain-type questions from
+     `AlicanKiraz0/Turkish-CoT-Instruct-Dataset` (Apache-2.0, revision `3473e6c6350564d5a7000faf3ff140e9c4b9d1f2`, questions only; multiple-choice,
+     code and calculation questions dropped), and 400 AI-written source passages (`data/passages.jsonl`, grounded: invented-number check on).
+     The passages are template-like (repeated genre frames, odd invented names, narrow subjects), so they are at most 15% of the prompts and not
+     the main test. Mix topic 60% / question 25% / passage 15%. Wikipedia is not used (the parent read about 100M tokens of it in CPT).
+  3. Only if the yield stays below 1,500 pairs: FineWeb-2 Turkish passages from a shard the CPT did not read, minus any URL in the CPT corpus.
   Prompts are split by topic or passage into `train`, `dev` and `held-out`, so no topic or passage appears in two splits.
 - **Hard-prompt filter**: sample 8 answers per prompt from the parent (temperature 1.0); keep prompts where the parent passes 20-80% of the
   samples. Prompts it always or never passes teach nothing.
@@ -53,7 +56,7 @@ Parent: `cbarkinozer/LFM3-1.7B-Turkish-SFT` (exp-021, commit `6e4f0b7658b115a28d
   forbidden words, no greeting, no closing question), every required fact from the source present, no number absent from the source, answer is
   Turkish, answer ends normally. Reuse the exp-005 checks where they exist; add what is missing and test each on hand-made pass and fail cases.
 - **Pairs**: chosen = a sample that passes every check; rejected = a sample from the same prompt that fails at least one check. Chosen/rejected
-  word ratio between 0.8 and 1.25. At most 2 pairs per prompt. Balanced across constraint types (no type above 25% of the pairs).
+  word ratio between 0.8 and 1.25. At most 2 pairs per prompt. Balanced by the failure type of the rejected answer (no type above 35% of the pairs, reported before and after). On the exp-004 samples one type dominates (500 of 715 pairs are bullet-count failures), and a 25% cap would cut 715 pairs to 160, so the cap is 35% (330 pairs there); the new prompts spread over 9 constraint types, so the real mix is measured after sampling.
 - **Size**: target 2,500 pairs (to freeze). If fewer than 1,500 pairs survive, stop and report; do not loosen the checks.
 
 ## Training and Dev Sweep
