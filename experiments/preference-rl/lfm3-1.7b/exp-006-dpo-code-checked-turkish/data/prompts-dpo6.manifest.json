@@ -1,0 +1,64 @@
+{
+ "rows": 6000,
+ "per_split": {
+  "train": 5000,
+  "dev": 300,
+  "heldout": 700
+ },
+ "mix": {
+  "topic": 0.6,
+  "question": 0.25,
+  "passage": 0.15
+ },
+ "seed": 20261127,
+ "rows_by_split_and_source": {
+  "dev/passage": 47,
+  "dev/question": 65,
+  "dev/topic": 188,
+  "heldout/passage": 107,
+  "heldout/question": 162,
+  "heldout/topic": 431,
+  "train/passage": 728,
+  "train/question": 1208,
+  "train/topic": 3064
+ },
+ "material": {
+  "topics": 424,
+  "topics_by_split": {
+   "train": 313,
+   "dev": 50,
+   "heldout": 61
+  },
+  "passages": 400,
+  "passages_by_split": {
+   "train": 286,
+   "dev": 49,
+   "heldout": 65
+  },
+  "questions": 1185,
+  "questions_by_split": {
+   "train": 886,
+   "dev": 110,
+   "heldout": 189
+  }
+ },
+ "inputs": {
+  "topics_sha256": "07e54ab07c163da9b902daf86214906690b6d5dd9b074b534bbdfe6e7e618141",
+  "passages_sha256": "62c47f655c3cd544cd0c9b00c03dfadb2c4a4a6be7a6f3e52e116ee9c5a59de8",
+  "kiraz_sha256": "da9c2dd50d54ecb2d4868b264009081a9bf18c1d76e1662b161794cf46c94741",
+  "kiraz_revision": "3473e6c6350564d5a7000faf3ff140e9c4b9d1f2"
+ },
+ "prompts_sha256": "799ff387c6b7213857ab7ea0aaff7cb3f5f190ad7017c8a365912cfbd11b01f2",
+ "script_sha256": "1696da71443f167984c3a2223362cb5dbc4101959762703a3f61aebbe9eb325a",
+ "constraint_types": {
+  "bullets": 1309,
+  "exact_sentences": 1393,
+  "max_sentences": 1384,
+  "max_words": 2147,
+  "min_words": 2224,
+  "must_include": 1361,
+  "must_not_include": 2334,
+  "no_closing_question": 2346,
+  "no_greeting": 2401
+ }
+}
