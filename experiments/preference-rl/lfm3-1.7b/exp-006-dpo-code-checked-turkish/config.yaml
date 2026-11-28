@@ -13,7 +13,7 @@ model:
 
 data:
   prompts: "topics, explain-type questions and source passages with 2-4 stacked verifiable constraints (see prompt_sources); split by item into train / dev / held-out"
-  hard_prompt_filter: {samples_per_prompt: 8, temperature: 1.0, parent_pass_rate: [0.2, 0.8]}
+  hard_prompt_filter: {samples_per_prompt: 8, temperatures: [0.7, 0.7, 0.7, 0.7, 1.0, 1.0, 1.0, 1.0], parent_pass_rate: [0.2, 0.8]}
   pairs:
     chosen: "parent sample passing every code check"
     rejected: "parent sample from the same prompt failing at least one check"

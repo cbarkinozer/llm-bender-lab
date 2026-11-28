@@ -50,8 +50,8 @@ Parent: `cbarkinozer/LFM3-1.7B-Turkish-SFT` (exp-021, commit `6e4f0b7658b115a28d
      the main test. Mix topic 60% / question 25% / passage 15%. Wikipedia is not used (the parent read about 100M tokens of it in CPT).
   3. Only if the yield stays below 1,500 pairs: FineWeb-2 Turkish passages from a shard the CPT did not read, minus any URL in the CPT corpus.
   Prompts are split by topic or passage into `train`, `dev` and `held-out`, so no topic or passage appears in two splits.
-- **Hard-prompt filter**: sample 8 answers per prompt from the parent (temperature 1.0); keep prompts where the parent passes 20-80% of the
-  samples. Prompts it always or never passes teach nothing.
+- **Hard-prompt filter**: sample 8 answers per prompt from the parent (4 at temperature 0.7, 4 at 1.0, repetition penalty 1.1 as in exp-004; changed
+  from "all at 1.0" so that passing samples exist); keep prompts where the parent passes 20-80% of the samples. Prompts it always or never passes teach nothing.
 - **Code checks** (no model judge in the pair builder or in the primary metric): every stated limit met (words, sentences, bullets, required or
   forbidden words, no greeting, no closing question), every required fact from the source present, no number absent from the source, answer is
   Turkish, answer ends normally. Reuse the exp-005 checks where they exist; add what is missing and test each on hand-made pass and fail cases.
