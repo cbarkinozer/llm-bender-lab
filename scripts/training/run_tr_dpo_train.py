@@ -102,6 +102,7 @@ def main():
     ap.add_argument('--sft-weight', type=float, default=1.0)
     ap.add_argument('--dpo-weight', type=float, default=1.0, help='0 gives the SFT-only control arm (same chosen answers, no preference term)')
     ap.add_argument('--no-merge', action='store_true')
+    ap.add_argument('--no-lane-metrics', action='store_true', help='skip the per-lane before/after metrics (a dev sweep does not need them)')
     ap.add_argument('--tiny-test', action='store_true', help='Pipeline test with a random miniature model (no real results)')
     args = ap.parse_args()
     C.check_pins()
@@ -193,7 +194,7 @@ def main():
         policy.train()
         return out
 
-    manifest['lane_metrics_before'] = lane_metrics('before')
+    manifest['lane_metrics_before'] = None if args.no_lane_metrics else lane_metrics('before')
     t0 = time.monotonic()
     result = trainer.train()
     manifest['train'] = dict(metrics=result.metrics, steps=trainer.state.global_step, finite_gradient_steps=len(checks), wall_seconds=time.monotonic() - t0,
@@ -201,7 +202,7 @@ def main():
     assert len(checks) == trainer.state.global_step, 'gradient check did not run on every step'
     manifest['learning_check'] = C.learning_check(trainer.state.log_history, 'dpo')
     print('LEARNING CHECK', json.dumps(manifest['learning_check']), flush=True)
-    manifest['lane_metrics_after'] = lane_metrics('after')
+    manifest['lane_metrics_after'] = None if args.no_lane_metrics else lane_metrics('after')
     trainer.save_model(str(args.out / 'adapter'))
     manifest['adapter_files'] = {p.name: C.sha256_file(p) for p in (args.out / 'adapter').iterdir() if p.is_file()}
     if not args.no_merge and not args.tiny_test:

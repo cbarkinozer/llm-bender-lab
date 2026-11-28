@@ -23,7 +23,7 @@ case $cmd in
     tar czf - --exclude=__pycache__ scripts/training/pref_rl_common.py scripts/training/run_pref_dpo_grounded_qa.py \
         scripts/training/run_pref_grpo_phone_tools.py scripts/training/pod_bootstrap_preference_rl.sh scripts/training/run_preference_rl_campaign.sh \
         scripts/evaluation/phone_tools_scoring.py scripts/evaluation/check_phone_tools_scoring.py \
-      | $S "cd $R/repo && tar xzf - && sed -i 's/\r\$//' scripts/training/*.sh && echo extracted" || exit 1
+      | $S "cd $R/repo && tar xzf - --no-same-owner && sed -i 's/\r\$//' scripts/training/*.sh && echo extracted" || exit 1
     $S "cd $R/repo && STAGES='$stages' nohup bash -c 'bash scripts/training/pod_bootstrap_preference_rl.sh && STAGES=\"$stages\" bash scripts/training/run_preference_rl_campaign.sh' > $R/logs/launch.log 2>&1 < /dev/null & echo started"
     ;;
   status)

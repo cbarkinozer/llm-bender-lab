@@ -12,7 +12,7 @@ case $cmd in
   up)
     $S "mkdir -p $R/repo" || exit 1
     tar czf - --exclude=__pycache__ scripts/training/sample_tr_dpo_candidates.py scripts/training/run_tr_dpo6_sampling_session.sh scripts/training/setup_lfm3_stage_diagnostic.sh $D/prompts-dpo6.jsonl \
-      | $S "cd $R/repo && tar xzf - && sed -i 's/\r\$//' scripts/training/*.sh && echo extracted" || exit 1
+      | $S "cd $R/repo && tar xzf - --no-same-owner && sed -i 's/\r\$//' scripts/training/*.sh && echo extracted" || exit 1
     $S "cd $R/repo && nohup bash -c '[ -x /workspace/.venvs/lfm3-stage/bin/python ] || bash scripts/training/setup_lfm3_stage_diagnostic.sh; bash scripts/training/run_tr_dpo6_sampling_session.sh' > $R/launch6.log 2>&1 < /dev/null & echo started"
     ;;
   status)
